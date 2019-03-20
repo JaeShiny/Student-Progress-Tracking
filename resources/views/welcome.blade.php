@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    โบว์มาอีกแล้วนะจ๊ะ
+                    System Progress Tracking System
                 </div>
 
                 <div class="links">
