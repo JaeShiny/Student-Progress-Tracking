@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    โบว์มาอีกแล้วนะจ๊ะ
                 </div>
 
                 <div class="links">
