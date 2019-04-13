@@ -12,10 +12,18 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
+Auth::routes();
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/home', 'HomeController@index')->name('home');
+
+//test header เฉยๆ
+Route::get('test', function () {
+    return view('test');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
