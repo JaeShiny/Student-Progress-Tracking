@@ -61,6 +61,20 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                                <label for="position" class="col-md-4 col-form-label text-md-right">Position</label>
+
+                                <div class="col-md-6">
+                                <select name="position" class="from-control">
+                                    <option>เลือกสถานะ</option>
+                                    <option value="Education Officer">เจ้าหน้าที่นักการศึกษา</option>
+                                    <option value="Advisor">อาจารย์ที่ปรึกษา</option>
+                                    <option value="Lecturer">อาจารย์ประจำวิชา</option>
+                                    <option value="Student">นักศึกษา</option>
+                                </select>
+                                </div>
+                        </div>
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
