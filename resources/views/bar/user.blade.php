@@ -25,7 +25,7 @@
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{-- {{ config('app.name', 'Laravel') }} --}}
-                    Student Progress Tracking System
+
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -50,7 +50,7 @@
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item dropdown">
+                            {{-- <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
@@ -66,7 +66,24 @@
                                         @csrf
                                     </form>
                                 </div>
-                            </li>
+                            </li> --}}
+
+                            <div class="box1">
+                                Username : {{ Auth::user()->name }} <span class="caret"></span></a>
+                            </div>
+
+                            <div class="box2">
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                          document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+                            </div>
+
                         @endguest
                     </ul>
                 </div>
@@ -79,3 +96,26 @@
     </div>
 </body>
 </html>
+
+<style>
+.box1 {
+    text-align: center;
+    width:400px;
+    height:35px;
+    /* ส่วนของ การแสดงเส้น  */
+    border-color:#6CF;
+    border-style:solid;
+    /* จบส่วนของ การแสดงเส้น  */
+
+    background: white;
+}
+.box2{
+    text-align: center;
+    width:150px;
+    height:35px;
+    background: white;
+}
+body{
+    background-color: black;
+}
+</style>

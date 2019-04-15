@@ -15,19 +15,46 @@ Route::get('/', function () {
     return view('index');
 });
 
+//Login
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// Route::get('login', function () {
+//     return view('auth.login');
+// });
+
+//Route for EducationOfficer user
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/home', 'HomeController@index');
+});
+//Route for student
+Route::group(['prefix' => 'student'], function(){
+    Route::group(['middleware' => ['student']], function(){
+        Route::get('/dashboard', 'student\StudentController@index');
+    });
+});
+//Route for advisor
+Route::group(['prefix' => 'advisor'], function(){
+    Route::group(['middleware' => ['advisor']], function(){
+        Route::get('/dashboard', 'advisor\AdvisorController@index');
+    });
+});
+//Route for lecturer
+Route::group(['prefix' => 'lecturer'], function(){
+    Route::group(['middleware' => ['lecturer']], function(){
+        Route::get('/dashboard', 'lecturer\LecturerController@index');
+    });
+});
+
+
+
 
 //test header เฉยๆ
 Route::get('test', function () {
     return view('test');
 });
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('course', function () {
+    return view('EducationOfficer.course');
+});

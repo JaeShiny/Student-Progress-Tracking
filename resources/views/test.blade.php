@@ -2,5 +2,6 @@
 
 
 
+@extends('bar.user')
 @extends('bar.header(edu)')
-@extends('layouts.app')
+
