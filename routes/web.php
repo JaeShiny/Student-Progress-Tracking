@@ -20,10 +20,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-// Route::get('login', function () {
-//     return view('auth.login');
-// });
-
 //Route for EducationOfficer user
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/home', 'HomeController@index');
