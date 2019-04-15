@@ -1,8 +1,6 @@
-@extends('bar.footer')
-@extends('bar.user')
-@extends('bar.header(edu)')
-
+@extends('bar.body')
 @section('content')
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -78,3 +76,8 @@
 </body>
 </html>
 @endsection
+
+@extends('bar.header(edu)')
+@extends('bar.username')
+
+{{-- @extends('bar.footer') --}}

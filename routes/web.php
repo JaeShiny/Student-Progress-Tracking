@@ -44,11 +44,11 @@ Route::group(['prefix' => 'lecturer'], function(){
 });
 
 
-//test header เฉยๆ
-Route::get('test', function () {
-    return view('test');
-});
-
+//EducationOfficer
 Route::get('course', function () {
     return view('EducationOfficer.course');
+});
+
+Route::get('selectyear', function () {
+    return view('EducationOfficer.selectyear');
 });
