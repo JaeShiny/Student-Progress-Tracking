@@ -36,4 +36,62 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    protected function redirectTo()
+    {
+        // if(auth()->user()->isStudent()) {
+        //     return '/student/dashboard';
+        // } else {
+        //     return '/home';
+        // }
+
+        // if(auth()->user()->isAdvisor()) {
+        //     return '/advisor/dashboard';
+        // } else {
+        //     return '/home';
+        // }
+
+        // if(auth()->user()->isLecturer()) {
+        //     return '/lecturer/dashboard';
+        // } else {
+        //     return '/EducationOfficer/course';
+        // }
+
+        // if(auth()->user()->isStudent()) {
+        //     return '/student/dashboard';
+        // }elseif(auth()->user()->isAdvisor()) {
+        //     return '/advisor/dashboard';
+        // }elseif(auth()->user()->isLecturer()) {
+        //     return '/lecturer/dashboard';
+        // }else {
+        //     return view('EducationOfficer/course');
+        // }
+
+        // if(auth()->user()->isStudent()) {
+        //     return '/student/dashboard';
+        // }
+
+        // if(auth()->user()->isAdvisor()) {
+        //     return '/advisor/dashboard';
+        // }
+
+        // if(auth()->user()->isLecturer()) {
+        //     return '/lecturer/dashboard';
+        // } else {
+        //     return '/EducationOfficer/course';
+        // }
+
+        if(auth()->user()->isStudent()) {
+            return '/student/dashboard';
+        } elseif (auth()->user()->isAdvisor()){
+            return '/advisor/dashboard';
+        } elseif (auth()->user()->isLecturer()){
+            return '/lecturer/dashboard';
+        } else {
+            return '/home';
+        }
+
+
+    }
+
 }

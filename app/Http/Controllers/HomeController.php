@@ -21,8 +21,21 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+    // public function index()
+    // {
+    //     return view('home');
+    // }
+
     public function index()
     {
-        return view('home');
+        if(auth()->user()->isStudent()) {
+            return view('student/dashboard');
+        }elseif(auth()->user()->isAdvisor()) {
+            return view('advisor/dashboard');
+        }elseif(auth()->user()->isLecturer()) {
+            return view('lecturer/dashboard');
+        }else {
+            return view('EducationOfficer/course');
+        }
     }
 }

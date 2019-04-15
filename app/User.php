@@ -36,4 +36,22 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    const STUDENT_TYPE = "Student";
+    const ADVISOR_TYPE = "Advisor";
+    const LECTURER_TYPE = "Lecturer";
+    const DEFAULT_TYPE = "Education Officer";
+
+    public function isStudent(){
+        return $this->position === self::STUDENT_TYPE;
+    }
+
+    public function isAdvisor(){
+        return $this->position === self::ADVISOR_TYPE;
+    }
+
+    public function isLecturer(){
+        return $this->position === self::LECTURER_TYPE;
+    }
+
 }
