@@ -7,13 +7,21 @@
 <head>
 <title>หลักสูตรการศึกษา</title>
 <link rel="stylesheet"  href="หน้าหลักสูตร.css">
+<<<<<<< HEAD
 <link rel="stylesheet"  href="../css/css.css">
+=======
+<link rel="stylesheet"  href="csste.css">
+>>>>>>> master
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1"  >
   <!-- Styles -->
+<<<<<<< HEAD
   <link href="{{ asset('../css/css.css') }}" rel="stylesheet">
+=======
+  <link href="{{ asset('css/project.css') }}" rel="stylesheet">
+>>>>>>> master
 </head>
 
 <body>
@@ -1039,6 +1047,7 @@ display: inline;
 bottom: 150px;
 }
 }
+<<<<<<< HEAD
 
 /* csste */
 body {
@@ -1573,6 +1582,8 @@ a{
 }
 
 
+=======
+>>>>>>> master
 </style>
 
 </html>
