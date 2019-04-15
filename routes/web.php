@@ -20,13 +20,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-<<<<<<< HEAD
-=======
-// Route::get('login', function () {
-//     return view('auth.login');
-// });
-
->>>>>>> master
 //Route for EducationOfficer user
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/home', 'HomeController@index');
@@ -49,8 +42,6 @@ Route::group(['prefix' => 'lecturer'], function(){
         Route::get('/dashboard', 'lecturer\LecturerController@index');
     });
 });
-
-
 
 
 //test header เฉยๆ
