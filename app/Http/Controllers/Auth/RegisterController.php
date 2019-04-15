@@ -34,10 +34,6 @@ class RegisterController extends Controller
      */
     protected $redirectTo = '/login';
 
-<<<<<<< HEAD
-=======
-
->>>>>>> master
     public function register(Request $request)
     {
         $this->validator($request->all())->validate();
@@ -84,11 +80,7 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'position' => $data['position'],
-<<<<<<< HEAD
-            'type' => User::DEFAULT_TYPE,
-=======
             // 'type' => User::DEFAULT_TYPE,
->>>>>>> master
         ]);
     }
 
