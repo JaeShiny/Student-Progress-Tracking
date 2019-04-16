@@ -1,4 +1,4 @@
-@extends('layouts.app')
+{{-- @extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -70,4 +70,61 @@
         </div>
     </div>
 </div>
+@endsection --}}
+
+@extends('bar.body')
+@section('content')
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="{{ asset('css/pagelogin.css') }}" rel="stylesheet" type="text/css">
+    <title>Login Project</title>
+    <meta charset="utf-8">
+    <ul>
+        <img src="../img/sit.png" width="370" height="50">
+        <li><a href="http://kmutt.ac.th/"><p class="phead">King Mongkut's University of Technology Thonburi (KMUTT)</p></a></li>
+    </ul>
+</head>
+
+<body>
+<br><br><br><br>
+    <div class="login">
+        <div class="form">
+
+            <h3>ระบบติดตามความก้าวหน้าของนักศึกษา</h3>
+            <h4>Student Progress Tracking System</h4>
+
+
+            <form method="POST" action="{{ route('login') }}">
+                @csrf
+
+                <input placeholder="Username" id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
+
+                @if ($errors->has('email'))
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $errors->first('email') }}</strong>
+                    </span>
+                @endif
+
+                <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+
+                    <div class="col-md-6">
+                        <input placeholder="Password" id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+
+                            @if ($errors->has('password'))
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first('password') }}</strong>
+                                </span>
+                            @endif
+
+                            <input type="submit" value="Login" class="submit" >
+                                {{ __('Login') }}
+
+             </form>
+    </div>
+</div>
+
+</body>
+
+</html>
 @endsection
