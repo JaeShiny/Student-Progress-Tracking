@@ -61,7 +61,7 @@ return [
 
         'mysql2' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST_2','ec2-54-255-188-245.ap-southeast-1.compute.amazonaws.com'),
+            'host' => env('DB_HOST_2','ec2-54-251-128-115.ap-southeast-1.compute.amazonaws.com'),
             'port' => env('DB_PORT_2','3306'),
             'database' => env('DB_DATABASE_2'),
             'username' => env('DB_USERNAME_2'),

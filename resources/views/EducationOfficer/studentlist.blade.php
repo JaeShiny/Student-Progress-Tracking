@@ -39,7 +39,7 @@
 <body>
 
     <div class="container">
-        <form action="/em_search" method="get">
+        <form action="/course/studentlist/search" method="get">
             <div class="input-group">
                 <input type="search" name="search" class="form-control">
                 <span class="input-group-prepend">
@@ -62,12 +62,11 @@
               </tr>
             </thead>
 
-            {{-- @foreach ($employees as $employee) --}}
             <tbody>
+                @foreach ($bio as $bio)
               <tr>
-                <th scope="row" width="10">   </th>
-                <td width="10">   &nbsp;&nbsp;   </td>
-
+                <th scope="row" width="10"> {{$bio->student_id}}  </th>
+                <td width="10"> {{$bio->first_name}}  &nbsp;&nbsp; {{$bio->last_name}}   </td>
 
                 <td width="10">
                     <a href="">
@@ -91,12 +90,12 @@
                 </td>
               </tr>
             </tbody>
-            {{-- @endforeach --}}
+            @endforeach
           </table>
 
-          {{-- <p align="center"> ทั้งหมด {{$employees->count()}} รายการ </p>
+          <p align="center"> ทั้งหมด {{$bio->count()}} รายการ </p>
 
-          <br>{{$employees->links()}}<br> --}}
+          {{-- <br>{{$bio->links()}}<br> --}}
 
     </div>
 
