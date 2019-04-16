@@ -15,8 +15,29 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('course/studentlist','student\BioController@index');
-Route::get('course/studentlist/search','student\BioController@search');
+
+
+//EducationOfficer
+Route::get('curriculum', function () {
+    return view('EducationOfficer.curriculum');
+});
+
+Route::get('selectyear', function () {
+    return view('EducationOfficer.selectyear');
+});
+
+// Route::get('studentlist', function () {
+//     return view('EducationOfficer.studentlist');
+// });
+
+Route::get('studentlist','student\BioController@index');
+
+Route::get('student_search','student\BioController@search');
+
+
+
+
+
 
 //Login
 Auth::routes();
@@ -46,16 +67,3 @@ Route::group(['prefix' => 'lecturer'], function(){
     });
 });
 
-
-//EducationOfficer
-Route::get('course', function () {
-    return view('EducationOfficer.course');
-});
-
-Route::get('selectyear', function () {
-    return view('EducationOfficer.selectyear');
-});
-
-Route::get('studentlist', function () {
-    return view('EducationOfficer.studentlist');
-});

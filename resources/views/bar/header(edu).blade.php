@@ -23,7 +23,7 @@
     <nav class="bg2" style="background-color: #1D5287;">
         <span class="navbar-text">
    <img src="../img/logopage.png" width="120" height="50"></li>
-   <a href="หลักสูตร.html"><p style="color: #FFFFFF">หลักสูตร</p></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <a href="{{ url('curriculum') }}"><p style="color: #FFFFFF">หลักสูตร</p></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <a href="การแจ้งเตือน.html"><p style="color: #FFFFFF">การแจ้งเตือน</p></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <a href="สถิติ.html"><p style="color: #FFFFFF">สถิติ</p></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   </span>

@@ -22,7 +22,7 @@ class BioController extends Controller
         $search = $request->get('search');
         $bio = Bio::where('student_id', 'like', '%'.$search.'%')
         ->orWhere('first_name', 'like', '%'.$search.'%')->paginate(5);
-        return view('EducationOfficer/studentlist', ['bio' => $bio]);
+        return view('/EducationOfficer/studentlist', ['bio' => $bio]);
     }
 
 }

@@ -14,10 +14,10 @@
 
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li>ภาคเรียนที่ 1 </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <li class="breadcrumb-item"><a href="หลักสูตร.html">หลักสูตร(IT)</a></li>
-          <li class="breadcrumb-item"><a href="selectyearit.html">ชั้นปี 1</a></li>
-          <li class="breadcrumb-item active" aria-current="page">รายชื่อนักศึกษา</li>
+            <li> </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <li class="breadcrumb-item"><a href="{{ url('curriculum') }}">หลักสูตร(IT)</a></li>
+          <li class="breadcrumb-item"><a href="{{ url('selectyear') }}">ชั้นปี</a></li>
+          <li class="breadcrumb-item active" aria-current="page"><a href="{{ action('student\BioController@index') }}">รายชื่อนักศึกษา</a></li>
         </ol>
     </nav>
     <style>
@@ -39,7 +39,7 @@
 <body>
 
     <div class="container">
-        <form action="/course/studentlist/search" method="get">
+        <form action="/student_search" method="get">
             <div class="input-group">
                 <input type="search" name="search" class="form-control">
                 <span class="input-group-prepend">
@@ -57,6 +57,7 @@
                 <th scope="col" width="70">ชื่อ</th>
                 <th scope="col" width="10">สถิติ</th>
                 <th scope="col" width="10">ประวัติ</th>
+                <th scope="col" width="10">วิชาที่ลงทะเบียน</th>
                 <th scope="col" width="10">พฤติกรรม</th>
                 <th scope="col" width="10">การแจ้งเตือน</th>
               </tr>
@@ -65,7 +66,7 @@
             <tbody>
                 @foreach ($bio as $bio)
               <tr>
-                <th scope="row" width="10"> {{$bio->student_id}}  </th>
+                <td scope="row" width="10"> {{$bio->student_id}}  </td>
                 <td width="10"> {{$bio->first_name}}  &nbsp;&nbsp; {{$bio->last_name}}   </td>
 
                 <td width="10">
@@ -75,17 +76,22 @@
                 </td>
                 <td width="10">
                     <a href="">
-                        <img src="../img/sct.png" width="25" title="ประวัตินักศึกษา">
+                        <img src="../img/resume.png" width="25" title="ประวัตินักศึกษา">
                     </a>
                 </td>
                 <td width="10">
                     <a href="">
-                        <img src="../img/ic.png" width="25" title="พฤติกรรม/ปัญหา">
+                        <img src="../img/sct.png" width="25" title="วิชาที่ลงทะเบียน">
                     </a>
                 </td>
                 <td width="10">
                     <a href="">
-                        <img src="../img/รูปแจ้งเตือน.png" width="30" height="25" title="แจ้งเตือน">
+                        <img src="../img/feedback.png" width="25" title="พฤติกรรม/ปัญหา">
+                    </a>
+                </td>
+                <td width="10">
+                    <a href="">
+                        <img src="../img/noti.png" width="30" height="25" title="แจ้งเตือน">
                     </a>
                 </td>
               </tr>

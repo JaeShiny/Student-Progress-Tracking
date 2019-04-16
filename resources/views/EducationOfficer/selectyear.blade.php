@@ -13,9 +13,9 @@
 
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li>ภาคเรียนที่ 1 </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <li class="breadcrumb-item"><a href="หลักสูตร.html">หลักสูตร(IT)</a></li>
-            <li class="breadcrumb-item active" aria-current="page">ชั้นปี</li>
+            <li></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <li class="breadcrumb-item"><a href="{{ url('curriculum') }}">หลักสูตร(IT)</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><a href="{{ url('selectyear') }}">ชั้นปี</a></li>
         </ol>
     </nav>
 </head>
@@ -96,7 +96,7 @@
                 <br>
             </div>
             <div class="col-sm-4">
-                <a href="nameyear3.html">
+                <a href="{{ action('student\BioController@index') }}">
                     <button class="bt" type="button" value="click" style="height: 30px; width: 100px; background-color: #CCFFCC;">ชั้นปีที่ 3</button>
                 </a>
             </div>

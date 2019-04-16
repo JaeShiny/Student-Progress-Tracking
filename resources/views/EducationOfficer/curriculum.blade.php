@@ -22,7 +22,7 @@
                             <br>
                             <button class="dropbtn">หลักสูตรระดับปริญญาตรี</button>
                             <div class="dropdown-content">
-                                <a href="/course/studentlist">สาขาวิชาเทคโนโลยีสารสนเทศ</a>
+                                <a href="{{ url('selectyear') }}">สาขาวิชาเทคโนโลยีสารสนเทศ</a>
                                 <a href="selectyearcs.html">สาขาวิชาวิทยาการคอมพิวเตอร์
                                     (หลักสูตรภาษาอังกฤษ)</a>
                                 <a href="selectyeardsi.html">สาขาวิชานวัตกรรมบริการดิจิทัล</a>

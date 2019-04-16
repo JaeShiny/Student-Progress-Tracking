@@ -35,7 +35,7 @@ class HomeController extends Controller
         }elseif(auth()->user()->isLecturer()) {
             return view('lecturer/dashboard');
         }else {
-            return view('EducationOfficer/course');
+            return view('EducationOfficer/curriculum');
         }
     }
 }
