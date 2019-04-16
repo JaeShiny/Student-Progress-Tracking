@@ -30,10 +30,13 @@ Route::get('studentlist','student\BioController@index');
 
 Route::get('student_search','student\BioController@search');
 
+Route::get('student_profile','student\BioController@profile');
+
+
 //ลบ
-Route::get('studentprofile', function () {
-    return view('student.profile');
-});
+// Route::get('studentprofile', function () {
+//     return view('student.profile');
+// });
 Route::get('profileindex', function () {
     return view('student.profile(index)');
 });

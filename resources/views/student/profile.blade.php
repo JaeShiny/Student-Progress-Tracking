@@ -44,12 +44,22 @@
             </p>
             <br>
             <br>
+
+            @foreach($bio as $bio)
+            {{-- @foreach([$bio,$b_profile] as [$bio,$b_profile]) --}}
+            @if ($bio->fisrtname_eng == "Kamonchanok")
+            {{-- @if ($bio->fisrtname_eng == "Kamonchanok" && $b_profile->fistname_en == "Kamonchanok") --}}
+            @continue
+            @endif
+
             <p>รหัสนักศึกษา &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </p>
-            <p>59130500001</p>
+
+            <p>{{$bio->student_id}}</p>
+
             <br>
             <br>
             <p>ชื่อ (ท) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </p>
-            <p>นางสาวกนกวรรณ เฟื่องฟูชัชวาล</p>
+            <p>{{$bio->first_name}}&nbsp;&nbsp;{{$bio->last_name}}</p>
             <br>
             <br>
 
@@ -59,23 +69,35 @@
             </div>
 
             <p>ชื่อ (อ) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </p>
-            <p> Ms.KANOKWAN FUENGFUCHATCHAWAL</p>
+            <p>{{$bio->firstname_eng}}&nbsp;&nbsp;{{$bio->lastname_eng}}</p>
             <br>
             <br>
             <p>วัน/เดือน/ปีเกิด &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </p>
-            <p>25/03/2541</p>
+            <p>{{$bio->birth}}</p>
             <br>
             <br>
+
+            @if ($bio->fisrtname_eng != "Kamonchanok")
+            @break
+            @endif
+            @endforeach
+
+            @foreach($b_profile as $b_profile)
+            @if ($b_profile->firstname_en == "Kamonchanok")
+            @continue
+            @endif
+
             <p>หมายเลขบัตรประชาชน &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </p>
-            <p>1800-800-3265-7</p>
+            <p>{{$b_profile->idcard}}</p>
             <br>
             <br>
-            <p>วัน/เดือน/ปีเกิดที่เข้าศึกษา &nbsp;&nbsp;: </p>
-            <p>28/07/2559</p>
+            {{-- <p>วัน/เดือน/ปี ที่เข้าศึกษา &nbsp;&nbsp;: </p>
+            <p>28/07/2559</p> --}}
             <br>
             <br>
             <p>ปีการศึกษาที่เข้า &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </p>
-            <p>2559</p>
+            {{-- <p>{{$b_profile->year}}</p> --}}
+            <p>{{$b_profile->year}}</p>
 
             <hr class="my-4">
 
@@ -83,25 +105,26 @@
                 Email ส่วนตัว &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :
             </p>
             <p>
-                Kanokwan@mail.kmutt.ac.th
+                {{$b_profile->email}}
+                {{-- {{$bio->email}} --}}
             </p>
             <br>
             <br>
-            <p>
+            {{-- <p>
                 ชั้นปี &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :
             </p>
             <p>
                 3
-            </p>
+            </p> --}}
             <br>
             <br>
 
-            <p>
+            {{-- <p>
                 ห้อง &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :
             </p>
             <p>
                 A
-            </p>
+            </p> --}}
             <br>
             <br>
 
@@ -176,6 +199,13 @@
             <p>
                 วิทยาศาสตรบัณฑิต (เทคโนโลยีสารสนเทศ)
             </p>
+
+            {{-- @endif --}}
+            {{-- @if ($bio->fisrtname_eng != "Kamonchanok" && $b_profile->fisrtname_en != "Kamonchanok") --}}
+            @if ($b_profile->firstname_en != "Kamonchanok")
+                @break
+                @endif
+            @endforeach
 
             <br>
             <br>
