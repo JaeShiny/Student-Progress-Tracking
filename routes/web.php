@@ -52,3 +52,7 @@ Route::get('course', function () {
 Route::get('selectyear', function () {
     return view('EducationOfficer.selectyear');
 });
+
+Route::get('studentlist', function () {
+    return view('EducationOfficer.studentlist');
+});
