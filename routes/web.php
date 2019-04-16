@@ -15,6 +15,9 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::get('course/studentlist','student\BioController@index');
+// Route::get('course/studentlist/search','student\BioController@search');
+
 //Login
 Auth::routes();
 
