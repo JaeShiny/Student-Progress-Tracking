@@ -80,7 +80,7 @@ return [
 
         'mysql3' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST_3','ec2-54-179-184-161.ap-southeast-1.compute.amazonaws.com'),
+            'host' => env('DB_HOST_3','ec2-3-1-103-155.ap-southeast-1.compute.amazonaws.com'),
             'port' => env('DB_PORT_3','3306'),
             'database' => env('DB_DATABASE_3'),
             'username' => env('DB_USERNAME_3'),

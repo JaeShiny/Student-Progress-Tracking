@@ -5,6 +5,8 @@ namespace App\Http\Controllers\student;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Bio;
+use App\Model\InterviewProfile;
+
 
 class BioController extends Controller
 {
@@ -17,6 +19,19 @@ class BioController extends Controller
             'bio' => $bio
         ]);
     }
+
+    public function profile(){
+
+        $bio = Bio::all();
+        $b_profile = InterviewProfile::all();
+
+        return view('student.profile',[
+            'bio' => $bio,
+            'b_profile' => $b_profile
+
+        ]);
+    }
+
 
     public function search(Request $request){
         $search = $request->get('search');
