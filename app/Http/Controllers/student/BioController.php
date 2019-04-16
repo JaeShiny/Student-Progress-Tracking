@@ -18,10 +18,11 @@ class BioController extends Controller
         ]);
     }
 
-    // public function search(Request $request){
-    //     $search = $request->get('search');
-    //     $bio = Bio::where('student_id','like','%'.$search.'%')->paginate(20);
-    //     return view('EducationOfficer.studentlist',['bio'=>$bio]);
-    // }
+    public function search(Request $request){
+        $search = $request->get('search');
+        $bio = Bio::where('student_id', 'like', '%'.$search.'%')
+        ->orWhere('first_name', 'like', '%'.$search.'%')->paginate(5);
+        return view('EducationOfficer/studentlist', ['bio' => $bio]);
+    }
 
 }
