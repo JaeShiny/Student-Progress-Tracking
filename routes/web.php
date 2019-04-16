@@ -26,14 +26,23 @@ Route::get('selectyear', function () {
     return view('EducationOfficer.selectyear');
 });
 
-// Route::get('studentlist', function () {
-//     return view('EducationOfficer.studentlist');
-// });
-
 Route::get('studentlist','student\BioController@index');
 
 Route::get('student_search','student\BioController@search');
 
+//ลบ
+Route::get('studentprofile', function () {
+    return view('student.profile');
+});
+Route::get('profileindex', function () {
+    return view('student.profile(index)');
+});
+Route::get('profilebefore', function () {
+    return view('student.profile(before)');
+});
+Route::get('profileafter', function () {
+    return view('student.profile(after)');
+});
 
 
 
