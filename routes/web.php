@@ -43,8 +43,12 @@ Route::get('profilebefore', function () {
 Route::get('profileafter', function () {
     return view('student.profile(after)');
 });
-
-
+Route::get('insertbehavior', function () {
+    return view('lecturer.behavior(insert)');
+});
+Route::get('behavior', function () {
+    return view('student.behavior');
+});
 
 
 
