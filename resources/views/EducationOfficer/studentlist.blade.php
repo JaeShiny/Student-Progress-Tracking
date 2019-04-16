@@ -30,7 +30,7 @@
             height: 100px;*/
             margin-top: 60px;
             /* width: 250px;  */
-            margin-left: 200px;
+            margin-left: 250px;
             align-self: center;
         }
     </style>
@@ -53,45 +53,45 @@
         <table class="table">
             <thead class="thead-light">
               <tr>
-                <th scope="col" width="50">รหัสนักศึกษา</th>
-                <th scope="col" width="70">ชื่อ</th>
-                <th scope="col" width="10">สถิติ</th>
-                <th scope="col" width="10">ประวัติ</th>
-                <th scope="col" width="10">วิชาที่ลงทะเบียน</th>
-                <th scope="col" width="10">พฤติกรรม</th>
-                <th scope="col" width="10">การแจ้งเตือน</th>
+                <th scope="col" width="15%"><h6 align="center"><b>รหัสนักศึกษา</b></h6></th>
+                <th scope="col" width="35%"><h6 align="center"><b>ชื่อ</h6></b></th>
+                <th scope="col" width="10%"><h6 align="center"><b>สถิติ</h6></b></th>
+                <th scope="col" width="10%"><h6 align="center"><b>ประวัติ</h6></b></th>
+                <th scope="col" width="10%"><h6 align="center"><b>การลงทะเบียน</h6></b></th>
+                <th scope="col" width="10%"><h6 align="center"><b>พฤติกรรม</h6></b></th>
+                <th scope="col" width="10%"><h6 align="center"><b>แจ้งเตือน</h6></b></th>
               </tr>
             </thead>
 
             <tbody>
                 @foreach ($bio as $bio)
               <tr>
-                <td scope="row" width="10"> {{$bio->student_id}}  </td>
+                <td scope="row" width="10"> {{$bio->student_id}} </td>
                 <td width="10"> {{$bio->first_name}}  &nbsp;&nbsp; {{$bio->last_name}}   </td>
 
                 <td width="10">
                     <a href="">
-                        <img src="../img/รูปสถิติ.png" width="30" height="25" title="สถิติ">
+                        <center><img src="../img/รูปสถิติ.png" width="30" height="25" title="สถิติ"></center>
                     </a>
                 </td>
                 <td width="10">
                     <a href="">
-                        <img src="../img/resume.png" width="25" title="ประวัตินักศึกษา">
+                        <center><img src="../img/resume.png" width="25" title="ประวัตินักศึกษา"></center>
                     </a>
                 </td>
                 <td width="10">
                     <a href="">
-                        <img src="../img/sct.png" width="25" title="วิชาที่ลงทะเบียน">
+                        <center><img src="../img/sct.png" width="25" title="วิชาที่ลงทะเบียน"></center>
                     </a>
                 </td>
                 <td width="10">
                     <a href="">
-                        <img src="../img/feedback.png" width="25" title="พฤติกรรม/ปัญหา">
+                        <center><img src="../img/feedback.png" width="25" title="พฤติกรรม/ปัญหา"></center>
                     </a>
                 </td>
                 <td width="10">
                     <a href="">
-                        <img src="../img/noti.png" width="30" height="25" title="แจ้งเตือน">
+                        <center><img src="../img/noti.png" width="30" height="25" title="แจ้งเตือน"></center>
                     </a>
                 </td>
               </tr>
@@ -99,7 +99,7 @@
             @endforeach
           </table>
 
-          <p align="center"> ทั้งหมด {{$bio->count()}} รายการ </p>
+          <p> ทั้งหมด {{$bio->count()}} รายการ </p>
 
           {{-- <br>{{$bio->links()}}<br> --}}
 
