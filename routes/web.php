@@ -52,7 +52,9 @@ Route::get('insertbehavior', function () {
 Route::get('behavior', function () {
     return view('student.behavior');
 });
-
+Route::get('subject', function () {
+    return view('lecturer.subject');
+});
 
 
 //Login
