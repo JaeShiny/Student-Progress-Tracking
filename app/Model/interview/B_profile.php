@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Model;
+namespace App\Model\interview;
 
 use Illuminate\Database\Eloquent\Model;
 
-class InterviewProfile extends Model
+class B_profile extends Model
 {
     protected $connection = "mysql3";
     protected $table = "b_profile";

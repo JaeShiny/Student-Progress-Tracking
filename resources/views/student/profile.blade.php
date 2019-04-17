@@ -46,11 +46,8 @@
             <br>
 
             @foreach($bio as $bio)
-            {{-- @foreach([$bio,$b_profile] as [$bio,$b_profile]) --}}
-            @if ($bio->fisrtname_eng == "Kamonchanok")
-            {{-- @if ($bio->fisrtname_eng == "Kamonchanok" && $b_profile->fistname_en == "Kamonchanok") --}}
-            @continue
-            @endif
+
+            @continue($bio->student_id == "59130500001")
 
             <p>รหัสนักศึกษา &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </p>
 
@@ -77,26 +74,22 @@
             <br>
             <br>
 
-            @if ($bio->fisrtname_eng != "Kamonchanok")
-            @break
-            @endif
+            @break($bio->student_id != "59130500001")
+
             @endforeach
 
             @foreach($b_profile as $b_profile)
-            @if ($b_profile->firstname_en == "Kamonchanok")
-            @continue
-            @endif
+
+            @continue($b_profile->no == "1")
 
             <p>หมายเลขบัตรประชาชน &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </p>
             <p>{{$b_profile->idcard}}</p>
             <br>
             <br>
-            {{-- <p>วัน/เดือน/ปี ที่เข้าศึกษา &nbsp;&nbsp;: </p>
-            <p>28/07/2559</p> --}}
+            <p>วัน/เดือน/ปี ที่เข้าศึกษา &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </p>
+            <p>28/07/2559</p>
             <br>
             <br>
-            <p>ปีการศึกษาที่เข้า &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </p>
-            {{-- <p>{{$b_profile->year}}</p> --}}
             <p>{{$b_profile->year}}</p>
 
             <hr class="my-4">
@@ -106,25 +99,24 @@
             </p>
             <p>
                 {{$b_profile->email}}
-                {{-- {{$bio->email}} --}}
             </p>
             <br>
             <br>
-            {{-- <p>
+            <p>
                 ชั้นปี &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :
             </p>
             <p>
                 3
-            </p> --}}
+            </p>
             <br>
             <br>
 
-            {{-- <p>
+            <p>
                 ห้อง &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :
             </p>
             <p>
                 A
-            </p> --}}
+            </p>
             <br>
             <br>
 
@@ -200,11 +192,8 @@
                 วิทยาศาสตรบัณฑิต (เทคโนโลยีสารสนเทศ)
             </p>
 
-            {{-- @endif --}}
-            {{-- @if ($bio->fisrtname_eng != "Kamonchanok" && $b_profile->fisrtname_en != "Kamonchanok") --}}
-            @if ($b_profile->firstname_en != "Kamonchanok")
-                @break
-                @endif
+            @break($b_profile->no != "1")
+
             @endforeach
 
             <br>

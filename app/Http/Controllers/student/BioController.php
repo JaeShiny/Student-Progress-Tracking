@@ -4,8 +4,8 @@ namespace App\Http\Controllers\student;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Model\Bio;
-use App\Model\InterviewProfile;
+use App\Model\mis\Bio;
+use App\Model\interview\B_profile;
 
 
 class BioController extends Controller
@@ -23,7 +23,7 @@ class BioController extends Controller
     public function profile(){
 
         $bio = Bio::all();
-        $b_profile = InterviewProfile::all();
+        $b_profile = B_profile::all();
 
         return view('student.profile',[
             'bio' => $bio,

@@ -5,8 +5,8 @@ namespace App\Providers;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
-use App\Model\Bio;
-use App\Model\InterviewProfile;
+use App\Model\mis\Bio;
+use App\Model\interview\B_profile;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -32,7 +32,7 @@ class AppServiceProvider extends ServiceProvider
 
         $bio= Bio::all();
         View::share('bio',$bio);
-        $b_profile = InterviewProfile::all();
+        $b_profile = B_profile::all();
         View::share('b_profile',$b_profile);
 
 
