@@ -26,55 +26,63 @@
 </head>
 
 <body>
-    <br>
-    <br>
-    <div class="container">
-        <!-- Stack the columns on mobile by making one full-width and the other half-width -->
-        <div class="row">
-            <div class="col-12 col-md-8">
-                <a href="">
-                    <button type="button" class="btn btn-info" style="background-color: #9933CC">ความคิดเห็นของอาจารย์</button>
-                </a>
+        <br>
+        <br>
+        <br>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm">
+                    <div class="card" style="width: 18rem;">
+
+                        <div class="card-body" style="background-image: url(../img/paper.jpg);">
+                            <h5 class="card-title">ความคิดเห็นของอาจารย์</h5>
+
+                            <a href="#" class="btn btn-primary">รายละเอียด</a>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm">
+                    <div class="card" style="width: 18rem;">
+
+                        <div class="card-body" style="background-image: url(../img/paper.jpg);">
+                            <h5 class="card-title">การเข้าเรียน</h5>
+
+                            <a href="#" class="btn btn-primary">รายละเอียด</a>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-0">
+                    <div class="card" style="width: 18rem;">
+
+                        <div class="card-body" style="background-image: url(../img/paper.jpg);">
+                            <h5 class="card-title">ผลการเรียน</h5>
+
+                            <a href="#" class="btn btn-primary">รายละเอียด</a>
+                            <br>
+                        </div>
+                    </div>
+                </div>
             </div>
-
         </div>
-        <br>
-        <br>
-        <!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
-        <div class="row">
-            <div class="col-6 col-md-4">
-                <a href="">
-                    <button type="button" class="btn btn-info" style="background-color: #003366">การเข้าเรียน</button>
-                </a>
-            </div>
 
-        </div>
         <br>
         <br>
-        <!-- Columns are always 50% wide, on mobile and desktop -->
-        <div class="row">
-            <div class="col-6">
-                <a href="">
-                    <button type="button" class="btn btn-info" style="background-color: #990000">ผลการเรียน</button>
-                </a>
-            </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
 
-        </div>
-    </div>
-
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <div class="foot4">
         <center>
-            <p class="p2"><a href="ประวัตินักศึกษา.html"> ย้อนกลับ</a></p>
+            <a href="ประวัตินักศึกษา.html"> ย้อนกลับ</a>
         </center>
-    </div>
-
-</body>
 
 </body>
 
