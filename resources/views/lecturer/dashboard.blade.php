@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    You are logged in! as lecturer เว้ยยย
+                    You are logged in! as lecturer จ้าาาา
                 </div>
             </div>
         </div>
