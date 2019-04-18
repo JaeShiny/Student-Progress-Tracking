@@ -26,7 +26,6 @@
     <center>
         <div style="border: 2px dotted โค้ตสีกรอบ; overflow: auto; width: 700px; height: auto; text-align: center; background-color: #9BB1B2; border-radius: 10px;">
             <h5>หลักสูตรวิทยาศาสตรบัณฑิต สาขาวิชาเทคโนโลยีสารสนเทศ<br><br> Bachelor of Science Programme in Information Technology</h5></div>
-
         </div>
     </center>
     <br>
