@@ -24,10 +24,13 @@
 
 <body>
         <div style="float: right;">
-            <a href="ข้อมูลหลังจบการศึกษา.html">
+            <a href="{{ url('profilebefore') }}">
+            {{-- <a href="{{route('profile',$bio['student_id'])}}"> --}}
+            {{-- <a href="{{ action('student\BProfileController@index') }}"> --}}
+            {{-- <a href="{{route('profile(before)',$bio['first_name']==$b_profile['firstname'])}}"> --}}
                 <button type="button" class="btn btn-outline-success">ข้อมูลการสัมภาษณ์</button>
             </a>
-            <a href="ข้อมูลระหว่างการศึกษา.html">
+            <a href="{{ url('profileindex') }}">
                 <button type="button" class="btn btn-outline-secondary">ข้อมูลระหว่างการศึกษา</button>
             </a>
             <a href="ข้อมูลการสัมภาษณ์.html">
