@@ -10,9 +10,30 @@ use App\Model\interview\B_profile;
 class BProfileController extends Controller
 {
     //show หน้า profile นักศึกษา(interview)
-    public function index(){
+    // public function index(){
+
+    //     $b_profile = B_profile::all();
+
+    //     return view('student.profile(before)',[
+    //         'b_profile' => $b_profile
+    //     ]);
+    // }
+
+    //แสดง profile ของนักศึกษา
+    public function profile(){
 
         $b_profile = B_profile::all();
+
+        return view('student.profile(before)',[
+            'b_profile' => $b_profile
+        ]);
+
+    }
+
+    //ส่งประวัติมาจากหน้า studentlist เรียงคนมา
+    public function profile1($student_id){
+
+        $bios = Bio::find([$student_id]);
 
         return view('student.profile(before)',[
             'b_profile' => $b_profile

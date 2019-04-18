@@ -24,7 +24,8 @@
 
 <body>
         <div style="float: right;">
-            <a href="ข้อมูลหลังจบการศึกษา.html">
+            <a href="{{ url('profilebefore') }}">
+            {{-- <a href="{{route('profile',$bio['student_id'])}}"> --}}
                 <button type="button" class="btn btn-outline-success">ข้อมูลการสัมภาษณ์</button>
             </a>
             <a href="{{ url('profileindex') }}">
