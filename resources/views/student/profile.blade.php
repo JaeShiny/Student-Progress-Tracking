@@ -27,7 +27,7 @@
             <a href="ข้อมูลหลังจบการศึกษา.html">
                 <button type="button" class="btn btn-outline-success">ข้อมูลการสัมภาษณ์</button>
             </a>
-            <a href="ข้อมูลระหว่างการศึกษา.html">
+            <a href="{{ url('profileindex') }}">
                 <button type="button" class="btn btn-outline-secondary">ข้อมูลระหว่างการศึกษา</button>
             </a>
             <a href="ข้อมูลการสัมภาษณ์.html">

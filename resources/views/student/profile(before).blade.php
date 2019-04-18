@@ -25,49 +25,87 @@
 
 <body>
 
-    </nav>
-
     <div class="jumbotron">
-        <h4 class="display-4"></h4>
+        {{-- <h4 class="display-4"></h4>
+        <hr class="my-4"> --}}
+        <p>
+            <B>ข้อมูลทั่วไป</B>
+        </p>
+        <br>
+        <br>
+        @foreach($b_profile as $b_profile)
+        <p>ชื่อ-นามสกุล (ภาษาไทย) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </p>
+        <p>{{$b_profile->prename_th}}&nbsp;{{$b_profile->firstname_th}}&nbsp;&nbsp;{{$b_profile->lastname_th}}</p>
+        <br>
+        <br>
+        <p>ชื่อ-นามสกุล (ภาษาอังกฤษ) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </p>
+        <p>{{$b_profile->prename_en}}&nbsp;{{$b_profile->firstname_en}}&nbsp;&nbsp;{{$b_profile->lastname_en}}</p>
+        <br>
+        <br>
+        <p>เพศ
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </p>
+        <p>{{$b_profile->sex}}</p>
+        <br>
+        <br>
+        <p>วัน/เดือน/ปีเกิด
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </p>
+        <p>{{$b_profile->ddbirth}}/{{$b_profile->mmbirth}}/{{$b_profile->yybirth}}</p>
+        <br>
+        <br>
+        <p>หมายเลขบัตรประชาชน &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </p>
+        <p>{{$b_profile->idcard}}</p>
+        <br>
+        <br>
+        <p>หมู่เลือด
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </p>
+        <p>{{$b_profile->bloodtype}}</p>
+        <br>
+        <br>
+        <p>รอบที่สอบเข้า
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </p>
+        <p>{{$b_profile->remark}}</p>
+        <br>
+        <br>
+        <p>อาจารย์ผู้สัมภาษณ์
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </p>
+        <p>__________________</p>
 
-        <p>ชื่อ-นามสกุล &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </p>
-        <p>นางสาวกนกวรรณ เฟื่องฟูชัชวาล</p>
-        <br>
-        <br>
-        <p>สาขาที่สนใจสมัคร &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </p>
-        <p>IT</p>
-        <br>
-        <br>
-        <p>หมายเหตุ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </p>
-        <p> Active Recument</p>
-        <br>
-        <br>
-        <p>อาจารย์ผู้สัมภาษณ์ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </p>
-        <p>อ.สนิท ศิริสวัสดิ์วัฒนา</p>
-
-        <div class="container7">
+        {{-- <div class="container7">
             <img src="/Codeproject/รูปสัม.jpg" alt="Avatar" class="image" width="100">
 
-        </div>
+        </div> --}}
 
         <hr class="my-4">
+        <br>
         <p>
             <B>ประวัติการศึกษา</B>
         </p>
         <br>
         <br>
-        <p>ชื่อสถานศึกษา &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </p>
-        <p>เซนต์โยเซฟ คอนเวนท์</p>
+        <p>ชื่อสถานศึกษา
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </p>
+        <p>{{$b_profile->schoolname}}</p>
         <br>
         <br>
-        <p>สายการศึกษา &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </p>
-        <p> ศิลป์-คำนวณ</p>
+        <p>สายการศึกษา
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </p>
+        <p>{{$b_profile->schoolcourse}}</p>
         <br>
         <br>
-        <p>คะแนนเฉลี่ยสะสม &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </p>
-        <p> 3.29</p>
+        <p>เกรดเฉลี่ยสะสม
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </p>
+        <p>{{$b_profile->score_weight_gp}}</p>
 
-        <hr class="my-4">
+    </div>
+        {{-- <hr class="my-4">
         <p>
             <B>ผลการสัมภาษณ์</B>
         </p>
@@ -76,57 +114,83 @@
         <div class="form-group">
             <label for="exampleFormControlTextarea1">รายละเอียดผลการสัมภาษณ์</label>
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-        </div>
+        </div> --}}
 
-    </div>
+
+    <hr class="my-4">
+    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <p>
+        <B>ผลการเรียน</B>
+    </p>
+    <br><br><br><br><br>
     <center>
         <table class="table table-striped">
             <thead>
                 <tr>
                     <th scope="col">กลุ่มสาระวิชา</th>
-                    <th scope="col">O-NET</th>
-                    <th scope="col">GPA</th>
+                    <th scope="col">GPA รวม</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>วิชาคณิตศาสตร์</td>
+                    <td>{{$b_profile->gpa_m}}</td>
+                </tr>
+                <tr>
+                    <td>วิชาวิทยาศาสตร์</td>
+                    <td>{{$b_profile->gpa_s}}</td>
+                </tr>
+                <tr>
+                    <td>วิทยาภาษาอังกฤษ</td>
+                    <td>{{$b_profile->gpa_e}}</td>
+                </tr>
+            </tbody>
+
+        </table>
+    </center>
+    <br>
+    <hr class="my-4">
+    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <p>
+        <B>ผลการสอบวัดระดับชาติ</B>
+    </p>
+    <br><br><br><br><br>
+    <center>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">O-NET วิชาคณิตศาสตร์</th>
+                    <th scope="col">O-NET วิชาวิทยาศาสตร์</th>
+                    <th scope="col">O-NET วิชาภาษาอังกฤษ</th>
                     <th scope="col">GAT 1 </th>
                     <th scope="col">GAT 2</th>
+                    <th scope="col">GAT 3</th>
                     <th scope="col">PAT 1 </th>
                     <th scope="col">PAT 2 </th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-
-                    <td>คณิตศาสตร์</td>
-                    <td>3.00</td>
-                    <td>3.25</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-
-                    <td>วิทยาศาสตร์</td>
-                    <td>3.10</td>
-                    <td>3.50</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-
-                    <td>ภาษาอังกฤษ</td>
-                    <td>3.20</td>
-                    <td>3.35</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>{{$b_profile->onet_m}}</td>
+                    <td>{{$b_profile->onet_s}}</td>
+                    <td>{{$b_profile->onet_e}}</td>
+                    <td>{{$b_profile->gat1}}</td>
+                    <td>{{$b_profile->gat2}}</td>
+                    <td>{{$b_profile->gat3}}</td>
+                    <td>{{$b_profile->pat1}}</td>
+                    <td>{{$b_profile->pat2}}</td>
                 </tr>
             </tbody>
-
         </table>
     </center>
+    <br>
+    <hr class="my-4">
+    <br>
+    @endforeach
 
     </div>
     </div>

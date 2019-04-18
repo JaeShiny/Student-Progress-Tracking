@@ -15,7 +15,6 @@ class BioController extends Controller
 
         $bio = Bio::all();
 
-
         return view('EducationOfficer.studentlist',[
             'bio' => $bio
         ]);
