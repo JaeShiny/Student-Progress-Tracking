@@ -64,6 +64,7 @@
             </thead>
 
             <tbody>
+
                 @foreach ($bio as $bio)
               <tr>
                 <td scope="row" width="10"> {{$bio->student_id}} </td>
@@ -75,7 +76,7 @@
                     </a>
                 </td>
                 <td width="10">
-                    <a href="">
+                <a href="{{route('profile',$bio['student_id'])}}">
                         <center><img src="../img/resume.png" width="25" title="ประวัตินักศึกษา"></center>
                     </a>
                 </td>

@@ -22,12 +22,20 @@ class BioController extends Controller
 
     public function profile(){
 
-        $bio = Bio::all();
-        $b_profile = B_profile::all();
+        $bios = Bio::all();
 
         return view('student.profile',[
-            'bio' => $bio,
-            'b_profile' => $b_profile
+            'bios' => $bios
+
+        ]);
+    }
+
+    public function profile1($student_id){
+
+        $bios = Bio::find([$student_id]);
+
+        return view('student.profile',[
+            'bios' => $bios
 
         ]);
     }

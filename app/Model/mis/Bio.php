@@ -8,5 +8,6 @@ class Bio extends Model
 {
     protected $connection = "mysql2";
     protected $table = "bio";
-    // protected $primaryKey = "student_id";
+    protected $primaryKey = "student_id";
+    // public $incrementing = "false";
 }

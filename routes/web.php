@@ -31,7 +31,7 @@ Route::get('studentlist','student\BioController@index');
 Route::get('student_search','student\BioController@search');
 
 Route::get('student_profile','student\BioController@profile');
-
+Route::get('student_profile/{student_id}','student\BioController@profile1')->name('profile');
 
 //ลบ
 // Route::get('studentprofile', function () {

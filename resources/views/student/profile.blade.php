@@ -45,18 +45,17 @@
             <br>
             <br>
 
-            @foreach($bio as $bio)
 
-            @continue($bio->student_id == "59130500001")
+            @foreach($bios as $bios)
 
             <p>รหัสนักศึกษา &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </p>
 
-            <p>{{$bio->student_id}}</p>
+            <p>{{$bios->student_id}}</p>
 
             <br>
             <br>
             <p>ชื่อ (ท) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </p>
-            <p>{{$bio->first_name}}&nbsp;&nbsp;{{$bio->last_name}}</p>
+            <p>{{$bios->first_name}}&nbsp;&nbsp;{{$bios->last_name}}</p>
             <br>
             <br>
 
@@ -66,31 +65,19 @@
             </div>
 
             <p>ชื่อ (อ) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </p>
-            <p>{{$bio->firstname_eng}}&nbsp;&nbsp;{{$bio->lastname_eng}}</p>
+            <p>{{$bios->firstname_eng}}&nbsp;&nbsp;{{$bios->lastname_eng}}</p>
             <br>
             <br>
             <p>วัน/เดือน/ปีเกิด &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </p>
-            <p>{{$bio->birth}}</p>
-            <br>
-            <br>
-
-            @break($bio->student_id != "59130500001")
-
-            @endforeach
-
-            @foreach($b_profile as $b_profile)
-
-            @continue($b_profile->no == "1")
-
-            <p>หมายเลขบัตรประชาชน &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </p>
-            <p>{{$b_profile->idcard}}</p>
+            <p>{{$bios->birth}}</p>
             <br>
             <br>
             <p>วัน/เดือน/ปี ที่เข้าศึกษา &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </p>
             <p>28/07/2559</p>
             <br>
             <br>
-            <p>{{$b_profile->year}}</p>
+            <p>ปีการศึกษา &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </p>
+            <p>2559</p>
 
             <hr class="my-4">
 
@@ -98,7 +85,7 @@
                 Email ส่วนตัว &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :
             </p>
             <p>
-                {{$b_profile->email}}
+                {{$bios->email}}
             </p>
             <br>
             <br>
@@ -191,8 +178,8 @@
             <p>
                 วิทยาศาสตรบัณฑิต (เทคโนโลยีสารสนเทศ)
             </p>
-
-            @break($b_profile->no != "1")
+            <br>
+            <br>
 
             @endforeach
 
