@@ -26,6 +26,8 @@
         <div style="float: right;">
             <a href="{{ url('profilebefore') }}">
             {{-- <a href="{{route('profile',$bio['student_id'])}}"> --}}
+            {{-- <a href="{{ action('student\BProfileController@index') }}"> --}}
+            {{-- <a href="{{route('profile(before)',$bio['first_name']==$b_profile['firstname'])}}"> --}}
                 <button type="button" class="btn btn-outline-success">ข้อมูลการสัมภาษณ์</button>
             </a>
             <a href="{{ url('profileindex') }}">
