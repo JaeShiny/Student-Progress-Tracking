@@ -13,7 +13,7 @@
 
         .t1 {
             float: right;
-            width: 300px;
+            width: 280px;
             height: 38px;
             text-align: center;
             background-color: black;
@@ -34,7 +34,9 @@
         @endif
         @else
 
-            Username: {{ Auth::user()->name }} <span class="caret"></span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            {{-- Username:  --}}
+            {{-- <img src="../img/user.png" alt="Avatar" class="image" width="2"> --}}
+            {{ Auth::user()->name }} <span class="caret"></span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
             <button type="button" class="btn">
 

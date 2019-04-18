@@ -10,4 +10,5 @@ class Bio extends Model
     protected $table = "bio";
     protected $primaryKey = "student_id";
     // public $incrementing = "false";
+    protected $keyType = 'bigint';
 }

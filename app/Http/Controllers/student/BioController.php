@@ -10,6 +10,7 @@ use App\Model\interview\B_profile;
 
 class BioController extends Controller
 {
+    //show หน้ารายชื่อนักศึกษา
     public function index(){
 
         $bio = Bio::all();
@@ -20,6 +21,14 @@ class BioController extends Controller
         ]);
     }
 
+    public function search(Request $request){
+        $search = $request->get('search');
+        $bio = Bio::where('student_id', 'like', '%'.$search.'%')
+        ->orWhere('first_name', 'like', '%'.$search.'%')->paginate(5);
+        return view('/EducationOfficer/studentlist', ['bio' => $bio]);
+    }
+
+    //แสดง profile ของนักศึกษา
     public function profile(){
 
         $bios = Bio::all();
@@ -29,7 +38,7 @@ class BioController extends Controller
 
         ]);
     }
-
+    //ส่งประวัติมาจากหน้า studentlist เรียงคนมา
     public function profile1($student_id){
 
         $bios = Bio::find([$student_id]);
@@ -40,12 +49,5 @@ class BioController extends Controller
         ]);
     }
 
-
-    public function search(Request $request){
-        $search = $request->get('search');
-        $bio = Bio::where('student_id', 'like', '%'.$search.'%')
-        ->orWhere('first_name', 'like', '%'.$search.'%')->paginate(5);
-        return view('/EducationOfficer/studentlist', ['bio' => $bio]);
-    }
 
 }
