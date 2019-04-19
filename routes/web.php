@@ -33,8 +33,8 @@ Route::get('student_search','student\BioController@search');
 Route::get('student_profile','student\BioController@profile');
 Route::get('student_profile/{student_id}','student\BioController@profile1')->name('profile');
 
-Route::get('allcurriculum','lecturer\CurriculumController@showall');
-Route::get('selectyear/{curriculum_id}','lecturer\CurriculumController@curriculum1')->name('curriculum');
+Route::get('curriculum','EducationOfficer\CurriculumController@show');
+
 
 //ลบ
 // Route::get('studentprofile', function () {
@@ -58,6 +58,8 @@ Route::get('behavior', function () {
 Route::get('subject', function () {
     return view('lecturer.subject');
 });
+
+
 
 
 //Login

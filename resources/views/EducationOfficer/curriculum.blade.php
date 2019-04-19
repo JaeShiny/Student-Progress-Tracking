@@ -14,65 +14,45 @@
 </head>
 <body>
         <div class="container">
-                <div class="row">
 
-                    <div class="col-sm">
-                        <div class="dropdown">
-                            <br>
-                            <br>
-                            <button class="dropbtn">หลักสูตรระดับปริญญาตรี</button>
-                            <div class="dropdown-content">
-                                <a href="{{ url('selectyear') }}">สาขาวิชาเทคโนโลยีสารสนเทศ</a>
-                                <a href="selectyearcs.html">สาขาวิชาวิทยาการคอมพิวเตอร์
-                                    (หลักสูตรภาษาอังกฤษ)</a>
-                                <a href="selectyeardsi.html">สาขาวิชานวัตกรรมบริการดิจิทัล</a>
-                            </div>
-                        </div>
-                    </div>
+        <!--Table-->
+        <table class="table table-striped w-auto">
 
-                    <div class="col-sm">
-                        <div class="dropdown">
-                            <br>
-                            <br>
-                            <button class="dropbtn">หลักสูตรระดับปริญญาโท</button>
-                            <div class="dropdown-content">
-                                <a href="masterselectit.html">สาขาวิชาเทคโนโลยีสารสนเทศ</a>
-                                <a href="masterselectpse.html">สาขาวิชาวิศวกรรมซอฟต์แวร์</a>
-                                <a href="masterselectbis.html">สาขาวิชาระบบสารสนเทศทางธุรกิจ</a>
-                                <a href="masterselectpcs.html">สาขาวิชาวิทยาการคอมพิวเตอร์</a>
-                                <a href="masterselectmt.html">สาขาวิชาชีวสารสนเทศและ
-                                    ชีววิทยาระบบ
-                                    (หลักสูตรนานาชาติ)</a>
-                            </div>
-                        </div>
-                    </div>
+        <!--Table head-->
 
-                    <div class="col-sm">
-                        <div class="dropdown">
-                            <br>
-                            <br>
-                            <button class="dropbtn">หลักสูตรระดับปริญญาเอก</button>
-                            <div class="dropdown-content">
-                                <a href="phdselectit.html">สาขาวิชาเทคโนโลยีสารสนเทศ
-                                    (หลักสูตรภาษาอังกฤษ)</a>
-                                <a href="phdselectcs.html">สาขาวิชาวิทยาการคอมพิวเตอร์
-                                    (หลักสูตรภาษาอังกฤษ)</a>
-                            </div>
-                        </div>
-                    </div>
+        <thead>
+          <tr>
+            <th><center>ชื่อหลักสูตร(ภาษาไทย)</center></th>
+            <th><center>ชื่อหลักสูตร(ภาษาอังกฤษ)</center></th>
+            <th><center>ตัวย่อ</center></th>
+          </tr>
+        </thead>
+        <!--Table head-->
 
-                    <div class="col-sm">
-                        <div class="dropdown">
-                            <br>
-                            <br>
-                            <button class="dropbtn">หลักสูตรระดับประกาศนียบัตร</button>
-                            <div class="dropdown-content">
-                                <a href="certificationdsi.html">สาขาวิชานวัตกรรมบริการดิจิทัล</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <!--Table body-->
+        <tbody>
+
+                @foreach($curriculum as $curriculum)
+          <tr class="table-info">
+
+            <td>
+                <a href="">{{$curriculum->curriculum_name}} </a>
+            </td>
+            <td>
+                {{$curriculum->curri_name_eng}}
+            </td>
+            <td>
+                &nbsp;&nbsp;{{$curriculum->curr_abbre}}&nbsp;&nbsp;
+            </td>
+
+          </tr>
+        </tbody>
+        <!--Table body-->
+        @endforeach
+        </table>
+
+      <!--Table-->
+    </div>
 </body>
 </html>
 @endsection
