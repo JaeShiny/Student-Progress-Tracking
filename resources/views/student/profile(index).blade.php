@@ -33,10 +33,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm">
-                    <div class="card" style="width: 18rem;">
+                    <div class="card" style="width: 20rem;">
 
                         <div class="card-body" style="background-image: url(../img/paper.jpg);">
-                            <h5 class="card-title">ความคิดเห็นของอาจารย์</h5>
+                            <h5 class="card-title">พฤติกรรม/ปัญหาของนักศึกษา
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </h5>
 
                             <a href="#" class="btn btn-primary">รายละเอียด</a>
                             <br>
@@ -45,10 +49,15 @@
                 </div>
 
                 <div class="col-sm">
-                    <div class="card" style="width: 18rem;">
+                    <div class="card" style="width: 20rem;">
 
                         <div class="card-body" style="background-image: url(../img/paper.jpg);">
-                            <h5 class="card-title">การเข้าเรียน</h5>
+                            <h5 class="card-title">การเข้าเรียน
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </h5>
 
                             <a href="#" class="btn btn-primary">รายละเอียด</a>
                             <br>
@@ -57,10 +66,15 @@
                 </div>
 
                 <div class="col-sm-0">
-                    <div class="card" style="width: 18rem;">
+                    <div class="card" style="width: 20rem;">
 
                         <div class="card-body" style="background-image: url(../img/paper.jpg);">
-                            <h5 class="card-title">ผลการเรียน</h5>
+                            <h5 class="card-title">ผลการเรียน
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </h5>
 
                             <a href="#" class="btn btn-primary">รายละเอียด</a>
                             <br>
@@ -80,9 +94,9 @@
         <br>
         <br>
 
-        <center>
+        <rignt>
             <a href="ประวัตินักศึกษา.html"> ย้อนกลับ</a>
-        </center>
+        </right>
 
 </body>
 
