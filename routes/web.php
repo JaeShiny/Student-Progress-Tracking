@@ -35,11 +35,13 @@ Route::get('student_profile/{student_id}','student\BioController@profile1')->nam
 
 Route::get('curriculum','EducationOfficer\CurriculumController@show');
 
+//Alumni
+Route::get('alumni','student\AlumniController@show');
 
-//ลบ
-// Route::get('studentprofile', function () {
-//     return view('student.profile');
-// });
+
+
+
+//ลบด้วยนะถ้าเขียนโค้ดเสร็จ
 Route::get('profileindex', function () {
     return view('student.profile(index)');
 });

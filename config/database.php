@@ -99,7 +99,7 @@ return [
 
         'mysql4' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST_4','ec2-13-250-38-136.ap-southeast-1.compute.amazonaws.com'),
+            'host' => env('DB_HOST_4','ec2-54-255-179-224.ap-southeast-1.compute.amazonaws.com'),
             'port' => env('DB_PORT-4','3306'),
             'database' => env('DB_DATABASE_4'),
             'username' => env('DB_USERNAME_4'),

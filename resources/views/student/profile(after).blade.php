@@ -5,7 +5,7 @@
 
 <head>
     <title>ข้อมูลหลังจบการศึกษา</title>
-    <link rel="stylesheet" href="csste.css">
+    <link href="{{ asset('css/csste.css') }}" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <meta charset="utf-8">
@@ -27,26 +27,25 @@
 
     <div class="jumbotron">
         <h4 class="display-4"></h4>
-
-        <p>ชื่อ-นามสกุล &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </p>
-        <p>นางสาวกนกวรรณ เฟื่องฟูชัชวาล</p>
+    @foreach($alumni_profile as $alumni)
+        <p>ชื่อ-นามสกุล &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </p>
+        <p>{{$alumni->first_name}}&nbsp;&nbsp;{{$alumni->last_name}}</p>
         <br>
         <br>
-        <p>หลักสูตรการศึกษาที่จบ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </p>
-        <p>วิทยาศาสตรบัณฑิต สาขาวิชาเทคโนโลยีสารสนเทศ ปริญญาตรี 4 ปี</p>
+        <p>สาขาที่จบการศึกษา &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </p>
+        <p>____________</p>
         <br>
         <br>
         <p>เกรดเฉลี่ยที่จบ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </p>
-        <p> 3.50</p>
+        <p>____________</p>
         <br>
         <br>
         <p>ปีการศึกษาที่จบ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </p>
-        <p>2560</p>
+        <p>______________</p>
 
-        <div class="container7">
+        {{-- <div class="container7">
             <img src="/Codeproject/รูปสัม.jpg" alt="Avatar" class="image" width="100">
-
-        </div>
+        </div> --}}
 
         <hr class="my-4">
         <p>
@@ -55,19 +54,23 @@
         <br>
         <br>
         <p>สถานที่ทำงาน &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </p>
-        <p>Thai Summit</p>
+        <p>{{$alumni->company}}</p>
+        <br>
+        <br>
+        <p>ตำแหน่งที่ทำงานอยู่ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </p>
+        <p>{{$alumni->position}}</p>
         <br>
         <br>
         <p>ลักษณะงาน &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </p>
-        <p>บริษัท</p>
+        <p>{{$alumni->job_title}}</p>
         <br>
         <br>
         <p>ช่วงเงินเดือนที่ไดรับ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </p>
-        <p>20,000 - 30,000 บาท</p>
+        <p>{{$alumni->salary_range}}</p>
         <br>
         <br>
-
-        <hr class="my-4">
+    @endforeach
+        {{-- <hr class="my-4">
         <p>
             <B>ความคิดเห็น</B>
         </p>
@@ -76,7 +79,7 @@
         <TEXTAREA rows="3" cols="60">
         </TEXTAREA>
         <br>
-        <br>
+        <br> --}}
         <a href="ประวัตินักศึกษา.html" style="float: right; "> ย้อนกลับ</a>
     </div>
 
