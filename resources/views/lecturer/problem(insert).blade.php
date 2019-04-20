@@ -44,33 +44,54 @@
 {{-- ฟอร์ม --}}
 <div class="container">
 <div class="box">
-<form>
+<form action="problem_insert" method="POST">
         <div class="form-group">
-            <label for="exampleFormControlSelect1">ประเภทของ พฤติกรรม/ปัญหา ของนักศึกษา</label>
-                <select class="form-control" id="exampleFormControlSelect1">
+            <label for="exampleFormControlSelect1">ประเภทของ พฤติกรรม/ปัญหา ของนักศึกษา
+                <select class="form-control" id="exampleFormControlSelect1" name="problem_type">
                   <option>พฤติกรรม/ปัญหา ในห้องเรียน</option>
                   <option>พฤติกรรม/ปัญหา นอกห้องเรียน</option>
                   <option>พฤติกรรม/ปัญหา ด้านสุขภาพ</option>
                   <option>พฤติกรรม/ปัญหา ด้านครอบครัว</option>
                   <option>พฤติกรรม/ปัญหา ด้านการเงิน</option>
-                </select>
+                </select></label>
         </div>
         <div class="form-group">
             <label for="exampleFormControlTextarea1">รายละเอียด พฤติกรรม/ปัญหา ของนักศึกษา</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="problem_detail"></textarea>
         </div>
 
-        <label for="exampleFormControlSelect1">ระดับความรุนแรงของปัญหา</label>
+        {{-- <label for="exampleFormControlSelect1" name="risk_level">ระดับความรุนแรงของปัญหา
         <div class="custom-control custom-radio">
             <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-            <label class="custom-control-label" for="customRadio1">ระดับปกติ</label>
+            <label class="custom-control-label" for="customRadio1"  name="risk_level">ระดับปกติ</label>
         </div>
         <div class="custom-control custom-radio">
             <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-            <label class="custom-control-label" for="customRadio2">ระดับรุนแรง</label>
+            <label class="custom-control-label" for="customRadio2"  name="risk_level">ระดับรุนแรง</label>
         </div>
+        </label> --}}
+
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">ระดับความรุนแรง
+                <select class="form-control" id="exampleFormControlSelect1" name="risk_level">
+                  <option>ปกติ</option>
+                  <option>รุนแรงมาก</option>
+
+                </select></label>
+        </div>
+
         <br>
-        <center><button type="submit" class="btn btn-primary">Submit</button></center>
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">ผู้เพิ่ม</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="person_add"></textarea>
+        </div>
+        {{-- <center><button type="submit" class="btn btn-primary">Submit</button></center> --}}
+        <div class="form-group">
+            <input type="submit" value="submit" class="btn btn-primary">
+            <a href="{{ action('lecturer\ProblemController@insert') }}"></a>
+        </div>
+    @csrf
+</form>
 </div>
 
 </div>

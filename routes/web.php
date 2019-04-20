@@ -38,8 +38,10 @@ Route::get('curriculum','EducationOfficer\CurriculumController@show');
 //Alumni
 Route::get('alumni','student\AlumniController@show');
 
-
-
+//Lecturer
+//เพิ่มพฤติกรรม/ปัญหา
+Route::get('problem_create','lecturer\ProblemController@create');
+Route::post('problem_insert','lecturer\ProblemController@insert');
 
 //ลบด้วยนะถ้าเขียนโค้ดเสร็จ
 Route::get('profileindex', function () {
@@ -60,8 +62,6 @@ Route::get('behavior', function () {
 Route::get('subject', function () {
     return view('lecturer.subject');
 });
-
-
 
 
 //Login
