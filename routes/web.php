@@ -47,7 +47,8 @@ Route::post('problem_insert','lecturer\ProblemController@insert');
 //กดดูหน้าข้อมูลสัมภาษณ์
 Route::get('profilebefore/{student_id}','student\InterviewController@profile');
 
-
+//แมบวิชากับเด็ก
+Route::get('subject/{course}','SubjectController@index');
 
 
 //ลบด้วยนะถ้าเขียนโค้ดเสร็จ
