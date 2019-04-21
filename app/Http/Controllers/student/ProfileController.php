@@ -9,10 +9,11 @@ use Auth;
 
 class ProfileController extends Controller
 {
+    //การเอาชื่อและนามสกุลในการล็อคอิน มาเทียบกับชื่อของเด็กใน bio
     public function index(){
         $user =Auth::user();
         $info = Bio::where('first_name',$user->name)->where('last_name',$user->lastname)->first();
-        return view('student.profileunique',[
+        return view('student.profile',[
             'bios'=>$info,
         ]);
     }

@@ -28,7 +28,8 @@
 <body>
 
 @foreach ($student as $show_student)
-    <p>{{$show_student->student_id}}</p>
+    {{-- <p>{{$show_student->student_id}}</p> --}}
+    <p>{{$show_student->bio->first_name}}</p>
 @endforeach
 
 </body>

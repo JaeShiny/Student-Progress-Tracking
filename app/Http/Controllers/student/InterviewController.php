@@ -10,6 +10,7 @@ use App\Model\interview\B_profile;
 
 class InterviewController extends Controller
 {
+    //แมบ ชื่อสกุล ของ bio ให้ไปแมบกับชื่อนามสกุล ของ interview
     public function profile($student_id){
 
         $bios = Bio::find($student_id);

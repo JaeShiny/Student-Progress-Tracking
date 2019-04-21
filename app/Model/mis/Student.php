@@ -10,4 +10,9 @@ class Student extends Model
     protected $table = "student";
     protected $primaryKey = "student_id";
     protected $keyType = 'bigint';
+
+    //Relation เพื่อบอกว่าจะแมบฟอเรนคีย์ student_id ของ bio กับ student_id ของ student
+    public function bio(){
+        return $this->hasOne('App\Model\mis\Bio','student_id','student_id');
+    }
 }

@@ -35,7 +35,7 @@
             <a href="{{ url('profileindex') }}">
                 <button type="button" class="btn btn-outline-secondary">ข้อมูลระหว่างการศึกษา</button>
             </a>
-            <a href="ข้อมูลการสัมภาษณ์.html">
+            <a href="/profileafter/{{$bios->student_id}}">
                 <button type="button" class="btn btn-outline-primary">ข้อมูลหลังจบการศึกษา</button>
             </a>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;

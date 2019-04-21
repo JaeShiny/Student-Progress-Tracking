@@ -10,6 +10,7 @@ use App\Model\mis\Student;
 
 class SubjectController extends Controller
 {
+    //ทำการแมบ course จนไปถึง student
     public function index($course){
         $course = Course::find($course);
         $major = Major::where('major_id',$course->major_id)->get();

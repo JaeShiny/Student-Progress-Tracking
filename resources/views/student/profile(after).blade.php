@@ -27,9 +27,9 @@
 
     <div class="jumbotron">
         <h4 class="display-4"></h4>
-    @foreach($alumni_profile as $alumni)
+    {{-- @foreach($alumni_profile as $alumni) --}}
         <p>ชื่อ-นามสกุล &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </p>
-        <p>{{$alumni->first_name}}&nbsp;&nbsp;{{$alumni->last_name}}</p>
+        <p>{{$alumni_profile->first_name}}&nbsp;&nbsp;{{$alumni_profile->last_name}}</p>
         <br>
         <br>
         <p>สาขาที่จบการศึกษา &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </p>
@@ -54,22 +54,22 @@
         <br>
         <br>
         <p>สถานที่ทำงาน &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </p>
-        <p>{{$alumni->company}}</p>
+        <p>{{$alumni_profile->company}}</p>
         <br>
         <br>
         <p>ตำแหน่งที่ทำงานอยู่ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </p>
-        <p>{{$alumni->position}}</p>
+        <p>{{$alumni_profile->position}}</p>
         <br>
         <br>
         <p>ลักษณะงาน &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </p>
-        <p>{{$alumni->job_title}}</p>
+        <p>{{$alumni_profile->job_title}}</p>
         <br>
         <br>
         <p>ช่วงเงินเดือนที่ไดรับ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </p>
-        <p>{{$alumni->salary_range}}</p>
+        <p>{{$alumni_profile->salary_range}}</p>
         <br>
         <br>
-    @endforeach
+    {{-- @endforeach --}}
         {{-- <hr class="my-4">
         <p>
             <B>ความคิดเห็น</B>
