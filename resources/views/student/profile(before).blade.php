@@ -33,7 +33,7 @@
         </p>
         <br>
         <br>
-        @foreach($b_profile as $b_profile)
+        {{-- @foreach($b_profile as $b_profile) --}}
         <p>ชื่อ-นามสกุล (ภาษาไทย) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </p>
         <p>{{$b_profile->prename_th}}&nbsp;{{$b_profile->firstname_th}}&nbsp;&nbsp;{{$b_profile->lastname_th}}</p>
         <br>
@@ -189,7 +189,7 @@
     </center>
     <br><br><br>
 
-    @endforeach
+    {{-- @endforeach --}}
 
 </div>
     </div>

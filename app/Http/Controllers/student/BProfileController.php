@@ -33,8 +33,8 @@ class BProfileController extends Controller
     //ส่งประวัติมาจากหน้า studentlist เรียงคนมา
     public function profile1($firstname){
 
-        $bios = Bio::find([$student_id]);
-        $b_profile = B_profile::find([$firstname]);
+        $bios = Bio::find($student_id);
+        $b_profile = B_profile::where('firstname_th',$bios->first_name)->where('lastname_th',$bios->last_name)->first();
 
         return view('student.profile(before)',[
             'b_profile' => $b_profile

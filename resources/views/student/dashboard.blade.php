@@ -48,7 +48,7 @@
 
         .bg-image {
             /* The image used */
-            background-image: url("../img/st.jpg");
+            background-image: url("../img/wel.jpg");
             /* Add the blur effect */
             filter: blur(2px);
             -webkit-filter: blur(2px);

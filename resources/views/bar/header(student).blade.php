@@ -24,7 +24,10 @@
         <span class="navbar-text">
                 &nbsp;&nbsp;&nbsp;<img src="../img/logopage.png" width="120" height="50"></li>
                 <a href="สถิติ.html"><p style="color: #FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;วิชาที่ลงทะเบียน</p></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <a href="สถิติ.html"><p style="color: #FFFFFF">ประวัติ</p></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                {{-- <a href="/studentprofile/{{$bistudent_id}}"> --}}
+                <a href="/studentprofile">
+                    <p style="color: #FFFFFF">ประวัติ</p>
+                </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <a href="สถิติ.html"><p style="color: #FFFFFF">การแจ้งเตือน</p></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <a href="สถิติ.html"><p style="color: #FFFFFF">สถิติ</p></a>
         </span>

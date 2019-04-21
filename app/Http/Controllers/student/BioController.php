@@ -40,7 +40,7 @@ class BioController extends Controller
     //ส่งประวัติมาจากหน้า studentlist เรียงคนมา
     public function profile1($student_id){
 
-        $bios = Bio::find([$student_id]);
+        $bios = Bio::find($student_id);
 
         return view('student.profile',[
             'bios' => $bios

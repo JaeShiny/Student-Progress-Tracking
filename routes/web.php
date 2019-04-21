@@ -43,6 +43,13 @@ Route::get('alumni','student\AlumniController@show');
 Route::get('problem_create','lecturer\ProblemController@create');
 Route::post('problem_insert','lecturer\ProblemController@insert');
 
+//student
+//กดดูหน้าข้อมูลสัมภาษณ์
+Route::get('profilebefore/{student_id}','student\InterviewController@profile');
+
+
+
+
 //ลบด้วยนะถ้าเขียนโค้ดเสร็จ
 Route::get('profileindex', function () {
     return view('student.profile(index)');
@@ -63,6 +70,8 @@ Route::get('subject', function () {
     return view('lecturer.subject');
 });
 
+//login เด็ก
+Route::get('/studentprofile', 'student\ProfileController@index');
 
 //Login
 Auth::routes();
