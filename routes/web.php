@@ -76,35 +76,33 @@ Route::get('profileafterS/{student_id}','student\SrmController@profileS');
 //แมบวิชากับเด็ก
 Route::get('subject/{course}','SubjectController@index');
 
-<<<<<<< HEAD
-=======
+
 //map อาจารย์กับวิชา
 Route::get('lecturer/{instructor}','lecturer\InstructorController@index');
 //กดดูหน้าข้อมูลหลังจบ
 Route::get('profileafter/{student_id}','student\SrmController@profile');
->>>>>>> master
 
 
 
 //ลบด้วยนะถ้าเขียนโค้ดเสร็จ
-Route::get('profileindex', function () {
-    return view('student.profile(index)');
-});
-Route::get('profilebefore', function () {
-    return view('student.profile(before)');
-});
-Route::get('profileafter', function () {
-    return view('student.profile(after)');
-});
-Route::get('insertbehavior', function () {
-    return view('lecturer.behavior(insert)');
-});
-Route::get('behavior', function () {
-    return view('student.behavior');
-});
-Route::get('subject', function () {
-    return view('lecturer.subject');
-});
+// Route::get('profileindex', function () {
+//     return view('student.profile(index)');
+// });
+// Route::get('profilebefore', function () {
+//     return view('student.profile(before)');
+// });
+// Route::get('profileafter', function () {
+//     return view('student.profile(after)');
+// });
+// Route::get('insertbehavior', function () {
+//     return view('lecturer.behavior(insert)');
+// });
+// Route::get('behavior', function () {
+//     return view('student.behavior');
+// });
+// Route::get('subject', function () {
+//     return view('lecturer.subject');
+// });
 
 
 
@@ -115,8 +113,11 @@ Route::get('subject', function () {
 
 
 
-//login เด็กให้เข้ามาเจอประวัติตัวเอง
+//login student ให้เข้ามาเจอประวัติตัวเอง
 Route::get('/studentprofile', 'student\ProfileController@index');
+
+//login lecturer ให้เข้ามาเจอวิชา
+Route::get('/subjectL', 'lecturer\LecturerLoginController@index');
 
 //Login
 Auth::routes();
