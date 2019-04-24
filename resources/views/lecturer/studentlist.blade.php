@@ -93,7 +93,8 @@
                     </a>
                 </td>
                 <td width="10">
-                    <a href="">
+                    {{-- <a href="" --}}
+                    <a href="{{route('create',$student->bio['student_id'])}}">
                         <center><img src="../img/add.png" width="25" title="เพิ่มพฤติกรรม/ปัญหา"></center>
                     </a>
                 </td>

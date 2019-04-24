@@ -65,10 +65,10 @@
 
             <tbody>
 
-                @foreach ($bio as $bio)
+                @foreach ($student as $student)
               <tr>
-                <td scope="row" width="10"> {{$bio->student_id}} </td>
-                <td width="10"> {{$bio->first_name}}  &nbsp;&nbsp; {{$bio->last_name}}   </td>
+                <td scope="row" width="10"> {{$student->student_id}} </td>
+                <td width="10">{{$student->bio->first_name}} &nbsp;&nbsp; {{$student->bio->last_name}}</td>
 
                 <td width="10">
                     <a href="">
@@ -76,7 +76,9 @@
                     </a>
                 </td>
                 <td width="10">
-                    <a href="{{route('profileE',$bio['student_id'])}}">
+                {{-- <a href="{{route('profileE',$bio['student_id'])}}"> --}}
+                    {{-- <a href="{{route('profileE',$student->bio['student_id'])}}"> --}}
+                    <a>
                         <center><img src="../img/resume.png" width="25" title="ประวัตินักศึกษา"></center>
                     </a>
                 </td>
@@ -100,7 +102,7 @@
             @endforeach
           </table>
 
-          <p> ทั้งหมด {{$bio->count()}} รายการ </p>
+          {{-- <p> ทั้งหมด {{$student->count()}} รายการ </p> --}}
 
           {{-- <br>{{$bio->links()}}<br> --}}
 
@@ -115,5 +117,5 @@
 </html>
 
 @endsection
-@extends('bar.header(edu)')
+@extends('bar.header(lec)')
 @extends('bar.username')

@@ -6,15 +6,22 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Validation\Rule;
 use App\Model\spts\Problem;
+use App\Model\spts\StudentProblem;
+use App\Model\spts\Student;
 
 class ProblemController extends Controller
 {
+    //เพิ่มปัญหา
     public function create(){
 	    return view('lecturer.problem(insert)');
     }
 
     public function insert(Request $request){
         $problem = new Problem();
+        // $student_problem = new StudentProblem();
+
+        // $student_problem->problem_id = $request->problem_id;
+        $problem->student_id = $request->student_id;
 
         $problem->problem_type = $request->problem_type;
         $problem->problem_detail = $request->problem_detail;
@@ -25,6 +32,18 @@ class ProblemController extends Controller
         $problem->save();
 
         return redirect('problem_create')->with('message', 'เพิ่มข้อมูลเรียบร้อยแล้ว');
+    }
+
+
+        //Education Officer
+    //แสดงปัญหา
+    public function showProblemE(){
+
+        $problem = Problem::all();
+
+        return view('EducationOfficer.problem',[
+            'problem' => $problem
+        ]);
     }
 
 }

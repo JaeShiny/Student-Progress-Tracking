@@ -16,10 +16,8 @@
     <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li> </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <li class="breadcrumb-item"><a href="{{ url('curriculum') }}">หลักสูตร(IT)</a></li>
-                <li class="breadcrumb-item"><a href="{{ url('selectyear') }}">ชั้นปี</a></li>
+                <li class="breadcrumb-item"><a href="{{ url('selectyear') }}">วิชาที่สอน</a></li>
                 <li class="breadcrumb-item active" aria-current="page"><a href="{{ action('student\BioController@index') }}">รายชื่อนักศึกษา</a></li>
-                <li class="breadcrumb-item active" aria-current="page"><a href="">ประวัตินักศึกษา(ใส่ชื่อด้วย)</a></li>
                 <li class="breadcrumb-item active" aria-current="page"><a href="">เพิ่มพฤติกรรม/ปัญหาของนักศึกษา</a></li>
             </ol>
     </nav>
@@ -45,8 +43,16 @@
 <div class="container">
 <div class="box">
 <form action="problem_insert" method="POST">
+        {{-- <div class="form-group">
+            <label for="exampleFormControlTextarea1">รหัสนักศึกษา</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="student_id"></textarea>
+        </div> --}}
         <div class="form-group">
-            <label for="exampleFormControlSelect1">ประเภทของ พฤติกรรม/ปัญหา ของนักศึกษา
+            <label for="usr">รหัสนักศึกษา:</label>
+            <input type="text" class="form-control" id="usr" name="student_id">
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">ประเภทของ พฤติกรรม/ปัญหา ของนักศึกษา:
                 <select class="form-control" id="exampleFormControlSelect1" name="problem_type">
                   <option>พฤติกรรม/ปัญหา ในห้องเรียน</option>
                   <option>พฤติกรรม/ปัญหา นอกห้องเรียน</option>
@@ -56,7 +62,7 @@
                 </select></label>
         </div>
         <div class="form-group">
-            <label for="exampleFormControlTextarea1">รายละเอียด พฤติกรรม/ปัญหา ของนักศึกษา</label>
+            <label for="exampleFormControlTextarea1">รายละเอียด พฤติกรรม/ปัญหา ของนักศึกษา:</label>
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="problem_detail"></textarea>
         </div>
 
@@ -72,7 +78,7 @@
         </label> --}}
 
         <div class="form-group">
-            <label for="exampleFormControlSelect1">ระดับความรุนแรง
+            <label for="exampleFormControlSelect1">ระดับความรุนแรง:
                 <select class="form-control" id="exampleFormControlSelect1" name="risk_level">
                   <option>ปกติ</option>
                   <option>รุนแรงมาก</option>
@@ -80,10 +86,13 @@
                 </select></label>
         </div>
 
-        <br>
-        <div class="form-group">
-            <label for="exampleFormControlTextarea1">ผู้เพิ่ม</label>
+        {{-- <div class="form-group">
+            <label for="exampleFormControlTextarea1">ผู้เพิ่ม:</label>
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="person_add"></textarea>
+        </div> --}}
+        <div class="form-group">
+            <label for="usr">ผู้เพิ่ม:</label>
+            <input type="text" class="form-control" id="usr" name="person_add">
         </div>
         {{-- <center><button type="submit" class="btn btn-primary">Submit</button></center> --}}
         <div class="form-group">
@@ -106,5 +115,5 @@
 
 
 @endsection
-@extends('bar.header(edu)')
+@extends('bar.header(lec)')
 @extends('bar.username')
