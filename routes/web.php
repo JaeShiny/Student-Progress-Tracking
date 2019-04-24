@@ -50,6 +50,8 @@ Route::get('profilebefore/{student_id}','student\InterviewController@profile');
 //แมบวิชากับเด็ก
 Route::get('subject/{course}','SubjectController@index');
 
+//map อาจารย์กับวิชา
+Route::get('lecturer/{instructor}','lecturer\InstructorController@index');
 //กดดูหน้าข้อมูลหลังจบ
 Route::get('profileafter/{student_id}','student\SrmController@profile');
 

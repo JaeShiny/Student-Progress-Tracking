@@ -27,9 +27,11 @@
 
 <body>
 
-@foreach ($student as $show_student)
-    {{-- <p>{{$show_student->student_id}}</p> --}}
-    <p>{{$show_student->bio->first_name}}</p>
+
+@foreach ($schedule as $show_student)
+
+<p>{{$show_student->course->course_id}}</p>
+
 @endforeach
 
 </body>
