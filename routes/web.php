@@ -54,6 +54,17 @@ Route::get('alumni','student\AlumniController@show');
 Route::get('problem_create','lecturer\ProblemController@create');
 Route::post('problem_insert','lecturer\ProblemController@insert');
 
+Route::get('course','SubjectController@showCourse');
+
+Route::get('student_profile','student\BioController@profileL');
+Route::get('student_profile/{student_id}','student\BioController@profileL1')->name('profileL');
+
+//กดดูหน้าข้อมูลสัมภาษณ์
+Route::get('profilebeforeL/{student_id}','student\InterviewController@profileL');
+
+//กดดูหน้าข้อมูลหลังจบ
+Route::get('profileafterL/{student_id}','student\SrmController@profileL');
+
 
 
     //Student

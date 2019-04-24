@@ -29,13 +29,13 @@
             {{-- <a href="{{ action('student\InterviewControllerr@profile') }}"> --}}
             {{-- <a href="{{route('profile(before)',$bio['first_name']==$b_profile['firstname'])}}"> --}}
             {{-- <a href="{{url('profilebefore')}}"> --}}
-            <a href="/profilebeforeE/{{$bios->student_id}}">
+            <a href="/profilebeforeL/{{$bios->student_id}}">
                 <button type="button" class="btn btn-outline-success">ข้อมูลการสัมภาษณ์</button>
             </a>
             <a href="{{ url('profileindex') }}">
                 <button type="button" class="btn btn-outline-secondary">ข้อมูลระหว่างการศึกษา</button>
             </a>
-            <a href="/profileafterE/{{$bios->student_id}}">
+            <a href="/profileafterL/{{$bios->student_id}}">
                 <button type="button" class="btn btn-outline-primary">ข้อมูลหลังจบการศึกษา</button>
             </a>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;

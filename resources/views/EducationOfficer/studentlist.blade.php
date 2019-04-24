@@ -76,7 +76,7 @@
                     </a>
                 </td>
                 <td width="10">
-                <a href="{{route('profileE',$bio['student_id'])}}">
+                    <a href="{{route('profileE',$bio['student_id'])}}">
                         <center><img src="../img/resume.png" width="25" title="ประวัตินักศึกษา"></center>
                     </a>
                 </td>
