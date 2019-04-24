@@ -103,5 +103,5 @@
 </html>
 
 @endsection
-@extends('bar.header(student)')
+@extends('bar.header(edu)')
 @extends('bar.username')

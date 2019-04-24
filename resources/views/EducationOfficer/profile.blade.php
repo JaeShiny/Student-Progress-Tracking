@@ -24,14 +24,18 @@
 
 <body>
         <div style="float: right;">
-
-            <a href="/profilebeforeS/{{$bios->student_id}}">
+            {{-- <a href="{{ url('profilebefore')"> --}}
+            {{-- <a href="{{route('profile',$bio['student_id'])}}"> --}}
+            {{-- <a href="{{ action('student\InterviewControllerr@profile') }}"> --}}
+            {{-- <a href="{{route('profile(before)',$bio['first_name']==$b_profile['firstname'])}}"> --}}
+            {{-- <a href="{{url('profilebefore')}}"> --}}
+            <a href="/profilebeforeE/{{$bios->student_id}}">
                 <button type="button" class="btn btn-outline-success">ข้อมูลการสัมภาษณ์</button>
             </a>
             <a href="{{ url('profileindex') }}">
                 <button type="button" class="btn btn-outline-secondary">ข้อมูลระหว่างการศึกษา</button>
             </a>
-            <a href="/profileafterS/{{$bios->student_id}}">
+            <a href="/profileafterE/{{$bios->student_id}}">
                 <button type="button" class="btn btn-outline-primary">ข้อมูลหลังจบการศึกษา</button>
             </a>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
@@ -46,6 +50,8 @@
             <br>
             <br>
 
+
+            {{-- @foreach($bios as $bios) --}}
 
             <p>รหัสนักศึกษา &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </p>
 
@@ -119,6 +125,55 @@
             <br>
             <br>
 
+            {{-- <hr class="my-4">
+            <p>
+
+                ประเภทนักศึกษา &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : ปริญญาตรี 4 ปี
+            </p>
+            <br>
+            <br>
+
+            <p>
+                แผน &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :
+            </p>
+
+            <p>
+                ปกติ
+            </p>
+            <br>
+            <br>
+
+            <p>
+                วิชาเอก &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : -
+            </p>
+            <br>
+            <br>
+
+            <p>
+                วิชาโท &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : -
+            </p>
+            <br>
+            <br>
+
+            <p>
+                สถานภาพนักศึกษา &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :
+            </p>
+            <p>
+                ปกติ
+            </p>
+            <br>
+            <br>
+
+            <p>
+                ปริญญาที่ได้รับ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :
+            </p>
+            <p>
+                วิทยาศาสตรบัณฑิต (เทคโนโลยีสารสนเทศ)
+            </p>
+            <br>
+            <br> --}}
+
+            {{-- @endforeach --}}
 
             <br>
             <br>
@@ -141,5 +196,5 @@
 
 
 @endsection
-@extends('bar.header(student)')
+@extends('bar.header(edu)')
 @extends('bar.username')

@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 
 
-//EducationOfficer
+    //EducationOfficer
 Route::get('curriculum', function () {
     return view('EducationOfficer.curriculum');
 });
@@ -31,27 +31,41 @@ Route::get('studentlist','student\BioController@index');
 Route::get('student_search','student\BioController@search');
 
 Route::get('student_profile','student\BioController@profile');
-Route::get('student_profile/{student_id}','student\BioController@profile1')->name('profile');
+Route::get('student_profile/{student_id}','student\BioController@profileE1')->name('profileE');
+
 
 Route::get('curriculum','EducationOfficer\CurriculumController@show');
 
-//Alumni
+//กดดูหน้าข้อมูลสัมภาษณ์
+Route::get('profilebeforeE/{student_id}','student\InterviewController@profileE');
+
+//กดดูหน้าข้อมูลหลังจบ
+Route::get('profileafterE/{student_id}','student\SrmController@profileE');
+
+
+
+    //Alumni
 Route::get('alumni','student\AlumniController@show');
 
-//Lecturer
+
+
+    //Lecturer
 //เพิ่มพฤติกรรม/ปัญหา
 Route::get('problem_create','lecturer\ProblemController@create');
 Route::post('problem_insert','lecturer\ProblemController@insert');
 
-//Student
+
+
+    //Student
 //กดดูหน้าข้อมูลสัมภาษณ์
-Route::get('profilebefore/{student_id}','student\InterviewController@profile');
+Route::get('profilebeforeS/{student_id}','student\InterviewController@profileS');
+
+//กดดูหน้าข้อมูลหลังจบ
+Route::get('profileafterS/{student_id}','student\SrmController@profileS');
 
 //แมบวิชากับเด็ก
 Route::get('subject/{course}','SubjectController@index');
 
-//กดดูหน้าข้อมูลหลังจบ
-Route::get('profileafter/{student_id}','student\SrmController@profile');
 
 
 

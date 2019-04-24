@@ -59,6 +59,7 @@
                 <th scope="col" width="10%"><h6 align="center"><b>ประวัติ</h6></b></th>
                 <th scope="col" width="10%"><h6 align="center"><b>การลงทะเบียน</h6></b></th>
                 <th scope="col" width="10%"><h6 align="center"><b>พฤติกรรม</h6></b></th>
+                <th scope="col" width="10%"><h6 align="center"><b>เพิ่มพฤติกรรม</h6></b></th>
                 <th scope="col" width="10%"><h6 align="center"><b>แจ้งเตือน</h6></b></th>
               </tr>
             </thead>
@@ -92,6 +93,11 @@
                 </td>
                 <td width="10">
                     <a href="">
+                        <center><img src="../img/add.png" width="25" title="เพิ่มพฤติกรรม/ปัญหา"></center>
+                    </a>
+                </td>
+                <td width="10">
+                    <a href="">
                         <center><img src="../img/noti.png" width="30" height="25" title="แจ้งเตือน"></center>
                     </a>
                 </td>
@@ -115,5 +121,5 @@
 </html>
 
 @endsection
-@extends('bar.header(edu)')
+@extends('bar.header(lec)')
 @extends('bar.username')
