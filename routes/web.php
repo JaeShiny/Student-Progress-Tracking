@@ -24,9 +24,9 @@ Route::get('curriculum','EducationOfficer\CurriculumController@show');
 //แมบหลักสูตรกับเด็ก
 Route::get('curr/{curriculum}','EducationOfficer\CurriculumController@index');
 
-Route::get('studentlist','student\BioController@index');
+Route::get('studentlist','student\BioController@indexE');
 
-Route::get('student_search','student\BioController@search');
+Route::get('student_search','student\BioController@searchE');
 
 Route::get('student_profileE','student\BioController@profileE');
 Route::get('student_profileE/{student_id}','student\BioController@profileE1')->name('profileE');
