@@ -13,7 +13,7 @@ class BioController extends Controller
         //Education Officer
 
     //show หน้ารายชื่อนักศึกษา
-    public function index(){
+    public function indexE(){
 
         $bio = Bio::all();
 
@@ -22,7 +22,7 @@ class BioController extends Controller
         ]);
     }
 
-    public function search(Request $request){
+    public function searchE(Request $request){
         $search = $request->get('search');
         $bio = Bio::where('student_id', 'like', '%'.$search.'%')
         ->orWhere('first_name', 'like', '%'.$search.'%')->paginate(5);

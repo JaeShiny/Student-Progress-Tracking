@@ -18,22 +18,18 @@ Route::get('/', function () {
 
 
     //EducationOfficer
-Route::get('selectyear', function () {
-    return view('EducationOfficer.selectyear');
-});
+
+Route::get('curriculum','EducationOfficer\CurriculumController@show');
+
+//แมบหลักสูตรกับเด็ก
+Route::get('curr/{curriculum}','EducationOfficer\CurriculumController@index');
 
 Route::get('studentlist','student\BioController@index');
 
 Route::get('student_search','student\BioController@search');
 
-Route::get('student_profile','student\BioController@profile')->name('profile');
-Route::get('student_profile/{student_id}','student\BioController@profileE1')->name('profileE');
-
-
-Route::get('curriculum','EducationOfficer\CurriculumController@show');
-
-//กดดูพฤติกรรม
-Route::get('problem', 'lecturer\ProblemController@showProblemE')->name('problemE');
+Route::get('student_profileE','student\BioController@profileE');
+Route::get('student_profileE/{student_id}','student\BioController@profileE1')->name('profileE');
 
 //กดดูหน้าข้อมูลสัมภาษณ์
 Route::get('profilebeforeE/{student_id}','student\InterviewController@profileE');
@@ -41,8 +37,9 @@ Route::get('profilebeforeE/{student_id}','student\InterviewController@profileE')
 //กดดูหน้าข้อมูลหลังจบ
 Route::get('profileafterE/{student_id}','student\SrmController@profileE');
 
-//แมบหลักสูตรกับเด็ก
-Route::get('curriculum/{curriculum}','EducationOfficer\CurriculumController@index');
+//กดดูพฤติกรรม
+Route::get('problem', 'lecturer\ProblemController@showProblemE')->name('problemE');
+
 
 
 
@@ -53,10 +50,6 @@ Route::get('alumni','student\AlumniController@show');
 
 
     //Lecturer
-//เพิ่มพฤติกรรม/ปัญหา
-Route::get('problem_create','lecturer\ProblemController@create')->name('create');
-Route::post('problem_insert','lecturer\ProblemController@insert');
-
 Route::get('course','SubjectController@showCourse');
 
 Route::get('student_profile','student\BioController@profileL');
@@ -68,6 +61,9 @@ Route::get('profilebeforeL/{student_id}','student\InterviewController@profileL')
 //กดดูหน้าข้อมูลหลังจบ
 Route::get('profileafterL/{student_id}','student\SrmController@profileL');
 
+//เพิ่มพฤติกรรม/ปัญหา
+Route::get('problem_create','lecturer\ProblemController@create')->name('create');
+Route::post('problem_insert','lecturer\ProblemController@insert');
 
 
     //Student

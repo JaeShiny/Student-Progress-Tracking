@@ -77,8 +77,8 @@
                 </td>
                 <td width="10">
                 {{-- <a href="{{route('profileE',$bio['student_id'])}}"> --}}
-                    {{-- <a href="{{route('profileE',$student->bio['student_id'])}}"> --}}
-                    <a>
+                    <a href="{{route('profileE',$student->bio['student_id'])}}">
+                    {{-- <a href="student_profileE/{{$student->bio['student_id']}}"> --}}
                         <center><img src="../img/resume.png" width="25" title="ประวัตินักศึกษา"></center>
                     </a>
                 </td>

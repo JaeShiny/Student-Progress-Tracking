@@ -37,7 +37,8 @@
 
             <td>
                 {{-- <a href="{{ action('student\BioController@index') }}"> --}}
-                        <a href="/curriculum/{{$curriculum->curriculum_id}}">
+                        <a href="/curr/{{$curriculum->curriculum_id}}">
+                            {{-- <a href="/subject/{{$course->course_id}}"> --}}
                     {{$curriculum->curriculum_name}}
                 </a>
             </td>
