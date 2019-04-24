@@ -11,4 +11,10 @@ class Course extends Model
     protected $primaryKey = "course_id";
     // public $incrementing = "false";
     protected $keyType = 'bigint';
+
+
+
+
+
+
 }

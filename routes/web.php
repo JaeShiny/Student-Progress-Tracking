@@ -76,6 +76,13 @@ Route::get('profileafterS/{student_id}','student\SrmController@profileS');
 //แมบวิชากับเด็ก
 Route::get('subject/{course}','SubjectController@index');
 
+<<<<<<< HEAD
+=======
+//map อาจารย์กับวิชา
+Route::get('lecturer/{instructor}','lecturer\InstructorController@index');
+//กดดูหน้าข้อมูลหลังจบ
+Route::get('profileafter/{student_id}','student\SrmController@profile');
+>>>>>>> master
 
 
 

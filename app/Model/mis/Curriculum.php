@@ -11,4 +11,7 @@ class Curriculum extends Model
     protected $primaryKey = "curriculum_id";
     protected $keyType = 'bigint';
 
+
+
+
 }
