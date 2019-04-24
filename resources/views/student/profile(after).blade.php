@@ -14,9 +14,9 @@
     <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li> </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <li class="breadcrumb-item"><a href="{{ url('curriculum') }}">หลักสูตร(IT)</a></li>
+                {{-- <li class="breadcrumb-item"><a href="{{ url('curriculum') }}">หลักสูตร(IT)</a></li>
                 <li class="breadcrumb-item"><a href="{{ url('selectyear') }}">ชั้นปี</a></li>
-                <li class="breadcrumb-item active" aria-current="page"><a href="{{ action('student\BioController@index') }}">รายชื่อนักศึกษา</a></li>
+                <li class="breadcrumb-item active" aria-current="page"><a href="{{ action('student\BioController@index') }}">รายชื่อนักศึกษา</a></li> --}}
                 <li class="breadcrumb-item active" aria-current="page"><a href="">ประวัตินักศึกษา</a></li>
                 <li class="breadcrumb-item active" aria-current="page"><a href="">ข้อมูลหลังจบการศึกษา</a></li>
             </ol>
@@ -32,7 +32,12 @@
         <p>{{$alumni_profile->first_name}}&nbsp;&nbsp;{{$alumni_profile->last_name}}</p>
         <br>
         <br>
-        <p>สาขาที่จบการศึกษา &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </p>
+        <p>รหัสนักศึกษา &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </p>
+        <p>{{$alumni_profile->student_id}}</p>
+        <br>
+        <br>
+        {{-- <p>สาขาที่จบการศึกษา &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </p>
         <p>____________</p>
         <br>
         <br>
@@ -41,7 +46,7 @@
         <br>
         <br>
         <p>ปีการศึกษาที่จบ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </p>
-        <p>______________</p>
+        <p>______________</p> --}}
 
         {{-- <div class="container7">
             <img src="/Codeproject/รูปสัม.jpg" alt="Avatar" class="image" width="100">
@@ -80,7 +85,7 @@
         </TEXTAREA>
         <br>
         <br> --}}
-        <a href="ประวัตินักศึกษา.html" style="float: right; "> ย้อนกลับ</a>
+        {{-- <a href="ประวัตินักศึกษา.html" style="float: right; "> ย้อนกลับ</a> --}}
     </div>
 
     </div>

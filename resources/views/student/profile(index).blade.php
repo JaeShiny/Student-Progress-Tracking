@@ -15,9 +15,6 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li> </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <li class="breadcrumb-item"><a href="{{ url('curriculum') }}">หลักสูตร(IT)</a></li>
-            <li class="breadcrumb-item"><a href="{{ url('selectyear') }}">ชั้นปี</a></li>
-            <li class="breadcrumb-item active" aria-current="page"><a href="{{ action('student\BioController@index') }}">รายชื่อนักศึกษา</a></li>
             <li class="breadcrumb-item active" aria-current="page"><a href="">ประวัตินักศึกษา</a></li>
             <li class="breadcrumb-item active" aria-current="page"><a href="">ข้อมูลระหว่างเรียน</a></li>
         </ol>
@@ -94,9 +91,9 @@
         <br>
         <br>
 
-        <rignt>
+        {{-- <center>
             <a href="ประวัตินักศึกษา.html"> ย้อนกลับ</a>
-        </right>
+        </center> --}}
 
 </body>
 

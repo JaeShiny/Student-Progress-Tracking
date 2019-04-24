@@ -10,6 +10,16 @@ use App\Model\interview\B_profile;
 
 class BioController extends Controller
 {
+        //Student
+     //แสดง profile ของนักศึกษา
+    public function profile(){
+
+        $bios = Bio::all();
+
+        return view('student.profile',[
+            'bios' => $bios
+        ]);
+    }
         //Education Officer
 
     //show หน้ารายชื่อนักศึกษา

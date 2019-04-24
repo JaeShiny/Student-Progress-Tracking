@@ -67,6 +67,8 @@ Route::post('problem_insert','lecturer\ProblemController@insert');
 
 
     //Student
+Route::get('profile/{student_id}','student\BioController@profile');
+
 //กดดูหน้าข้อมูลสัมภาษณ์
 Route::get('profilebeforeS/{student_id}','student\InterviewController@profileS');
 
@@ -85,9 +87,9 @@ Route::get('profileafter/{student_id}','student\SrmController@profile');
 
 
 //ลบด้วยนะถ้าเขียนโค้ดเสร็จ
-// Route::get('profileindex', function () {
-//     return view('student.profile(index)');
-// });
+Route::get('profileindex', function () {
+    return view('student.profile(index)');
+});
 // Route::get('profilebefore', function () {
 //     return view('student.profile(before)');
 // });
