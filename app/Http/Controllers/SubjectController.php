@@ -29,8 +29,8 @@ class SubjectController extends Controller
        //show หน้ารายชื่อนักศึกษา
     public function showCourse(){
 
-        $course = Course::all();
-        // $course = Course::paginate(10);
+        // $course = Course::all();
+        $course = Course::paginate(5);
 
         return view('lecturer.subject',[
             'course' => $course

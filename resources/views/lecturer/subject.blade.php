@@ -42,7 +42,7 @@
     <br>
     <br>
 
-@foreach ($course as $course)
+@foreach ($course as $courses)
     <div class="container">
         <div class="row">
             <div class="col-sm">
@@ -50,11 +50,12 @@
                     <img src="../img/subject.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <center>
-                        <a href="/subject/{{$course->course_id}}">
-                            <h5 class="card-title">{{$course->course_id}}</h5>
+                        <a href="/subject/{{$courses->course_id}}">
+
+                            <h5 class="card-title">{{$courses->course_id}}</h5>
                         </a>
                         <p class="card-text">
-                            {{$course->course_name_eng}}
+                            {{$courses->course_name_eng}}
                         </p>
 
                         <br>
@@ -131,13 +132,7 @@
         </div>
     </div> --}}
 
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-
-    {{-- <span>{{$course->links()}}</span> --}}
+    <center>{{$course->links()}}</center>
 
      <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

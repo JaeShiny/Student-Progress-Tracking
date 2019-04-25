@@ -15,7 +15,7 @@
             <li> </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <li class="breadcrumb-item"><a href="{{ url('curriculum') }}">หลักสูตร(IT)</a></li>
             <li class="breadcrumb-item"><a href="{{ url('selectyear') }}">ชั้นปี</a></li>
-            <li class="breadcrumb-item active" aria-current="page"><a href="{{ action('student\BioController@index') }}">รายชื่อนักศึกษา</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><a href="">รายชื่อนักศึกษา</a></li>
             <li class="breadcrumb-item active" aria-current="page"><a href="">ประวัตินักศึกษา</a></li>
         </ol>
     </nav>
@@ -177,7 +177,7 @@
 
             <br>
             <br>
-            <a href="{{ action('student\BioController@index') }}" style="float: right; "> ย้อนกลับ</a>
+            {{-- <a href="{{ action('student\BioController@indexL') }}" style="float: right; "> ย้อนกลับ</a> --}}
 
         </div>
         </div>

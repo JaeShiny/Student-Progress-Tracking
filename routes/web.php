@@ -49,11 +49,16 @@ Route::get('alumni','student\AlumniController@show');
 
 
 
-    //Lecturer
+    //Lecture
+
+//แมบวิชากับเด็ก
+Route::get('subject/{course}','SubjectController@index');
+
+
 Route::get('course','SubjectController@showCourse');
 
-Route::get('student_profile','student\BioController@profileL');
-Route::get('student_profile/{student_id}','student\BioController@profileL1')->name('profileL');
+Route::get('student_profileL','student\BioController@profileL');
+Route::get('student_profileL/{student_id}','student\BioController@profileL1')->name('profileL');
 
 //กดดูหน้าข้อมูลสัมภาษณ์
 Route::get('profilebeforeL/{student_id}','student\InterviewController@profileL');
@@ -65,6 +70,14 @@ Route::get('profileafterL/{student_id}','student\SrmController@profileL');
 Route::get('problem_create','lecturer\ProblemController@create')->name('create');
 Route::post('problem_insert','lecturer\ProblemController@insert');
 
+// Route::get('studentlistL','student\BioController@indexL');
+
+Route::get('student_searchL','student\BioController@searchL');
+
+
+
+
+
 
     //Student
 Route::get('profile/{student_id}','student\BioController@profile');
@@ -75,8 +88,7 @@ Route::get('profilebeforeS/{student_id}','student\InterviewController@profileS')
 //กดดูหน้าข้อมูลหลังจบ
 Route::get('profileafterS/{student_id}','student\SrmController@profileS');
 
-//แมบวิชากับเด็ก
-Route::get('subject/{course}','SubjectController@index');
+
 
 
 //map อาจารย์กับวิชา
