@@ -13,7 +13,9 @@ class Course extends Model
     protected $keyType = 'bigint';
 
 
-
+    public function curriculum(){
+        return $this->hasOne('App\Model\mis\Curriculum','curriculum_id','curriculum_id');
+    }
 
 
 

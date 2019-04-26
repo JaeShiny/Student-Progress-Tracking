@@ -17,7 +17,7 @@
             <ol class="breadcrumb">
                 <li> </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <li class="breadcrumb-item"><a href="{{ url('selectyear') }}">วิชาที่สอน</a></li>
-                <li class="breadcrumb-item active" aria-current="page"><a href="{{ action('student\BioController@index') }}">รายชื่อนักศึกษา</a></li>
+                <li class="breadcrumb-item active" aria-current="page"><a href="">รายชื่อนักศึกษา</a></li>
                 <li class="breadcrumb-item active" aria-current="page"><a href="">เพิ่มพฤติกรรม/ปัญหาของนักศึกษา</a></li>
             </ol>
     </nav>

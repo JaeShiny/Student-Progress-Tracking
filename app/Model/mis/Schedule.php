@@ -22,4 +22,5 @@ class Schedule extends Model
 
         return $this->hasOne('App\Model\mis\Course', 'course_id', 'course_id');
         }
+
 }

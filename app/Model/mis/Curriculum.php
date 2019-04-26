@@ -11,7 +11,8 @@ class Curriculum extends Model
     protected $primaryKey = "curriculum_id";
     protected $keyType = 'bigint';
 
-
-
+    public function schedule(){
+        return $this->hasOne('App\Model\mis\Schedule','curriculum_id','curriculum_id');
+    }
 
 }

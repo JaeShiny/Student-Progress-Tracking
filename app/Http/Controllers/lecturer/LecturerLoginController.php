@@ -15,12 +15,12 @@ use Auth;
 
 class LecturerLoginController extends Controller
 {
-    //การเอาชื่อและนามสกุลในการล็อคอินของ lecturer มาเทียบกับชื่อของ instructor
+    //การเอาชื่อและนามสกุลในการล็อคอินของอาจารย์ มาเทียบกับชื่อของอาจารย์ใน instructor
     public function index(){
         $user = Auth::user();
         $info = Instructor::where('first_name',$user->name)->where('last_name',$user->lastname)->first();
         return view('lecturer.subjectmajor',[
-            'instructors'=>$info
+            'schedule'=>$info
         ]);
     }
 }

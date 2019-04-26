@@ -39,8 +39,8 @@
     <br>
     <br>
 
-    @foreach ($schedule as $schedule)
-    <div class="container">
+    {{-- @foreach ($schedule as $schedule) --}}
+    {{-- <div class="container">
         <div class="row">
             <div class="col-sm">
                 <div class="card" style="width: 18rem;">
@@ -48,6 +48,7 @@
                     <div class="card-body">
                         <center>
                         <a href="/subject/{{$course->course_id}}">
+                        <a>
                             <h5 class="card-title">{{$schedule->course->course_id}}</h5>
                         </a>
                         <p class="card-text">
@@ -63,14 +64,44 @@
         </div>
     </div>
     <br>
+    <br> --}}
+    {{-- @endforeach --}}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <div class="card" style="width: 18rem;">
+                    <img src="../img/subject.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <center>
+                        {{-- <a href="/subject/{{$course->course_id}}"> --}}
+                        <a>
+                            <h5 class="card-title">{{$schedule->course_id}}</h5>
+                        </a>
+                        <p class="card-text">
+                            {{-- {{$schedule->course->course_name_eng}} --}}
+                        </p>
+
+                        <br>
+                        </center>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
     <br>
-    @endforeach
+    <br>
+
 
     <br>
     <br>
     <br>
     <br>
     <br>
+
+
+
 
     {{-- <span>{{$course->links()}}</span> --}}
 

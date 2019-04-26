@@ -92,7 +92,7 @@ Route::get('profileafterS/{student_id}','student\SrmController@profileS');
 
 
 //map อาจารย์กับวิชา
-Route::get('lecturer/{instructor}','lecturer\InstructorController@index');
+// Route::get('lecturer/{instructor}','lecturer\InstructorController@index');
 //กดดูหน้าข้อมูลหลังจบ
 Route::get('profileafter/{student_id}','student\SrmController@profile');
 
@@ -131,7 +131,7 @@ Route::get('profileindex', function () {
 Route::get('/studentprofile', 'student\ProfileController@index');
 
 //login lecturer ให้เข้ามาเจอวิชา
-Route::get('/subjectL', 'lecturer\LecturerLoginController@index');
+// Route::get('/subjectL', 'lecturer\LecturerLoginController@index');
 
 //Login
 Auth::routes();
