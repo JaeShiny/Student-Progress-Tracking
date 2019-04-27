@@ -23,12 +23,15 @@
     <nav class="bg2" style="background-color: #1D5287;">
         <span class="navbar-text">
             &nbsp;&nbsp;&nbsp;<img src="../img/logopage.png" width="120" height="50"></li>
-                <a href="สถิติ.html"><p style="color: #FFFFFF">นักศึกษา</p></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="/advisor/myStudent"><p style="color: #FFFFFF">นักศึกษา</p></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <a href="สถิติ.html"><p style="color: #FFFFFF">การแจ้งเตือน</p></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <a href="สถิติ.html"><p style="color: #FFFFFF">สถิติ</p></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </span>
     </nav>
-
+    <form class="ml-auto" action="/logout" method="post">
+        @csrf
+        <button type="submit" name="button">Logout</button>
+    </form>
     <style type="text/css">
         @charset "utf-8";
         /* CSS Document */
@@ -290,7 +293,7 @@
 </head>
 
 <body>
-
+@yield('content')
 </body>
 
 </html>
