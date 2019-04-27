@@ -74,7 +74,8 @@ Route::post('problem_insert','lecturer\ProblemController@insert');
 
 Route::get('student_searchL','student\BioController@searchL');
 
-
+// route แสดงรายวิชาที่อาจารย์สอน
+Route::get('course','SubjectController@lecToCourse');
 
 
 
@@ -152,6 +153,8 @@ Route::group(['prefix' => 'student'], function(){
 Route::group(['prefix' => 'advisor'], function(){
     Route::group(['middleware' => ['advisor']], function(){
         Route::get('/dashboard', 'advisor\AdvisorController@index');
+        // route ไปยังหน้าที่แสดงรายชื่อนักศึกษาของอาจารย์ที่ปรึกษา
+        Route::get('myStudent','advisor\AdvisorController@showStudent');
     });
 });
 //Route for lecturer

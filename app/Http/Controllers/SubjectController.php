@@ -12,6 +12,9 @@ use App\Model\mis\Bio;
 use App\Model\mis\Major;
 use App\Model\mis\Course;
 use App\Model\mis\Student;
+use App\Model\mis\Schedule;
+use App\Model\mis\Instructor;
+use Auth;
 
 class SubjectController extends Controller
 {
@@ -36,5 +39,17 @@ class SubjectController extends Controller
             'course' => $course
         ]);
     }
+
+    // แสดงรายวิชาที่อาจารย์สอน
+    public function lecToCourse(){
+        $instructor = Instructor::where('first_name',Auth::user()->name)->first();
+        $schedule = Schedule::where('instructor_id2',$instructor->instructor_id)->pluck('course_id');
+        $course = Course::whereIn('course_id',$schedule)->paginate(5);
+
+        return view('lecturer.subject',[
+            'course' => $course
+        ]);
+    }
+
 
 }
