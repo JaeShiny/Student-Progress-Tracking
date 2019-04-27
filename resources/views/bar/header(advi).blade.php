@@ -4,8 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"> {{--
-    <title>header(edu)</title> --}}
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <link rel="stylesheet" href="csste.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -23,7 +22,7 @@
     <nav class="bg2" style="background-color: #1D5287;">
         <span class="navbar-text">
             &nbsp;&nbsp;&nbsp;<img src="../img/logopage.png" width="120" height="50"></li>&nbsp;&nbsp;
-            <a href="{{ action('EducationOfficer\CurriculumController@show') }}"><p style="color: #FFFFFF">หลักสูตร</p></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="/advisor/myStudent"><p style="color: #FFFFFF">นักศึกษา</p></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <a href="การแจ้งเตือน.html"><p style="color: #FFFFFF">การแจ้งเตือน</p></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <a href="สถิติ.html"><p style="color: #FFFFFF">สถิติ</p></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </span>
