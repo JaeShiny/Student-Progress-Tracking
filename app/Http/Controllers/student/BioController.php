@@ -37,11 +37,11 @@ class BioController extends Controller
 
     public function searchE(Request $request){
         $search = $request->get('search');
-        $student = Student::where('student_id', 'like', '%'.$search.'%');
-        // $bio = Bio::where('last_name', 'like', '%'.$search.'%')
-        // ->orWhere('first_name', 'like', '%'.$search.'%')->paginate(5);
+        // $student = Student::where('student_id', 'like', '%'.$search.'%')->get;
+        $student = Bio::where('last_name', 'like', '%'.$search.'%')
+        ->orWhere('first_name', 'like', '%'.$search.'%')->orWhere('student_id', 'like', '%'.$search.'%')->get();
         return view('EducationOfficer/studentlist',[
-            'student' => $student
+            'student' => $student,
         ]);
     }
 
@@ -77,6 +77,7 @@ class BioController extends Controller
         ]);
     }
 
+    // search ชื่อ และไอดีของนักศึกษา
     public function searchL(Request $request){
         $search = $request->get('search');
         $bio = Bio::where('student_id', 'like', '%'.$search.'%')

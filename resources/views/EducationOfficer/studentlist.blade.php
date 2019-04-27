@@ -68,7 +68,7 @@
                 @foreach ($student as $student)
               <tr>
                 <td scope="row" width="10"> {{$student->student_id}} </td>
-                <td width="10">{{$student->bio->first_name}} &nbsp;&nbsp; {{$student->bio->last_name}}</td>
+                <td width="10">{{$student->first_name}} &nbsp;&nbsp; {{$student->last_name}}</td>
 
                 <td width="10">
                     <a href="">
@@ -77,7 +77,7 @@
                 </td>
                 <td width="10">
                 {{-- <a href="{{route('profileE',$bio['student_id'])}}"> --}}
-                    <a href="{{route('profileE',$student->bio['student_id'])}}">
+                    <a href="{{route('profileE',$student->student_id)}}">
                     {{-- <a href="student_profileE/{{$student->bio['student_id']}}"> --}}
                         <center><img src="../img/resume.png" width="25" title="ประวัตินักศึกษา"></center>
                     </a>
