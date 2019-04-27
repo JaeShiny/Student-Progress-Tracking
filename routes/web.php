@@ -98,6 +98,17 @@ Route::get('profileafterS/{student_id}','student\SrmController@profileS');
 Route::get('profileafter/{student_id}','student\SrmController@profile');
 
 
+    //Advisor
+Route::get('student_profileA','student\BioController@profileA');
+Route::get('student_profileA/{student_id}','student\BioController@profileA1')->name('profileA');
+
+//กดดูหน้าข้อมูลสัมภาษณ์
+Route::get('profilebeforeA/{student_id}','student\InterviewController@profileA');
+
+//กดดูหน้าข้อมูลหลังจบ
+Route::get('profileafterA/{student_id}','student\SrmController@profileA');
+
+
 
 //ลบด้วยนะถ้าเขียนโค้ดเสร็จ
 Route::get('profileindex', function () {

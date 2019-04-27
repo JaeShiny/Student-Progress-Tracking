@@ -22,7 +22,7 @@ class AdvisorController extends Controller
        $instructor = Instructor::where('first_name',Auth::user()->name)->first();
        $myStudent = Student::where('adviser_id1',$instructor->instructor_id)->orWhere('adviser_id2',$instructor->instructor_id)->get();
 
-        return view('advisor.adviseStudent',[
+        return view('advisor.advisorStudent',[
             'myStudent' => $myStudent
         ]);
 

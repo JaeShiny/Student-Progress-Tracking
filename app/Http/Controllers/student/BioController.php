@@ -103,4 +103,34 @@ class BioController extends Controller
             'bios' => $bios
         ]);
     }
+
+        //Advisor
+    //show หน้ารายชื่อนักศึกษา
+    public function indexA(){
+
+        $bio = Bio::all();
+
+        return view('advisor.studentlist',[
+            'bio' => $bio
+        ]);
+    }
+
+    //แสดง profile ของนักศึกษา
+    public function profileA(){
+
+        $bios = Bio::all();
+
+        return view('advisor.profile',[
+            'bios' => $bios
+        ]);
+    }
+    //ส่งประวัติมาจากหน้า studentlist เรียงคนมา
+    public function profileA1($student_id){
+
+        $bios = Bio::find($student_id);
+
+        return view('advisor.profile',[
+            'bios' => $bios
+        ]);
+    }
 }
