@@ -99,7 +99,7 @@
                     </a>
                 </td>
                 <td width="10">
-                    <a href="">
+                    <a href="/risk_problem/{{$student->student_id}}">
                         <center><img src="../img/noti.png" width="30" height="25" title="แจ้งเตือน"></center>
                     </a>
                 </td>

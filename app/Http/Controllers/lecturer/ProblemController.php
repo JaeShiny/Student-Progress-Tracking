@@ -53,6 +53,14 @@ class ProblemController extends Controller
         ]);
     }
 
+    //show ปัญหาของนักศึกษาที่ รุนแรงมาก
+    public function notiProblem($student_id){
+        $risk_problem = Problem::where('risk_level','รุนแรงมาก')->where('student_id',$student_id)->get();
+
+        return view('lecturer.showProblem',[
+            'risk_problem' => $risk_problem,
+        ]);
+    }
 
         //Education Officer
     //แสดงปัญหา

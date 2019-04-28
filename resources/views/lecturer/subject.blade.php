@@ -45,7 +45,7 @@
 @foreach ($course as $courses)
     <div class="container">
         <div class="row">
-            <div class="col-sm">
+            <div class="col-sm-6">
                 <div class="card" style="width: 18rem;">
                     <img src="../img/subject.jpg" class="card-img-top" alt="...">
                     <div class="card-body">

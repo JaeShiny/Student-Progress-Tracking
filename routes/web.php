@@ -79,7 +79,8 @@ Route::get('student_searchL','student\BioController@searchL');
 // route แสดงรายวิชาที่อาจารย์สอน
 Route::get('course','SubjectController@lecToCourse');
 
-
+//กดปุ่มแจ้งเตือนแล้วเจอพฤติกรรมที่รุนแรงของนักศึกษา
+Route::get('risk_problem/{student_id}','lecturer\ProblemController@notiProblem');
 
 
     //Student
