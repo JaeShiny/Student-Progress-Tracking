@@ -70,7 +70,7 @@ Route::get('profileafterL/{student_id}','student\SrmController@profileL');
 Route::get('problem_create/{student_id}','lecturer\ProblemController@create')->name('create');
 Route::post('problem_insert','lecturer\ProblemController@insert');
 //แสดงพฤติกรรมเด็ก
-Route::get('problem/{student_id}', 'lecturer\ProblemController@Show');
+Route::get('studentproblem/{student_id}', 'lecturer\ProblemController@showProblemA');
 
 // Route::get('studentlistL','student\BioController@indexL');
 

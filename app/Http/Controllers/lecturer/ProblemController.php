@@ -14,6 +14,7 @@ use Auth;
 
 class ProblemController extends Controller
 {
+        //Lecturer
     //เพิ่มปัญหา
     public function create($student_id){
         $student = $student_id;
@@ -42,6 +43,14 @@ class ProblemController extends Controller
 
         // return redirect('problem_create')->with('message', 'เพิ่มข้อมูลเรียบร้อยแล้ว');
         return redirect()->back()->with('message', 'เพิ่มข้อมูลเรียบร้อยแล้ว');
+    }
+
+    public function showProblemA($student_id){
+        $problem = Problem::where('student_id', $student_id)->get();
+
+        return view('lecturer.problem',[
+            'problem' => $problem,
+        ]);
     }
 
 
