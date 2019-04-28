@@ -112,6 +112,8 @@ Route::get('profilebeforeA/{student_id}','student\InterviewController@profileA')
 //กดดูหน้าข้อมูลหลังจบ
 Route::get('profileafterA/{student_id}','student\SrmController@profileA');
 
+//แสดงพฤติกรรมเด็ก
+Route::get('studentproblemA/{student_id}', 'lecturer\ProblemController@showProblemA');
 
 
 //ลบด้วยนะถ้าเขียนโค้ดเสร็จ

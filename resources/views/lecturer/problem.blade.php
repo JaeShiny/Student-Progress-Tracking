@@ -47,7 +47,7 @@
                         <td>{{$show_problem->problem_detail}}</td>
                         <td>{{$show_problem->risk_level}}</td>
                         <td>{{$show_problem->created_at}}</td>
-                        <td>{{$show_problem->person_add}}</td>
+                        <td>อาจารย์ {{$show_problem->person_add}}</td>
                     </tr>
 
                     @endforeach

@@ -65,5 +65,5 @@
 
 
 @endsection
-@extends('bar.header(edu)')
+@extends('bar.header(advi)')
 @extends('bar.username')
