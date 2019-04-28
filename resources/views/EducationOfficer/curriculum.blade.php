@@ -36,17 +36,19 @@
           <tr class="table-info">
 
             <td>
-                {{-- <a href="{{ action('student\BioController@index') }}"> --}}
-                        <a href="/curr/{{$curriculum->curriculum_id}}">
-                            {{-- <a href="/subject/{{$course->course_id}}"> --}}
+                <a href="/curr/{{$curriculum->curriculum_id}}">
                     {{$curriculum->curriculum_name}}
                 </a>
             </td>
             <td>
-                {{$curriculum->curri_name_eng}}
+                <a href="/curr/{{$curriculum->curriculum_id}}">
+                    {{$curriculum->curri_name_eng}}
+                </a>
             </td>
             <td>
+                <a href="/curr/{{$curriculum->curriculum_id}}">
                 &nbsp;&nbsp;{{$curriculum->curr_abbre}}&nbsp;&nbsp;
+                </a>
             </td>
 
           </tr>
