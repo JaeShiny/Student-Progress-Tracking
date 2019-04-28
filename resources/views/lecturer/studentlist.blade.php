@@ -15,8 +15,8 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li> </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <li class="breadcrumb-item"><a href="{{ url('curriculum') }}">หลักสูตร(IT)</a></li>
-            <li class="breadcrumb-item"><a href="{{ url('selectyear') }}">ชั้นปี</a></li>
+            {{-- <li class="breadcrumb-item"><a href="{{ url('curriculum') }}">หลักสูตร(IT)</a></li> --}}
+            <li class="breadcrumb-item"><a href="">วิชาที่สอน</a></li>
             <li class="breadcrumb-item active" aria-current="page"><a href="">รายชื่อนักศึกษา</a></li>
         </ol>
     </nav>
@@ -68,8 +68,17 @@
 
                 @foreach ($student as $student)
               <tr>
-                <td scope="row" width="10"> {{$student->student_id}} </td>
-                <td width="10">{{$student->bio->first_name}} &nbsp;&nbsp; {{$student->bio->last_name}}</td>
+                <td scope="row" width="10">
+                    <a href="{{route('profileL',$student->bio['student_id'])}}">
+                        {{$student->student_id}}
+                    </a>
+                </td>
+
+                <td width="10">
+                    <a href="{{route('profileL',$student->bio['student_id'])}}">
+                        {{$student->bio->first_name}} &nbsp;&nbsp; {{$student->bio->last_name}}
+                    </a>
+                </td>
 
                 <td width="10">
                     <a href="">

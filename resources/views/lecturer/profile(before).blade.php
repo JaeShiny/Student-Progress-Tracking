@@ -12,14 +12,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li> </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <li class="breadcrumb-item"><a href="{{ url('curriculum') }}">หลักสูตร(IT)</a></li>
-                <li class="breadcrumb-item"><a href="{{ url('selectyear') }}">ชั้นปี</a></li>
-                <li class="breadcrumb-item active" aria-current="page"><a href="">รายชื่อนักศึกษา</a></li>
+        <ol class="breadcrumb">
+            <li> </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <li class="breadcrumb-item active" aria-current="page"><a href="">วิชาที่สอน</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><a href="">รายชื่อนักศึกษา</a></li>
             <li class="breadcrumb-item active" aria-current="page"><a href="/student_profileL/{{$student}}">ประวัตินักศึกษา</a></li>
-                <li class="breadcrumb-item active" aria-current="page"><a href="">ข้อมูลการสัมภาษณ์</a></li>
-            </ol>
+            <li class="breadcrumb-item active" aria-current="page"><a href="">ข้อมูลการสัมภาษณ์</a></li>
+        </ol>
     </nav>
 </head>
 
