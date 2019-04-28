@@ -67,8 +67,16 @@
 
         @foreach($myStudent as $ad_list)
               <tr>
-                <td scope="row" width="10"> {{$ad_list->bio->student_id}} </td>
-                <td width="10">{{$ad_list->bio->first_name}} &nbsp;&nbsp; {{$ad_list->bio->last_name}}</td>
+                <td scope="row" width="10">
+                    <a href="{{route('profileA',$ad_list->bio->student_id)}}">
+                        {{$ad_list->bio->student_id}}
+                    </a>
+                </td>
+                <td width="10">
+                    <a href="{{route('profileA',$ad_list->bio->student_id)}}">
+                        {{$ad_list->bio->first_name}} &nbsp;&nbsp; {{$ad_list->bio->last_name}}
+                    </a>
+                </td>
 
                 <td width="10">
                     <a href="">
