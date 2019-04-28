@@ -61,7 +61,7 @@ return [
 
         'mysql2' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST_2','ec2-54-179-188-56.ap-southeast-1.compute.amazonaws.com'),
+            'host' => env('DB_HOST_2','ec2-54-169-98-39.ap-southeast-1.compute.amazonaws.com'),
             'port' => env('DB_PORT_2','3306'),
             'database' => env('DB_DATABASE_2'),
             'username' => env('DB_USERNAME_2'),
@@ -80,7 +80,7 @@ return [
 
         'mysql3' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST_3','ec2-18-136-208-141.ap-southeast-1.compute.amazonaws.com'),
+            'host' => env('DB_HOST_3','ec2-3-1-201-147.ap-southeast-1.compute.amazonaws.com'),
             'port' => env('DB_PORT_3','3306'),
             'database' => env('DB_DATABASE_3'),
             'username' => env('DB_USERNAME_3'),
@@ -99,7 +99,7 @@ return [
 
         'mysql4' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST_4','ec2-54-169-133-252.ap-southeast-1.compute.amazonaws.com'),
+            'host' => env('DB_HOST_4','ec2-18-136-209-10.ap-southeast-1.compute.amazonaws.com'),
             'port' => env('DB_PORT-4','3306'),
             'database' => env('DB_DATABASE_4'),
             'username' => env('DB_USERNAME_4'),

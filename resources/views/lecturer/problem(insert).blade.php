@@ -42,15 +42,16 @@
 {{-- ฟอร์ม --}}
 <div class="container">
 <div class="box">
-<form action="problem_insert" method="POST">
+<form action="/problem_insert" method="POST">
+<input type="hidden" name="student_id" value="{{$student_id}}">
         {{-- <div class="form-group">
             <label for="exampleFormControlTextarea1">รหัสนักศึกษา</label>
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="student_id"></textarea>
         </div> --}}
-        <div class="form-group">
+        {{-- <div class="form-group">
             <label for="usr">รหัสนักศึกษา:</label>
             <input type="text" class="form-control" id="usr" name="student_id">
-        </div>
+        </div> --}}
         <div class="form-group">
             <label for="exampleFormControlSelect1">ประเภทของ พฤติกรรม/ปัญหา ของนักศึกษา:
                 <select class="form-control" id="exampleFormControlSelect1" name="problem_type">
@@ -90,10 +91,10 @@
             <label for="exampleFormControlTextarea1">ผู้เพิ่ม:</label>
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="person_add"></textarea>
         </div> --}}
-        <div class="form-group">
+        {{-- <div class="form-group">
             <label for="usr">ผู้เพิ่ม:</label>
             <input type="text" class="form-control" id="usr" name="person_add">
-        </div>
+        </div> --}}
         {{-- <center><button type="submit" class="btn btn-primary">Submit</button></center> --}}
         <div class="form-group">
             <input type="submit" value="submit" class="btn btn-primary">

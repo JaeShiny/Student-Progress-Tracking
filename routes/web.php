@@ -67,8 +67,10 @@ Route::get('profilebeforeL/{student_id}','student\InterviewController@profileL')
 Route::get('profileafterL/{student_id}','student\SrmController@profileL');
 
 //เพิ่มพฤติกรรม/ปัญหา
-Route::get('problem_create','lecturer\ProblemController@create')->name('create');
+Route::get('problem_create/{student_id}','lecturer\ProblemController@create')->name('create');
 Route::post('problem_insert','lecturer\ProblemController@insert');
+//แสดงพฤติกรรมเด็ก
+Route::get('problem/{student_id}', 'lecturer\ProblemController@Show');
 
 // Route::get('studentlistL','student\BioController@indexL');
 

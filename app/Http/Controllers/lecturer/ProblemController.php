@@ -6,14 +6,20 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Validation\Rule;
 use App\Model\spts\Problem;
-use App\Model\spts\StudentProblem;
-use App\Model\spts\Student;
+// use App\Model\spts\StudentProblem;
+// use App\Model\spts\Student;
+use App\Model\mis\Bio;
+use App\Model\mis\Student;
+use Auth;
 
 class ProblemController extends Controller
 {
     //เพิ่มปัญหา
-    public function create(){
-	    return view('lecturer.problem(insert)');
+    public function create($student_id){
+        $student = $student_id;
+	    return view('lecturer.problem(insert)',[
+            'student_id' => $student,
+        ]);
     }
 
     public function insert(Request $request){
@@ -21,17 +27,21 @@ class ProblemController extends Controller
         // $student_problem = new StudentProblem();
 
         // $student_problem->problem_id = $request->problem_id;
+
+        // $student_id = Student::where();
+
         $problem->student_id = $request->student_id;
 
         $problem->problem_type = $request->problem_type;
         $problem->problem_detail = $request->problem_detail;
         $problem->risk_level = $request->risk_level;
-        $problem->person_add = $request->person_add;
+        $problem->person_add = Auth::user()->name;
 
 
         $problem->save();
 
-        return redirect('problem_create')->with('message', 'เพิ่มข้อมูลเรียบร้อยแล้ว');
+        // return redirect('problem_create')->with('message', 'เพิ่มข้อมูลเรียบร้อยแล้ว');
+        return redirect()->back()->with('message', 'เพิ่มข้อมูลเรียบร้อยแล้ว');
     }
 
 
