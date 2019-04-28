@@ -17,7 +17,7 @@
                 {{-- <li class="breadcrumb-item"><a href="{{ url('curriculum') }}">หลักสูตร(IT)</a></li>
                 <li class="breadcrumb-item"><a href="{{ url('selectyear') }}">ชั้นปี</a></li>
                 <li class="breadcrumb-item active" aria-current="page"><a href="{{ action('student\BioController@index') }}">รายชื่อนักศึกษา</a></li> --}}
-                <li class="breadcrumb-item active" aria-current="page"><a href="">ประวัตินักศึกษา</a></li>
+                <li class="breadcrumb-item active" aria-current="page"><a href="/profile/{{$student}}">ประวัตินักศึกษา</a></li>
                 <li class="breadcrumb-item active" aria-current="page"><a href="">ข้อมูลการสัมภาษณ์</a></li>
             </ol>
     </nav>
@@ -187,7 +187,7 @@
             </tbody>
         </table>
     </center>
-    <br><br><br>
+    <br>
 
     {{-- @endforeach --}}
 
@@ -196,9 +196,9 @@
     </div>
 
     <center>
-        <br>
-        {{-- <a href="{{ url('student\BioController@profile') }}"> ย้อนกลับ</a> --}}
+        <a href="/profile/{{$student}}" > ย้อนกลับ</a>
     </center>
+    <br>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

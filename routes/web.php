@@ -155,15 +155,15 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //Route for EducationOfficer user
 Route::group(['middleware' => ['auth']], function () {
-    Route::get('/home', 'HomeController@index');
+    Route::get('/dashboard', 'EducationOfficer\EducationOfficerController@index');
 });
-//Route for student
+//Route for student user
 Route::group(['prefix' => 'student'], function(){
     Route::group(['middleware' => ['student']], function(){
         Route::get('/dashboard', 'student\StudentController@index');
     });
 });
-//Route for advisor
+//Route for advisor user
 Route::group(['prefix' => 'advisor'], function(){
     Route::group(['middleware' => ['advisor']], function(){
         Route::get('/dashboard', 'advisor\AdvisorController@index');
@@ -171,7 +171,7 @@ Route::group(['prefix' => 'advisor'], function(){
         Route::get('myStudent','advisor\AdvisorController@showStudent');
     });
 });
-//Route for lecturer
+//Route for lecturer user
 Route::group(['prefix' => 'lecturer'], function(){
     Route::group(['middleware' => ['lecturer']], function(){
         Route::get('/dashboard', 'lecturer\LecturerController@index');

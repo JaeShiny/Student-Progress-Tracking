@@ -117,10 +117,6 @@
             <br>
 
 
-            <br>
-            <br>
-            {{-- <a href="{{ action('student\BioController@index') }}" style="float: right; "> ย้อนกลับ</a> --}}
-
         </div>
         </div>
         </div>

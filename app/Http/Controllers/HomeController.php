@@ -37,7 +37,7 @@ class HomeController extends Controller
         }else {
             // return view('EducationOfficer/curriculum');
             // return View::action('EducationOfficer/CurriculumController@show');
-            return redirect('curriculum');
+            return view('EducationOfficer/dashboard');
         }
     }
 }
