@@ -96,7 +96,7 @@
                     </a>
                 </td>
                 <td width="10">
-                    <a href="">
+                    <a href="/studentproblemE/{{$student->student_id}}">
                         <center><img src="../img/feedback.png" width="25" title="พฤติกรรม/ปัญหา"></center>
                     </a>
                 </td>

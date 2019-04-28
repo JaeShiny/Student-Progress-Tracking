@@ -16,10 +16,10 @@
     <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li> </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <li class="breadcrumb-item"><a href="{{ url('curriculum') }}">หลักสูตร(IT)</a></li>
-                <li class="breadcrumb-item"><a href="{{ url('selectyear') }}">ชั้นปี</a></li>
-                <li class="breadcrumb-item active" aria-current="page"><a href="{{ action('student\BioController@index') }}">รายชื่อนักศึกษา</a></li>
-                <li class="breadcrumb-item active" aria-current="page"><a href="">ประวัตินักศึกษา(ใส่ชื่อด้วย)</a></li>
+                {{-- <li class="breadcrumb-item"><a href="{{ url('curriculum') }}">หลักสูตร(IT)</a></li> --}}
+                {{-- <li class="breadcrumb-item"><a href="{{ url('selectyear') }}">ชั้นปี</a></li> --}}
+                <li class="breadcrumb-item active" aria-current="page"><a href="">รายชื่อนักศึกษา</a></li>
+                {{-- <li class="breadcrumb-item active" aria-current="page"><a href="">ประวัตินักศึกษา(ใส่ชื่อด้วย)</a></li> --}}
                 <li class="breadcrumb-item active" aria-current="page"><a href="">พฤติกรรม/ปัญหาของนักศึกษา</a></li>
             </ol>
     </nav>
@@ -27,7 +27,6 @@
 <body>
         <h5 align='center'>ปัญหา/พฤติกรรม</h5>
         <br><br><br><br>
-@foreach ($problem as $problem)
 
         <center>
             <table class="table" width="60%">
@@ -41,18 +40,21 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach ($problem as $show_problem)
+
                     <tr>
-                        <td scope="row">{{$problem->problem_type}}</td>
-                        <td>{{$problem->problem_detail}}</td>
-                        <td>{{$problem->risk_level}}</td>
-                        <<td>{{$problem->created_at}}</td>
-                        <td>{{$problem->person_add}}</td>
+                        <td scope="row">{{$show_problem->problem_type}}</td>
+                        <td>{{$show_problem->problem_detail}}</td>
+                        <td>{{$show_problem->risk_level}}</td>
+                        <td>{{$show_problem->created_at}}</td>
+                        <td>{{$show_problem->person_add}}</td>
                     </tr>
+
+                    @endforeach
                 </tbody>
             </table>
         </center>
 
-@endforeach
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

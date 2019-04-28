@@ -45,7 +45,7 @@ class ProblemController extends Controller
         return redirect()->back()->with('message', 'เพิ่มข้อมูลเรียบร้อยแล้ว');
     }
 
-    public function showProblemA($student_id){
+    public function showProblemL($student_id){
         $problem = Problem::where('student_id', $student_id)->get();
 
         return view('lecturer.problem',[
@@ -54,7 +54,7 @@ class ProblemController extends Controller
     }
 
     //show ปัญหาของนักศึกษาที่ รุนแรงมาก
-    public function notiProblem($student_id){
+    public function notiProblemL($student_id){
         $risk_problem = Problem::where('risk_level','รุนแรงมาก')->where('student_id',$student_id)->get();
 
         return view('lecturer.showProblem',[
@@ -64,12 +64,31 @@ class ProblemController extends Controller
 
         //Education Officer
     //แสดงปัญหา
-    public function showProblemE(){
-
-        $problem = Problem::all();
+    public function showProblemE($student_id){
+        $problem = Problem::where('student_id', $student_id)->get();
 
         return view('EducationOfficer.problem',[
-            'problem' => $problem
+            'problem' => $problem,
+        ]);
+    }
+
+    //show ปัญหาของนักศึกษาที่ รุนแรงมาก
+    public function notiProblemE($student_id){
+        $risk_problem = Problem::where('risk_level','รุนแรงมาก')->where('student_id',$student_id)->get();
+
+        return view('EducationOfficer.showProblem',[
+            'risk_problem' => $risk_problem,
+        ]);
+    }
+
+
+        //Advisor
+    //แสดงปัญหา
+    public function showProblemA($student_id){
+        $problem = Problem::where('student_id', $student_id)->get();
+
+        return view('advisor.problem',[
+            'problem' => $problem,
         ]);
     }
 

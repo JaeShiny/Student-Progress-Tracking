@@ -43,7 +43,7 @@
                     @foreach ($problem as $show_problem)
 
                     <tr>
-                        <th scope="row">{{$show_problem->problem_type}}</th>
+                        <td scope="row">{{$show_problem->problem_type}}</td>
                         <td>{{$show_problem->problem_detail}}</td>
                         <td>{{$show_problem->risk_level}}</td>
                         <td>{{$show_problem->created_at}}</td>
@@ -65,5 +65,5 @@
 
 
 @endsection
-@extends('bar.header(advi)')
+@extends('bar.header(lec)')
 @extends('bar.username')

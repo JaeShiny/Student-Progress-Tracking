@@ -38,9 +38,10 @@ Route::get('profilebeforeE/{student_id}','student\InterviewController@profileE')
 Route::get('profileafterE/{student_id}','student\SrmController@profileE');
 
 //กดดูพฤติกรรม
-Route::get('problem', 'lecturer\ProblemController@showProblemE')->name('problemE');
+// Route::get('problem', 'lecturer\ProblemController@showProblemE')->name('problemE');
 
-
+//แสดงพฤติกรรมเด็ก
+Route::get('studentproblemE/{student_id}', 'lecturer\ProblemController@showProblemE');
 
 
 
@@ -70,7 +71,7 @@ Route::get('profileafterL/{student_id}','student\SrmController@profileL');
 Route::get('problem_create/{student_id}','lecturer\ProblemController@create')->name('create');
 Route::post('problem_insert','lecturer\ProblemController@insert');
 //แสดงพฤติกรรมเด็ก
-Route::get('studentproblem/{student_id}', 'lecturer\ProblemController@showProblemA');
+Route::get('studentproblem/{student_id}', 'lecturer\ProblemController@showProblemL');
 
 // Route::get('studentlistL','student\BioController@indexL');
 
@@ -80,7 +81,7 @@ Route::get('student_searchL','student\BioController@searchL');
 Route::get('course','SubjectController@lecToCourse');
 
 //กดปุ่มแจ้งเตือนแล้วเจอพฤติกรรมที่รุนแรงของนักศึกษา
-Route::get('risk_problem/{student_id}','lecturer\ProblemController@notiProblem');
+Route::get('risk_problem/{student_id}','lecturer\ProblemController@notiProblemL');
 
 
     //Student
