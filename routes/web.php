@@ -26,7 +26,7 @@ Route::get('curr/{curriculum}','EducationOfficer\CurriculumController@index');
 
 Route::get('studentlist','student\BioController@indexE');
 
-Route::get('student_search','student\BioController@searchE');
+Route::get('student_searchE','student\BioController@searchE');
 
 Route::get('student_profileE','student\BioController@profileE');
 Route::get('student_profileE/{student_id}','student\BioController@profileE1')->name('profileE');
@@ -73,8 +73,7 @@ Route::post('problem_insert','lecturer\ProblemController@insert');
 //แสดงพฤติกรรมเด็ก
 Route::get('studentproblem/{student_id}', 'lecturer\ProblemController@showProblemL');
 
-// Route::get('studentlistL','student\BioController@indexL');
-
+// search
 Route::get('student_searchL','student\BioController@searchL');
 
 // route แสดงรายวิชาที่อาจารย์สอน
@@ -115,6 +114,7 @@ Route::get('profileafterA/{student_id}','student\SrmController@profileA');
 //แสดงพฤติกรรมเด็ก
 Route::get('studentproblemA/{student_id}', 'lecturer\ProblemController@showProblemA');
 
+Route::get('student_searchA','student\BioController@searchA');
 
 //ลบด้วยนะถ้าเขียนโค้ดเสร็จ
 Route::get('profileindex', function () {

@@ -39,7 +39,7 @@
 <body>
 
     <div class="container">
-        <form action="/student_search" method="get">
+        <form action="/student_searchA" method="get">
             <div class="input-group">
                 <input type="search" name="search" class="form-control">
                 <span class="input-group-prepend">

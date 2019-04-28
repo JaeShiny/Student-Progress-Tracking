@@ -29,19 +29,7 @@
 </head>
 
 <body>
-
-    <form class="form-inline" style="float:right;">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-    </form>
-
-    <br>
-    <br>
-    <br>
-    <br>
-
+<br><br>
 @foreach ($course as $courses)
     <div class="container">
         <div class="row">
@@ -51,86 +39,21 @@
                     <div class="card-body">
                         <center>
                         <a href="/subject/{{$courses->course_id}}">
-
                             <h5 class="card-title">{{$courses->course_id}}</h5>
                         </a>
                         <p class="card-text">
                             {{$courses->course_name_eng}}
                         </p>
-
                         <br>
                         </center>
                     </div>
                 </div>
             </div>
-
-            {{-- <div class="col-sm">
-                <div class="card" style="width: 18rem;">
-                    <img src="../img/subject.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">INT 206</h5>
-                        <p class="card-text">Software Development Process II</p>
-                        <a href="#" class="btn btn-primary">รายละเอียด</a>
-                        <br>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-0">
-                <div class="card" style="width: 18rem;">
-                    <img src="../img/subject.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">INT 206</h5>
-                        <p class="card-text">Software Development Process II</p>
-                        <a href="#" class="btn btn-primary">รายละเอียด</a>
-                        <br>
-                    </div>
-                </div>
-            </div> --}}
         </div>
     </div>
     <br>
     <br>
-    @endforeach
-    {{-- <div class="container">
-        <div class="row">
-            <div class="col-sm">
-                <div class="card" style="width: 18rem;">
-                    <img src="../img/subject.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">INT 206</h5>
-                        <p class="card-text">Software Development Process II</p>
-                        <a href="#" class="btn btn-primary">รายละเอียด</a>
-                        <br>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm">
-                <div class="card" style="width: 18rem;">
-                    <img src="../img/subject.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">INT 206</h5>
-                        <p class="card-text">Software Development Process II</p>
-                        <a href="#" class="btn btn-primary">รายละเอียด</a>
-                        <br>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-0">
-                <div class="card" style="width: 18rem;">
-                    <img src="../img/subject.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">INT 206</h5>
-                        <p class="card-text">Software Development Process II</p>
-                        <a href="#" class="btn btn-primary">รายละเอียด</a>
-                        <br>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> --}}
+@endforeach
 
     <center>{{$course->links()}}</center>
 
