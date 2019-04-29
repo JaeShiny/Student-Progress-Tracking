@@ -43,7 +43,7 @@ class BioController extends Controller
         // ->orWhere('first_name', 'like', '%'.$search.'%')->orWhere('student_id', 'like', '%'.$search.'%')->get();
         return view('EducationOfficer/studentlist',[
             'student' => $student,
-            'bio' => $bio,
+
         ]);
     }
 
@@ -145,9 +145,9 @@ class BioController extends Controller
 
     public function searchA(Request $request){
         $search = $request->get('search');
-        $student = Student::where('student_id', 'like', '%'.$search.'%')->get();
-        return view('advisor/studentAdvisor',[
-            'student' => $student,
+        $myStudent = Student::where('student_id', 'like', '%'.$search.'%')->get();
+        return view('advisor/advisorStudent',[
+            'myStudent' => $myStudent,
         ]);
     }
 }
