@@ -17,6 +17,7 @@
         </ol>
     </nav> --}}
 
+
 </head>
 
 <body>
@@ -25,7 +26,7 @@
             <a href="/profilebeforeS/{{$bios->student_id}}">
                 <button type="button" class="btn btn-outline-success">ข้อมูลการสัมภาษณ์</button>
             </a>
-            <a href="{{ url('profileindex') }}">
+            {{-- <a href="{{ url('profileindex') }}"> --}}
                 <button type="button" class="btn btn-outline-secondary">ข้อมูลระหว่างการศึกษา</button>
             </a>
             <a href="/profileafterS/{{$bios->student_id}}">
