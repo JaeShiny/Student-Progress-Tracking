@@ -14,9 +14,9 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li> </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <li class="breadcrumb-item active" aria-current="page"><a href="">วิชาที่สอน</a></li>
-            <li class="breadcrumb-item active" aria-current="page"><a href="">รายชื่อนักศึกษา</a></li>
-            <li class="breadcrumb-item active" aria-current="page"><a href="">ประวัตินักศึกษา</a></li>
+            <li class="breadcrumb-item" aria-current="page">วิชาที่สอน</li>
+            <li class="breadcrumb-item" aria-current="page">รายชื่อนักศึกษา</li>
+            <li class="breadcrumb-item active" aria-current="page"><a href="/student_profileL/{{$student}}">ประวัตินักศึกษา</a></li>
             <li class="breadcrumb-item active" aria-current="page"><a href="">ข้อมูลหลังจบการศึกษา</a></li>
         </ol>
     </nav>

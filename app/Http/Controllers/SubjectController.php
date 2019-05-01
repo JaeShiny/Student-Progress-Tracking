@@ -30,13 +30,15 @@ class SubjectController extends Controller
 
     //แสดงวิชา
        //show หน้ารายชื่อนักศึกษา
-    public function showCourse(){
+    public function showCourse($student_id){
+        $student = $student_id;
 
         // $course = Course::all();
         $course = Course::paginate(5);
 
         return view('lecturer.subject',[
-            'course' => $course
+            'course' => $course,
+            'student' => $student,
         ]);
     }
 

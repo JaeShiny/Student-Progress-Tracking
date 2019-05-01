@@ -21,7 +21,7 @@
         <ol class="breadcrumb">
             <li></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-            <li class="breadcrumb-item active" aria-current="page">วิชาที่สอน</li>
+            <li class="breadcrumb-item" aria-current="page">วิชาที่สอน</li>
 
         </ol>
 

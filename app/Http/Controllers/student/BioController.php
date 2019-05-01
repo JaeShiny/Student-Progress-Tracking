@@ -71,11 +71,13 @@ class BioController extends Controller
 
     //show หน้ารายชื่อนักศึกษา
     public function indexL(){
+        $student = $student_id;
 
         $bio = Bio::all();
 
         return view('lecturer.studentlist',[
-            'bio' => $bio
+            'bio' => $bio,
+            'student' => $student,
         ]);
     }
 
@@ -109,7 +111,7 @@ class BioController extends Controller
         $bios = Bio::find($student_id);
 
         return view('lecturer.profile',[
-            'bios' => $bios
+            'bios' => $bios,
         ]);
     }
 
