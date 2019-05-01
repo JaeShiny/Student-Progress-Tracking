@@ -16,8 +16,8 @@
                 <li> </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 {{-- <li class="breadcrumb-item"><a href="{{ url('curriculum') }}">หลักสูตร(IT)</a></li> --}}
                 {{-- <li class="breadcrumb-item"><a href="{{ url('selectyear') }}">ชั้นปี</a></li> --}}
-                <li class="breadcrumb-item active" aria-current="page"><a href="">รายชื่อนักศึกษา</a></li>
-                <li class="breadcrumb-item active" aria-current="page"><a href="">ประวัตินักศึกษา</a></li>
+                <li class="breadcrumb-item" aria-current="page"><a href="/advisor/myStudent">รายชื่อนักศึกษา</a></li>
+                <li class="breadcrumb-item active" aria-current="page"><a href="/student_profileA/{{$student}}">ประวัตินักศึกษา</a></li>
                 <li class="breadcrumb-item active" aria-current="page"><a href="">ข้อมูลหลังจบการศึกษา</a></li>
             </ol>
     </nav>
@@ -80,7 +80,7 @@
         </TEXTAREA>
         <br>
         <br> --}}
-        <a href="ประวัตินักศึกษา.html" style="float: right; "> ย้อนกลับ</a>
+        {{-- <a href="ประวัตินักศึกษา.html" style="float: right; "> ย้อนกลับ</a> --}}
     </div>
 
     </div>

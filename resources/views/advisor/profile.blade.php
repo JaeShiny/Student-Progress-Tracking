@@ -15,7 +15,7 @@
             <li> </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             {{-- <li class="breadcrumb-item"><a href="{{ url('curriculum') }}">หลักสูตร(IT)</a></li> --}}
             {{-- <li class="breadcrumb-item"><a href="{{ url('selectyear') }}">ชั้นปี</a></li> --}}
-            <li class="breadcrumb-item active" aria-current="page"><a href="">รายชื่อนักศึกษา</a></li>
+            <li class="breadcrumb-item" aria-current="page"><a href="/advisor/myStudent">รายชื่อนักศึกษา</a></li>
             <li class="breadcrumb-item active" aria-current="page"><a href="">ประวัตินักศึกษา</a></li>
         </ol>
     </nav>
@@ -32,7 +32,7 @@
             <a href="/profilebeforeA/{{$bios->student_id}}">
                 <button type="button" class="btn btn-outline-success">ข้อมูลการสัมภาษณ์</button>
             </a>
-            <a href="{{ url('profileindex') }}">
+            {{-- <a href="{{ url('profileindex') }}"> --}}
                 <button type="button" class="btn btn-outline-secondary">ข้อมูลระหว่างการศึกษา</button>
             </a>
             <a href="/profileafterA/{{$bios->student_id}}">
