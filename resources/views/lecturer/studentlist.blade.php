@@ -16,7 +16,7 @@
         <ol class="breadcrumb">
             <li> </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             {{-- <li class="breadcrumb-item"><a href="{{ url('curriculum') }}">หลักสูตร(IT)</a></li> --}}
-            <li class="breadcrumb-item">วิชาที่สอน</li>
+            <li class="breadcrumb-item"><a href="{{ url('course') }}">วิชาที่สอน</a></li>
             <li class="breadcrumb-item active" aria-current="page"><a href="">รายชื่อนักศึกษา</a></li>
         </ol>
     </nav>

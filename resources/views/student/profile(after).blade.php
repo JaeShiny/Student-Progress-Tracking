@@ -17,7 +17,7 @@
                 {{-- <li class="breadcrumb-item"><a href="{{ url('curriculum') }}">หลักสูตร(IT)</a></li>
                 <li class="breadcrumb-item"><a href="{{ url('selectyear') }}">ชั้นปี</a></li>
                 <li class="breadcrumb-item active" aria-current="page"><a href="{{ action('student\BioController@index') }}">รายชื่อนักศึกษา</a></li> --}}
-                <li class="breadcrumb-item" aria-current="page">ประวัตินักศึกษา</li>
+                <li class="breadcrumb-item" aria-current="page"><a href="/studentprofile">ประวัตินักศึกษา</a></li>
                 <li class="breadcrumb-item active" aria-current="page"><a href="">ข้อมูลหลังจบการศึกษา</a></li>
             </ol>
     </nav>
