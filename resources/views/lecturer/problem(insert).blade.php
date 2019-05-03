@@ -63,6 +63,10 @@
                 </select></label>
         </div>
         <div class="form-group">
+            <label for="usr">หัวข้อปัญหา:</label>
+            <input type="text" class="form-control" id="usr" name="problem_topic">
+        </div>
+        <div class="form-group">
             <label for="exampleFormControlTextarea1">รายละเอียด พฤติกรรม/ปัญหา ของนักศึกษา:</label>
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="problem_detail"></textarea>
         </div>
@@ -85,6 +89,10 @@
                   <option>รุนแรงมาก</option>
 
                 </select></label>
+        </div>
+        <div class="form-group">
+            <label for="usr">วันที่เกิดปัญหา:</label>
+            <input type="text" class="form-control" id="usr" name="date" value="DD/MM/YY">
         </div>
 
         {{-- <div class="form-group">
