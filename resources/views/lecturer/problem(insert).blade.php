@@ -44,14 +44,7 @@
 <div class="box">
 <form action="/problem_insert" method="POST">
 <input type="hidden" name="student_id" value="{{$student_id}}">
-        {{-- <div class="form-group">
-            <label for="exampleFormControlTextarea1">รหัสนักศึกษา</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="student_id"></textarea>
-        </div> --}}
-        {{-- <div class="form-group">
-            <label for="usr">รหัสนักศึกษา:</label>
-            <input type="text" class="form-control" id="usr" name="student_id">
-        </div> --}}
+
         <div class="form-group">
             <label for="exampleFormControlSelect1">ประเภทของ พฤติกรรม/ปัญหา ของนักศึกษา:
                 <select class="form-control" id="exampleFormControlSelect1" name="problem_type">
@@ -62,25 +55,16 @@
                   <option>พฤติกรรม/ปัญหา ด้านการเงิน</option>
                 </select></label>
         </div>
+
         <div class="form-group">
             <label for="usr">หัวข้อปัญหา:</label>
             <input type="text" class="form-control" id="usr" name="problem_topic">
         </div>
+
         <div class="form-group">
             <label for="exampleFormControlTextarea1">รายละเอียด พฤติกรรม/ปัญหา ของนักศึกษา:</label>
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="problem_detail"></textarea>
         </div>
-
-        {{-- <label for="exampleFormControlSelect1" name="risk_level">ระดับความรุนแรงของปัญหา
-        <div class="custom-control custom-radio">
-            <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-            <label class="custom-control-label" for="customRadio1"  name="risk_level">ระดับปกติ</label>
-        </div>
-        <div class="custom-control custom-radio">
-            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-            <label class="custom-control-label" for="customRadio2"  name="risk_level">ระดับรุนแรง</label>
-        </div>
-        </label> --}}
 
         <div class="form-group">
             <label for="exampleFormControlSelect1">ระดับความรุนแรง:
@@ -92,7 +76,7 @@
         </div>
         <div class="form-group">
             <label for="usr">วันที่เกิดปัญหา:</label>
-            <input type="text" class="form-control" id="usr" name="date" value="DD/MM/YY">
+            <input type="text" class="form-control" id="usr" name="date">
         </div>
 
         {{-- <div class="form-group">
