@@ -30,7 +30,7 @@
             {{-- <a href="{{route('profile(before)',$bio['first_name']==$b_profile['firstname'])}}"> --}}
             {{-- <a href="{{url('profilebefore')}}"> --}}
             <a href="/profilebeforeA/{{$bios->student_id}}">
-                <button type="button" class="btn btn-outline-success">ข้อมูลการสัมภาษณ์</button>
+                <button type="button" class="btn btn-outline-success">ข้อมูลการศึกษา</button>
             </a>
             {{-- <a href="{{ url('profileindex') }}"> --}}
                 <button type="button" class="btn btn-outline-secondary">ข้อมูลระหว่างการศึกษา</button>

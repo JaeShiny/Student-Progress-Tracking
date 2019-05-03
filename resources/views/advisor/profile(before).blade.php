@@ -18,7 +18,7 @@
                 {{-- <li class="breadcrumb-item"><a href="{{ url('selectyear') }}">ชั้นปี</a></li> --}}
                 <li class="breadcrumb-item" aria-current="page"><a href="/advisor/myStudent">รายชื่อนักศึกษา</a></li>
                 <li class="breadcrumb-item active" aria-current="page"><a href="/student_profileA/{{$student}}">ประวัตินักศึกษา</a></li>
-                <li class="breadcrumb-item active" aria-current="page"><a href="">ข้อมูลการสัมภาษณ์</a></li>
+                <li class="breadcrumb-item active" aria-current="page"><a href="">ข้อมูลการศึกษา</a></li>
             </ol>
     </nav>
 </head>

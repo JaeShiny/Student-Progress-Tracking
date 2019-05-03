@@ -4,6 +4,7 @@
 <html>
 
 <head>
+    <link rel="icon" type="img/png" href="../img/libray.png" />
     <title>ข้อมูลการสัมภาษณ์</title>
     <link href="{{ asset('css/csste.css') }}" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -18,7 +19,7 @@
                 <li class="breadcrumb-item"><a href="{{ url('selectyear') }}">ชั้นปี</a></li>
                 <li class="breadcrumb-item active" aria-current="page"><a href="{{ action('student\BioController@index') }}">รายชื่อนักศึกษา</a></li> --}}
                 <li class="breadcrumb-item" aria-current="page"><a href="/studentprofile">ประวัตินักศึกษา</a></li>
-                <li class="breadcrumb-item active" aria-current="page"><a href="">ข้อมูลการสัมภาษณ์</a></li>
+                <li class="breadcrumb-item active" aria-current="page"><a href="">ข้อมูลการศึกษา</a></li>
             </ol>
     </nav>
 </head>

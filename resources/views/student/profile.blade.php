@@ -24,7 +24,7 @@
 <br>
         <div style="float: right;">
             <a href="/profilebeforeS/{{$bios->student_id}}">
-                <button type="button" class="btn btn-outline-success">ข้อมูลการสัมภาษณ์</button>
+                <button type="button" class="btn btn-outline-success">ข้อมูลการศึกษา</button>
             </a>
             {{-- <a href="{{ url('profileindex') }}"> --}}
                 <button type="button" class="btn btn-outline-secondary">ข้อมูลระหว่างการศึกษา</button>

@@ -17,7 +17,7 @@
             <li class="breadcrumb-item" aria-current="page"><a href="{{ url('course') }}">วิชาที่สอน</a></li>
             <li class="breadcrumb-item" aria-current="page">รายชื่อนักศึกษา</li>
             <li class="breadcrumb-item active" aria-current="page"><a href="/student_profileL/{{$student}}">ประวัตินักศึกษา</a></li>
-            <li class="breadcrumb-item active" aria-current="page"><a href="">ข้อมูลการสัมภาษณ์</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><a href="">ข้อมูลการศึกษา</a></li>
         </ol>
     </nav>
 </head>

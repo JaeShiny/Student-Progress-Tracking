@@ -8,7 +8,8 @@
     <title>ระบบติดตามความก้าวหน้าของนักศึกษา</title>
     <style>
         body {
-            background-color: black;
+            /* background-color: black; */
+            /* background-image: -moz-element(../img/user.png); */
         }
 
         .t1 {
@@ -16,7 +17,7 @@
             width: 280px;
             height: 38px;
             text-align: center;
-            background-color: black;
+            /* background-color: black; */
             color: white;
         }
     </style>
