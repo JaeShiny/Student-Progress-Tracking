@@ -46,10 +46,19 @@
                         <td>{{$show_problem->problem_detail}}</td>
                         <td>{{$show_problem->risk_level}}</td>
                         <td>{{$show_problem->created_at}}</td>
-                        <td>อาจารย์ {{$show_problem->person_add}}</td>
+                        {{-- <td>อาจารย์ {{$show_problem->person_add}}</td> --}}
+                        @foreach ($users as $user)
+                        <td>อาจารย์ {{$user->name}}</td>
+                        @endforeach
+
                     </tr>
 
                     @endforeach
+                    {{-- @foreach ($user as $users)
+                    <tr>
+                        <td>อาจารย์ {{$users->name}}</td>
+                    </tr>
+                    @endforeach --}}
                 </tbody>
             </table>
         </center>

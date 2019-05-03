@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Validation\Rule;
 use App\Model\spts\Problem;
+use App\Model\spts\User;
 // use App\Model\spts\StudentProblem;
 // use App\Model\spts\Student;
 use App\Model\mis\Bio;
@@ -34,9 +35,10 @@ class ProblemController extends Controller
         $problem->student_id = $request->student_id;
 
         $problem->problem_type = $request->problem_type;
+        $problem->problem_type = $request->problem_type;
         $problem->problem_detail = $request->problem_detail;
         $problem->risk_level = $request->risk_level;
-        $problem->person_add = Auth::user()->name;
+        $problem->person_add = Auth::user()->id;
 
 
         $problem->save();
@@ -47,9 +49,22 @@ class ProblemController extends Controller
 
     public function showProblemL($student_id){
         $problem = Problem::where('student_id', $student_id)->get();
+        $users = User::all();
+
+        // $users = User::table('users')->leftJoin('problem', 'users.id', '=', 'problem.person_add')
+        // ->select('users.*')
+        // ->whereNull('title_count.title_id')
+        // ->get();
+
+        // $users = User::join('problem', function ($join) {
+        //     $join->on('users.id', '=', 'problem.person_add')->get();
+        // });
+
+        // $users = User::where('risk_level','รุนแรงมาก')->where('student_id',$student_id)->get();
 
         return view('lecturer.problem',[
             'problem' => $problem,
+            'users' => $users,
         ]);
     }
 

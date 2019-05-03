@@ -14,13 +14,13 @@ class CreateStudentProblemTable extends Migration
     public function up()
     {
         Schema::create('student_problem', function (Blueprint $table) {
-            // $table->bigIncrements('student_id');
-            $table->unsignedBigInteger('problem_id');
-            $table->foreign('problem_id')->references('problem_id')->on('problem');
-            $table->unsignedBigInteger('student_id');
-            $table->foreign('student_id')->references('student_id')->on('student');
-
-        });
+            // $table->bigIncrements('problem_id');
+       $table->string('student_id');
+           $table->String('problem_type');
+            $table->String('problem_detail');
+            $table->String('risk_level');
+            $table->String('person_add');
+            $table->timestamps();        });
     }
 
     /**

@@ -89,6 +89,22 @@
                                 </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label for="curriculum" class="col-md-4 col-form-label text-md-right">Curriculum</label>
+
+                            <div class="col-md-6">
+                            <select name="curriculum" class="from-control">
+                                <option>เลือกหลักสูตร</option>
+                                <option value="BIT4">BIT4</option>
+                                <option value="BCS4">BCS4</option>
+                                <option value="MIT2">MIT2</option>
+                                <option value="MITS">MITS</option>
+                                <option value="MSE2">MSE2</option>
+                                <option value="NO">no curriculum</option>
+                            </select>
+                            </div>
+                        </div>
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
