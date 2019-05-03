@@ -65,4 +65,4 @@
 
 @endsection
 @extends('bar.header(lec)')
-@extends('bar.username')
+{{-- @extends('bar.username') --}}
