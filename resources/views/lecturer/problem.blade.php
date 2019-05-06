@@ -50,11 +50,7 @@
                         <td>{{$show_problem->risk_level}}</td>
                         <td>{{$show_problem->created_at}}</td>
                         <td>{{$show_problem->date}}</td>
-                        {{-- <td>อาจารย์ {{$show_problem->person_add}}</td> --}}
-                        @foreach ($users as $user)
-                        <td>อาจารย์ {{$user->name}}</td>
-                        @endforeach
-
+                        <td>อาจารย์ {{$show_problem->users->name}}</td>
                     </tr>
 
                     @endforeach

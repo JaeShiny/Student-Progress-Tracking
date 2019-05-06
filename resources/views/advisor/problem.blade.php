@@ -33,9 +33,11 @@
                 <thead class="thead-light">
                     <tr>
                         <th scope="col">ประเภทพฤติกรรม/ปัญหา</th>
+                        <th scope="col">หัวข้อของปัญหา</th>
                         <th scope="col">พฤติกรรม/ปัญหา</th>
                         <th scope="col">ระดับความเสี่ยง</th>
                         <th scope="col">วันที่เพิ่ม</th>
+                        <th scope="col">วันที่เกิดปัญหา</th>
                         <th scope="col">ผู้เพิ่ม</th>
                     </tr>
                 </thead>
@@ -44,10 +46,12 @@
 
                     <tr>
                         <td scope="row">{{$show_problem->problem_type}}</td>
+                        <td>{{$show_problem->problem_topic}}</td>
                         <td>{{$show_problem->problem_detail}}</td>
                         <td>{{$show_problem->risk_level}}</td>
                         <td>{{$show_problem->created_at}}</td>
-                        <td>อาจารย์ {{$show_problem->person_add}}</td>
+                        <td>{{$show_problem->date}}</td>
+                        <td>อาจารย์ {{$show_problem->users->name}}</td>
                     </tr>
 
                     @endforeach

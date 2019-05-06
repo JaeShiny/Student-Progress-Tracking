@@ -53,17 +53,6 @@ class ProblemController extends Controller
         $problem = Problem::where('student_id', $student_id)->get();
         $users = User::all();
 
-        // $users = User::table('users')->leftJoin('problem', 'users.id', '=', 'problem.person_add')
-        // ->select('users.*')
-        // ->whereNull('title_count.title_id')
-        // ->get();
-
-        // $users = User::join('problem', function ($join) {
-        //     $join->on('users.id', '=', 'problem.person_add')->get();
-        // });
-
-        // $users = User::where('risk_level','รุนแรงมาก')->where('student_id',$student_id)->get();
-
         return view('lecturer.problem',[
             'problem' => $problem,
             'users' => $users,
@@ -83,9 +72,11 @@ class ProblemController extends Controller
     //แสดงปัญหา
     public function showProblemE($student_id){
         $problem = Problem::where('student_id', $student_id)->get();
+        $users = User::all();
 
         return view('EducationOfficer.problem',[
             'problem' => $problem,
+            'users' => $users,
         ]);
     }
 
@@ -103,9 +94,11 @@ class ProblemController extends Controller
     //แสดงปัญหา
     public function showProblemA($student_id){
         $problem = Problem::where('student_id', $student_id)->get();
+        $users = User::all();
 
         return view('advisor.problem',[
             'problem' => $problem,
+            'users' => $users,
         ]);
     }
 
