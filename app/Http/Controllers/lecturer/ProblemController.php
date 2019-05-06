@@ -39,7 +39,8 @@ class ProblemController extends Controller
         $problem->problem_detail = $request->problem_detail;
         $problem->risk_level = $request->risk_level;
         $problem->date = $request->date;
-        $problem->person_add = Auth::user()->id;
+        $problem->person_add = Auth::user()->name;
+        $problem->add_id = Auth::user()->id;
 
 
         $problem->save();

@@ -15,13 +15,15 @@ class CreateProblemTable extends Migration
     {
         Schema::create('problem', function (Blueprint $table) {
             $table->bigIncrements('problem_id');
-            $table->String('problem_type');            $table->String('problem_topic');
-
+            $table->String('problem_type');
+            $table->String('problem_topic');
             $table->String('problem_detail');
             $table->String('risk_level');
             $table->String('person_add');
             $table->String('student_id');
             $table->String('date');
+            $table->unsignedBigInteger('add_id');
+            $table->foreign('add_id')->references('id')->on('users');
             $table->timestamps();
 
         });
