@@ -95,12 +95,22 @@
                             <div class="col-md-6">
                             <select name="curriculum" class="from-control">
                                 <option>เลือกหลักสูตร</option>
-                                <option value="BIT4">BIT4</option>
-                                <option value="BCS4">BCS4</option>
+                                <option value="MBIS">MBIS</option>
                                 <option value="MIT2">MIT2</option>
+                                <option value="BIT2">BIT2</option>
                                 <option value="MITS">MITS</option>
-                                <option value="MSE2">MSE2</option>
-                                <option value="NO">no curriculum</option>
+                                <option value="BCS4">BCS4</option>
+                                <option value="PHIT">PHIT</option>
+                                <option value="BITT">BITT</option>
+                                <option value="MBIO">MBIO</option>
+                                <option value="MES2">MES2</option>
+                                <option value="BITR">BITR</option>
+                                <option value="PHCS">PHCS</option>
+                                <option value="BIT4">BIT4</option>
+                                <option value="MEBS">MEBS</option>
+                                <option value="MSC2">MSC2</option>
+                                <option value="DSI4">DSI4</option>
+                                <option value="NO">No Curriculum</option>
                             </select>
                             </div>
                         </div>
