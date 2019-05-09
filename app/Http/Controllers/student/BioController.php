@@ -7,6 +7,9 @@ use App\Http\Controllers\Controller;
 use App\Model\mis\Bio;
 use App\Model\mis\Student;
 use App\Model\mis\Course;
+use App\Model\mis\Status;
+use App\Model\mis\Generation;
+use App\Model\mis\Major;
 use App\Model\interview\B_profile;
 
 
@@ -17,12 +20,20 @@ class BioController extends Controller
     public function profile(){
 
         $bios = Bio::all();
+        $statuss = Status::all();
+        $students = Student::all();
+        $generations = Generation::all();
+        $majors = Major::all();
 
         return view('student.profile',[
-            'bios' => $bios
+            'bios' => $bios,
+            'statuss' => $statuss,
+            'students' => $students,
+            'generations' => $generations,
+            'majors' => $majors,
         ]);
-    }
 
+    }
 
         //Education Officer
 
@@ -51,18 +62,34 @@ class BioController extends Controller
     public function profileE(){
 
         $bios = Bio::all();
+        $statuss = Status::all();
+        $students = Student::all();
+        $generations = Generation::all();
+        $majors = Major::all();
 
         return view('EducationOfficer.profile',[
-            'bios' => $bios
+            'bios' => $bios,
+            'statuss' => $statuss,
+            'students' => $students,
+            'generations' => $generations,
+            'majors' => $majors,
         ]);
     }
     //ส่งประวัติมาจากหน้า studentlist เรียงคนมา
     public function profileE1($student_id){
 
         $bios = Bio::find($student_id);
+        $statuss = Status::all();
+        $students = Student::all();
+        $generations = Generation::all();
+        $majors = Major::all();
 
         return view('EducationOfficer.profile',[
-            'bios' => $bios
+            'bios' => $bios,
+            'statuss' => $statuss,
+            'students' => $students,
+            'generations' => $generations,
+            'majors' => $majors,
         ]);
     }
 
@@ -100,18 +127,34 @@ class BioController extends Controller
     public function profileL(){
 
         $bios = Bio::all();
+        $statuss = Status::all();
+        $students = Student::all();
+        $generations = Generation::all();
+        $majors = Major::all();
 
         return view('lecturer.profile',[
-            'bios' => $bios
+            'bios' => $bios,
+            'statuss' => $statuss,
+            'students' => $students,
+            'generations' => $generations,
+            'majors' => $majors,
         ]);
     }
     //ส่งประวัติมาจากหน้า studentlist เรียงคนมา
     public function profileL1($student_id){
 
         $bios = Bio::find($student_id);
+        $statuss = Status::all();
+        $students = Student::all();
+        $generations = Generation::all();
+        $majors = Major::all();
 
         return view('lecturer.profile',[
             'bios' => $bios,
+            'statuss' => $statuss,
+            'students' => $students,
+            'generations' => $generations,
+            'majors' => $majors,
         ]);
     }
 
@@ -130,18 +173,34 @@ class BioController extends Controller
     public function profileA(){
 
         $bios = Bio::all();
+        $statuss = Status::all();
+        $students = Student::all();
+        $generations = Generation::all();
+        $majors = Major::all();
 
         return view('advisor.profile',[
-            'bios' => $bios
+            'bios' => $bios,
+            'statuss' => $statuss,
+            'students' => $students,
+            'generations' => $generations,
+            'majors' => $majors,
         ]);
     }
     //ส่งประวัติมาจากหน้า studentlist เรียงคนมา
     public function profileA1($student_id){
 
         $bios = Bio::find($student_id);
+        $statuss = Status::all();
+        $students = Student::all();
+        $generations = Generation::all();
+        $majors = Major::all();
 
         return view('advisor.profile',[
-            'bios' => $bios
+            'bios' => $bios,
+            'statuss' => $statuss,
+            'students' => $students,
+            'generations' => $generations,
+            'majors' => $majors,
         ]);
     }
 

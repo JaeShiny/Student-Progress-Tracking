@@ -45,13 +45,11 @@
         <div class="jumbotron">
             <h4 class="display-4"></h4>
             <p>
-                <B>ประวัติส่วนตัว</B>
+                <B>ข้อมูลนักศึกษา</B>
             </p>
-            <br>
-            <br>
 
 
-            {{-- @foreach($bios as $bios) --}}
+            <hr class="my-4">
 
             <p>รหัสนักศึกษา &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </p>
 
@@ -73,11 +71,53 @@
             <p>{{$bios->firstname_eng}}&nbsp;&nbsp;{{$bios->lastname_eng}}</p>
             <br>
             <br>
+
+            <p>
+                สถานะ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :
+            </p>
+            <p>
+                {{$bios->statuss->status}}
+            </p>
+            <br>
+            <br>
+
+            <p>
+                หลักสูตร &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :
+            </p>
+            <p>
+                {{$bios->students->majors->major_name}}
+            </p>
+            <br>
+            <br>
+
+            <p>
+                ภาคการศึกษาที่เข้า &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :
+            </p>
+            <p>
+                {{$bios->students->generations->semester}}
+            </p>
+            <br>
+            <br>
+
+            <p>
+                ปีการศึกษาที่เข้า &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :
+            </p>
+            <p>
+                {{$bios->students->generations->year}}
+            </p>
+
+            <br><br>
+            <br><br>
+
+            <p>
+                <B>ประวัติส่วนตัว</B>
+            </p>
+
+            <hr class="my-4">
             <p>ปีเกิด/เดือน/วัน &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </p>
             <p>{{$bios->birth}}</p>
             <br>
             <br>
-            <hr class="my-4">
             <p>ที่อยู่ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </p>
             <p>{{$bios->address}}&nbsp;{{$bios->zipcode}}</p>
@@ -124,60 +164,6 @@
             </p>
             <br>
             <br>
-
-            {{-- <hr class="my-4">
-            <p>
-
-                ประเภทนักศึกษา &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : ปริญญาตรี 4 ปี
-            </p>
-            <br>
-            <br>
-
-            <p>
-                แผน &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :
-            </p>
-
-            <p>
-                ปกติ
-            </p>
-            <br>
-            <br>
-
-            <p>
-                วิชาเอก &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : -
-            </p>
-            <br>
-            <br>
-
-            <p>
-                วิชาโท &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : -
-            </p>
-            <br>
-            <br>
-
-            <p>
-                สถานภาพนักศึกษา &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :
-            </p>
-            <p>
-                ปกติ
-            </p>
-            <br>
-            <br>
-
-            <p>
-                ปริญญาที่ได้รับ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :
-            </p>
-            <p>
-                วิทยาศาสตรบัณฑิต (เทคโนโลยีสารสนเทศ)
-            </p>
-            <br>
-            <br> --}}
-
-            {{-- @endforeach --}}
-
-            <br>
-            <br>
-            {{-- <a href="{{ action('student\BioController@index') }}" style="float: right; "> ย้อนกลับ</a> --}}
 
         </div>
         </div>

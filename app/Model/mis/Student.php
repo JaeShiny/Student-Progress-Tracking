@@ -16,11 +16,13 @@ class Student extends Model
         return $this->hasOne('App\Model\mis\Bio','student_id','student_id');
     }
 
-    // public function major(){
-    //     return $this->hasMany('App\Model\mis\Major','major_id','majorid');
-    // }
+    //แมบฟอเรนคีย์ของ generation กับ student
+    public function generations(){
+        return $this->hasOne('App\Model\mis\Generation','gen','generation');
+    }
 
-
-
+    public function majors(){
+        return $this->hasOne('App\Model\mis\Major','major_id','major_id');
+    }
 
 }
