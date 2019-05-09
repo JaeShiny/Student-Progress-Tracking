@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Validation\Rule;
 use App\Model\mis\Bio;
 use App\Model\srm\Alumni_profile;
+use App\Model\mis\Student;
+use App\Model\mis\Curriculum;
 
 class SrmController extends Controller
 {
@@ -17,10 +19,13 @@ class SrmController extends Controller
 
         $bios = Bio::find($student_id);
         $alumni_profile = Alumni_profile::where('first_name',$bios->first_name)->where('last_name',$bios->last_name)->first();
+        $curriculum = Curriculum::all();
 
         return view('EducationOfficer.profile(after)',[
             'alumni_profile' => $alumni_profile,
             'student' => $student,
+            'bios' => $bios,
+            'curriculum' => $curriculum,
         ]);
     }
 
@@ -31,10 +36,13 @@ class SrmController extends Controller
 
         $bios = Bio::find($student_id);
         $alumni_profile = Alumni_profile::where('first_name',$bios->first_name)->where('last_name',$bios->last_name)->first();
+        $curriculum = Curriculum::all();
 
         return view('student.profile(after)',[
             'alumni_profile' => $alumni_profile,
             'student' => $student,
+            'bios' => $bios,
+            'curriculum' => $curriculum,
         ]);
     }
 
@@ -46,10 +54,13 @@ class SrmController extends Controller
 
         $bios = Bio::find($student_id);
         $alumni_profile = Alumni_profile::where('first_name',$bios->first_name)->where('last_name',$bios->last_name)->first();
+        $curriculum = Curriculum::all();
 
         return view('lecturer.profile(after)',[
             'alumni_profile' => $alumni_profile,
             'student' => $student,
+            'bios' => $bios,
+            'curriculum' => $curriculum,
         ]);
     }
 
@@ -61,10 +72,13 @@ class SrmController extends Controller
 
         $bios = Bio::find($student_id);
         $alumni_profile = Alumni_profile::where('first_name',$bios->first_name)->where('last_name',$bios->last_name)->first();
+        $curriculum = Curriculum::all();
 
         return view('advisor.profile(after)',[
             'alumni_profile' => $alumni_profile,
             'student' => $student,
+            'bios' => $bios,
+            'curriculum' => $curriculum,
         ]);
     }
 }

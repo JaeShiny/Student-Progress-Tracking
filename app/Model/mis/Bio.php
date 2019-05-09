@@ -11,4 +11,9 @@ class Bio extends Model
     protected $primaryKey = "student_id";
     // public $incrementing = "false";
     protected $keyType = 'bigint';
+
+    public function students(){
+        return $this->hasOne('App\Model\mis\Student','student_id','student_id');
+    }
 }
+

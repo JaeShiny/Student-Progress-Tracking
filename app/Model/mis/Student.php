@@ -16,9 +16,9 @@ class Student extends Model
         return $this->hasOne('App\Model\mis\Bio','student_id','student_id');
     }
 
-    // public function major(){
-    //     return $this->hasMany('App\Model\mis\Major','major_id','majorid');
-    // }
+    public function curriculum(){
+        return $this->hasOne('App\Model\mis\Curriculum','curriculum_id','curriculum_id');
+    }
 
 
 
