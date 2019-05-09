@@ -13,19 +13,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <nav class=" bg" style="background-color: #000000;">
-            <span class="navbar-text" style="background-color: black  ">
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p style="color: #FFFFFF;">ระบบติดตามความก้าวหน้าของนักศึกษา
-
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <nav class="navbar navbar-light" style="background-color: #000000;">
+        <a class="navbar-brand" style="color:#FFFFFF;">ระบบติดตามความก้าวหน้าของนักศึกษา</a>
 
         <div class="t1">
             @guest
@@ -56,20 +45,26 @@
             @endguest
 
         </div>
-        </p>
-
-            </span>
 
     </nav>
 
-    <nav class="bg2" style="background-color: #1D5287;">
+
+
+    <nav class="nav" style="background-color: #1D5287;">
+        <img src="../img/logopage.png" width="120" height="50">
+        <a class="nav-link active" href="{{ action('EducationOfficer\CurriculumController@show') }}" style="color: #FFFFFF">หลักสูตร</a>
+        <a class="nav-link" href="#" style="color: #FFFFFF">การแจ้งเตือน</a>
+        <a class="nav-link" href="#" style="color: #FFFFFF">สถิติ</a>
+    </nav>
+
+    {{-- <nav class="bg2" style="background-color: #1D5287;">
         <span class="navbar-text">
             &nbsp;&nbsp;&nbsp;<img src="../img/logopage.png" width="120" height="50"></li>&nbsp;&nbsp;
             <a href="{{ action('EducationOfficer\CurriculumController@show') }}"><p style="color: #FFFFFF">หลักสูตร</p></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <a href="การแจ้งเตือน.html"><p style="color: #FFFFFF">การแจ้งเตือน</p></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <a href="สถิติ.html"><p style="color: #FFFFFF">สถิติ</p></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </span>
-    </nav>
+    </nav> --}}
 
     <style type="text/css">
         @charset "utf-8";

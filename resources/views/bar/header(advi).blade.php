@@ -12,62 +12,46 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <nav class=" bg" style="background-color: #000000;">
-        <span class="navbar-text" style="background-color: black  ">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p style="color: #FFFFFF;">ระบบติดตามความก้าวหน้าของนักศึกษา
+    <nav class="navbar navbar-light" style="background-color: #000000;">
+        <a class="navbar-brand" style="color:#FFFFFF;">ระบบติดตามความก้าวหน้าของนักศึกษา</a>
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="t1">
+            @guest
+                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
 
-    <div class="t1">
-        @guest
-            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+            @if (Route::has('register'))
 
-        @if (Route::has('register'))
+                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
 
-            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+            @endif
+            @else
 
-        @endif
-        @else
+                {{-- Username:  --}}
+                {{-- <img src="../img/user.png" alt="Avatar" class="image" width="2"> --}}
+                {{ Auth::user()->name }} <span class="caret"></span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-            {{-- Username:  --}}
-            {{-- <img src="../img/user.png" alt="Avatar" class="image" width="2"> --}}
-            {{ Auth::user()->name }} <span class="caret"></span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button type="button" class="btn">
 
-            <button type="button" class="btn">
+                    <a class="" href="{{ route('logout') }}" onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}</a>
+                </button>
 
-                <a class="" href="{{ route('logout') }}" onclick="event.preventDefault();
-                    document.getElementById('logout-form').submit();">
-                    {{ __('Logout') }}</a>
-            </button>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
 
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-            @csrf
-        </form>
+            @endguest
 
-        @endguest
-
-    </div>
-    </p>
-
-        </span>
+        </div>
 
     </nav>
 
-    <nav class="bg2" style="background-color: #1D5287;">
-        <span class="navbar-text">
-            &nbsp;&nbsp;&nbsp;<img src="../img/logopage.png" width="120" height="50"></li>&nbsp;&nbsp;
-            <a href="/advisor/myStudent"><p style="color: #FFFFFF">นักศึกษา</p></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="การแจ้งเตือน.html"><p style="color: #FFFFFF">การแจ้งเตือน</p></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="สถิติ.html"><p style="color: #FFFFFF">สถิติ</p></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        </span>
+    <nav class="nav" style="background-color: #1D5287;">
+        <img src="../img/logopage.png" width="120" height="50">
+        <a class="nav-link active" href="/advisor/myStudent" style="color: #FFFFFF">นักศึกษา</a>
+        <a class="nav-link" href="#" style="color: #FFFFFF">การแจ้งเตือน</a>
+        <a class="nav-link" href="#" style="color: #FFFFFF">สถิติ</a>
     </nav>
 
     <style type="text/css">
