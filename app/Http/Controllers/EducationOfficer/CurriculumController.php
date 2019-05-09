@@ -7,14 +7,14 @@ use App\Http\Controllers\Controller;
 use App\Model\mis\Curriculum;
 use App\Model\mis\Student;
 use App\Model\mis\Bio;
+use Auth;
 
 class CurriculumController extends Controller
 {
 
     public function show(){
-        $curriculum = Curriculum::all();
-
-        return view('EducationOfficer.curriculum',[
+        $curriculum = Curriculum::where('curriculum_id',Auth::user()->curriculum)->first();
+        return view('EducationOfficer.eachCurriculum',[
             'curriculum' => $curriculum
 
         ]);

@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Validation\Rule;
 use App\Model\mis\Bio;
-use App\Model\srm\alumni_profile;
+use App\Model\srm\Alumni_profile;
 
 class SrmController extends Controller
 {
