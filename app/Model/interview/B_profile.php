@@ -15,4 +15,13 @@ class B_profile extends Model
     ];
     //$timestamps = false;
     protected $primaryKey = 'firstname';
+
+
+    public function b_result(){
+        return $this->hasOne('App\Model\interview\B_result','seatno','seatno');
+    }
+
+    public function b_englishskill(){
+        return $this->hasOne('App\Model\interview\B_englishskill','seatno','seatno');
+    }
 }

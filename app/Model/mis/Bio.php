@@ -12,6 +12,7 @@ class Bio extends Model
     // public $incrementing = "false";
     protected $keyType = 'bigint';
 
+<<<<<<< HEAD
     //แมบ bio ให้ไปหา status (profile.blade)
     public function statuss(){
         return $this->hasOne('App\Model\mis\Status','status_id','status');
@@ -22,4 +23,10 @@ class Bio extends Model
         return $this->hasOne('App\Model\mis\Student','student_id','student_id');
     }
 
+=======
+    public function students(){
+        return $this->hasOne('App\Model\mis\Student','student_id','student_id');
+    }
+>>>>>>> master
 }
+

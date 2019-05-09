@@ -73,7 +73,7 @@
         <p>อาจารย์ผู้สัมภาษณ์
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </p>
-        <p>__________________</p>
+        <p>{{$b_profile->b_result->b_interviewer->itvname}}</p>
 
         {{-- <div class="container7">
             <img src="/Codeproject/รูปสัม.jpg" alt="Avatar" class="image" width="100">
@@ -156,6 +156,44 @@
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <p>
+            <B>ทักษะภาษาอังกฤษ</B>
+        </p>
+        <br><br><br><br><br>
+        <center>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">ทักษะภาษาอังกฤษ</th>
+                        <th scope="col">ระดับทักษะภาษาอังกฤษ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ทักษะด้านการพูด</td>
+                        <td>{{$b_profile->b_englishskill->speaking}}</td>
+                    </tr>
+                    <tr>
+                        <td>ทักษะด้านการอ่าน</td>
+                        <td>{{$b_profile->b_englishskill->reading}}</td>
+                    </tr>
+                    <tr>
+                        <td>ทักษะด้านการฟัง</td>
+                        <td>{{$b_profile->b_englishskill->listening}}</td>
+                    </tr>
+                    <tr>
+                        <td>ทักษะด้านการเขียน</td>
+                        <td>{{$b_profile->b_englishskill->writing}}</td>
+                        </tr>
+                </tbody>
+
+            </table>
+        </center>
+        <br>
+        <hr class="my-4">
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <p>
         <B>ผลการสอบวัดระดับชาติ</B>
     </p>
     <br><br><br><br><br>

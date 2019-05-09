@@ -19,6 +19,7 @@ Route::get('/', function () {
 
     //EducationOfficer
 
+// map เจ้าหน้าที่นักการศึกษากับหลักสูตร
 Route::get('curriculum','EducationOfficer\CurriculumController@show');
 
 //แมบหลักสูตรกับเด็ก
