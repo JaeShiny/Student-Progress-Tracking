@@ -52,10 +52,12 @@ class ProblemController extends Controller
     public function showProblemL($student_id){
         $problem = Problem::where('student_id', $student_id)->get();
         $users = User::all();
+        $bios = Bio::where('student_id', $student_id)->get();
 
         return view('lecturer.problem',[
             'problem' => $problem,
             'users' => $users,
+            'bios' => $bios,
         ]);
     }
 
@@ -73,10 +75,12 @@ class ProblemController extends Controller
     public function showProblemE($student_id){
         $problem = Problem::where('student_id', $student_id)->get();
         $users = User::all();
+        $bios = Bio::where('student_id', $student_id)->get();
 
         return view('EducationOfficer.problem',[
             'problem' => $problem,
             'users' => $users,
+            'bios' => $bios,
         ]);
     }
 
@@ -95,10 +99,12 @@ class ProblemController extends Controller
     public function showProblemA($student_id){
         $problem = Problem::where('student_id', $student_id)->get();
         $users = User::all();
+        $bios = Bio::where('student_id', $student_id)->get();
 
         return view('advisor.problem',[
             'problem' => $problem,
             'users' => $users,
+            'bios' => $bios,
         ]);
     }
 

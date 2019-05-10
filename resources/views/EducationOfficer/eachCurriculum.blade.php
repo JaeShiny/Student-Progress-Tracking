@@ -15,8 +15,10 @@
 </head>
 <body>
         <div class="container">
+            <br><br>
+            <h4 align='center'>หลักสูตรการศึกษา</h4>
 
-        <!--Table-->
+            <!--Table-->
         <table class="table table-striped w-auto">
 
         <!--Table head-->
