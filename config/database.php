@@ -80,7 +80,7 @@ return [
 
         'mysql3' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST_3','interview.ckkh3d8cwhst.ap-southeast-1.rds.amazonaws.com'),
+            'host' => env('DB_HOST_3','interview.cjtrbczx0q0s.ap-southeast-1.rds.amazonaws.com'),
             'port' => env('DB_PORT_3','3306'),
             'database' => env('DB_DATABASE_3'),
             'username' => env('DB_USERNAME_3'),
@@ -99,7 +99,7 @@ return [
 
         'mysql4' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST_4','srm.ckkh3d8cwhst.ap-southeast-1.rds.amazonaws.com'),
+            'host' => env('DB_HOST_4','srm.cjtrbczx0q0s.ap-southeast-1.rds.amazonaws.com'),
             'port' => env('DB_PORT-4','3306'),
             'database' => env('DB_DATABASE_4'),
             'username' => env('DB_USERNAME_4'),
