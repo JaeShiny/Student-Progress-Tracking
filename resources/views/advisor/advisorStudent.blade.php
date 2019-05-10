@@ -6,6 +6,7 @@
    <!-- Required meta tags -->
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
    <!-- Bootstrap CSS -->
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -20,20 +21,6 @@
             <li class="breadcrumb-item active" aria-current="page"><a href="">รายชื่อนักศึกษา</a></li>
         </ol>
     </nav>
-    <style>
-        .div1{
-            /* magin-left : auto;
-            magin-right : auto;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            height: 100px;*/
-            margin-top: 60px;
-            /* width: 250px;  */
-            margin-left: 250px;
-            align-self: center;
-        }
-    </style>
 </head>
 
 <body>
@@ -49,11 +36,11 @@
         <form><br>
     </div>
 
-    <div class="div1">
-        <table class="table">
+    <center>
+        <table class="table" width="60%" style="margin-top: 10px;">
             <thead class="thead-light">
               <tr>
-                <th scope="col" width="15%"><h6 align="center"><b>รหัสนักศึกษา</b></h6></th>
+                <th scope="col" width="10%"><h6 align="center"><b>รหัสนักศึกษา</b></h6></th>
                 <th scope="col" width="35%"><h6 align="center"><b>ชื่อ</h6></b></th>
                 <th scope="col" width="10%"><h6 align="center"><b>สถิติ</h6></b></th>
                 <th scope="col" width="10%"><h6 align="center"><b>ประวัติ</h6></b></th>
@@ -113,8 +100,7 @@
           {{-- <p> ทั้งหมด {{$student->count()}} รายการ </p> --}}
 
           {{-- <br>{{$bio->links()}}<br> --}}
-
-    </div>
+    </center>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
