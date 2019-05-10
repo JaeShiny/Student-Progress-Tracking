@@ -18,12 +18,12 @@ class ProfileController extends Controller
         ]);
     }
 
-    // public function study(){
-    //     $user =Auth::user();
-    //     $info = Study::where('first_name',$user->name)->where('last_name',$user->lastname)->first();
-    //     return view('student.enrollment',[
-    //         'bios'=>$info,
-    //     ]);
-    // }
+    public function study(){
+        $user =Auth::user();
+        $info = Study::where('student_id',$user->student_id)->first();
+        return view('student.enrollment',[
+            'study'=>$info,
+        ]);
+    }
 
 }
