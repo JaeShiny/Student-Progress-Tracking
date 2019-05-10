@@ -93,11 +93,43 @@ margin-top: -150px;
             <input type="text" class="form-control" id="usr" name="person_add">
         </div> --}}
         {{-- <center><button type="submit" class="btn btn-primary">Submit</button></center> --}}
+
+
+    {{--
         <div class="form-group">
             <input type="submit" value="submit" class="btn btn-primary">
             <a href="{{ action('lecturer\ProblemController@insert') }}"></a>
         </div>
+    @csrf --}}
+
+    <div class="container">
+        <div class="form-group">
+            <input type="submit" value="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+        </div>
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" role="dialog">
+              <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content" style="background-color: #F0F8FF;" >
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                  </div>
+                  <div class="modal-body">
+                    <center><h5>บันทึกข้อมูลพฤติกรรม/ปัญหาสำเร็จ</center></h5>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">ตกลง</button>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+    </div>
     @csrf
+
     </form>
 
             </div>
