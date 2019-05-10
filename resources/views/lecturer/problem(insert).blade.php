@@ -31,7 +31,8 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  margin-top: -100px; /* -(height/2) */
+  /* margin-top: -100px; -(height/2) */
+margin-top: -150px;
   margin-left: -280px; /* -(width/2) */
 }
 </style>
@@ -39,11 +40,14 @@
 </head>
 <body>
     <h5 align='center'>เพิ่มพฤติกรรม/ปัญหา ของนักศึกษา</h5>
-{{-- ฟอร์ม --}}
+<br>
 <div class="container">
-<div class="box">
-<form action="/problem_insert" method="POST">
-<input type="hidden" name="student_id" value="{{$student_id}}">
+    <div class="row">
+        <div class="col-sm-3"></div>
+            <div class="col-sm-6">
+
+    <form action="/problem_insert" method="POST">
+    <input type="hidden" name="student_id" value="{{$student_id}}">
 
         <div class="form-group">
             <label for="exampleFormControlSelect1">ประเภทของ พฤติกรรม/ปัญหา ของนักศึกษา:
@@ -93,9 +97,11 @@
             <a href="{{ action('lecturer\ProblemController@insert') }}"></a>
         </div>
     @csrf
-</form>
-</div>
+    </form>
 
+            </div>
+        </div>
+    </div>
 </div>
 
         <!-- Optional JavaScript -->
@@ -109,4 +115,4 @@
 
 @endsection
 @extends('bar.header(lec)')
-{{-- @extends('bar.username') --}}
+
