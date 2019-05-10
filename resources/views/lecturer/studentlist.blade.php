@@ -81,7 +81,7 @@
                     </a>
                 </td>
                 <td width="10">
-                    <a href="">
+                    <a href="{{route('enrollL',$student->study['student_id'])}}">
                         <center><img src="../img/sct.png" width="25" title="วิชาที่ลงทะเบียน"></center>
                     </a>
                 </td>

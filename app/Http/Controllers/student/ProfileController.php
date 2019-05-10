@@ -17,4 +17,13 @@ class ProfileController extends Controller
             'bios'=>$info,
         ]);
     }
+
+    // public function study(){
+    //     $user =Auth::user();
+    //     $info = Study::where('first_name',$user->name)->where('last_name',$user->lastname)->first();
+    //     return view('student.enrollment',[
+    //         'bios'=>$info,
+    //     ]);
+    // }
+
 }

@@ -30,4 +30,9 @@ class Student extends Model
         return $this->hasOne('App\Model\mis\Major','major_id','major_id');
     }
 
+    //Relation เพื่อบอกว่าจะแมบฟอเรนคีย์ student_id ของ student กับ student_id ของ Study
+    //ใช้ในการดูวิชาที่เด็กลงทะเบียน
+    public function study(){
+        return $this->hasOne('App\Model\mis\Study','student_id','student_id');
+    }
 }

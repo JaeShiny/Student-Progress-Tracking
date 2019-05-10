@@ -43,7 +43,9 @@ Route::get('profileafterE/{student_id}','student\SrmController@profileE');
 //แสดงพฤติกรรมเด็ก
 Route::get('studentproblemE/{student_id}', 'lecturer\ProblemController@showProblemE');
 
-
+//กดดูวิชาที่เด็กลงทะเบียน
+Route::get('student_enrollmentE','student\StudyController@enrollmentE');
+Route::get('student_enrollmentE/{student_id}','student\StudyController@enrollmentE1')->name('enrollE');
 
     //Alumni
 Route::get('alumni','student\AlumniController@show');
@@ -82,6 +84,11 @@ Route::get('course','SubjectController@lecToCourse');
 //กดปุ่มแจ้งเตือนแล้วเจอพฤติกรรมที่รุนแรงของนักศึกษา
 Route::get('risk_problem/{student_id}','lecturer\ProblemController@notiProblemL');
 
+//กดดูวิชาที่เด็กลงทะเบียน
+Route::get('student_enrollmentL','student\StudyController@enrollmentL');
+Route::get('student_enrollmentL/{student_id}','student\StudyController@enrollmentL1')->name('enrollL');
+
+
 
     //Student
 Route::get('profile/{student_id}','student\BioController@profile');
@@ -92,7 +99,8 @@ Route::get('profilebeforeS/{student_id}','student\InterviewController@profileS')
 //กดดูหน้าข้อมูลหลังจบ
 Route::get('profileafterS/{student_id}','student\SrmController@profileS');
 
-
+//กดดูวิชาที่่ลงทะเบียน
+Route::get('study/{student_id}','student\StudyController@enrollmentS');
 
 
 //map อาจารย์กับวิชา
@@ -116,10 +124,12 @@ Route::get('studentproblemA/{student_id}', 'lecturer\ProblemController@showProbl
 
 Route::get('student_searchA','student\BioController@searchA');
 
+//กดดูวิชาที่เด็กลงทะเบียน
+Route::get('student_enrollmentA','student\StudyController@enrollmentA');
+Route::get('student_enrollmentA/{student_id}','student\StudyController@enrollmentA1')->name('enrollA');
+
+
 //ลบด้วยนะถ้าเขียนโค้ดเสร็จ
-Route::get('profileindex', function () {
-    return view('student.profile(index)');
-});
 // Route::get('profilebefore', function () {
 //     return view('student.profile(before)');
 // });
