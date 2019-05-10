@@ -58,7 +58,7 @@
         <tbody>
           <tr>
             <th scope="row"><center>{{$study->course_id}}</center></th>
-            <td><center>ชื่อวิชา</center></td>
+            <td>{{$study->courses->course_name}}</td>
             <td><center>{{$study->semester}}</center></td>
             <td><center>{{$study->year}}</center></td>
             <td><center>{{$study->credit}}</center></td>

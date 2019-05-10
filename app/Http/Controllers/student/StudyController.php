@@ -12,11 +12,14 @@ use App\Model\mis\Study;
 class StudyController extends Controller
 {
         //Student
+    //แสดงการลงทะเบียน
     public function enrollmentS(){
         $study = Study::all();
+        $courses = Course::all();
 
         return view('student.enrollment',[
             'study' => $study,
+            'courses' => $courses,
         ]);
 
     }
@@ -24,19 +27,22 @@ class StudyController extends Controller
         //Lecturer
     public function enrollmentL(){
         $study = Study::all();
+        $courses = Course::all();
 
         return view('lecturer.enrollment',[
             'study' => $study,
+            'courses' => $courses,
         ]);
 
     }
 
     public function enrollmentL1($student_id){
-
         $study = Study::find($student_id);
+        $courses = Course::all();
 
         return view('lecturer.enrollment',[
             'study' => $study,
+            'courses' => $courses,
         ]);
     }
 
@@ -44,38 +50,44 @@ class StudyController extends Controller
         //EducationOfficer
     public function enrollmentE(){
         $study = Study::all();
+        $courses = Course::all();
 
         return view('EducationOfficer.enrollment',[
             'study' => $study,
+            'courses' => $courses,
         ]);
 
     }
 
     public function enrollmentE1($student_id){
-
         $study = Study::find($student_id);
+        $courses = Course::all();
 
         return view('EducationOfficer.enrollment',[
             'study' => $study,
+            'courses' => $courses,
         ]);
     }
 
         //Advisor
     public function enrollmentA(){
         $study = Study::all();
+        $courses = Course::all();
 
         return view('advisor.enrollment',[
             'study' => $study,
+            'courses' => $courses,
         ]);
 
     }
 
     public function enrollmentA1($student_id){
-
         $study = Study::find($student_id);
+        $courses = Course::all();
 
         return view('advisor.enrollment',[
             'study' => $study,
+            'courses' => $courses,
         ]);
     }
 

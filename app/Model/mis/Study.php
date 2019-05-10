@@ -10,4 +10,9 @@ class Study extends Model
     protected $table = "study";
     protected $primaryKey = "student_id";
     protected $keyType = 'bigint';
+
+    //แมบ study ให้ไปหา course (enrollment.blade)
+    public function courses(){
+        return $this->hasOne('App\Model\mis\Course','course_id','course_id');
+    }
 }
