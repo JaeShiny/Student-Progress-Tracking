@@ -14,21 +14,17 @@
     <title>ปัญหา/พฤติกรรม</title>
 
     <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li> </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                {{-- <li class="breadcrumb-item"><a href="{{ url('curriculum') }}">หลักสูตร(IT)</a></li> --}}
-                {{-- <li class="breadcrumb-item"><a href="{{ url('selectyear') }}">ชั้นปี</a></li> --}}
-                <li class="breadcrumb-item active" aria-current="page"><a href="">รายชื่อนักศึกษา</a></li>
-                {{-- <li class="breadcrumb-item active" aria-current="page"><a href="">ประวัตินักศึกษา(ใส่ชื่อด้วย)</a></li> --}}
-                <li class="breadcrumb-item active" aria-current="page"><a href="">พฤติกรรม/ปัญหาของนักศึกษา</a></li>
-            </ol>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page"><a href="">การลงทะเบียน</a></li>
+        </ol>
     </nav>
 </head>
 <body>
-        <h5 align='center'>วิชาที่ลงทะเบียน</h5>
-        <br><br><br><br>
+        <h6 align='right'>รหัสนักศึกษา: {{$study->student_id}} &nbsp;&nbsp;&nbsp;&nbsp;</h6>
 
-        <div class="dropdown">
+        <h5 align='center'>การลงทะเบียน</h5>
+        <br>
+    {{-- <div class="dropdown">
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           ปีการศึกษา&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -39,7 +35,7 @@
           <a class="dropdown-item" href="#">2/2560</a>
            <a class="dropdown-item" href="#">1/2560</a>
         </div>
-      </div>
+    </div> --}}
 
       <br><br><br>
       <center>
@@ -48,9 +44,10 @@
         <thead>
 
           <tr>
-                {{$study->student_id}}
-             <td class="table-secondary"><center><b>ลำดับที่</b></center></td>
-             <td class="table-secondary"><center><b>วิชาที่ลงทะเบียน</b></center></td>
+             <td class="table-secondary"><center><b>รหัสวิชา</b></center></td>
+             <td class="table-secondary"><center><b>ชื่อวิชา</b></center></td>
+             <td class="table-secondary"><center><b>เทอม</b></center></td>
+             <td class="table-secondary"><center><b>ปี</b></center></td>
              <td class="table-secondary"><center><b>หน่วยกิต</b></center></td>
              <td class="table-secondary"><center><b>กลุ่ม</b></center></td>
 
@@ -58,51 +55,22 @@
         </thead>
         <tbody>
           <tr>
-            <th scope="row"><center>1</center></th>
-            <td>INT206 Software Process</td>
-            <td><center>3</center></td>
-            <td><center>1</center></td>
-
+            <th scope="row"><center>{{$study->course_id}}</center></th>
+            <td><center>ชื่อวิชา</center></td>
+            <td><center>{{$study->semester}}</center></td>
+            <td><center>{{$study->year}}</center></td>
+            <td><center>{{$study->credit}}</center></td>
+            <td><center>{{$study->section}}</center></td>
           </tr>
-          <tr>
-            <th scope="row"><center>2</center></th>
-            <td>INT206 Software Process</td>
-            <td><center>3</center></td>
-            <td><center>1</center></td>
-
-          </tr>
-
-          <tr>
-            <th scope="row"><center>3</center></th>
-            <td>INT206 Software Process</td>
-            <td><center>3</center></td>
-            <td><center>1</center></td>
-          </tr>
-          <tr>
-            <th scope="row"><center>4</center></th>
-            <td>INT206 Software Process</td>
-            <td><center>3</center></td>
-           <td><center>1</center></td>
-          </tr>
-
-          <tr>
-            <th scope="row"><center>5</center></th>
-            <td>INT206 Software Process</td>
-            <td><center>3</center></td>
-           <td><center>1</center></td>
-          </tr>
-
-
-
         </tbody>
-        <tfoot>
-                  <tr>
-                    <td colspan="5" class="text-center"><p style="float: left;"><center>จำนวนวิชา : 5</center></p></td>
-                  </tr>
-                  <tr>
-                    <td colspan="5" class="text-center"><p style="float: left;"><center>จำนวนหน่วยกิต : 15</center></p></td>
-                  </tr>
-                </tfoot>
+        {{-- <tfoot>
+            <tr>
+                <td colspan="5" class="text-center"><p style="float: left;"><center>จำนวนวิชา : 5</center></p></td>
+            </tr>
+            <tr>
+                <td colspan="5" class="text-center"><p style="float: left;"><center>จำนวนหน่วยกิต : 15</center></p></td>
+            </tr>
+        </tfoot> --}}
       </table>
       </center>
 

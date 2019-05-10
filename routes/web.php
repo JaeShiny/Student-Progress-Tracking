@@ -93,6 +93,8 @@ Route::get('student_enrollmentL/{student_id}','student\StudyController@enrollmen
     //Student
 Route::get('profile/{student_id}','student\BioController@profile');
 
+Route::get('enrollmentS/{student_id}','student\StudyController@enrollmentS');
+
 //กดดูหน้าข้อมูลสัมภาษณ์
 Route::get('profilebeforeS/{student_id}','student\InterviewController@profileS');
 
@@ -157,6 +159,9 @@ Route::get('student_enrollmentA/{student_id}','student\StudyController@enrollmen
 
 //login student ให้เข้ามาเจอประวัติตัวเอง
 Route::get('/studentprofile', 'student\ProfileController@index');
+
+//login student ให้เข้ามาเจอการลงทะเบียนตัวเอง
+Route::get('/studentenrollment', 'student\ProfileController@study');
 
 //login lecturer ให้เข้ามาเจอวิชา
 // Route::get('/subjectL', 'lecturer\LecturerLoginController@index');
