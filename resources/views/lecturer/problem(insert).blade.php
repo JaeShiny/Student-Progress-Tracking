@@ -39,6 +39,7 @@ margin-top: -150px;
 
 </head>
 <body>
+    <h6 align='right'>รหัสนักศึกษา: {{$student_id}} &nbsp;&nbsp;&nbsp;&nbsp;</h6>
     <h5 align='center'>เพิ่มพฤติกรรม/ปัญหา ของนักศึกษา</h5>
 <br>
 <div class="container">
