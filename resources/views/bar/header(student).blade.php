@@ -28,7 +28,7 @@
 
                 {{-- Username:  --}}
                 {{-- <img src="../img/user.png" alt="Avatar" class="image" width="2"> --}}
-                {{ Auth::user()->name }} <span class="caret"></span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                {{ Auth::user()->student_id }}&nbsp;{{ Auth::user()->name }} &nbsp;{{ Auth::user()->lastname }}<span class="caret"></span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
                 <button type="button" class="btn">
 
@@ -331,7 +331,8 @@
             /* แถบ user */
             .t1 {
                 float: right;
-                width: 280px;
+                /* width: 280px; */
+                width: 380px;
                 height: 38px;
                 text-align: center;
                 color: white;
