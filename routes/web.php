@@ -198,4 +198,9 @@ Route::group(['prefix' => 'lecturer'], function(){
         Route::get('/dashboard', 'lecturer\LecturerController@index');
     });
 });
-
+//Route for Advisor+Lecturer user
+Route::group(['prefix' => 'AdLec'], function(){
+    Route::group(['middleware' => ['AdLec']], function(){
+        Route::get('/dashboard', 'AdLec\AdLecController@index');
+    });
+});
