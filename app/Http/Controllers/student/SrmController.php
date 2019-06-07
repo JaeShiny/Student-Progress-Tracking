@@ -81,4 +81,21 @@ class SrmController extends Controller
             'curriculum' => $curriculum,
         ]);
     }
+
+          //Advisor+Lecturer
+    //แมบ ชื่อสกุล ของ bio ให้ไปแมบกับชื่อนามสกุล ของ srm
+    public function profileAL($student_id){
+        $student = $student_id;
+
+        $bios = Bio::find($student_id);
+        $alumni_profile = Alumni_profile::where('first_name',$bios->first_name)->where('last_name',$bios->last_name)->first();
+        $curriculum = Curriculum::all();
+
+        return view('AdLec.profile(after)',[
+            'alumni_profile' => $alumni_profile,
+            'student' => $student,
+            'bios' => $bios,
+            'curriculum' => $curriculum,
+        ]);
+    }
 }

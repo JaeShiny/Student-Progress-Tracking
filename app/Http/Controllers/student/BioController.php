@@ -211,4 +211,60 @@ class BioController extends Controller
             'myStudent' => $myStudent,
         ]);
     }
+
+     //Advisor+Lecturer
+    //show หน้ารายชื่อนักศึกษา
+    public function indexAL(){
+
+        $bio = Bio::all();
+
+        return view('AdLec.studentlist',[
+            'bio' => $bio
+        ]);
+    }
+
+    //แสดง profile ของนักศึกษา
+    public function profileAL(){
+
+        $bios = Bio::all();
+        $statuss = Status::all();
+        $students = Student::all();
+        $generations = Generation::all();
+        $majors = Major::all();
+
+        return view('AdLec.profile',[
+            'bios' => $bios,
+            'statuss' => $statuss,
+            'students' => $students,
+            'generations' => $generations,
+            'majors' => $majors,
+        ]);
+    }
+    //ส่งประวัติมาจากหน้า studentlist เรียงคนมา
+    public function profileAL1($student_id){
+
+        $bios = Bio::find($student_id);
+        $statuss = Status::all();
+        $students = Student::all();
+        $generations = Generation::all();
+        $majors = Major::all();
+
+        return view('AdLec.profile',[
+            'bios' => $bios,
+            'statuss' => $statuss,
+            'students' => $students,
+            'generations' => $generations,
+            'majors' => $majors,
+        ]);
+    }
+
+    public function searchAL(Request $request){
+        $search = $request->get('search');
+        $myStudent = Student::where('student_id', 'like', '%'.$search.'%')->get();
+        return view('AdLec/adlecStudent',[
+            'myStudent' => $myStudent,
+        ]);
+    }
+
+
 }

@@ -53,5 +53,41 @@ class SubjectController extends Controller
         ]);
     }
 
+    //ทำการแมบ course จนไปถึง student
+    public function indexAL($course_id){
+        $course = Course::find($course_id);
+        $major = Major::where('major_id',$course->major_id)->get();
+        $student = Student::where('major_id',$course->major_id)->get();
+        return view('AdLec.studentlist',[
+            'student' => $student,
+        ]);
+    }
+
+    //แสดงวิชา
+       //show หน้ารายชื่อนักศึกษา
+    public function showCourseAL($student_id){
+        $student = $student_id;
+
+        // $course = Course::all();
+        $course = Course::paginate(5);
+
+        return view('AdLec.subject',[
+            'course' => $course,
+            'student' => $student,
+        ]);
+    }
+
+    // แสดงรายวิชาที่อาจารย์สอน
+    public function lecToCourseAL(){
+        $instructor = Instructor::where('first_name',Auth::user()->name)->first();
+        $schedule = Schedule::where('instructor_id2',$instructor->instructor_id)->pluck('course_id');
+        $course = Course::whereIn('course_id',$schedule)->paginate(5);
+
+        return view('AdLec.subject',[
+            'course' => $course
+        ]);
+    }
+
+
 
 }

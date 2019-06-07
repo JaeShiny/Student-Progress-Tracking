@@ -52,7 +52,7 @@ Route::get('alumni','student\AlumniController@show');
 
 
 
-    //Lecture
+    //Lecturer
 
 //แมบวิชากับเด็ก
 Route::get('subject/{course}','SubjectController@index');
@@ -131,6 +131,38 @@ Route::get('student_enrollmentA','student\StudyController@enrollmentA');
 Route::get('student_enrollmentA/{student_id}','student\StudyController@enrollmentA1')->name('enrollA');
 
 
+    //Advisor+Lecturer
+Route::get('student_searchL','student\BioController@searchAL');
+
+Route::get('student_profileAL','student\BioController@profileAL');
+Route::get('student_profileAL/{student_id}','student\BioController@profileAL1')->name('profileAL');
+
+
+//กดดูหน้าข้อมูลสัมภาษณ์
+Route::get('profilebeforeAL/{student_id}','student\InterviewController@profileAL');
+
+//กดดูหน้าข้อมูลหลังจบ
+Route::get('profileafterAL/{student_id}','student\SrmController@profileAL');
+
+//กดดูวิชาที่่ลงทะเบียน
+Route::get('student_enrollmentAL','student\StudyController@enrollmentAL');
+Route::get('student_enrollmentAL/{student_id}','student\StudyController@enrollmentAL1')->name('enrollAL');
+
+//แมบวิชากับเด็ก
+Route::get('subjectAL/{course}','SubjectController@indexAL');
+
+Route::get('courseAL','SubjectController@showCourseAL');
+
+// route แสดงรายวิชาที่อาจารย์สอน
+Route::get('courseAL','SubjectController@lecToCourseAL');
+
+//เพิ่มพฤติกรรม/ปัญหา
+Route::get('problem_createAL/{student_id}','lecturer\ProblemController@createAL')->name('create');
+Route::post('problem_insertAL','lecturer\ProblemController@insertAL');
+//แสดงพฤติกรรมเด็ก
+Route::get('studentproblemAL/{student_id}', 'lecturer\ProblemController@showProblemAL');
+
+
 //ลบด้วยนะถ้าเขียนโค้ดเสร็จ
 // Route::get('profilebefore', function () {
 //     return view('student.profile(before)');
@@ -202,5 +234,7 @@ Route::group(['prefix' => 'lecturer'], function(){
 Route::group(['prefix' => 'AdLec'], function(){
     Route::group(['middleware' => ['AdLec']], function(){
         Route::get('/dashboard', 'AdLec\AdLecController@index');
+        // route ไปยังหน้าที่แสดงรายชื่อนักศึกษาของอาจารย์ที่ปรึกษา
+        Route::get('ALStudent','AdLec\AdLecController@showStudent');
     });
 });

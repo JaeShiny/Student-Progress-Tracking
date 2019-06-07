@@ -91,4 +91,28 @@ class StudyController extends Controller
         ]);
     }
 
+        //Advisor+Lecturer
+        public function enrollmentAL(){
+            $study = Study::all();
+            $courses = Course::all();
+
+            return view('AdLec.enrollment',[
+                'study' => $study,
+                'courses' => $courses,
+            ]);
+
+        }
+
+        public function enrollmentAL1($student_id){
+            $study = Study::find($student_id);
+            $courses = Course::all();
+
+            return view('AdLec.enrollment',[
+                'study' => $study,
+                'courses' => $courses,
+            ]);
+        }
+
+
+
 }
