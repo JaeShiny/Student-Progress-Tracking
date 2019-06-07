@@ -3,6 +3,7 @@
 namespace App\Model\mis;
 
 use Illuminate\Database\Eloquent\Model;
+use Traits\HasCompositePrimaryKey;
 
 class Study extends Model
 {
@@ -10,6 +11,10 @@ class Study extends Model
     protected $table = "study";
     protected $primaryKey = "student_id";
     protected $keyType = 'bigint';
+
+
+    // protected $primaryKey = array('student_id', 'student_id');
+
 
     //แมบ study ให้ไปหา course (enrollment.blade)
     public function courses(){
