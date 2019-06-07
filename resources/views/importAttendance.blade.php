@@ -1,7 +1,10 @@
+@extends('bar.body')
+@section('content')
+
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Laravel 5.7 Import Export Excel to database Example - ItSolutionStuff.com</title>
+    <title>Import Attendance</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" />
 </head>
 <body>
@@ -25,3 +28,7 @@
 
 </body>
 </html>
+
+
+@endsection
+@extends('bar.header(lec)')
