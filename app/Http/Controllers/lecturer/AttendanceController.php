@@ -1,21 +1,22 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\lecturer;
 
-use App\Model\spts\Attendance;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Exports\AttendanceExport;
 use App\Imports\AttendanceImport;
 use Maatwebsite\Excel\Facades\Excel;
+use App\Model\spts\Attendance;
 
-class MyController extends Controller
+class AttendanceController extends Controller
 {
-    /**
+   /**
     * @return \Illuminate\Support\Collection
     */
     public function importExportView()
     {
-       return view('importAttendance');
+       return view('lecturer.importAttendance');
     }
 
     /**
