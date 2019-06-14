@@ -189,7 +189,7 @@ Route::post('import/{course_id}', 'lecturer\AttendanceController@import')->name(
 
 
 
-
+Route::get('/attendance/{course_id}','lecturer\AttendanceController@Show');
 
 
 //login student ให้เข้ามาเจอประวัติตัวเอง
