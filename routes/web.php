@@ -191,6 +191,8 @@ Route::post('import/{course_id}', 'lecturer\AttendanceController@import')->name(
 
 Route::get('/attendance/{course_id}','lecturer\AttendanceController@Show');
 
+Route::get('/student/attendance','student\AttendanceController@Show');
+
 
 //login student ให้เข้ามาเจอประวัติตัวเอง
 Route::get('/studentprofile', 'student\ProfileController@index');

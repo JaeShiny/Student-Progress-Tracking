@@ -55,6 +55,7 @@
         <a class="nav-link" href="/studentprofile" style="color: #FFFFFF" >ประวัติ</a>
         <a class="nav-link" href="#" style="color: #FFFFFF">การแจ้งเตือน</a>
         <a class="nav-link" href="#" style="color: #FFFFFF">สถิติ</a>
+        <a class="nav-link" href="/student/attendance" style="color: #FFFFFF">การเข้าเรียน</a>
     </nav>
 
     {{-- <nav class="bg2" style="background-color: #1D5287;">
