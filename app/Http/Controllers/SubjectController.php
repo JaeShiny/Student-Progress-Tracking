@@ -25,6 +25,7 @@ class SubjectController extends Controller
         $student = Student::where('major_id',$course->major_id)->get();
         return view('lecturer.studentlist',[
             'student' => $student,
+            'course' => $course,
         ]);
     }
 

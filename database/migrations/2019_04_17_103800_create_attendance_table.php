@@ -15,8 +15,8 @@ class CreateAttendanceTable extends Migration
     {
         Schema::create('attendance', function (Blueprint $table) {
             $table->bigIncrements('attendance_id');
-            //$table->foreign('student_id');
-            //$table->foreign('course_id');
+            $table->string('course_id');
+            $table->string('student_id');
             $table->String('amount_attendance');
             $table->String('amount_absence');
             $table->String('amount_takeleave');

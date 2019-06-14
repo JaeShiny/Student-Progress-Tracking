@@ -15,8 +15,9 @@
             Import Attendance
         </div>
         <div class="card-body">
-            <form action="{{ route('import') }}" method="POST" enctype="multipart/form-data">
+        <form action="/import/{{$course->course_id}}" method="POST" enctype="multipart/form-data">
                 @csrf
+            <input type="hidden" name="course_id" value="{{$course->course_id}}">
                 <input type="file" name="file" class="form-control">
                 <br>
                 <button class="btn btn-success">Import Attendance</button>

@@ -110,6 +110,7 @@
 
           {{-- <br>{{$bio->links()}}<br> --}}
 
+<center><a href="/importExportView/{{$course->course_id}}">เพิ่มการเข้าเรียน</a></center>
 
 
     <!-- Optional JavaScript -->

@@ -8,15 +8,19 @@ use App\Exports\AttendanceExport;
 use App\Imports\AttendanceImport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Model\spts\Attendance;
+use App\Model\mis\Course;
 
 class AttendanceController extends Controller
 {
    /**
     * @return \Illuminate\Support\Collection
     */
-    public function importExportView()
+    public function importExportView($course_id)
     {
-       return view('lecturer.importAttendance');
+        $course = Course::find($course_id);
+       return view('lecturer.importAttendance',[
+           'course' => $course,
+       ]);
     }
 
     /**

@@ -12,6 +12,8 @@ class Attendance extends Model
     // protected $keyType = 'bigint';
 
     public $fillable = ['attendance_id',
+    'course_id',
+    'student_id',
     'amount_attendance',
     'amount_absence',
     'amount_takeleave',

@@ -184,8 +184,8 @@ Route::get('studentproblemAL/{student_id}', 'lecturer\ProblemController@showProb
 
 //เทสการ import excel
 Route::get('export', 'lecturer\AttendanceController@export')->name('export');
-Route::get('importExportView', 'lecturer\AttendanceController@importExportView');
-Route::post('import', 'lecturer\AttendanceController@import')->name('import');
+Route::get('importExportView/{course_id}', 'lecturer\AttendanceController@importExportView');
+Route::post('import/{course_id}', 'lecturer\AttendanceController@import')->name('import');
 
 
 
