@@ -93,8 +93,7 @@ Route::get('export', 'lecturer\AttendanceController@export')->name('export');
 Route::get('importExportView/{course_id}', 'lecturer\AttendanceController@importExportView');
 Route::post('import/{course_id}', 'lecturer\AttendanceController@import')->name('import');
 
-
-//แสดงการเข้าเรียน
+//แสดงการเข้าเรียน Attendance
 Route::get('/attendance/{course_id}','student\AttendanceController@showAttendanceL');
 
 
@@ -119,7 +118,7 @@ Route::get('study/{student_id}','student\StudyController@enrollmentS');
 //กดดูหน้าข้อมูลหลังจบ
 Route::get('profileafter/{student_id}','student\SrmController@profile');
 
-//แสดงการเข้าเรียน
+//แสดงการเข้าเรียน Attendance
 Route::get('/student/attendance','student\AttendanceController@showAttendanceS');
 
 

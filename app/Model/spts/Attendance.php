@@ -21,5 +21,10 @@ class Attendance extends Model
     'absence_date',
     'takeleave_date'];
 
+    //แมบ student_id ของ Attendance ให้ไปหา student_id ของ users
+    public function id(){
+        return $this->hasOne('App\Model\spts\User','student_id','student_id');
+    }
+
 
 }

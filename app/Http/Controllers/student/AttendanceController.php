@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\spts\Attendance;
 use App\Model\mis\Course;
+use App\Model\spts\User;
 use Auth;
 
 class AttendanceController extends Controller

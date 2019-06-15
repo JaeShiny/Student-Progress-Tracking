@@ -41,10 +41,4 @@ class AttendanceController extends Controller
         return back();
     }
 
-    public function Show($course_id)  {
-        $student = Attendance::where('course_id',$course_id)->get();
-        return view('lecturer.attendance',[
-            'student' => $student,
-        ]);
-    }
 }
