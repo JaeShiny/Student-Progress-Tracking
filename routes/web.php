@@ -88,6 +88,15 @@ Route::get('risk_problem/{student_id}','lecturer\ProblemController@notiProblemL'
 Route::get('student_enrollmentL','student\StudyController@enrollmentL');
 Route::get('student_enrollmentL/{student_id}','student\StudyController@enrollmentL1')->name('enrollL');
 
+//import excel
+Route::get('export', 'lecturer\AttendanceController@export')->name('export');
+Route::get('importExportView/{course_id}', 'lecturer\AttendanceController@importExportView');
+Route::post('import/{course_id}', 'lecturer\AttendanceController@import')->name('import');
+
+
+//แสดงการเข้าเรียน
+Route::get('/attendance/{course_id}','student\AttendanceController@showAttendanceL');
+
 
 
     //Student
@@ -109,6 +118,9 @@ Route::get('study/{student_id}','student\StudyController@enrollmentS');
 // Route::get('lecturer/{instructor}','lecturer\InstructorController@index');
 //กดดูหน้าข้อมูลหลังจบ
 Route::get('profileafter/{student_id}','student\SrmController@profile');
+
+//แสดงการเข้าเรียน
+Route::get('/student/attendance','student\AttendanceController@showAttendanceS');
 
 
     //Advisor
@@ -180,18 +192,6 @@ Route::get('studentproblemAL/{student_id}', 'lecturer\ProblemController@showProb
 //     return view('lecturer.subject');
 // });
 
-
-
-//เทสการ import excel
-Route::get('export', 'lecturer\AttendanceController@export')->name('export');
-Route::get('importExportView/{course_id}', 'lecturer\AttendanceController@importExportView');
-Route::post('import/{course_id}', 'lecturer\AttendanceController@import')->name('import');
-
-
-
-Route::get('/attendance/{course_id}','lecturer\AttendanceController@Show');
-
-Route::get('/student/attendance','student\AttendanceController@Show');
 
 
 //login student ให้เข้ามาเจอประวัติตัวเอง
