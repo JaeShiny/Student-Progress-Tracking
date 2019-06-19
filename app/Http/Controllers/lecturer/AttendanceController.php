@@ -22,7 +22,7 @@ class AttendanceController extends Controller
     public function importExportView($course_id)
     {
         $course = Course::find($course_id);
-        return view('lecturer.importAttendance',[
+        return view('lecturer.addAttendance',[
             'course' => $course,
         ]);
     }
@@ -63,8 +63,10 @@ class AttendanceController extends Controller
     //แสดงผลการเข้าเรียน
     public function showAttendanceL($course_id)  {
         $student = Attendance::where('course_id',$course_id)->get();
-        return view('lecturer.attendance',[
+        $course = Course::find($course_id);
+        return view('lecturer.showAttendance',[
             'student' => $student,
+            'course' => $course,
         ]);
     }
 

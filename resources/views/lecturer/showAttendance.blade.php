@@ -5,7 +5,7 @@
 <html>
 
 <head>
-    <title>เพิ่มการเข้าเรียน</title>
+    <title>แสดงการเข้าเรียน</title>
     <link rel="stylesheet" href="csste.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap-grid.css">
@@ -22,7 +22,7 @@
         <ol class="breadcrumb">
             <li></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <li class="breadcrumb-item" aria-current="page"><a href="{{ url('course') }}">วิชาที่สอน</a></li>
-            <li class="breadcrumb-item" aria-current="page"><a href="/importExportView/{{$course->course_id}}">เพิ่มการเข้าเรียน</a></li>
+            <li class="breadcrumb-item" aria-current="page"><a href="/attendance/{{$course->course_id}}">แสดงการเข้าเรียน</a></li>
         </ol>
 
     </nav>
@@ -53,8 +53,7 @@
         </li>
       </ul>
       <br>
-      <center><button type="button" class="btn btn-primary"><a href="/subject/{{$course->course_id}}" style="color: #FFFFFF; text-decoration: none; ">รายชื่อนักศึกษา</a></button></center>
-
+        <center><button type="button" class="btn btn-primary"><a href="/subject/{{$course->course_id}}" style="color: #FFFFFF; text-decoration: none; ">รายชื่อนักศึกษา</a></button></center>
 
       </div>
 
@@ -62,30 +61,42 @@
       <div style="margin-left:25%;margin-top: -1%">
 
       <div class="w3-container w3-teal">
-        {{-- <h3 class="w3-bar-item"> SOFTWARE PROCESS</h3> --}}
         <h3>&nbsp;&nbsp;&nbsp;{{$course->course_id}}:&nbsp;{{$course->course_name_eng}}</h3><br>
       </div>
 
-      <div class="container">
-          <div class="card bg-light mt-3">
-              <div class="card-header">
-                  เพิ่มการเข้าเรียน
-              </div>
-              <div class="card-body">
-              <form action="/import/{{$course->course_id}}" method="POST" enctype="multipart/form-data">
-                      @csrf
-                  <input type="hidden" name="course_id" value="{{$course->course_id}}">
-                      <input type="file" name="file" class="form-control">
-                      <br>
-                      <button class="btn btn-success">เพิ่มการเข้าเรียน</button>
-                      <a class="btn btn-warning" href="{{ route('export') }}">Export การเข้าเรียน</a>
-                  </form>
+      <br><br><br>
+    <div class="container">
+    <center>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                  <th>รหัสวิชา</th>
+                  <th>รหัสนักศึกษา</th>
+                  {{-- <th>ชื่อ-สกุล</th> --}}
+                  <th>จำนวนชั่วโมงเรียน</th>
+                  <th>จำนวนการขาดเรียน</th>
+                  <th>จำนวนการลา</th>
+                </tr>
+            </thead>
+            @foreach($student as $show_student)
+            <tbody>
+                <tr>
+                  <td>{{$show_student->course_id}}</td>
+                  <td>{{$show_student->student_id}}</td>
+                  {{-- <td>{{$show_student->id->name}} &nbsp;&nbsp; {{$show_student->id->last_name}}</td> --}}
+                  <td>{{$show_student->amount_attendance}}</td>
+                  <td>{{$show_student->amount_absence}}</td>
+                  <td>{{$show_student->amount_takeleave}}</td>
+                </tr>
+            </tbody>
+            @endforeach
+        </table>
+    </center>
+    </div>
 
-              </div>
-          </div>
-      </div>
 
-      </div>
+
+    </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
