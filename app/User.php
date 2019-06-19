@@ -41,6 +41,7 @@ class User extends Authenticatable
     const ADVISOR_TYPE = "Advisor";
     const LECTURER_TYPE = "Lecturer";
     const ADLEC_TYPE = "AdLec";
+    const LF_TYPE = "LF";
     const DEFAULT_TYPE = "Education Officer";
 
     public function isStudent(){
@@ -57,6 +58,10 @@ class User extends Authenticatable
 
     public function isAdLec(){
         return $this->position === self::ADLEC_TYPE;
+    }
+
+    public function isLF(){
+        return $this->position === self::LF_TYPE;
     }
 
 }

@@ -239,3 +239,9 @@ Route::group(['prefix' => 'AdLec'], function(){
         Route::get('ALStudent','AdLec\AdLecController@showStudent');
     });
 });
+//Route for LF user
+Route::group(['prefix' => 'LF'], function(){
+    Route::group(['middleware' => ['LF']], function(){
+        Route::get('/dashboard', 'LF\LFController@index');
+    });
+});

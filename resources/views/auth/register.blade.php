@@ -86,6 +86,7 @@
                                     <option value="Lecturer">อาจารย์ประจำวิชา</option>
                                     <option value="Student">นักศึกษา</option>
                                     <option value="AdLec">อาจารย์ที่ปรึกษาและอาจารย์ประจำวิชา</option>
+                                    <option value="LF">LF</option>
                                 </select>
                                 </div>
                         </div>

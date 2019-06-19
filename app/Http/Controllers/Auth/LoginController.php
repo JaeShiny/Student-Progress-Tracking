@@ -89,6 +89,8 @@ class LoginController extends Controller
             return '/lecturer/dashboard';
         } elseif (auth()->user()->isAdLec()){
             return '/AdLec/dashboard';
+        }elseif (auth()->user()->isLF()){
+            return '/LF/dashboard';
         }else {
             return '/home';
         }
