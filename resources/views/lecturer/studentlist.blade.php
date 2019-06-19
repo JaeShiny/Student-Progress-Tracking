@@ -26,8 +26,8 @@
 
 <body>
 
-        <h5 align='center'>{{$course->course_id}}</h5>
-        <h6 align='center'>{{$course->course_name_eng}}</h6><br>
+    <h5 align='center'>{{$course->course_id}}</h5>
+    <h6 align='center'>{{$course->course_name_eng}}</h6><br>
 
     <div class="container">
         <form action="/student_searchL" method="get">
