@@ -30,62 +30,96 @@
 
 <body>
 
-    <div class="w3-sidebar w3-light-grey w3-bar-block" style="width:25% ;margin-top: -1%">
+ <div class="w3-sidebar w3-light-grey w3-bar-block" style="width:25% ;margin-top: -1%">
 
-        <h3 class="w3-bar-item"><center>{{$course->course_id}}</h3></center>
+    <h3 class="w3-bar-item"><center>{{$course->course_id}}</h3></center>
 
-        <ul class="list-group">
+    <ul class="list-group">
         <li class="list-group-item d-flex justify-content-between align-items-center">
-         <a href="/importExportView/{{$course->course_id}}" style="text-decoration: none; color: #000000;"><h5> &nbsp;&nbsp; เพิ่มการเข้าเรียน</h5></a>
+            <a href="/importExportView/{{$course->course_id}}" style="text-decoration: none; color: #000000;"><h5> &nbsp;&nbsp; เพิ่มการเข้าเรียน</h5></a>
 
         </li>
         <li class="list-group-item d-flex justify-content-between align-items-center">
-          <a href="/attendance/{{$course->course_id}}" style="text-decoration: none; color: #000000;" ><h5> &nbsp;&nbsp; ดูการเข้าเรียน</h5></a>
+            <a href="/attendance/{{$course->course_id}}" style="text-decoration: none; color: #000000;"><h5> &nbsp;&nbsp; ดูการเข้าเรียน</h5></a>
 
         </li>
         <li class="list-group-item d-flex justify-content-between align-items-center">
-         <a href="testshow3.html" style="text-decoration: none; color: #000000;" ><h5>&nbsp;&nbsp;  เพิ่มผลการเรียน</h5></a>
+            <a href="testshow3.html" style="text-decoration: none; color: #000000;"><h5>&nbsp;&nbsp;  เพิ่มผลการเรียน</h5></a>
 
         </li>
         <li class="list-group-item d-flex justify-content-between align-items-center">
-         <a href="testshow4.html" style="text-decoration: none; color: #000000;" ><h5> &nbsp;&nbsp; ดูผลการเรียน</h5></a>
+            <a href="testshow4.html" style="text-decoration: none; color: #000000;"><h5> &nbsp;&nbsp; ดูผลการเรียน</h5></a>
 
         </li>
-      </ul>
-      <br>
-      <center><button type="button" class="btn btn-primary"><a href="/subject/{{$course->course_id}}" style="color: #FFFFFF; text-decoration: none; ">รายชื่อนักศึกษา</a></button></center>
+    </ul>
+    <br>
+    <center>
+        <button type="button" class="btn btn-primary"><a href="/subject/{{$course->course_id}}" style="color: #FFFFFF; text-decoration: none; ">รายชื่อนักศึกษา</a></button>
+    </center>
 
+</div>
 
-      </div>
+<!-- Page Content -->
+<div style="margin-left:25%;margin-top: -1%">
 
-      <!-- Page Content -->
-      <div style="margin-left:25%;margin-top: -1%">
+    <div class="w3-container w3-teal">
+        {{--
+        <h3 class="w3-bar-item"> SOFTWARE PROCESS</h3> --}}
+        <h3>&nbsp;&nbsp;&nbsp;{{$course->course_id}}:&nbsp;{{$course->course_name_eng}}</h3>
+        <br>
+    </div>
 
-      <div class="w3-container w3-teal">
-        {{-- <h3 class="w3-bar-item"> SOFTWARE PROCESS</h3> --}}
-        <h3>&nbsp;&nbsp;&nbsp;{{$course->course_id}}:&nbsp;{{$course->course_name_eng}}</h3><br>
-      </div>
+    <div class="container">
+        <div class="card bg-light mt-3">
+            <div class="card-header">
+                เพิ่มการเข้าเรียน
+            </div>
+            <div class="card-body">
+                <form action="/import/{{$course->course_id}}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <input type="hidden" name="course_id" value="{{$course->course_id}}">
+                    <input type="file" name="file" class="form-control">
+                    <br> {{--
+                    <button class="btn btn-success">เพิ่มการเข้าเรียน</button>
+                    <a class="btn btn-warning" href="{{ route('export') }}">Export การเข้าเรียน</a> --}}
 
-      <div class="container">
-          <div class="card bg-light mt-3">
-              <div class="card-header">
-                  เพิ่มการเข้าเรียน
-              </div>
-              <div class="card-body">
-              <form action="/import/{{$course->course_id}}" method="POST" enctype="multipart/form-data">
-                      @csrf
-                  <input type="hidden" name="course_id" value="{{$course->course_id}}">
-                      <input type="file" name="file" class="form-control">
-                      <br>
-                      <button class="btn btn-success">เพิ่มการเข้าเรียน</button>
-                      <a class="btn btn-warning" href="{{ route('export') }}">Export การเข้าเรียน</a>
-                  </form>
+                    <div class="container">
+                        <div class="form-group">
+                            <input type="submit" value="เพิ่มการเข้าเรียน" class="btn btn-success" data-toggle="modal" data-target="#myModal">
+                            <a class="btn btn-warning" href="{{ route('export') }}">Export การเข้าเรียน</a>
+                        </div>
+                        <!-- Modal -->
+                        <div class="modal fade" id="myModal" role="dialog">
+                            <div class="modal-dialog">
 
-              </div>
-          </div>
-      </div>
+                                <!-- Modal content-->
+                                <div class="modal-content" style="background-color: #F0F8FF;">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-      </div>
+                                    </div>
+                                    <div class="modal-body">
+                                        <center>
+                                            <h5>เพิ่มไฟล์การเข้าเรียนเรียบร้อยแล้ว</center></h5>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">ตกลง</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    @csrf
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+</div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
