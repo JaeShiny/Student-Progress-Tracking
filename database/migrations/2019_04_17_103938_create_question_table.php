@@ -20,6 +20,10 @@ class CreateQuestionTable extends Migration
             $table->unsignedBigInteger('questionType_id');
             $table->foreign('questionType_id')->references('questionType_id')->on('question_type');
             $table->String('question_name');
+            $table->String('semester');
+            $table->String('year');
+            $table->String('section');
+            $table->String('gen');
             $table->timestamps();
         });
     }

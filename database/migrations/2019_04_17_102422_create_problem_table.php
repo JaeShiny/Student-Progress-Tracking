@@ -24,6 +24,10 @@ class CreateProblemTable extends Migration
             $table->String('date');
             $table->unsignedBigInteger('add_id');
             $table->foreign('add_id')->references('id')->on('users');
+            $table->String('semester');
+            $table->String('year');
+            $table->String('section');
+            $table->String('gen');
             $table->timestamps();
 
         });
