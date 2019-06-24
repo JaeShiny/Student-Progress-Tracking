@@ -72,7 +72,7 @@
                   <th>รหัสวิชา</th>
                   <th>รหัสนักศึกษา</th>
                   {{-- <th>ชื่อ-สกุล</th> --}}
-                  <th>จำนวนชั่วโมงเรียน</th>
+                  <th>จำนวนคาบเรียน</th>
                   <th>จำนวนการขาดเรียน</th>
                   <th>จำนวนการลา</th>
                 </tr>
@@ -83,7 +83,7 @@
                   <td>{{$show_student->course_id}}</td>
                   <td>{{$show_student->student_id}}</td>
                   {{-- <td>{{$show_student->id->name}} &nbsp;&nbsp; {{$show_student->id->last_name}}</td> --}}
-                  <td>{{$show_student->amount_attendance}}</td>
+                  <td>{{$show_student->section_total}}</td>
                   <td>{{$show_student->amount_absence}}</td>
                   <td>{{$show_student->amount_takeleave}}</td>
                 </tr>

@@ -19,21 +19,24 @@ class AttendanceImport implements ToModel, WithHeadingRow
         return new Attendance([
             'course_id' => $row['course_id'],
             'student_id'     => $row['student_id'],
-            'amount_attendance'    => $row['amount_attendance'],
+            'section_total' => $row['section_total'],
+            // 'amount_attendance'    => $row['amount_attendance'],
             'amount_absence'    => $row['amount_absence'],
             'amount_takeleave'    => $row['amount_takeleave'],
-            'attendance_date'    => \PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['attendance_date']),
-            'absence_date'    => \PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['absence_date']),
-            'takeleave_date'    => \PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['takeleave_date']),
-
-            // 'attendance_id'     => $row['attendance_id'],
-            // 'amount_attendance'    => $row['amount_attendance'],
-            // 'amount_absence'    => $row['amount_absence'],
-            // 'amount_takeleave'    => $row['amount_takeleave'],
-            // 'attendance_date'    => $row['attendance_date'],
-            // 'absence_date'    => $row['absence_date'],
-            // 'takeleave_date'    => $row['takeleave_date'],
-
+            'amount_total' => $row['amount_total'],
+            // 'date_absence1' => \PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['date_absence1']),
+            'date_absence1' =>$row['date_absence1'],
+            'date_absence2' =>$row['date_absence2'],
+            'date_absence3' => $row['date_absence3'],
+            'date_absence4' => $row['date_absence4'],
+            'date_takeleave1' => $row['date_takeleave1'],
+            'date_takeleave2' => $row['date_takeleave2'],
+            'date_takeleave3' => $row['date_takeleave3'],
+            'date_takeleave4' => $row['date_takeleave4'],
+            // 'semester' => '2',
+            // 'year' => '2019',
+            // 'section' => '1',
+            // 'gen' => '20',
         ]);
     }
 }
