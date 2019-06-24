@@ -10,7 +10,7 @@
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap-grid.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap-reboot.css">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    {{-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> --}}
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,52 +24,46 @@
             <li class="breadcrumb-item" aria-current="page"><a href="{{ url('course') }}">วิชาที่สอน</a></li>
             <li class="breadcrumb-item" aria-current="page"><a href="/importExportView/{{$course->course_id}}">เพิ่มการเข้าเรียน</a></li>
         </ol>
-
     </nav>
+
+    <style>
+        .row{
+            margin-right: 0px;
+        }
+    </style>
+
 </head>
 
 <body>
 
- <div class="w3-sidebar w3-light-grey w3-bar-block" style="width:25% ;margin-top: -1%">
+<ul class="nav nav-tabs" id="myTab" role="tablist" style="background-color:white;">
+    <li class="nav-item">
+        <a class="nav-link active" href="/importExportView/{{$course->course_id}}" style="color: #000000;">การเข้าเรียน</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="t3.html" style="color: #000000;">ผลการเรียน</a>
+    </li>
+</ul><br>
 
-    <h3 class="w3-bar-item"><center>{{$course->course_id}}</h3></center>
+<div class="row">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <div class="col">
+        <div class="list-group" id="list-tab" role="tablist">
 
-    <ul class="list-group">
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-            <a href="/importExportView/{{$course->course_id}}" style="text-decoration: none; color: #000000;"><h5> &nbsp;&nbsp; เพิ่มการเข้าเรียน</h5></a>
+            <a class="list-group-item list-group-item-action active" href="/importExportView/{{$course->course_id}}"><b>เพิ่มการเข้าเรียน</b></a>
+            <a class="list-group-item list-group-item-action" href="/attendance/{{$course->course_id}}"><b>แสดงการเข้าเรียน</b></a>
+            <a class="list-group-item list-group-item-action" href="/subject/{{$course->course_id}}"><b>รายชื่อนักศึกษา</b></a>
 
-        </li>
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-            <a href="/attendance/{{$course->course_id}}" style="text-decoration: none; color: #000000;"><h5> &nbsp;&nbsp; ดูการเข้าเรียน</h5></a>
-
-        </li>
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-            <a href="testshow3.html" style="text-decoration: none; color: #000000;"><h5>&nbsp;&nbsp;  เพิ่มผลการเรียน</h5></a>
-
-        </li>
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-            <a href="testshow4.html" style="text-decoration: none; color: #000000;"><h5> &nbsp;&nbsp; ดูผลการเรียน</h5></a>
-
-        </li>
-    </ul>
-    <br>
-    <center>
-        <button type="button" class="btn btn-primary"><a href="/subject/{{$course->course_id}}" style="color: #FFFFFF; text-decoration: none; ">รายชื่อนักศึกษา</a></button>
-    </center>
-
-</div>
-
-<!-- Page Content -->
-<div style="margin-left:25%;margin-top: -1%">
-
-    <div class="w3-container w3-teal">
-        {{--
-        <h3 class="w3-bar-item"> SOFTWARE PROCESS</h3> --}}
-        <h3>&nbsp;&nbsp;&nbsp;{{$course->course_id}}:&nbsp;{{$course->course_name_eng}}</h3>
-        <br>
+        </div>
     </div>
 
-    <div class="container">
+<div class="container px-lg-5">
+    <div class="row mx-lg-n5">
+        <div class="col-11">
+            <div class="col py-3 px-lg-5 border bg-light">
+                <div class="tab-content" id="v-pills-tabContent">
+                    <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                        <h4 class="w3-bar-item">{{$course->course_id}}&nbsp;{{$course->course_name_eng}}</h4>
+     <div class="container">
         <div class="card bg-light mt-3">
             <div class="card-header">
                 เพิ่มการเข้าเรียน
@@ -86,7 +80,7 @@
                     <div class="container">
                         <div class="form-group">
                             <input type="submit" value="เพิ่มการเข้าเรียน" class="btn btn-success" data-toggle="modal" data-target="#myModal">
-                            <a class="btn btn-warning" href="{{ route('export') }}">Export การเข้าเรียน</a>
+                            {{-- <a class="btn btn-warning" href="{{ route('export') }}">Export การเข้าเรียน</a> --}}
                         </div>
                         <!-- Modal -->
                         <div class="modal fade" id="myModal" role="dialog">
@@ -118,8 +112,11 @@
             </div>
         </div>
     </div>
+</div>
+<br><br><br><br>
 
 </div>
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
