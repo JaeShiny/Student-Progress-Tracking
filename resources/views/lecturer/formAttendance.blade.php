@@ -19,6 +19,15 @@
 </head>
 <body>
 
+<ul class="nav nav-tabs" id="myTab" role="tablist" style="background-color:white;">
+    <li class="nav-item">
+        <a class="nav-link active" href="{{ url('FormAttendance') }}" style="color: #000000;">แบบฟอร์มการเข้าเรียน</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ url('FormGrade') }}" style="color: #000000;">แบบฟอร์มเพิ่มผลการเรียน</a>
+    </li>
+</ul><br>
+
 <div class="container">
     <div class="card bg-light mt-3">
         <div class="card-header">
