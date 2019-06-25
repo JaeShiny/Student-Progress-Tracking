@@ -96,6 +96,15 @@ Route::post('import/{course_id}', 'lecturer\AttendanceController@import')->name(
 //แสดงการเข้าเรียน Attendance
 Route::get('/attendance/{course_id}','lecturer\AttendanceController@showAttendanceL');
 
+//form Attendance
+Route::get('FormAttendance', 'lecturer\FormController@FormAttendanceView');
+Route::get('exportAttendance', 'lecturer\FormController@FormAttendance')->name('exportAttendance');
+
+//form Grade
+Route::get('FormGrade', 'lecturer\FormController@FormGradeView');
+Route::get('exportGrade', 'lecturer\FormController@FormGrade')->name('exportGrade');
+
+
 
 
     //Student
