@@ -36,11 +36,13 @@
         <div class="card-body">
             <form action="" method="POST" enctype="multipart/form-data">
                 @csrf
-                <a class="btn btn-warning" href="{{ route('exportAttendance') }}">Export ฟอร์มการเข้าเรียน</a>
-            </form>
+                &nbsp;&nbsp;&nbsp;
+                <a class="btn btn-warning" href="{{ route('exportAttendance') }}">ดาวน์โหลดแบบฟอร์มการกรอกการเข้าเรียน</a>
+            </form><br>
+            <center><img src="../img/attendance.png" width="1000" height="350" title="คู่มือการ import การเข้าเรียน"></center>
         </div>
     </div>
-</div>
+</div><br>
 
 </body>
 </html>

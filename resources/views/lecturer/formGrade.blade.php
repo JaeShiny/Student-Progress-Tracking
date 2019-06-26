@@ -35,11 +35,13 @@
         <div class="card-body">
             <form action="" method="POST" enctype="multipart/form-data">
                 @csrf
-                <a class="btn btn-warning" href="{{ route('exportFormGrade') }}">Export ฟอร์มเพิ่มผลการเรียน</a>
-            </form>
+                &nbsp;&nbsp;&nbsp;
+                <a class="btn btn-warning" href="{{ route('exportFormGrade') }}">ดาวน์โหลดแบบฟอร์มการเพิ่มผลการเรียน</a>
+            </form><br>
+            <center><img src="../img/grade.png" width="1000" height="400" title="คู่มือการ import ผลการเรียน"></center>
         </div>
     </div>
-</div>
+</div><br>
 
 </body>
 </html>

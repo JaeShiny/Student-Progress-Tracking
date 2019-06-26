@@ -40,7 +40,7 @@
         <a class="nav-link active" href="/importExportView/{{$course->course_id}}" style="color: #000000;">การเข้าเรียน</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="t3.html" style="color: #000000;">ผลการเรียน</a>
+        <a class="nav-link" href="/importExportGrade/{{$course->course_id}}" style="color: #000000;">ผลการเรียน</a>
     </li>
 </ul><br>
 
