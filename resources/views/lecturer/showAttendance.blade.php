@@ -74,7 +74,21 @@
                   {{-- <th>ชื่อ-สกุล</th> --}}
                   <th>จำนวนคาบเรียน</th>
                   <th>จำนวนการขาดเรียน</th>
-                  <th>จำนวนการลา</th>
+                  <th>คาบที่ 1</th>
+                  <th>คาบที่ 2</th>
+                  <th>คาบที่ 3</th>
+                  <th>คาบที่ 4</th>
+                  <th>คาบที่ 5</th>
+                  <th>คาบที่ 6</th>
+                  <th>คาบที่ 7</th>
+                  <th>คาบที่ 8</th>
+                  <th>คาบที่ 9</th>
+                  <th>คาบที่ 10</th>
+                  <th>คาบที่ 11</th>
+                  <th>คาบที่ 12</th>
+                  <th>คาบที่ 13</th>
+                  <th>คาบที่ 14</th>
+                  <th>คาบที่ 15</th>
                 </tr>
             </thead>
             @foreach($student as $show_student)
@@ -83,10 +97,68 @@
                   <td>{{$show_student->course_id}}</td>
                   <td>{{$show_student->student_id}}</td>
                   {{-- <td>{{$show_student->id->name}} &nbsp;&nbsp; {{$show_student->id->last_name}}</td> --}}
-                  <td>{{$show_student->section_total}}</td>
+                  <td>{{$show_student->period_total}}</td>
                   <td>{{$show_student->amount_absence}}</td>
-                  <td>{{$show_student->amount_takeleave}}</td>
-                </tr>
+                  <td>
+                    @if($show_student->period_1 == 0) X @endif
+                    @if($show_student->period_1 == 1) / @endif
+                  </td>
+                  <td>
+                    @if($show_student->period_2 == 0) X @endif
+                    @if($show_student->period_2 == 1) / @endif
+                  </td>
+                  <td>
+                    @if($show_student->period_3 == 0) X @endif
+                    @if($show_student->period_3 == 1) / @endif
+                  </td>
+                  <td>
+                    @if($show_student->period_4 == 0) X @endif
+                    @if($show_student->period_4 == 1) / @endif
+                  </td>
+                  <td>
+                    @if($show_student->period_5 == 0) X @endif
+                    @if($show_student->period_5 == 1) / @endif
+                  </td>
+                  <td>
+                    @if($show_student->period_6 == 0) X @endif
+                    @if($show_student->period_6 == 1) / @endif
+                  </td>
+                  <td>
+                    @if($show_student->period_7 == 0) X @endif
+                    @if($show_student->period_7 == 1) / @endif
+                  </td>
+                  <td>
+                    @if($show_student->period_8 == 0) X @endif
+                    @if($show_student->period_8 == 1) / @endif
+                  </td>
+                  <td>
+                    @if($show_student->period_9 == 0) X @endif
+                    @if($show_student->period_9 == 1) / @endif
+                  </td>
+                  <td>
+                    @if($show_student->period_10 == 0) X @endif
+                    @if($show_student->period_10 == 1) / @endif
+                  </td>
+                  <td>
+                    @if($show_student->period_11 == 0) X @endif
+                    @if($show_student->period_11 == 1) / @endif
+                  </td>
+                  <td>
+                    @if($show_student->period_12 == 0) X @endif
+                    @if($show_student->period_12 == 1) / @endif
+                  </td>
+                  <td>
+                    @if($show_student->period_13 == 0) X @endif
+                    @if($show_student->period_13 == 1) / @endif
+                  </td>
+                  <td>
+                    @if($show_student->period_14 == 0) X @endif
+                    @if($show_student->period_14 == 1) / @endif
+                  </td>
+                  <td>
+                    @if($show_student->period_15 == 0) X @endif
+                    @if($show_student->period_15 == 1) / @endif
+                  </td>
             </tbody>
             @endforeach
         </table>
