@@ -41,7 +41,7 @@
         <a class="nav-link active" href="/importExportView/{{$course->course_id}}" style="color: #000000;">การเข้าเรียน</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="importExportGrade/{{$course->course_id}}" style="color: #000000;">ผลการเรียน</a>
+        <a class="nav-link" href="/importExportGrade/{{$course->course_id}}" style="color: #000000;">ผลการเรียน</a>
     </li>
 </ul><br>
 
@@ -80,7 +80,7 @@
                     <div class="container">
                         <div class="form-group">
                             <input type="submit" value="เพิ่มการเข้าเรียน" class="btn btn-success" data-toggle="modal" data-target="#myModal">
-                            {{-- <a class="btn btn-warning" href="{{ route('export') }}">Export การเข้าเรียน</a> --}}
+                            <a class="btn btn-warning" href="{{ route('export') }}">Export การเข้าเรียน</a>
                         </div>
                         <!-- Modal -->
                         <div class="modal fade" id="myModal" role="dialog">
