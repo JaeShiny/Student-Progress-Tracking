@@ -88,21 +88,29 @@ Route::get('risk_problem/{student_id}','lecturer\ProblemController@notiProblemL'
 Route::get('student_enrollmentL','student\StudyController@enrollmentL');
 Route::get('student_enrollmentL/{student_id}','student\StudyController@enrollmentL1')->name('enrollL');
 
-//import excel
-Route::get('export', 'lecturer\AttendanceController@export')->name('export');
-Route::get('importExportView/{course_id}', 'lecturer\AttendanceController@importExportView');
-Route::post('import/{course_id}', 'lecturer\AttendanceController@import')->name('import');
-
-//แสดงการเข้าเรียน Attendance
-Route::get('/attendance/{course_id}','lecturer\AttendanceController@showAttendanceL');
-
 //form Attendance
 Route::get('FormAttendance', 'lecturer\FormController@FormAttendanceView');
 Route::get('exportAttendance', 'lecturer\FormController@FormAttendance')->name('exportAttendance');
 
 //form Grade
 Route::get('FormGrade', 'lecturer\FormController@FormGradeView');
-Route::get('exportGrade', 'lecturer\FormController@FormGrade')->name('exportGrade');
+Route::get('exportFormGrade', 'lecturer\FormController@FormGrade')->name('exportFormGrade');
+
+//import excel -> Attendance
+Route::get('export', 'lecturer\AttendanceController@export')->name('export');
+Route::get('importExportView/{course_id}', 'lecturer\AttendanceController@importExportView');
+Route::post('import/{course_id}', 'lecturer\AttendanceController@import')->name('import');
+
+//แสดงการเข้าเรียน -> Attendance
+Route::get('/attendance/{course_id}','lecturer\AttendanceController@showAttendanceL');
+
+//import excel -> Grade
+Route::get('exportGrade', 'lecturer\GradeController@export')->name('exportGrade');
+Route::get('importExportGrade/{course_id}', 'lecturer\GradeController@importExportView');
+Route::post('importGrade/{course_id}', 'lecturer\GradeController@import')->name('import');
+
+//แสดงการเข้าเรียน -> Attendance
+// Route::get('/attendance/{course_id}','lecturer\AttendanceController@showAttendanceL');
 
 
 

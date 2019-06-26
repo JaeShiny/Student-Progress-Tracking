@@ -35,7 +35,7 @@
         <div class="card-body">
             <form action="" method="POST" enctype="multipart/form-data">
                 @csrf
-                <a class="btn btn-warning" href="{{ route('exportGrade') }}">Export ฟอร์มเพิ่มผลการเรียน</a>
+                <a class="btn btn-warning" href="{{ route('exportFormGrade') }}">Export ฟอร์มเพิ่มผลการเรียน</a>
             </form>
         </div>
     </div>

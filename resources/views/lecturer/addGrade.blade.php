@@ -5,7 +5,7 @@
 <html>
 
 <head>
-    <title>เพิ่มการเข้าเรียน</title>
+    <title>เพิ่มผลการเรียน</title>
     <link rel="stylesheet" href="csste.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap-grid.css">
@@ -22,7 +22,7 @@
         <ol class="breadcrumb">
             <li></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <li class="breadcrumb-item" aria-current="page"><a href="{{ url('course') }}">วิชาที่สอน</a></li>
-            <li class="breadcrumb-item" aria-current="page"><a href="/importExportView/{{$course->course_id}}">เพิ่มการเข้าเรียน</a></li>
+            <li class="breadcrumb-item" aria-current="page"><a href="/importExportGrade/{{$course->course_id}}">เพิ่มผลการเรียน</a></li>
         </ol>
     </nav>
 
@@ -38,10 +38,10 @@
 
 <ul class="nav nav-tabs" id="myTab" role="tablist" style="background-color:white;">
     <li class="nav-item">
-        <a class="nav-link active" href="/importExportView/{{$course->course_id}}" style="color: #000000;">การเข้าเรียน</a>
+        <a class="nav-link" href="/importExportView/{{$course->course_id}}" style="color: #000000;">การเข้าเรียน</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="importExportGrade/{{$course->course_id}}" style="color: #000000;">ผลการเรียน</a>
+        <a class="nav-link active" href="/importExportGrade/{{$course->course_id}}" style="color: #000000;">ผลการเรียน</a>
     </li>
 </ul><br>
 
@@ -49,8 +49,8 @@
     <div class="col">
         <div class="list-group" id="list-tab" role="tablist">
 
-            <a class="list-group-item list-group-item-action active" href="/importExportView/{{$course->course_id}}"><b>เพิ่มการเข้าเรียน</b></a>
-            <a class="list-group-item list-group-item-action" href="/attendance/{{$course->course_id}}"><b>แสดงการเข้าเรียน</b></a>
+            <a class="list-group-item list-group-item-action active" href="/importExportGrade/{{$course->course_id}}"><b>เพิ่มผลการเรียน</b></a>
+            <a class="list-group-item list-group-item-action" href=""><b>แสดงผลการเรียน</b></a>
             <a class="list-group-item list-group-item-action" href="/subject/{{$course->course_id}}"><b>รายชื่อนักศึกษา</b></a>
 
         </div>
@@ -66,10 +66,10 @@
      <div class="container">
         <div class="card bg-light mt-3">
             <div class="card-header">
-                เพิ่มการเข้าเรียน
+                เพิ่มผลการเรียน
             </div>
             <div class="card-body">
-                <form action="/import/{{$course->course_id}}" method="POST" enctype="multipart/form-data">
+                <form action="/importGrade/{{$course->course_id}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <input type="hidden" name="course_id" value="{{$course->course_id}}">
                     <input type="file" name="file" class="form-control">
@@ -79,8 +79,8 @@
 
                     <div class="container">
                         <div class="form-group">
-                            <input type="submit" value="เพิ่มการเข้าเรียน" class="btn btn-success" data-toggle="modal" data-target="#myModal">
-                            {{-- <a class="btn btn-warning" href="{{ route('export') }}">Export การเข้าเรียน</a> --}}
+                            <input type="submit" value="เพิ่มผลการเรียน" class="btn btn-success" data-toggle="modal" data-target="#myModal">
+                            <a class="btn btn-warning" href="{{ route('exportGrade') }}">Export ผลการเรียน</a>
                         </div>
                         <!-- Modal -->
                         <div class="modal fade" id="myModal" role="dialog">
@@ -94,7 +94,7 @@
                                     </div>
                                     <div class="modal-body">
                                         <center>
-                                            <h5>เพิ่มไฟล์การเข้าเรียนเรียบร้อยแล้ว</center></h5>
+                                            <h5>เพิ่มไฟล์ผลการเรียนเรียบร้อยแล้ว</center></h5>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-default" data-dismiss="modal">ตกลง</button>
