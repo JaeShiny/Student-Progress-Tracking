@@ -45,6 +45,7 @@
                 <th scope="col" width="10%"><h6 align="center"><b>สถิติ</h6></b></th>
                 <th scope="col" width="10%"><h6 align="center"><b>ประวัติ</h6></b></th>
                 <th scope="col" width="10%"><h6 align="center"><b>การลงทะเบียน</h6></b></th>
+                <th scope="col" width="10%"><h6 align="center"><b>เพิ่มพฤติกรรม</h6></b></th>
                 <th scope="col" width="10%"><h6 align="center"><b>พฤติกรรม</h6></b></th>
                 <th scope="col" width="10%"><h6 align="center"><b>แจ้งเตือน</h6></b></th>
               </tr>
@@ -80,6 +81,11 @@
                 <td width="10">
                     <a href="{{route('enrollE',$student->study['student_id'])}}">
                         <center><img src="../img/sct.png" width="25" title="วิชาที่ลงทะเบียน"></center>
+                    </a>
+                </td>
+                <td width="10">
+                    <a href="/problem_createE/{{$student->student_id}}">
+                        <center><img src="../img/add.png" width="25" title="เพิ่มพฤติกรรม/ปัญหา"></center>
                     </a>
                 </td>
                 <td width="10">

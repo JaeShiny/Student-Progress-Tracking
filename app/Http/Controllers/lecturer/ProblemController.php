@@ -71,6 +71,34 @@ class ProblemController extends Controller
     }
 
         //Education Officer
+    //เพิ่มปัญหา
+    public function createE($student_id){
+        $student = $student_id;
+	    return view('EducationOfficer.problem(insert)',[
+            'student_id' => $student,
+        ]);
+    }
+
+    public function insertE(Request $request){
+        $problem = new Problem();
+
+        $problem->student_id = $request->student_id;
+
+        $problem->problem_type = $request->problem_type;
+        $problem->problem_topic = $request->problem_topic;
+        $problem->problem_detail = $request->problem_detail;
+        $problem->risk_level = $request->risk_level;
+        $problem->date = $request->date;
+        $problem->person_add = Auth::user()->name;
+        $problem->add_id = Auth::user()->id;
+
+
+        $problem->save();
+
+        // return redirect('problem_create')->with('message', 'เพิ่มข้อมูลเรียบร้อยแล้ว');
+        return redirect()->back()->with('message', 'เพิ่มข้อมูลเรียบร้อยแล้ว');
+    }
+
     //แสดงปัญหา
     public function showProblemE($student_id){
         $problem = Problem::where('student_id', $student_id)->get();
@@ -95,6 +123,34 @@ class ProblemController extends Controller
 
 
         //Advisor
+    //เพิ่มปัญหา
+    public function createA($student_id){
+        $student = $student_id;
+	    return view('advisor.problem(insert)',[
+            'student_id' => $student,
+        ]);
+    }
+
+    public function insertA(Request $request){
+        $problem = new Problem();
+
+        $problem->student_id = $request->student_id;
+
+        $problem->problem_type = $request->problem_type;
+        $problem->problem_topic = $request->problem_topic;
+        $problem->problem_detail = $request->problem_detail;
+        $problem->risk_level = $request->risk_level;
+        $problem->date = $request->date;
+        $problem->person_add = Auth::user()->name;
+        $problem->add_id = Auth::user()->id;
+
+
+        $problem->save();
+
+        // return redirect('problem_create')->with('message', 'เพิ่มข้อมูลเรียบร้อยแล้ว');
+        return redirect()->back()->with('message', 'เพิ่มข้อมูลเรียบร้อยแล้ว');
+    }
+
     //แสดงปัญหา
     public function showProblemA($student_id){
         $problem = Problem::where('student_id', $student_id)->get();

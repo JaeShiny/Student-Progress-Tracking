@@ -40,6 +40,10 @@ Route::get('profileafterE/{student_id}','student\SrmController@profileE');
 //กดดูพฤติกรรม
 // Route::get('problem', 'lecturer\ProblemController@showProblemE')->name('problemE');
 
+//เพิ่มพฤติกรรม/ปัญหา
+Route::get('problem_createE/{student_id}','lecturer\ProblemController@createE')->name('createE');
+Route::post('problem_insertE','lecturer\ProblemController@insertE');
+
 //แสดงพฤติกรรมเด็ก
 Route::get('studentproblemE/{student_id}', 'lecturer\ProblemController@showProblemE');
 
@@ -148,6 +152,10 @@ Route::get('profilebeforeA/{student_id}','student\InterviewController@profileA')
 
 //กดดูหน้าข้อมูลหลังจบ
 Route::get('profileafterA/{student_id}','student\SrmController@profileA');
+
+//เพิ่มพฤติกรรม/ปัญหา
+Route::get('problem_createA/{student_id}','lecturer\ProblemController@createA')->name('createA');
+Route::post('problem_insertA','lecturer\ProblemController@insertA');
 
 //แสดงพฤติกรรมเด็ก
 Route::get('studentproblemA/{student_id}', 'lecturer\ProblemController@showProblemA');
