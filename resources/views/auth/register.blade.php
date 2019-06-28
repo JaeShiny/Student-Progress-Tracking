@@ -131,6 +131,20 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label for="instructor_id" class="col-md-4 col-form-label text-md-right">{{ __('InstructorID') }}</label>
+
+                        <div class="col-md-6">
+                                <input id="instructor_id" type="text" class="form-control{{ $errors->has('instructor_id') ? ' is-invalid' : '' }}" name="instructor_id" value="{{ old('instructor_id') }}" required autofocus>
+
+                                @if ($errors->has('instructor_id'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('instructor_id') }}</strong>
+                                    </span>
+                                @endif
+                        </div>
+                    </div>
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

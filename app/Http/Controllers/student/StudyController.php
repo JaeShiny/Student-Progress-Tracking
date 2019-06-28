@@ -113,6 +113,27 @@ class StudyController extends Controller
             ]);
         }
 
+        //LF
+        public function enrollmentLF(){
+            $study = Study::all();
+            $courses = Course::all();
+
+            return view('LF.enrollment',[
+                'study' => $study,
+                'courses' => $courses,
+            ]);
+
+        }
+
+        public function enrollmentLF1($student_id){
+            $study = Study::find($student_id);
+            $courses = Course::all();
+
+            return view('LF.enrollment',[
+                'study' => $study,
+                'courses' => $courses,
+            ]);
+        }
 
 
 }
