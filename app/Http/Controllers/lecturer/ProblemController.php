@@ -211,4 +211,59 @@ class ProblemController extends Controller
         ]);
     }
 
+     //LF
+    //เพิ่มปัญหา
+    public function createLF($student_id){
+        $student = $student_id;
+	    return view('LF.problem(insert)',[
+            'student_id' => $student,
+        ]);
+    }
+
+    public function insertLF(Request $request){
+        $problem = new Problem();
+        // $student_problem = new StudentProblem();
+
+        // $student_problem->problem_id = $request->problem_id;
+
+        // $student_id = Student::where();
+
+        $problem->student_id = $request->student_id;
+
+        $problem->problem_type = $request->problem_type;
+        $problem->problem_topic = $request->problem_topic;
+        $problem->problem_detail = $request->problem_detail;
+        $problem->risk_level = $request->risk_level;
+        $problem->date = $request->date;
+        $problem->person_add = Auth::user()->name;
+        $problem->add_id = Auth::user()->id;
+
+
+        $problem->save();
+
+        // return redirect('problem_create')->with('message', 'เพิ่มข้อมูลเรียบร้อยแล้ว');
+        return redirect()->back()->with('message', 'เพิ่มข้อมูลเรียบร้อยแล้ว');
+    }
+
+    public function showProblemLF($student_id){
+        $problem = Problem::where('student_id', $student_id)->get();
+        $users = User::all();
+        $bios = Bio::where('student_id', $student_id)->get();
+
+        return view('LF.problem',[
+            'problem' => $problem,
+            'users' => $users,
+            'bios' => $bios,
+        ]);
+    }
+
+    //show ปัญหาของนักศึกษาที่ รุนแรงมาก
+    public function notiProblemLF($student_id){
+        $risk_problem = Problem::where('risk_level','รุนแรงมาก')->where('student_id',$student_id)->get();
+
+        return view('LF.showProblem',[
+            'risk_problem' => $risk_problem,
+        ]);
+    }
+
 }

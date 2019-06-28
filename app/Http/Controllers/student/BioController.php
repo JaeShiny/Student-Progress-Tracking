@@ -266,5 +266,58 @@ class BioController extends Controller
         ]);
     }
 
+    //LF
+    //show หน้ารายชื่อนักศึกษา
+    public function indexLF(){
+
+        $bio = Bio::all();
+
+        return view('LF.studentlist',[
+            'bio' => $bio
+        ]);
+    }
+
+    //แสดง profile ของนักศึกษา
+    public function profileLF(){
+
+        $bios = Bio::all();
+        $statuss = Status::all();
+        $students = Student::all();
+        $generations = Generation::all();
+        $majors = Major::all();
+
+        return view('LF.profile',[
+            'bios' => $bios,
+            'statuss' => $statuss,
+            'students' => $students,
+            'generations' => $generations,
+            'majors' => $majors,
+        ]);
+    }
+    //ส่งประวัติมาจากหน้า studentlist เรียงคนมา
+    public function profileLF1($student_id){
+
+        $bios = Bio::find($student_id);
+        $statuss = Status::all();
+        $students = Student::all();
+        $generations = Generation::all();
+        $majors = Major::all();
+
+        return view('LF.profile',[
+            'bios' => $bios,
+            'statuss' => $statuss,
+            'students' => $students,
+            'generations' => $generations,
+            'majors' => $majors,
+        ]);
+    }
+
+    public function searchLF(Request $request){
+        $search = $request->get('search');
+        $myStudent = Student::where('student_id', 'like', '%'.$search.'%')->get();
+        return view('LF/advisorStudent',[
+            'myStudent' => $myStudent,
+        ]);
+    }
 
 }

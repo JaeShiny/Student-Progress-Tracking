@@ -106,4 +106,22 @@ class InterviewController extends Controller
             'b_englishskill'=> $b_englishskill,
         ]);
     }
+
+          //LF
+    //แมบ ชื่อสกุล ของ bio ให้ไปแมบกับชื่อนามสกุล ของ interview
+    public function profileLF($student_id){
+        $student = $student_id;
+
+        $bios = Bio::find($student_id);
+        $b_profile = B_profile::where('firstname_th',$bios->first_name)->where('lastname_th',$bios->last_name)->first();
+        $b_result = B_result::all();
+        $b_interviewer = B_interviewer::all();
+        $b_englishskill = B_englishskill::all();
+        return view('LF.profile(before)',[
+            'b_profile' => $b_profile,
+            'student' => $student,
+            'b_interviewer' => $b_interviewer,
+            'b_englishskill'=> $b_englishskill,
+        ]);
+    }
 }

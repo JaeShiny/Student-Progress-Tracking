@@ -202,6 +202,41 @@ Route::post('problem_insertAL','lecturer\ProblemController@insertAL');
 //แสดงพฤติกรรมเด็ก
 Route::get('studentproblemAL/{student_id}', 'lecturer\ProblemController@showProblemAL');
 
+    //LF
+//แมบวิชากับเด็ก
+Route::get('subject/{course}','SubjectController@indexLF');
+
+
+Route::get('courseLF','SubjectController@showCourseLF');
+
+Route::get('student_profileLF','student\BioController@profileLF');
+Route::get('student_profileLF/{student_id}','student\BioController@profileLF1')->name('profileLF');
+
+//กดดูหน้าข้อมูลสัมภาษณ์
+Route::get('profilebeforeLF/{student_id}','student\InterviewController@profileLF');
+
+//กดดูหน้าข้อมูลหลังจบ
+Route::get('profileafterLF/{student_id}','student\SrmController@profileLF');
+
+//เพิ่มพฤติกรรม/ปัญหา
+Route::get('problem_createLF/{student_id}','lecturer\ProblemController@createLF')->name('createLF');
+Route::post('problem_insertLF','lecturer\ProblemController@insertLF');
+//แสดงพฤติกรรมเด็ก
+Route::get('studentproblemLF/{student_id}', 'lecturer\ProblemController@showProblemLF');
+
+// search
+Route::get('student_searchLF','student\BioController@searchL');
+
+// route แสดงรายวิชาที่อาจารย์สอน
+Route::get('courseLF','SubjectController@lecToCourseLF');
+
+//กดปุ่มแจ้งเตือนแล้วเจอพฤติกรรมที่รุนแรงของนักศึกษา
+Route::get('risk_problemLF/{student_id}','lecturer\ProblemController@notiProblemLF');
+
+//กดดูวิชาที่เด็กลงทะเบียน
+Route::get('student_enrollmentLF','student\StudyController@enrollmentLF');
+Route::get('student_enrollmentLF/{student_id}','student\StudyController@enrollmentLF1')->name('enrollLF');
+
 
 //ลบด้วยนะถ้าเขียนโค้ดเสร็จ
 // Route::get('profilebefore', function () {

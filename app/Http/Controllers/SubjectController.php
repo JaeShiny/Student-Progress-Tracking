@@ -14,6 +14,7 @@ use App\Model\mis\Course;
 use App\Model\mis\Student;
 use App\Model\mis\Schedule;
 use App\Model\mis\Instructor;
+use App\Model\spts\LF;
 use Auth;
 
 class SubjectController extends Controller
@@ -54,6 +55,7 @@ class SubjectController extends Controller
         ]);
     }
 
+    //Adviser + Lecturer
     //ทำการแมบ course จนไปถึง student
     public function indexAL($course_id){
         $course = Course::find($course_id);
@@ -85,6 +87,49 @@ class SubjectController extends Controller
         $course = Course::whereIn('course_id',$schedule)->paginate(5);
 
         return view('AdLec.subject',[
+            'course' => $course
+        ]);
+    }
+
+    //ทำการแมบ course จนไปถึง student
+    public function indexLF($course_id){
+        $course = Course::find($course_id);
+        $major = Major::where('major_id',$course->major_id)->get();
+        $student = Student::where('major_id',$course->major_id)->get();
+        return view('LF.studentlist',[
+            'student' => $student,
+            'course' => $course,
+        ]);
+    }
+
+    //LF
+    //แสดงวิชา
+       //show หน้ารายชื่อนักศึกษา
+    public function showCourseLF($student_id){
+        $student = $student_id;
+
+        // $course = Course::all();
+        $course = Course::paginate(5);
+
+        return view('LF.subject',[
+            'course' => $course,
+            'student' => $student,
+        ]);
+    }
+
+
+    // แสดงรายวิชาที่อาจารย์สอน
+    public function lecToCourseLF(){
+        // $lf = LF::where('first_name',Auth::user()->name)->first();
+        $instructor = Instructor::where('first_name',Auth::user()->name)->first();
+        $schedule = Schedule::where('instructor_id2',$instructor->instructor_id)->pluck('course_id');
+        $course = Course::whereIn('course_id',$schedule)->paginate(5);
+
+        // $instructor = Instructor::where('first_name',Auth::user()->name)->first();
+        // $schedule = Schedule::where('instructor_id2',$instructor->instructor_id)->pluck('course_id');
+        // $course = Course::whereIn('course_id',$schedule)->paginate(5);
+
+        return view('LF.subject',[
             'course' => $course
         ]);
     }
