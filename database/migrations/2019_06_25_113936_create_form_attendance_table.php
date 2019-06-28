@@ -14,7 +14,7 @@ class CreateFormAttendanceTable extends Migration
     public function up()
     {
         Schema::create('form_attendance', function (Blueprint $table) {
-            $table->bigIncrements('course_id');
+            $table->string('course_id', 30)->primary();
             $table->string('student_id');
             $table->string('period_1');
             $table->string('period_2');

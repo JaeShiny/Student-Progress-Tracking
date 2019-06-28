@@ -14,7 +14,7 @@ class CreateFormGradeTable extends Migration
     public function up()
     {
         Schema::create('form_grade', function (Blueprint $table) {
-            $table->bigIncrements('course_id');
+            $table->string('course_id', 30)->primary();
             $table->string('student_id');
             $table->string('full_score_midterm');
             $table->string('score_midterm');

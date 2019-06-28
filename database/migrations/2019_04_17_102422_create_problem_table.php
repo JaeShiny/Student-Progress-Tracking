@@ -24,10 +24,10 @@ class CreateProblemTable extends Migration
             $table->String('date');
             $table->unsignedBigInteger('add_id');
             $table->foreign('add_id')->references('id')->on('users');
-            $table->String('semester');
-            $table->String('year');
-            $table->String('section');
-            $table->String('gen');
+            $table->String('semester')->nullable();
+            $table->String('year')->nullable();
+            $table->String('section')->nullable();
+            $table->String('gen')->nullable();
             $table->timestamps();
 
         });

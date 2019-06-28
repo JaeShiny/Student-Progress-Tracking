@@ -22,7 +22,8 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('position');
             $table->string('curriculum');
-            $table->string('student_id');
+            $table->string('student_id')->nullable();
+            $table->string('instructor_id')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
