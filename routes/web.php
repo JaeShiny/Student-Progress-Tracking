@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('index');
 });
 
+//อัพรูป
+Route::get('ima', 'ImageController@index');
+Route::post('save', 'ImageController@save');
+
 
     //EducationOfficer
 

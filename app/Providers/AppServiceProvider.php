@@ -35,6 +35,8 @@ class AppServiceProvider extends ServiceProvider
         $b_profile = B_profile::all();
         View::share('b_profile',$b_profile);
 
-
+        //upload รูป
+        // Schema::defaultStringLength(191);
     }
+
 }
