@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 //อัพรูป
-Route::get('ima', 'ImageController@index');
+Route::get('image', 'ImageController@index');
 Route::post('save', 'ImageController@save');
 
 

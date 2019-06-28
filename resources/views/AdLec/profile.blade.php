@@ -62,10 +62,11 @@
             <br>
             <br>
 
-            {{-- <div class="container7">
-                <img src="/Codeproject/รูปสัม.jpg" alt="Avatar" class="image" width="100">
 
-            </div> --}}
+            <div class="container7">
+                <img src="../image/{{$bios->picture}}" width="110" height="140">
+
+            </div>
 
             <p>ชื่อ (ภาษาอังกฤษ) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </p>
             <p>{{$bios->firstname_eng}}&nbsp;&nbsp;{{$bios->lastname_eng}}</p>
