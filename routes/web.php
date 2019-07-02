@@ -254,6 +254,9 @@ Route::get('student_enrollmentLF/{student_id}','student\StudyController@enrollme
 // Route::get('subject', function () {
 //     return view('lecturer.subject');
 // });
+Route::get('question', function () {
+    return view('student.question');
+});
 
 
 
