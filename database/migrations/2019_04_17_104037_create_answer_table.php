@@ -14,15 +14,20 @@ class CreateAnswerTable extends Migration
     public function up()
     {
         Schema::create('answer', function (Blueprint $table) {
-            $table->bigIncrements('answer_id');
-            //$table->foreign('student_id');
-            $table->unsignedBigInteger('question_id');
-            $table->foreign('question_id')->references('question_id')->on('question');
-            $table->unsignedBigInteger('choice_id');
-            $table->foreign('choice_id')->references('choice_id')->on('choice');
-            $table->unsignedBigInteger('questionnaire_id');
-            $table->foreign('questionnaire_id')->references('questionnaire_id')->on('questionnaire');
-            $table->text('answer');
+            // $table->bigIncrements('answer_id');
+            // $table->unsignedBigInteger('question_id');
+            // $table->foreign('question_id')->references('question_id')->on('question');
+            // $table->unsignedBigInteger('choice_id');
+            // $table->foreign('choice_id')->references('choice_id')->on('choice');
+            // $table->unsignedBigInteger('questionnaire_id');
+            // $table->foreign('questionnaire_id')->references('questionnaire_id')->on('questionnaire');
+            // $table->text('answer');
+            // $table->timestamps();
+            $table->increments('id');
+            $table->integer('user_id');
+            $table->integer('question_id');
+            $table->integer('survey_id');
+            $table->string('answer');
             $table->timestamps();
         });
     }
