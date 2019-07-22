@@ -37,17 +37,17 @@
           <tr class="table-info">
 
             <td>
-                <a href="/curr/{{$curriculum->curriculum_id}}">
+            <a href="/selectyear/{{$curriculum->id}}r">
                     {{$curriculum->curriculum_name}}
                 </a>
             </td>
             <td>
-                <a href="/curr/{{$curriculum->curriculum_id}}">
+            <a href="/selectyear/{{$curriculum->id}}">
                     {{$curriculum->curri_name_eng}}
                 </a>
             </td>
             <td>
-                <a href="/curr/{{$curriculum->curriculum_id}}">
+                <a href="/selectyear/{{$curriculum->curriculum_id}}">
                 &nbsp;&nbsp;{{$curriculum->curr_abbre}}&nbsp;&nbsp;
                 </a>
             </td>

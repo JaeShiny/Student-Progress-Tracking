@@ -62,7 +62,7 @@
                 <td width="10">
 
                 <a href="{{route('profileE',$student->student_id)}}">
-                    {{$student->bio->first_name}} &nbsp;&nbsp; {{$student->bio->last_name}}
+                    {{$student->first_name}} &nbsp;&nbsp; {{$student->last_name}}
                 </a>
                 </td>
 

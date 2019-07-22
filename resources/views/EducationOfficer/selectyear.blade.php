@@ -41,7 +41,7 @@
                 <br>
             </div>
             <div class="col-sm-4">
-                <a href="nameyear1.html">
+                <a href="/studentlist/{{$curriculum->curriculum_id}}/1">
                     <button class="bt" type="button" value="click" style="height: 30px; width: 100px; background-color: #CCFFCC;">ชั้นปีที่ 1</button>
                 </a>
             </div>
@@ -65,7 +65,7 @@
                 <br>
             </div>
             <div class="col-sm-4">
-                <a href="nameyear2.html">
+                <a href="/studentlist/{{$curriculum->curriculum_id}}/2">
                     <button class="bt" type="button" value="click" style="height: 30px; width: 100px; background-color: #CCFFCC;">ชั้นปีที่ 2</button>
                 </a>
             </div>
@@ -95,7 +95,7 @@
                 <br>
             </div>
             <div class="col-sm-4">
-                <a href="{{ action('student\BioController@index') }}">
+            <a href="/studentlist/{{$curriculum->curriculum_id}}/3">
                     <button class="bt" type="button" value="click" style="height: 30px; width: 100px; background-color: #CCFFCC;">ชั้นปีที่ 3</button>
                 </a>
             </div>
@@ -119,7 +119,7 @@
                 <br>
             </div>
             <div class="col-sm-2">
-                <a href="nameyear4.html">
+                <a href="/studentlist/{{$curriculum->curriculum_id}}/4">
                     <button class="bt" type="button" value="click" style="height: 30px; width: 100px; background-color: #CCFFCC;">ชั้นปีที่ 4</button>
                 </a>
             </div>

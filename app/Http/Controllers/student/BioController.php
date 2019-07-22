@@ -38,12 +38,28 @@ class BioController extends Controller
         //Education Officer
 
     //show หน้ารายชื่อนักศึกษา
-    public function indexE(){
+    public function indexE($id,$year){
 
-        $bio = Bio::all();
+        $student = Student::where('curriculum_id',$id)->pluck('student_id');
+        if($year == '4'){
+            $bio = Bio::whereIn('student_id',$student)->where('student_id','like','59%')->get();
+        }
+
+        if($year == '3') {
+        $bio = Bio::whereIn('student_id',$student)->where('student_id','like','60%')->get();
+        }
+
+        if($year == '2'){
+            $bio = Bio::whereIn('student_id',$student)->where('student_id','like','61%')->get();
+        }
+
+
+        if($year == '1'){
+            $bio = Bio::whereIn('student_id',$student)->where('student_id','like','62%')->get();
+        }
 
         return view('EducationOfficer.studentlist',[
-            'bio' => $bio
+            'student' => $bio
         ]);
     }
 
