@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::get('/selectyear/{id}','EducationOfficer\SelectYearController@index');
+
 //อัพรูป
 Route::get('image', 'ImageController@index');
 Route::post('save', 'ImageController@save');
@@ -28,7 +30,7 @@ Route::get('curriculum','EducationOfficer\CurriculumController@show');
 //แมบหลักสูตรกับเด็ก
 Route::get('curr/{curriculum}','EducationOfficer\CurriculumController@index');
 
-Route::get('studentlist','student\BioController@indexE');
+Route::get('studentlist/{id}/{year}','student\BioController@indexE');
 
 Route::get('student_searchE','student\BioController@searchE');
 

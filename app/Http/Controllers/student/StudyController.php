@@ -29,6 +29,7 @@ class StudyController extends Controller
         $study = Study::all();
         $courses = Course::all();
 
+
         return view('lecturer.enrollment',[
             'study' => $study,
             'courses' => $courses,
@@ -37,12 +38,13 @@ class StudyController extends Controller
     }
 
     public function enrollmentL1($student_id){
-        $study = Study::find($student_id);
+        $study = Study::where('student_id',$student_id)->get();
         $courses = Course::all();
-
+        $student_code = $student_id;
         return view('lecturer.enrollment',[
             'study' => $study,
             'courses' => $courses,
+            'student' => $student_code
         ]);
     }
 
@@ -60,12 +62,14 @@ class StudyController extends Controller
     }
 
     public function enrollmentE1($student_id){
-        $study = Study::find($student_id);
+        $study = Study::where('student_id',$student_id)->get();
         $courses = Course::all();
+        $student_code = $student_id;
 
         return view('EducationOfficer.enrollment',[
             'study' => $study,
             'courses' => $courses,
+            'student' => $student_code
         ]);
     }
 
@@ -82,12 +86,14 @@ class StudyController extends Controller
     }
 
     public function enrollmentA1($student_id){
-        $study = Study::find($student_id);
+        $study = Study::where('student_id',$student_id)->get();
         $courses = Course::all();
+        $student_code = $student_id;
 
         return view('advisor.enrollment',[
             'study' => $study,
             'courses' => $courses,
+            'student' => $student_code
         ]);
     }
 
@@ -104,12 +110,16 @@ class StudyController extends Controller
         }
 
         public function enrollmentAL1($student_id){
-            $study = Study::find($student_id);
+            // $study = Study::find($student_id);
+            // $courses = Course::all();
+            $study = Study::where('student_id',$student_id)->get();
             $courses = Course::all();
+            $student_code = $student_id;
 
             return view('AdLec.enrollment',[
                 'study' => $study,
                 'courses' => $courses,
+                'student' => $student_code
             ]);
         }
 
@@ -126,12 +136,14 @@ class StudyController extends Controller
         }
 
         public function enrollmentLF1($student_id){
-            $study = Study::find($student_id);
+            $study = Study::where('student_id',$student_id)->get();
             $courses = Course::all();
+            $student_code = $student_id;
 
             return view('LF.enrollment',[
-                'study' => $study,
+                'studys' => $study,
                 'courses' => $courses,
+                'student' => $student_code
             ]);
         }
 

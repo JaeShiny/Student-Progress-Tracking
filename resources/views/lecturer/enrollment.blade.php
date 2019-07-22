@@ -57,6 +57,7 @@
           </tr>
         </thead>
         <tbody>
+            @foreach($studys as $study)
           <tr>
             <th scope="row"><center>{{$study->course_id}}</center></th>
             <td>{{$study->courses->course_name}}</td>
@@ -65,6 +66,7 @@
             <td><center>{{$study->credit}}</center></td>
             <td><center>{{$study->section}}</center></td>
           </tr>
+          @endforeach
         </tbody>
         {{-- <tfoot>
             <tr>
