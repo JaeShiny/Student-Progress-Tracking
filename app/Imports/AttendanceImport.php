@@ -3,6 +3,7 @@
 namespace App\Imports;
 
 // use App\Attendance;
+use Auth;
 use App\Model\spts\Attendance;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
@@ -43,6 +44,8 @@ class AttendanceImport implements ToModel, WithHeadingRow
             // 'year' => '2019',
             // 'section' => '1',
             // 'gen' => '20',
+
+            'person_add' => Auth::user()->name,
         ]);
     }
 }

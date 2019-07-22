@@ -35,6 +35,7 @@ class Attendance extends Model
         'year',
         'section',
         'gen',
+        'person_add',
     ];
 
     //แมบ student_id ของ Attendance ให้ไปหา student_id ของ users
