@@ -34,6 +34,7 @@ class CreateGradeTable extends Migration
             $table->String('year')->nullable();
             $table->String('section')->nullable();
             $table->String('gen')->nullable();
+            $table->String('person_add')->nullable();
             $table->timestamps();
         });
     }
