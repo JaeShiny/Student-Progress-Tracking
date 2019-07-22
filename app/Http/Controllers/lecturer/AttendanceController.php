@@ -51,6 +51,9 @@ class AttendanceController extends Controller
     public function showAttendanceS()  {
         $student_id = Auth::user()->student_id;
         $attendance = Attendance::where('student_id',$student_id)->get();
+
+
+
         $bios = Bio::where('student_id', $student_id)->get();
         return view('student.attendance',[
             'attendance' => $attendance,
@@ -64,6 +67,7 @@ class AttendanceController extends Controller
     public function showAttendanceL($course_id)  {
         $student = Attendance::where('course_id',$course_id)->get();
         $course = Course::find($course_id);
+
         return view('lecturer.showAttendance',[
             'student' => $student,
             'course' => $course,
