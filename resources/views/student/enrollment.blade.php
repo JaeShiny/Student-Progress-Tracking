@@ -54,14 +54,16 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row"><center>{{$study->course_id}}</center></th>
-            <td>{{$study->courses->course_name}}</td>
-            <td><center>{{$study->semester}}</center></td>
-            <td><center>{{$study->year}}</center></td>
-            <td><center>{{$study->credit}}</center></td>
-            <td><center>{{$study->section}}</center></td>
-          </tr>
+                {{-- @foreach($study as $study) --}}
+                <tr>
+                  <th scope="row"><center>{{$study->course_id}}</center></th>
+                  <td>{{$study->courses->course_name}}</td>
+                  <td><center>{{$study->semester}}</center></td>
+                  <td><center>{{$study->year}}</center></td>
+                  <td><center>{{$study->credit}}</center></td>
+                  <td><center>{{$study->section}}</center></td>
+                </tr>
+                {{-- @endforeach --}}
         </tbody>
         {{-- <tfoot>
             <tr>

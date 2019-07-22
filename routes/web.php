@@ -128,7 +128,8 @@ Route::post('importGrade/{course_id}', 'lecturer\GradeController@import')->name(
     //Student
 Route::get('profile/{student_id}','student\BioController@profile');
 
-Route::get('enrollmentS/{student_id}','student\StudyController@enrollmentS');
+Route::get('enrollmentS/{student_id}','student\StudyController@enrollmentS')->name('studentenrollment');
+// Route::get('student_enrollmentS1/{student_id}','student\StudyController@enrollmentL1')->name('enrollS');
 
 //กดดูหน้าข้อมูลสัมภาษณ์
 Route::get('profilebeforeS/{student_id}','student\InterviewController@profileS');

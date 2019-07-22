@@ -4,8 +4,8 @@ namespace App\Http\Controllers\student;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Model\mis\Bio;
-use App\Model\mis\Student;
+// use App\Model\mis\Bio;
+// use App\Model\mis\Student;
 use App\Model\mis\Course;
 use App\Model\mis\Study;
 
@@ -16,22 +16,36 @@ class StudyController extends Controller
     public function enrollmentS(){
         $study = Study::all();
         $courses = Course::all();
+        // $study = Study::where('student_id',$student_id)->get();
+        // $courses = Course::all();
+        // $student_code = $student_id;
 
         return view('student.enrollment',[
             'study' => $study,
             'courses' => $courses,
+            // 'student' => $student_code
         ]);
 
     }
+
+    // public function enrollmentS1($student_id){
+    //     $study = Study::where('student_id',$student_id)->get();
+    //     $courses = Course::all();
+    //     // $student_code = $student_id;
+    //     return view('student.enrollment',[
+    //         'study' => $study,
+    //         'courses' => $courses,
+    //         // 'student' => $student_code
+    //     ]);
+    // }
 
         //Lecturer
     public function enrollmentL(){
         $study = Study::all();
         $courses = Course::all();
 
-
         return view('lecturer.enrollment',[
-            'study' => $study,
+            'studys' => $study,
             'courses' => $courses,
         ]);
 
@@ -141,7 +155,7 @@ class StudyController extends Controller
             $student_code = $student_id;
 
             return view('LF.enrollment',[
-                'studys' => $study,
+                'study' => $study,
                 'courses' => $courses,
                 'student' => $student_code
             ]);

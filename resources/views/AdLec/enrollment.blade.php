@@ -22,7 +22,7 @@
     </nav>
 </head>
 <body>
-        <h6 align='right'>รหัสนักศึกษา: {{$study->student_id}} &nbsp;&nbsp;&nbsp;&nbsp;</h6>
+        <h6 align='right'>รหัสนักศึกษา: {{$student}} &nbsp;&nbsp;&nbsp;&nbsp;</h6>
 
         <h5 align='center'>การลงทะเบียน</h5>
         <br>
@@ -56,14 +56,16 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row"><center>{{$study->course_id}}</center></th>
-            <td>{{$study->courses->course_name}}</td>
-            <td><center>{{$study->semester}}</center></td>
-            <td><center>{{$study->year}}</center></td>
-            <td><center>{{$study->credit}}</center></td>
-            <td><center>{{$study->section}}</center></td>
-          </tr>
+                @foreach($study as $study)
+                <tr>
+                  <th scope="row"><center>{{$study->course_id}}</center></th>
+                  <td>{{$study->courses->course_name}}</td>
+                  <td><center>{{$study->semester}}</center></td>
+                  <td><center>{{$study->year}}</center></td>
+                  <td><center>{{$study->credit}}</center></td>
+                  <td><center>{{$study->section}}</center></td>
+                </tr>
+                @endforeach
         </tbody>
         {{-- <tfoot>
             <tr>
