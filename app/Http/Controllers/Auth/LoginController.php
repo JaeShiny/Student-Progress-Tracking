@@ -91,6 +91,8 @@ class LoginController extends Controller
             return '/AdLec/dashboard';
         }elseif (auth()->user()->isLF()){
             return '/LF/dashboard';
+        }elseif (auth()->user()->isAdmin()){
+            return '/Admin/dashboard';
         }else {
             return '/home';
         }

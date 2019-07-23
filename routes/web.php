@@ -348,3 +348,9 @@ Route::group(['prefix' => 'LF'], function(){
         Route::get('/dashboard', 'LF\LFController@index');
     });
 });
+//Route for Admin user
+Route::group(['prefix' => 'Admin'], function(){
+    Route::group(['middleware' => ['Admin']], function(){
+        Route::get('/dashboard', 'Admin\AdminController@index');
+    });
+});

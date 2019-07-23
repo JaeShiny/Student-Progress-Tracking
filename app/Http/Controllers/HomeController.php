@@ -38,6 +38,8 @@ class HomeController extends Controller
             return view('AdLec/dashboard');
         }elseif(auth()->user()->isLF()) {
             return view('LF/dashboard');
+        }elseif(auth()->user()->isAdmin()) {
+            return view('Admin/dashboard');
         }else {
             // return view('EducationOfficer/curriculum');
             // return View::action('EducationOfficer/CurriculumController@show');
