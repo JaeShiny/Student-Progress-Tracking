@@ -271,16 +271,22 @@ Route::get('/survey/new', 'student\SurveyController@new_survey')->name('new.surv
 Route::get('/survey/{survey}', 'student\SurveyController@detail_survey')->name('detail.survey');
 Route::get('/survey/view/{survey}', 'student\SurveyController@view_survey')->name('view.survey');
 Route::get('/survey/answers/{survey}', 'student\SurveyController@view_survey_answers')->name('view.survey.answers');
+//พัง
 Route::get('/survey/{survey}/delete', 'student\SurveyController@delete_survey')->name('delete.survey');
 
+
 Route::get('/survey/{survey}/edit', 'student\SurveyController@edit')->name('edit.survey');
+//พัง
 Route::patch('/survey/{survey}/update', 'student\SurveyController@update')->name('update.survey');
 
+//พัง
 Route::post('/survey/view/{survey}/completed', 'student\AnswerController@store')->name('complete.survey');
 Route::post('/survey/create', 'student\SurveyController@create')->name('create.survey');
 
+
 // Questions related
 Route::post('/survey/{survey}/questions', 'student\QuestionController@store')->name('store.question');
+
 
 Route::get('/question/{question}/edit', 'student\QuestionController@edit')->name('edit.question');
 Route::patch('/question/{question}/update', 'student\QuestionController@update')->name('update.question');

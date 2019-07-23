@@ -50,3 +50,7 @@
     </div>
   </div>
 @stop
+
+
+
+@extends('bar.header(student)')

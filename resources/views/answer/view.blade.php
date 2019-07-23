@@ -31,3 +31,7 @@
   </tbody>
 </table>
 @endsection
+
+
+
+@extends('bar.header(student)')

@@ -21,3 +21,7 @@
   </div>
 </form>
 @stop
+
+
+
+@extends('bar.header(student)')
