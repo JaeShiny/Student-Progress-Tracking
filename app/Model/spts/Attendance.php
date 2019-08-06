@@ -15,6 +15,7 @@ class Attendance extends Model
         'course_id',
         'student_id',
         'period_total',
+        'amount_attendance',
         'amount_absence',
         'period_1',
         'period_2',

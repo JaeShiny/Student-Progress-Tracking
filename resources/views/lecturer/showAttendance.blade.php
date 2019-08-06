@@ -73,6 +73,7 @@
                   <th>รหัสนักศึกษา</th>
                   {{-- <th>ชื่อ-สกุล</th> --}}
                   <th>จำนวนคาบเรียน</th>
+                  <th>จำนวนการเข้าเรียน</th>
                   <th>จำนวนการขาดเรียน</th>
                   <th>คาบที่ 1</th>
                   <th>คาบที่ 2</th>
@@ -98,6 +99,7 @@
                   <td>{{$show_student->student_id}}</td>
                   {{-- <td>{{$show_student->id->name}} &nbsp;&nbsp; {{$show_student->id->last_name}}</td> --}}
                   <td>{{$show_student->period_total}}</td>
+                  <td>{{$show_student->amount_attendance}}</td>
                   <td>{{$show_student->amount_absence}}</td>
                   <td>
                     @if($show_student->period_1 == 0) X @endif

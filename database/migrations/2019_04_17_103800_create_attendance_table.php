@@ -18,6 +18,7 @@ class CreateAttendanceTable extends Migration
             $table->string('course_id')->nullable();
             $table->string('student_id')->nullable();
             $table->String('period_total')->nullable();
+            $table->String('amount_attendance')->nullable();
             $table->String('amount_absence')->nullable();
             $table->string('period_1')->nullable();
             $table->string('period_2')->nullable();
