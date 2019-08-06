@@ -30,9 +30,9 @@ class AttendanceController extends Controller
     /**
     * @return \Illuminate\Support\Collection
     */
-    public function export()
+    public function export($course_id)
     {
-        return Excel::download(new AttendanceExport, 'attendance.xlsx');
+        return (new AttendanceExport($course_id))->download('attendance.xlsx');
     }
 
     /**

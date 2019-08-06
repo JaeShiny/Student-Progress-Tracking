@@ -80,7 +80,7 @@
                     <div class="container">
                         <div class="form-group">
                             <input type="submit" value="เพิ่มการเข้าเรียน" class="btn btn-success" data-toggle="modal" data-target="#myModal">
-                            <a class="btn btn-warning" href="{{ route('export') }}">Export การเข้าเรียน</a>
+                            <a class="btn btn-warning" href="/export/{{$course->course_id}}">Export การเข้าเรียน</a>
                         </div>
                         <!-- Modal -->
                         <div class="modal fade" id="myModal" role="dialog">

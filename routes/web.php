@@ -107,7 +107,8 @@ Route::get('FormGrade', 'lecturer\FormController@FormGradeView');
 Route::get('exportFormGrade', 'lecturer\FormController@FormGrade')->name('exportFormGrade');
 
 //import excel -> Attendance
-Route::get('export', 'lecturer\AttendanceController@export')->name('export');
+// Route::get('export', 'lecturer\AttendanceController@export')->name('export');
+Route::get('export/{course_id}', 'lecturer\AttendanceController@export')->name('export');
 Route::get('importExportView/{course_id}', 'lecturer\AttendanceController@importExportView');
 Route::post('import/{course_id}', 'lecturer\AttendanceController@import')->name('import');
 
