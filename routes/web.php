@@ -120,8 +120,8 @@ Route::get('exportGrade/{course_id}', 'lecturer\GradeController@export')->name('
 Route::get('importExportGrade/{course_id}', 'lecturer\GradeController@importExportView');
 Route::post('importGrade/{course_id}', 'lecturer\GradeController@import')->name('import');
 
-//แสดงการเข้าเรียน -> Attendance
-// Route::get('/attendance/{course_id}','lecturer\AttendanceController@showAttendanceL');
+//แสดงผลการเรียน -> Grade
+Route::get('/showGrade/{course_id}','lecturer\GradeController@showGradeL');
 
 
 

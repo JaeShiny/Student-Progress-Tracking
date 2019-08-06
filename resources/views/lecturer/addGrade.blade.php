@@ -50,7 +50,7 @@
         <div class="list-group" id="list-tab" role="tablist">
 
             <a class="list-group-item list-group-item-action active" href="/importExportGrade/{{$course->course_id}}"><b>เพิ่มผลการเรียน</b></a>
-            <a class="list-group-item list-group-item-action" href=""><b>แสดงผลการเรียน</b></a>
+            <a class="list-group-item list-group-item-action" href="/showGrade/{{$course->course_id}}"><b>แสดงผลการเรียน</b></a>
             <a class="list-group-item list-group-item-action" href="/subject/{{$course->course_id}}"><b>รายชื่อนักศึกษา</b></a>
 
         </div>

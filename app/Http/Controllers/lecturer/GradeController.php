@@ -50,7 +50,7 @@ class GradeController extends Controller
     //แสดงผล grade
     public function showGradeS()  {
         $student_id = Auth::user()->student_id;
-        $attendance = Attendance::where('student_id',$student_id)->get();
+        $attendance = Grade::where('student_id',$student_id)->get();
         $bios = Bio::where('student_id', $student_id)->get();
         return view('student.grade',[
             'attendance' => $attendance,
@@ -62,7 +62,7 @@ class GradeController extends Controller
     //lecturer
     //แสดงผล grade
     public function showGradeL($course_id)  {
-        $student = Attendance::where('course_id',$course_id)->get();
+        $student = Grade::where('course_id',$course_id)->get();
         $course = Course::find($course_id);
         return view('lecturer.showGrade',[
             'student' => $student,
