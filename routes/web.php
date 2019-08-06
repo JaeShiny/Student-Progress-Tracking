@@ -116,7 +116,7 @@ Route::post('import/{course_id}', 'lecturer\AttendanceController@import')->name(
 Route::get('/attendance/{course_id}','lecturer\AttendanceController@showAttendanceL');
 
 //import excel -> Grade
-Route::get('exportGrade', 'lecturer\GradeController@export')->name('exportGrade');
+Route::get('exportGrade/{course_id}', 'lecturer\GradeController@export')->name('exportGrade');
 Route::get('importExportGrade/{course_id}', 'lecturer\GradeController@importExportView');
 Route::post('importGrade/{course_id}', 'lecturer\GradeController@import')->name('import');
 

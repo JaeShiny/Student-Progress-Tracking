@@ -30,9 +30,9 @@ class GradeController extends Controller
     /**
     * @return \Illuminate\Support\Collection
     */
-    public function export()
+    public function export($course_id)
     {
-        return Excel::download(new GradeExport, 'grade.xlsx');
+        return (new GradeExport($course_id))->download('grade.xlsx');
     }
 
     /**
