@@ -50,7 +50,8 @@
 
 
     <nav class="nav" style="background-color: #1D5287;">
-        &nbsp;&nbsp;<img src="../img/logopage.png" width="120" height="50">
+        {{-- &nbsp;&nbsp;<img src="../img/logopage.png" width="120" height="50"> --}}
+        &nbsp;&nbsp;<img src={{ URL::asset("../img/logopage.png") }} width="120" height="50">
         <a class="nav-link active" href="{{ url('studentenrollment') }}" style="color: #FFFFFF">วิชาที่ลงทะเบียน</a>
         <a class="nav-link" href="/studentprofile" style="color: #FFFFFF" >ประวัติ</a>
         <a class="nav-link" href="#" style="color: #FFFFFF">การแจ้งเตือน</a>

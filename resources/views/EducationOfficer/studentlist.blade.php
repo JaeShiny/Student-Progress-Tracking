@@ -68,34 +68,40 @@
 
                 <td width="10">
                     <a href="">
-                        <center><img src="../img/รูปสถิติ.png" width="30" height="25" title="สถิติ"></center>
+                        {{-- <center><img src="../img/รูปสถิติ.png" width="30" height="25" title="สถิติ"></center> --}}
+                        <center><img src={{ URL::asset("../img/รูปสถิติ.png") }} width="30" height="25" title="สถิติ"></center>
                     </a>
                 </td>
                 <td width="10">
                 {{-- <a href="{{route('profileE',$bio['student_id'])}}"> --}}
                     <a href="{{route('profileE',$student->student_id)}}">
                     {{-- <a href="student_profileE/{{$student->bio['student_id']}}"> --}}
-                        <center><img src="../img/resume.png" width="25" title="ประวัตินักศึกษา"></center>
+                        {{-- <center><img src="../img/resume.png" width="25" title="ประวัตินักศึกษา"></center> --}}
+                        <center><img src={{ URL::asset("../img/resume.png") }} width="25" title="ประวัตินักศึกษา"></center>
                     </a>
                 </td>
                 <td width="10">
                     <a href="{{route('enrollE',$student->study['student_id'])}}">
-                        <center><img src="../img/sct.png" width="25" title="วิชาที่ลงทะเบียน"></center>
+                        {{-- <center><img src="../img/sct.png" width="25" title="วิชาที่ลงทะเบียน"></center> --}}
+                        <center><img src={{ URL::asset("img/sct.png") }} width="25" title="วิชาที่ลงทะเบียน"></center>
                     </a>
                 </td>
                 <td width="10">
                     <a href="/problem_createE/{{$student->student_id}}">
-                        <center><img src="../img/add.png" width="25" title="เพิ่มพฤติกรรม/ปัญหา"></center>
+                        {{-- <center><img src="../img/add.png" width="25" title="เพิ่มพฤติกรรม/ปัญหา"></center> --}}
+                        <center><img src={{ URL::asset("../img/add.png") }} width="25" title="เพิ่มพฤติกรรม/ปัญหา"></center>
                     </a>
                 </td>
                 <td width="10">
                     <a href="/studentproblemE/{{$student->student_id}}">
-                        <center><img src="../img/feedback.png" width="25" title="พฤติกรรม/ปัญหา"></center>
+                        {{-- <center><img src="../img/feedback.png" width="25" title="พฤติกรรม/ปัญหา"></center> --}}
+                        <center><img src={{ URL::asset("../img/feedback.png") }} width="25" title="พฤติกรรม/ปัญหา"></center>
                     </a>
                 </td>
                 <td width="10">
                     <a href="">
-                        <center><img src="../img/noti.png" width="30" height="25" title="แจ้งเตือน"></center>
+                        {{-- <center><img src="../img/noti.png" width="30" height="25" title="แจ้งเตือน"></center> --}}
+                        <center><img src={{ URL::asset("../img/noti.png") }}  width="30" height="25" title="แจ้งเตือน"></center>
                     </a>
                 </td>
               </tr>
