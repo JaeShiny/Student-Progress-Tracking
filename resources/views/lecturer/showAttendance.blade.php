@@ -75,21 +75,7 @@
                   <th>จำนวนคาบเรียน</th>
                   <th>จำนวนการเข้าเรียน</th>
                   <th>จำนวนการขาดเรียน</th>
-                  <th>คาบที่ 1</th>
-                  <th>คาบที่ 2</th>
-                  <th>คาบที่ 3</th>
-                  <th>คาบที่ 4</th>
-                  <th>คาบที่ 5</th>
-                  <th>คาบที่ 6</th>
-                  <th>คาบที่ 7</th>
-                  <th>คาบที่ 8</th>
-                  <th>คาบที่ 9</th>
-                  <th>คาบที่ 10</th>
-                  <th>คาบที่ 11</th>
-                  <th>คาบที่ 12</th>
-                  <th>คาบที่ 13</th>
-                  <th>คาบที่ 14</th>
-                  <th>คาบที่ 15</th>
+                  <th>รายละเอียด</th>
                 </tr>
             </thead>
             @foreach($student as $show_student)
@@ -102,66 +88,49 @@
                   <td>{{$show_student->amount_attendance}}</td>
                   <td>{{$show_student->amount_absence}}</td>
                   <td>
-                    @if($show_student->period_1 == 0) X @endif
-                    @if($show_student->period_1 == 1) / @endif
-                  </td>
-                  <td>
-                    @if($show_student->period_2 == 0) X @endif
-                    @if($show_student->period_2 == 1) / @endif
-                  </td>
-                  <td>
-                    @if($show_student->period_3 == 0) X @endif
-                    @if($show_student->period_3 == 1) / @endif
-                  </td>
-                  <td>
-                    @if($show_student->period_4 == 0) X @endif
-                    @if($show_student->period_4 == 1) / @endif
-                  </td>
-                  <td>
-                    @if($show_student->period_5 == 0) X @endif
-                    @if($show_student->period_5 == 1) / @endif
-                  </td>
-                  <td>
-                    @if($show_student->period_6 == 0) X @endif
-                    @if($show_student->period_6 == 1) / @endif
-                  </td>
-                  <td>
-                    @if($show_student->period_7 == 0) X @endif
-                    @if($show_student->period_7 == 1) / @endif
-                  </td>
-                  <td>
-                    @if($show_student->period_8 == 0) X @endif
-                    @if($show_student->period_8 == 1) / @endif
-                  </td>
-                  <td>
-                    @if($show_student->period_9 == 0) X @endif
-                    @if($show_student->period_9 == 1) / @endif
-                  </td>
-                  <td>
-                    @if($show_student->period_10 == 0) X @endif
-                    @if($show_student->period_10 == 1) / @endif
-                  </td>
-                  <td>
-                    @if($show_student->period_11 == 0) X @endif
-                    @if($show_student->period_11 == 1) / @endif
-                  </td>
-                  <td>
-                    @if($show_student->period_12 == 0) X @endif
-                    @if($show_student->period_12 == 1) / @endif
-                  </td>
-                  <td>
-                    @if($show_student->period_13 == 0) X @endif
-                    @if($show_student->period_13 == 1) / @endif
-                  </td>
-                  <td>
-                    @if($show_student->period_14 == 0) X @endif
-                    @if($show_student->period_14 == 1) / @endif
-                  </td>
-                  <td>
-                    @if($show_student->period_15 == 0) X @endif
-                    @if($show_student->period_15 == 1) / @endif
-                  </td>
+                      <!-- Button trigger modal -->
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal{{$show_student->student_id}}">
+                                รายละเอียด
+                            </button>
+                        </td>
+                </tr>
             </tbody>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal{{$show_student->student_id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="modal-body">
+
+                            <div>
+                                คาบ1:
+                                @if($show_student->period_1 == 1)
+                                    attend
+                                @else
+                                    absence
+                                @endif
+                            </div>
+                            <div>
+                                    คาบ2:
+                                    @if($show_student->period_2 == 1)
+                                        attend
+                                    @else
+                                        absence
+                                    @endif
+                                </div>
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
             @endforeach
         </table>
     </center>

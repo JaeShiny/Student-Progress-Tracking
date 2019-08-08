@@ -11,6 +11,7 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
 
     <nav class="navbar navbar-light" style="background-color: #000000;">
         <a class="navbar-brand" style="color:#FFFFFF;">ระบบติดตามความก้าวหน้าของนักศึกษา</a>
