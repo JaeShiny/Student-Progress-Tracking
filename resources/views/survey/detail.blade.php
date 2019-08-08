@@ -9,7 +9,7 @@
         {{ $survey->description }}
       </p>
       <br/>
-      <a href='view/{{$survey->id}}'>Take Survey</a> | <a href="{{$survey->id}}/edit">Edit Survey</a> | <a href="/survey/answers/{{$survey->id}}">View Answers</a> <a href="#doDelete" style="float:right;" class="modal-trigger red-text">Delete Survey</a>
+      <a href='view/{{$survey->id}}'>Take Survey</a> | <a href="{{$survey->id}}/edit">Edit Survey</a> | <a href="/survey/answers/{{$survey->id}}">View Answers</a> <a href="/survey/{{$survey->id}}/delete" style="float:right;" class="modal-trigger red-text">Delete Survey</a>
       <!-- Modal Structure -->
       <!-- TODO Fix the Delete aspect -->
       <div id="doDelete" class="modal bottom-sheet">
