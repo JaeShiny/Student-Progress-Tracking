@@ -43,7 +43,7 @@
 
 
 {{-- เพิ่มการเข้าเรียน --}}
-<center>
+{{-- <center>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -64,7 +64,7 @@
     <button type="button" class="btn btn-outline-success">
         <a href="/attendance/{{$course->course_id}}">แสดงผลการเข้าเรียน</a>
     </button>
-</center>
+</center> --}}
 
     <center>
         <table class="table" width="60%" style="margin-top: 10px;">
