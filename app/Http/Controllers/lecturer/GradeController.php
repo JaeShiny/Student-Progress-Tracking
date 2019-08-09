@@ -52,10 +52,13 @@ class GradeController extends Controller
         $student_id = Auth::user()->student_id;
         $attendance = Grade::where('student_id',$student_id)->get();
         $bios = Bio::where('student_id', $student_id)->get();
+        $users = User::all();
+
         return view('student.grade',[
             'attendance' => $attendance,
             'student_id' => $student_id,
             'bios' => $bios,
+            'users' => $users,
         ]);
     }
 
@@ -64,9 +67,12 @@ class GradeController extends Controller
     public function showGradeL($course_id)  {
         $student = Grade::where('course_id',$course_id)->get();
         $course = Course::find($course_id);
+        $users = User::all();
+
         return view('lecturer.showGrade',[
             'student' => $student,
             'course' => $course,
+            'users' => $users,
         ]);
     }
 

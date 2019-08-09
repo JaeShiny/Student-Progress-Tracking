@@ -71,7 +71,7 @@
                 <tr>
                   <th>รหัสวิชา</th>
                   <th>รหัสนักศึกษา</th>
-                  {{-- <th>ชื่อ-สกุล</th> --}}
+                  <th>ชื่อ-สกุล</th>
                   {{-- <th>คะแนนเก็บมิดเทอม(เต็ม)</th>
                   <th>คะแนนเก็บมิดเทอม(ที่ได้)</th>
                   <th>คะแนนสอบมิดเทอม(เต็ม)</th>
@@ -111,6 +111,7 @@
 
                   <td>{{$show_student->course_id}}</td>
                   <td>{{$show_student->student_id}}</td>
+                  <td>{{$show_student->users['name']}}&nbsp;&nbsp;{{$show_student->users['lastname']}}</td>
                   <td>{{$show_student->total_midterm}}</td>
                   <td>{{$show_student->total_final}}</td>
                   <td>{{$show_student->total_all}}</td>

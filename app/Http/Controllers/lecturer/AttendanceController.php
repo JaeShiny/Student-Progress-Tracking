@@ -67,10 +67,12 @@ class AttendanceController extends Controller
     public function showAttendanceL($course_id)  {
         $student = Attendance::where('course_id',$course_id)->get();
         $course = Course::find($course_id);
+        $users = User::all();
 
         return view('lecturer.showAttendance',[
             'student' => $student,
             'course' => $course,
+            'users' => $users,
         ]);
     }
 

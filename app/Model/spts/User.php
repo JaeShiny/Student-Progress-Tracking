@@ -9,4 +9,5 @@ class User extends Model
     protected $connection = "mysql";
     protected $table = "users";
     protected $primaryKey = "id";
+
 }

@@ -33,7 +33,7 @@ class Grade extends Model
     ];
 
     //แมบ student_id ของ Grade ให้ไปหา student_id ของ users
-    public function id(){
+    public function users(){
         return $this->hasOne('App\Model\spts\User','student_id','student_id');
     }
 }
