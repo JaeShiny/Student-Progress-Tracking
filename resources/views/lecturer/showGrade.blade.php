@@ -72,27 +72,29 @@
                   <th>รหัสวิชา</th>
                   <th>รหัสนักศึกษา</th>
                   {{-- <th>ชื่อ-สกุล</th> --}}
-                  <th>คะแนนเก็บมิดเทอม(เต็ม)</th>
+                  {{-- <th>คะแนนเก็บมิดเทอม(เต็ม)</th>
                   <th>คะแนนเก็บมิดเทอม(ที่ได้)</th>
                   <th>คะแนนสอบมิดเทอม(เต็ม)</th>
                   <th>คะแนนสอบมิดเทอม(ที่ได้)</th>
-                  <th>mean midterm</th>
+                  <th>mean midterm</th> --}}
                   <th>total midterm score</th>
-                  <th>คะแนนเก็บไฟนอล(เต็ม)</th>
+                  {{-- <th>คะแนนเก็บไฟนอล(เต็ม)</th>
                   <th>คะแนนเก็บไฟนอล(ที่ได้)</th>
                   <th>คะแนนสอบไฟนอล(เต็ม)</th>
                   <th>คะแนนสอบไฟนอล(ที่ได้)</th>
-                  <th>mean final</th>
+                  <th>mean final</th> --}}
                   <th>total final score</th>
                   <th>คะแนนรวมทั้งหมด</th>
+                  <th>รายละเอียดเพิ่มเติม</th>
                 </tr>
             </thead>
+
             @foreach($student as $show_student)
             <tbody>
                 <tr>
-                  <td>{{$show_student->course_id}}</td>
+                  {{-- <td>{{$show_student->course_id}}</td>
                   <td>{{$show_student->student_id}}</td>
-                  {{-- <td>{{$show_student->id->name}} &nbsp;&nbsp; {{$show_student->id->last_name}}</td> --}}
+                  ไม่ใช้ <td>{{$show_student->id->name}} &nbsp;&nbsp; {{$show_student->id->last_name}}</td>
                   <td>{{$show_student->full_score_midterm}}</td>
                   <td>{{$show_student->score_midterm}}</td>
                   <td>{{$show_student->full_test_midterm}}</td>
@@ -105,8 +107,80 @@
                   <td>{{$show_student->test_final}}</td>
                   <td>{{$show_student->mean_test_final}}</td>
                   <td>{{$show_student->total_final}}</td>
+                  <td>{{$show_student->total_all}}</td> --}}
+
+                  <td>{{$show_student->course_id}}</td>
+                  <td>{{$show_student->student_id}}</td>
+                  <td>{{$show_student->total_midterm}}</td>
+                  <td>{{$show_student->total_final}}</td>
                   <td>{{$show_student->total_all}}</td>
+                  <td>
+                    <!-- Button trigger modal -->
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal{{$show_student->student_id}}">
+                      รายละเอียด
+                  </button>
+                </td>
+              </tr>
             </tbody>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal{{$show_student->student_id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">รายละเอียดผลการเรียนของ:&nbsp;{{$show_student->student_id}}</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="modal-body">
+                            <div>
+                                คะแนนเก็บมิดเทอม(เต็ม):&nbsp;{{$show_student->full_score_midterm}}
+                            </div>
+                            <div>
+                                คะแนนเก็บมิดเทอม(ที่ได้):&nbsp;{{$show_student->score_midterm}}
+                            </div>
+                            <div>
+                                คะแนนสอบมิดเทอม(เต็ม):&nbsp;{{$show_student->full_test_midterm}}
+                            </div>
+                            <div>
+                                คะแนนสอบมิดเทอม(ที่ได้):&nbsp;{{$show_student->test_midterm}}
+                            </div>
+                            <div>
+                                mean midterm:&nbsp;{{$show_student->mean_test_midterm}}
+                            </div>
+                            <div>
+                                total miderm score:&nbsp;{{$show_student->total_midterm}}
+                            </div>
+                            <div>
+                                คะแนนเก็บไฟนอล(เต็ม):&nbsp;{{$show_student->full_score_final}}
+                            </div>
+                            <div>
+                                คะแนนเก็บไฟนอล(ที่ได้):&nbsp;{{$show_student->score_final}}
+                            </div>
+                            <div>
+                                คะแนนสอบไฟนอล(เต็ม):&nbsp;{{$show_student->full_test_final}}
+                            </div>
+                            <div>
+                                คะแนนสอบไฟนอล(ที่ได้)):&nbsp;{{$show_student->test_final}}
+                            </div>
+                            <div>
+                                mean final:&nbsp;{{$show_student->mean_test_final}}
+                            </div>
+                            <div>
+                                total final score:&nbsp;{{$show_student->total_final}}
+                            </div>
+                            <div>
+                                คะแนนรวมทั้งหมด:&nbsp;{{$show_student->total_all}}
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        {{-- <button type="button" class="btn btn-primary">Save changes</button> --}}
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
             @endforeach
         </table>
     </center>
