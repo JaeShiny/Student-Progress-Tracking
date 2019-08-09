@@ -89,10 +89,10 @@
                   <td>{{$show_student->amount_absence}}</td>
                   <td>
                       <!-- Button trigger modal -->
-                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal{{$show_student->student_id}}">
-                                รายละเอียด
-                            </button>
-                        </td>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal{{$show_student->student_id}}">
+                        รายละเอียด
+                    </button>
+                  </td>
                 </tr>
             </tbody>
             <!-- Modal -->
@@ -100,13 +100,12 @@
                     <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">รายละเอียดการเข้าเรียนของ:&nbsp;{{$show_student->student_id}}</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                         </div>
                         <div class="modal-body">
-
                             <div>
                                 คาบ1:
                                 @if($show_student->period_1 == 1)
@@ -116,17 +115,121 @@
                                 @endif
                             </div>
                             <div>
-                                    คาบ2:
-                                    @if($show_student->period_2 == 1)
-                                        attend
-                                    @else
-                                        absence
-                                    @endif
-                                </div>
+                                คาบ2:
+                                @if($show_student->period_2 == 1)
+                                    attend
+                                @else
+                                    absence
+                                @endif
+                            </div>
+                            <div>
+                                คาบ 3:
+                                @if($show_student->period_3 == 1)
+                                    attend
+                                @else
+                                    absence
+                                @endif
+                            </div>
+                            <div>
+                                คาบ 4:
+                                @if($show_student->period_4 == 1)
+                                    attend
+                                @else
+                                    absence
+                                @endif
+                            </div>
+                            <div>
+                                คาบ 5:
+                                @if($show_student->period_5 == 1)
+                                    attend
+                                @else
+                                    absence
+                                @endif
+                            </div>
+                            <div>
+                                คาบ 6:
+                                @if($show_student->period_6 == 1)
+                                    attend
+                                @else
+                                    absence
+                                @endif
+                            </div>
+                            <div>
+                                คาบ 7:
+                                @if($show_student->period_7 == 1)
+                                    attend
+                                @else
+                                    absence
+                                @endif
+                            </div>
+                            <div>
+                                คาบ 8:
+                                @if($show_student->period_8 == 1)
+                                    attend
+                                @else
+                                    absence
+                                @endif
+                            </div>
+                            <div>
+                                คาบ 9:
+                                @if($show_student->period_9 == 1)
+                                    attend
+                                @else
+                                    absence
+                                @endif
+                            </div>
+                            <div>
+                                คาบ 10:
+                                @if($show_student->period_10 == 1)
+                                    attend
+                                @else
+                                    absence
+                                @endif
+                            </div>
+                            <div>
+                                คาบ 11:
+                                @if($show_student->period_11 == 1)
+                                    attend
+                                @else
+                                    absence
+                                @endif
+                            </div>
+                            <div>
+                                คาบ 12:
+                                @if($show_student->period_12 == 1)
+                                    attend
+                                @else
+                                    absence
+                                @endif
+                            </div>
+                            <div>
+                                คาบ 13:
+                                @if($show_student->period_13 == 1)
+                                    attend
+                                @else
+                                    absence
+                                @endif
+                            </div>
+                            <div>
+                                คาบ 14:
+                                @if($show_student->period_14 == 1)
+                                    attend
+                                @else
+                                    absence
+                                @endif
+                            </div>
+                            <div>
+                                คาบ 15:
+                                @if($show_student->period_15 == 1)
+                                    attend
+                                @else
+                                    absence
+                                @endif
+                            </div>
                         </div>
                         <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        {{-- <button type="button" class="btn btn-primary">Save changes</button> --}}
                         </div>
                     </div>
                     </div>
