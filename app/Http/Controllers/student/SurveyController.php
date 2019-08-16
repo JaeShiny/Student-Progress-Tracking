@@ -79,6 +79,6 @@ class SurveyController extends Controller
   {
     $survey = Survey::find($survey);
     $survey->delete();
-    return redirect('/');
+    return redirect('/indexSurvey');
   }
 }
