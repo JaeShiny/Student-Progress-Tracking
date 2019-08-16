@@ -55,23 +55,20 @@
         </div>
     </div>
 
-<div class="container px-lg-5">
-    <div class="row mx-lg-n5">
-        <div class="col-11">
-            <div class="col py-3 px-lg-5 border bg-light">
-                <div class="tab-content" id="v-pills-tabContent">
-                    <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+<div class="container">
+        <div class="card bg-light mt" style="position: relative;display: table">
+            <div class="card-header">
                         <h4 class="w3-bar-item">{{$course->course_id}}&nbsp;{{$course->course_name_eng}}</h4>
-
+            </div>
     <br><br><br>
-    <div class="container">
+
     <center>
         <table class="table table-hover">
             <thead>
                 <tr>
-                  <th>รหัสวิชา</th>
+                  <th style="width: 13%"><center>รหัสวิชา</center></th>
                   <th>รหัสนักศึกษา</th>
-                  <th>ชื่อ-สกุล</th>
+                  <th style="width: 35%"><center>ชื่อ-สกุล</center></th>
                   {{-- <th>คะแนนเก็บมิดเทอม(เต็ม)</th>
                   <th>คะแนนเก็บมิดเทอม(ที่ได้)</th>
                   <th>คะแนนสอบมิดเทอม(เต็ม)</th>
@@ -84,7 +81,7 @@
                   <th>คะแนนสอบไฟนอล(ที่ได้)</th>
                   <th>mean final</th> --}}
                   <th>total final score</th>
-                  <th>คะแนนรวมทั้งหมด</th>
+                  <th style="width: 15%">คะแนนรวมทั้งหมด</th>
                   <th>รายละเอียดเพิ่มเติม</th>
                 </tr>
             </thead>
@@ -109,12 +106,12 @@
                   <td>{{$show_student->total_final}}</td>
                   <td>{{$show_student->total_all}}</td> --}}
 
-                  <td>{{$show_student->course_id}}</td>
-                  <td>{{$show_student->student_id}}</td>
+                  <td><center>{{$show_student->course_id}}</center></td>
+                  <td><center>{{$show_student->student_id}}</center></td>
                   <td>{{$show_student->users['name']}}&nbsp;&nbsp;{{$show_student->users['lastname']}}</td>
-                  <td>{{$show_student->total_midterm}}</td>
-                  <td>{{$show_student->total_final}}</td>
-                  <td>{{$show_student->total_all}}</td>
+                  <td><center>{{$show_student->total_midterm}}</center></td>
+                  <td><center>{{$show_student->total_final}}</center></td>
+                  <td><center>{{$show_student->total_all}}</center></td>
                   <td>
                     <!-- Button trigger modal -->
                   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal{{$show_student->student_id}}">
