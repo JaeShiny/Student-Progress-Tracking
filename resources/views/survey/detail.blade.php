@@ -224,4 +224,5 @@
             <br>
         </div>
 
-        @stop @extends('bar.header(student)')
+@stop
+@extends('bar.header(lec)')

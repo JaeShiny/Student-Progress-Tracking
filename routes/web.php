@@ -123,8 +123,10 @@ Route::post('importGrade/{course_id}', 'lecturer\GradeController@import')->name(
 //แสดงผลการเรียน -> Grade
 Route::get('/showGrade/{course_id}','lecturer\GradeController@showGradeL');
 
-
-
+//index survey
+Route::get('/indexSurvey', function () {
+    return view('lecturer.indexSurvey');
+});
 
     //Student
 Route::get('profile/{student_id}','student\BioController@profile');

@@ -54,4 +54,4 @@
         </div>
     </div>
 </form>
-@stop @extends('bar.header(student)')
+@stop @extends('bar.header(lec)')

@@ -71,4 +71,4 @@
 </div>
 @stop
 
-@extends('bar.header(student)')
+@extends('bar.header(lec)')

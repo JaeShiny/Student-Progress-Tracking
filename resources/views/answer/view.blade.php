@@ -86,4 +86,4 @@
 </div>
 </div>
 </div>
-@endsection @extends('bar.header(student)')
+@endsection @extends('bar.header(lec)')
