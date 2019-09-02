@@ -35,11 +35,26 @@ class CreateAttendanceTable extends Migration
             $table->string('period_13')->nullable();
             $table->string('period_14')->nullable();
             $table->string('period_15')->nullable();
+            $table->string('date1')->nullable();
+            $table->string('date2')->nullable();
+            $table->string('date3')->nullable();
+            $table->string('date4')->nullable();
+            $table->string('date5')->nullable();
+            $table->string('date6')->nullable();
+            $table->string('date7')->nullable();
+            $table->string('date8')->nullable();
+            $table->string('date9')->nullable();
+            $table->string('date10')->nullable();
+            $table->string('date11')->nullable();
+            $table->string('date12')->nullable();
+            $table->string('date13')->nullable();
+            $table->string('date14')->nullable();
+            $table->string('date15')->nullable();
+            $table->String('person_add')->nullable();
             $table->String('semester')->nullable();
             $table->String('year')->nullable();
             $table->String('section')->nullable();
             $table->String('gen')->nullable();
-            $table->String('person_add')->nullable();
             $table->timestamps();
         });
     }
