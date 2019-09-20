@@ -20,13 +20,13 @@ class CreateFormGradeTable extends Migration
             $table->string('score_midterm');
             $table->string('full_test_midterm');
             $table->string('test_midterm');
-            $table->string('mean_test_midterm');
+            // $table->string('mean_test_midterm');
             $table->string('total_midterm');
             $table->string('full_score_final');
             $table->string('score_final');
             $table->string('full_test_final');
             $table->string('test_final');
-            $table->string('mean_test_final');
+            // $table->string('mean_test_final');
             $table->string('total_final');
             $table->string('total_all');
         });

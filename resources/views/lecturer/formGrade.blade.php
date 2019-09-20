@@ -38,7 +38,7 @@
                 &nbsp;&nbsp;&nbsp;
                 <a class="btn btn-warning" href="{{ route('exportFormGrade') }}">ดาวน์โหลดแบบฟอร์มการเพิ่มผลการเรียน</a>
             </form><br>
-            <center><img src="../img/grade.png" width="1000" height="465" title="คู่มือการ import ผลการเรียน"></center>
+            <center><img src="../img/grade2.png" width="1000" height="465" title="คู่มือการ import ผลการเรียน"></center>
         </div>
     </div>
 </div><br>

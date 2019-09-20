@@ -43,12 +43,11 @@ class AttendanceImport implements ToModel, WithHeadingRow
             'period_13' =>$row['period_13'],
             'period_14' =>$row['period_14'],
             'period_15' =>$row['period_15'],
-            // 'semester' => '2',
-            // 'year' => '2019',
-            // 'section' => '1',
-            // 'gen' => '20',
-
             'person_add' => Auth::user()->name,
+            'semester' => '2',
+            'year' => '2019',
+            'section' => '1',
+            'gen' => '20',
         ]);
     }
 }

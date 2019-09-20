@@ -210,7 +210,7 @@ Route::get('studentproblemAL/{student_id}', 'lecturer\ProblemController@showProb
 
     //LF
 //แมบวิชากับเด็ก
-Route::get('subject/{course}','SubjectController@indexLF');
+Route::get('subjectLF/{course}','SubjectController@indexLF');
 
 
 Route::get('courseLF','SubjectController@showCourseLF');
