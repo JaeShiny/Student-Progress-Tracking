@@ -68,8 +68,6 @@ class AttendanceController extends Controller
         $student_id = Auth::user()->student_id;
         $attendance = Attendance::where('student_id',$student_id)->get();
 
-
-
         $bios = Bio::where('student_id', $student_id)->get();
         return view('student.attendance',[
             'attendance' => $attendance,
@@ -91,5 +89,76 @@ class AttendanceController extends Controller
             'users' => $users,
         ]);
     }
+
+    //Advisor
+    //แสดงผลการเข้าเรียน
+    public function showAttendanceA($course_id)  {
+        $student = Attendance::where('course_id',$course_id)->get();
+        $course = Course::find($course_id);
+        $users = User::all();
+
+        return view('advisor.showAttendance',[
+            'student' => $student,
+            'course' => $course,
+            'users' => $users,
+        ]);
+    }
+
+    //Ad + lecturer
+    //แสดงผลการเข้าเรียน
+    public function showAttendanceAL($course_id)  {
+        $student = Attendance::where('course_id',$course_id)->get();
+        $course = Course::find($course_id);
+        $users = User::all();
+
+        return view('AdLec.showAttendance',[
+            'student' => $student,
+            'course' => $course,
+            'users' => $users,
+        ]);
+    }
+
+    //EducaionOfficer
+    //แสดงผลการเข้าเรียน
+    public function showAttendanceE($course_id)  {
+        $student = Attendance::where('course_id',$course_id)->get();
+        $course = Course::find($course_id);
+        $users = User::all();
+
+        return view('EducationOfficer.showAttendance',[
+            'student' => $student,
+            'course' => $course,
+            'users' => $users,
+        ]);
+    }
+
+    //LF
+    //แสดงผลการเข้าเรียน
+    public function showAttendanceLF($course_id)  {
+        $student = Attendance::where('course_id',$course_id)->get();
+        $course = Course::find($course_id);
+        $users = User::all();
+
+        return view('LF.showAttendance',[
+            'student' => $student,
+            'course' => $course,
+            'users' => $users,
+        ]);
+    }
+
+    //Admin
+    //แสดงผลการเข้าเรียน
+    public function showAttendanceAM($course_id)  {
+        $student = Attendance::where('course_id',$course_id)->get();
+        $course = Course::find($course_id);
+        $users = User::all();
+
+        return view('Admin.showAttendance',[
+            'student' => $student,
+            'course' => $course,
+            'users' => $users,
+        ]);
+    }
+
 
 }

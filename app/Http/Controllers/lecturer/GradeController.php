@@ -91,4 +91,73 @@ class GradeController extends Controller
         ]);
     }
 
+    //Advisor
+    //แสดงผล grade
+    public function showGradeA($course_id)  {
+        $student = Grade::where('course_id',$course_id)->get();
+        $course = Course::find($course_id);
+        $users = User::all();
+
+        return view('advisor.showGrade',[
+            'student' => $student,
+            'course' => $course,
+            'users' => $users,
+        ]);
+    }
+
+    //Ad+Lec
+    //แสดงผล grade
+    public function showGradeAL($course_id)  {
+        $student = Grade::where('course_id',$course_id)->get();
+        $course = Course::find($course_id);
+        $users = User::all();
+
+        return view('AdLec.showGrade',[
+            'student' => $student,
+            'course' => $course,
+            'users' => $users,
+        ]);
+    }
+
+    //EducationOfficer
+    //แสดงผล grade
+    public function showGradeE($course_id)  {
+        $student = Grade::where('course_id',$course_id)->get();
+        $course = Course::find($course_id);
+        $users = User::all();
+
+        return view('EducationOfficer.showGrade',[
+            'student' => $student,
+            'course' => $course,
+            'users' => $users,
+        ]);
+    }
+
+    //LF
+    //แสดงผล grade
+    public function showGradeLF($course_id)  {
+        $student = Grade::where('course_id',$course_id)->get();
+        $course = Course::find($course_id);
+        $users = User::all();
+
+        return view('LF.showGrade',[
+            'student' => $student,
+            'course' => $course,
+            'users' => $users,
+        ]);
+    }
+
+    //Admin
+    //แสดงผล grade
+    public function showGradeAM($course_id)  {
+        $student = Grade::where('course_id',$course_id)->get();
+        $course = Course::find($course_id);
+        $users = User::all();
+
+        return view('Admin.showGrade',[
+            'student' => $student,
+            'course' => $course,
+            'users' => $users,
+        ]);
+    }
 }
