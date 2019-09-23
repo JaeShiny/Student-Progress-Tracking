@@ -33,7 +33,7 @@
 
                 {{-- Username:  --}}
                 {{-- <img src="../img/user.png" alt="Avatar" class="image" width="2"> --}}
-                {{ Auth::user()->name }} <span class="caret"></span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                {{ Auth::user()->name }}  ({{ Auth::user()->position }})<span class="caret"></span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
                 <button type="button" class="btn">
 
