@@ -54,11 +54,12 @@
     <nav class="nav" style="background-color: #1D5287;">
         {{-- &nbsp;&nbsp;<img src="../img/logopage.png" width="120" height="50"> --}}
         &nbsp;&nbsp;<img src={{ URL::asset("../img/logopage.png") }} width="120" height="50">
-        <a class="nav-link active" href="{{ url('course') }}" style="color: #FFFFFF">วิชาที่สอน</a>
+        <a class="nav-link active" href="{{ url('courseLF') }}" style="color: #FFFFFF">วิชาที่สอน</a>
         <a class="nav-link" href="#" style="color: #FFFFFF">การแจ้งเตือน</a>
         <a class="nav-link" href="#" style="color: #FFFFFF">สถิติ</a>
         <a class="nav-link" href="{{ url('FormAttendanceLF') }}" style="color: #FFFFFF">ดาวน์โหลดแบบฟอร์ม</a>
         <a class="nav-link" href="" style="color: #FFFFFF">เพิ่มไฟล์</a>
+        <a class="nav-link" href="" style="color: #FFFFFF">แบบสอบถาม</a>
     </nav>
     {{-- <nav class="bg2" style="background-color: #1D5287;">
         <span class="navbar-text">

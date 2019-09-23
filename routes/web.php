@@ -280,6 +280,22 @@ Route::get('exportAttendanceLF', 'lecturer\FormController@FormAttendanceLF')->na
 Route::get('FormGradeLF', 'lecturer\FormController@FormGradeViewLF');
 Route::get('exportFormGradeLF', 'lecturer\FormController@FormGradeLF')->name('exportFormGradeLF');
 
+//import excel -> Attendance
+Route::get('exportLF/{course_id}', 'lecturer\AttendanceController@export')->name('exportLF');
+Route::get('importExportViewLF/{course_id}', 'lecturer\AttendanceController@importExportViewLF');
+Route::post('importLF/{course_id}', 'lecturer\AttendanceController@import')->name('importLF');
+
+//import excel -> Grade
+Route::get('exportGradeLF/{course_id}', 'lecturer\GradeController@export')->name('exportGradeLF');
+Route::get('importExportGradeLF/{course_id}', 'lecturer\GradeController@importExportViewLF');
+Route::post('importGradeLF/{course_id}', 'lecturer\GradeController@import')->name('importLF');
+
+//แสดงการเข้าเรียน -> Attendance
+Route::get('/attendanceLF/{course_id}','lecturer\AttendanceController@showAttendanceLF');
+//แสดงผลการเรียน -> Grade
+Route::get('/showGradeLF/{course_id}','lecturer\GradeController@showGradeLF');
+
+
 
 
 //ลบด้วยนะถ้าเขียนโค้ดเสร็จ

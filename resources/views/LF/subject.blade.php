@@ -45,8 +45,8 @@
                             {{$courses->course_name_eng}}
                         </p>
                         <br><br>
-                        <a href="/subject/{{$courses->course_id}}" class="btn btn-primary">รายละเอียด</a>
-                        <a href="/importExportView/{{$courses->course_id}}" class="btn btn-primary">เพิ่มไฟล์</a> <br>
+                        <a href="/subjectLF/{{$courses->course_id}}" class="btn btn-primary">รายละเอียด</a>
+                        <a href="/importExportViewLF/{{$courses->course_id}}" class="btn btn-primary">เพิ่มไฟล์</a> <br>
                         </center>
                     </div>
                 </div>
