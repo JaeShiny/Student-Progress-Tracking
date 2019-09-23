@@ -22,6 +22,8 @@ class FormController extends Controller
     /**
     * @return \Illuminate\Support\Collection
     */
+
+    //Lecturer
     public function FormAttendanceView()
     {
         return view('lecturer.formAttendance');
@@ -46,6 +48,64 @@ class FormController extends Controller
     * @return \Illuminate\Support\Collection
     */
     public function FormGrade()
+    {
+        return Excel::download(new formGrade, 'Form_Grade.xlsx');
+    }
+
+    //Ad+Lec
+    public function FormAttendanceViewAL()
+    {
+        return view('AdLec.formAttendance');
+    }
+
+    /**
+    * @return \Illuminate\Support\Collection
+    */
+    public function FormAttendanceAL()
+    {
+        return Excel::download(new formAttendance, 'Form_Attendance.xlsx');
+    }
+
+    /**
+    * @return \Illuminate\Support\Collection
+    */
+    public function FormGradeViewAL()
+    {
+        return view('AdLec.formGrade');
+    }
+    /**
+    * @return \Illuminate\Support\Collection
+    */
+    public function FormGradeAL()
+    {
+        return Excel::download(new formGrade, 'Form_Grade.xlsx');
+    }
+
+    //LF
+    public function FormAttendanceViewLF()
+    {
+        return view('LF.formAttendance');
+    }
+
+    /**
+    * @return \Illuminate\Support\Collection
+    */
+    public function FormAttendanceLF()
+    {
+        return Excel::download(new formAttendance, 'Form_Attendance.xlsx');
+    }
+
+    /**
+    * @return \Illuminate\Support\Collection
+    */
+    public function FormGradeViewLF()
+    {
+        return view('LF.formGrade');
+    }
+    /**
+    * @return \Illuminate\Support\Collection
+    */
+    public function FormGradeLF()
     {
         return Excel::download(new formGrade, 'Form_Grade.xlsx');
     }

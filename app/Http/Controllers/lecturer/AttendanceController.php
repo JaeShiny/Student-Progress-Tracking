@@ -27,6 +27,22 @@ class AttendanceController extends Controller
         ]);
     }
 
+    public function importExportViewAL($course_id)
+    {
+        $course = Course::find($course_id);
+        return view('AdLec.addAttendance',[
+            'course' => $course,
+        ]);
+    }
+
+    public function importExportViewLF($course_id)
+    {
+        $course = Course::find($course_id);
+        return view('LF.addAttendance',[
+            'course' => $course,
+        ]);
+    }
+
     /**
     * @return \Illuminate\Support\Collection
     */

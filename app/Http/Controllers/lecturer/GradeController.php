@@ -27,6 +27,21 @@ class GradeController extends Controller
         ]);
     }
 
+    public function importExportViewAL($course_id)
+    {
+        $course = Course::find($course_id);
+        return view('AdLec.addGrade',[
+            'course' => $course,
+        ]);
+    }
+
+    public function importExportViewLF($course_id)
+    {
+        $course = Course::find($course_id);
+        return view('LF.addGrade',[
+            'course' => $course,
+        ]);
+    }
     /**
     * @return \Illuminate\Support\Collection
     */

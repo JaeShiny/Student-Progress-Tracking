@@ -128,6 +128,8 @@ Route::get('/indexSurvey', function () {
     return view('lecturer.indexSurvey');
 });
 
+
+
     //Student
 Route::get('profile/{student_id}','student\BioController@profile');
 
@@ -177,6 +179,7 @@ Route::get('student_enrollmentA','student\StudyController@enrollmentA');
 Route::get('student_enrollmentA/{student_id}','student\StudyController@enrollmentA1')->name('enrollA');
 
 
+
     //Advisor+Lecturer
 Route::get('student_searchL','student\BioController@searchAL');
 
@@ -207,6 +210,32 @@ Route::get('problem_createAL/{student_id}','lecturer\ProblemController@createAL'
 Route::post('problem_insertAL','lecturer\ProblemController@insertAL');
 //แสดงพฤติกรรมเด็ก
 Route::get('studentproblemAL/{student_id}', 'lecturer\ProblemController@showProblemAL');
+
+        //Excel
+//form Attendance
+Route::get('FormAttendanceAL', 'lecturer\FormController@FormAttendanceViewAL');
+Route::get('exportAttendanceAL', 'lecturer\FormController@FormAttendanceAL')->name('exportAttendanceAL');
+
+//form Grade
+Route::get('FormGradeAL', 'lecturer\FormController@FormGradeViewAL');
+Route::get('exportFormGradeAL', 'lecturer\FormController@FormGradeAL')->name('exportFormGradeAL');
+
+//import excel -> Attendance
+Route::get('exportAL/{course_id}', 'lecturer\AttendanceController@export')->name('exportAL');
+Route::get('importExportViewAL/{course_id}', 'lecturer\AttendanceController@importExportViewAL');
+Route::post('importAL/{course_id}', 'lecturer\AttendanceController@import')->name('importAL');
+
+//import excel -> Grade
+Route::get('exportGradeAL/{course_id}', 'lecturer\GradeController@export')->name('exportGradeAL');
+Route::get('importExportGradeAL/{course_id}', 'lecturer\GradeController@importExportViewAL');
+Route::post('importGradeAL/{course_id}', 'lecturer\GradeController@import')->name('importAL');
+
+//แสดงการเข้าเรียน -> Attendance
+Route::get('/attendanceAL/{course_id}','lecturer\AttendanceController@showAttendanceAL');
+//แสดงผลการเรียน -> Grade
+Route::get('/showGradeAL/{course_id}','lecturer\GradeController@showGradeAL');
+
+
 
     //LF
 //แมบวิชากับเด็ก
