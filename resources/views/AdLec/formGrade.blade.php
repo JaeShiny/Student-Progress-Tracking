@@ -11,8 +11,8 @@
         <ol class="breadcrumb">
             <li> </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             {{-- <li class="breadcrumb-item"><a href="{{ url('curriculum') }}">หลักสูตร(IT)</a></li> --}}
-            <li class="breadcrumb-item"><a href="{{ url('FormAttendance') }}">ดาวน์โหลดแบบฟอร์ม</a></li>
-            <li class="breadcrumb-item"><a href="{{ url('FormGrade') }}">แบบฟอร์มเพิ่มผลการเรียน</a></li>
+            <li class="breadcrumb-item"><a href="{{ url('FormAttendanceAL') }}">ดาวน์โหลดแบบฟอร์ม</a></li>
+            <li class="breadcrumb-item"><a href="{{ url('FormGradeAL') }}">แบบฟอร์มเพิ่มผลการเรียน</a></li>
         </ol>
     </nav>
 
@@ -20,10 +20,10 @@
 <body>
 <ul class="nav nav-tabs" id="myTab" role="tablist" style="background-color:white;">
     <li class="nav-item">
-        <a class="nav-link" href="{{ url('FormAttendance') }}" style="color: #000000;">แบบฟอร์มการเข้าเรียน</a>
+        <a class="nav-link" href="{{ url('FormAttendanceAL') }}" style="color: #000000;">แบบฟอร์มการเข้าเรียน</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link active" href="{{ url('FormGrade') }}" style="color: #000000;">แบบฟอร์มเพิ่มผลการเรียน</a>
+        <a class="nav-link active" href="{{ url('FormGradeAL') }}" style="color: #000000;">แบบฟอร์มเพิ่มผลการเรียน</a>
     </li>
 </ul><br>
 
@@ -36,7 +36,7 @@
             <form action="" method="POST" enctype="multipart/form-data">
                 @csrf
                 &nbsp;&nbsp;&nbsp;
-                <a class="btn btn-warning" href="{{ route('exportFormGrade') }}">ดาวน์โหลดแบบฟอร์มการเพิ่มผลการเรียน</a>
+                <a class="btn btn-warning" href="{{ route('exportFormGradeAL') }}">ดาวน์โหลดแบบฟอร์มการเพิ่มผลการเรียน</a>
             </form><br>
             <center><img src="../img/grade2.png" width="1000" height="465" title="คู่มือการ import ผลการเรียน"></center>
         </div>
