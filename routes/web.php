@@ -272,6 +272,15 @@ Route::get('risk_problemLF/{student_id}','lecturer\ProblemController@notiProblem
 Route::get('student_enrollmentLF','student\StudyController@enrollmentLF');
 Route::get('student_enrollmentLF/{student_id}','student\StudyController@enrollmentLF1')->name('enrollLF');
 
+//form Attendance
+Route::get('FormAttendanceLF', 'lecturer\FormController@FormAttendanceViewLF');
+Route::get('exportAttendanceLF', 'lecturer\FormController@FormAttendanceLF')->name('exportAttendanceLF');
+
+//form Grade
+Route::get('FormGradeLF', 'lecturer\FormController@FormGradeViewLF');
+Route::get('exportFormGradeLF', 'lecturer\FormController@FormGradeLF')->name('exportFormGradeLF');
+
+
 
 //ลบด้วยนะถ้าเขียนโค้ดเสร็จ
 // Route::get('profilebefore', function () {

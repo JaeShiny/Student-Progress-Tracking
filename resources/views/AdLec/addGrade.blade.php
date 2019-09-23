@@ -21,8 +21,8 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <li class="breadcrumb-item" aria-current="page"><a href="{{ url('course') }}">วิชาที่สอน</a></li>
-            <li class="breadcrumb-item" aria-current="page"><a href="/importExportGrade/{{$course->course_id}}">เพิ่มผลการเรียน</a></li>
+            {{-- <li class="breadcrumb-item" aria-current="page"><a href="{{ url('course') }}">วิชาที่สอน</a></li> --}}
+            <li class="breadcrumb-item" aria-current="page"><a href="/importExportGradeAL/{{$course->course_id}}">เพิ่มผลการเรียน</a></li>
         </ol>
     </nav>
 
@@ -38,10 +38,10 @@
 
 <ul class="nav nav-tabs" id="myTab" role="tablist" style="background-color:white;">
     <li class="nav-item">
-        <a class="nav-link" href="/importExportView/{{$course->course_id}}" style="color: #000000;">การเข้าเรียน</a>
+        <a class="nav-link" href="/importExportViewAL/{{$course->course_id}}" style="color: #000000;">การเข้าเรียน</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link active" href="/importExportGrade/{{$course->course_id}}" style="color: #000000;">ผลการเรียน</a>
+        <a class="nav-link active" href="/importExportGradeAL/{{$course->course_id}}" style="color: #000000;">ผลการเรียน</a>
     </li>
 </ul><br>
 
@@ -49,9 +49,9 @@
     <div class="col">
         <div class="list-group" id="list-tab" role="tablist">
 
-            <a class="list-group-item list-group-item-action active" href="/importExportGrade/{{$course->course_id}}"><b>เพิ่มผลการเรียน</b></a>
-            <a class="list-group-item list-group-item-action" href="/showGrade/{{$course->course_id}}"><b>แสดงผลการเรียน</b></a>
-            <a class="list-group-item list-group-item-action" href="/subject/{{$course->course_id}}"><b>รายชื่อนักศึกษา</b></a>
+            <a class="list-group-item list-group-item-action active" href="/importExportGradeAL/{{$course->course_id}}"><b>เพิ่มผลการเรียน</b></a>
+            <a class="list-group-item list-group-item-action" href="/showGradeAL/{{$course->course_id}}"><b>แสดงผลการเรียน</b></a>
+            <a class="list-group-item list-group-item-action" href="/subjectAL/{{$course->course_id}}"><b>รายชื่อนักศึกษา</b></a>
 
         </div>
     </div>
@@ -69,7 +69,7 @@
                 เพิ่มผลการเรียน
             </div>
             <div class="card-body">
-                <form action="/importGrade/{{$course->course_id}}" method="POST" enctype="multipart/form-data">
+                <form action="/importGradeAL/{{$course->course_id}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <input type="hidden" name="course_id" value="{{$course->course_id}}">
                     <input type="file" name="file" class="form-control">
@@ -80,7 +80,7 @@
                     <div class="container">
                         <div class="form-group">
                             <input type="submit" value="เพิ่มผลการเรียน" class="btn btn-success" data-toggle="modal" data-target="#myModal">
-                            <a class="btn btn-warning" href="/exportGrade/{{$course->course_id}}">Export ผลการเรียน</a>
+                            <a class="btn btn-warning" href="/exportGradeAL/{{$course->course_id}}">Export ผลการเรียน</a>
                         </div>
                         <!-- Modal -->
                         <div class="modal fade" id="myModal" role="dialog">

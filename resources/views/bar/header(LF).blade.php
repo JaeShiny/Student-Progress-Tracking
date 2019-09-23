@@ -57,7 +57,7 @@
         <a class="nav-link active" href="{{ url('course') }}" style="color: #FFFFFF">วิชาที่สอน</a>
         <a class="nav-link" href="#" style="color: #FFFFFF">การแจ้งเตือน</a>
         <a class="nav-link" href="#" style="color: #FFFFFF">สถิติ</a>
-        <a class="nav-link" href="{{ url('FormAttendance') }}" style="color: #FFFFFF">ดาวน์โหลดแบบฟอร์ม</a>
+        <a class="nav-link" href="{{ url('FormAttendanceLF') }}" style="color: #FFFFFF">ดาวน์โหลดแบบฟอร์ม</a>
         <a class="nav-link" href="" style="color: #FFFFFF">เพิ่มไฟล์</a>
     </nav>
     {{-- <nav class="bg2" style="background-color: #1D5287;">

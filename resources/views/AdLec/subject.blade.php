@@ -44,7 +44,9 @@
                         <p class="card-text">
                             {{$courses->course_name_eng}}
                         </p>
-                        <br>
+                        <br><br>
+                        <a href="/subjectAL/{{$courses->course_id}}" class="btn btn-primary">รายละเอียด</a>
+                        <a href="/importExportViewAL/{{$courses->course_id}}" class="btn btn-primary">เพิ่มไฟล์</a> <br>
                         </center>
                     </div>
                 </div>
