@@ -145,6 +145,12 @@ Route::get('profileafterS/{student_id}','student\SrmController@profileS');
 //กดดูวิชาที่่ลงทะเบียน
 Route::get('study/{student_id}','student\StudyController@enrollmentS');
 
+Route::get('studentSurvey/{survey}','student\surveyController@showall');
+
+Route::get('/studentSurvey', function () {
+    return view('student.indexSurvey');
+});
+
 
 //map อาจารย์กับวิชา
 // Route::get('lecturer/{instructor}','lecturer\InstructorController@index');
