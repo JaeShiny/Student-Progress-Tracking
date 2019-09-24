@@ -152,17 +152,16 @@
                                                 </div>
                                             </div>
 
-                                            @elseif($question->question_type === 'radio') @foreach($question->option_name as $key=>$value)
-                                            <p style="margin:0px; padding:0px;">
-                                                <input type="radio" id="{{ $key }}" />
-                                                <label for="{{ $key }}">{{ $value }}</label>
+                                            @elseif($question->question_type === 'radio')
+                                            @foreach($question->choice as $show_choice)
+                                            <label>{{$show_choice->choice_name}}</label><input type="checkbox" value="{{$show_choice->id}}">
+                                            @endforeach
                                             </p>
-                                            @endforeach @elseif($question->question_type === 'checkbox') @foreach($question->option_name as $key=>$value)
-                                            <p style="margin:0px; padding:0px;">
-                                                <input type="checkbox" id="{{ $key }}" />
-                                                <label for="{{$key}}">{{ $value }}</label>
-                                            </p>
-                                            @endforeach @endif {!! Form::close() !!}
+                                            @elseif($question->question_type === 'checkbox')
+                                            @foreach($question->choice as $show_choice)
+                                            <label>{{$show_choice->choice_name}}</label><input type="checkbox" value="{{$show_choice->id}}">
+                                            @endforeach
+                                             @endif {!! Form::close() !!}
 
                                         </div>
                                     </div>
@@ -185,17 +184,17 @@
                                     </div>
                                     <div class="card-body">
                                         <blockquote class="blockquote mb-0">
-                                            <form method="POST" action="{{ $survey->id }}/questions" id="boolean">
+                                            <form method="POST" action="/survey/{{ $survey->id }}/questions" id="boolean">
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                                 <div class="row">
                                                     <div class="input-field col s12">
-                                                        <label for="exampleFormControlSelect1">ประเภทคำถาม</label>
-                                                        <select class="form-control" name="question_type" id="question_type">
+                                                        <label id="question"  for="exampleFormControlSelect1">ประเภทคำถาม</label>
+                                                        <select  onchange="test()"  class="form-control" name="question_type" id="question_type">
                                                             <option value="" disabled selected>เลือกประเภทคำถาม</option>
                                                             <option value="text">Text</option>
                                                             <option value="textarea">Textarea</option>
-                                                            <option value="checkbox">Checkbox</option>
-                                                            <option value="radio">Radio Buttons</option>
+                                                            <option id="checkbox"  value="checkbox">Checkbox</option>
+                                                            <option  value="radio">Radio Buttons</option>
                                                         </select>
                                                     </div>
 
@@ -203,6 +202,11 @@
                                                         <label for="title">คำถาม</label>
                                                         <input name="title" type="text" class="form-control" placeholder="...">
                                                     </div>
+
+                                                    <div id="choice" class="input-field col s12">
+
+                                                    </div>
+
                                                     <!-- this part will be chewed by script in init.js -->
                                                     <span class="form-g"></span>
 
@@ -226,3 +230,27 @@
 
 @stop
 @extends('bar.header(lec)')
+
+{{-- <script>
+function test(){
+
+    var choice1 = document.createElement('input');
+    choice1.placeholder = 'ช้อย1';
+    choice1.type = 'text';
+    choice1.name = 'choice[]';
+    choice1.value = '';
+    var choice2 = document.createElement('input');
+    choice2.placeholder = 'ช้อย2';
+    choice2.type = 'text';
+    choice2.name = 'choice[]';
+    choice2.value= '';
+     if(document.getElementById('question_type').value == 'checkbox') {
+         document.getElementById('choice').appendChild(choice1);
+         document.getElementById('choice').appendChild(choice2);
+     }
+     if(document.getElementById('question_type').value == 'radio') {
+         document.getElementById('choice').appendChild(choice1);
+         document.getElementById('choice').appendChild(choice2);
+     }
+}
+</script> --}}

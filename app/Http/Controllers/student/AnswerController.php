@@ -21,7 +21,7 @@ class AnswerController extends Controller
         if (! is_array( $value )) {
           $newValue = $value['answer'];
         } else {
-          $newValue = json_encode($value['answer']);
+          $newValue = $value['answer'];
         }
         $newAnswer->answer = $newValue;
         $newAnswer->question_id = $key;

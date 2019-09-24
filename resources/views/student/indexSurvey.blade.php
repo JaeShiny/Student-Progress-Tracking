@@ -74,7 +74,7 @@
 
             <h6>STUDENT PROGRESS TRACKING SYSTEM</h6>
             <h6>STUDENT</h6>
-            <button type="submit" class="btn btn-primary" style="float: right"> <a class="nav-link" href="studentSurvey/view/{survey}" style="color: #FFFFFF">ทำแบบสอบถาม</a></button>
+            <button type="submit" class="btn btn-primary" style="float: right"> <a class="nav-link" href="/survey" style="color: #FFFFFF">ทำแบบสอบถาม</a></button>
 
         </div>
 

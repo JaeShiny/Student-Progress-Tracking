@@ -23,6 +23,10 @@ class Question extends Model
       return $this->hasMany(Answer::class);
     }
 
+    public function choice() {
+        return $this->hasMany('App\Model\spts\Choice');
+    }
+
     protected $table = 'question';
 
 }

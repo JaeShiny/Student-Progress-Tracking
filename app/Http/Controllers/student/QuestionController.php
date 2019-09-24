@@ -10,6 +10,7 @@ use App\Answer;
 use App\Question;
 use Auth;
 use Illuminate\Support\Facades\Input;
+use App\Model\spts\Choice;
 // use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -21,13 +22,23 @@ class QuestionController extends Controller
         $this->middleware('auth');
     }
 
-    public function store(Request $request, Survey $survey)
+    public function store(Request $request, $survey)
     {
-      $arr = $request->all();
-      $arr['user_id'] = Auth::id();
+      $question = new Question;
+      $question->question_type = $request->question_type;
+      $question->user_id= Auth::id();
+      $question->title = $request->title;
+      $question->survey_id = $survey;
+      $question->save();
 
-      $survey->questions()->create($arr);
-      return back();
+    //   foreach($request->choice as $storechoice) {
+    //     $choice = new Choice;
+    //     $choice->choice_name = $storechoice;
+    //     $choice->question_id = $question->id;
+    //     $choice->save();
+    //   }
+
+      return redirect()->back();
     }
 
     public function edit(Question $question)
