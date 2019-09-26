@@ -163,6 +163,8 @@ Route::get('profileafter/{student_id}','student\SrmController@profile');
 
 //แสดงการเข้าเรียน Attendance
 Route::get('/student/attendance','lecturer\AttendanceController@showAttendanceS');
+//แสดงผลการเรียน Grade
+Route::get('/student/grade','lecturer\GradeController@showGradeS');
 
 
     //Advisor

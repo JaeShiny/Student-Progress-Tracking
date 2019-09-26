@@ -69,7 +69,7 @@ class AttendanceController extends Controller
         $attendance = Attendance::where('student_id',$student_id)->get();
 
         $bios = Bio::where('student_id', $student_id)->get();
-        return view('student.attendance',[
+        return view('student.showAttendance',[
             'attendance' => $attendance,
             'student_id' => $student_id,
             'bios' => $bios,
