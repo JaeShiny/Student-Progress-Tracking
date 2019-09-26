@@ -27,4 +27,17 @@ class AdvisorController extends Controller
         ]);
 
     }
+
+    //แสดงรายชื่อนักศึกษาเป็นที่ปรึกษาของอาจารย์ที่ปรึกษา (ใช้แสดงผลการเข้าเรียน+ผลการเรียน)
+    public function showAttendance()
+    {
+      $instructor = Instructor::where('first_name',Auth::user()->name)->first();
+      $myStudent = Student::where('adviser_id1',$instructor->instructor_id)->orWhere('adviser_id2',$instructor->instructor_id)->get();
+
+       return view('advisor.student',[
+           'myStudent' => $myStudent
+       ]);
+    }
+
+
 }

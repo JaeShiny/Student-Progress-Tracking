@@ -51,8 +51,10 @@
         {{-- &nbsp;&nbsp;<img src="../img/logopage.png" width="120" height="50"> --}}
         &nbsp;&nbsp;<img src={{ URL::asset("../img/logopage.png") }}  width="120" height="50">
         <a class="nav-link active" href="/advisor/myStudent" style="color: #FFFFFF">นักศึกษา</a>
-        <a class="nav-link" href="#" style="color: #FFFFFF">การแจ้งเตือน</a>
+        <a class="nav-link active" href="/advisor/showAtt" style="color: #FFFFFF">การเข้าเรียนและผลการเรียน</a>
+        {{-- <a class="nav-link active" href="/advisor/showAtt" style="color: #FFFFFF">ผลการเรียน</a> --}}
         <a class="nav-link" href="#" style="color: #FFFFFF">สถิติ</a>
+        <a class="nav-link" href="#" style="color: #FFFFFF">การแจ้งเตือน</a>
     </nav>
 
     <style type="text/css">

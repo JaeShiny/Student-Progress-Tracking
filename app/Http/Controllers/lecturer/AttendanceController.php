@@ -92,14 +92,12 @@ class AttendanceController extends Controller
 
     //Advisor
     //แสดงผลการเข้าเรียน
-    public function showAttendanceA($course_id)  {
-        $student = Attendance::where('course_id',$course_id)->get();
-        $course = Course::find($course_id);
+    public function showAttendanceA($student_id){
+        $student = Attendance::where('student_id',$student_id)->get();
         $users = User::all();
 
         return view('advisor.showAttendance',[
             'student' => $student,
-            'course' => $course,
             'users' => $users,
         ]);
     }

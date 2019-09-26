@@ -178,6 +178,12 @@ Route::get('student_searchA','student\BioController@searchA');
 Route::get('student_enrollmentA','student\StudyController@enrollmentA');
 Route::get('student_enrollmentA/{student_id}','student\StudyController@enrollmentA1')->name('enrollA');
 
+//แสดงการเข้าเรียน -> Attendance
+// Route::get('/attendanceA/{course_id}','lecturer\AttendanceController@showAttendanceA');
+Route::get('/attendanceA/{student_id}','lecturer\AttendanceController@showAttendanceA');
+//แสดงผลการเรียน -> Grade
+Route::get('/showGradeA/{student_id}','lecturer\GradeController@showGradeA');
+
 
 
     //Advisor+Lecturer
@@ -383,6 +389,7 @@ Route::group(['prefix' => 'advisor'], function(){
         Route::get('/dashboard', 'advisor\AdvisorController@index');
         // route ไปยังหน้าที่แสดงรายชื่อนักศึกษาของอาจารย์ที่ปรึกษา
         Route::get('myStudent','advisor\AdvisorController@showStudent');
+        Route::get('showAtt','advisor\AdvisorController@showAttendance');
     });
 });
 //Route for lecturer user

@@ -93,14 +93,12 @@ class GradeController extends Controller
 
     //Advisor
     //แสดงผล grade
-    public function showGradeA($course_id)  {
-        $student = Grade::where('course_id',$course_id)->get();
-        $course = Course::find($course_id);
+    public function showGradeA($student_id)  {
+        $student = Grade::where('student_id',$student_id)->get();
         $users = User::all();
 
         return view('advisor.showGrade',[
             'student' => $student,
-            'course' => $course,
             'users' => $users,
         ]);
     }
