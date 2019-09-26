@@ -184,7 +184,9 @@ Route::get('student_searchA','student\BioController@searchA');
 Route::get('student_enrollmentA','student\StudyController@enrollmentA');
 Route::get('student_enrollmentA/{student_id}','student\StudyController@enrollmentA1')->name('enrollA');
 
-
+Route::get('/advisorSurvey', function () {
+    return view('advisor.indexSurvey');
+});
 
     //Advisor+Lecturer
 Route::get('student_searchL','student\BioController@searchAL');

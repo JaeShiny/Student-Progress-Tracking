@@ -1,4 +1,7 @@
 
+@extends('bar.body')
+
+@section('content')
 <table class="table">
         <thead>
           <tr>
@@ -28,3 +31,9 @@
           @endforeach
         </tbody>
 </table>
+
+@stop
+@extends('bar.header(student)')
+
+
+
