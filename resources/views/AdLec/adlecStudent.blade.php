@@ -46,6 +46,8 @@
                 <th scope="col" width="10%"><h6 align="center"><b>ประวัติ</h6></b></th>
                 <th scope="col" width="10%"><h6 align="center"><b>การลงทะเบียน</h6></b></th>
                 <th scope="col" width="10%"><h6 align="center"><b>พฤติกรรม</h6></b></th>
+                <th scope="col" width="10%"><h6 align="center"><b>การเข้าเรียน</h6></b></th>
+                <th scope="col" width="10%"><h6 align="center"><b>ผลการเรียน</h6></b></th>
                 <th scope="col" width="10%"><h6 align="center"><b>แจ้งเตือน</h6></b></th>
               </tr>
             </thead>
@@ -85,6 +87,16 @@
                 <td width="10">
                     <a href="/studentproblemAL/{{$ad_list->student_id}}">
                         <center><img src="../img/feedback.png" width="25" title="พฤติกรรม/ปัญหา"></center>
+                    </a>
+                </td>
+                <td width="10">
+                    <a href="/attendanceAL2/{{$ad_list->student_id}}">
+                        <center><img src="../img/attendant-list.png" width="30" height="25" title="การเข้าเรียน"></center>
+                    </a>
+                </td>
+                <td width="10">
+                    <a href="/showGradeAL2/{{$ad_list->student_id}}">
+                        <center><img src="../img/grades.png" width="30" height="25" title="ผลการเรียน"></center>
                     </a>
                 </td>
                 <td width="10">

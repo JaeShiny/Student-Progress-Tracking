@@ -105,6 +105,15 @@ class GradeController extends Controller
 
     //Ad+Lec
     //แสดงผล grade
+    public function showGradeAL2($student_id)  {
+        $student = Grade::where('student_id',$student_id)->get();
+        $users = User::all();
+
+        return view('AdLec.showGrade2',[
+            'student' => $student,
+            'users' => $users,
+        ]);
+    }
     public function showGradeAL($course_id)  {
         $student = Grade::where('course_id',$course_id)->get();
         $course = Course::find($course_id);

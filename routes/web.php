@@ -232,6 +232,19 @@ Route::post('problem_insertAL','lecturer\ProblemController@insertAL');
 //แสดงพฤติกรรมเด็ก
 Route::get('studentproblemAL/{student_id}', 'lecturer\ProblemController@showProblemAL');
 
+//Advisor
+//แสดงการเข้าเรียน -> Attendance
+// Route::get('/attendanceA/{course_id}','lecturer\AttendanceController@showAttendanceA');
+Route::get('/attendanceAL2/{student_id}','lecturer\AttendanceController@showAttendanceAL2');
+//แสดงผลการเรียน -> Grade
+Route::get('/showGradeAL2/{student_id}','lecturer\GradeController@showGradeAL2');
+
+// //Lecturer
+// //แสดงการเข้าเรียน -> Attendance
+// Route::get('/attendanceAL2/{course_id}','lecturer\AttendanceController@showAttendanceAL2');
+// //แสดงผลการเรียน -> Grade
+// Route::get('/showGradeAL2/{course_id}','lecturer\GradeController@showGradeAL2');
+
         //Excel
 //form Attendance
 Route::get('FormAttendanceAL', 'lecturer\FormController@FormAttendanceViewAL');

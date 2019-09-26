@@ -104,6 +104,15 @@ class AttendanceController extends Controller
 
     //Ad + lecturer
     //แสดงผลการเข้าเรียน
+    public function showAttendanceAL2($student_id){
+        $student = Attendance::where('student_id',$student_id)->get();
+        $users = User::all();
+
+        return view('AdLec.showAttendance2',[
+            'student' => $student,
+            'users' => $users,
+        ]);
+    }
     public function showAttendanceAL($course_id)  {
         $student = Attendance::where('course_id',$course_id)->get();
         $course = Course::find($course_id);
