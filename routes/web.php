@@ -60,7 +60,11 @@ Route::get('student_enrollmentE/{student_id}','student\StudyController@enrollmen
     //Alumni
 Route::get('alumni','student\AlumniController@show');
 
-
+//แสดงการเข้าเรียน -> Attendance
+// Route::get('/attendanceA/{course_id}','lecturer\AttendanceController@showAttendanceA');
+Route::get('/attendanceE/{student_id}','lecturer\AttendanceController@showAttendanceE');
+//แสดงผลการเรียน -> Grade
+Route::get('/showGradeE/{student_id}','lecturer\GradeController@showGradeE');
 
     //Lecturer
 
@@ -184,7 +188,6 @@ Route::get('student_searchA','student\BioController@searchA');
 Route::get('student_enrollmentA','student\StudyController@enrollmentA');
 Route::get('student_enrollmentA/{student_id}','student\StudyController@enrollmentA1')->name('enrollA');
 
-<<<<<<< HEAD
 //แสดงการเข้าเรียน -> Attendance
 // Route::get('/attendanceA/{course_id}','lecturer\AttendanceController@showAttendanceA');
 Route::get('/attendanceA/{student_id}','lecturer\AttendanceController@showAttendanceA');
@@ -192,11 +195,9 @@ Route::get('/attendanceA/{student_id}','lecturer\AttendanceController@showAttend
 Route::get('/showGradeA/{student_id}','lecturer\GradeController@showGradeA');
 
 
-=======
 Route::get('/advisorSurvey', function () {
     return view('advisor.indexSurvey');
 });
->>>>>>> master
 
     //Advisor+Lecturer
 Route::get('student_searchL','student\BioController@searchAL');

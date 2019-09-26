@@ -119,14 +119,12 @@ class GradeController extends Controller
 
     //EducationOfficer
     //แสดงผล grade
-    public function showGradeE($course_id)  {
-        $student = Grade::where('course_id',$course_id)->get();
-        $course = Course::find($course_id);
+    public function showGradeE($student_id)  {
+        $student = Grade::where('student_id',$student_id)->get();
         $users = User::all();
 
         return view('EducationOfficer.showGrade',[
             'student' => $student,
-            'course' => $course,
             'users' => $users,
         ]);
     }

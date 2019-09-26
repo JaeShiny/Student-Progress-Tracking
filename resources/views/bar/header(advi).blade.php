@@ -54,11 +54,8 @@
         <a class="nav-link active" href="/advisor/showAtt" style="color: #FFFFFF">การเข้าเรียนและผลการเรียน</a>
         {{-- <a class="nav-link active" href="/advisor/showAtt" style="color: #FFFFFF">ผลการเรียน</a> --}}
         <a class="nav-link" href="#" style="color: #FFFFFF">สถิติ</a>
-<<<<<<< HEAD
         <a class="nav-link" href="#" style="color: #FFFFFF">การแจ้งเตือน</a>
-=======
         <a class="nav-link" href="/advisorSurvey" style="color: #FFFFFF">แบบสอบถาม</a>
->>>>>>> master
     </nav>
 
     <style type="text/css">
