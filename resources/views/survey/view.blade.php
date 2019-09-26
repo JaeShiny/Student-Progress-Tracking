@@ -87,21 +87,16 @@
                     <textarea id="textarea1" class="materialize-textarea" name="{{ $question->id }}[answer]"></textarea>
                     <label for="textarea1"><h6>คำตอบ</h6></label>
                   </div>
-                @elseif($question->question_type === 'radio')
-                  @foreach($question->option_name as $key=>$value)
-                    <p style="margin:0px; padding:0px;">
-                      <input name="{{ $question->id }}[answer]" type="radio" id="{{ $key }}" />
-                      <label for="{{ $key }}">{{ $value }}</label>
-                    </p>
+                  @elseif($question->question_type === 'radio')
+                  @foreach($question->choice as $show_choice)
+                  <label>{{$show_choice->choice_name}}</label><input type="checkbox" value="{{$show_choice->id}}">
                   @endforeach
-                @elseif($question->question_type === 'checkbox')
-                  @foreach($question->option_name as $key=>$value)
-                  <p style="margin:0px; padding:0px;">
-                    <input type="checkbox" id="something{{ $key }}" name="{{ $question->id }}[answer]" />
-                    <label for="something{{$key}}">{{ $value }}</label>
                   </p>
+                  @elseif($question->question_type === 'checkbox')
+                  @foreach($question->choice as $show_choice)
+                  <label>{{$show_choice->choice_name}}</label><input type="checkbox" value="{{$show_choice->id}}">
                   @endforeach
-                @endif
+                   @endif
               <div class="divider" style="margin:10px 10px;"></div>
           @empty
             <span class='flow-text center-align'>Nothing to show</span>

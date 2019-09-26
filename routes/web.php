@@ -145,6 +145,12 @@ Route::get('profileafterS/{student_id}','student\SrmController@profileS');
 //กดดูวิชาที่่ลงทะเบียน
 Route::get('study/{student_id}','student\StudyController@enrollmentS');
 
+Route::get('studentSurvey/{survey}','student\surveyController@showall');
+
+Route::get('/studentSurvey', function () {
+    return view('student.indexSurvey');
+});
+
 
 //map อาจารย์กับวิชา
 // Route::get('lecturer/{instructor}','lecturer\InstructorController@index');
@@ -178,6 +184,7 @@ Route::get('student_searchA','student\BioController@searchA');
 Route::get('student_enrollmentA','student\StudyController@enrollmentA');
 Route::get('student_enrollmentA/{student_id}','student\StudyController@enrollmentA1')->name('enrollA');
 
+<<<<<<< HEAD
 //แสดงการเข้าเรียน -> Attendance
 // Route::get('/attendanceA/{course_id}','lecturer\AttendanceController@showAttendanceA');
 Route::get('/attendanceA/{student_id}','lecturer\AttendanceController@showAttendanceA');
@@ -185,6 +192,11 @@ Route::get('/attendanceA/{student_id}','lecturer\AttendanceController@showAttend
 Route::get('/showGradeA/{student_id}','lecturer\GradeController@showGradeA');
 
 
+=======
+Route::get('/advisorSurvey', function () {
+    return view('advisor.indexSurvey');
+});
+>>>>>>> master
 
     //Advisor+Lecturer
 Route::get('student_searchL','student\BioController@searchAL');
@@ -331,12 +343,14 @@ Route::get('question', function () {
 // Route::get('/', 'student\SurveyController@home');
 
 Route::get('/survey/new', 'student\SurveyController@new_survey')->name('new.survey');
+Route::get('/survey','student\SurveyController@index');
 Route::get('/survey/{survey}', 'student\SurveyController@detail_survey')->name('detail.survey');
 Route::get('/survey/view/{survey}', 'student\SurveyController@view_survey')->name('view.survey');
 Route::get('/survey/answers/{survey}', 'student\SurveyController@view_survey_answers')->name('view.survey.answers');
 //พัง
 Route::get('/survey/{survey}/delete', 'student\SurveyController@delete_survey')->name('delete.survey');
 
+Route::get('/survey/lecturer/lecturer','student\SurveyController@lecindex');
 
 Route::get('/survey/{survey}/edit', 'student\SurveyController@edit')->name('edit.survey');
 //พัง

@@ -81,4 +81,18 @@ class SurveyController extends Controller
     $survey->delete();
     return redirect('/indexSurvey');
   }
+
+  public function index() {
+    $survey = Survey::all();
+    return view('survey.index',[
+        'survey' => $survey,
+    ]);
+  }
+
+  public function lecindex() {
+      $survey = Survey::all();
+      return view('survey.lecindex',[
+            'survey' => $survey,
+        ]);
+  }
 }

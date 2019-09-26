@@ -73,7 +73,7 @@
             <br>
 
             <h6>STUDENT PROGRESS TRACKING SYSTEM</h6>
-            <h6>LECTURER</h6>
+            <h6>ADVISOR</h6>
             <button type="submit" class="btn btn-primary" style="float: right"> <a class="nav-link" href="/survey/lecturer/lecturer" style="color: #FFFFFF">ดูแบบสอบถาม</a></button>
            <button type="submit" class="btn btn-primary" style="float: right"> <a class="nav-link" href="/survey/new" style="color: #FFFFFF">สร้างแบบสอบถาม</a></button>
 
@@ -84,4 +84,4 @@
 </html>
 
 @endsection
-@extends('bar.header(lec)')
+@extends('bar.header(advi)')
