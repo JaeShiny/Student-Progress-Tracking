@@ -40,6 +40,9 @@ Route::get('student_profileE/{student_id}','student\BioController@profileE1')->n
 //กดดูหน้าข้อมูลสัมภาษณ์
 Route::get('profilebeforeE/{student_id}','student\InterviewController@profileE');
 
+//กดดูหน้าข้อมูลระหว่างศึกษา
+Route::get('profileDuringE/{student_id}','student\BioController@profileDuringE');
+
 //กดดูหน้าข้อมูลหลังจบ
 Route::get('profileafterE/{student_id}','student\SrmController@profileE');
 

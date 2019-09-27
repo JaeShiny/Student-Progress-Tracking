@@ -140,6 +140,35 @@ class BioController extends Controller
             'majors' => $majors,
         ]);
     }
+    //แสดงข้อมูลระหว่างศึกษา
+    public function profileDuringE($student_id){
+        $user = Auth::user();
+        $bios = Bio::find($student_id);
+        $statuss = Status::all();
+        $students = Student::all();
+        $generations = Generation::all();
+        $majors = Major::all();
+        $problems = Problem::all();
+        $grades = Grade::where('student_id',$student_id)->get();
+
+        $student_id = Auth::user()->student_id;
+        $attendances = Attendance::where('student_id',$bios->student_id)->get();
+
+        return view('EducationOfficer.profile(during)',[
+            'user' => $user,
+            'bios'=>$bios,
+            'statuss' => $statuss,
+            'students' => $students,
+            'generations' => $generations,
+            'majors' => $majors,
+            'problems' => $problems,
+            'student_id' => $student_id,
+            'attendances' => $attendances,
+            'grades' => $grades,
+        ]);
+    }
+
+
 
 
         //Lecturer
