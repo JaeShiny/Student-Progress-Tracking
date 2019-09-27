@@ -319,7 +319,7 @@ class BioController extends Controller
     }
 
 
-     //Advisor+Lecturer
+        //Advisor+Lecturer
     //show หน้ารายชื่อนักศึกษา
     public function indexAL(){
 
@@ -373,7 +373,37 @@ class BioController extends Controller
         ]);
     }
 
-    //LF
+    //แสดงข้อมูลระหว่างศึกษา
+    public function profileDuringAL($student_id){
+        $user = Auth::user();
+        $bios = Bio::find($student_id);
+        // $bios = Bio::where('student_id', $student_id)->get();
+        $statuss = Status::all();
+        $students = Student::all();
+        $generations = Generation::all();
+        $majors = Major::all();
+        $problems = Problem::all();
+        $grades = Grade::where('student_id',$student_id)->get();
+
+        $student_id = Auth::user()->student_id;
+        $attendances = Attendance::where('student_id',$bios->student_id)->get();
+
+        return view('AdLec.profile(during)',[
+            'user' => $user,
+            'bios'=>$bios,
+            'statuss' => $statuss,
+            'students' => $students,
+            'generations' => $generations,
+            'majors' => $majors,
+            'problems' => $problems,
+            'student_id' => $student_id,
+            'attendances' => $attendances,
+            'grades' => $grades,
+        ]);
+    }
+
+
+        //LF
     //show หน้ารายชื่อนักศึกษา
     public function indexLF(){
 
