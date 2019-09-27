@@ -66,6 +66,7 @@ Route::get('/attendanceE/{student_id}','lecturer\AttendanceController@showAttend
 //แสดงผลการเรียน -> Grade
 Route::get('/showGradeE/{student_id}','lecturer\GradeController@showGradeE');
 
+
     //Lecturer
 
 //แมบวิชากับเด็ก
@@ -79,6 +80,9 @@ Route::get('student_profileL/{student_id}','student\BioController@profileL1')->n
 
 //กดดูหน้าข้อมูลสัมภาษณ์
 Route::get('profilebeforeL/{student_id}','student\InterviewController@profileL');
+
+//กดดูหน้าข้อมูลระหว่างศึกษา
+Route::get('profileDuringL/{student_id}','student\BioController@profileDuringL');
 
 //กดดูหน้าข้อมูลหลังจบ
 Route::get('profileafterL/{student_id}','student\SrmController@profileL');
@@ -289,6 +293,9 @@ Route::get('student_profileLF/{student_id}','student\BioController@profileLF1')-
 
 //กดดูหน้าข้อมูลสัมภาษณ์
 Route::get('profilebeforeLF/{student_id}','student\InterviewController@profileLF');
+
+//กดดูหน้าข้อมูลระหว่างศึกษา
+Route::get('profileDuringLF/{student_id}','student\BioController@profileDuringLF');
 
 //กดดูหน้าข้อมูลหลังจบ
 Route::get('profileafterLF/{student_id}','student\SrmController@profileLF');
