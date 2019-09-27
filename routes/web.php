@@ -177,6 +177,9 @@ Route::get('student_profileA/{student_id}','student\BioController@profileA1')->n
 //กดดูหน้าข้อมูลสัมภาษณ์
 Route::get('profilebeforeA/{student_id}','student\InterviewController@profileA');
 
+//กดดูหน้าข้อมูลระหว่างศึกษา
+Route::get('profileDuringA/{student_id}','student\BioController@profileDuringA');
+
 //กดดูหน้าข้อมูลหลังจบ
 Route::get('profileafterA/{student_id}','student\SrmController@profileA');
 

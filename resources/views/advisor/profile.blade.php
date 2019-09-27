@@ -32,7 +32,7 @@
             <a href="/profilebeforeA/{{$bios->student_id}}">
                 <button type="button" class="btn btn-outline-success">ข้อมูลการศึกษา</button>
             </a>
-            {{-- <a href="{{ url('profileindex') }}"> --}}
+            <a href="/profileDuringA/{{$bios->student_id}}">
                 <button type="button" class="btn btn-outline-secondary">ข้อมูลระหว่างการศึกษา</button>
             </a>
             <a href="/profileafterA/{{$bios->student_id}}">
