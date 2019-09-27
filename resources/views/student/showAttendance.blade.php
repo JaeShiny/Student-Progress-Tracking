@@ -33,28 +33,25 @@
         <h6 align='right'>ชื่อ-สกุล: {{$bio->first_name}} &nbsp;{{$bio->last_name}}&nbsp;&nbsp;&nbsp;</h6>
         @endforeach
 
-        <h5 align='center'>การเข้าเรียน</h5>
-
-<div class="row">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-    <div class="container">
         {{-- <div class="card bg-light mt" style="position: relative;display: table;">
             <div class="card-header">
                 <h5>การเข้าเรียน</h5>
             </div> --}}
-    <br><br><br>
+    <br><br><br><br>
 
-    <center>
+<center>
+    <div class="container-fluid">
+
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th style="width: 13%"><center>รหัสวิชา</center></th>
+                    <th style="width: 9%"><center>รหัสวิชา</center></th>
                     <th>รหัสนักศึกษา</th>
-                    <th style="width: 35%"><center>ชื่อ-สกุล</center></th>
+                    <th style="width: 20%"><center>ชื่อ-สกุล</center></th>
                     <th>จำนวนคาบเรียน</th>
                     <th>จำนวนการเข้าเรียน</th>
                     <th>จำนวนการขาดเรียน</th>
-                    <th><center>รายละเอียด</center></th>
+                    <th style="width: 13%"><center>รายละเอียด</center></th>
                 </tr>
             </thead>
             @foreach($attendance as $student)
@@ -68,9 +65,9 @@
                   <td><center>{{$student->amount_absence}}</center></td>
                   <td>
                       <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal{{$student->student_id}}">
+                      <center><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal{{$student->student_id}}">
                         รายละเอียด
-                    </button>
+                    </button></center>
                   </td>
                 </tr>
             </tbody>
@@ -215,11 +212,12 @@
                 </div>
             @endforeach
         </table>
-    </center>
+
     </div>
 </div>
 </div>
-</div><br>
+</center>
+<br>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
