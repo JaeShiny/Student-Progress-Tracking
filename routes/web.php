@@ -146,6 +146,9 @@ Route::get('profilebeforeS/{student_id}','student\InterviewController@profileS')
 //กดดูหน้าข้อมูลหลังจบ
 Route::get('profileafterS/{student_id}','student\SrmController@profileS');
 
+//กดดูหน้าข้อมูลระหว่างศึกษา
+Route::get('profileDuringS/{student_id}','student\BioController@profileDuringS');
+
 //กดดูวิชาที่่ลงทะเบียน
 Route::get('study/{student_id}','student\StudyController@enrollmentS');
 

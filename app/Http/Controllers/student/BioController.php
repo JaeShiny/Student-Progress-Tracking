@@ -10,8 +10,12 @@ use App\Model\mis\Course;
 use App\Model\mis\Status;
 use App\Model\mis\Generation;
 use App\Model\mis\Major;
+use App\Model\spts\Attendance;
+use App\Model\spts\Grade;
+use App\Model\spts\Problem;
+use App\Model\spts\Questionnaire;
 use App\Model\interview\B_profile;
-
+use Auth;
 
 class BioController extends Controller
 {
@@ -33,6 +37,35 @@ class BioController extends Controller
             'majors' => $majors,
         ]);
 
+    }
+
+    public function profileDuringS($student_id){
+
+        $user =Auth::user();
+        $bios = Bio::where('first_name',$user->name)->where('last_name',$user->lastname)->first();
+        $statuss = Status::all();
+        $students = Student::all();
+        $generations = Generation::all();
+        $majors = Major::all();
+        $problems = Problem::all();
+        // $attendances = Attendance::all();
+        $grades = Grade::where('student_id',$student_id)->get();
+
+        $student_id = Auth::user()->student_id;
+        $attendances = Attendance::where('student_id',$student_id)->get();
+
+        return view('student.profile(during)',[
+            'user' => $user,
+            'bios'=>$bios,
+            'statuss' => $statuss,
+            'students' => $students,
+            'generations' => $generations,
+            'majors' => $majors,
+            'problems' => $problems,
+            'student_id' => $student_id,
+            'attendances' => $attendances,
+            'grades' => $grades,
+        ]);
     }
 
         //Education Officer

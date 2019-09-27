@@ -40,22 +40,17 @@
     <h6 align='right'>ชื่อ-สกุล: {{$students->users['name']}} &nbsp;{{$students->users['lastname']}}&nbsp;&nbsp;&nbsp;</h6>
 @endforeach
 
-<h5 align='center'>ผลการเรียน</h5>
+{{-- <h5 align='center'>ผลการเรียน</h5> --}}
 
-
-<div class="row">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-<div class="container">
-
-    <br><br><br>
+    <br><br><br><br>
 
     <center>
         <table class="table table-hover">
             <thead>
                 <tr>
-                  <th style="width: 13%"><center>รหัสวิชา</center></th>
+                  <th style="width: 9%"><center>รหัสวิชา</center></th>
                   <th>รหัสนักศึกษา</th>
-                  <th style="width: 35%"><center>ชื่อ-สกุล</center></th>
+                  <th style="width: 20%"><center>ชื่อ-สกุล</center></th>
                   {{-- <th>คะแนนเก็บมิดเทอม(เต็ม)</th>
                   <th>คะแนนเก็บมิดเทอม(ที่ได้)</th>
                   <th>คะแนนสอบมิดเทอม(เต็ม)</th>
@@ -68,8 +63,8 @@
                   <th>คะแนนสอบไฟนอล(ที่ได้)</th>
                   <th>mean final</th> --}}
                   <th>คะแนนไฟนอลที่ได้</th>
-                  <th style="width: 15%">คะแนนรวมทั้งหมด</th>
-                  <th>รายละเอียดเพิ่มเติม</th>
+                  <th>คะแนนรวมทั้งหมด</th>
+                  <th style="width: 5%">รายละเอียดเพิ่มเติม</th>
                 </tr>
             </thead>
 
@@ -169,8 +164,7 @@
             @endforeach
         </table>
     </center>
-    </div>
-</div>
+
 </div>
 </div><br>
     <!-- Optional JavaScript -->
