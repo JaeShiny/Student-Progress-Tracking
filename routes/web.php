@@ -60,6 +60,12 @@ Route::get('studentproblemE/{student_id}', 'lecturer\ProblemController@showProbl
 Route::get('student_enrollmentE','student\StudyController@enrollmentE');
 Route::get('student_enrollmentE/{student_id}','student\StudyController@enrollmentE1')->name('enrollE');
 
+//แสดงการเข้าเรียน -> Attendance
+Route::get('/attendanceE/{course_id}','lecturer\AttendanceController@showAttendanceE');
+
+//แสดงผลการเรียน -> Grade
+Route::get('/showGradeE/{course_id}','lecturer\GradeController@showGradeE');
+
     //Alumni
 Route::get('alumni','student\AlumniController@show');
 
