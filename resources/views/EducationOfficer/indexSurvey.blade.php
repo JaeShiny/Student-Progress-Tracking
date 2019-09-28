@@ -57,6 +57,9 @@
             padding: 20px;
             text-align: center;
         }
+        .buttontwo{
+            float: right;
+        }
     </style>
 </head>
 
@@ -74,9 +77,10 @@
 
             <h6>STUDENT PROGRESS TRACKING SYSTEM</h6>
             <h6>EDUCATION OFFICER</h6>
-            <button type="submit" class="btn btn-primary" style="float: right"> <a class="nav-link" href="/survey/educationOfficer/educationOfficer" style="color: #FFFFFF">ดูแบบสอบถาม</a></button>
-           <button type="submit" class="btn btn-primary" style="float: right"> <a class="nav-link" href="/survey/edunew" style="color: #FFFFFF">สร้างแบบสอบถาม</a></button>
-
+            <div class="buttontwo">
+            <button type="submit" class="btn btn-primary"> <a class="nav-link" href="/survey/educationOfficer/educationOfficer" style="color: #FFFFFF">ดูแบบสอบถาม</a></button>
+           <button type="submit" class="btn btn-primary"> <a class="nav-link" href="/survey/edunew" style="color: #FFFFFF">สร้างแบบสอบถาม</a></button>
+            </div>
         </div>
 
     </body>
