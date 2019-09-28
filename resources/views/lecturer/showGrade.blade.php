@@ -132,43 +132,43 @@
                         </div>
                         <div class="modal-body">
                             <div>
-                                คะแนนเก็บมิดเทอม(เต็ม):&nbsp;{{$show_student->full_score_midterm}}
+                                <b>คะแนนเก็บมิดเทอม(เต็ม):</b>&nbsp;{{$show_student->full_score_midterm}}
                             </div>
                             <div>
-                                คะแนนเก็บมิดเทอม(ที่ได้):&nbsp;{{$show_student->score_midterm}}
+                                <b>คะแนนเก็บมิดเทอม(ที่ได้):</b>&nbsp;{{$show_student->score_midterm}}
                             </div>
                             <div>
-                                คะแนนสอบมิดเทอม(เต็ม):&nbsp;{{$show_student->full_test_midterm}}
+                                <b>คะแนนสอบมิดเทอม(เต็ม):</b>&nbsp;{{$show_student->full_test_midterm}}
                             </div>
                             <div>
-                                คะแนนสอบมิดเทอม(ที่ได้):&nbsp;{{$show_student->test_midterm}}
+                                <b>คะแนนสอบมิดเทอม(ที่ได้):</b>&nbsp;{{$show_student->test_midterm}}
                             </div>
                             <div>
-                                mean midterm:&nbsp;{{$show_student->mean_test_midterm}}
+                                <b>mean midterm:</b>&nbsp;{{$show_student->mean_test_midterm}}
                             </div>
                             <div>
-                                total miderm score:&nbsp;{{$show_student->total_midterm}}
+                                <b>total miderm score:</b>&nbsp;{{$show_student->total_midterm}}
                             </div>
                             <div>
-                                คะแนนเก็บไฟนอล(เต็ม):&nbsp;{{$show_student->full_score_final}}
+                                <b>คะแนนเก็บไฟนอล(เต็ม):</b>&nbsp;{{$show_student->full_score_final}}
                             </div>
                             <div>
-                                คะแนนเก็บไฟนอล(ที่ได้):&nbsp;{{$show_student->score_final}}
+                                <b>คะแนนเก็บไฟนอล(ที่ได้):</b>&nbsp;{{$show_student->score_final}}
                             </div>
                             <div>
-                                คะแนนสอบไฟนอล(เต็ม):&nbsp;{{$show_student->full_test_final}}
+                                <b>คะแนนสอบไฟนอล(เต็ม):</b>&nbsp;{{$show_student->full_test_final}}
                             </div>
                             <div>
-                                คะแนนสอบไฟนอล(ที่ได้)):&nbsp;{{$show_student->test_final}}
+                                <b>คะแนนสอบไฟนอล(ที่ได้)):</b>&nbsp;{{$show_student->test_final}}
                             </div>
                             <div>
-                                mean final:&nbsp;{{$show_student->mean_test_final}}
+                                <b>mean final:</b>&nbsp;{{$show_student->mean_test_final}}
                             </div>
                             <div>
-                                total final score:&nbsp;{{$show_student->total_final}}
+                                <b>total final score:</b>&nbsp;{{$show_student->total_final}}
                             </div>
                             <div>
-                                คะแนนรวมทั้งหมด:&nbsp;{{$show_student->total_all}}
+                                <b>คะแนนรวมทั้งหมด:</b>&nbsp;{{$show_student->total_all}}
                             </div>
                         </div>
                         <div class="modal-footer">

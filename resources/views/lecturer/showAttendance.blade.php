@@ -105,7 +105,7 @@
                         </div>
                         <div class="modal-body">
                             <div>
-                                คาบ1:
+                                <b>คาบ1:</b>
                                 @if($show_student->period_1 == 1)
                                     attend
                                 @else
@@ -113,7 +113,7 @@
                                 @endif
                             </div>
                             <div>
-                                คาบ2:
+                                <b>คาบ2:</b>
                                 @if($show_student->period_2 == 1)
                                     attend
                                 @else
@@ -121,7 +121,7 @@
                                 @endif
                             </div>
                             <div>
-                                คาบ 3:
+                                <b>คาบ 3:</b>
                                 @if($show_student->period_3 == 1)
                                     attend
                                 @else
@@ -129,7 +129,7 @@
                                 @endif
                             </div>
                             <div>
-                                คาบ 4:
+                                <b>คาบ 4:</b>
                                 @if($show_student->period_4 == 1)
                                     attend
                                 @else
@@ -137,7 +137,7 @@
                                 @endif
                             </div>
                             <div>
-                                คาบ 5:
+                                <b>คาบ 5:</b>
                                 @if($show_student->period_5 == 1)
                                     attend
                                 @else
@@ -145,7 +145,7 @@
                                 @endif
                             </div>
                             <div>
-                                คาบ 6:
+                                <b>คาบ 6:</b>
                                 @if($show_student->period_6 == 1)
                                     attend
                                 @else
@@ -153,7 +153,7 @@
                                 @endif
                             </div>
                             <div>
-                                คาบ 7:
+                                <b>คาบ 7:</b>
                                 @if($show_student->period_7 == 1)
                                     attend
                                 @else
@@ -161,7 +161,7 @@
                                 @endif
                             </div>
                             <div>
-                                คาบ 8:
+                                <b>คาบ 8:</b>
                                 @if($show_student->period_8 == 1)
                                     attend
                                 @else
@@ -169,7 +169,7 @@
                                 @endif
                             </div>
                             <div>
-                                คาบ 9:
+                                <b>คาบ 9:</b>
                                 @if($show_student->period_9 == 1)
                                     attend
                                 @else
@@ -177,7 +177,7 @@
                                 @endif
                             </div>
                             <div>
-                                คาบ 10:
+                                <b>คาบ 10:</b>
                                 @if($show_student->period_10 == 1)
                                     attend
                                 @else
@@ -185,7 +185,7 @@
                                 @endif
                             </div>
                             <div>
-                                คาบ 11:
+                                <b>คาบ 11:</b>
                                 @if($show_student->period_11 == 1)
                                     attend
                                 @else
@@ -193,7 +193,7 @@
                                 @endif
                             </div>
                             <div>
-                                คาบ 12:
+                                <b>คาบ 12:</b>
                                 @if($show_student->period_12 == 1)
                                     attend
                                 @else
@@ -201,7 +201,7 @@
                                 @endif
                             </div>
                             <div>
-                                คาบ 13:
+                                <b>คาบ 13:</b>
                                 @if($show_student->period_13 == 1)
                                     attend
                                 @else
@@ -209,7 +209,7 @@
                                 @endif
                             </div>
                             <div>
-                                คาบ 14:
+                                <b>คาบ 14:</b>
                                 @if($show_student->period_14 == 1)
                                     attend
                                 @else
@@ -217,7 +217,7 @@
                                 @endif
                             </div>
                             <div>
-                                คาบ 15:
+                                <b>คาบ 15:</b>
                                 @if($show_student->period_15 == 1)
                                     attend
                                 @else
