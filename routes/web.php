@@ -63,18 +63,9 @@ Route::get('student_enrollmentE/{student_id}','student\StudyController@enrollmen
     //Alumni
 Route::get('alumni','student\AlumniController@show');
 
-<<<<<<< HEAD
-//แสดงการเข้าเรียน -> Attendance
-// Route::get('/attendanceA/{course_id}','lecturer\AttendanceController@showAttendanceA');
-Route::get('/attendanceE/{student_id}','lecturer\AttendanceController@showAttendanceE');
-//แสดงผลการเรียน -> Grade
-Route::get('/showGradeE/{student_id}','lecturer\GradeController@showGradeE');
-
-=======
 Route::get('/EducationOfficerSurvey', function () {
     return view('EducationOfficer.indexSurvey');
 });
->>>>>>> master
 
     //Lecturer
 
