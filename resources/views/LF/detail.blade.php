@@ -104,9 +104,8 @@
     <div class="col-sm" style="background-color:#669999; margin-top: px; padding: 5px;">
         <span class="card-title"> <h4> &nbsp; &nbsp;&nbsp;{{ $survey->title }} ({{ $survey->description }})</h4></span></div>
 
-    {{-- &nbsp; &nbsp; &nbsp; &nbsp; <a href='view/{{$survey->id}}'>ทำแบบสำรวจ</a> | <a href="{{$survey->id}}/edit">แก้ไขหัวข้อแบบสำรวจ</a> | <a href="/survey/answers/{{$survey->id}}">ดูผลการตอบแบบสำรวจ</a> <a href="/survey/{{$survey->id}}/delete" style="float:right; text-decoration: none" class="modal-trigger red-text">ลบแบบสำรวจ &nbsp; &nbsp;</a> --}}
-    &nbsp; &nbsp; &nbsp; &nbsp;  <a href="{{$survey->id}}/edit">แก้ไขหัวข้อแบบสำรวจ</a> | <a href="/survey/answers/{{$survey->id}}">ดูผลการตอบแบบสำรวจ</a> <a href="/survey/{{$survey->id}}/delete" style="float:right; text-decoration: none" class="modal-trigger red-text">ลบแบบสำรวจ &nbsp; &nbsp;</a>
-
+    {{-- &nbsp; &nbsp; &nbsp; &nbsp; <a href='view/{{$survey->id}}'>ทำแบบสำรวจ</a> | <a href="/edusurvey/{{$survey->id}}/edit">แก้ไขหัวข้อแบบสำรวจ</a> | <a href="/edusurvey/answers/{{$survey->id}}">ดูผลการตอบแบบสำรวจ</a> <a href="/survey/{{$survey->id}}/delete" style="float:right; text-decoration: none" class="modal-trigger red-text">ลบแบบสำรวจ &nbsp; &nbsp;</a> --}}
+    &nbsp; &nbsp; &nbsp; &nbsp;<a href="/lfsurvey/{{$survey->id}}/edit">แก้ไขหัวข้อแบบสำรวจ</a> | <a href="/lfsurvey/answers/{{$survey->id}}">ดูผลการตอบแบบสำรวจ</a> <a href="/lfsurvey/{{$survey->id}}/delete" style="float:right; text-decoration: none" class="modal-trigger red-text">ลบแบบสำรวจ &nbsp; &nbsp;</a>
     <!-- Modal Structure -->
     <!-- TODO Fix the Delete aspect -->
     <div id="doDelete" class="modal bottom-sheet">
@@ -116,7 +115,7 @@
                     <h4>Are you sure?</h4>
                     <p>Do you wish to delete this survey called "{{ $survey->title }}"?</p>
                     <div class="modal-footer">
-                        <a href="/survey/{{ $survey->id }}/delete" class=" modal-action waves-effect waves-light btn-flat red-text">Yep yep!</a>
+                        <a href="/lfsurvey/{{ $survey->id }}/delete" class=" modal-action waves-effect waves-light btn-flat red-text">Yep yep!</a>
                         <a class=" modal-action modal-close waves-effect waves-light green white-text btn">No, stop!</a>
                     </div>
                 </div>
@@ -143,13 +142,13 @@
                                             {!! Form::open() !!}
                                             @if($question->question_type === 'text')
                                             {{ Form::text('title')}}
-                                            <a href="/question/{{ $question->id }}/edit">แก้ไขคำถาม</a>
+                                            <a href="/lfquestion/{{ $question->id }}/edit">แก้ไขคำถาม</a>
 
                                             @elseif($question->question_type === 'textarea')
                                             <div class="row">
                                                 <div class="input-field col s12">
                                                     <textarea id="textarea1" class="materialize-textarea"></textarea>
-                                                    <a href="/question/{{ $question->id }}/edit">แก้ไขคำถาม</a>
+                                                    <a href="/lfquestion/{{ $question->id }}/edit">แก้ไขคำถาม</a>
                                                     {{-- <label for="textarea1">Provide answer</label> --}}
                                                 </div>
                                             </div>
@@ -186,7 +185,7 @@
                                     </div>
                                     <div class="card-body">
                                         <blockquote class="blockquote mb-0">
-                                            <form method="POST" action="/survey/{{ $survey->id }}/questions" id="boolean">
+                                            <form method="POST" action="/edusurvey/{{ $survey->id }}/questions" id="boolean">
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                                 <div class="row">
                                                     <div class="input-field col s12">
@@ -231,9 +230,7 @@
         </div>
 
 @stop
-
-@extends('bar.header(lec)')
-
+@extends('bar.header(LF)')
 
 {{-- <script>
 function test(){

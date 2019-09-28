@@ -55,6 +55,7 @@
         <a class="nav-link" href="#" style="color: #FFFFFF">สถิติ</a>
         <a class="nav-link active" href="{{ url('courseAL') }}" style="color: #FFFFFF">วิชาที่สอน</a>
         <a class="nav-link" href="{{ url('FormAttendanceAL') }}" style="color: #FFFFFF">ดาวน์โหลดแบบฟอร์ม</a>
+        <a class="nav-link" href="/adlecSurvey" style="color: #FFFFFF">แบบสอบถาม</a>
     </nav>
 
     <style type="text/css">

@@ -27,4 +27,8 @@ class Survey extends Model
         return $this->hasMany('App\Answer','survey_id','id');
     }
 
+
+
+
+
 }

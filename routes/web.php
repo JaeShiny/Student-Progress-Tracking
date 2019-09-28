@@ -60,7 +60,9 @@ Route::get('student_enrollmentE/{student_id}','student\StudyController@enrollmen
     //Alumni
 Route::get('alumni','student\AlumniController@show');
 
-
+Route::get('/EducationOfficerSurvey', function () {
+    return view('EducationOfficer.indexSurvey');
+});
 
     //Lecturer
 
@@ -243,6 +245,10 @@ Route::get('/attendanceAL/{course_id}','lecturer\AttendanceController@showAttend
 //แสดงผลการเรียน -> Grade
 Route::get('/showGradeAL/{course_id}','lecturer\GradeController@showGradeAL');
 
+Route::get('/adlecSurvey', function () {
+    return view('Adlec.indexSurvey');
+});
+
 
 
     //LF
@@ -303,7 +309,9 @@ Route::get('/attendanceLF/{course_id}','lecturer\AttendanceController@showAttend
 //แสดงผลการเรียน -> Grade
 Route::get('/showGradeLF/{course_id}','lecturer\GradeController@showGradeLF');
 
-
+Route::get('/LFSurvey', function () {
+    return view('LF.indexSurvey');
+});
 
 
 //ลบด้วยนะถ้าเขียนโค้ดเสร็จ
@@ -333,30 +341,96 @@ Route::get('question', function () {
 // Route::get('/', 'student\SurveyController@home');
 
 Route::get('/survey/new', 'student\SurveyController@new_survey')->name('new.survey');
-Route::get('/survey','student\SurveyController@index');
-Route::get('/survey/{survey}', 'student\SurveyController@detail_survey')->name('detail.survey');
-Route::get('/survey/view/{survey}', 'student\SurveyController@view_survey')->name('view.survey');
-Route::get('/survey/answers/{survey}', 'student\SurveyController@view_survey_answers')->name('view.survey.answers');
-//พัง
-Route::get('/survey/{survey}/delete', 'student\SurveyController@delete_survey')->name('delete.survey');
+Route::get('/survey/advisornew', 'student\SurveyController@new_surveyAd')->name('new.surveyAd');
+Route::get('/survey/adlecnew', 'student\SurveyController@new_surveyAdlec')->name('new.surveyAdlec');
+Route::get('/survey/edunew', 'student\SurveyController@new_surveyEdu')->name('new.surveyEdu');
+Route::get('/survey/lfnew', 'student\SurveyController@new_surveyLF')->name('new.surveyLF');
 
+
+
+Route::get('/survey/{survey}', 'student\SurveyController@detail_survey')->name('detail.survey');
+Route::get('/advisorsurvey/{survey}', 'student\SurveyController@detail_surveyAd')->name('detail.surveyAd');
+Route::get('/adlecsurvey/{survey}', 'student\SurveyController@detail_surveyAdlec')->name('detail.surveyAdlec');
+Route::get('/edusurvey/{survey}', 'student\SurveyController@detail_surveyEdu')->name('detail.surveyEdu');
+Route::get('/lfsurvey/{survey}', 'student\SurveyController@detail_surveyLF')->name('detail.surveyLF');
+
+
+
+Route::get('/survey/view/{survey}', 'student\SurveyController@view_survey')->name('view.survey');
+Route::get('/advisorsurvey/view/{survey}', 'student\SurveyController@view_surveyAd')->name('view.surveyAd');
+Route::get('/adlecsurvey/view/{survey}', 'student\SurveyController@view_surveyAdlec')->name('view.surveyAdlec');
+Route::get('/edusurvey/view/{survey}', 'student\SurveyController@view_surveyEdu')->name('view.surveyEdu');
+Route::get('/lfsurvey/view/{survey}', 'student\SurveyController@view_surveyLF')->name('view.surveyLF');
+Route::get('/studentsurvey/view/{survey}', 'student\SurveyController@view_surveyStudent')->name('view.surveyStu');
+
+
+Route::get('/survey/answers/{survey}', 'student\SurveyController@view_survey_answers')->name('view.survey.answers');
+Route::get('/advisorsurvey/answers/{survey}', 'student\SurveyController@view_survey_answersAd')->name('view.survey.answersAd');
+Route::get('/adlecsurvey/answers/{survey}', 'student\SurveyController@view_survey_answersAdLec')->name('view.survey.answersAdLec');
+Route::get('/edusurvey/answers/{survey}', 'student\SurveyController@view_survey_answersEdu')->name('view.survey.answersEdu');
+Route::get('/lfsurvey/answers/{survey}', 'student\SurveyController@view_survey_answersLF')->name('view.survey.answersLF');
+Route::get('/studentsurvey/answers/{survey}', 'student\SurveyController@view_survey_answersStudent')->name('view.survey.answersStu');
+
+Route::get('/survey','student\SurveyController@index');
 Route::get('/survey/lecturer/lecturer','student\SurveyController@lecindex');
+Route::get('/survey/advisor/advisor','student\SurveyController@advisorindex');
+Route::get('/survey/adlec/adlec','student\SurveyController@adLecindex');
+Route::get('/survey/educationOfficer/educationOfficer','student\SurveyController@eduindex');
+Route::get('/survey/LF/LF','student\SurveyController@lfindex');
+
+Route::get('/survey/{survey}/delete', 'student\SurveyController@delete_survey')->name('delete.survey');
+Route::get('/advisorsurvey/{survey}/delete', 'student\SurveyController@delete_surveyAd')->name('delete.surveyAd');
+Route::get('/adlecsurvey/{survey}/delete', 'student\SurveyController@delete_surveyAdlec')->name('delete.surveyAdlec');
+Route::get('/edusurvey/{survey}/delete', 'student\SurveyController@delete_surveyEdu')->name('delete.surveyEdu');
+Route::get('/lfsurvey/{survey}/delete', 'student\SurveyController@delete_surveyLF')->name('delete.surveyLF');
 
 Route::get('/survey/{survey}/edit', 'student\SurveyController@edit')->name('edit.survey');
-//พัง
+Route::get('/advisorsurvey/{survey}/edit', 'student\SurveyController@editAd')->name('edit.surveyAd');
+Route::get('/edusurvey/{survey}/edit', 'student\SurveyController@editEdu')->name('edit.surveyEdu');
+Route::get('/adlecsurvey/{survey}/edit', 'student\SurveyController@editAdlec')->name('edit.surveyAdlec');
+Route::get('/lfsurvey/{survey}/edit', 'student\SurveyController@editLF')->name('edit.surveyLF');
+
+
 Route::patch('/survey/{survey}/update', 'student\SurveyController@update')->name('update.survey');
+Route::patch('/edusurvey/{survey}/update', 'student\SurveyController@updateEdu')->name('update.surveyEdu');
+Route::patch('/advisorsurvey/{survey}/update', 'student\SurveyController@updateAd')->name('update.surveyAd');
+Route::patch('/adlecsurvey/{survey}/update', 'student\SurveyController@updateAdlec')->name('update.surveyAdlec');
+Route::patch('/lfsurvey/{survey}/update', 'student\SurveyController@updateLF')->name('update.surveyLF');
 
 //พัง
 Route::post('/survey/view/{survey}/completed', 'student\AnswerController@store')->name('complete.survey');
+Route::post('/lfsurvey/view/{survey}/completed', 'student\AnswerController@storeLF')->name('complete.surveyLF');
+Route::post('/advisorsurvey/view/{survey}/completed', 'student\AnswerController@storeAd')->name('complete.surveyAd');
+Route::post('/adlecsurvey/view/{survey}/completed', 'student\AnswerController@storeAdlec')->name('complete.surveyAdlec');
+Route::post('/edusurvey/view/{survey}/completed', 'student\AnswerController@storeEdu')->name('complete.surveyEdu');
+Route::post('/studentsurvey/view/{survey}/completed', 'student\AnswerController@storeStudent')->name('complete.surveyStu');
+
 Route::post('/survey/create', 'student\SurveyController@create')->name('create.survey');
+Route::post('/advisorsurvey/create', 'student\SurveyController@createAd')->name('create.surveyAd');
+Route::post('/adlecsurvey/create', 'student\SurveyController@createAdlec')->name('create.surveyAdlec');
+Route::post('/edusurvey/create', 'student\SurveyController@createEdu')->name('create.surveyEdu');
+Route::post('/lfsurvey/create', 'student\SurveyController@createLF')->name('create.surveyLF');
 
 
 // Questions related
 Route::post('/survey/{survey}/questions', 'student\QuestionController@store')->name('store.question');
-
+Route::post('/advisorsurvey/{survey}/questions', 'student\QuestionController@storeAd')->name('store.questionAd');
+Route::post('/adlecsurvey/{survey}/questions', 'student\QuestionController@storeAdlec')->name('store.questionAdlec');
+Route::post('/edusurvey/{survey}/questions', 'student\QuestionController@storeEdu')->name('store.questionEdu');
+Route::post('/lfsurvey/{survey}/questions', 'student\QuestionController@storeLF')->name('store.questionLF');
 
 Route::get('/question/{question}/edit', 'student\QuestionController@edit')->name('edit.question');
+Route::get('/advisorquestion/{question}/edit', 'student\QuestionController@editAd')->name('edit.questionAd');
+Route::get('/adlecquestion/{question}/edit', 'student\QuestionController@editAdlec')->name('edit.questionAdlec');
+Route::get('/eduquestion/{question}/edit', 'student\QuestionController@editEdu')->name('edit.questionEdu');
+Route::get('/lfquestion/{question}/edit', 'student\QuestionController@editLF')->name('edit.questionLF');
+
+
 Route::patch('/question/{question}/update', 'student\QuestionController@update')->name('update.question');
+Route::patch('/advisorquestion/{question}/update', 'student\QuestionController@updateAd')->name('update.questionAd');
+Route::patch('/adlecquestion/{question}/update', 'student\QuestionController@updateAdlec')->name('update.questionAdlec');
+Route::patch('/eduquestion/{question}/update', 'student\QuestionController@updateEdu')->name('update.questionEdu');
+Route::patch('/lfquestion/{question}/update', 'student\QuestionController@updateLF')->name('update.questionLF');
 Route::auth();
 
 

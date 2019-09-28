@@ -56,6 +56,7 @@
         <a class="nav-link active" href="{{ action('EducationOfficer\CurriculumController@show') }}" style="color: #FFFFFF">หลักสูตร</a>
         <a class="nav-link" href="#" style="color: #FFFFFF">การแจ้งเตือน</a>
         <a class="nav-link" href="#" style="color: #FFFFFF">สถิติ</a>
+        <a class="nav-link" href="/EducationOfficerSurvey" style="color: #FFFFFF">แบบสอบถาม</a>
     </nav>
 
     {{-- <nav class="bg2" style="background-color: #1D5287;">

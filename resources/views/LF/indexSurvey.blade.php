@@ -73,9 +73,9 @@
             <br>
 
             <h6>STUDENT PROGRESS TRACKING SYSTEM</h6>
-            <h6>ADVISOR</h6>
-            <button type="submit" class="btn btn-primary" style="float: right"> <a class="nav-link" href="/survey/advisor/advisor" style="color: #FFFFFF">ดูแบบสอบถาม</a></button>
-           <button type="submit" class="btn btn-primary" style="float: right"> <a class="nav-link" href="/survey/advisornew" style="color: #FFFFFF">สร้างแบบสอบถาม</a></button>
+            <h6>LF</h6>
+            <button type="submit" class="btn btn-primary" style="float: right"> <a class="nav-link" href="/survey/LF/LF" style="color: #FFFFFF">ดูแบบสอบถาม</a></button>
+           <button type="submit" class="btn btn-primary" style="float: right"> <a class="nav-link" href="/survey/lfnew" style="color: #FFFFFF">สร้างแบบสอบถาม</a></button>
 
         </div>
 
@@ -84,4 +84,4 @@
 </html>
 
 @endsection
-@extends('bar.header(advi)')
+@extends('bar.header(LF)')

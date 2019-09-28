@@ -1,7 +1,8 @@
-
 @extends('bar.body')
 
 @section('content')
+
+<br><br>
 
 <div class="container">
         <div class="row">
@@ -10,6 +11,7 @@
           </div>
           <div class="col-sm-5">
                 <div class="card bg-light mb-3" style="max-width: 24rem;">
+
                         <center> <div class="card-header"><h4>ชุดแบบสอบถาม</h4></div></center>
 
                        </div>
@@ -20,7 +22,7 @@
         </div>
       </div>
 
-      <a href="/survey/new" style="float:right; text-decoration: none" class="modal-trigger red-text">สร้างแบบสำรวจ &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;</a>
+      <a href="/survey/advisornew" style="float:right; text-decoration: none" class="modal-trigger red-text">สร้างแบบสำรวจ &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;</a>
 
 
 <br>
@@ -39,8 +41,8 @@
                           <div class="card-body">
                                 @foreach($survey as $show)
                                 <div class="alert alert-primary" role="alert">
-                                        <a href="/survey/answers/{{$show->id}}">{{$show->title}}</a> (วิชาINT 204)  <a href="/survey/answers/{{$show->id}}" class="alert-link" style="float: right">ดูผลการตอบแบบสอบถาม</a> <br ><a href="/survey/{{$show->id}}" class="alert-link" style="float: right;color: red">แก้ไขแบบสอบถาม</a>
-                                       <footer class="blockquote-footer">{{Auth::user()->name}} &nbsp; {{Auth::user()->lastname}}</footer>
+                                        <a href="/advisorsurvey/answers/{{$show->id}}">{{$show->title}}</a> (วิชาINT 204)  <a href="/advisorsurvey/answers/{{$show->id}}" class="alert-link" style="float: right">ดูผลการตอบแบบสอบถาม</a> <br ><a href="/edusurvey/{{$show->id}}" class="alert-link" style="float: right;color: red">แก้ไขแบบสอบถาม</a>
+                                       <footer class="blockquote-footer">โดย : {{Auth::user()->name}} &nbsp; {{Auth::user()->lastname}}</footer>
                                      </div>
 
                                      @endforeach
@@ -78,17 +80,21 @@
         </thead>
         <tbody>
             @foreach($survey as $show)
+
           <tr>
           <th scope="row">{{$loop->iteration}}</th>
-          <td><a href="/survey/answers/{{$show->id}}">{{$show->title}}</a></td>
-          <td><a href="/survey/{{$show->id}}">แก้ไข</a></td>
+          {{-- @if($show->check->where('user_id' == 4)) --}}
+          {{--
+          <td><a href="/advisorsurvey/answers/{{$show->id}}">{{$show->title}}</a></td>
+          <td><a href="/advisorsurvey/{{$show->id}}">แก้ไข</a></td>
           </tr>
-
-
+          {{-- @endif --}}
+          {{--
           @endforeach
         </tbody>
 </table>
 --}}
+{{-- <p>ไม่มีแบบสอบถาม</p> --}}
 @stop
 
-@extends('bar.header(lec)')
+@extends('bar.header(advi)')
