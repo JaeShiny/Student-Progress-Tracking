@@ -262,14 +262,14 @@ public function view_survey_answersStudent(Survey $survey)
 {
     // $survey = Answer::where('user_id',Auth::id());
     // if($answer = Answer::where('user_id',Auth::id())){
-        $survey->load('user.questions.answers')
+        $survey->load('user.questions.answers');
         // $stuanswer = Answer::where('user_id',Auth::id())->first();
     // }
 
     // ->where(Auth::id(), '=', Answer()->user_id);
-    ->join('answer', 'survey.user_id', '=', 'answer.user_id')
-    ->where('user_id',Auth::id());
-    return view('Student.viewAnswer', compact('survey',));
+    // ->join('answer', 'survey.user_id', '=', 'answer.user_id')
+    // ->where('user_id',Auth::id());
+    return view('Student.viewAnswer', compact('survey'));
 }
 
 //   public function delete_survey(Survey $survey)
