@@ -41,7 +41,7 @@
                           <div class="card-body">
                                 @foreach($survey as $show)
                                 <div class="alert alert-primary" role="alert">
-                                        <a href="/advisorsurvey/answers/{{$show->id}}">{{$show->title}}</a> <a href="/advisorsurvey/answers/{{$show->id}}" class="alert-link" style="float: right">ดูผลการตอบแบบสอบถาม</a> <br ><a href="/edusurvey/{{$show->id}}" class="alert-link" style="float: right;color: red">แก้ไขแบบสอบถาม</a>
+                                        <a href="/advisorsurvey/answers/{{$show->id}}">{{$show->title}}</a> <a href="/advisorsurvey/answers/{{$show->id}}" class="alert-link" style="float: right">ดูผลการตอบแบบสอบถาม</a> <br ><a href="/advisorsurvey/{{$show->id}}" class="alert-link" style="float: right;color: red">แก้ไขแบบสอบถาม</a>
                                        <footer class="blockquote-footer">โดย : {{Auth::user()->name}} &nbsp; {{Auth::user()->lastname}}</footer>
                                      </div>
 

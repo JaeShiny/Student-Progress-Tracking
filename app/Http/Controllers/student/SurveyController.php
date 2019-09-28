@@ -269,7 +269,7 @@ public function view_survey_answersStudent(Survey $survey)
     // ->where(Auth::id(), '=', Answer()->user_id);
     // ->join('answer', 'survey.user_id', '=', 'answer.user_id')
     // ->where('user_id',Auth::id());
-    return view('Student.viewAnswer', compact('survey'));
+    return view('student.viewAnswer', compact('survey'));
 }
 
 //   public function delete_survey(Survey $survey)
