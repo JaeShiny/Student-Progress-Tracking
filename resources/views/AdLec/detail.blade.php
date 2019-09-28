@@ -104,9 +104,8 @@
     <div class="col-sm" style="background-color:#669999; margin-top: px; padding: 5px;">
         <span class="card-title"> <h4> &nbsp; &nbsp;&nbsp;{{ $survey->title }} ({{ $survey->description }})</h4></span></div>
 
-    {{-- &nbsp; &nbsp; &nbsp; &nbsp; <a href='view/{{$survey->id}}'>ทำแบบสำรวจ</a> | <a href="{{$survey->id}}/edit">แก้ไขหัวข้อแบบสำรวจ</a> | <a href="/survey/answers/{{$survey->id}}">ดูผลการตอบแบบสำรวจ</a> <a href="/survey/{{$survey->id}}/delete" style="float:right; text-decoration: none" class="modal-trigger red-text">ลบแบบสำรวจ &nbsp; &nbsp;</a> --}}
-    &nbsp; &nbsp; &nbsp; &nbsp;  <a href="{{$survey->id}}/edit">แก้ไขหัวข้อแบบสำรวจ</a> | <a href="/survey/answers/{{$survey->id}}">ดูผลการตอบแบบสำรวจ</a> <a href="/survey/{{$survey->id}}/delete" style="float:right; text-decoration: none" class="modal-trigger red-text">ลบแบบสำรวจ &nbsp; &nbsp;</a>
-
+    {{-- &nbsp; &nbsp; &nbsp; &nbsp; <a href='view/{{$survey->id}}'>ทำแบบสำรวจ</a> | <a href="/adlecsurvey/{{$survey->id}}/edit">แก้ไขหัวข้อแบบสำรวจ</a> | <a href="/adlecsurvey/answers/{{$survey->id}}">ดูผลการตอบแบบสำรวจ</a> <a href="/survey/{{$survey->id}}/delete" style="float:right; text-decoration: none" class="modal-trigger red-text">ลบแบบสำรวจ &nbsp; &nbsp;</a> --}}
+    &nbsp; &nbsp; &nbsp; &nbsp; <a href="/adlecsurvey/{{$survey->id}}/edit">แก้ไขหัวข้อแบบสำรวจ</a> | <a href="/adlecsurvey/answers/{{$survey->id}}">ดูผลการตอบแบบสำรวจ</a> <a href="/adlecsurvey/{{$survey->id}}/delete" style="float:right; text-decoration: none" class="modal-trigger red-text">ลบแบบสำรวจ &nbsp; &nbsp;</a>
     <!-- Modal Structure -->
     <!-- TODO Fix the Delete aspect -->
     <div id="doDelete" class="modal bottom-sheet">
@@ -143,13 +142,13 @@
                                             {!! Form::open() !!}
                                             @if($question->question_type === 'text')
                                             {{ Form::text('title')}}
-                                            <a href="/question/{{ $question->id }}/edit">แก้ไขคำถาม</a>
+                                            <a href="/adlecquestion/{{ $question->id }}/edit">แก้ไขคำถาม</a>
 
                                             @elseif($question->question_type === 'textarea')
                                             <div class="row">
                                                 <div class="input-field col s12">
                                                     <textarea id="textarea1" class="materialize-textarea"></textarea>
-                                                    <a href="/question/{{ $question->id }}/edit">แก้ไขคำถาม</a>
+                                                    <a href="/adlecquestion/{{ $question->id }}/edit">แก้ไขคำถาม</a>
                                                     {{-- <label for="textarea1">Provide answer</label> --}}
                                                 </div>
                                             </div>
@@ -231,9 +230,7 @@
         </div>
 
 @stop
-
-@extends('bar.header(lec)')
-
+@extends('bar.header(AdLec)')
 
 {{-- <script>
 function test(){

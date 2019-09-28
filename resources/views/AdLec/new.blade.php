@@ -50,7 +50,7 @@
     <div class="row">
         <div class="col">
 
-            <form method="POST" action="create" id="boolean">
+            <form method="POST" action="/adlecsurvey/create" id="boolean">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                 <div class="jumbotron jumbotron-fluid" style="background-color:#DCDCDC">
@@ -76,5 +76,4 @@
         </div>
     @stop
 
-@extends('bar.header(lec)')
-
+@extends('bar.header(AdLec)')

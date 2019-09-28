@@ -1,4 +1,3 @@
-
 @extends('bar.body')
 
 @section('content')
@@ -20,7 +19,7 @@
         </div>
       </div>
 
-      <a href="/survey/new" style="float:right; text-decoration: none" class="modal-trigger red-text">สร้างแบบสำรวจ &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;</a>
+      <a href="/survey/lfnew" style="float:right; text-decoration: none" class="modal-trigger red-text">สร้างแบบสำรวจ &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;</a>
 
 
 <br>
@@ -39,8 +38,8 @@
                           <div class="card-body">
                                 @foreach($survey as $show)
                                 <div class="alert alert-primary" role="alert">
-                                        <a href="/survey/answers/{{$show->id}}">{{$show->title}}</a> (วิชาINT 204)  <a href="/survey/answers/{{$show->id}}" class="alert-link" style="float: right">ดูผลการตอบแบบสอบถาม</a> <br ><a href="/survey/{{$show->id}}" class="alert-link" style="float: right;color: red">แก้ไขแบบสอบถาม</a>
-                                       <footer class="blockquote-footer">{{Auth::user()->name}} &nbsp; {{Auth::user()->lastname}}</footer>
+                                        <a href="/lfsurvey/answers/{{$show->id}}">{{$show->title}}</a> (วิชาINT 204)  <a href="/lfsurvey/answers/{{$show->id}}" class="alert-link" style="float: right">ดูผลการตอบแบบสอบถาม</a> <br ><a href="/lfsurvey/{{$show->id}}" class="alert-link" style="float: right;color: red">แก้ไขแบบสอบถาม</a>
+                                       <footer class="blockquote-footer">{{$show->user->name}} &nbsp; {{$show->user->lastname}} &nbsp;  {{$show->user->position}}</footer>
                                      </div>
 
                                      @endforeach
@@ -91,4 +90,4 @@
 --}}
 @stop
 
-@extends('bar.header(lec)')
+@extends('bar.header(LF)')
