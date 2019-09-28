@@ -75,7 +75,8 @@
             <h6>STUDENT PROGRESS TRACKING SYSTEM</h6>
             <h6>LECTURER AND ADVISOR</h6>
             <button type="submit" class="btn btn-primary" style="float: right"> <a class="nav-link" href="/survey/adlec/adlec" style="color: #FFFFFF">ดูแบบสอบถาม</a></button>
-           <button type="submit" class="btn btn-primary" style="float: right"> <a class="nav-link" href="/survey/adlecnew" style="color: #FFFFFF">สร้างแบบสอบถาม</a></button>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button type="submit" class="btn btn-primary" style="float: right"> <a class="nav-link" href="/survey/adlecnew" style="color: #FFFFFF">สร้างแบบสอบถาม</a></button>
 
         </div>
 

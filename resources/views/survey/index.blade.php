@@ -109,7 +109,7 @@
                                                         <span class="sr-only"> </span>
                                                       </div>
                                                   <div class="alert alert-primary" role="alert">
-                                                        <a href="/studentsurvey/view/{{$show->id}}">{{$show->title}}  <a href="/studentsurvey/answers/{{$show->id}}" class="alert-link" style="float: right">ตอบแบบสอบถาม</a><br>
+                                                        <a href="/studentsurvey/view/{{$show->id}}">{{$show->title}}</a>  <a href="/studentsurvey/view/{{$show->id}}" class="alert-link" style="float: right">ตอบแบบสอบถาม</a><br>
                                                         <footer class="blockquote-footer">โดย : {{$show->user->name}} &nbsp; {{$show->user->lastname}} &nbsp; {{$show->user->position}}</footer>
                                                       </div>
 

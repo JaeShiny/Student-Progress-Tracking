@@ -3,6 +3,8 @@
 
 @section('content')
 
+<br><br>
+
 <div class="container">
         <div class="row">
           <div class="col-sm">
@@ -40,7 +42,7 @@
                           <div class="card-body">
                                 @foreach($survey as $show)
                                 <div class="alert alert-primary" role="alert">
-                                        <a href="/adlecsurvey/answers/{{$show->id}}">{{$show->title}}</a> (วิชาINT 204)  <a href="/adlecsurvey/answers/{{$show->id}}" class="alert-link" style="float: right">ดูผลการตอบแบบสอบถาม</a> <br ><a href="/adlecsurvey/{{$show->id}}" class="alert-link" style="float: right;color: red">แก้ไขแบบสอบถาม</a>
+                                        <a href="/adlecsurvey/answers/{{$show->id}}">{{$show->title}}</a> <a href="/adlecsurvey/answers/{{$show->id}}" class="alert-link" style="float: right">ดูผลการตอบแบบสอบถาม</a> <br ><a href="/adlecsurvey/{{$show->id}}" class="alert-link" style="float: right;color: red">แก้ไขแบบสอบถาม</a>
                                        <footer class="blockquote-footer">{{$show->user->name}} &nbsp; {{$show->user->lastname}}  &nbsp; {{$show->user->position}} </footer>
                                      </div>
 

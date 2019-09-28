@@ -10,7 +10,7 @@
           </div>
           <div class="col-sm-5">
                 <div class="card bg-light mb-3" style="max-width: 24rem;">
-                    <br>
+
                         <center> <div class="card-header"><h4>ชุดแบบสอบถาม</h4></div></center>
 
                        </div>
@@ -40,7 +40,7 @@
                           <div class="card-body">
                                 @foreach($survey as $show)
                                 <div class="alert alert-primary" role="alert">
-                                        <a href="/edusurvey/answers/{{$show->id}}">{{$show->title}}</a> (วิชาINT 204)  <a href="/edusurvey/answers/{{$show->id}}" class="alert-link" style="float: right">ดูผลการตอบแบบสอบถาม</a> <br ><a href="/edusurvey/{{$show->id}}" class="alert-link" style="float: right;color: red">แก้ไขแบบสอบถาม</a>
+                                        <a href="/edusurvey/answers/{{$show->id}}">{{$show->title}}</a>  <a href="/edusurvey/answers/{{$show->id}}" class="alert-link" style="float: right">ดูผลการตอบแบบสอบถาม</a> <br ><a href="/edusurvey/{{$show->id}}" class="alert-link" style="float: right;color: red">แก้ไขแบบสอบถาม</a>
                                        <footer class="blockquote-footer">โดย : {{Auth::user()->name}} &nbsp; {{Auth::user()->lastname}}</footer>
                                      </div>
 

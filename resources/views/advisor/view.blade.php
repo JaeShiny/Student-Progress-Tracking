@@ -72,7 +72,7 @@
                 <div class="card-body">
                     {{--
                     <div class="divider" style="margin:20px 0px;"></div>--}}
-                    <h5 class="card-title">
+                    <h6 class="card-title">
           {!! Form::open(array('action'=>array('student\AnswerController@storeAd', $survey->id))) !!}
           @forelse ($survey->questions as $key=>$question)
           &nbsp;  <h6 class="flow-text">Question {{ $key+1 }} - {{ $question->title }}</h6>

@@ -65,7 +65,7 @@
         <div class="card">
             <div class="card-content">
 
-                <h5 class="card-header">&nbsp;เริ่มทำแบบสำรวจ : </span><span class="flow-text">{{ $survey->title }} ( {{ $survey->description }})</h5>
+                <h6 class="card-header">&nbsp;เริ่มทำแบบสำรวจ : </span><span class="flow-text">{{ $survey->title }} ( {{ $survey->description }})</h5>
                 <p>
                     <p><span class="card-title" style="float: right">&nbsp; &nbsp;&nbsp; &nbsp;สร้างโดย: <a href="" style="text-decoration: none">{{ $survey->user->name }}&nbsp;&nbsp;&nbsp;&nbsp;</a></span></p>
                 </p>
