@@ -30,7 +30,7 @@ class NotificationController extends Controller
         $risk_problem = Problem::where('risk_level','รุนแรงมาก')->where('student_id',$student_id)->get();
 
         $risk_attendance = Attendance::where('amount_absence', '>=', 3 )->where('student_id',$student_id)->get();
-        $risk_grade = Grade::where('total_all', '>=', 60 )->where('student_id',$student_id)->get();
+        $risk_grade = Grade::where('total_all', '<=', 60 )->where('student_id',$student_id)->get();
 
         return view('lecturer.notification',[
             'bios' => $bios,

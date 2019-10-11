@@ -104,7 +104,7 @@
                 <thead class="thead-light">
                     <tr>
                         <th scope="col">รหัสวิชา</th>
-                        <th scope="col">จำนวนที่ขาด</th>
+                        <th scope="col">คะแนนรวมทั้งหมด</th>
                         <th scope="col">ผู้เพิ่ม</th>
 
                     </tr>
