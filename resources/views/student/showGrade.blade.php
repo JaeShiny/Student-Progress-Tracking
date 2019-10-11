@@ -35,10 +35,10 @@
 
 <body>
 
-@foreach ($grade as $students)
-    <h6 align='right'>รหัสนักศึกษา: {{$students->student_id}} &nbsp;&nbsp;&nbsp;&nbsp;</h6>
-    <h6 align='right'>ชื่อ-สกุล: {{$students->users['name']}} &nbsp;{{$students->users['lastname']}}&nbsp;&nbsp;&nbsp;</h6>
-@endforeach
+    @foreach ($bios as $bio)
+        <h6 align='right'>รหัสนักศึกษา: {{$bio->student_id}} &nbsp;&nbsp;&nbsp;&nbsp;</h6>
+        <h6 align='right'>ชื่อ-สกุล: {{$bio->first_name}} &nbsp;{{$bio->last_name}}&nbsp;&nbsp;&nbsp;</h6>
+    @endforeach
 
 {{-- <h5 align='center'>ผลการเรียน</h5> --}}
 

@@ -66,13 +66,13 @@
         <table class="table table-hover">
             <thead>
                 <tr>
-                        <th style="width: 13%"><center>รหัสวิชา</center></th>
-                        <th>รหัสนักศึกษา</th>
-                        <th style="width: 35%"><center>ชื่อ-สกุล</center></th>
-                  <th>จำนวนคาบเรียน</th>
-                  <th>จำนวนการเข้าเรียน</th>
-                  <th>จำนวนการขาดเรียน</th>
-                  <th><center>รายละเอียด</center></th>
+                    <th style="width: 13%"><center>รหัสวิชา</center></th>
+                    <th>รหัสนักศึกษา</th>
+                    <th style="width: 35%"><center>ชื่อ-สกุล</center></th>
+                    <th>จำนวนคาบเรียน</th>
+                    <th>จำนวนการเข้าเรียน</th>
+                    <th>จำนวนการขาดเรียน</th>
+                    <th><center>รายละเอียด</center></th>
                 </tr>
             </thead>
             @foreach($student as $show_student)

@@ -96,10 +96,12 @@ class GradeController extends Controller
     public function showGradeA($student_id)  {
         $student = Grade::where('student_id',$student_id)->get();
         $users = User::all();
+        $bios = Bio::where('student_id', $student_id)->get();
 
         return view('advisor.showGrade',[
             'student' => $student,
             'users' => $users,
+            'bios' => $bios,
         ]);
     }
 
@@ -108,10 +110,12 @@ class GradeController extends Controller
     public function showGradeAL2($student_id)  {
         $student = Grade::where('student_id',$student_id)->get();
         $users = User::all();
+        $bios = Bio::where('student_id', $student_id)->get();
 
         return view('AdLec.showGrade2',[
             'student' => $student,
             'users' => $users,
+            'bios' => $bios,
         ]);
     }
     public function showGradeAL($course_id)  {
@@ -131,10 +135,12 @@ class GradeController extends Controller
     public function showGradeE($student_id)  {
         $student = Grade::where('student_id',$student_id)->get();
         $users = User::all();
+        $bios = Bio::where('student_id', $student_id)->get();
 
         return view('EducationOfficer.showGrade',[
             'student' => $student,
             'users' => $users,
+            'bios' => $bios,
         ]);
     }
 
