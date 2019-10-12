@@ -25,17 +25,24 @@
 
 @extends('bar.body')
 @section('content')
+<div class="card-content">
+        <div class="col-sm" style="margin-top: px; padding: 5px;">
+        <span class="card-title"> <h4> &nbsp; {{$survey->title}} </h4> <h6>&nbsp;&nbsp;&nbsp;รายละเอียด : {{$survey->description}}</h6></span></div>
+        <hr style="margin-top: 0%">
 
-<div class="col-sm" style="background-color:#669999; margin-top: px; padding: 5px;">
-    <span class="card-title"> <h4> &nbsp; &nbsp;&nbsp;{{ $survey->title }} ({{ $survey->description }})</h4></span></div>
+          {{-- &nbsp;&nbsp;&nbsp; <a href="/adlecsurvey/{{$survey->title}}/edit">แก้ไขหัวข้อแบบสอบถาม</a> --}}
+        <!-- Modal Structure -->
+        <!-- TODO Fix the Delete aspect -->
 
+</div>
+        </div>
 {{-- &nbsp; &nbsp; &nbsp; &nbsp; <a href='view/{{$survey->id}}'>ทำแบบสำรวจ</a> | <a href="{{$survey->id}}/edit">แก้ไขหัวข้อแบบสำรวจ</a> | <a href="/survey/answers/{{$survey->id}}">ดูผลการตอบแบบสำรวจ</a> <a href="#doDelete" style="float:right; text-decoration: none" class="modal-trigger red-text">ลบแบบสำรวจ &nbsp; &nbsp;</a> --}}
 <div class="jumbotron jumbotron-fluid" style="background-color: #CCCCFF">
     <div class="container">
         <form method="POST" action="/adlecsurvey/{{ $survey->id }}/update">
             {{ method_field('PATCH') }}
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-            <h4 class="flow-text" style="margin-top: -50px">แก้ไขหัวข้อแบบสำรวจ</h4>
+            <h4 class="flow-text" style="margin-top: -50px">แก้ไขหัวข้อแบบสอบถาม</h4>
             <div class="row">
                 <div class="input-field col s12">
                     <br>
@@ -44,7 +51,7 @@
                             <div class="col-sm-2">
                             </div>
                             <div class="col-sm-4">
-                                <label for="title">หัวข้อแบบสำรวจ</label>
+                                <label for="title">หัวข้อแบบสอบถาม</label>
                                 <input type="text" class="form-control" name="title" id="title" value="{{ $survey->title }}">
 
                             </div>
@@ -72,3 +79,4 @@
 @stop
 
 @extends('bar.header(AdLec)')
+

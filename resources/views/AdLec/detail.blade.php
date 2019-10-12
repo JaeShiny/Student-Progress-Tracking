@@ -97,17 +97,20 @@
 
 @extends('bar.header(student)') --}}
 
+
+
 @extends('bar.body')
 @section('content')
 
 <div class="card-content">
-    <div class="col-sm" style="background-color:#669999; margin-top: px; padding: 5px;">
-        <span class="card-title"> <h4> &nbsp; &nbsp;&nbsp;{{ $survey->title }} ({{ $survey->description }})</h4></span></div>
+    <div class="col-sm" style="margin-top: px; padding: 5px;">
+    <span class="card-title"> <h4> &nbsp; {{ $survey->title }} </h4> <h6>&nbsp;&nbsp;&nbsp;รายละเอียด : {{ $survey->description }}</h6></span></div>
+    <hr style="margin-top: 0%">
 
-    {{-- &nbsp; &nbsp; &nbsp; &nbsp; <a href='view/{{$survey->id}}'>ทำแบบสำรวจ</a> | <a href="/adlecsurvey/{{$survey->id}}/edit">แก้ไขหัวข้อแบบสำรวจ</a> | <a href="/adlecsurvey/answers/{{$survey->id}}">ดูผลการตอบแบบสำรวจ</a> <a href="/survey/{{$survey->id}}/delete" style="float:right; text-decoration: none" class="modal-trigger red-text">ลบแบบสำรวจ &nbsp; &nbsp;</a> --}}
-    &nbsp; &nbsp; &nbsp; &nbsp; <a href="/adlecsurvey/{{$survey->id}}/edit">แก้ไขหัวข้อแบบสำรวจ</a> | <a href="/adlecsurvey/answers/{{$survey->id}}">ดูผลการตอบแบบสำรวจ</a> <a href="/adlecsurvey/{{$survey->id}}/delete" style="float:right; text-decoration: none" class="modal-trigger red-text">ลบแบบสำรวจ &nbsp; &nbsp;</a>
+      &nbsp;&nbsp;&nbsp; <a href="/adlecsurvey/{{$survey->id}}/edit">แก้ไขหัวข้อแบบสอบถาม</a> | <a href="/adlecsurvey/answers/{{$survey->id}}">ดูผลการตอบแบบสำรวจ</a> <a href="/adlecsurvey/{{$survey->id}}/delete" style="float:right; text-decoration: none" class="modal-trigger red-text">ลบแบบสำรวจ &nbsp; &nbsp;</a>
     <!-- Modal Structure -->
     <!-- TODO Fix the Delete aspect -->
+
     <div id="doDelete" class="modal bottom-sheet">
         <div class="modal-content">
             <div class="container">
@@ -115,7 +118,7 @@
                     <h4>Are you sure?</h4>
                     <p>Do you wish to delete this survey called "{{ $survey->title }}"?</p>
                     <div class="modal-footer">
-                        <a href="/survey/{{ $survey->id }}/delete" class=" modal-action waves-effect waves-light btn-flat red-text">Yep yep!</a>
+                        <a href="/adlecsurvey/{{ $survey->id }}/delete" class=" modal-action waves-effect waves-light btn-flat red-text">Yep yep!</a>
                         <a class=" modal-action modal-close waves-effect waves-light green white-text btn">No, stop!</a>
                     </div>
                 </div>
@@ -125,7 +128,7 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-sm" style="margin-left: -60px; background-color:#669999; margin-top: 50px; padding: 15px">
+            <div class="col-sm" style="margin-left: -60px; background-color:#F5F5F5; margin-top: 50px; padding: 15px">
                 <h4 style="color: black">คำถาม</h4>
 
                 <div class="divider" style="margin:10px 0px;"></div>
@@ -185,7 +188,7 @@
                                     </div>
                                     <div class="card-body">
                                         <blockquote class="blockquote mb-0">
-                                            <form method="POST" action="/survey/{{ $survey->id }}/questions" id="boolean">
+                                            <form method="POST" action="/adlecsurvey/{{ $survey->id }}/questions" id="boolean">
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                                 <div class="row">
                                                     <div class="input-field col s12">
@@ -230,6 +233,7 @@
         </div>
 
 @stop
+
 @extends('bar.header(AdLec)')
 
 {{-- <script>

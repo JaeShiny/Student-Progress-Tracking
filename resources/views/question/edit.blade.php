@@ -23,7 +23,8 @@
 @extends('bar.header(student)') --}}
 {{-- @extends('layout') --}}
 
-@extends('bar.body') @section('content')
+@extends('bar.body')
+@section('content')
 
 <br>
 <br>
@@ -55,3 +56,6 @@
     </div>
 </form>
 @stop @extends('bar.header(lec)')
+
+
+

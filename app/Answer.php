@@ -17,7 +17,7 @@ class Answer extends Model
       return $this->belongsTo(Question::class);
     }
 
-    public function user() {
+    public function users() {
         return $this->belongsTo(User::class);
       // return $this->belongsTo('App\User');
       }

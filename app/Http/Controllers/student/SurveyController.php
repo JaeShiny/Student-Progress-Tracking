@@ -225,7 +225,8 @@ public function editAdlec(Survey $survey)
 public function view_survey_answers(Survey $survey)
 {
   $survey->load('user.questions.answers');
-  return view('answer.view', compact('survey'));
+  $answer = Answer::where('user_id',Auth::user()->id);
+  return view('answer.view', compact('survey','answer'));
 }
 
 public function view_survey_answersAd(Survey $survey)

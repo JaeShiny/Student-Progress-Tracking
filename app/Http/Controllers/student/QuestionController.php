@@ -31,12 +31,12 @@ class QuestionController extends Controller
       $question->survey_id = $survey;
       $question->save();
 
-      foreach($request->choice as $storechoice) {
-        $choice = new Choice;
-        $choice->choice_name = $storechoice;
-        $choice->question_id = $question->id;
-        $choice->save();
-      }
+    //   foreach($request->choice as $storechoice) {
+    //     $choice = new Choice;
+    //     $choice->choice_name = $storechoice;
+    //     $choice->question_id = $question->id;
+    //     $choice->save();
+    //   }
 
       return redirect()->back();
     }

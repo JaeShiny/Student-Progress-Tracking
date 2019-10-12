@@ -53,29 +53,45 @@
 @extends('bar.header(student)') --}}
 
 
+
+
+
+
 @extends('bar.body')
 @section('content')
 
-<div class="col-sm" style="background-color:#669999; margin-top: px; padding: 5px;">
-    <span class="card-title"> <h4> &nbsp; &nbsp;&nbsp;{{ $survey->title }} ({{ $survey->description }})</h4></span></div>
+<div class="card-content">
+    <div class="col-sm" style="margin-top: px; padding: 5px;">
+    <span class="card-title"> <h4> &nbsp; {{ $survey->title }} </h4> <h6>&nbsp;&nbsp;&nbsp; รายละเอียด : {{ $survey->description }}</h6></span></div>
+    <hr style="margin-top: 0%">
 
+      &nbsp; &nbsp; &nbsp; <a href='/edusurvey/{{$survey->id}}'>เพิ่มคำถาม</a> | <a href="/edusurvey/{{$survey->id}}/edit">แก้ไขหัวข้อแบบสำรวจ</a> | <a href="/edusurvey/answers/{{$survey->id}}">ดูผลการตอบแบบสำรวจ</a> <a href="/edusurvey/{{$survey->id}}/delete" style="float:right; text-decoration: none" class="modal-trigger red-text">ลบแบบสำรวจ &nbsp; &nbsp;</a>
+    <!-- Modal Structure -->
+    <!-- TODO Fix the Delete aspect -->
+
+<br><br><br>
 {{-- &nbsp; &nbsp; &nbsp; &nbsp; <a href='view/{{$survey->id}}'>ทำแบบสำรวจ</a> | <a href="{{$survey->id}}/edit">แก้ไขหัวข้อแบบสำรวจ</a> | <a href="/survey/answers/{{$survey->id}}">ดูผลการตอบแบบสำรวจ</a> <a href="#doDelete" style="float:right; text-decoration: none" class="modal-trigger red-text">ลบแบบสำรวจ &nbsp; &nbsp;</a> --}}
-<div class="jumbotron jumbotron-fluid" style="background-color: #CCCCFF; padding: 60px 5px 40px 5px">
-    <div class="container">
-        <div class="card">
-            <div class="card-content">
+<section class="ftco-section contact-section ftco-degree-bg">
+        <div class="container bg-light" style="width: 70%;box-shadow: 5px 5px 8px 4px rgba(50, 50, 50, .5);">
+          <div class="row d-flex mb-5 contact-info">
+            <div class="col-md-12 mb-4">
+                <br>
 
-                <h6 class="card-header">&nbsp;เริ่มทำแบบสำรวจ : </span><span class="flow-text">{{ $survey->title }} ( {{ $survey->description }})</h5>
-                <p>
+                <h2 class="h4">&nbsp;&nbsp;{{ $survey->title }}</h2>
+                <div class="w-100"></div>
+            <div class="col-md-7">
+                    <p><span>รายละเอียด :</span>{{ $survey->description }}</p>
+                </div>
+
                     <p><span class="card-title" style="float: right">&nbsp; &nbsp;&nbsp; &nbsp;สร้างโดย: <a href="" style="text-decoration: none">{{ $survey->user->name }}&nbsp;&nbsp;&nbsp;&nbsp;</a></span></p>
-                </p>
+
                 <div class="card-body">
                     {{--
                     <div class="divider" style="margin:20px 0px;"></div>--}}
                     <h5 class="card-title">
           {!! Form::open(array('action'=>array('student\AnswerController@storeEdu', $survey->id))) !!}
           @forelse ($survey->questions as $key=>$question)
-          &nbsp;  <h6 class="flow-text">Question {{ $key+1 }} - {{ $question->title }}</h6>
+          &nbsp;  <h6 class="flow-text">คำถามที่ {{ $key+1 }} - {{ $question->title }}</h6>
                 @if($question->question_type === 'text')
                   <div class="input-field col s12">
                     <input id="answer" type="text" name="{{ $question->id }}[answer]">
@@ -104,6 +120,7 @@
         {!! Form::close() !!}
     </div>
   </div>
+</section>
 @stop
 
 @extends('bar.header(edu)')
