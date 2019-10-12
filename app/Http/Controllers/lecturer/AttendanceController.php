@@ -95,10 +95,12 @@ class AttendanceController extends Controller
     public function showAttendanceA($student_id){
         $student = Attendance::where('student_id',$student_id)->get();
         $users = User::all();
+        $bios = Bio::where('student_id', $student_id)->get();
 
         return view('advisor.showAttendance',[
             'student' => $student,
             'users' => $users,
+            'bios' => $bios,
         ]);
     }
 
@@ -107,10 +109,12 @@ class AttendanceController extends Controller
     public function showAttendanceAL2($student_id){
         $student = Attendance::where('student_id',$student_id)->get();
         $users = User::all();
+        $bios = Bio::where('student_id', $student_id)->get();
 
         return view('AdLec.showAttendance2',[
             'student' => $student,
             'users' => $users,
+            'bios' => $bios,
         ]);
     }
     public function showAttendanceAL($course_id)  {
@@ -130,10 +134,12 @@ class AttendanceController extends Controller
     public function showAttendanceE($student_id)  {
         $student = Attendance::where('student_id',$student_id)->get();
         $users = User::all();
+        $bios = Bio::where('student_id', $student_id)->get();
 
         return view('EducationOfficer.showAttendance',[
             'student' => $student,
             'users' => $users,
+            'bios' => $bios,
         ]);
     }
 

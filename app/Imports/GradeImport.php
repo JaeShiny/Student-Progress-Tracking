@@ -5,6 +5,7 @@ namespace App\Imports;
 use App\Model\spts\Grade;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
+use Auth;
 
 class GradeImport implements ToModel, WithHeadingRow
 {
@@ -35,6 +36,7 @@ class GradeImport implements ToModel, WithHeadingRow
             // 'year' => '2019',
             // 'section' => '1',
             // 'gen' => '20',
+            'person_add' => Auth::user()->name,
         ]);
     }
 }

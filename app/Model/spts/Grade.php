@@ -30,6 +30,7 @@ class Grade extends Model
         'year',
         'section',
         'gen',
+        'person_add',
     ];
 
     //แมบ student_id ของ Grade ให้ไปหา student_id ของ users
