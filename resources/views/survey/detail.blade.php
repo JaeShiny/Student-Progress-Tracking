@@ -235,7 +235,7 @@
 @extends('bar.header(lec)')
 
 
-{{-- <script>
+<script>
 function test(){
 
     var choice1 = document.createElement('input');
@@ -257,4 +257,4 @@ function test(){
          document.getElementById('choice').appendChild(choice2);
      }
 }
-</script> --}}
+</script>
