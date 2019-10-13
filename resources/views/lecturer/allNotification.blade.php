@@ -37,6 +37,7 @@
             <table class="table" width="60%">
                 <thead class="thead-light">
                     <tr>
+                        <th scope="col">รหัสนักศึกษา</th>
                         <th scope="col">ประเภทพฤติกรรม/ปัญหา</th>
                         <th scope="col">หัวข้อของปัญหา</th>
                         <th scope="col">พฤติกรรม/ปัญหา</th>
@@ -50,7 +51,8 @@
                     @foreach ($risk_problem as $show_problem)
 
                     <tr>
-                        <td scope="row">{{$show_problem->problem_type}}</td>
+                        <td scope="row">{{$show_problem->student_id}}</td>
+                        <td>{{$show_problem->problem_type}}</td>
                         <td>{{$show_problem->problem_topic}}</td>
                         <td>{{$show_problem->problem_detail}}</td>
                         <td>{{$show_problem->risk_level}}</td>
@@ -71,6 +73,7 @@
             <table class="table" width="60%">
                 <thead class="thead-light">
                     <tr>
+                        <th scope="col">รหัสนักศึกษา</th>
                         <th scope="col">รหัสวิชา</th>
                         <th scope="col">จำนวนที่ขาด</th>
                         <th scope="col">ผู้เพิ่ม</th>
@@ -81,7 +84,8 @@
                     @foreach ($risk_attendance as $show_problem)
 
                     <tr>
-                        <td scope="row">{{$show_problem->course_id}}</td>
+                        <td scope="row">{{$show_problem->student_id}}</td>
+                        <td>{{$show_problem->course_id}}</td>
                         <td>{{$show_problem->amount_absence}}</td>
 
                         <td>อาจารย์ {{$show_problem->person_add}}</td>
@@ -100,6 +104,7 @@
             <table class="table" width="60%">
                 <thead class="thead-light">
                     <tr>
+                        <th scope="col">รหัสนักศึกษา</th>
                         <th scope="col">รหัสวิชา</th>
                         <th scope="col">คะแนนรวมทั้งหมด</th>
                         <th scope="col">ผู้เพิ่ม</th>
@@ -110,8 +115,9 @@
                     @foreach ($risk_grade as $show_problem)
 
                     <tr>
-                        <td scope="row">{{$show_problem->course_id}}</td>
-                        <td>{{$show_problem->total_all}}</td>
+                        <td scope="row">{{$show_problem->student_id}}</td>
+                        <td>{{$show_problem->course_id}}</td>
+                        <td>{{$show_problem->total_all}}/100</td>
 
                         <td>อาจารย์ {{$show_problem->person_add}}</td>
                     </tr>
