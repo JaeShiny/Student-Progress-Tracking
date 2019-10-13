@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Answer extends Model
 {
-    protected $fillable = ['answer'];
+    protected $fillable = ['answer','user_id'];
     protected $table = 'answer';
 
     public function survey() {
@@ -21,6 +21,11 @@ class Answer extends Model
         return $this->belongsTo(User::class);
       // return $this->belongsTo('App\User');
       }
+
+    public function answerer(){
+        return $this->belongsTo('App\User','user_id','id');
+    }
+
 
 
 }
