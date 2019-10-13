@@ -50,6 +50,12 @@ margin-top: -150px;
     <form action="/problem_insert" method="POST">
     <input type="hidden" name="student_id" value="{{$student_id}}">
 
+
+    <div class="form-group">
+        <label for="usr">รหัสวิชา:</label>
+        <input type="text" class="form-control" id="usr" name="course_id">
+    </div>
+
         <div class="form-group">
             <label for="exampleFormControlSelect1">ประเภทของ พฤติกรรม/ปัญหา ของนักศึกษา:
                 <select class="form-control" id="exampleFormControlSelect1" name="problem_type">

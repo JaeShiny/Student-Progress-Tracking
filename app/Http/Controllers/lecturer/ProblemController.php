@@ -34,6 +34,7 @@ class ProblemController extends Controller
 
         $problem->student_id = $request->student_id;
 
+        $problem->course_id = $request->course_id;
         $problem->problem_type = $request->problem_type;
         $problem->problem_topic = $request->problem_topic;
         $problem->problem_detail = $request->problem_detail;
@@ -84,6 +85,7 @@ class ProblemController extends Controller
 
         $problem->student_id = $request->student_id;
 
+        $problem->course_id = $request->course_id;
         $problem->problem_type = $request->problem_type;
         $problem->problem_topic = $request->problem_topic;
         $problem->problem_detail = $request->problem_detail;
@@ -136,6 +138,7 @@ class ProblemController extends Controller
 
         $problem->student_id = $request->student_id;
 
+        $problem->course_id = $request->course_id;
         $problem->problem_type = $request->problem_type;
         $problem->problem_topic = $request->problem_topic;
         $problem->problem_detail = $request->problem_detail;
@@ -184,6 +187,7 @@ class ProblemController extends Controller
 
         $problem->student_id = $request->student_id;
 
+        $problem->course_id = $request->course_id;
         $problem->problem_type = $request->problem_type;
         $problem->problem_topic = $request->problem_topic;
         $problem->problem_detail = $request->problem_detail;
@@ -230,6 +234,7 @@ class ProblemController extends Controller
 
         $problem->student_id = $request->student_id;
 
+        $problem->course_id = $request->course_id;
         $problem->problem_type = $request->problem_type;
         $problem->problem_topic = $request->problem_topic;
         $problem->problem_detail = $request->problem_detail;
