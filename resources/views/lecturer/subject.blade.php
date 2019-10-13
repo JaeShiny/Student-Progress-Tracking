@@ -37,6 +37,9 @@
                 <div class="card" style="width: 18rem;">
                     <img src="../img/subject.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
+                        <a href="/allNotiL/{{$courses->course_id}}" style="float:right">
+                            <img src="../img/notification.png" width="25" title="การแจ้งเตือน">
+                        </a> <br>
                         <center>
                         <a href="/subject/{{$courses->course_id}}">
                             <h5 class="card-title">{{$courses->course_id}}</h5>
@@ -47,7 +50,6 @@
                         <br><br>
                         <a href="/subject/{{$courses->course_id}}" class="btn btn-primary">รายละเอียด</a>
                         <a href="/importExportView/{{$courses->course_id}}" class="btn btn-primary">เพิ่มไฟล์</a> <br>
-                        <a href="/noPro/{{$courses->course_id}}" class="btn btn-primary">แจ้งเตือน</a> <br>
                         </center>
                     </div>
                 </div>

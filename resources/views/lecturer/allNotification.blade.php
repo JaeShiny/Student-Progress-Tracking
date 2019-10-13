@@ -11,67 +11,28 @@
    <!-- Bootstrap CSS -->
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-    <title>รายชื่อนักศึกษา</title>
+    <title>การแจ้งเตือน</title>
 
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li> </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            {{-- <li class="breadcrumb-item"><a href="{{ url('curriculum') }}">หลักสูตร(IT)</a></li> --}}
             <li class="breadcrumb-item"><a href="{{ url('course') }}">วิชาที่สอน</a></li>
-            <li class="breadcrumb-item active" aria-current="page"><a href="">รายชื่อนักศึกษา</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><a href="">การแจ้งเตือน</a></li>
         </ol>
     </nav>
 
 </head>
 
 <body>
-
+    {{-- <h3 align='center'>การแจ้งเตือน</h3><br> --}}
     <h5 align='center'>{{$course->course_id}}</h5>
-    <h6 align='center'>{{$course->course_name_eng}}</h6><br>
+    <h6 align='center'>{{$course->course_name_eng}}</h6><br><br>
 
-    <div class="container">
-        <form action="/student_searchL" method="get">
-            <div class="input-group">
-                <input type="search" name="search" class="form-control">
-                <span class="input-group-prepend">
-                    <button type="submit" class="btn btn-primary">Search</button>
-                </span>
-            </div>
-        <form><br>
-    </div>
-
-
-
-{{-- เพิ่มการเข้าเรียน --}}
-{{-- <center>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <button type="button" class="btn btn-outline-primary">
-        <a href="/importExportView/{{$course->course_id}}">เพิ่มการเข้าเรียน</a>
-    </button>
-    <button type="button" class="btn btn-outline-success">
-        <a href="/attendance/{{$course->course_id}}">แสดงผลการเข้าเรียน</a>
-    </button>
-</center> --}}
-
-    <center>
 
         <center>
 
             {{-- แจ้งเตือนปัญหาและพฤติกรรม --}}
-            {{-- <h6  style="position: relative; left: -31%">การแจ้งเตือนปัญหาและพฤติกรรม</h6>
+            <h6  style="position: relative; left: -31%">การแจ้งเตือนปัญหาและพฤติกรรม</h6>
             <br><br><br>
             <table class="table" width="60%">
                 <thead class="thead-light">
@@ -102,7 +63,7 @@
 
                 </tbody>
             </table>
-            <br><br> --}}
+            <br><br>
 
             {{-- แจ้งเตือนการเข้าเรียน --}}
             <h6  style="position: relative; left: -33%">การแจ้งเตือนการเข้าเรียน</h6>

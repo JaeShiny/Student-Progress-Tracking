@@ -146,7 +146,7 @@ Route::get('/indexSurvey', function () {
 //กดปุ่มแจ้งเตือนแล้วเจอพฤติกรรมที่รุนแรงของนักศึกษา
 Route::get('notiproblemL/{student_id}','NotificationController@ProblemL');
 
-Route::get('noPro/{course_id}','NotificationController@index');
+Route::get('allNotiL/{course_id}','NotificationController@allNotiL');
 
 
 
