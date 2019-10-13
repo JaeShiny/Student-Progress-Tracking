@@ -60,4 +60,9 @@ class Attendance extends Model
     }
 
 
+    //Relation เพื่อบอกว่าจะแมบฟอเรนคีย์ student_id ของ student กับ student_id ของ problem
+    public function risk_attendance(){
+        return $this->hasOne('App\Model\mis\Student','student_id','student_id');
+    }
+
 }

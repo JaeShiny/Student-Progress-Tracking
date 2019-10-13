@@ -37,4 +37,10 @@ class Grade extends Model
     public function users(){
         return $this->hasOne('App\Model\spts\User','student_id','student_id');
     }
+
+
+    //Relation เพื่อบอกว่าจะแมบฟอเรนคีย์ student_id ของ student กับ student_id ของ problem
+    public function risk_grade(){
+        return $this->hasOne('App\Model\mis\Student','student_id','student_id');
+    }
 }

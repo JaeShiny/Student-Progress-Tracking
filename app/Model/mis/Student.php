@@ -35,4 +35,9 @@ class Student extends Model
     public function study(){
         return $this->hasOne('App\Model\mis\Study','student_id','student_id');
     }
+
+    //แมบ student ให้ไปหา bio
+    public function students(){
+        return $this->hasOne('App\Model\mis\Bio','student_id','student_id');
+    }
 }
