@@ -47,6 +47,7 @@
                         <br><br>
                         <a href="/subject/{{$courses->course_id}}" class="btn btn-primary">รายละเอียด</a>
                         <a href="/importExportView/{{$courses->course_id}}" class="btn btn-primary">เพิ่มไฟล์</a> <br>
+                        <a href="/noPro/{{$courses->course_id}}" class="btn btn-primary">แจ้งเตือน</a> <br>
                         </center>
                     </div>
                 </div>

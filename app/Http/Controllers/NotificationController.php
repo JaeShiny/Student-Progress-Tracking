@@ -41,5 +41,25 @@ class NotificationController extends Controller
         ]);
     }
 
+    //ทำการแมบ course จนไปถึง student
+    public function index($course_id){
+        $course = Course::find($course_id);
+        $major = Major::where('major_id',$course->major_id)->get();
+        $student = Student::where('major_id',$course->major_id)->get();
+
+        $risk_problem = Problem::where('risk_level','รุนแรงมาก')->where('course_id',$course_id)->get();
+        $risk_attendance = Attendance::where('amount_absence', '>=', 3 )->where('course_id',$course_id)->get();
+        $risk_grade = Grade::where('total_all', '<=', 60 )->where('course_id',$course_id)->get();
+
+        return view('lecturer.noPro',[
+            'student' => $student,
+            'course' => $course,
+            'major' => $major,
+
+            'risk_problem' => $risk_problem,
+            'risk_attendance' => $risk_attendance,
+            'risk_grade' => $risk_grade,
+        ]);
+    }
 
 }
