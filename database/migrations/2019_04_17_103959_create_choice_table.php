@@ -18,6 +18,8 @@ class CreateChoiceTable extends Migration
             // $table->unsignedBigInteger('question_id');
             // $table->foreign('question_id')->references('question_id')->on('question');
             $table->String('choice_name');
+            $table->integer('question_id')->nullable();
+            $table->integer('answer_id')->nullable();
             $table->timestamps();
         });
     }
