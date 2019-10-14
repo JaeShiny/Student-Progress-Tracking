@@ -24,7 +24,8 @@ use Auth;
 class NotificationController extends Controller
 {
 
-    //Lecturer
+        //Lecturer
+    //คลิกที่เด็กแล้วเจอแจ้งเตือนของแต่ละคน
     public function ProblemL($student_id){
         $bios = Bio::where('student_id', $student_id)->get();
         $risk_problem = Problem::where('risk_level','รุนแรงมาก')->where('student_id',$student_id)->get();
@@ -41,7 +42,7 @@ class NotificationController extends Controller
         ]);
     }
 
-    //ทำการแมบ course จนไปถึง student
+    //คลิกที่วิชาแล้วเจอแจ้งเตือนทั้งหมดในวิชานั้นๆ
     public function allNotiL($course_id){
         $course = Course::find($course_id);
         $major = Major::where('major_id',$course->major_id)->get();
@@ -61,5 +62,37 @@ class NotificationController extends Controller
             'risk_grade' => $risk_grade,
         ]);
     }
+
+    // แสดงแจ้งเตือนทุกวิชาที่สอน
+    public function subjectNotiL(){
+        $instructor = Instructor::where('first_name',Auth::user()->name)->first();
+        $schedule = Schedule::where('instructor_id2',$instructor->instructor_id)->pluck('course_id');
+        $course = Course::whereIn('course_id',$schedule)->paginate(5);
+
+        return view('lecturer.subjectNoti',[
+            'course' => $course,
+        ]);
+    }
+
+    public function showNotiL($course_id){
+        $course = Course::find($course_id);
+        $major = Major::where('major_id',$course->major_id)->get();
+        $student = Student::where('major_id',$course->major_id)->get();
+
+        $risk_problem = Problem::where('risk_level','รุนแรงมาก')->where('course_id',$course_id)->get();
+        $risk_attendance = Attendance::where('amount_absence', '>=', 3 )->where('course_id',$course_id)->get();
+        $risk_grade = Grade::where('total_all', '<=', 60 )->where('course_id',$course_id)->get();
+
+        return view('lecturer.showNoti',[
+            'student' => $student,
+            'course' => $course,
+            'major' => $major,
+
+            'risk_problem' => $risk_problem,
+            'risk_attendance' => $risk_attendance,
+            'risk_grade' => $risk_grade,
+        ]);
+    }
+
 
 }
