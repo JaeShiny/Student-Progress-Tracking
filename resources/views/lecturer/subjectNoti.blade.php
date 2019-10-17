@@ -36,7 +36,7 @@
             <p class="card-text">
                 {{$courses->course_name_eng}}
             </p>
-    </center>
+    </center><br><br>
 
 
     @endforeach

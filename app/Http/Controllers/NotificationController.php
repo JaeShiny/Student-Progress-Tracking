@@ -83,6 +83,9 @@ class NotificationController extends Controller
         $risk_attendance = Attendance::where('amount_absence', '>=', 3 )->where('course_id',$course_id)->get();
         $risk_grade = Grade::where('total_all', '<=', 60 )->where('course_id',$course_id)->get();
 
+        $riskproblem = Problem::where('risk_level','รุนแรงมาก')->where('course_id',$course_id)->count();
+        $riskattendance = Attendance::where('amount_absence', '>=', 3 )->where('course_id',$course_id)->count();
+        $riskgrade = Grade::where('total_all', '<=', 60 )->where('course_id',$course_id)->count();
         return view('lecturer.showNoti',[
             'student' => $student,
             'course' => $course,
@@ -91,6 +94,10 @@ class NotificationController extends Controller
             'risk_problem' => $risk_problem,
             'risk_attendance' => $risk_attendance,
             'risk_grade' => $risk_grade,
+
+            'riskproblem' => $riskproblem,
+            'riskattendance' => $riskattendance,
+            'riskgrade' => $riskgrade,
         ]);
     }
 
