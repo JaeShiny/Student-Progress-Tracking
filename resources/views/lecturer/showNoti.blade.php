@@ -197,7 +197,11 @@
                 @foreach ($risk_problem as $show_problem)
 
                 <tr>
-                    <td scope="row">{{$show_problem->student_id}}</td>
+                    <td scope="row">
+                        <a href="/notiproblemL/{{$show_problem->student_id}}">
+                            {{$show_problem->student_id}}
+                        </a>
+                    </td>
                     <td>{{$show_problem->problem_type}}</td>
                     <td>{{$show_problem->problem_topic}}</td>
                     <td>{{$show_problem->problem_detail}}</td>
@@ -231,7 +235,11 @@
                 @foreach ($risk_attendance as $show_problem)
 
                 <tr>
-                    <td scope="row">{{$show_problem->student_id}}</td>
+                    <td scope="row">
+                        <a href="/notiproblemL/{{$show_problem->student_id}}">
+                            {{$show_problem->student_id}}
+                        </a>
+                    </td>
                     <td>{{$show_problem->course_id}}</td>
                     <td>{{$show_problem->amount_absence}}</td>
 
@@ -262,7 +270,11 @@
                 @foreach ($risk_grade as $show_problem)
 
                 <tr>
-                    <td scope="row">{{$show_problem->student_id}}</td>
+                    <td scope="row">
+                        <a href="/notiproblemL/{{$show_problem->student_id}}">
+                            {{$show_problem->student_id}}
+                        </a>
+                    </td>
                     <td>{{$show_problem->course_id}}</td>
                     <td>{{$show_problem->total_all}}/100</td>
 
