@@ -41,6 +41,14 @@
             </form><br>
             <center><img src="../img/attendance.png" width="1000" height="350" title="คู่มือการ import การเข้าเรียน"></center>
         </div>
+        <div class="card-body">
+            <form action="" method="POST" enctype="multipart/form-data">
+                @csrf
+                &nbsp;&nbsp;&nbsp;
+                <a class="btn btn-success" href="{{ route('exportAttendanceLF') }}">ดาวน์โหลดแบบฟอร์มการกรอกการเข้าเรียน (สำหรับวิชาที่มีคาบแลป)</a>
+            </form><br>
+            <center><img src="../img/attendance2.png" width="1000" height="350" title="คู่มือการ import การเข้าเรียน"></center>
+        </div>
     </div>
 </div><br>
 
