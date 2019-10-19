@@ -41,7 +41,7 @@
                         <img src="../img/subject.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
                             <a href="/allNotiL/{{$courses->course_id}}" style="float:right">
-                                <img src="../img/notification.png" width="25" title="การแจ้งเตือน">
+                                <img src="../img/noti.png" width="25" title="การแจ้งเตือน">
                             </a> <br>
                             <center>
                             <a href="/subject/{{$courses->course_id}}">
