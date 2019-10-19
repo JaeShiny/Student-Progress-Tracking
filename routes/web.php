@@ -142,15 +142,20 @@ Route::get('/indexSurvey', function () {
     return view('lecturer.indexSurvey');
 });
 
-    //แจ้งเตือน
-//กดปุ่มแจ้งเตือนแล้วเจอพฤติกรรมที่รุนแรงของนักศึกษา
+            //แจ้งเตือน//
+//Lec
+    //กดปุ่มแจ้งเตือนแล้วเจอพฤติกรรมที่รุนแรงของนักศึกษา
 Route::get('notiproblemL/{student_id}','NotificationController@ProblemL');
-
 Route::get('allNotiL/{course_id}','NotificationController@allNotiL');
-
-// route แสดงรายวิชาที่อาจารย์สอน
+    // route แสดงรายวิชาที่อาจารย์สอน
 Route::get('subjectNotiL','NotificationController@subjectNotiL');
 Route::get('showNotiL/{course_id}','NotificationController@showNotiL');
+//LF
+Route::get('notiproblemLF/{student_id}','NotificationController@ProblemLF');
+Route::get('allNotiLF/{course_id}','NotificationController@allNotiLF');
+Route::get('subjectNotiLF','NotificationController@subjectNotiLF');
+Route::get('showNotiLF/{course_id}','NotificationController@showNotiLF');
+
 
 
     //Student

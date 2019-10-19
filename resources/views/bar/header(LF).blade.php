@@ -55,7 +55,7 @@
         {{-- &nbsp;&nbsp;<img src="../img/logopage.png" width="120" height="50"> --}}
         &nbsp;&nbsp;<img src={{ URL::asset("../img/logopage.png") }} width="120" height="50">
         <a class="nav-link active" href="{{ url('courseLF') }}" style="color: #FFFFFF">วิชาที่สอน</a>
-        <a class="nav-link" href="#" style="color: #FFFFFF">การแจ้งเตือน</a>
+        <a class="nav-link" href="{{ url('subjectNotiLF') }}" style="color: #FFFFFF">การแจ้งเตือน</a>
         <a class="nav-link" href="#" style="color: #FFFFFF">สถิติ</a>
         <a class="nav-link" href="{{ url('FormAttendanceLF') }}" style="color: #FFFFFF">ดาวน์โหลดแบบฟอร์ม</a>
         {{-- <a class="nav-link" href="" style="color: #FFFFFF">เพิ่มไฟล์</a> --}}
