@@ -53,7 +53,7 @@
         <div class="row">
             @foreach ($course as $courses)
 
-            <div class="col-sm">
+            <div class="col-sm-4">
 
                 <div class="card" style="width: 18rem; box-shadow: 5px 5px 8px 4px rgba(50, 50, 50, .5); ">
                     <div class="card-header" style="background-color:#F75D59;color: white">
