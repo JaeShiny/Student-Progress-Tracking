@@ -33,95 +33,33 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-sm-1"></div>
-            <div class="col-sm">
 
-                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal22">
-                    พฤติกรรมและปัญหา&nbsp;&nbsp;
-                    <span class="badge badge-light">
-                    <p>{{$riskproblem}}</p>
-                </span>
-                </button>
+            <div class="col-sm-4">
 
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModal22" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            @foreach ($risk_problem as $show_problem)
-                            <div class="modal-header">
+                <div class="card mb-3" style="max-width: 400px;box-shadow: 5px 5px 8px 4px rgba(50, 50, 50, .5); ">
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
 
-                                <h5 class="modal-title" id="exampleModalLabel">รหัสนักศึกษา {{$show_problem->student_id}}</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <b>หัวข้อของปัญหา :</b> {{$show_problem->problem_type}}
-                                <br>
-                                <b>รายละเอียด :</b> {{$show_problem->problem_topic}}
-                                <br>
-                                <b>ระดับความเสี่ยง :</b> {{$show_problem->risk_level}}
-                            </div>
-                            <div class="modal-footer">
-                            </div>
-                            <div class="modal-body" style="margin-top: -7%">
-
-                                <p class="card-text"><small class="text-muted" style="float: right">&nbsp;&nbsp;วันที่เกิดปัญหา : {{$show_problem->date}}</small></p>
-                                <p class="card-text"><small class="text-muted" style="float: right">วันที่เพิ่ม : {{$show_problem->created_at}}</small></p>
-                                <br>
-
-                                <p class="card-text"><small class="text-muted" style="float: right">ผู้เพิ่ม : {{$show_problem->users->name}}</small></p>
-                            </div>
-
-                            <div class="modal-footer">
-
-                            </div>
-
-                            @endforeach
-
+                            <img src="../img/feedback.png" class="card-img" alt="...">
                         </div>
-                    </div>
-                </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
 
-            </div>
-            <div class="col-sm">
-
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
-                    การแจ้งเตือนการเข้าเรียน&nbsp;&nbsp;
-                    <span class="badge badge-light">
-            <p>{{$riskattendance}}</p>
-        </span>
-                </button>
-
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            @foreach ($risk_attendance as $show_problem)
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">
-              รหัสนักศึกษา : {{$show_problem->student_id}}</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <b>รหัสวิชา :</b> {{$show_problem->course_id}}
-                            </div>
-                            <div class="modal-body">
-                                <b>จำนวนที่ขาด :</b> {{$show_problem->amount_absence}}
-                            </div>
-                            <br> @endforeach
-                            <hr>
-                            <div class="modal-footer">
-                                @foreach ($risk_attendance as $show_problem)
+                                <b> <p class="card-text">
+                                                การแจ้งเตือน
+                                            </p></b> {{--
+                                <h5 class="card-title">การแจ้งเตือนพฤติกรรมและปัญหา</h5>--}}
                                 <p class="card-text">
-                                    <small class="text-muted">ผู้เพิ่ม : อาจารย์ {{$show_problem->person_add}}</small>
+                                    <button type="button" class="btn btn-danger" data-toggle="modal">
+                                        <a href="#exampleModal1" style="text-decoration-line: none;color: white"> พฤติกรรมและปัญหา&nbsp;&nbsp;</a>
+                                        <span class="badge badge-light">
+                                                <p>{{$riskproblem}}</p>
+                                            </span>
+                                    </button>
                                 </p>
-                                <br> @endforeach
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 
+                                {{--
+                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>--}}
                             </div>
                         </div>
                     </div>
@@ -130,41 +68,62 @@
             </div>
             <div class="col-sm">
 
-                {{-- แจ้งเตือนปัญหาและพฤติกรรม --}}
+                <div class="card mb-3" style="max-width: 400px;box-shadow: 5px 5px 8px 4px rgba(50, 50, 50, .5); ">
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
 
-                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal3">
-                    การแจ้งเตือนผลการเรียน&nbsp;&nbsp;
-                    <span class="badge badge-light">
-        <p>{{$riskgrade}}</p>
-    </span>
-                </button>
+                            <img src="../img/feedback.png" class="card-img" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
 
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            @foreach ($risk_grade as $show_problem)
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">
-                                    <b>รหัสนักศึกษา :</b> {{$show_problem->student_id}}</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
+                                <b> <p class="card-text">
+                                                การแจ้งเตือน
+                                            </p></b> {{--
+                                <h5 class="card-title">การแจ้งเตือนพฤติกรรมและปัญหา</h5>--}}
+                                <p class="card-text">
+                                    <button type="button" class="btn btn-danger" data-target="#exampleModal">
+                                        <a href="#exampleModal2" style="text-decoration-line: none;color: white">การเข้าเรียน&nbsp;&nbsp;</a>
+                                        <span class="badge badge-light">
+                                        <p>{{$riskattendance}}</p>
+                                    </span>
+                                    </button>
+                                </p>
+
+                                {{--
+                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>--}}
                             </div>
-                            <div class="modal-body">
-                                <b>รหัสวิชา : </b>{{$show_problem->course_id}}
-                            </div>
-                            <div class="modal-body">
-                                <b>คะแนนรวมทั้งหมด :</b> {{$show_problem->total_all}}/100
-                            </div>
-                            @endforeach {{--
-                            <div class="modal-footer"> --}}
-                                <div class="modal-footer">
-                                    @foreach ($risk_attendance as $show_problem)
-                                    <p class="card-text"><small class="text-muted">ผู้เพิ่ม : อาจารย์ {{$show_problem->person_add}}</small></p>
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    @endforeach
-                                </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-sm">
+
+                <div class="card mb-3" style="max-width: 400px;box-shadow: 5px 5px 8px 4px rgba(50, 50, 50, .5); ">
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
+
+                            <img src="../img/feedback.png" class="card-img" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+
+                                <b> <p class="card-text">
+                                                การแจ้งเตือน
+                                            </p></b> {{--
+                                <h5 class="card-title">การแจ้งเตือนพฤติกรรมและปัญหา</h5>--}}
+                                <p class="card-text">
+                                    <button type="button" class="btn btn-danger" data-target="#exampleModal3">
+                                        <a href="#exampleModal3" style="text-decoration-line: none;color: white">ผลการเรียน&nbsp;&nbsp;</a>
+                                        <span class="badge badge-light">
+                                    <p>{{$riskgrade}}</p>
+                                </span>
+                                    </button>
+                                </p>
+
+                                {{--
+                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>--}}
                             </div>
                         </div>
                     </div>
@@ -173,10 +132,13 @@
             </div>
         </div>
     </div>
-
+    <br>
     <center>
         <br> {{-- แจ้งเตือนปัญหาและพฤติกรรม --}}
-        <h6 style="position: relative; left: -31%">การแจ้งเตือนปัญหาและพฤติกรรม</h6>
+
+        <button type="button" class="btn btn-outline-white" style="border-color: white; position: relative; left: -30%"><img src="../img/noti.png" style="width: 12%;float: left">
+            <h5><a name="exampleModal1">การแจ้งเตือนปัญหาและพฤติกรรม</a></h5></button>
+        <br>
         <br>
         <br>
         <br>
@@ -198,7 +160,7 @@
 
                 <tr>
                     <td scope="row">
-                        <a href="/notiproblemL/{{$show_problem->student_id}}">
+                        <a href="/notiproblemL/{{$show_problem->student_id}}" style="color: black;text-decoration-line: none">
                             {{$show_problem->student_id}}
                         </a>
                     </td>
@@ -217,10 +179,13 @@
         </table>
         <br>
         <br> {{-- แจ้งเตือนการเข้าเรียน --}}
-        <h6 style="position: relative; left: -33%">การแจ้งเตือนการเข้าเรียน</h6>
+        <button type="button" class="btn btn-outline-white" style="border-color: white; position: relative; left: -32%"><img src="../img/noti.png" style="width: 15%;float: left">
+            <h5><a name="exampleModal2">การแจ้งเตือนการเข้าเรียน</a></h5></button>
         <br>
         <br>
         <br>
+        <br>
+
         <table class="table" width="60%">
             <thead class="thead-light">
                 <tr>
@@ -236,7 +201,7 @@
 
                 <tr>
                     <td scope="row">
-                        <a href="/notiproblemL/{{$show_problem->student_id}}">
+                        <a href="/notiproblemL/{{$show_problem->student_id}}" style="color: black;text-decoration-line: none">
                             {{$show_problem->student_id}}
                         </a>
                     </td>
@@ -252,10 +217,13 @@
         </table>
         <br>
         <br> {{-- แจ้งเตือนผลการเรียน --}}
-        <h6 style="position: relative; left: -33%">การแจ้งเตือนผลการเรียน</h6>
+        <button type="button" class="btn btn-outline-white" style="border-color: white; position: relative; left: -32%"><img src="../img/noti.png" style="width: 15%;float: left">
+            <h5><a name="exampleModal3">การแจ้งเตือนผลการเรียน</a></h5></button>
         <br>
         <br>
         <br>
+        <br>
+
         <table class="table" width="60%">
             <thead class="thead-light">
                 <tr>
@@ -271,7 +239,7 @@
 
                 <tr>
                     <td scope="row">
-                        <a href="/notiproblemL/{{$show_problem->student_id}}">
+                        <a href="/notiproblemL/{{$show_problem->student_id}}" style="color: black;text-decoration-line: none">
                             {{$show_problem->student_id}}
                         </a>
                     </td>
@@ -287,7 +255,10 @@
         </table>
         <br>
         <br>
-
+        <br>
+        <br>
+        <br>
+        <br>
     </center>
 
     <!-- Optional JavaScript -->
