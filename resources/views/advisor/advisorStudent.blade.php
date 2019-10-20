@@ -94,7 +94,7 @@
                     </a>
                 </td>
                 <td width="10">
-                    <a href="">
+                    <a href="/notiproblemA/{{$ad_list->student_id}}">
                         <center><img src="../img/noti.png" width="30" height="25" title="แจ้งเตือน"></center>
                     </a>
                 </td>

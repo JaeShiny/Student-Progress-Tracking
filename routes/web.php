@@ -155,7 +155,8 @@ Route::get('notiproblemLF/{student_id}','NotificationController@ProblemLF');
 Route::get('allNotiLF/{course_id}','NotificationController@allNotiLF');
 Route::get('subjectNotiLF','NotificationController@subjectNotiLF');
 Route::get('showNotiLF/{course_id}','NotificationController@showNotiLF');
-
+//Advisor
+Route::get('notiproblemA/{student_id}','NotificationController@ProblemA');
 
 
     //Student
@@ -528,6 +529,7 @@ Route::group(['prefix' => 'advisor'], function(){
         // route ไปยังหน้าที่แสดงรายชื่อนักศึกษาของอาจารย์ที่ปรึกษา
         Route::get('myStudent','advisor\AdvisorController@showStudent');
         Route::get('showAtt','advisor\AdvisorController@showAttendance');
+        Route::get('showNotiA','NotificationController@showNotiA');
     });
 });
 //Route for lecturer user

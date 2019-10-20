@@ -179,4 +179,53 @@ class NotificationController extends Controller
         ]);
     }
 
+
+            //Advisor//
+    //คลิกที่เด็กแล้วเจอแจ้งเตือนของแต่ละคน
+    public function ProblemA($student_id){
+        $bios = Bio::where('student_id', $student_id)->get();
+        $risk_problem = Problem::where('risk_level','รุนแรงมาก')->where('student_id',$student_id)->get();
+
+        $risk_attendance = Attendance::where('amount_absence', '>=', 3 )->where('student_id',$student_id)->get();
+        $risk_grade = Grade::where('total_all', '<=', 60 )->where('student_id',$student_id)->get();
+
+        return view('advisor.notification',[
+            'bios' => $bios,
+            'risk_problem' => $risk_problem,
+            'risk_attendance' => $risk_attendance,
+            'risk_grade' => $risk_grade,
+
+        ]);
+    }
+
+    //แสดงแจ้งเตือนหลังจากคลิกปุ่มการแจ้งเตือน
+    public function showNotiA(){
+        $instructor = Instructor::where('first_name',Auth::user()->name)->first();
+        $myStudent = Student::where('adviser_id1',$instructor->instructor_id)->orWhere('adviser_id2',$instructor->instructor_id)->get();
+
+        $student = Student::where('adviser_id1',$instructor->instructor_id)->orWhere('adviser_id2',$instructor->instructor_id)->first();
+        $bios = Bio::where('student_id', $student->student_id)->get();
+        $risk_problem = Problem::where('risk_level','รุนแรงมาก')->where('student_id',$student->student_id)->get();
+        $risk_attendance = Attendance::where('amount_absence', '>=', 3 )->where('student_id',$student->student_id)->get();
+        $risk_grade = Grade::where('total_all', '<=', 60 )->where('student_id',$student->student_id)->get();
+
+        $riskproblem = Problem::where('risk_level','รุนแรงมาก')->where('student_id',$student->student_id)->count();
+        $riskattendance = Attendance::where('amount_absence', '>=', 3 )->where('student_id',$student->student_id)->count();
+        $riskgrade = Grade::where('total_all', '<=', 60 )->where('student_id',$student->student_id)->count();
+
+        return view('advisor.showNoti',[
+            'student' => $student,
+            'myStudent' => $myStudent,
+
+            'bios' => $bios,
+            'risk_problem' => $risk_problem,
+            'risk_attendance' => $risk_attendance,
+            'risk_grade' => $risk_grade,
+
+            'riskproblem' => $riskproblem,
+            'riskattendance' => $riskattendance,
+            'riskgrade' => $riskgrade,
+        ]);
+    }
+
 }
