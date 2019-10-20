@@ -157,7 +157,14 @@ Route::get('subjectNotiLF','NotificationController@subjectNotiLF');
 Route::get('showNotiLF/{course_id}','NotificationController@showNotiLF');
 //Advisor
 Route::get('notiproblemA/{student_id}','NotificationController@ProblemA');
-
+//Ad+Lec
+Route::get('/indexNoti', function () {
+    return view('AdLec.indexNoti');
+});
+Route::get('notiproblemAL/{student_id}','NotificationController@ProblemAL');
+Route::get('allNotiAL2/{course_id}','NotificationController@allNotiAL2');
+Route::get('subjectNotiAL2','NotificationController@subjectNotiAL2');
+Route::get('showNotiAL2/{course_id}','NotificationController@showNotiAL2');
 
     //Student
 Route::get('profile/{student_id}','student\BioController@profile');
@@ -544,6 +551,7 @@ Route::group(['prefix' => 'AdLec'], function(){
         Route::get('/dashboard', 'AdLec\AdLecController@index');
         // route ไปยังหน้าที่แสดงรายชื่อนักศึกษาของอาจารย์ที่ปรึกษา
         Route::get('ALStudent','AdLec\AdLecController@showStudent');
+        Route::get('showNotiAL','NotificationController@showNotiAL');
     });
 });
 //Route for LF user

@@ -228,4 +228,113 @@ class NotificationController extends Controller
         ]);
     }
 
+    //Ad+Lec//
+    //Ad
+    //คลิกที่เด็กแล้วเจอแจ้งเตือนของแต่ละคน
+    public function ProblemAL($student_id){
+        $bios = Bio::where('student_id', $student_id)->get();
+        $risk_problem = Problem::where('risk_level','รุนแรงมาก')->where('student_id',$student_id)->get();
+
+        $risk_attendance = Attendance::where('amount_absence', '>=', 3 )->where('student_id',$student_id)->get();
+        $risk_grade = Grade::where('total_all', '<=', 60 )->where('student_id',$student_id)->get();
+
+        return view('AdLec.notification',[
+            'bios' => $bios,
+            'risk_problem' => $risk_problem,
+            'risk_attendance' => $risk_attendance,
+            'risk_grade' => $risk_grade,
+
+        ]);
+    }
+
+    //แสดงแจ้งเตือนหลังจากคลิกปุ่มการแจ้งเตือน
+    public function showNotiAL(){
+        $instructor = Instructor::where('first_name',Auth::user()->name)->first();
+        $myStudent = Student::where('adviser_id1',$instructor->instructor_id)->orWhere('adviser_id2',$instructor->instructor_id)->get();
+
+        $student = Student::where('adviser_id1',$instructor->instructor_id)->orWhere('adviser_id2',$instructor->instructor_id)->first();
+        $bios = Bio::where('student_id', $student->student_id)->get();
+        $risk_problem = Problem::where('risk_level','รุนแรงมาก')->where('student_id',$student->student_id)->get();
+        $risk_attendance = Attendance::where('amount_absence', '>=', 3 )->where('student_id',$student->student_id)->get();
+        $risk_grade = Grade::where('total_all', '<=', 60 )->where('student_id',$student->student_id)->get();
+
+        $riskproblem = Problem::where('risk_level','รุนแรงมาก')->where('student_id',$student->student_id)->count();
+        $riskattendance = Attendance::where('amount_absence', '>=', 3 )->where('student_id',$student->student_id)->count();
+        $riskgrade = Grade::where('total_all', '<=', 60 )->where('student_id',$student->student_id)->count();
+
+        return view('AdLec.showNoti',[
+            'student' => $student,
+            'myStudent' => $myStudent,
+
+            'bios' => $bios,
+            'risk_problem' => $risk_problem,
+            'risk_attendance' => $risk_attendance,
+            'risk_grade' => $risk_grade,
+
+            'riskproblem' => $riskproblem,
+            'riskattendance' => $riskattendance,
+            'riskgrade' => $riskgrade,
+        ]);
+    }
+
+    //Lec
+    //คลิกที่วิชาแล้วเจอแจ้งเตือนทั้งหมดในวิชานั้นๆ
+    public function allNotiAL2($course_id){
+        $course = Course::find($course_id);
+        $major = Major::where('major_id',$course->major_id)->get();
+        $student = Student::where('major_id',$course->major_id)->get();
+
+        $risk_problem = Problem::where('risk_level','รุนแรงมาก')->where('course_id',$course_id)->get();
+        $risk_attendance = Attendance::where('amount_absence', '>=', 3 )->where('course_id',$course_id)->get();
+        $risk_grade = Grade::where('total_all', '<=', 60 )->where('course_id',$course_id)->get();
+
+        return view('AdLec.allNotification',[
+            'student' => $student,
+            'course' => $course,
+            'major' => $major,
+
+            'risk_problem' => $risk_problem,
+            'risk_attendance' => $risk_attendance,
+            'risk_grade' => $risk_grade,
+        ]);
+    }
+
+    // แสดงแจ้งเตือนทุกวิชาที่สอน
+    public function subjectNotiAL2(){
+        $instructor = Instructor::where('first_name',Auth::user()->name)->first();
+        $schedule = Schedule::where('instructor_id2',$instructor->instructor_id)->pluck('course_id');
+        $course = Course::whereIn('course_id',$schedule)->paginate(5);
+
+        return view('AdLec.subjectNoti',[
+            'course' => $course,
+        ]);
+    }
+
+    public function showNotiAL2($course_id){
+        $course = Course::find($course_id);
+        $major = Major::where('major_id',$course->major_id)->get();
+        $student = Student::where('major_id',$course->major_id)->get();
+
+        $risk_problem = Problem::where('risk_level','รุนแรงมาก')->where('course_id',$course_id)->get();
+        $risk_attendance = Attendance::where('amount_absence', '>=', 3 )->where('course_id',$course_id)->get();
+        $risk_grade = Grade::where('total_all', '<=', 60 )->where('course_id',$course_id)->get();
+
+        $riskproblem = Problem::where('risk_level','รุนแรงมาก')->where('course_id',$course_id)->count();
+        $riskattendance = Attendance::where('amount_absence', '>=', 3 )->where('course_id',$course_id)->count();
+        $riskgrade = Grade::where('total_all', '<=', 60 )->where('course_id',$course_id)->count();
+        return view('AdLec.showNoti2',[
+            'student' => $student,
+            'course' => $course,
+            'major' => $major,
+
+            'risk_problem' => $risk_problem,
+            'risk_attendance' => $risk_attendance,
+            'risk_grade' => $risk_grade,
+
+            'riskproblem' => $riskproblem,
+            'riskattendance' => $riskattendance,
+            'riskgrade' => $riskgrade,
+        ]);
+    }
+
 }

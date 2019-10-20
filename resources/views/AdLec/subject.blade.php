@@ -30,34 +30,57 @@
 
 <body>
 <br><br>
-@foreach ($course as $courses)
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-6">
-                <div class="card" style="width: 18rem;">
-                    <img src="../img/subject.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <center>
-                        <a href="/subjectAL/{{$courses->course_id}}">
-                            <h5 class="card-title">{{$courses->course_id}}</h5>
-                        </a>
-                        <p class="card-text">
-                            {{$courses->course_name_eng}}
-                        </p>
-                        <br><br>
-                        <a href="/subjectAL/{{$courses->course_id}}" class="btn btn-primary">รายละเอียด</a>
-                        <a href="/importExportViewAL/{{$courses->course_id}}" class="btn btn-primary">เพิ่มไฟล์</a> <br>
-                        </center>
+    <center>
+        <div class="container">
+            <div class="row">
+
+                    @foreach ($course as $courses)
+
+                <div class="col-4">
+                    <div class="card" style="width: 18rem;">
+                        <img src="../img/subject.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <a href="/allNotiAL2/{{$courses->course_id}}" style="float:right">
+                                <img src="../img/noti.png" width="25" title="การแจ้งเตือน">
+                            </a> <br>
+                            <center>
+                            <a href="/subjectAL/{{$courses->course_id}}">
+                                <h5 class="card-title">{{$courses->course_id}}</h5>
+                            </a>
+                            <p class="card-text">
+                                {{$courses->course_name_eng}}
+                            </p>
+                            <br><br>
+                            <a href="/subjectAL/{{$courses->course_id}}" class="btn btn-primary">รายละเอียด</a>
+                            <a href="/importExportViewAL/{{$courses->course_id}}" class="btn btn-primary">เพิ่มไฟล์</a> <br>
+                            </center>
+                        </div>
                     </div>
+
+                    <div class="container">
+                            <div class="row">
+                              <div class="col">
+    <br><br>
+                              </div>
+                              <div class="col order-12">
+    <br><br>
+                              </div>
+                              <div class="col order-1">
+    <br><br>
+                              </div>
+                            </div>
+                          </div>
                 </div>
+
+                @endforeach
+
             </div>
         </div>
-    </div>
-    <br>
-    <br>
-@endforeach
+        <center>
+        <br>
+        <br>
 
-    <center>{{$course->links()}}</center>
+        <center>{{$course->links()}}</center>
 
      <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -70,4 +93,4 @@
 
 @endsection
 @extends('bar.header(AdLec)')
-{{-- @extends('bar.username') --}}
+
