@@ -396,4 +396,31 @@ class NotificationController extends Controller
         ]);
     }
 
+
+            //Student//
+    //การเอาชื่อและนามสกุลในการล็อคอิน มาเทียบกับชื่อของเด็กใน bio
+    public function showNotiS(){
+        $user = Auth::user();
+        $bios = Bio::where('first_name',$user->name)->where('last_name',$user->lastname)->first();
+
+        $risk_problem = Problem::where('risk_level','รุนแรงมาก')->where('student_id',$bios->student_id)->get();
+        $risk_attendance = Attendance::where('amount_absence', '>=', 3 )->where('student_id',$bios->student_id)->get();
+        $risk_grade = Grade::where('total_all', '<=', 60 )->where('student_id',$bios->student_id)->get();
+
+        $riskproblem = Problem::where('risk_level','รุนแรงมาก')->where('student_id',$bios->student_id)->count();
+        $riskattendance = Attendance::where('amount_absence', '>=', 3 )->where('student_id',$bios->student_id)->count();
+        $riskgrade = Grade::where('total_all', '<=', 60 )->where('student_id',$bios->student_id)->count();
+
+        return view('student.showNoti',[
+            'bios'=> $bios,
+
+            'risk_problem' => $risk_problem,
+            'risk_attendance' => $risk_attendance,
+            'risk_grade' => $risk_grade,
+
+            'riskproblem' => $riskproblem,
+            'riskattendance' => $riskattendance,
+            'riskgrade' => $riskgrade,
+        ]);
+    }
 }

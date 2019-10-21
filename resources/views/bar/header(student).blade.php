@@ -55,7 +55,7 @@
         &nbsp;&nbsp;<img src={{ URL::asset("../img/logopage.png") }} width="120" height="50">
         <a class="nav-link active" href="{{ url('studentenrollment') }}" style="color: #FFFFFF">วิชาที่ลงทะเบียน</a>
         <a class="nav-link" href="/studentprofile" style="color: #FFFFFF" >ประวัติ</a>
-        <a class="nav-link" href="#" style="color: #FFFFFF">การแจ้งเตือน</a>
+        <a class="nav-link" href="/showNotiS" style="color: #FFFFFF">การแจ้งเตือน</a>
         <a class="nav-link" href="#" style="color: #FFFFFF">สถิติ</a>
         <a class="nav-link" href="/student/attendance" style="color: #FFFFFF">การเข้าเรียน</a>
         <a class="nav-link" href="/student/grade" style="color: #FFFFFF">ผลการเรียน</a>
