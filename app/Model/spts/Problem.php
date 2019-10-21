@@ -20,4 +20,9 @@ class Problem extends Model
         return $this->hasOne('App\Model\mis\Student','student_id','student_id');
     }
 
+    //แมบฟอเรนคีย์ของ problem กับ mis/student
+    public function problem(){
+        return $this->hasOne('App\Model\mis\Student','student_id','student_id');
+    }
+
 }

@@ -40,4 +40,8 @@ class Student extends Model
     public function students(){
         return $this->hasOne('App\Model\mis\Bio','student_id','student_id');
     }
+
+    public function problem(){
+        return $this->hasOne('App\Model\spts\Problem','student_id','student_id');
+    }
 }

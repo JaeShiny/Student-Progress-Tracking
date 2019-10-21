@@ -111,7 +111,7 @@
                     </a>
                 </td>
                 <td width="10">
-                    <a href="">
+                    <a href="/notiproblemE/{{$student->student_id}}">
                         {{-- <center><img src="../img/noti.png" width="30" height="25" title="แจ้งเตือน"></center> --}}
                         <center><img src={{ URL::asset("../img/noti.png") }}  width="30" height="25" title="แจ้งเตือน"></center>
                     </a>

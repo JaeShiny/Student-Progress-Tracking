@@ -165,6 +165,12 @@ Route::get('notiproblemAL/{student_id}','NotificationController@ProblemAL');
 Route::get('allNotiAL2/{course_id}','NotificationController@allNotiAL2');
 Route::get('subjectNotiAL2','NotificationController@subjectNotiAL2');
 Route::get('showNotiAL2/{course_id}','NotificationController@showNotiAL2');
+//Edu
+Route::get('curriNoti','NotificationController@curriNoti');
+Route::get('notiproblemE/{student_id}','NotificationController@ProblemE');
+Route::get('showNotiE/{curriculum_id}','NotificationController@showNotiE');
+
+
 
     //Student
 Route::get('profile/{student_id}','student\BioController@profile');

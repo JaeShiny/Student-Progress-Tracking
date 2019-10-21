@@ -12,6 +12,7 @@ use App\Model\mis\Bio;
 use App\Model\mis\Major;
 use App\Model\mis\Course;
 use App\Model\mis\Student;
+use App\Model\mis\Curriculum;
 use App\Model\mis\Schedule;
 use App\Model\mis\Instructor;
 use App\Model\spts\LF;
@@ -322,10 +323,68 @@ class NotificationController extends Controller
         $riskproblem = Problem::where('risk_level','รุนแรงมาก')->where('course_id',$course_id)->count();
         $riskattendance = Attendance::where('amount_absence', '>=', 3 )->where('course_id',$course_id)->count();
         $riskgrade = Grade::where('total_all', '<=', 60 )->where('course_id',$course_id)->count();
+
         return view('AdLec.showNoti2',[
             'student' => $student,
             'course' => $course,
             'major' => $major,
+
+            'risk_problem' => $risk_problem,
+            'risk_attendance' => $risk_attendance,
+            'risk_grade' => $risk_grade,
+
+            'riskproblem' => $riskproblem,
+            'riskattendance' => $riskattendance,
+            'riskgrade' => $riskgrade,
+        ]);
+    }
+
+
+            //EducationOfficer//
+    //กดปุ่มการแจ้งเตือนแล้วเจอหลักสูตร
+    public function curriNoti(){
+        $curriculum = Curriculum::where('curriculum_id',Auth::user()->curriculum)->first();
+        return view('EducationOfficer.curriNoti',[
+            'curriculum' => $curriculum,
+
+        ]);
+    }
+
+    //คลิกที่เด็กแล้วเจอแจ้งเตือนของแต่ละคน
+    public function ProblemE($student_id){
+        $bios = Bio::where('student_id', $student_id)->get();
+        $risk_problem = Problem::where('risk_level','รุนแรงมาก')->where('student_id',$student_id)->get();
+
+        $risk_attendance = Attendance::where('amount_absence', '>=', 3 )->where('student_id',$student_id)->get();
+        $risk_grade = Grade::where('total_all', '<=', 60 )->where('student_id',$student_id)->get();
+
+        return view('EducationOfficer.notification',[
+            'bios' => $bios,
+            'risk_problem' => $risk_problem,
+            'risk_attendance' => $risk_attendance,
+            'risk_grade' => $risk_grade,
+
+        ]);
+    }
+
+    //กดจากหน้าหลักสูตรแล้วเจอรายชื่อเด็กที่มีปัญหา
+    public function showNotiE($curriculum_id){
+        $curriculum = Curriculum::find($curriculum_id);
+        $student = Student::where('curriculum_id',$curriculum->curriculum_id)->get();
+        $students = Student::where('curriculum_id',$curriculum->curriculum_id)->first();
+
+        $risk_problem = Problem::where('risk_level','รุนแรงมาก')->where('student_id',$students->student_id)->get();
+        $risk_attendance = Attendance::where('amount_absence', '>=', 3 )->where('student_id',$students->student_id)->get();
+        $risk_grade = Grade::where('total_all', '<=', 60 )->where('student_id',$students->student_id)->get();
+
+        $riskproblem = Problem::where('risk_level','รุนแรงมาก')->where('student_id',$students->student_id)->count();
+        $riskattendance = Attendance::where('amount_absence', '>=', 3 )->where('student_id',$students->student_id)->count();
+        $riskgrade = Grade::where('total_all', '<=', 60 )->where('student_id',$students->student_id)->count();
+
+        return view('EducationOfficer.showNoti',[
+            'curriculum' => $curriculum,
+            'student' => $student,
+            'students' => $students,
 
             'risk_problem' => $risk_problem,
             'risk_attendance' => $risk_attendance,
