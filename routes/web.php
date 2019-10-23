@@ -22,6 +22,9 @@ Route::get('image', 'ImageController@index');
 Route::post('save', 'ImageController@save');
 
 
+Route::get('chart', 'ChartController@index');
+
+
     //EducationOfficer
 
 // map เจ้าหน้าที่นักการศึกษากับหลักสูตร

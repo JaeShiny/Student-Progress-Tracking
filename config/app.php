@@ -181,7 +181,8 @@ return [
         Collective\Html\HtmlServiceProvider::class,
 
         // Skydiver\LaravelMaterializeCSS\MaterializeCSSServiceProvider::class,
-
+        //Chart
+        ConsoleTVs\Charts\ChartsServiceProvider::class,
     ],
 
     /*
@@ -239,6 +240,9 @@ return [
         // 'MaterializeCSS' => Skydiver\LaravelMaterializeCSS\MaterializeCSS::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
+
+        //Chart
+        'Charts' => ConsoleTVs\Charts\Facades\Charts::class,
     ],
 
 ];
