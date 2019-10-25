@@ -59,24 +59,24 @@ class ChartController extends Controller
         $student = Student::where('major_id',$course->major_id)->get();
 
         $count_student = Attendance::where('attendance_id')->count();
-        $risk_attendance = Attendance::where('amount_absence', '>=', 3 )->where('course_id',$course_id)->get();
+        $risk_attendance = Attendance::where('amount_absence')->where('course_id',$course_id)->get();
         $risk_attendanceC = Attendance::where('amount_absence')->where('course_id',$course_id)->count();
 
-        $period_1 = Attendance::where('period_1', '<<' , 1)->where('course_id',$course_id)->count();
-        $period_2 = Attendance::where('period_2', '<<' , 1)->where('course_id',$course_id)->count();
-        $period_3 = Attendance::where('period_3', '<<' , 1)->where('course_id',$course_id)->count();
-        $period_4 = Attendance::where('period_4', '<<' , 1)->where('course_id',$course_id)->count();
-        $period_5 = Attendance::where('period_5', '<<' , 1)->where('course_id',$course_id)->count();
-        $period_6 = Attendance::where('period_6', '<<' , 1)->where('course_id',$course_id)->count();
-        $period_7 = Attendance::where('period_7', '<<' , 1)->where('course_id',$course_id)->count();
-        $period_8 = Attendance::where('period_8', '<<' , 1)->where('course_id',$course_id)->count();
-        $period_9 = Attendance::where('period_9', '<<' , 1)->where('course_id',$course_id)->count();
-        $period_10 = Attendance::where('period_10', '<<' , 1)->where('course_id',$course_id)->count();
-        $period_11 = Attendance::where('period_11', '<<' , 1)->where('course_id',$course_id)->count();
-        $period_12 = Attendance::where('period_12', '<<' , 1)->where('course_id',$course_id)->count();
-        $period_13 = Attendance::where('period_13', '<<' , 1)->where('course_id',$course_id)->count();
-        $period_14 = Attendance::where('period_14', '<<' , 1)->where('course_id',$course_id)->count();
-        $period_15 = Attendance::where('period_15', '<<' , 1)->where('course_id',$course_id)->count();
+        $period_1 = Attendance::where('period_1', '<=' , 0)->where('course_id',$course_id)->count();
+        $period_2 = Attendance::where('period_2', '<=' , 0)->where('course_id',$course_id)->count();
+        $period_3 = Attendance::where('period_3', '<=' , 0)->where('course_id',$course_id)->count();
+        $period_4 = Attendance::where('period_4', '<=' , 0)->where('course_id',$course_id)->count();
+        $period_5 = Attendance::where('period_5', '<=' , 0)->where('course_id',$course_id)->count();
+        $period_6 = Attendance::where('period_6', '<=' , 0)->where('course_id',$course_id)->count();
+        $period_7 = Attendance::where('period_7', '<=' , 0)->where('course_id',$course_id)->count();
+        $period_8 = Attendance::where('period_8', '<=' , 0)->where('course_id',$course_id)->count();
+        $period_9 = Attendance::where('period_9', '<=' , 0)->where('course_id',$course_id)->count();
+        $period_10 = Attendance::where('period_10', '<=' , 0)->where('course_id',$course_id)->count();
+        $period_11 = Attendance::where('period_11', '<=' , 0)->where('course_id',$course_id)->count();
+        $period_12 = Attendance::where('period_12', '<=' , 0)->where('course_id',$course_id)->count();
+        $period_13 = Attendance::where('period_13', '<=' , 0)->where('course_id',$course_id)->count();
+        $period_14 = Attendance::where('period_14', '<=' , 0)->where('course_id',$course_id)->count();
+        $period_15 = Attendance::where('period_15', '<=' , 0)->where('course_id',$course_id)->count();
 
         // $chart = Charts::database($risk_attendance, 'bar', 'highcharts')
         //         ->title("Attendance")
