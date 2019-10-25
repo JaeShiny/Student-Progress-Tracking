@@ -32,8 +32,8 @@
 
     <div class="container">
         <div class="row">
-
-            <div class="col-sm-6">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-4">
 
                 <div class="card mb-3" style="max-width: 400px;box-shadow: 5px 5px 8px 4px rgba(50, 50, 50, .5); ">
                     <div class="row no-gutters">
@@ -65,7 +65,7 @@
                 </div>
             </div>
 
-            <div class="col-sm-6">
+            <div class="col-sm-4">
 
                 <div class="card mb-3" style="max-width: 400px;box-shadow: 5px 5px 8px 4px rgba(50, 50, 50, .5); ">
                     <div class="row no-gutters">
