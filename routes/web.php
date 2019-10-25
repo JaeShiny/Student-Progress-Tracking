@@ -21,8 +21,13 @@ Route::get('/selectyear/{id}','EducationOfficer\SelectYearController@index');
 Route::get('image', 'ImageController@index');
 Route::post('save', 'ImageController@save');
 
-
+    //Chart
 Route::get('chart', 'ChartController@index');
+//Lecturer
+Route::get('subjectStatisticL','ChartController@subjectStatisticL');
+Route::get('chartAttendanceL/{course_id}', 'ChartController@attendanceL');
+Route::get('chartGradeL/{course_id}', 'ChartController@gradeL');
+Route::get('chartProblemL/{course_id}', 'ChartController@problemL');
 
 
     //EducationOfficer

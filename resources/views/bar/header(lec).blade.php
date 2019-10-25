@@ -59,7 +59,7 @@
         &nbsp;&nbsp;<img src={{ URL::asset("../img/logopage.png") }} width="120" height="50">
         <a class="nav-link active" href="{{ url('course') }}" style="color: #FFFFFF">วิชาที่สอน</a>
         <a class="nav-link" href="{{ url('subjectNotiL') }}" style="color: #FFFFFF">การแจ้งเตือน</a>
-        <a class="nav-link" href="#" style="color: #FFFFFF">สถิติ</a>
+        <a class="nav-link" href="{{ url('subjectStatisticL') }}" style="color: #FFFFFF">สถิติ</a>
         <a class="nav-link" href="{{ url('FormAttendance') }}" style="color: #FFFFFF">ดาวน์โหลดแบบฟอร์ม</a>
         {{-- <a class="nav-link" href="" style="color: #FFFFFF">เพิ่มไฟล์</a> --}}
         {{-- <a class="nav-link" href="/importExportView/{course_id}" style="color: #FFFFFF">เพิ่มไฟล์</a> --}}
