@@ -52,7 +52,9 @@
                             </p>
                             <br><br>
                             <a href="/subject/{{$courses->course_id}}" class="btn btn-primary">รายละเอียด</a>
-                            <a href="/importExportView/{{$courses->course_id}}" class="btn btn-primary">เพิ่มไฟล์</a> <br>
+                            <a href="/importExportView/{{$courses->course_id}}" class="btn btn-primary">เพิ่มไฟล์</a> <br><br>
+                            <a href="/attendance/{{$courses->course_id}}" class="btn btn-primary">การเข้าเรียน</a>&nbsp;
+                            <a href="/showGrade/{{$courses->course_id}}" class="btn btn-primary">ผลการเรียน</a>
                             </center>
                         </div>
                     </div>
