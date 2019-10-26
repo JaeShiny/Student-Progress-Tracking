@@ -17,7 +17,7 @@
         <ol class="breadcrumb">
             <li> </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <li class="breadcrumb-item active" aria-current="page"><a href="{{ url('indexNoti') }}">การแจ้งเตือน</a></li>
-            <li class="breadcrumb-item active" aria-current="page"><a href="">การแจ้งเตือน(Advisor)</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><a href="" name="mode">การแจ้งเตือน(Advisor)</a></li>
         </ol>
     </nav>
 
@@ -174,6 +174,7 @@
 
             </tbody>
         </table>
+        <a href="#mode"><img src="../img/arrow.jpg" style="width: 15px;position: relative;float: right;right: 11%" ></a>
         <br>
         <br> {{-- แจ้งเตือนการเข้าเรียน --}}
         <button type="button" class="btn btn-outline-white" style="border-color: white; position: relative; left: -32%"><img src="../img/noti.png" style="width: 15%;float: left">
@@ -212,6 +213,7 @@
 
             </tbody>
         </table>
+        <a href="#mode"><img src="../img/arrow.jpg" style="width: 15px;position: relative;float: right;right: 11%" ></a>
         <br>
         <br> {{-- แจ้งเตือนผลการเรียน --}}
         <button type="button" class="btn btn-outline-white" style="border-color: white; position: relative; left: -32%"><img src="../img/noti.png" style="width: 15%;float: left">
@@ -250,6 +252,7 @@
 
             </tbody>
         </table>
+        <a href="#mode"><img src="../img/arrow.jpg" style="width: 15px;position: relative;float: right;right: 11%" ></a>
         <br>
         <br>
         <br>
