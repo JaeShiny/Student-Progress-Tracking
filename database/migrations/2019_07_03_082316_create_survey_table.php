@@ -18,6 +18,10 @@ class CreateSurveyTable extends Migration
             $table->string('title');
             $table->integer('user_id')->unsigned()->index();
             $table->string('description');
+            $table->String('semester')->nullable();
+            $table->String('year')->nullable();
+            $table->String('section')->nullable();
+            $table->String('gen')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

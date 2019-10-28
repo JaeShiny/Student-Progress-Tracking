@@ -28,6 +28,10 @@ class CreateAnswerTable extends Migration
             $table->integer('question_id');
             $table->integer('survey_id');
             $table->string('answer');
+            $table->String('semester')->nullable();
+            $table->String('year')->nullable();
+            $table->String('section')->nullable();
+            $table->String('gen')->nullable();
             $table->timestamps();
         });
     }

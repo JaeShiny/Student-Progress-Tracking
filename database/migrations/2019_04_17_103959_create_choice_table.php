@@ -20,6 +20,10 @@ class CreateChoiceTable extends Migration
             $table->String('choice_name');
             $table->integer('question_id')->nullable();
             $table->integer('answer_id')->nullable();
+            $table->String('semester')->nullable();
+            $table->String('year')->nullable();
+            $table->String('section')->nullable();
+            $table->String('gen')->nullable();
             $table->timestamps();
         });
     }

@@ -31,6 +31,10 @@ class CreateQuestionTable extends Migration
             $table->string('title');
             $table->string('question_type');
             $table->string('option_name')->nullable();
+            $table->String('semester')->nullable();
+            $table->String('year')->nullable();
+            $table->String('section')->nullable();
+            $table->String('gen')->nullable();
             $table->timestamps();
         });
     }
