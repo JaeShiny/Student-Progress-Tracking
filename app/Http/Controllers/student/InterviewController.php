@@ -10,6 +10,11 @@ use App\Model\interview\B_profile;
 use App\Model\interview\B_result;
 use App\Model\interview\B_interviewer;
 use App\Model\interview\B_englishskill;
+use App\Model\mis\Schedule;
+use App\Model\mis\Instructor;
+use App\Model\mis\Study;
+use App\Model\mis\Generation;
+
 
 class InterviewController extends Controller
 {
@@ -81,11 +86,13 @@ class InterviewController extends Controller
         $b_result = B_result::all();
         $b_interviewer = B_interviewer::all();
         $b_englishskill = B_englishskill::all();
+        $generation = Generation::all();
         return view('advisor.profile(before)',[
             'b_profile' => $b_profile,
             'student' => $student,
             'b_interviewer' => $b_interviewer,
             'b_englishskill'=> $b_englishskill,
+            'generation' => $generation
         ]);
     }
 
@@ -99,11 +106,15 @@ class InterviewController extends Controller
         $b_result = B_result::all();
         $b_interviewer = B_interviewer::all();
         $b_englishskill = B_englishskill::all();
+
+        $test = Instructor::where('last_name',Auth::user()->lastname)->first();
+        $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
         return view('AdLec.profile(before)',[
             'b_profile' => $b_profile,
             'student' => $student,
             'b_interviewer' => $b_interviewer,
             'b_englishskill'=> $b_englishskill,
+            'semester' => $semester
         ]);
     }
 

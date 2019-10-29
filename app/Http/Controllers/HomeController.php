@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Model\mis\Schedule;
+use App\Model\mis\Instructor;
+use App\Model\mis\Generation;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -31,12 +35,22 @@ class HomeController extends Controller
         if(auth()->user()->isStudent()) {
             return view('student/dashboard');
         }elseif(auth()->user()->isAdvisor()) {
-            return view('advisor/dashboard');
+            //ก๊อปตรงนี้
+            $generation = Generation::all();
+            //ถึงตรงนี้
+            return view('advisor.dashboard',[
+                'generation'=> $generation,
+            ]);
         }elseif(auth()->user()->isLecturer()) {
-            return view('lecturer/dashboard');
+            $test = Instructor::where('last_name',Auth::user()->lastname)->first();
+            $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+            return view('lecturer/dashboard',[
+                'semester' => $semester,
+            ]);
         }elseif(auth()->user()->isAdLec()) {
             return view('AdLec/dashboard');
         }elseif(auth()->user()->isLF()) {
+
             return view('LF/dashboard');
         }elseif(auth()->user()->isAdmin()) {
             return view('Admin/dashboard');

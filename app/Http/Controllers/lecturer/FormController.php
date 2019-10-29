@@ -15,6 +15,9 @@ use App\Model\spts\GradeForm;
 use App\Model\mis\Course;
 use App\Model\mis\Bio;
 use App\Model\spts\User;
+use App\Model\mis\Schedule;
+use App\Model\mis\Instructor;
+use App\Model\mis\Study;
 use Auth;
 
 class FormController extends Controller
@@ -26,7 +29,9 @@ class FormController extends Controller
     //Lecturer
     public function FormAttendanceView()
     {
-        return view('lecturer.formAttendance');
+        $test = Instructor::where('last_name',Auth::user()->lastname)->first();
+        $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+        return view('lecturer.formAttendance',compact('semester'));
     }
 
     /**
@@ -42,7 +47,9 @@ class FormController extends Controller
     */
     public function FormGradeView()
     {
-        return view('lecturer.formGrade');
+        $test = Instructor::where('last_name',Auth::user()->lastname)->first();
+    $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+        return view('lecturer.formGrade',compact('semester'));
     }
     /**
     * @return \Illuminate\Support\Collection

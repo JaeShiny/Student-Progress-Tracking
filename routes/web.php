@@ -15,7 +15,10 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::get('/detail123/{course_id}/{semester}/{year}','student\BioController@indexL');
+
 Route::get('/selectyear/{id}','EducationOfficer\SelectYearController@index');
+
 
 //อัพรูป
 Route::get('image', 'ImageController@index');
@@ -30,7 +33,7 @@ Route::get('curriculum','EducationOfficer\CurriculumController@show');
 //แมบหลักสูตรกับเด็ก
 Route::get('curr/{curriculum}','EducationOfficer\CurriculumController@index');
 
-Route::get('studentlist/{id}/{year}','student\BioController@indexE');
+Route::get('studentlist/{id}/{term}','student\BioController@indexE');
 
 Route::get('student_searchE','student\BioController@searchE');
 
@@ -80,6 +83,7 @@ Route::get('subject/{course}','SubjectController@index');
 
 
 Route::get('course','SubjectController@showCourse');
+ Route::get('/lecturer/studentlist/{course_id}/{semester}/{year}','student\BioController@indexL');
 
 Route::get('student_profileL','student\BioController@profileL');
 Route::get('student_profileL/{student_id}','student\BioController@profileL1')->name('profileL');
@@ -97,7 +101,8 @@ Route::get('profileafterL/{student_id}','student\SrmController@profileL');
 Route::get('problem_create/{student_id}','lecturer\ProblemController@create')->name('create');
 Route::post('problem_insert','lecturer\ProblemController@insert');
 //แสดงพฤติกรรมเด็ก
-Route::get('studentproblem/{student_id}', 'lecturer\ProblemController@showProblemL');
+
+Route::get('studentproblem/{student_id}/{semester}/{year}', 'lecturer\ProblemController@showProblemL');
 
 // search
 Route::get('student_searchL','student\BioController@searchL');
@@ -138,9 +143,8 @@ Route::post('importGrade/{course_id}', 'lecturer\GradeController@import')->name(
 Route::get('/showGrade/{course_id}','lecturer\GradeController@showGradeL');
 
 //index survey
-Route::get('/indexSurvey', function () {
-    return view('lecturer.indexSurvey');
-});
+Route::get('/indexSurvey', 'student\BioController@showme');
+Route::get('/advisorSurvey', 'student\BioController@showmeAd');
 
             //แจ้งเตือน//
 //Lec
@@ -235,9 +239,9 @@ Route::get('/attendanceA/{student_id}','lecturer\AttendanceController@showAttend
 Route::get('/showGradeA/{student_id}','lecturer\GradeController@showGradeA');
 
 
-Route::get('/advisorSurvey', function () {
-    return view('advisor.indexSurvey');
-});
+// Route::get('/advisorSurvey', function () {
+//     return view('advisor.indexSurvey');
+// });
 
     //Advisor+Lecturer
 Route::get('student_searchL','student\BioController@searchAL');
@@ -441,6 +445,7 @@ Route::get('/studentsurvey/answers/{survey}', 'student\SurveyController@view_sur
 
 Route::get('/survey','student\SurveyController@index');
 Route::get('/survey/lecturer/lecturer','student\SurveyController@lecindex');
+// Route::get('/survey/lecturer/lecturer/{student_id}','student\SurveyController@lecindex2');
 Route::get('/survey/advisor/advisor','student\SurveyController@advisorindex');
 Route::get('/survey/adlec/adlec','student\SurveyController@adLecindex');
 Route::get('/survey/educationOfficer/educationOfficer','student\SurveyController@eduindex');
@@ -534,7 +539,7 @@ Route::group(['prefix' => 'advisor'], function(){
     Route::group(['middleware' => ['advisor']], function(){
         Route::get('/dashboard', 'advisor\AdvisorController@index');
         // route ไปยังหน้าที่แสดงรายชื่อนักศึกษาของอาจารย์ที่ปรึกษา
-        Route::get('myStudent','advisor\AdvisorController@showStudent');
+        Route::get('myStudent/{semester}/{year}','advisor\AdvisorController@showStudent')->name('firstpage');
         Route::get('showAtt','advisor\AdvisorController@showAttendance');
         Route::get('showNotiA','NotificationController@showNotiA');
     });

@@ -12,19 +12,30 @@ use App\Model\spts\User;
 use App\Model\mis\Bio;
 use App\Model\mis\Student;
 use Auth;
+use App\Model\mis\Schedule;
+use App\Model\mis\Instructor;
+use App\Model\mis\Study;
+use App\Model\mis\Generation;
 
 class ProblemController extends Controller
 {
-        //Lecturer
+    //Lecturer
     //เพิ่มปัญหา
-    public function create($student_id){
+    public function create($student_id)
+    {
         $student = $student_id;
-	    return view('lecturer.problem(insert)',[
+        $test = Instructor::where('last_name', Auth::user()->lastname)->first();
+        $semester = Schedule::where('instructor_id', $test->instructor_id)->orderBy('year', 'asc')->get();
+
+
+        return view('lecturer.problem(insert)', [
             'student_id' => $student,
+            'semester' => $semester
         ]);
     }
 
-    public function insert(Request $request){
+    public function insert(Request $request)
+    {
         $problem = new Problem();
         // $student_problem = new StudentProblem();
 
@@ -50,37 +61,48 @@ class ProblemController extends Controller
         return redirect()->back()->with('message', 'เพิ่มข้อมูลเรียบร้อยแล้ว');
     }
 
-    public function showProblemL($student_id){
-        $problem = Problem::where('student_id', $student_id)->get();
+    public function showProblemL($student_id, $semester, $year)
+    {
+        $problem = Problem::where('student_id', $student_id)->where('semester', $semester)->where('year', $year)->get();
         $users = User::all();
-        $bios = Bio::where('student_id', $student_id)->get();
-
-        return view('lecturer.problem',[
+        $bios = Bio::where('student_id', $student_id)->first();
+        $test = Instructor::where('last_name', Auth::user()->lastname)->first();
+        $semester = Schedule::where('instructor_id', $test->instructor_id)->orderBy('year', 'asc')->get();
+        $gen = Generation::all();
+        return view('lecturer.problem', [
             'problem' => $problem,
             'users' => $users,
             'bios' => $bios,
+            'semester' => $semester,
+            'gen' => $gen
         ]);
     }
 
     //show ปัญหาของนักศึกษาที่ รุนแรงมาก
-    public function notiProblemL($student_id){
-        $risk_problem = Problem::where('risk_level','รุนแรงมาก')->where('student_id',$student_id)->get();
+    public function notiProblemL($student_id)
+    {
+        $risk_problem = Problem::where('risk_level', 'รุนแรงมาก')->where('student_id', $student_id)->get();
+        $test = Instructor::where('last_name', Auth::user()->lastname)->first();
+        $semester = Schedule::where('instructor_id', $test->instructor_id)->orderBy('year', 'asc')->get();
 
-        return view('lecturer.showProblem',[
+        return view('lecturer.showProblem', [
             'risk_problem' => $risk_problem,
+            'semester' => $semester
         ]);
     }
 
-        //Education Officer
+    //Education Officer
     //เพิ่มปัญหา
-    public function createE($student_id){
+    public function createE($student_id)
+    {
         $student = $student_id;
-	    return view('EducationOfficer.problem(insert)',[
+        return view('EducationOfficer.problem(insert)', [
             'student_id' => $student,
         ]);
     }
 
-    public function insertE(Request $request){
+    public function insertE(Request $request)
+    {
         $problem = new Problem();
 
         $problem->student_id = $request->student_id;
@@ -102,12 +124,13 @@ class ProblemController extends Controller
     }
 
     //แสดงปัญหา
-    public function showProblemE($student_id){
+    public function showProblemE($student_id)
+    {
         $problem = Problem::where('student_id', $student_id)->get();
         $users = User::all();
         $bios = Bio::where('student_id', $student_id)->get();
 
-        return view('EducationOfficer.problem',[
+        return view('EducationOfficer.problem', [
             'problem' => $problem,
             'users' => $users,
             'bios' => $bios,
@@ -115,25 +138,30 @@ class ProblemController extends Controller
     }
 
     //show ปัญหาของนักศึกษาที่ รุนแรงมาก
-    public function notiProblemE($student_id){
-        $risk_problem = Problem::where('risk_level','รุนแรงมาก')->where('student_id',$student_id)->get();
+    public function notiProblemE($student_id)
+    {
+        $risk_problem = Problem::where('risk_level', 'รุนแรงมาก')->where('student_id', $student_id)->get();
 
-        return view('EducationOfficer.showProblem',[
+        return view('EducationOfficer.showProblem', [
             'risk_problem' => $risk_problem,
         ]);
     }
 
 
-        //Advisor
+    //Advisor
     //เพิ่มปัญหา
-    public function createA($student_id){
+    public function createA($student_id)
+    {
         $student = $student_id;
-	    return view('advisor.problem(insert)',[
+        $generation = Generation::all();
+        return view('advisor.problem(insert)', [
             'student_id' => $student,
+            'generation' => $generation
         ]);
     }
 
-    public function insertA(Request $request){
+    public function insertA(Request $request)
+    {
         $problem = new Problem();
 
         $problem->student_id = $request->student_id;
@@ -155,29 +183,34 @@ class ProblemController extends Controller
     }
 
     //แสดงปัญหา
-    public function showProblemA($student_id){
+    public function showProblemA($student_id)
+    {
         $problem = Problem::where('student_id', $student_id)->get();
         $users = User::all();
         $bios = Bio::where('student_id', $student_id)->get();
+        $generation = Generation::all();
 
-        return view('advisor.problem',[
+        return view('advisor.problem', [
             'problem' => $problem,
             'users' => $users,
             'bios' => $bios,
+            'generation' => $generation
         ]);
     }
 
 
-     //Lecturer+Advisor
+    //Lecturer+Advisor
     //เพิ่มปัญหา
-    public function createAL($student_id){
+    public function createAL($student_id)
+    {
         $student = $student_id;
-	    return view('AdLec.problem(insert)',[
+        return view('AdLec.problem(insert)', [
             'student_id' => $student,
         ]);
     }
 
-    public function insertAL(Request $request){
+    public function insertAL(Request $request)
+    {
         $problem = new Problem();
         // $student_problem = new StudentProblem();
 
@@ -203,28 +236,31 @@ class ProblemController extends Controller
         return redirect()->back()->with('message', 'เพิ่มข้อมูลเรียบร้อยแล้ว');
     }
 
-    public function showProblemAL($student_id){
+    public function showProblemAL($student_id)
+    {
         $problem = Problem::where('student_id', $student_id)->get();
         $users = User::all();
         $bios = Bio::where('student_id', $student_id)->get();
 
-        return view('AdLec.problem',[
+        return view('AdLec.problem', [
             'problem' => $problem,
             'users' => $users,
             'bios' => $bios,
         ]);
     }
 
-     //LF
+    //LF
     //เพิ่มปัญหา
-    public function createLF($student_id){
+    public function createLF($student_id)
+    {
         $student = $student_id;
-	    return view('LF.problem(insert)',[
+        return view('LF.problem(insert)', [
             'student_id' => $student,
         ]);
     }
 
-    public function insertLF(Request $request){
+    public function insertLF(Request $request)
+    {
         $problem = new Problem();
         // $student_problem = new StudentProblem();
 
@@ -250,12 +286,13 @@ class ProblemController extends Controller
         return redirect()->back()->with('message', 'เพิ่มข้อมูลเรียบร้อยแล้ว');
     }
 
-    public function showProblemLF($student_id){
+    public function showProblemLF($student_id)
+    {
         $problem = Problem::where('student_id', $student_id)->get();
         $users = User::all();
         $bios = Bio::where('student_id', $student_id)->get();
 
-        return view('LF.problem',[
+        return view('LF.problem', [
             'problem' => $problem,
             'users' => $users,
             'bios' => $bios,
@@ -263,12 +300,12 @@ class ProblemController extends Controller
     }
 
     //show ปัญหาของนักศึกษาที่ รุนแรงมาก
-    public function notiProblemLF($student_id){
-        $risk_problem = Problem::where('risk_level','รุนแรงมาก')->where('student_id',$student_id)->get();
+    public function notiProblemLF($student_id)
+    {
+        $risk_problem = Problem::where('risk_level', 'รุนแรงมาก')->where('student_id', $student_id)->get();
 
-        return view('LF.showProblem',[
+        return view('LF.showProblem', [
             'risk_problem' => $risk_problem,
         ]);
     }
-
 }
