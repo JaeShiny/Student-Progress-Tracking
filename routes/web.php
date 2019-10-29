@@ -128,6 +128,7 @@ Route::get('student_enrollmentL/{student_id}','student\StudyController@enrollmen
 //form Attendance
 Route::get('FormAttendance', 'lecturer\FormController@FormAttendanceView');
 Route::get('exportAttendance', 'lecturer\FormController@FormAttendance')->name('exportAttendance');
+Route::get('exportAttendance2', 'lecturer\FormController@FormAttendance2')->name('exportAttendance2');
 
 //form Grade
 Route::get('FormGrade', 'lecturer\FormController@FormGradeView');
@@ -310,6 +311,7 @@ Route::get('/showGradeAL2/{student_id}','lecturer\GradeController@showGradeAL2')
 //form Attendance
 Route::get('FormAttendanceAL', 'lecturer\FormController@FormAttendanceViewAL');
 Route::get('exportAttendanceAL', 'lecturer\FormController@FormAttendanceAL')->name('exportAttendanceAL');
+Route::get('exportAttendanceAL2', 'lecturer\FormController@FormAttendanceAL2')->name('exportAttendanceAL2');
 
 //form Grade
 Route::get('FormGradeAL', 'lecturer\FormController@FormGradeViewAL');
@@ -377,6 +379,7 @@ Route::get('student_enrollmentLF/{student_id}','student\StudyController@enrollme
 //form Attendance
 Route::get('FormAttendanceLF', 'lecturer\FormController@FormAttendanceViewLF');
 Route::get('exportAttendanceLF', 'lecturer\FormController@FormAttendanceLF')->name('exportAttendanceLF');
+Route::get('exportAttendanceLF2', 'lecturer\FormController@FormAttendanceLF2')->name('exportAttendanceLF2');
 
 //form Grade
 Route::get('FormGradeLF', 'lecturer\FormController@FormGradeViewLF');

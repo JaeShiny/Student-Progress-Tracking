@@ -31,7 +31,21 @@ class CreateFormAttendanceTable extends Migration
             $table->string('period_13')->nullable();
             $table->string('period_14')->nullable();
             $table->string('period_15')->nullable();
-
+            $table->string('period_16')->nullable();
+            $table->string('period_17')->nullable();
+            $table->string('period_18')->nullable();
+            $table->string('period_19')->nullable();
+            $table->string('period_20')->nullable();
+            $table->string('period_21')->nullable();
+            $table->string('period_22')->nullable();
+            $table->string('period_23')->nullable();
+            $table->string('period_24')->nullable();
+            $table->string('period_25')->nullable();
+            $table->string('period_26')->nullable();
+            $table->string('period_27')->nullable();
+            $table->string('period_28')->nullable();
+            $table->string('period_29')->nullable();
+            $table->string('period_30')->nullable();
         });
     }
 
