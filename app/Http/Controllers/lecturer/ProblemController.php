@@ -98,8 +98,13 @@ class ProblemController extends Controller
     public function createE($student_id)
     {
         $student = $student_id;
+
+        $test = Instructor::where('last_name', Auth::user()->lastname)->first();
+        $semester = Schedule::where('instructor_id', $test->instructor_id)->orderBy('year', 'asc')->get();
+
         return view('EducationOfficer.problem(insert)', [
             'student_id' => $student,
+            'semester' => $semester,
         ]);
     }
 
@@ -134,10 +139,15 @@ class ProblemController extends Controller
         $users = User::all();
         $bios = Bio::where('student_id', $student_id)->get();
 
+        $test = Instructor::where('last_name', Auth::user()->lastname)->first();
+        $semester = Schedule::where('instructor_id', $test->instructor_id)->orderBy('year', 'asc')->get();
+
         return view('EducationOfficer.problem', [
             'problem' => $problem,
             'users' => $users,
             'bios' => $bios,
+
+            'semester' => $semester,
         ]);
     }
 
@@ -158,9 +168,14 @@ class ProblemController extends Controller
     {
         $student = $student_id;
         $generation = Generation::all();
+
+        $test = Instructor::where('last_name', Auth::user()->lastname)->first();
+        $semester = Schedule::where('instructor_id', $test->instructor_id)->orderBy('year', 'asc')->get();
+
         return view('advisor.problem(insert)', [
             'student_id' => $student,
-            'generation' => $generation
+            'generation' => $generation,
+            'semester' => $semester,
         ]);
     }
 
@@ -196,11 +211,15 @@ class ProblemController extends Controller
         $bios = Bio::where('student_id', $student_id)->get();
         $generation = Generation::all();
 
+        $test = Instructor::where('last_name', Auth::user()->lastname)->first();
+        $semester = Schedule::where('instructor_id', $test->instructor_id)->orderBy('year', 'asc')->get();
+
         return view('advisor.problem', [
             'problem' => $problem,
             'users' => $users,
             'bios' => $bios,
-            'generation' => $generation
+            'generation' => $generation,
+            'semester' => $semester,
         ]);
     }
 
@@ -210,8 +229,13 @@ class ProblemController extends Controller
     public function createAL($student_id)
     {
         $student = $student_id;
+
+        $test = Instructor::where('last_name', Auth::user()->lastname)->first();
+        $semester = Schedule::where('instructor_id', $test->instructor_id)->orderBy('year', 'asc')->get();
+
         return view('AdLec.problem(insert)', [
             'student_id' => $student,
+            'semester' => $semester,
         ]);
     }
 
@@ -250,10 +274,14 @@ class ProblemController extends Controller
         $users = User::all();
         $bios = Bio::where('student_id', $student_id)->get();
 
+        $test = Instructor::where('last_name', Auth::user()->lastname)->first();
+        $semester = Schedule::where('instructor_id', $test->instructor_id)->orderBy('year', 'asc')->get();
+
         return view('AdLec.problem', [
             'problem' => $problem,
             'users' => $users,
             'bios' => $bios,
+            'semester' => $semester,
         ]);
     }
 
@@ -262,8 +290,13 @@ class ProblemController extends Controller
     public function createLF($student_id)
     {
         $student = $student_id;
+
+        $test = Instructor::where('last_name', Auth::user()->lastname)->first();
+        $semester = Schedule::where('instructor_id', $test->instructor_id)->orderBy('year', 'asc')->get();
+
         return view('LF.problem(insert)', [
             'student_id' => $student,
+            'semester' => $semester,
         ]);
     }
 
@@ -302,10 +335,14 @@ class ProblemController extends Controller
         $users = User::all();
         $bios = Bio::where('student_id', $student_id)->get();
 
+        $test = Instructor::where('last_name', Auth::user()->lastname)->first();
+        $semester = Schedule::where('instructor_id', $test->instructor_id)->orderBy('year', 'asc')->get();
+
         return view('LF.problem', [
             'problem' => $problem,
             'users' => $users,
             'bios' => $bios,
+            'semester' => $semester,
         ]);
     }
 
