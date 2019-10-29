@@ -25,6 +25,17 @@
 </head>
 
 <body>
+        <h5 align='right'>
+                <button type="button" class="btn btn-outline-primary">
+                    <a href="/importExportViewLF/{{$course->course_id}}">เพิ่มไฟล์</a>
+                </button>
+                <button type="button" class="btn btn-outline-success">
+                    <a href="/attendanceLF/{{$course->course_id}}">แสดงผลการเข้าเรียน</a>
+                </button>
+                <button type="button" class="btn btn-outline-success">
+                    <a href="/showGradeLF/{{$course->course_id}}">แสดงผลการเรียน</a>
+                </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </h5>
 
     <h5 align='center'>{{$course->course_id}}</h5>
     <h6 align='center'>{{$course->course_name_eng}}</h6><br>

@@ -111,6 +111,7 @@ class BioController extends Controller
     {
         $search = $request->get('search');
         $student = Student::where('student_id', 'like', '%' . $search . '%')->get();
+        $gen = Generation::all();
         // $bio = Bio::where('last_name', 'like', '%'.$search.'%')
         // ->orWhere('first_name', 'like', '%'.$search.'%')->orWhere('student_id', 'like', '%'.$search.'%')->get();
         return view('EducationOfficer/studentlist', [
