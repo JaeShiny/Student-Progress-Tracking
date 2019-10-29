@@ -141,18 +141,15 @@
                   <div class="btn-group">
                       <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="color: white;border-color: none">วิชาที่สอน <span class="caret"></span></button>
                       <a class="nav-link" href="{{ url('subjectNotiL') }}" style="color: #FFFFFF">การแจ้งเตือน</a>
-                      <a class="nav-link" href="#" style="color: #FFFFFF">สถิติ</a>
+                      <a class="nav-link" href="{{url('subjectStatisticL')}}" style="color: #FFFFFF">สถิติ</a>
                       <a class="nav-link" href="{{ url('FormAttendance') }}" style="color: #FFFFFF">ดาวน์โหลดแบบฟอร์ม</a>
                       <a class="nav-link" href="/indexSurvey" style="color: #FFFFFF">แบบสอบถาม</a>
                       <ul class="dropdown-menu scrollable-menu" role="menu">
-                              @foreach($semester as $show)
+                        @foreach($semester as $show)
 
                               <li> <a class="dropdown-item" href="/detail123/{{$show->course_id}}/{{$show->semester}}/{{$show->year}}"> {{$show->course_id}} ภาคเรียน: {{$show->semester}}/{{$show->year}}</a>  </li>
 
-
-                          @endforeach
-
-
+                        @endforeach
                       </ul>
                   </div>
 

@@ -48,8 +48,12 @@ class ChartController extends Controller
         $schedule = Schedule::where('instructor_id2',$instructor->instructor_id)->pluck('course_id');
         $course = Course::whereIn('course_id',$schedule)->paginate(5);
 
+        $test = Instructor::where('last_name',Auth::user()->lastname)->first();
+        $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+
         return view('lecturer.chart.subjectStatistic',[
             'course' => $course,
+            'semester' => $semester,
         ]);
     }
 
@@ -57,6 +61,9 @@ class ChartController extends Controller
         $course = Course::find($course_id);
         $major = Major::where('major_id',$course->major_id)->get();
         $student = Student::where('major_id',$course->major_id)->get();
+
+        $test = Instructor::where('last_name',Auth::user()->lastname)->first();
+        $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
 
         $count_student = Attendance::where('attendance_id')->count();
         $risk_attendance = Attendance::where('amount_absence')->where('course_id',$course_id)->get();
@@ -100,6 +107,7 @@ class ChartController extends Controller
             'course' => $course,
             'major' => $major,
             'chart' => $chart,
+            'semester' => $semester,
 
             'risk_attendance' => $risk_attendance,
             'risk_attendanceC' => $risk_attendanceC,
@@ -130,6 +138,9 @@ class ChartController extends Controller
         $major = Major::where('major_id',$course->major_id)->get();
         $student = Student::where('major_id',$course->major_id)->get();
 
+        $test = Instructor::where('last_name',Auth::user()->lastname)->first();
+        $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+
         $count_student = Grade::where('grade_id')->count();
         $risk_grade = Grade::where('total_all')->where('course_id',$course_id)->get();
         $risk_gradeC = Grade::where('total_all')->where('course_id',$course_id)->count();
@@ -156,6 +167,7 @@ class ChartController extends Controller
             'course' => $course,
             'major' => $major,
             'chart' => $chart,
+            'semester' => $semester,
 
             'risk_grade' => $risk_grade,
             'risk_gradeC' => $risk_gradeC,
@@ -177,6 +189,9 @@ class ChartController extends Controller
         $course = Course::find($course_id);
         $major = Major::where('major_id',$course->major_id)->get();
         $student = Student::where('major_id',$course->major_id)->get();
+
+        $test = Instructor::where('last_name',Auth::user()->lastname)->first();
+        $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
 
         $count_student = Problem::where('problem_id')->count();
         $risk_problem = Problem::where('problem_id')->where('course_id',$course_id)->get();
@@ -201,6 +216,7 @@ class ChartController extends Controller
             'course' => $course,
             'major' => $major,
             'chart' => $chart,
+            'semester' => $semester,
 
             'risk_problem' => $risk_problem,
             'risk_problemC' => $risk_problemC,
@@ -212,6 +228,7 @@ class ChartController extends Controller
             'p3' => $p3,
             'p4' => $p4,
             'p5' => $p5,
+
 
         ]);
     }
