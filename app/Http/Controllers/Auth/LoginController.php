@@ -3,7 +3,15 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use App\Model\mis\Generation;
+use App\Model\mis\Instructor;
+use App\Model\mis\Schedule;
+use App\Model\mis\Study;
+use App\User;
+use Auth;
+
 
 class LoginController extends Controller
 {
@@ -81,23 +89,25 @@ class LoginController extends Controller
         //     return '/EducationOfficer/course';
         // }
 
-        if(auth()->user()->isStudent()) {
+        if (auth()->user()->isStudent()) {
             return '/student/dashboard';
-        } elseif (auth()->user()->isAdvisor()){
-            return '/advisor/dashboard';
-        } elseif (auth()->user()->isLecturer()){
-            return '/lecturer/dashboard';
-        } elseif (auth()->user()->isAdLec()){
+        } elseif (auth()->user()->isAdvisor()) {
+            $gen = Generation::orderBy('year', 'desc')->orderBy('semester', 'desc')->first();
+            return '/advisor/myStudent/' . $gen->semester . '/' . $gen->year;
+        } elseif (auth()->user()->isLecturer()) {
+            $gen = Generation::orderBy('year', 'desc')->orderBy('semester', 'desc')->first();
+            $user = User::where('id', Auth::id())->where('position', 'Lecturer')->first();
+            $instructor = Instructor::where('last_name', $user->lastname)->first();
+            $course = Schedule::where('instructor_id', $instructor->instructor_id)->where('semester', $gen->semester)->where('year', $gen->year)->first();
+            return 'detail123/' . $course->course_id . '/' . $gen->semester . '/' . $gen->year;
+        } elseif (auth()->user()->isAdLec()) {
             return '/AdLec/dashboard';
-        }elseif (auth()->user()->isLF()){
+        } elseif (auth()->user()->isLF()) {
             return '/LF/dashboard';
-        }elseif (auth()->user()->isAdmin()){
+        } elseif (auth()->user()->isAdmin()) {
             return '/Admin/dashboard';
-        }else {
+        } else {
             return '/home';
         }
-
-
     }
-
 }

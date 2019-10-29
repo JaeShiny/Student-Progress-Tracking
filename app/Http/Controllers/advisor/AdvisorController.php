@@ -7,6 +7,9 @@ use App\Http\Controllers\Controller;
 use App\Model\mis\Instructor;
 use App\Model\mis\Student;
 use App\Model\mis\Bio;
+use App\Model\mis\Generation;
+use App\Model\mis\Study;
+use App\User;
 
 use Auth;
 
@@ -14,17 +17,24 @@ class AdvisorController extends Controller
 {
     public function index()
     {
-        return view('advisor/dashboard');
+        $generation = Generation::all();
+        return view('advisor/dashboard',compact('generation'));
     }
 
     //แสดงนัรายชื่อนักศึกษาเป็นที่ปรึกษาของอาจารย์ที่ปรึกษา
-   public function showStudent()
+   public function showStudent($semester,$year)
     {
-       $instructor = Instructor::where('first_name',Auth::user()->name)->first();
-       $myStudent = Student::where('adviser_id1',$instructor->instructor_id)->orWhere('adviser_id2',$instructor->instructor_id)->get();
+        $advisortest = User::where('lastname',Auth::user()->lastname)->where('position','Advisor')->first();
+       $instructor = Instructor::where('last_name',$advisortest->lastname)->first();
+       $gen = Generation::where('semester',$semester)->where('year',$year)->pluck('gen');
 
+       $myStudent = Student::whereIn('generation',$gen)->where('adviser_id1',$instructor->instructor_id)->orWhere('adviser_id2',$instructor->instructor_id)->get();
+
+
+       $generation = Generation::all();
         return view('advisor.advisorStudent',[
-            'myStudent' => $myStudent
+            'myStudent' => $myStudent,
+            'generation'=> $generation,
         ]);
 
     }
@@ -35,8 +45,10 @@ class AdvisorController extends Controller
       $instructor = Instructor::where('first_name',Auth::user()->name)->first();
       $myStudent = Student::where('adviser_id1',$instructor->instructor_id)->orWhere('adviser_id2',$instructor->instructor_id)->get();
 
+      $generation = Generation::all();
        return view('advisor.student',[
-           'myStudent' => $myStudent
+           'myStudent' => $myStudent,
+           'generation'=> $generation,
        ]);
     }
 
@@ -46,8 +58,10 @@ class AdvisorController extends Controller
       $instructor = Instructor::where('first_name',Auth::user()->name)->first();
       $myStudent = Student::where('adviser_id1',$instructor->instructor_id)->orWhere('adviser_id2',$instructor->instructor_id)->get();
 
+      $generation = Generation::all();
        return view('advisor.student',[
-           'myStudent' => $myStudent
+           'myStudent' => $myStudent,
+           'generation'=> $generation,
        ]);
     }
 

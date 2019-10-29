@@ -8,6 +8,12 @@ use App\Http\Controllers\Controller;
 // use App\Model\mis\Student;
 use App\Model\mis\Course;
 use App\Model\mis\Study;
+use App\Model\mis\Instructor;
+use App\Model\mis\Schedule;
+use App\Model\mis\Generation;
+
+
+
 
 class StudyController extends Controller
 {
@@ -43,10 +49,13 @@ class StudyController extends Controller
     public function enrollmentL(){
         $study = Study::all();
         $courses = Course::all();
+        $test = Instructor::where('last_name',Auth::user()->lastname)->first();
+        $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
 
         return view('lecturer.enrollment',[
             'studys' => $study,
             'courses' => $courses,
+            'semester' => $semester
         ]);
 
     }
@@ -55,10 +64,14 @@ class StudyController extends Controller
         $study = Study::where('student_id',$student_id)->get();
         $courses = Course::all();
         $student_code = $student_id;
+
+        $test = Instructor::where('last_name',Auth::user()->lastname)->first();
+        $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
         return view('lecturer.enrollment',[
             'study' => $study,
             'courses' => $courses,
-            'student' => $student_code
+            'student' => $student_code,
+            'semester' =>$semester
         ]);
     }
 
@@ -68,9 +81,11 @@ class StudyController extends Controller
         $study = Study::all();
         $courses = Course::all();
 
+
         return view('EducationOfficer.enrollment',[
             'study' => $study,
             'courses' => $courses,
+
         ]);
 
     }
@@ -80,10 +95,12 @@ class StudyController extends Controller
         $courses = Course::all();
         $student_code = $student_id;
 
+
         return view('EducationOfficer.enrollment',[
             'study' => $study,
             'courses' => $courses,
-            'student' => $student_code
+            'student' => $student_code,
+
         ]);
     }
 
@@ -91,10 +108,12 @@ class StudyController extends Controller
     public function enrollmentA(){
         $study = Study::all();
         $courses = Course::all();
+        $generation = Generation::all();
 
         return view('advisor.enrollment',[
             'study' => $study,
             'courses' => $courses,
+            'generation' => $generation
         ]);
 
     }
@@ -103,11 +122,13 @@ class StudyController extends Controller
         $study = Study::where('student_id',$student_id)->get();
         $courses = Course::all();
         $student_code = $student_id;
+        $generation = Generation::all();
 
         return view('advisor.enrollment',[
             'study' => $study,
             'courses' => $courses,
-            'student' => $student_code
+            'student' => $student_code,
+            'generation' => $generation
         ]);
     }
 

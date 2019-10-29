@@ -18,10 +18,13 @@ class AnswerController extends Controller
       $arr = $request->except('_token');
       foreach ($arr as $key => $value) {
         $newAnswer = new Answer();
+
         if (! is_array( $value )) {
           $newValue = $value['answer'];
+
         } else {
           $newValue = $value['answer'];
+
         }
         $newAnswer->answer = $newValue;
         $newAnswer->question_id = $key;

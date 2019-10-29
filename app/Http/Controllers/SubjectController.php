@@ -24,9 +24,13 @@ class SubjectController extends Controller
         $course = Course::find($course_id);
         $major = Major::where('major_id',$course->major_id)->get();
         $student = Student::where('major_id',$course->major_id)->get();
+
+        $test = Instructor::where('last_name',Auth::user()->lastname)->first();
+        $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
         return view('lecturer.studentlist',[
             'student' => $student,
             'course' => $course,
+            'semester'=> $semester
         ]);
     }
 
@@ -35,12 +39,17 @@ class SubjectController extends Controller
     public function showCourse($student_id){
         $student = $student_id;
 
+        $test = Instructor::where('last_name',Auth::user()->lastname)->first();
+        $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
         // $course = Course::all();
         $course = Course::paginate(5);
+
+
 
         return view('lecturer.subject',[
             'course' => $course,
             'student' => $student,
+            'semester' => $semester
         ]);
     }
 
@@ -50,8 +59,12 @@ class SubjectController extends Controller
         $schedule = Schedule::where('instructor_id2',$instructor->instructor_id)->pluck('course_id');
         $course = Course::whereIn('course_id',$schedule)->paginate(5);
 
+        $test = Instructor::where('last_name',Auth::user()->lastname)->first();
+        $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+
         return view('lecturer.subject',[
-            'course' => $course
+            'course' => $course,
+            'semester' => $semester
         ]);
     }
 

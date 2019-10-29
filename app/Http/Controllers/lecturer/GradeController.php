@@ -10,6 +10,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Model\spts\Grade;
 use App\Model\mis\Course;
 use App\Model\mis\Bio;
+use App\Model\mis\Generation;
 use App\Model\spts\User;
 use Auth;
 
@@ -22,8 +23,12 @@ class GradeController extends Controller
     public function importExportView($course_id)
     {
         $course = Course::find($course_id);
+
+        $test = Instructor::where('last_name',Auth::user()->lastname)->first();
+        $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
         return view('lecturer.addGrade',[
             'course' => $course,
+            'semester' => $semester
         ]);
     }
 
@@ -84,10 +89,14 @@ class GradeController extends Controller
         $course = Course::find($course_id);
         $users = User::all();
 
+        $test = Instructor::where('last_name',Auth::user()->lastname)->first();
+        $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+
         return view('lecturer.showGrade',[
             'student' => $student,
             'course' => $course,
             'users' => $users,
+            'semester' => $semester
         ]);
     }
 
@@ -97,11 +106,13 @@ class GradeController extends Controller
         $student = Grade::where('student_id',$student_id)->get();
         $users = User::all();
         $bios = Bio::where('student_id', $student_id)->get();
+        $generation = Generation::all();
 
         return view('advisor.showGrade',[
             'student' => $student,
             'users' => $users,
             'bios' => $bios,
+            'generation' => $generation
         ]);
     }
 

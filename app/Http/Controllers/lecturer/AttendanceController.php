@@ -11,6 +11,7 @@ use App\Model\spts\Attendance;
 use App\Model\mis\Course;
 use App\Model\mis\Bio;
 use App\Model\spts\User;
+use App\Model\mis\Generation;
 use Auth;
 
 class AttendanceController extends Controller
@@ -22,8 +23,12 @@ class AttendanceController extends Controller
     public function importExportView($course_id)
     {
         $course = Course::find($course_id);
+
+        $test = Instructor::where('last_name',Auth::user()->lastname)->first();
+        $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
         return view('lecturer.addAttendance',[
             'course' => $course,
+            'semester' => $semester,
         ]);
     }
 
@@ -83,10 +88,14 @@ class AttendanceController extends Controller
         $course = Course::find($course_id);
         $users = User::all();
 
+        $test = Instructor::where('last_name',Auth::user()->lastname)->first();
+        $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+
         return view('lecturer.showAttendance',[
             'student' => $student,
             'course' => $course,
             'users' => $users,
+            'semester' => $semester
         ]);
     }
 
@@ -96,11 +105,13 @@ class AttendanceController extends Controller
         $student = Attendance::where('student_id',$student_id)->get();
         $users = User::all();
         $bios = Bio::where('student_id', $student_id)->get();
+        $generation = Generation::all();
 
         return view('advisor.showAttendance',[
             'student' => $student,
             'users' => $users,
             'bios' => $bios,
+            'generation' => $generation
         ]);
     }
 

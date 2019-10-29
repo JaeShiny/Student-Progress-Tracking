@@ -22,10 +22,11 @@ class ProfileController extends Controller
     //การเอา student_id ในการล็อคอิน มาเทียบกับ student_id ของเด็กใน study
     public function study(){
         $user = Auth::user();
-        $info= Study::where('student_id',$user->student_id)->first();
+        $info= Study::where('student_id',$user->student_id)->get();
 
         return view('student.enrollment',[
-            'study'=>$info,
+            'study2'=>$info,
+            'user' => $user,
         ]);
     }
 

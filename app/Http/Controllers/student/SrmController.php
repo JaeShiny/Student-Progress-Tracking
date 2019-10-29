@@ -9,6 +9,11 @@ use App\Model\mis\Bio;
 use App\Model\srm\Alumni_profile;
 use App\Model\mis\Student;
 use App\Model\mis\Curriculum;
+use App\Model\mis\Generation;
+use App\Model\mis\Schedule;
+use App\Model\mis\Instructor;
+use App\Model\mis\Study;
+;
 
 class SrmController extends Controller
 {
@@ -56,11 +61,15 @@ class SrmController extends Controller
         $alumni_profile = Alumni_profile::where('first_name',$bios->first_name)->where('last_name',$bios->last_name)->first();
         $curriculum = Curriculum::all();
 
+        $test = Instructor::where('last_name',Auth::user()->lastname)->first();
+        $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+
         return view('lecturer.profile(after)',[
             'alumni_profile' => $alumni_profile,
             'student' => $student,
             'bios' => $bios,
             'curriculum' => $curriculum,
+            'semester' => $semester
         ]);
     }
 
@@ -74,11 +83,14 @@ class SrmController extends Controller
         $alumni_profile = Alumni_profile::where('first_name',$bios->first_name)->where('last_name',$bios->last_name)->first();
         $curriculum = Curriculum::all();
 
+        $generation = Generation::all();
+
         return view('advisor.profile(after)',[
             'alumni_profile' => $alumni_profile,
             'student' => $student,
             'bios' => $bios,
             'curriculum' => $curriculum,
+            'generation' => $generation
         ]);
     }
 
