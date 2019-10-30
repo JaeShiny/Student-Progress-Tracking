@@ -16,6 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('/detail123/{course_id}/{semester}/{year}','student\BioController@indexL');
+Route::get('/detailAL/{course_id}/{semester}/{year}','student\BioController@indexAL');
 Route::get('/detailLF/{course_id}/{semester}/{year}','student\BioController@indexLF');
 
 Route::get('/selectyear/{id}','EducationOfficer\SelectYearController@index');
@@ -53,7 +54,7 @@ Route::get('student_profileE/{student_id}','student\BioController@profileE1')->n
 Route::get('profilebeforeE/{student_id}','student\InterviewController@profileE');
 
 //กดดูหน้าข้อมูลระหว่างศึกษา
-Route::get('profileDuringE/{student_id}','student\BioController@profileDuringE');
+Route::get('profileDuringE/{student_id}/{semester}/{year}','student\BioController@profileDuringE');
 
 //กดดูหน้าข้อมูลหลังจบ
 Route::get('profileafterE/{student_id}','student\SrmController@profileE');
@@ -66,7 +67,7 @@ Route::get('problem_createE/{student_id}','lecturer\ProblemController@createE')-
 Route::post('problem_insertE','lecturer\ProblemController@insertE');
 
 //แสดงพฤติกรรมเด็ก
-Route::get('studentproblemE/{student_id}', 'lecturer\ProblemController@showProblemE');
+Route::get('studentproblemE/{student_id}/{semester}/{year}', 'lecturer\ProblemController@showProblemE');
 
 //กดดูวิชาที่เด็กลงทะเบียน
 Route::get('student_enrollmentE','student\StudyController@enrollmentE');
@@ -101,7 +102,7 @@ Route::get('student_profileL/{student_id}','student\BioController@profileL1')->n
 Route::get('profilebeforeL/{student_id}','student\InterviewController@profileL');
 
 //กดดูหน้าข้อมูลระหว่างศึกษา
-Route::get('profileDuringL/{student_id}','student\BioController@profileDuringL');
+Route::get('profileDuringL/{student_id}/{semester}/{year}','student\BioController@profileDuringL');
 
 //กดดูหน้าข้อมูลหลังจบ
 Route::get('profileafterL/{student_id}','student\SrmController@profileL');
@@ -155,6 +156,7 @@ Route::get('/showGrade/{course_id}','lecturer\GradeController@showGradeL');
 //index survey
 Route::get('/indexSurvey', 'student\BioController@showme');
 Route::get('/advisorSurvey', 'student\BioController@showmeAd');
+Route::get('/adlecSurvey', 'student\BioController@showmeAdlec');
 Route::get('/LFSurvey', 'student\BioController@showmeLF');
 
             //แจ้งเตือน//
@@ -165,6 +167,7 @@ Route::get('allNotiL/{course_id}','NotificationController@allNotiL');
     // route แสดงรายวิชาที่อาจารย์สอน
 Route::get('subjectNotiL','NotificationController@subjectNotiL');
 Route::get('showNotiL/{course_id}','NotificationController@showNotiL');
+
 //LF
 Route::get('notiproblemLF/{student_id}','NotificationController@ProblemLF');
 Route::get('allNotiLF/{course_id}','NotificationController@allNotiLF');
@@ -233,7 +236,7 @@ Route::get('student_profileA/{student_id}','student\BioController@profileA1')->n
 Route::get('profilebeforeA/{student_id}','student\InterviewController@profileA');
 
 //กดดูหน้าข้อมูลระหว่างศึกษา
-Route::get('profileDuringA/{student_id}','student\BioController@profileDuringA');
+Route::get('profileDuringA/{student_id}/{semester}/{year}','student\BioController@profileDuringA');
 
 //กดดูหน้าข้อมูลหลังจบ
 Route::get('profileafterA/{student_id}','student\SrmController@profileA');
@@ -243,7 +246,8 @@ Route::get('problem_createA/{student_id}','lecturer\ProblemController@createA')-
 Route::post('problem_insertA','lecturer\ProblemController@insertA');
 
 //แสดงพฤติกรรมเด็ก
-Route::get('studentproblemA/{student_id}', 'lecturer\ProblemController@showProblemA');
+// Route::get('studentproblemA/{student_id}', 'lecturer\ProblemController@showProblemA');
+Route::get('studentproblemA/{student_id}/{semester}/{year}', 'lecturer\ProblemController@showProblemA');
 
 Route::get('student_searchA','student\BioController@searchA');
 
@@ -294,7 +298,8 @@ Route::get('courseAL','SubjectController@lecToCourseAL');
 Route::get('problem_createAL/{student_id}','lecturer\ProblemController@createAL')->name('create');
 Route::post('problem_insertAL','lecturer\ProblemController@insertAL');
 //แสดงพฤติกรรมเด็ก
-Route::get('studentproblemAL/{student_id}', 'lecturer\ProblemController@showProblemAL');
+// Route::get('studentproblemAL/{student_id}', 'lecturer\ProblemController@showProblemAL');
+Route::get('studentproblemAL/{student_id}/{semester}/{year}', 'lecturer\ProblemController@showProblemAL');
 
 //Advisor
 //แสดงการเข้าเรียน -> Attendance
@@ -334,9 +339,9 @@ Route::get('/attendanceAL/{course_id}','lecturer\AttendanceController@showAttend
 //แสดงผลการเรียน -> Grade
 Route::get('/showGradeAL/{course_id}','lecturer\GradeController@showGradeAL');
 
-Route::get('/adlecSurvey', function () {
-    return view('Adlec.indexSurvey');
-});
+// Route::get('/adlecSurvey', function () {
+//     return view('Adlec.indexSurvey');
+// });
 
 
 
@@ -354,7 +359,7 @@ Route::get('student_profileLF/{student_id}','student\BioController@profileLF1')-
 Route::get('profilebeforeLF/{student_id}','student\InterviewController@profileLF');
 
 //กดดูหน้าข้อมูลระหว่างศึกษา
-Route::get('profileDuringLF/{student_id}','student\BioController@profileDuringLF');
+Route::get('profileDuringLF/{student_id}/{semester}/{year}','student\BioController@profileDuringLF');
 
 //กดดูหน้าข้อมูลหลังจบ
 Route::get('profileafterLF/{student_id}','student\SrmController@profileLF');
@@ -576,7 +581,8 @@ Route::group(['prefix' => 'AdLec'], function(){
     Route::group(['middleware' => ['AdLec']], function(){
         Route::get('/dashboard', 'AdLec\AdLecController@index');
         // route ไปยังหน้าที่แสดงรายชื่อนักศึกษาของอาจารย์ที่ปรึกษา
-        Route::get('ALStudent','AdLec\AdLecController@showStudent');
+        // Route::get('ALStudent','AdLec\AdLecController@showStudent');
+        Route::get('ALStudent/{semester}/{year}','AdLec\AdLecController@showStudent');
         Route::get('showNotiAL','NotificationController@showNotiAL');
     });
 });
