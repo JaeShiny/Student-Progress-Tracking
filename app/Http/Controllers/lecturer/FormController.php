@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Exports\AttendanceExport;
 use App\Imports\AttendanceImport;
 use App\Exports\formAttendance;
+use App\Exports\formAttendance2;
 use App\Exports\formGrade;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Model\spts\Attendance;
@@ -41,6 +42,10 @@ class FormController extends Controller
     {
         return Excel::download(new formAttendance, 'Form_Attendance.xlsx');
     }
+    public function FormAttendance2()
+    {
+        return Excel::download(new formAttendance2, 'Form_Attendance2.xlsx');
+    }
 
     /**
     * @return \Illuminate\Support\Collection
@@ -72,6 +77,10 @@ class FormController extends Controller
     {
         return Excel::download(new formAttendance, 'Form_Attendance.xlsx');
     }
+    public function FormAttendanceAL2()
+    {
+        return Excel::download(new formAttendance2, 'Form_Attendance2.xlsx');
+    }
 
     /**
     * @return \Illuminate\Support\Collection
@@ -100,6 +109,10 @@ class FormController extends Controller
     public function FormAttendanceLF()
     {
         return Excel::download(new formAttendance, 'Form_Attendance.xlsx');
+    }
+    public function FormAttendanceLF2()
+    {
+        return Excel::download(new formAttendance2, 'Form_Attendance2.xlsx');
     }
 
     /**

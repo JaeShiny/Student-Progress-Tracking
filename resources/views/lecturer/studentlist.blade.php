@@ -26,6 +26,18 @@
 
 <body>
 
+<h5 align='right'>
+    <button type="button" class="btn btn-outline-primary">
+        <a href="/importExportView/{{$course->course_id}}">เพิ่มไฟล์</a>
+    </button>
+    <button type="button" class="btn btn-outline-success">
+        <a href="/attendance/{{$course->course_id}}">แสดงผลการเข้าเรียน</a>
+    </button>
+    <button type="button" class="btn btn-outline-success">
+        <a href="/showGrade/{{$course->course_id}}">แสดงผลการเรียน</a>
+    </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</h5>
+
     <h5 align='center'>{{$course->course_id}}</h5>
     <h6 align='center'>{{$course->course_name_eng}}</h6><br>
 
@@ -39,32 +51,6 @@
             </div>
         <form><br>
     </div>
-
-
-
-{{-- เพิ่มการเข้าเรียน --}}
-{{-- <center>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <button type="button" class="btn btn-outline-primary">
-        <a href="/importExportView/{{$course->course_id}}">เพิ่มการเข้าเรียน</a>
-    </button>
-    <button type="button" class="btn btn-outline-success">
-        <a href="/attendance/{{$course->course_id}}">แสดงผลการเข้าเรียน</a>
-    </button>
-</center> --}}
 
     <center>
         <table class="table" width="60%" style="margin-top: 10px;">
@@ -144,13 +130,8 @@
 
           {{-- <br>{{$bio->links()}}<br> --}}
 
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-
 </body>
 </html>
 
 @endsection
 @extends('bar.header(lec)')
-{{-- @extends('bar.username') --}}

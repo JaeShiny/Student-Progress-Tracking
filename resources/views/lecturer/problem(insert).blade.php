@@ -56,6 +56,27 @@ margin-top: -150px;
         </div>
 
         <div class="form-group">
+            <label for="exampleFormControlSelect1">เทอม:
+                <select class="form-control" id="exampleFormControlSelect1" name="semester">
+                  <option>1</option>
+                  <option>2</option>
+                </select>
+            </label>&nbsp;&nbsp;
+            <label for="exampleFormControlSelect1">ปีการศึกษา:
+                <select class="form-control" id="exampleFormControlSelect1" name="year">
+                    <option>2018</option>
+                    <option>2019</option>
+                    <option>2020</option>
+                    <option>2021</option>
+                    <option>2022</option>
+                    <option>2023</option>
+                    <option>2024</option>
+                    <option>2025</option>
+                </select>
+            </label>
+        </div>
+
+        <div class="form-group">
             <label for="exampleFormControlSelect1">ประเภทของ พฤติกรรม/ปัญหา ของนักศึกษา:
                 <select class="form-control" id="exampleFormControlSelect1" name="problem_type">
                   <option>พฤติกรรม/ปัญหา ในห้องเรียน</option>

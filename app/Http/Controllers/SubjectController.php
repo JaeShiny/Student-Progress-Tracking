@@ -76,6 +76,7 @@ class SubjectController extends Controller
         $student = Student::where('major_id',$course->major_id)->get();
         return view('AdLec.studentlist',[
             'student' => $student,
+            'course' => $course,
         ]);
     }
 
