@@ -34,10 +34,10 @@
         <a href="/importExportViewLF/{{$course->course_id}}">เพิ่มไฟล์</a>
     </button>
     <button type="button" class="btn btn-outline-success">
-        <a href="/attendanceLF/{{$course->course_id}}">แสดงผลการเข้าเรียน</a>
+        <a href="/attendanceLF/{{$course->course_id}}/{{$gen->semester}}/{{$gen->year}}">แสดงผลการเข้าเรียน</a>
     </button>
     <button type="button" class="btn btn-outline-success">
-        <a href="/showGradeLF/{{$course->course_id}}">แสดงผลการเรียน</a>
+        <a href="/showGradeLF/{{$course->course_id}}/{{$gen->semester}}/{{$gen->year}}">แสดงผลการเรียน</a>
     </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </h5>
 

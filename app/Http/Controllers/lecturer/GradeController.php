@@ -164,19 +164,21 @@ class GradeController extends Controller
 
     //LF
     //แสดงผล grade
-    public function showGradeLF($course_id)  {
-        $student = Grade::where('course_id',$course_id)->get();
+    public function showGradeLF($course_id, $semester, $year)  {
+        $student = Grade::where('course_id',$course_id)->where('semester', $semester)->where('year', $year)->get();
         $course = Course::find($course_id);
         $users = User::all();
 
-        $test = Instructor::where('first_name', Auth::user()->name)->first();
-        $semester = Schedule::where('instructor_id', $test->instructor_id)->orderBy('year', 'asc')->get();
+        $test = Instructor::where('last_name',Auth::user()->lastname)->first();
+        $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+        $gen = Generation::all();
 
         return view('LF.showGrade',[
             'student' => $student,
             'course' => $course,
             'users' => $users,
-            'semester'=> $semester
+            'semester' => $semester,
+            'gen' => $gen,
         ]);
     }
 

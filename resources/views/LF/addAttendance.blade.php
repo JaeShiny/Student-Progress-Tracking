@@ -50,8 +50,8 @@
         <div class="list-group" id="list-tab" role="tablist">
 
             <a class="list-group-item list-group-item-action active" href="/importExportViewLF/{{$course->course_id}}"><b>เพิ่มการเข้าเรียน</b></a>
-            <a class="list-group-item list-group-item-action" href="/attendanceLF/{{$course->course_id}}"><b>แสดงการเข้าเรียน</b></a>
-            <a class="list-group-item list-group-item-action" href="/subjectLF/{{$course->course_id}}"><b>รายชื่อนักศึกษา</b></a>
+            {{-- <a class="list-group-item list-group-item-action" href="/attendanceLF/{{$course->course_id}}/{{$gen->semester}}/{{$gen->year}}"><b>แสดงการเข้าเรียน</b></a> --}}
+            {{-- <a class="list-group-item list-group-item-action" href="/subjectLF/{{$course->course_id}}"><b>รายชื่อนักศึกษา</b></a> --}}
 
         </div>
     </div>

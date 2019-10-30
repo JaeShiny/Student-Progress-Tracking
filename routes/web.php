@@ -223,9 +223,9 @@ Route::get('/studentSurvey', function () {
 Route::get('profileafter/{student_id}','student\SrmController@profile');
 
 //แสดงการเข้าเรียน Attendance
-Route::get('/student/attendance','lecturer\AttendanceController@showAttendanceS');
+Route::get('/student/attendance/{semester}/{year}','lecturer\AttendanceController@showAttendanceS');
 //แสดงผลการเรียน Grade
-Route::get('/student/grade','lecturer\GradeController@showGradeS');
+Route::get('/student/grade/{semester}/{year}','lecturer\GradeController@showGradeS');
 
 
     //Advisor
@@ -403,9 +403,9 @@ Route::get('importExportGradeLF/{course_id}', 'lecturer\GradeController@importEx
 Route::post('importGradeLF/{course_id}', 'lecturer\GradeController@import')->name('importLF');
 
 //แสดงการเข้าเรียน -> Attendance
-Route::get('/attendanceLF/{course_id}','lecturer\AttendanceController@showAttendanceLF');
+Route::get('/attendanceLF/{course_id}/{semester}/{year}','lecturer\AttendanceController@showAttendanceLF');
 //แสดงผลการเรียน -> Grade
-Route::get('/showGradeLF/{course_id}','lecturer\GradeController@showGradeLF');
+Route::get('/showGradeLF/{course_id}/{semester}/{year}','lecturer\GradeController@showGradeLF');
 
 // Route::get('/LFSurvey', function () {
 //     return view('LF.indexSurvey');

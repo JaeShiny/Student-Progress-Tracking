@@ -21,7 +21,7 @@
         <ol class="breadcrumb">
             <li></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             {{-- <li class="breadcrumb-item" aria-current="page"><a href="{{ url('courseLF') }}">วิชาที่สอน</a></li> --}}
-            <li class="breadcrumb-item" aria-current="page"><a href="/showGradeLF/{{$course->course_id}}">แสดงผลการเรียน</a></li>
+            <li class="breadcrumb-item" aria-current="page"><a href="#">แสดงผลการเรียน</a></li>
         </ol>
     </nav>
 
@@ -49,8 +49,8 @@
         <div class="list-group" id="list-tab" role="tablist" style="margin-right: -10px">
 
             <a class="list-group-item list-group-item-action" href="/importExportGradeLF/{{$course->course_id}}"><b>เพิ่มผลการเรียน</b></a>
-            <a class="list-group-item list-group-item-action active" href="/showGradeLF/{{$course->course_id}}"><b>แสดงผลการเรียน</b></a>
-            <a class="list-group-item list-group-item-action" href="/subjectLF/{{$course->course_id}}"><b>รายชื่อนักศึกษา</b></a>
+            <a class="list-group-item list-group-item-action active" href="#"><b>แสดงผลการเรียน</b></a>
+            {{-- <a class="list-group-item list-group-item-action" href="/subjectLF/{{$course->course_id}}"><b>รายชื่อนักศึกษา</b></a> --}}
 
         </div>
     </div>
@@ -60,7 +60,23 @@
             <div class="card-header">
                         <h4 class="w3-bar-item">{{$course->course_id}}&nbsp;{{$course->course_name_eng}}</h4>
             </div>
-    <br><br><br>
+
+<br>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 float-right">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">เทอม/ปีการศึกษา<span class="caret"></span></button>
+                    <ul class="dropdown-menu scrollable-menu" role="menu">
+                        @foreach($gen as $show)
+                        <li> <a class="dropdown-item" href="/showGradeLF/{{$course->course_id}}/{{$show->semester}}/{{$show->year}}">{{$show->semester}}/{{$show->year}}</a></li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+<br><br><br>
 
     <center>
         <table class="table table-hover">

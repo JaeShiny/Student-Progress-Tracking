@@ -50,8 +50,8 @@
         <div class="list-group" id="list-tab" role="tablist">
 
             <a class="list-group-item list-group-item-action active" href="/importExportGradeLF/{{$course->course_id}}"><b>เพิ่มผลการเรียน</b></a>
-            <a class="list-group-item list-group-item-action" href="/showGradeLF/{{$course->course_id}}"><b>แสดงผลการเรียน</b></a>
-            <a class="list-group-item list-group-item-action" href="/subjectLF/{{$course->course_id}}"><b>รายชื่อนักศึกษา</b></a>
+            {{-- <a class="list-group-item list-group-item-action" href="/showGradeLF/{{$course->course_id}}"><b>แสดงผลการเรียน</b></a> --}}
+            {{-- <a class="list-group-item list-group-item-action" href="/subjectLF/{{$course->course_id}}"><b>รายชื่อนักศึกษา</b></a> --}}
 
         </div>
     </div>
