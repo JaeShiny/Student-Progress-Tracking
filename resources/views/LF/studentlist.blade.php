@@ -31,13 +31,13 @@
 
 <h5 align='right'>
     <button type="button" class="btn btn-outline-primary">
-        <a href="/importExportView/{{$course->course_id}}">เพิ่มไฟล์</a>
+        <a href="/importExportViewLF/{{$course->course_id}}">เพิ่มไฟล์</a>
     </button>
     <button type="button" class="btn btn-outline-success">
-        <a href="/attendance/{{$course->course_id}}">แสดงผลการเข้าเรียน</a>
+        <a href="/attendanceLF/{{$course->course_id}}">แสดงผลการเข้าเรียน</a>
     </button>
     <button type="button" class="btn btn-outline-success">
-        <a href="/showGrade/{{$course->course_id}}">แสดงผลการเรียน</a>
+        <a href="/showGradeLF/{{$course->course_id}}">แสดงผลการเรียน</a>
     </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </h5>
 
