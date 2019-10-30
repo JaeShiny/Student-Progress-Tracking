@@ -16,7 +16,7 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li> </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <li class="breadcrumb-item"><a href="{{ url('course') }}">วิชาที่สอน</a></li>
+            {{-- <li class="breadcrumb-item"><a href="{{ url('course') }}">วิชาที่สอน</a></li> --}}
             <li class="breadcrumb-item active" aria-current="page"><a href="">การแจ้งเตือน</a></li>
         </ol>
     </nav>

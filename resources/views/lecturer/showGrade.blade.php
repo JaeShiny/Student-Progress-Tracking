@@ -20,7 +20,7 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <li class="breadcrumb-item" aria-current="page"><a href="{{ url('course') }}">วิชาที่สอน</a></li>
+            {{-- <li class="breadcrumb-item" aria-current="page"><a href="{{ url('course') }}">วิชาที่สอน</a></li> --}}
             <li class="breadcrumb-item" aria-current="page"><a href="/showGrade/{{$course->course_id}}">แสดงผลการเรียน</a></li>
         </ol>
     </nav>
