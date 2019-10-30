@@ -41,7 +41,11 @@ Route::get('chartProblemLF/{course_id}', 'ChartController@problemLF');
 //Student
 Route::get('chartAttendanceS', 'ChartController@attendanceS');
 Route::get('chartGradeS', 'ChartController@gradeS');
-
+//Edu
+Route::get('curriStatistic','ChartController@curriStatistic');
+Route::get('chartAttendanceE/{curriculum_id}', 'ChartController@attendanceE');
+Route::get('chartGradeE/{curriculum_id}', 'ChartController@gradeE');
+Route::get('chartProblemE/{curriculum_id}', 'ChartController@problemE');
 
 
     //EducationOfficer
