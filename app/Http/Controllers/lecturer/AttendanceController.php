@@ -91,9 +91,9 @@ class AttendanceController extends Controller
 
     //student
     //แสดงผลการเข้าเรียน
-    public function showAttendanceS($semester, $year)  {
+    public function showAttendanceS()  {
         $student_id = Auth::user()->student_id;
-        $attendance = Attendance::where('student_id',$student_id)->where('semester', $semester)->where('year', $year)->get();
+        $attendance = Attendance::where('student_id',$student_id)->get();
 
         $bios = Bio::where('student_id', $student_id)->get();
 
@@ -106,7 +106,7 @@ class AttendanceController extends Controller
             'attendance' => $attendance,
             'student_id' => $student_id,
             'bios' => $bios,
-            'semester' => $semester,
+            // 'semester' => $semester,
             'gen' => $gen,
             'users' => $users,
         ]);
