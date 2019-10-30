@@ -21,7 +21,7 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <li class="breadcrumb-item" aria-current="page"><a href="{{ url('course') }}">วิชาที่สอน</a></li>
+            {{-- <li class="breadcrumb-item" aria-current="page"><a href="{{ url('course') }}">วิชาที่สอน</a></li> --}}
             <li class="breadcrumb-item" aria-current="page"><a href="/importExportView/{{$course->course_id}}">เพิ่มการเข้าเรียน</a></li>
         </ol>
     </nav>
@@ -50,8 +50,8 @@
         <div class="list-group" id="list-tab" role="tablist">
 
             <a class="list-group-item list-group-item-action active" href="/importExportView/{{$course->course_id}}"><b>เพิ่มการเข้าเรียน</b></a>
-            <a class="list-group-item list-group-item-action" href="/attendance/{{$course->course_id}}"><b>แสดงการเข้าเรียน</b></a>
-            <a class="list-group-item list-group-item-action" href="/subject/{{$course->course_id}}"><b>รายชื่อนักศึกษา</b></a>
+            {{-- <a class="list-group-item list-group-item-action" href="/attendance/{{$course->course_id}}"><b>แสดงการเข้าเรียน</b></a> --}}
+            {{-- <a class="list-group-item list-group-item-action" href="/subject/{{$course->course_id}}"><b>รายชื่อนักศึกษา</b></a> --}}
 
         </div>
     </div>
