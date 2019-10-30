@@ -28,6 +28,7 @@ class AttendanceController extends Controller
 
         $test = Instructor::where('last_name',Auth::user()->lastname)->first();
         $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+
         return view('lecturer.addAttendance',[
             'course' => $course,
             'semester' => $semester,
@@ -37,16 +38,26 @@ class AttendanceController extends Controller
     public function importExportViewAL($course_id)
     {
         $course = Course::find($course_id);
+
+        $test = Instructor::where('last_name',Auth::user()->lastname)->first();
+        $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+
         return view('AdLec.addAttendance',[
             'course' => $course,
+            'semester' => $semester,
         ]);
     }
 
     public function importExportViewLF($course_id)
     {
         $course = Course::find($course_id);
+
+        $test = Instructor::where('last_name',Auth::user()->lastname)->first();
+        $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+
         return view('LF.addAttendance',[
             'course' => $course,
+            'semester' => $semester,
         ]);
     }
 
@@ -75,11 +86,15 @@ class AttendanceController extends Controller
         $student_id = Auth::user()->student_id;
         $attendance = Attendance::where('student_id',$student_id)->get();
 
+        $test = Instructor::where('last_name',Auth::user()->lastname)->first();
+        $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+
         $bios = Bio::where('student_id', $student_id)->get();
         return view('student.showAttendance',[
             'attendance' => $attendance,
             'student_id' => $student_id,
             'bios' => $bios,
+            'semester' => $semester,
         ]);
     }
 
@@ -97,7 +112,7 @@ class AttendanceController extends Controller
             'student' => $student,
             'course' => $course,
             'users' => $users,
-            'semester' => $semester
+            'semester' => $semester,
         ]);
     }
 
@@ -109,11 +124,15 @@ class AttendanceController extends Controller
         $bios = Bio::where('student_id', $student_id)->get();
         $generation = Generation::all();
 
+        $test = Instructor::where('last_name',Auth::user()->lastname)->first();
+        $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+
         return view('advisor.showAttendance',[
             'student' => $student,
             'users' => $users,
             'bios' => $bios,
-            'generation' => $generation
+            'generation' => $generation,
+            'semester' => $semester,
         ]);
     }
 
@@ -124,10 +143,14 @@ class AttendanceController extends Controller
         $users = User::all();
         $bios = Bio::where('student_id', $student_id)->get();
 
+        $test = Instructor::where('last_name',Auth::user()->lastname)->first();
+        $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+
         return view('AdLec.showAttendance2',[
             'student' => $student,
             'users' => $users,
             'bios' => $bios,
+            'semester' => $semester,
         ]);
     }
     public function showAttendanceAL($course_id)  {
@@ -135,10 +158,14 @@ class AttendanceController extends Controller
         $course = Course::find($course_id);
         $users = User::all();
 
+        $test = Instructor::where('last_name',Auth::user()->lastname)->first();
+        $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+
         return view('AdLec.showAttendance',[
             'student' => $student,
             'course' => $course,
             'users' => $users,
+            'semester' => $semester,
         ]);
     }
 
@@ -149,10 +176,14 @@ class AttendanceController extends Controller
         $users = User::all();
         $bios = Bio::where('student_id', $student_id)->get();
 
+        $test = Instructor::where('last_name',Auth::user()->lastname)->first();
+        $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+
         return view('EducationOfficer.showAttendance',[
             'student' => $student,
             'users' => $users,
             'bios' => $bios,
+            'semester' => $semester,
         ]);
     }
 
@@ -170,7 +201,7 @@ class AttendanceController extends Controller
             'student' => $student,
             'course' => $course,
             'users' => $users,
-            'semester' => $semester
+            'semester' => $semester,
         ]);
     }
 
@@ -181,10 +212,14 @@ class AttendanceController extends Controller
         $course = Course::find($course_id);
         $users = User::all();
 
+        $test = Instructor::where('last_name',Auth::user()->lastname)->first();
+        $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+
         return view('Admin.showAttendance',[
             'student' => $student,
             'course' => $course,
             'users' => $users,
+            'semester' => $semester,
         ]);
     }
 
