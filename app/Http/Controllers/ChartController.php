@@ -234,5 +234,125 @@ class ChartController extends Controller
     }
 
 
+        //student
+    public function attendanceS(){
+        $user = Auth::user();
+        $bios = Bio::where('first_name',$user->name)->where('last_name',$user->lastname)->first();
+
+        // $test = Instructor::where('last_name',Auth::user()->lastname)->first();
+        // $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+
+        $count_student = Attendance::where('attendance_id')->count();
+        $risk_attendance = Attendance::where('amount_absence')->where('student_id',$bios->student_id)->get();
+        $risk_attendanceC = Attendance::where('amount_absence', '>=', 3 )->where('student_id',$bios->student_id)->count();
+
+        $period_1 = Attendance::where('period_1', '<=' , 0)->where('student_id',$bios->student_id)->count();
+        $period_2 = Attendance::where('period_2', '<=' , 0)->where('student_id',$bios->student_id)->count();
+        $period_3 = Attendance::where('period_3', '<=' , 0)->where('student_id',$bios->student_id)->count();
+        $period_4 = Attendance::where('period_4', '<=' , 0)->where('student_id',$bios->student_id)->count();
+        $period_5 = Attendance::where('period_5', '<=' , 0)->where('student_id',$bios->student_id)->count();
+        $period_6 = Attendance::where('period_6', '<=' , 0)->where('student_id',$bios->student_id)->count();
+        $period_7 = Attendance::where('period_7', '<=' , 0)->where('student_id',$bios->student_id)->count();
+        $period_8 = Attendance::where('period_8', '<=' , 0)->where('student_id',$bios->student_id)->count();
+        $period_9 = Attendance::where('period_9', '<=' , 0)->where('student_id',$bios->student_id)->count();
+        $period_10 = Attendance::where('period_10', '<=' , 0)->where('student_id',$bios->student_id)->count();
+        $period_11 = Attendance::where('period_11', '<=' , 0)->where('student_id',$bios->student_id)->count();
+        $period_12 = Attendance::where('period_12', '<=' , 0)->where('student_id',$bios->student_id)->count();
+        $period_13 = Attendance::where('period_13', '<=' , 0)->where('student_id',$bios->student_id)->count();
+        $period_14 = Attendance::where('period_14', '<=' , 0)->where('student_id',$bios->student_id)->count();
+        $period_15 = Attendance::where('period_15', '<=' , 0)->where('student_id',$bios->student_id)->count();
+
+        // $chart = Charts::database($risk_attendance, 'bar', 'highcharts')
+        //         ->title("Attendance")
+		// 	    ->elementLabel("Total Users")
+		// 	    ->dimensions(1000, 500)
+		// 	    ->responsive(false)
+        // 	    ->groupByMonth(date('Y'), true);
+
+        $chart = Charts::database($risk_attendance, 'bar', 'highcharts')
+            ->title("สถิติการขาดเรียนของนักศึกษา")
+            ->elementLabel("จำนวนการขาดเรียน")
+            ->labels(['คาบที่1', 'คาบที่2', 'คาบที่3', 'คาบที่4', 'คาบที่5', 'คาบที่6', 'คาบที่7', 'คาบที่8'
+            , 'คาบที่9', 'คาบที่10', 'คาบที่11', 'คาบที่12', 'คาบที่13', 'คาบที่14', 'คาบที่15'])
+            ->values([$period_1,$period_2,$period_3,$period_4,$period_5,$period_6,$period_7
+            ,$period_8,$period_9,$period_10,$period_11,$period_12,$period_13,$period_14,$period_15])
+            ->dimensions(1000, 500)
+            ->responsive(true);
+
+        return view('student.chart.chartAttendance',[
+            'user' => $user,
+            'bios' => $bios,
+            'chart' => $chart,
+            // 'semester' => $semester,
+
+            'risk_attendance' => $risk_attendance,
+            'risk_attendanceC' => $risk_attendanceC,
+            // 'chart',compact('chart'),
+
+            'period_1' => $period_1,
+            'period_2' => $period_2,
+            'period_3' => $period_3,
+            'period_4' => $period_4,
+            'period_5' => $period_5,
+            'period_6' => $period_6,
+            'period_7' => $period_7,
+            'period_8' => $period_8,
+            'period_9' => $period_9,
+            'period_10' => $period_10,
+            'period_11' => $period_11,
+            'period_12' => $period_12,
+            'period_13' => $period_13,
+            'period_14' => $period_14,
+            'period_15' => $period_15,
+
+            'count_student' => $count_student,
+        ]);
+    }
+
+    public function gradeS(){
+        $user = Auth::user();
+        $bios = Bio::where('first_name',$user->name)->where('last_name',$user->lastname)->first();
+
+        $count_student = Grade::where('grade_id')->count();
+        $risk_grade = Grade::where('total_all')->where('student_id',$bios->student_id)->get();
+        $risk_gradeC = Grade::where('total_all')->where('student_id',$bios->student_id)->count();
+
+        $gradeA = Grade::where('total_all', '>=', 80)->where('student_id',$bios->student_id)->count();
+        $gradeBB = Grade::where('total_all', '>=', 75)->where('total_all', '<=', 79)->where('student_id',$bios->student_id)->count();
+        $gradeB = Grade::where('total_all', '>=', 70)->where('total_all', '<=', 74)->where('student_id',$bios->student_id)->count();
+        $gradeCC = Grade::where('total_all', '>=', 65)->where('total_all', '<=', 69)->where('student_id',$bios->student_id)->count();
+        $gradeC = Grade::where('total_all', '>=', 60)->where('total_all', '<=', 64)->where('student_id',$bios->student_id)->count();
+        $gradeDD = Grade::where('total_all', '>=', 55)->where('total_all', '<=', 59)->where('student_id',$bios->student_id)->count();
+        $gradeD = Grade::where('total_all', '>=', 50)->where('total_all', '<=', 54)->where('student_id',$bios->student_id)->count();
+        $gradeF = Grade::where('total_all', '>=', 49)->where('student_id',$bios->student_id)->count();
+
+        $chart = Charts::database($risk_grade, 'bar', 'highcharts')
+            ->title("สถิติผลการเรียนของนักศึกษา")
+            ->elementLabel("จำนวนครั้งที่ได้เกรดนั้นๆ")
+            ->labels(['เกรด A', 'เกรด B+', '่เกรด B', 'เกรด C+', 'เกรด C', 'เกรด D+', 'เกรด D', 'เกรด F'])
+            ->values([$gradeA, $gradeBB, $gradeB, $gradeCC, $gradeC, $gradeDD, $gradeD, $gradeF])
+            ->dimensions(1000, 500)
+            ->responsive(true);
+
+        return view('student.chart.chartGrade',[
+            'user' => $user,
+            'bios' => $bios,
+            'chart' => $chart,
+
+            'risk_grade' => $risk_grade,
+            'risk_gradeC' => $risk_gradeC,
+
+            'count_student' => $count_student,
+
+            'gardeA' => $gradeA,
+            'gardeBB' => $gradeBB,
+            'gardeB' => $gradeB,
+            'gardeCC' => $gradeCC,
+            'gardeC' => $gradeC,
+            'gardeDD' => $gradeDD,
+            'gardeD' => $gradeD,
+            'gardeF' => $gradeF,
+        ]);
+    }
 
 }

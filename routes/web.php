@@ -33,6 +33,10 @@ Route::get('subjectStatisticL','ChartController@subjectStatisticL');
 Route::get('chartAttendanceL/{course_id}', 'ChartController@attendanceL');
 Route::get('chartGradeL/{course_id}', 'ChartController@gradeL');
 Route::get('chartProblemL/{course_id}', 'ChartController@problemL');
+//Student
+Route::get('chartAttendanceS', 'ChartController@attendanceS');
+Route::get('chartGradeS', 'ChartController@gradeS');
+
 
 
     //EducationOfficer
@@ -223,9 +227,9 @@ Route::get('/studentSurvey', function () {
 Route::get('profileafter/{student_id}','student\SrmController@profile');
 
 //แสดงการเข้าเรียน Attendance
-Route::get('/student/attendance/{semester}/{year}','lecturer\AttendanceController@showAttendanceS');
+Route::get('/student/attendance','lecturer\AttendanceController@showAttendanceS');
 //แสดงผลการเรียน Grade
-Route::get('/student/grade/{semester}/{year}','lecturer\GradeController@showGradeS');
+Route::get('/student/grade','lecturer\GradeController@showGradeS');
 
 
     //Advisor
