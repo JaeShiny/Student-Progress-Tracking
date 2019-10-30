@@ -11,6 +11,8 @@
     <link rel="stylesheet" type="text/css" href="css/bootstrap-grid.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap-reboot.css">
 
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -60,9 +62,25 @@
                 <div class="card-header">
                         <h4 class="w3-bar-item">{{$course->course_id}}&nbsp;{{$course->course_name_eng}}</h4>
                 </div>
-    <br><br><br>
+<br>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 float-right">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">เทอม/ปีการศึกษา<span class="caret"></span></button>
+                    <ul class="dropdown-menu scrollable-menu" role="menu">
+                        @foreach($gen as $show)
+                        <li> <a class="dropdown-item" href="/attendance/{{$course->course_id}}/{{$show->semester}}/{{$show->year}}">{{$show->semester}}/{{$show->year}}</a></li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+<br>
 
     <center>
+        <br><br>
         <table class="table table-hover">
             <thead>
                 <tr>

@@ -31,7 +31,8 @@
         <a href="/importExportView/{{$course->course_id}}">เพิ่มไฟล์</a>
     </button>
     <button type="button" class="btn btn-outline-success">
-        <a href="/attendance/{{$course->course_id}}">แสดงผลการเข้าเรียน</a>
+        {{-- <a href="/attendance/{{$course->course_id}}">แสดงผลการเข้าเรียน</a> --}}
+        <a href="/attendance/{{$course->course_id}}/{{$gen->semester}}/{{$gen->year}}">แสดงผลการเข้าเรียน</a>
     </button>
     <button type="button" class="btn btn-outline-success">
         <a href="/showGrade/{{$course->course_id}}">แสดงผลการเรียน</a>

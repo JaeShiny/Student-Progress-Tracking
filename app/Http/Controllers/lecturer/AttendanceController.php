@@ -88,31 +88,39 @@ class AttendanceController extends Controller
 
         $test = Instructor::where('last_name',Auth::user()->lastname)->first();
         $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+        $gen = Generation::all();
 
         $bios = Bio::where('student_id', $student_id)->get();
+
         return view('student.showAttendance',[
             'attendance' => $attendance,
             'student_id' => $student_id,
             'bios' => $bios,
             'semester' => $semester,
+            'gen' => $gen,
         ]);
     }
 
     //lecturer
     //แสดงผลการเข้าเรียน
-    public function showAttendanceL($course_id)  {
-        $student = Attendance::where('course_id',$course_id)->get();
+    public function showAttendanceL($course_id, $semester, $year)  {
+        $student = Attendance::where('course_id',$course_id)->where('semester', $semester)->where('year', $year)->get();
         $course = Course::find($course_id);
-        $users = User::all();
 
+        $users = User::all();
+        $attendance = Attendance::where('course_id',$course_id)->where('semester', $semester)->where('year', $year)->get();
         $test = Instructor::where('last_name',Auth::user()->lastname)->first();
         $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+        $gen = Generation::all();
 
         return view('lecturer.showAttendance',[
             'student' => $student,
             'course' => $course,
             'users' => $users,
             'semester' => $semester,
+            'gen' => $gen,
+
+            'attendance' => $attendance,
         ]);
     }
 
@@ -126,6 +134,7 @@ class AttendanceController extends Controller
 
         $test = Instructor::where('last_name',Auth::user()->lastname)->first();
         $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+        $gen = Generation::all();
 
         return view('advisor.showAttendance',[
             'student' => $student,
@@ -133,6 +142,7 @@ class AttendanceController extends Controller
             'bios' => $bios,
             'generation' => $generation,
             'semester' => $semester,
+            'gen' => $gen,
         ]);
     }
 
@@ -145,12 +155,14 @@ class AttendanceController extends Controller
 
         $test = Instructor::where('last_name',Auth::user()->lastname)->first();
         $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+        $gen = Generation::all();
 
         return view('AdLec.showAttendance2',[
             'student' => $student,
             'users' => $users,
             'bios' => $bios,
             'semester' => $semester,
+            'gen' => $gen,
         ]);
     }
     public function showAttendanceAL($course_id)  {
@@ -160,12 +172,14 @@ class AttendanceController extends Controller
 
         $test = Instructor::where('last_name',Auth::user()->lastname)->first();
         $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+        $gen = Generation::all();
 
         return view('AdLec.showAttendance',[
             'student' => $student,
             'course' => $course,
             'users' => $users,
             'semester' => $semester,
+            'gen' => $gen,
         ]);
     }
 
@@ -178,12 +192,14 @@ class AttendanceController extends Controller
 
         $test = Instructor::where('last_name',Auth::user()->lastname)->first();
         $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+    $gen = Generation::all();
 
         return view('EducationOfficer.showAttendance',[
             'student' => $student,
             'users' => $users,
             'bios' => $bios,
             'semester' => $semester,
+            'gen' => $gen,
         ]);
     }
 
@@ -196,12 +212,14 @@ class AttendanceController extends Controller
 
         $test = Instructor::where('first_name', Auth::user()->name)->first();
         $semester = Schedule::where('instructor_id', $test->instructor_id)->orderBy('year', 'asc')->get();
+        $gen = Generation::all();
 
         return view('LF.showAttendance',[
             'student' => $student,
             'course' => $course,
             'users' => $users,
             'semester' => $semester,
+            'gen' => $gen,
         ]);
     }
 
@@ -214,12 +232,14 @@ class AttendanceController extends Controller
 
         $test = Instructor::where('last_name',Auth::user()->lastname)->first();
         $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+        $gen = Generation::all();
 
         return view('Admin.showAttendance',[
             'student' => $student,
             'course' => $course,
             'users' => $users,
             'semester' => $semester,
+            'gen' => $gen,
         ]);
     }
 

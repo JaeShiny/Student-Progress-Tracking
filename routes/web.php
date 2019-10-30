@@ -143,7 +143,7 @@ Route::get('importExportView/{course_id}', 'lecturer\AttendanceController@import
 Route::post('import/{course_id}', 'lecturer\AttendanceController@import')->name('import');
 
 //แสดงการเข้าเรียน -> Attendance
-Route::get('/attendance/{course_id}','lecturer\AttendanceController@showAttendanceL');
+Route::get('/attendance/{course_id}/{semester}/{year}','lecturer\AttendanceController@showAttendanceL');
 
 //import excel -> Grade
 Route::get('exportGrade/{course_id}', 'lecturer\GradeController@export')->name('exportGrade');
