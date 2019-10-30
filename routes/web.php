@@ -277,7 +277,7 @@ Route::get('student_profileAL/{student_id}','student\BioController@profileAL1')-
 Route::get('profilebeforeAL/{student_id}','student\InterviewController@profileAL');
 
 //กดดูหน้าข้อมูลระหว่างศึกษา
-Route::get('profileDuringAL/{student_id}','student\BioController@profileDuringAL');
+Route::get('profileDuringAL/{student_id}/{semester}/{year}','student\BioController@profileDuringAL');
 
 //กดดูหน้าข้อมูลหลังจบ
 Route::get('profileafterAL/{student_id}','student\SrmController@profileAL');

@@ -564,7 +564,7 @@ class BioController extends Controller
     }
 
     //แสดงข้อมูลระหว่างศึกษา
-    public function profileDuringAL($student_id)
+    public function profileDuringAL($student_id,$semester,$year)
     {
         $user = Auth::user();
         $bios = Bio::find($student_id);
@@ -574,10 +574,10 @@ class BioController extends Controller
         $generations = Generation::all();
         $majors = Major::all();
         $problems = Problem::all();
-        $grades = Grade::where('student_id', $student_id)->get();
+        $grades = Grade::where('student_id', $student_id)->where('semester',$semester)->where('year',$year)->get();
 
         $student_id = Auth::user()->student_id;
-        $attendances = Attendance::where('student_id', $bios->student_id)->get();
+        $attendances = Attendance::where('student_id', $bios->student_id)->where('semester',$semester)->where('year',$year)->get();
 
         $test = Instructor::where('last_name',Auth::user()->lastname)->first();
         $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
