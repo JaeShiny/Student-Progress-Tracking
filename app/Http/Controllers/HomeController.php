@@ -50,8 +50,11 @@ class HomeController extends Controller
         }elseif(auth()->user()->isAdLec()) {
             return view('AdLec/dashboard');
         }elseif(auth()->user()->isLF()) {
-
-            return view('LF/dashboard');
+            $test = Instructor::where('first_name',Auth::user()->name)->first();
+            $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+            return view('LF/dashboard',[
+                'semester' => $semester,
+            ]);
         }elseif(auth()->user()->isAdmin()) {
             return view('Admin/dashboard');
         }else {

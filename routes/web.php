@@ -16,6 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('/detail123/{course_id}/{semester}/{year}','student\BioController@indexL');
+Route::get('/detailLF/{course_id}/{semester}/{year}','student\BioController@indexLF');
 
 Route::get('/selectyear/{id}','EducationOfficer\SelectYearController@index');
 
@@ -154,6 +155,7 @@ Route::get('/showGrade/{course_id}','lecturer\GradeController@showGradeL');
 //index survey
 Route::get('/indexSurvey', 'student\BioController@showme');
 Route::get('/advisorSurvey', 'student\BioController@showmeAd');
+Route::get('/LFSurvey', 'student\BioController@showmeLF');
 
             //แจ้งเตือน//
 //Lec
@@ -361,7 +363,7 @@ Route::get('profileafterLF/{student_id}','student\SrmController@profileLF');
 Route::get('problem_createLF/{student_id}','lecturer\ProblemController@createLF')->name('createLF');
 Route::post('problem_insertLF','lecturer\ProblemController@insertLF');
 //แสดงพฤติกรรมเด็ก
-Route::get('studentproblemLF/{student_id}', 'lecturer\ProblemController@showProblemLF');
+Route::get('studentproblemLF/{student_id}/{semester}/{year}', 'lecturer\ProblemController@showProblemLF');
 
 // search
 Route::get('student_searchLF','student\BioController@searchL');
@@ -400,9 +402,9 @@ Route::get('/attendanceLF/{course_id}','lecturer\AttendanceController@showAttend
 //แสดงผลการเรียน -> Grade
 Route::get('/showGradeLF/{course_id}','lecturer\GradeController@showGradeLF');
 
-Route::get('/LFSurvey', function () {
-    return view('LF.indexSurvey');
-});
+// Route::get('/LFSurvey', function () {
+//     return view('LF.indexSurvey');
+// });
 
 
 //ลบด้วยนะถ้าเขียนโค้ดเสร็จ

@@ -103,7 +103,11 @@ class LoginController extends Controller
         } elseif (auth()->user()->isAdLec()) {
             return '/AdLec/dashboard';
         } elseif (auth()->user()->isLF()) {
-            return '/LF/dashboard';
+            $gen = Generation::orderBy('year', 'desc')->orderBy('semester', 'desc')->first();
+            $user = User::where('id', Auth::id())->where('position', 'LF')->first();
+            $instructor = Instructor::where('first_name', $user->name)->first();
+            $course = Schedule::where('instructor_id', $instructor->instructor_id)->where('semester', $gen->semester)->where('year', $gen->year)->first();
+            return 'detailLF/' . $course->course_id . '/' . $gen->semester . '/' . $gen->year;
         } elseif (auth()->user()->isAdmin()) {
             return '/Admin/dashboard';
         } else {

@@ -163,10 +163,14 @@ class AttendanceController extends Controller
         $course = Course::find($course_id);
         $users = User::all();
 
+        $test = Instructor::where('first_name', Auth::user()->name)->first();
+        $semester = Schedule::where('instructor_id', $test->instructor_id)->orderBy('year', 'asc')->get();
+
         return view('LF.showAttendance',[
             'student' => $student,
             'course' => $course,
             'users' => $users,
+            'semester' => $semester
         ]);
     }
 

@@ -45,8 +45,11 @@ class GradeController extends Controller
     public function importExportViewLF($course_id)
     {
         $course = Course::find($course_id);
+        $test = Instructor::where('first_name', Auth::user()->name)->first();
+        $semester = Schedule::where('instructor_id', $test->instructor_id)->orderBy('year', 'asc')->get();
         return view('LF.addGrade',[
             'course' => $course,
+            'semester' => $semester
         ]);
     }
     /**
@@ -164,10 +167,14 @@ class GradeController extends Controller
         $course = Course::find($course_id);
         $users = User::all();
 
+        $test = Instructor::where('first_name', Auth::user()->name)->first();
+        $semester = Schedule::where('instructor_id', $test->instructor_id)->orderBy('year', 'asc')->get();
+
         return view('LF.showGrade',[
             'student' => $student,
             'course' => $course,
             'users' => $users,
+            'semester'=> $semester
         ]);
     }
 

@@ -163,9 +163,13 @@ class StudyController extends Controller
             $study = Study::all();
             $courses = Course::all();
 
+            $test = Instructor::where('first_name', Auth::user()->name)->first();
+            $semester = Schedule::where('instructor_id', $test->instructor_id)->orderBy('year', 'asc')->get();
+
             return view('LF.enrollment',[
                 'study' => $study,
                 'courses' => $courses,
+                'semester' => $semester
             ]);
 
         }
@@ -175,10 +179,14 @@ class StudyController extends Controller
             $courses = Course::all();
             $student_code = $student_id;
 
+            $test = Instructor::where('first_name', Auth::user()->name)->first();
+            $semester = Schedule::where('instructor_id', $test->instructor_id)->orderBy('year', 'asc')->get();
+
             return view('LF.enrollment',[
                 'study' => $study,
                 'courses' => $courses,
-                'student' => $student_code
+                'student' => $student_code,
+                'semester' => $semester
             ]);
         }
 

@@ -120,11 +120,15 @@ class SrmController extends Controller
         $alumni_profile = Alumni_profile::where('first_name',$bios->first_name)->where('last_name',$bios->last_name)->first();
         $curriculum = Curriculum::all();
 
+        $test = Instructor::where('first_name', Auth::user()->name)->first();
+        $semester = Schedule::where('instructor_id', $test->instructor_id)->orderBy('year', 'asc')->get();
+
         return view('LF.profile(after)',[
             'alumni_profile' => $alumni_profile,
             'student' => $student,
             'bios' => $bios,
             'curriculum' => $curriculum,
+            'semester' => $semester
         ]);
     }
 }

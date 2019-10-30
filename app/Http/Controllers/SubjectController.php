@@ -125,9 +125,13 @@ class SubjectController extends Controller
         // $course = Course::all();
         $course = Course::paginate(5);
 
+        $test = Instructor::where('first_name', Auth::user()->name)->first();
+        $semester = Schedule::where('instructor_id', $test->instructor_id)->orderBy('year', 'asc')->get();
+
         return view('LF.subject',[
             'course' => $course,
             'student' => $student,
+            'semester' => $semester
         ]);
     }
 
@@ -138,13 +142,16 @@ class SubjectController extends Controller
         $instructor = Instructor::where('first_name',Auth::user()->name)->first();
         $schedule = Schedule::where('instructor_id2',$instructor->instructor_id)->pluck('course_id');
         $course = Course::whereIn('course_id',$schedule)->paginate(5);
+        $test = Instructor::where('first_name', Auth::user()->name)->first();
+        $semester = Schedule::where('instructor_id', $test->instructor_id)->orderBy('year', 'asc')->get();
 
         // $instructor = Instructor::where('first_name',Auth::user()->name)->first();
         // $schedule = Schedule::where('instructor_id2',$instructor->instructor_id)->pluck('course_id');
         // $course = Course::whereIn('course_id',$schedule)->paginate(5);
 
         return view('LF.subject',[
-            'course' => $course
+            'course' => $course,
+            'semester' => $semester
         ]);
     }
 

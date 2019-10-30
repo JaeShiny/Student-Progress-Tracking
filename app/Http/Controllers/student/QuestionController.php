@@ -11,6 +11,10 @@ use App\Question;
 use Auth;
 use Illuminate\Support\Facades\Input;
 use App\Model\spts\Choice;
+use App\Model\mis\Schedule;
+use App\Model\mis\Instructor;
+use App\Model\mis\Study;
+use App\Model\mis\Generation;
 // use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -43,7 +47,9 @@ class QuestionController extends Controller
 
     public function edit(Question $question)
     {
-      return view('question.edit', compact('question'));
+        $test = Instructor::where('first_name', Auth::user()->name)->first();
+        $semester = Schedule::where('instructor_id', $test->instructor_id)->orderBy('year', 'asc')->get();
+      return view('question.edit', compact('question','semester'));
     }
 
     public function update(Request $request, Question $question)
@@ -74,7 +80,8 @@ class QuestionController extends Controller
 
     public function editAd(Question $question)
     {
-      return view('advisor.editQuestion', compact('question'));
+        $generation = Generation::all();
+      return view('advisor.editQuestion', compact('question','generation'));
     }
 
     public function updateAd(Request $request, Question $question)
@@ -167,7 +174,9 @@ class QuestionController extends Controller
 
     public function editLF(Question $question)
     {
-      return view('LF.editQuestion', compact('question'));
+        $test = Instructor::where('first_name', Auth::user()->name)->first();
+        $semester = Schedule::where('instructor_id', $test->instructor_id)->orderBy('year', 'asc')->get();
+      return view('LF.editQuestion', compact('question','semester'));
     }
 
     public function updateLF(Request $request, Question $question)

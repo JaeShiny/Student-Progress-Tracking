@@ -100,7 +100,9 @@ class FormController extends Controller
     //LF
     public function FormAttendanceViewLF()
     {
-        return view('LF.formAttendance');
+        $test = Instructor::where('first_name', Auth::user()->name)->first();
+        $semester = Schedule::where('instructor_id', $test->instructor_id)->orderBy('year', 'asc')->get();
+        return view('LF.formAttendance',compact('semester'));
     }
 
     /**
@@ -120,7 +122,9 @@ class FormController extends Controller
     */
     public function FormGradeViewLF()
     {
-        return view('LF.formGrade');
+        $test = Instructor::where('first_name', Auth::user()->name)->first();
+        $semester = Schedule::where('instructor_id', $test->instructor_id)->orderBy('year', 'asc')->get();
+        return view('LF.formGrade',compact('semester'));
     }
     /**
     * @return \Illuminate\Support\Collection

@@ -329,20 +329,22 @@ class ProblemController extends Controller
         return redirect()->back()->with('message', 'เพิ่มข้อมูลเรียบร้อยแล้ว');
     }
 
-    public function showProblemLF($student_id)
+    public function showProblemLF($student_id,$semester,$year)
     {
-        $problem = Problem::where('student_id', $student_id)->get();
+        $problem = Problem::where('student_id', $student_id)->where('semester', $semester)->where('year', $year)->get();
         $users = User::all();
-        $bios = Bio::where('student_id', $student_id)->get();
+        $bios = Bio::where('student_id', $student_id)->first();
 
-        $test = Instructor::where('last_name', Auth::user()->lastname)->first();
+        $test = Instructor::where('first_name', Auth::user()->name)->first();
         $semester = Schedule::where('instructor_id', $test->instructor_id)->orderBy('year', 'asc')->get();
 
+        $gen = Generation::all();
         return view('LF.problem', [
             'problem' => $problem,
             'users' => $users,
             'bios' => $bios,
             'semester' => $semester,
+            'gen' => $gen
         ]);
     }
 
@@ -350,9 +352,13 @@ class ProblemController extends Controller
     public function notiProblemLF($student_id)
     {
         $risk_problem = Problem::where('risk_level', 'รุนแรงมาก')->where('student_id', $student_id)->get();
+        $test = Instructor::where('last_name', Auth::user()->lastname)->first();
+        $semester = Schedule::where('instructor_id', $test->instructor_id)->orderBy('year', 'asc')->get();
+
 
         return view('LF.showProblem', [
             'risk_problem' => $risk_problem,
+            'semester' => $semester
         ]);
     }
 }
