@@ -71,6 +71,7 @@ class ProblemController extends Controller
         $test = Instructor::where('last_name', Auth::user()->lastname)->first();
         $semester = Schedule::where('instructor_id', $test->instructor_id)->orderBy('year', 'asc')->get();
         $gen = Generation::all();
+
         return view('lecturer.problem', [
             'problem' => $problem,
             'users' => $users,

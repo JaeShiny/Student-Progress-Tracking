@@ -151,7 +151,7 @@ Route::get('importExportGrade/{course_id}', 'lecturer\GradeController@importExpo
 Route::post('importGrade/{course_id}', 'lecturer\GradeController@import')->name('import');
 
 //แสดงผลการเรียน -> Grade
-Route::get('/showGrade/{course_id}','lecturer\GradeController@showGradeL');
+Route::get('/showGrade/{course_id}/{semester}/{year}','lecturer\GradeController@showGradeL');
 
 //index survey
 Route::get('/indexSurvey', 'student\BioController@showme');

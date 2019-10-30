@@ -62,6 +62,7 @@
                 <div class="card-header">
                         <h4 class="w3-bar-item">{{$course->course_id}}&nbsp;{{$course->course_name_eng}}</h4>
                 </div>
+
 <br>
     <div class="container">
         <div class="row">

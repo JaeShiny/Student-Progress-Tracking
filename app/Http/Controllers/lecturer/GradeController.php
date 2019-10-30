@@ -89,19 +89,21 @@ class GradeController extends Controller
 
     //lecturer
     //แสดงผล grade
-    public function showGradeL($course_id)  {
-        $student = Grade::where('course_id',$course_id)->get();
+    public function showGradeL($course_id, $semester, $year)  {
+        $student = Grade::where('course_id',$course_id)->where('semester', $semester)->where('year', $year)->get();
         $course = Course::find($course_id);
         $users = User::all();
 
         $test = Instructor::where('last_name',Auth::user()->lastname)->first();
         $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+        $gen = Generation::all();
 
         return view('lecturer.showGrade',[
             'student' => $student,
             'course' => $course,
             'users' => $users,
-            'semester' => $semester
+            'semester' => $semester,
+            'gen' => $gen,
         ]);
     }
 
