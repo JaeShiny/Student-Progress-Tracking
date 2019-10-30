@@ -33,6 +33,11 @@ Route::get('subjectStatisticL','ChartController@subjectStatisticL');
 Route::get('chartAttendanceL/{course_id}', 'ChartController@attendanceL');
 Route::get('chartGradeL/{course_id}', 'ChartController@gradeL');
 Route::get('chartProblemL/{course_id}', 'ChartController@problemL');
+//LF
+Route::get('subjectStatisticLF','ChartController@subjectStatisticLF');
+Route::get('chartAttendanceLF/{course_id}', 'ChartController@attendanceLF');
+Route::get('chartGradeLF/{course_id}', 'ChartController@gradeLF');
+Route::get('chartProblemLF/{course_id}', 'ChartController@problemLF');
 //Student
 Route::get('chartAttendanceS', 'ChartController@attendanceS');
 Route::get('chartGradeS', 'ChartController@gradeS');
