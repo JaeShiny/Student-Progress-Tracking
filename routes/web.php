@@ -577,6 +577,9 @@ Route::group(['prefix' => 'advisor'], function(){
         Route::get('myStudent/{semester}/{year}','advisor\AdvisorController@showStudent')->name('firstpage');
         Route::get('showAtt','advisor\AdvisorController@showAttendance');
         Route::get('showNotiA','NotificationController@showNotiA');
+        Route::get('chartAttendanceA','ChartController@attendanceA');
+        Route::get('chartGradeA','ChartController@gradeA');
+        Route::get('chartProblemA','ChartController@problemA');
     });
 });
 //Route for lecturer user

@@ -82,7 +82,7 @@
                             <div class="btn-group">
                                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="color: white">นักศึกษา<span class="caret"></span></button>
                                 <a class="nav-link" href="/advisor/showAtt" style="color: #FFFFFF">การเข้าเรียนและผลการเรียน</a>
-                                <a class="nav-link" href="#" style="color: #FFFFFF">สถิติ</a>
+                                <a class="nav-link" href="/advisor/chartAttendanceA" style="color: #FFFFFF">สถิติ</a>
                                 <a class="nav-link" href="/advisor/showNotiA" style="color: #FFFFFF">การแจ้งเตือน</a>
                                 <a class="nav-link" href="/advisorSurvey" style="color: #FFFFFF">แบบสอบถาม</a>
                                 <ul class="dropdown-menu scrollable-menu" role="menu">
