@@ -278,7 +278,7 @@ Route::post('problem_insertA','lecturer\ProblemController@insertA');
 
 //แสดงพฤติกรรมเด็ก
 // Route::get('studentproblemA/{student_id}', 'lecturer\ProblemController@showProblemA');
-Route::get('studentproblemA/{student_id}/{semester}/{year}', 'lecturer\ProblemController@showProblemA');
+Route::get('studentproblemA/{student_id}', 'lecturer\ProblemController@showProblemA');
 
 Route::get('student_searchA','student\BioController@searchA');
 
