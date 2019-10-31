@@ -44,6 +44,7 @@ class ChartController extends Controller
 
         //Lecturer
     // แสดงแจ้งเตือนทุกวิชาที่สอน
+    //ไม่ใช้แล้ว
     public function subjectStatisticL(){
         $instructor = Instructor::where('first_name',Auth::user()->name)->first();
         $schedule = Schedule::where('instructor_id2',$instructor->instructor_id)->pluck('course_id');
@@ -58,17 +59,22 @@ class ChartController extends Controller
         ]);
     }
 
-    public function attendanceL($course_id){
+    public function attendanceL($course_id, $semester, $year){
         $course = Course::find($course_id);
         $major = Major::where('major_id',$course->major_id)->get();
         $student = Student::where('major_id',$course->major_id)->get();
 
         $test = Instructor::where('last_name',Auth::user()->lastname)->first();
         $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+        $gen = Generation::orderBy('year','desc')->first();
 
-        $count_student = Attendance::where('attendance_id')->count();
-        $risk_attendance = Attendance::where('amount_absence')->where('course_id',$course_id)->get();
-        $risk_attendanceC = Attendance::where('amount_absence')->where('course_id',$course_id)->count();
+        $count_student = Attendance::where('attendance_id')->where('semester', $semester)->where('year', $year)->count();
+        $risk_attendance = Attendance::where('amount_absence')->where('course_id',$course_id)
+                        ->where('semester', $semester)->where('year', $year)
+                        ->get();
+        $risk_attendanceC = Attendance::where('amount_absence')->where('course_id',$course_id)
+                            ->where('semester', $semester)->where('year', $year)
+                            ->count();
 
         $period_1 = Attendance::where('period_1', '<=' , 0)->where('course_id',$course_id)->count();
         $period_2 = Attendance::where('period_2', '<=' , 0)->where('course_id',$course_id)->count();
@@ -86,13 +92,6 @@ class ChartController extends Controller
         $period_14 = Attendance::where('period_14', '<=' , 0)->where('course_id',$course_id)->count();
         $period_15 = Attendance::where('period_15', '<=' , 0)->where('course_id',$course_id)->count();
 
-        // $chart = Charts::database($risk_attendance, 'bar', 'highcharts')
-        //         ->title("Attendance")
-		// 	    ->elementLabel("Total Users")
-		// 	    ->dimensions(1000, 500)
-		// 	    ->responsive(false)
-        // 	    ->groupByMonth(date('Y'), true);
-
         $chart = Charts::database($risk_attendance, 'bar', 'highcharts')
             ->title("สถิติการขาดเรียนของนักศึกษา")
             ->elementLabel("จำนวนนักศึกษาที่ขาดเรียน")
@@ -109,10 +108,10 @@ class ChartController extends Controller
             'major' => $major,
             'chart' => $chart,
             'semester' => $semester,
+            'gen' => $gen,
 
             'risk_attendance' => $risk_attendance,
             'risk_attendanceC' => $risk_attendanceC,
-            // 'chart',compact('chart'),
 
             'period_1' => $period_1,
             'period_2' => $period_2,
@@ -134,17 +133,18 @@ class ChartController extends Controller
         ]);
     }
 
-    public function gradeL($course_id){
+    public function gradeL($course_id, $semester, $year){
         $course = Course::find($course_id);
         $major = Major::where('major_id',$course->major_id)->get();
         $student = Student::where('major_id',$course->major_id)->get();
 
         $test = Instructor::where('last_name',Auth::user()->lastname)->first();
         $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+        $gen = Generation::orderBy('year','desc')->first();
 
-        $count_student = Grade::where('grade_id')->count();
-        $risk_grade = Grade::where('total_all')->where('course_id',$course_id)->get();
-        $risk_gradeC = Grade::where('total_all')->where('course_id',$course_id)->count();
+        $count_student = Grade::where('grade_id')->where('semester', $semester)->where('year', $year)->count();
+        $risk_grade = Grade::where('total_all')->where('semester', $semester)->where('year', $year)->where('course_id',$course_id)->get();
+        $risk_gradeC = Grade::where('total_all')->where('semester', $semester)->where('year', $year)->where('course_id',$course_id)->count();
 
         $gradeA = Grade::where('total_all', '>=', 80)->where('course_id',$course_id)->count();
         $gradeBB = Grade::where('total_all', '>=', 75)->where('total_all', '<=', 79)->where('course_id',$course_id)->count();
@@ -169,6 +169,7 @@ class ChartController extends Controller
             'major' => $major,
             'chart' => $chart,
             'semester' => $semester,
+            'gen' => $gen,
 
             'risk_grade' => $risk_grade,
             'risk_gradeC' => $risk_gradeC,
@@ -186,17 +187,18 @@ class ChartController extends Controller
         ]);
     }
 
-    public function problemL($course_id){
+    public function problemL($course_id, $semester, $year){
         $course = Course::find($course_id);
         $major = Major::where('major_id',$course->major_id)->get();
         $student = Student::where('major_id',$course->major_id)->get();
 
         $test = Instructor::where('last_name',Auth::user()->lastname)->first();
         $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+        $gen = Generation::orderBy('year','desc')->first();
 
-        $count_student = Problem::where('problem_id')->count();
-        $risk_problem = Problem::where('problem_id')->where('course_id',$course_id)->get();
-        $risk_problemC = Problem::where('problem_id')->where('course_id',$course_id)->count();
+        $count_student = Problem::where('problem_id')->where('semester', $semester)->where('year', $year)->count();
+        $risk_problem = Problem::where('problem_id')->where('semester', $semester)->where('year', $year)->where('course_id',$course_id)->get();
+        $risk_problemC = Problem::where('problem_id')->where('semester', $semester)->where('year', $year)->where('course_id',$course_id)->count();
 
         $p1 = Problem::where('problem_type', 'พฤติกรรม/ปัญหา ในห้องเรียน')->where('course_id',$course_id)->count();
         $p2 = Problem::where('problem_type', 'พฤติกรรม/ปัญหา นอกห้องเรียน')->where('course_id',$course_id)->count();
@@ -218,6 +220,7 @@ class ChartController extends Controller
             'major' => $major,
             'chart' => $chart,
             'semester' => $semester,
+            'gen' => $gen,
 
             'risk_problem' => $risk_problem,
             'risk_problemC' => $risk_problemC,
@@ -229,8 +232,6 @@ class ChartController extends Controller
             'p3' => $p3,
             'p4' => $p4,
             'p5' => $p5,
-
-
         ]);
     }
 
