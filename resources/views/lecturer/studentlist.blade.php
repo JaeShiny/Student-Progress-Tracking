@@ -86,7 +86,7 @@
                 </td>
 
                 <td width="10">
-                    <a href="">
+                    <a href="/chartStudentL/{{$student->student_id}}">
                         <center><img src="{{ URL::asset("../img/รูปสถิติ.png") }}" width="30" height="25" title="สถิติ"></center>
                     </a>
                 </td>

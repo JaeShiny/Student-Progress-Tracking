@@ -55,11 +55,14 @@ Route::get('chartProblemAL2/{course_id}', 'ChartController@problemAL2');
 Route::get('/indexChart', function () {
     return view('AdLec.chart.indexChart');
 });
-// Route::get('notiproblemAL/{student_id}','NotificationController@ProblemAL');
-// Route::get('allNotiAL2/{course_id}','NotificationController@allNotiAL2');
-// Route::get('subjectNotiAL2','NotificationController@subjectNotiAL2');
-// Route::get('showNotiAL2/{course_id}','NotificationController@showNotiAL2');
 
+        //Chart Student
+Route::get('chartStudentL/{student_id}', 'StatisticController@chartL');
+Route::get('chartStudentLF/{student_id}', 'StatisticController@chartLF');
+Route::get('chartStudentA/{student_id}', 'StatisticController@chartA');
+Route::get('chartStudentAL/{student_id}', 'StatisticController@chartAL');
+Route::get('chartStudentE/{student_id}', 'StatisticController@chartE');
+Route::get('chartStudentS/{student_id}', 'StatisticController@chartS');
 
 
 
