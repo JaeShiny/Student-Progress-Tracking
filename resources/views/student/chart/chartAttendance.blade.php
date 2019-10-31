@@ -35,6 +35,9 @@
     <li class="nav-item">
         <a class="nav-link" href="/chartGradeS" style="color: #000000;">สถิติผลการเรียน</a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/chartStudentS/{{$bios->student_id}}" style="color: #000000;">สรุปสถิติ</a>
+    </li>
 </ul><br>
 
 

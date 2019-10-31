@@ -204,4 +204,40 @@ class StatisticController extends Controller
         ]);
     }
 
+    //Student
+    public function chartS($student_id){
+        $bios = Bio::where('student_id', $student_id)->first();
+        $problem = Problem::where('student_id', $student_id)->get();
+        $problem1 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ในห้องเรียน')->count();
+        $problem2 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา นอกห้องเรียน')->count();
+        $problem3 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ด้านสุขภาพ')->count();
+        $problem4 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ด้านครอบครัว')->count();
+        $problem5 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ด้านการเงิน')->count();
+
+        $attendance = Attendance::where('student_id',$student_id)->get();
+        $grade = Grade::where('student_id',$student_id)->get();
+
+        // $test = Instructor::where('last_name',Auth::user()->lastname)->first();
+        // $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+        // $gen = Generation::all();
+        // $generation = Generation::all();
+
+        return view('student.chart.chartStudent',[
+            // 'semester' => $semester,
+            // 'gen' => $gen,
+            // 'generation' => $generation,
+
+            'bios' => $bios,
+            'problem' => $problem,
+            'problem1' => $problem1,
+            'problem2' => $problem2,
+            'problem3' => $problem3,
+            'problem4' => $problem4,
+            'problem5' => $problem5,
+
+            'attendance' => $attendance,
+            'grade' => $grade,
+        ]);
+    }
+
 }
