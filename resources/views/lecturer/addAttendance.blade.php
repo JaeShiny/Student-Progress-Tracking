@@ -79,7 +79,7 @@
 
                     <div class="container">
                         <div class="form-group">
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                         <label for="exampleFormControlSelect1">เทอม:
                                             <select class="form-control" id="exampleFormControlSelect1" name="semester">
                                               <option>1</option>
@@ -98,7 +98,7 @@
                                                 <option>2025</option>
                                             </select>
                                         </label>
-                                </div>
+                                </div> --}}
                             <input type="submit" value="เพิ่มการเข้าเรียน" class="btn btn-success" data-toggle="modal" data-target="#myModal">
                             <a class="btn btn-warning" href="/export/{{$course->course_id}}">Export การเข้าเรียน</a>
                         </div>

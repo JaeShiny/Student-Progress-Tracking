@@ -59,7 +59,7 @@ class AttendanceImport implements ToModel, WithHeadingRow
             'period_29' =>$row['period_29'],
             'period_30' =>$row['period_30'],
             'person_add' => Auth::user()->name,
-            'semester' => '2',
+            'semester' => '1',
             'year' => '2019',
             'section' => '1',
             'gen' => '20',
