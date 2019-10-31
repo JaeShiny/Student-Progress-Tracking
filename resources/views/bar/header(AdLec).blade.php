@@ -51,7 +51,7 @@
         {{-- &nbsp;&nbsp;<img src="../img/logopage.png" width="120" height="50"> --}}
         &nbsp;&nbsp;<img src={{ URL::asset("../img/logopage.png") }}  width="120" height="50">
         <a class="nav-link active" href="/AdLec/ALStudent" style="color: #FFFFFF">นักศึกษา</a>
-        <a class="nav-link" href="#" style="color: #FFFFFF">สถิติ</a>
+        <a class="nav-link" href="{{ url('indexChart') }}" style="color: #FFFFFF">สถิติ</a>
         <a class="nav-link" href="{{ url('indexNoti') }}" style="color: #FFFFFF">การแจ้งเตือน</a>
         <a class="nav-link" href="#" style="color: #FFFFFF">แบบสอบถาม</a>
         <a class="nav-link active" href="{{ url('courseAL') }}" style="color: #FFFFFF">วิชาที่สอน</a>

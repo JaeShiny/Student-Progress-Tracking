@@ -46,6 +46,21 @@ Route::get('curriStatistic','ChartController@curriStatistic');
 Route::get('chartAttendanceE/{curriculum_id}', 'ChartController@attendanceE');
 Route::get('chartGradeE/{curriculum_id}', 'ChartController@gradeE');
 Route::get('chartProblemE/{curriculum_id}', 'ChartController@problemE');
+//Ad+Lec
+    //lec
+Route::get('subjectStatisticAL2','ChartController@subjectStatisticAL2');
+Route::get('chartAttendanceAL2/{course_id}', 'ChartController@attendanceAL2');
+Route::get('chartGradeAL2/{course_id}', 'ChartController@gradeAL2');
+Route::get('chartProblemAL2/{course_id}', 'ChartController@problemAL2');
+Route::get('/indexChart', function () {
+    return view('AdLec.chart.indexChart');
+});
+// Route::get('notiproblemAL/{student_id}','NotificationController@ProblemAL');
+// Route::get('allNotiAL2/{course_id}','NotificationController@allNotiAL2');
+// Route::get('subjectNotiAL2','NotificationController@subjectNotiAL2');
+// Route::get('showNotiAL2/{course_id}','NotificationController@showNotiAL2');
+
+
 
 
     //EducationOfficer
@@ -600,6 +615,9 @@ Route::group(['prefix' => 'AdLec'], function(){
         // Route::get('ALStudent','AdLec\AdLecController@showStudent');
         Route::get('ALStudent/{semester}/{year}','AdLec\AdLecController@showStudent');
         Route::get('showNotiAL','NotificationController@showNotiAL');
+        Route::get('chartAttendanceAL','ChartController@attendanceAL');
+        Route::get('chartGradeAL','ChartController@gradeAL');
+        Route::get('chartProblemAL','ChartController@problemAL');
     });
 });
 //Route for LF user
