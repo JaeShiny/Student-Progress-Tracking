@@ -203,7 +203,7 @@ Route::get('showNotiL/{course_id}/{semester}/{year}','NotificationController@sho
 Route::get('notiproblemLF/{student_id}','NotificationController@ProblemLF');
 Route::get('allNotiLF/{course_id}','NotificationController@allNotiLF');
 Route::get('subjectNotiLF','NotificationController@subjectNotiLF');
-Route::get('showNotiLF/{course_id}','NotificationController@showNotiLF');
+Route::get('showNotiLF/{course_id}/{semester}/{year}','NotificationController@showNotiLF');
 //Advisor
 Route::get('notiproblemA/{student_id}','NotificationController@ProblemA');
 //Ad+Lec

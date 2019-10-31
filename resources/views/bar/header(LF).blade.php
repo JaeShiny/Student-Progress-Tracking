@@ -67,19 +67,55 @@
               <div class="col">
 
                   <div class="btn-group">
-                      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="color: white;border-color: none">วิชาที่สอน <span class="caret"></span></button>
-                      <a class="nav-link" href="{{ url('subjectNotiLF') }}" style="color: #FFFFFF">การแจ้งเตือน</a>
-                      <a class="nav-link" href="{{url('subjectStatisticLF')}}" style="color: #FFFFFF">สถิติ</a>
-                      <a class="nav-link" href="{{ url('FormAttendanceLF') }}" style="color: #FFFFFF">ดาวน์โหลดแบบฟอร์ม</a>
+                    {{-- ปุ่มวิชาที่สอน --}}
+                        <div class="dropdown">
+                            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" style="color: white;border-color: none">
+                                วิชาที่สอน
+                                <span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                            @foreach($semester as $show)
+                                <li>
+                                    <a href="/detailLF/{{$show->course_id}}/{{$show->semester}}/{{$show->year}}">
+                                        {{$show->course_id}} ภาคเรียน: {{$show->semester}}/{{$show->year}}
+                                    </a>
+                                </li>
+                            @endforeach
+                            </ul>
+                        </div>
+                    {{-- ปุ่มการแจ้งเตือน --}}
+                        <div class="dropdown">
+                            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" style="color: white;border-color: none">
+                                การแจ้งเตือน
+                                <span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                            @foreach($semester as $show)
+                                <li>
+                                    <a href="/showNotiLF/{{$show->course_id}}/{{$show->semester}}/{{$show->year}}">
+                                        {{$show->course_id}} ภาคเรียน: {{$show->semester}}/{{$show->year}}
+                                    </a>
+                                </li>
+                            @endforeach
+                            </ul>
+                        </div>
+                    {{-- ปุ่มสถิติ --}}
+                        <div class="dropdown">
+                            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" style="color: white;border-color: none">
+                                สถิติ
+                                <span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                            @foreach($semester as $show)
+                                <li>
+                                    <a href="/chartAttendanceLF/{{$show->course_id}}/{{$show->semester}}/{{$show->year}}">
+                                        {{$show->course_id}} ภาคเรียน: {{$show->semester}}/{{$show->year}}
+                                    </a>
+                                </li>
+                            @endforeach
+                            </ul>
+                        </div>
+                    {{-- ปุ่มโหลดฟอร์ม --}}
+                      <a class="nav-link" href="{{ url('FormAttendance') }}" style="color: #FFFFFF">ดาวน์โหลดแบบฟอร์ม</a>
+                    {{-- ปุ่มแบบสอบถาม --}}
                       <a class="nav-link" href="/LFSurvey" style="color: #FFFFFF">แบบสอบถาม</a>
-                      <ul class="dropdown-menu scrollable-menu" role="menu">
-                        @foreach($semester as $show)
-
-                              <li> <a class="dropdown-item" href="/detailLF/{{$show->course_id}}/{{$show->semester}}/{{$show->year}}"> {{$show->course_id}} ภาคเรียน: {{$show->semester}}/{{$show->year}}</a>  </li>
-
-                        @endforeach
-                      </ul>
-                  </div>
 
               </div>
           </div>
