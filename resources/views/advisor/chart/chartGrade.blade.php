@@ -31,13 +31,13 @@
 
 <ul class="nav nav-tabs" id="myTab" role="tablist" style="background-color:white;">
     <li class="nav-item">
-        <a class="nav-link" href="/advisor/chartAttendanceA" style="color: #000000;">สถิติการเข้าเรียน</a>
+        <a class="nav-link" href="/advisor/chartAttendanceA/{{$gen->semester}}/{{$gen->year}}" style="color: #000000;">สถิติการเข้าเรียน</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link active" href="/advisor/chartGradeA" style="color: #000000;">สถิติผลการเรียน</a>
+        <a class="nav-link active" href="/advisor/chartGradeA/{{$gen->semester}}/{{$gen->year}}" style="color: #000000;">สถิติผลการเรียน</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="/advisor/chartProblemA" style="color: #000000;">สถิติด้านพฤติกรรม</a>
+        <a class="nav-link" href="/advisor/chartProblemA/{{$gen->semester}}/{{$gen->year}}" style="color: #000000;">สถิติด้านพฤติกรรม</a>
     </li>
 </ul><br>
 

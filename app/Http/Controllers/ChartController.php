@@ -558,18 +558,22 @@ class ChartController extends Controller
 
 
         //Advisor
-    public function attendanceA(){
+    public function attendanceA($semester, $year){
         $instructor = Instructor::where('first_name',Auth::user()->name)->first();
         $myStudent = Student::where('adviser_id1',$instructor->instructor_id)->orWhere('adviser_id2',$instructor->instructor_id)->get();
 
         $student = Student::where('adviser_id1',$instructor->instructor_id)->orWhere('adviser_id2',$instructor->instructor_id)->first();
         $bios = Bio::where('student_id', $student->student_id)->get();
-        $risk_attendance = Attendance::where('amount_absence')->where('student_id',$student->student_id)->get();
-        $risk_attendanceC = Attendance::where('amount_absence')->where('student_id',$student->student_id)->count();
 
+        $risk_attendance = Attendance::where('amount_absence')->where('student_id',$student->student_id)->where('semester', $semester)->where('year', $year)->get();
+        $risk_attendanceC = Attendance::where('amount_absence')->where('student_id',$student->student_id)->where('semester', $semester)->where('year', $year)->count();
+
+        $test = Instructor::where('last_name',Auth::user()->lastname)->first();
+        $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+        $gen = Generation::orderBy('year','desc')->first();
         $generation = Generation::all();
 
-        $count_student = Attendance::where('attendance_id')->count();
+        $count_student = Attendance::where('attendance_id')->where('semester', $semester)->where('year', $year)->count();
         $period_1 = Attendance::where('period_1', '<=' , 0)->where('student_id',$student->student_id)->count();
         $period_2 = Attendance::where('period_2', '<=' , 0)->where('student_id',$student->student_id)->count();
         $period_3 = Attendance::where('period_3', '<=' , 0)->where('student_id',$student->student_id)->count();
@@ -616,6 +620,7 @@ class ChartController extends Controller
             'count_student' => $count_student,
             'chart' => $chart,
             'generation' => $generation,
+            'gen' => $gen,
 
             'period_1' => $period_1,
             'period_2' => $period_2,
@@ -635,18 +640,19 @@ class ChartController extends Controller
         ]);
     }
 
-    public function gradeA(){
+    public function gradeA($semester, $year){
         $instructor = Instructor::where('first_name',Auth::user()->name)->first();
         $myStudent = Student::where('adviser_id1',$instructor->instructor_id)->orWhere('adviser_id2',$instructor->instructor_id)->get();
 
         $student = Student::where('adviser_id1',$instructor->instructor_id)->orWhere('adviser_id2',$instructor->instructor_id)->first();
         $bios = Bio::where('student_id', $student->student_id)->get();
-        $risk_grade = Grade::where('total_all')->where('student_id',$student->student_id)->get();
-        $risk_gradeC = Grade::where('total_all')->where('student_id',$student->student_id)->count();
-        $count_student = Grade::where('grade_id')->count();
+        $risk_grade = Grade::where('total_all')->where('student_id',$student->student_id)->where('semester', $semester)->where('year', $year)->get();
+        $risk_gradeC = Grade::where('total_all')->where('student_id',$student->student_id)->where('semester', $semester)->where('year', $year)->count();
+        $count_student = Grade::where('grade_id')->where('semester', $semester)->where('year', $year)->count();
 
         $test = Instructor::where('last_name',Auth::user()->lastname)->first();
         $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+        $gen = Generation::orderBy('year','desc')->first();
         $generation = Generation::all();
 
         $gradeA = Grade::where('total_all', '>=', 80)->where('student_id',$student->student_id)->count();
@@ -674,6 +680,7 @@ class ChartController extends Controller
             'chart' => $chart,
             'semester' => $semester,
             'generation' => $generation,
+            'gen' => $gen,
 
             'risk_grade' => $risk_grade,
             'risk_gradeC' => $risk_gradeC,
@@ -691,7 +698,7 @@ class ChartController extends Controller
         ]);
     }
 
-    public function problemA(){
+    public function problemA($semester, $year){
         $instructor = Instructor::where('first_name',Auth::user()->name)->first();
         $myStudent = Student::where('adviser_id1',$instructor->instructor_id)->orWhere('adviser_id2',$instructor->instructor_id)->get();
 
@@ -700,11 +707,12 @@ class ChartController extends Controller
 
         $test = Instructor::where('last_name',Auth::user()->lastname)->first();
         $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+        $gen = Generation::orderBy('year','desc')->first();
         $generation = Generation::all();
 
-        $count_student = Problem::where('problem_id')->count();
-        $risk_problem = Problem::where('problem_id')->where('student_id',$student->student_id)->get();
-        $risk_problemC = Problem::where('problem_id')->where('student_id',$student->student_id)->count();
+        $count_student = Problem::where('problem_id')->where('semester', $semester)->where('year', $year)->count();
+        $risk_problem = Problem::where('problem_id')->where('student_id',$student->student_id)->where('semester', $semester)->where('year', $year)->get();
+        $risk_problemC = Problem::where('problem_id')->where('student_id',$student->student_id)->where('semester', $semester)->where('year', $year)->count();
 
         $p1 = Problem::where('problem_type', 'พฤติกรรม/ปัญหา ในห้องเรียน')->where('student_id',$student->student_id)->count();
         $p2 = Problem::where('problem_type', 'พฤติกรรม/ปัญหา นอกห้องเรียน')->where('student_id',$student->student_id)->count();
@@ -728,6 +736,7 @@ class ChartController extends Controller
             'chart' => $chart,
             'semester' => $semester,
             'generation' => $generation,
+            'gen' => $gen,
 
             'risk_problem' => $risk_problem,
             'risk_problemC' => $risk_problemC,
