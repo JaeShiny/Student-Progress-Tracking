@@ -30,18 +30,21 @@
 
 
         <h5 align='center'>ปัญหา/พฤติกรรม</h5>
-        <div class="dropdown">
-        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            เลือกปี และ เทอม
-        </a>
 
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            @foreach($gen as $show)
-        <a class="dropdown-item" href="/studentproblem/{{$bios->student_id}}/{{$show->semester}}/{{$show->year}}">{{$show->year}}|{{$show->semester}}</a>
-            @endforeach
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">เทอม/ปีการศึกษา<span class="caret"></span></button>
+                    <ul class="dropdown-menu scrollable-menu" role="menu">
+                        @foreach($gen as $show)
+                        <li> <a class="dropdown-item" href="/studentproblem/{{$bios->student_id}}/{{$show->semester}}/{{$show->year}}">{{$show->semester}}/{{$show->year}}</a></li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
         </div>
-        </div>
-        <br><br><br><br>
+    </div><br><br><br><br>
 
         <center>
             <table class="table" width="60%">
