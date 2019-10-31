@@ -58,7 +58,7 @@
                 <div class="card" style="width: 18rem; box-shadow: 5px 5px 8px 4px rgba(50, 50, 50, .5); ">
                     <div class="card-header" style="background-color:#F75D59;color: white">
                         <b>การแจ้งเตือน</b>
-                        <a href="/showNotiL/{{$courses->course_id}}" style="text-decoration-line: none">
+                        <a href="/showNotiL/{{$courses->course_id}}/{{$gen->semester}}/{{$gen->year}}" style="text-decoration-line: none">
                             <img src="../img/noti.png" style="width: 7%;float: right">
                         </a>
                     </div>

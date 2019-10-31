@@ -30,9 +30,9 @@ Route::post('save', 'ImageController@save');
 Route::get('chart', 'ChartController@index');
 //Lecturer
 Route::get('subjectStatisticL','ChartController@subjectStatisticL');
-Route::get('chartAttendanceL/{course_id}', 'ChartController@attendanceL');
-Route::get('chartGradeL/{course_id}', 'ChartController@gradeL');
-Route::get('chartProblemL/{course_id}', 'ChartController@problemL');
+Route::get('chartAttendanceL/{course_id}/{semester}/{year}', 'ChartController@attendanceL');
+Route::get('chartGradeL/{course_id}/{semester}/{year}', 'ChartController@gradeL');
+Route::get('chartProblemL/{course_id}/{semester}/{year}', 'ChartController@problemL');
 //LF
 Route::get('subjectStatisticLF','ChartController@subjectStatisticLF');
 Route::get('chartAttendanceLF/{course_id}', 'ChartController@attendanceLF');
@@ -197,7 +197,7 @@ Route::get('notiproblemL/{student_id}','NotificationController@ProblemL');
 Route::get('allNotiL/{course_id}','NotificationController@allNotiL');
     // route แสดงรายวิชาที่อาจารย์สอน
 Route::get('subjectNotiL','NotificationController@subjectNotiL');
-Route::get('showNotiL/{course_id}','NotificationController@showNotiL');
+Route::get('showNotiL/{course_id}/{semester}/{year}','NotificationController@showNotiL');
 
 //LF
 Route::get('notiproblemLF/{student_id}','NotificationController@ProblemLF');

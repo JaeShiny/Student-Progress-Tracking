@@ -40,7 +40,7 @@
                     <div class="row no-gutters">
                         <div class="col-md-4">
 
-                            <img src="../img/feedback.png" class="card-img" alt="...">
+                            <img src="{{ URL::asset('../img/feedback.png') }}" class="card-img" alt="...">
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
@@ -72,7 +72,7 @@
                     <div class="row no-gutters">
                         <div class="col-md-4">
 
-                            <img src="../img/feedback.png" class="card-img" alt="...">
+                            <img src="{{ URL::asset('../img/feedback.png') }}" class="card-img" alt="...">
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
@@ -104,7 +104,7 @@
                     <div class="row no-gutters">
                         <div class="col-md-4">
 
-                            <img src="../img/feedback.png" class="card-img" alt="...">
+                            <img src="{{ URL::asset('../img/feedback.png') }}" class="card-img" alt="...">
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
@@ -136,7 +136,7 @@
     <center>
         <br> {{-- แจ้งเตือนปัญหาและพฤติกรรม --}}
 
-        <button type="button" class="btn btn-outline-white" style="border-color: white; position: relative; left: -30%"><img src="../img/noti.png" style="width: 12%;float: left">
+        <button type="button" class="btn btn-outline-white" style="border-color: white; position: relative; left: -30%"><img src="{{ URL::asset('../img/noti.png') }}" style="width: 12%;float: left">
             <h5><a name="exampleModal1">การแจ้งเตือนปัญหาและพฤติกรรม</a></h5></button>
         <br>
         <br>
@@ -177,10 +177,10 @@
 
             </tbody>
         </table>
-        <a href="#mode"><img src="../img/arrow.jpg" style="width: 15px;position: relative;float: right;right: 11%" ></a>
+        <a href="#mode"><img src="{{ URL::asset('../img/arrow.jpg') }}" style="width: 15px;position: relative;float: right;right: 11%" ></a>
         <br>
         <br> {{-- แจ้งเตือนการเข้าเรียน --}}
-        <button type="button" class="btn btn-outline-white" style="border-color: white; position: relative; left: -32%"><img src="../img/noti.png" style="width: 15%;float: left">
+        <button type="button" class="btn btn-outline-white" style="border-color: white; position: relative; left: -32%"><img src="{{ URL::asset('../img/noti.png') }}" style="width: 15%;float: left">
             <h5><a name="exampleModal2">การแจ้งเตือนการเข้าเรียน</a></h5></button>
         <br>
         <br>
@@ -216,10 +216,10 @@
 
             </tbody>
         </table>
-        <a href="#mode"><img src="../img/arrow.jpg" style="width: 15px;position: relative;float: right;right: 11%" ></a>
+        <a href="#mode"><img src="{{ URL::asset('../img/arrow.jpg') }}" style="width: 15px;position: relative;float: right;right: 11%" ></a>
         <br>
         <br> {{-- แจ้งเตือนผลการเรียน --}}
-        <button type="button" class="btn btn-outline-white" style="border-color: white; position: relative; left: -32%"><img src="../img/noti.png" style="width: 15%;float: left">
+        <button type="button" class="btn btn-outline-white" style="border-color: white; position: relative; left: -32%"><img src="{{ URL::asset('../img/noti.png') }}" style="width: 15%;float: left">
             <h5><a name="exampleModal3">การแจ้งเตือนผลการเรียน</a></h5></button>
         <br>
         <br>
@@ -255,7 +255,7 @@
 
             </tbody>
         </table>
-        <a href="#mode"><img src="../img/arrow.jpg" style="width: 15px;position: relative;float: right;right: 11%" ></a>
+        <a href="#mode"><img src="{{ URL::asset('../img/arrow.jpg') }}" style="width: 15px;position: relative;float: right;right: 11%" ></a>
         <br>
         <br>
         <br>

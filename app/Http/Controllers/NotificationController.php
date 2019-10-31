@@ -76,35 +76,56 @@ class NotificationController extends Controller
     }
 
     // แสดงแจ้งเตือนทุกวิชาที่สอน
-    public function subjectNotiL(){
+    public function subjectNotiL($semester, $year){
         $instructor = Instructor::where('first_name',Auth::user()->name)->first();
         $schedule = Schedule::where('instructor_id2',$instructor->instructor_id)->pluck('course_id');
         $course = Course::whereIn('course_id',$schedule)->paginate(5);
 
         $test = Instructor::where('last_name',Auth::user()->lastname)->first();
         $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+        $gen = Generation::orderBy('year','desc')->first();
 
         return view('lecturer.subjectNoti',[
             'course' => $course,
-            'semester' => $semester
+            'semester' => $semester,
+            'gen' => $gen,
         ]);
     }
 
-    public function showNotiL($course_id){
+    public function showNotiL($course_id, $semester, $year){
         $course = Course::find($course_id);
         $major = Major::where('major_id',$course->major_id)->get();
         $student = Student::where('major_id',$course->major_id)->get();
 
-        $risk_problem = Problem::where('risk_level','รุนแรงมาก')->where('course_id',$course_id)->get();
-        $risk_attendance = Attendance::where('amount_absence', '>=', 3 )->where('course_id',$course_id)->get();
-        $risk_grade = Grade::where('total_all', '<=', 60 )->where('course_id',$course_id)->get();
+        $risk_problem = Problem::where('risk_level','รุนแรงมาก')
+                        ->where('course_id',$course_id)
+                        ->where('semester', $semester)->where('year', $year)
+                        ->get();
+        $risk_attendance = Attendance::where('amount_absence', '>=', 3 )
+                        ->where('course_id',$course_id)
+                        ->get();
+        $risk_grade = Grade::where('total_all', '<=', 60 )
+                        ->where('course_id',$course_id)
+                        ->where('semester', $semester)->where('year', $year)
+                        ->get();
 
-        $riskproblem = Problem::where('risk_level','รุนแรงมาก')->where('course_id',$course_id)->count();
-        $riskattendance = Attendance::where('amount_absence', '>=', 3 )->where('course_id',$course_id)->count();
-        $riskgrade = Grade::where('total_all', '<=', 60 )->where('course_id',$course_id)->count();
+        $riskproblem = Problem::where('risk_level','รุนแรงมาก')
+                        ->where('course_id',$course_id)
+                        ->where('semester', $semester)->where('year', $year)
+                        ->count();
+        $riskattendance = Attendance::where('amount_absence', '>=', 3 )
+                        ->where('course_id',$course_id)
+                        ->where('semester', $semester)->where('year', $year)
+                        ->count();
+        $riskgrade = Grade::where('total_all', '<=', 60 )
+                        ->where('course_id',$course_id)
+                        ->where('semester', $semester)->where('year', $year)
+                        ->count();
 
         $test = Instructor::where('last_name',Auth::user()->lastname)->first();
         $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+        $gen = Generation::orderBy('year','desc')->first();
+
         return view('lecturer.showNoti',[
             'student' => $student,
             'course' => $course,
@@ -118,7 +139,9 @@ class NotificationController extends Controller
             'riskattendance' => $riskattendance,
             'riskgrade' => $riskgrade,
 
-            'semester' => $semester
+            'semester' => $semester,
+            'gen' => $gen,
+            'year' => $year,
         ]);
     }
 
