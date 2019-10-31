@@ -80,7 +80,8 @@
                         <div class="col">
 
                             <div class="btn-group">
-                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="color: white">นักศึกษา<span class="caret"></span></button>
+
+                                {{-- <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="color: white">นักศึกษา<span class="caret"></span></button>
                                 <a class="nav-link" href="/advisor/showAtt" style="color: #FFFFFF">การเข้าเรียนและผลการเรียน</a>
                                 <a class="nav-link" href="/advisor/chartAttendanceA" style="color: #FFFFFF">สถิติ</a>
                                 <a class="nav-link" href="/advisor/showNotiA" style="color: #FFFFFF">การแจ้งเตือน</a>
@@ -89,11 +90,72 @@
                                         @foreach($generation as $show)
                                         <a class="dropdown-item" href="/advisor/myStudent/{{$show->semester}}/{{$show->year}}">{{$show->year}}</a>
                                          @endforeach
+                                </ul> --}}
 
+                    {{-- ปุ่มนักศึกษา --}}
+                        <div class="dropdown">
+                            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" style="color: white;border-color: none">
+                                นักศึกษา
+                                <span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                            @foreach($generation as $show)
+                                <li>
+                                    <a href="/advisor/myStudent/{{$show->semester}}/{{$show->year}}">
+                                        ปีการศึกษา: {{$show->year}}
+                                    </a>
+                                </li>
+                            @endforeach
+                            </ul>
+                        </div>
+                    {{-- ปุ่มการเข้าเรียนและผลการเรียน --}}
+                        <div class="dropdown">
+                            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" style="color: white;border-color: none">
+                                การเข้าเรียนและผลการเรียน
+                                <span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                            @foreach($generation as $show)
+                                <li>
+                                    <a href="/advisor/showAtt/{{$show->semester}}/{{$show->year}}">
+                                        ปีการศึกษา: {{$show->year}}
+                                    </a>
+                                </li>
+                            @endforeach
+                            </ul>
+                        </div>
+                    {{-- ปุ่มสถิติ --}}
+                        <div class="dropdown">
+                            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" style="color: white;border-color: none">
+                                สถิติ
+                                <span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                            @foreach($generation as $show)
+                                <li>
+                                    <a href="/advisor/chartAttendanceA/{{$show->semester}}/{{$show->year}}">
+                                        ปีการศึกษา: {{$show->year}}
+                                    </a>
+                                </li>
+                            @endforeach
+                            </ul>
+                        </div>
+                    {{-- ปุ่มการแจ้งเตือน --}}
+                        <div class="dropdown">
+                            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" style="color: white;border-color: none">
+                                การแจ้งเตือน
+                                <span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                            @foreach($generation as $show)
+                                <li>
+                                    <a href="/advisor/showNotiA/{{$show->semester}}/{{$show->year}}">
+                                        ปีการศึกษา: {{$show->year}}
+                                    </a>
+                                </li>
+                            @endforeach
+                            </ul>
+                        </div>
+                    {{-- ปุ่มแบบสอบถาม --}}
+                    <a class="nav-link" href="/advisorSurvey" style="color: #FFFFFF">แบบสอบถาม</a>
 
-                                </ul>
                             </div>
-
                         </div>
                     </div>
                 </div>

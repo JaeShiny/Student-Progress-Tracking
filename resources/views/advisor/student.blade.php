@@ -16,8 +16,8 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li> </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <li class="breadcrumb-item active" aria-current="page"><a href="/advisor/myStudent">รายชื่อนักศึกษา</a></li>
-            <li class="breadcrumb-item active" aria-current="page"><a href="/advisor/showAtt">การเข้าเรียนและผลการเรียน</a></li>
+            {{-- <li class="breadcrumb-item active" aria-current="page"><a href="/advisor/myStudent">รายชื่อนักศึกษา</a></li> --}}
+            <li class="breadcrumb-item active" aria-current="page"><a href="">การเข้าเรียนและผลการเรียน</a></li>
         </ol>
     </nav>
 </head>
@@ -70,13 +70,13 @@
                 </td> --}}
                 <td width="10">
                     <a href="/attendanceA/{{$ad_list->student_id}}">
-                        <center><img src="../img/attendant-list.png" width="25" title="การเข้าเรียน"></center>
+                        <center><img src="{{ URL::asset('../img/attendant-list.png') }}" width="25" title="การเข้าเรียน"></center>
                     </a>
                 </td>
 
                 <td width="10">
                     <a href="/showGradeA/{{$ad_list->student_id}}">
-                        <center><img src="../img/grades.png" width="25" title="ผลการเรียน"></center>
+                        <center><img src="{{ URL::asset('../img/grades.png') }}" width="25" title="ผลการเรียน"></center>
                     </a>
                 </td>
 

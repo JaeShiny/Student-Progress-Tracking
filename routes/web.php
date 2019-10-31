@@ -597,7 +597,7 @@ Route::group(['prefix' => 'advisor'], function(){
         Route::get('/dashboard', 'advisor\AdvisorController@index');
         // route ไปยังหน้าที่แสดงรายชื่อนักศึกษาของอาจารย์ที่ปรึกษา
         Route::get('myStudent/{semester}/{year}','advisor\AdvisorController@showStudent')->name('firstpage');
-        Route::get('showAtt','advisor\AdvisorController@showAttendance');
+        Route::get('showAtt/{semester}/{year}','advisor\AdvisorController@showAttendance');
         Route::get('showNotiA','NotificationController@showNotiA');
         Route::get('chartAttendanceA','ChartController@attendanceA');
         Route::get('chartGradeA','ChartController@gradeA');
