@@ -71,99 +71,67 @@
     <thead>
         <tr>
             <th scope="col">คาบเรียนที่</th>
-            <th scope="col">จำนวนนักศึกษาทั้งหมด</th>
-            {{-- <th scope="col">จำนวนนักศึกษาที่เข้าเรียน</th> --}}
             <th scope="col">จำนวนนักศึกษาที่ขาดเรียน</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <th scope="row">คาบที่ 1</th>
-            <td>3</td>
-            {{-- <td>นักศึกษาที่เข้าเรียน</td> --}}
             <td>{{$period_1}}</td>
         </tr>
         <tr>
             <th scope="row">คาบที่ 2</th>
-            <td>3</td>
-            {{-- <td>นักศึกษาที่เข้าเรียน</td> --}}
             <td>{{$period_2}}</td>
         </tr>
         <tr>
             <th scope="row">คาบที่ 3</th>
-            <td>3</td>
-            {{-- <td>นักศึกษาที่เข้าเรียน</td> --}}
             <td>{{$period_3}}</td>
         </tr>
         <tr>
             <th scope="row">คาบที่ 4</th>
-            <td>3</td>
-            {{-- <td>นักศึกษาที่เข้าเรียน</td> --}}
             <td>{{$period_4}}</td>
         </tr>
         <tr>
             <th scope="row">คาบที่ 5</th>
-            <td>3</td>
-            {{-- <td>นักศึกษาที่เข้าเรียน</td> --}}
             <td>{{$period_5}}</td>
         </tr>
         <tr>
             <th scope="row">คาบที่ 6</th>
-            <td>3</td>
-            {{-- <td>นักศึกษาที่เข้าเรียน</td> --}}
             <td>{{$period_6}}</td>
         </tr>
         <tr>
             <th scope="row">คาบที่ 7</th>
-            <td>3</td>
-            {{-- <td>นักศึกษาที่เข้าเรียน</td> --}}
             <td>{{$period_7}}</td>
         </tr>
         <tr>
             <th scope="row">คาบที่ 8</th>
-            <td>3</td>
-            {{-- <td>นักศึกษาที่เข้าเรียน</td> --}}
             <td>{{$period_8}}</td>
         </tr>
         <tr>
             <th scope="row">คาบที่ 9</th>
-            <td>3</td>
-            {{-- <td>นักศึกษาที่เข้าเรียน</td> --}}
             <td>{{$period_9}}</td>
         </tr>
         <tr>
             <th scope="row">คาบที่ 10</th>
-            <td>3</td>
-            {{-- <td>นักศึกษาที่เข้าเรียน</td> --}}
             <td>{{$period_10}}</td>
         </tr>
         <tr>
             <th scope="row">คาบที่ 11</th>
-            <td>3</td>
-            {{-- <td>นักศึกษาที่เข้าเรียน</td> --}}
             <td>{{$period_11}}</td>
         </tr>
         <tr>
             <th scope="row">คาบที่ 12</th>
-            <td>3</td>
-            {{-- <td>นักศึกษาที่เข้าเรียน</td> --}}
             <td>{{$period_12}}</td>
         </tr><tr>
             <th scope="row">คาบที่ 13</th>
-            <td>3</td>
-            {{-- <td>นักศึกษาที่เข้าเรียน</td> --}}
             <td>{{$period_13}}</td>
         </tr>
         <tr>
             <th scope="row">คาบที่ 14</th>
-            <td>3</td>
-            {{-- <td>นักศึกษาที่เข้าเรียน</td> --}}
             <td>{{$period_14}}</td>
         </tr>
         <tr>
             <th scope="row">คาบที่ 15</th>
-            <td>3</td>
-            {{-- <td>นักศึกษาที่เข้าเรียน</td> --}}
             <td>{{$period_15}}</td>
         </tr>
     </tbody>
