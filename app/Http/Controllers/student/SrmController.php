@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\student;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Validation\Rule;
