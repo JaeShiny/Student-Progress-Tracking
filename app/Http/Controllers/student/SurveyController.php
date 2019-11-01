@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Redirect;
 use App\Model\mis\Schedule;
 use App\Model\mis\Instructor;
 use App\Model\mis\Study;
+use App\Model\mis\Generation;
 
 class SurveyController extends Controller
 {
@@ -69,15 +70,22 @@ public function detail_survey(Survey $survey)
   # view survey publicly and complete survey
   public function view_survey(Survey $survey)
   {
+    $survey = Survey::find($survey);
+    $question = Question::where('survey_id',$survey->id)->get();
+
     $test = Instructor::where('first_name', Auth::user()->name)->first();
     $semester = Schedule::where('instructor_id', $test->instructor_id)->orderBy('year', 'asc')->get();
     $survey->option_name = unserialize($survey->option_name);
-    return view('survey.view', compact('survey','semester'));
+    return view('survey.view', ['survey' => $survey,
+                                  'questionme' => $question,
+                                  'semester' => $semester
+    ]);
   }
 
   public function new_surveyAd()
 {
-  return view('advisor.new');
+    $generation = Generation::all();
+  return view('advisor.new','generation');
 }
 
 public function createAd(Request $request, Survey $survey)
@@ -92,13 +100,15 @@ public function createAd(Request $request, Survey $survey)
 # retrieve detail page and add questions here
 public function detail_surveyAd(Survey $survey)
 {
+    $generation = Generation::all();
   $survey->load('questions.user');
-  return view('advisor.detail', compact('survey'));
+  return view('advisor.detail', compact('survey','generation'));
 }
 
 public function editAd(Survey $survey)
   {
-    return view('advisor.edit', compact('survey'));
+    $generation = Generation::all();
+    return view('advisor.edit', compact('survey','generation'));
   }
 
   # edit survey
@@ -110,13 +120,17 @@ public function editAd(Survey $survey)
 
   public function view_surveyAd(Survey $survey)
   {
+    $generation = Generation::all();
     $survey->option_name = unserialize($survey->option_name);
-    return view('advisor.view', compact('survey'));
+    return view('advisor.view', compact('survey','generation'));
   }
 
 public function new_surveyAdlec()
 {
-  return view('AdLec.new');
+    $test = Instructor::where('last_name',Auth::user()->lastname)->first();
+    $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+    $generation = Generation::all();
+  return view('AdLec.new',compact('semester','generation'));
 }
 
 public function createAdlec(Request $request, Survey $survey)
@@ -131,13 +145,19 @@ public function createAdlec(Request $request, Survey $survey)
 # retrieve detail page and add questions here
 public function detail_surveyAdlec(Survey $survey)
 {
+    $test = Instructor::where('last_name',Auth::user()->lastname)->first();
+    $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+    $generation = Generation::all();
   $survey->load('questions.user');
-  return view('AdLec.detail', compact('survey'));
+  return view('AdLec.detail', compact('survey','semester','generation'));
 }
 
 public function editAdlec(Survey $survey)
   {
-    return view('AdLec.edit', compact('survey'));
+    $test = Instructor::where('last_name',Auth::user()->lastname)->first();
+    $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+    $generation = Generation::all();
+    return view('AdLec.edit', compact('survey','semester','generation'));
   }
 
   # edit survey
@@ -149,8 +169,11 @@ public function editAdlec(Survey $survey)
 
   public function view_surveyAdlec(Survey $survey)
   {
+    $test = Instructor::where('last_name',Auth::user()->lastname)->first();
+    $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+    $generation = Generation::all();
     $survey->option_name = unserialize($survey->option_name);
-    return view('Adlec.view', compact('survey'));
+    return view('Adlec.view', compact('survey','semester','generation'));
   }
 
   public function new_surveyEdu()
@@ -241,25 +264,37 @@ public function editAdlec(Survey $survey)
     }
 
 # view submitted answers from current logged in user
-public function view_survey_answers(Survey $survey)
+public function view_survey_answers($survey)
 {
+    $mysurvey = Survey::find($survey);
+    $question = Question::where('survey_id',$survey)->get();
+
     $test = Instructor::where('first_name', Auth::user()->name)->first();
     $semester = Schedule::where('instructor_id', $test->instructor_id)->orderBy('year', 'asc')->get();
-  $survey->load('user.questions.answers');
-  $answer = Answer::where('user_id',Auth::user()->id);
-  return view('answer.view', compact('survey','answer','semester'));
+//   $survey->load('user.questions.answers');
+//   $answer = Answer::where('user_id',Auth::user()->id);
+//   return view('answer.view', compact('survey','answer','semester'));
+  return view('answer.view', [
+    'question' => $question,
+    'survey' => $mysurvey,
+    'semester' => $semester
+]);
 }
 
 public function view_survey_answersAd(Survey $survey)
 {
+    $generation = Generation::all();
   $survey->load('user.questions.answers');
-  return view('advisor.viewAnswer', compact('survey'));
+  return view('advisor.viewAnswer', compact('survey','generation'));
 }
 
 public function view_survey_answersAdlec(Survey $survey)
 {
+    $test = Instructor::where('last_name',Auth::user()->lastname)->first();
+    $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+    $generation = Generation::all();
   $survey->load('user.questions.answers');
-  return view('AdLec.viewAnswer', compact('survey'));
+  return view('AdLec.viewAnswer', compact('survey','semester','generation'));
 }
 
 public function view_survey_answersEdu(Survey $survey)
@@ -276,24 +311,31 @@ public function view_survey_answersLF(Survey $survey)
   return view('LF.viewAnswer', compact('survey','semester'));
 }
 
-public function view_surveyStudent(Survey $survey)
+public function view_surveyStudent($survey)
     {
-      $survey->option_name = unserialize($survey->option_name);
-      return view('student.view', compact('survey'));
+      $survey = Survey::find($survey);
+      $question = Question::where('survey_id',$survey->id)->get();
+      return view('student.view', ['survey' => $survey,
+                                    'questionme' => $question,
+      ]);
     }
 
-public function view_survey_answersStudent(Survey $survey)
+public function view_survey_answersStudent($survey)
 {
     // $survey = Answer::where('user_id',Auth::id());
     // if($answer = Answer::where('user_id',Auth::id())){
-        $survey->load('user.questions.answers');
+        $mysurvey = Survey::find($survey);
+        $question = Question::where('survey_id',$survey)->get();
         // $stuanswer = Answer::where('user_id',Auth::id())->first();
     // }
 
     // ->where(Auth::id(), '=', Answer()->user_id);
     // ->join('answer', 'survey.user_id', '=', 'answer.user_id')
     // ->where('user_id',Auth::id());
-    return view('student.viewAnswer', compact('survey'));
+    return view('student.viewAnswer', [
+        'question' => $question,
+        'survey' => $mysurvey
+    ]);
 }
 
 //   public function delete_survey(Survey $survey)
@@ -346,23 +388,51 @@ public function view_survey_answersStudent(Survey $survey)
 
   public function lecindex() {
     //   $survey = Survey::all();
-    $test = Instructor::where('first_name', Auth::user()->name)->first();
-    $semester = Schedule::where('instructor_id', $test->instructor_id)->orderBy('year', 'asc')->get();
+
     $survey = Survey::where('user_id',Auth::id())
                         ->orWhere('user_id','=','2')
                         ->orWhere('user_id','=','3')->get();
+
+    $gen = Generation::all();
+    $surveys = Survey::all();
+
+    $test = Instructor::where('first_name', Auth::user()->name)->first();
+    $semester = Schedule::where('instructor_id', $test->instructor_id)->orderBy('year', 'asc')->get();
       return view('survey.lecindex',[
             'survey' => $survey,
-            'semester' => $semester
+            'semester' => $semester,
+            'gen' => $gen,
+            'surveys' => $surveys,
         ]);
   }
+
+//   public function lecindex1($semester,$year) {
+//     //   $survey = Survey::all();
+
+//     $survey = Survey::where('user_id',Auth::id())
+//                         ->orWhere('user_id','=','2')
+//                         ->orWhere('user_id','=','3')->where('semester',$semester)->where('year',$year)->get();
+
+//     // $gen = Generation::all();
+//     $surveys = Survey::all();
+
+//     $test = Instructor::where('first_name', Auth::user()->name)->first();
+//     $semester = Schedule::where('instructor_id', $test->instructor_id)->orderBy('year', 'asc')->get();
+//       return view('survey.lecindex',[
+//             'survey' => $survey,
+//             'semester' => $semester,
+//             // 'gen' => $gen,
+//             'surveys' => $surveys
+//         ]);
+//   }
 
   public function advisorindex() {
     // $survey = Survey::all();
     $survey = Survey::where('user_id',Auth::id())->get();
-
+    $generation = Generation::all();
       return view('survey.advisorindex',[
             'survey' => $survey,
+            'generation' => $generation
         ]);
 }
 
@@ -372,8 +442,14 @@ public function adLecindex() {
                       ->orWhere('user_id','=','1')
                       ->orWhere('user_id','=','2')
                       ->orWhere('user_id','=','3')->get();
+
+                      $test = Instructor::where('last_name',Auth::user()->lastname)->first();
+                      $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+                      $generation = Generation::all();
     return view('survey.adLecindex',[
           'survey' => $survey,
+          'semester' => $semester,
+          'generation' => $generation,
       ]);
 }
 

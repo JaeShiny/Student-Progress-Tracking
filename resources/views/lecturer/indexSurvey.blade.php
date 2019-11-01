@@ -78,7 +78,7 @@
             <h6>STUDENT PROGRESS TRACKING SYSTEM</h6>
             <h6>LECTURER</h6>
             <div class="buttontwo">
-            <button type="submit" class="btn btn-primary"><a class="nav-link" href="/survey/lecturer/lecturer" style="color: #FFFFFF">ดูแบบสอบถาม</a></button>
+            <button type="submit" class="btn btn-primary"><a class="nav-link" href="/survey/lecutrer/lecturer" style="color: #FFFFFF">ดูแบบสอบถาม</a></button>
            <button type="submit" class="btn btn-primary" > <a class="nav-link" href="/survey/new" style="color: #FFFFFF">สร้างแบบสอบถาม</a></button>
             </div>
         </div>

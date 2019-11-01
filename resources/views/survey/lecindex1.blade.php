@@ -16,7 +16,7 @@
                        </div>
           </div>
           <div class="col-sm">
-            {{-- <div class="container">
+            <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="btn-group">
@@ -29,7 +29,7 @@
                         </div>
                     </div>
                 </div>
-            </div> --}}
+            </div>
     <br><br><br><br>
           </div>
         </div>

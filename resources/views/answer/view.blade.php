@@ -62,25 +62,93 @@
 
 
 
+    <body>
+
+
+
+        <button type="text" class="btn btn-primary py-2 px-2" style="position: relative; float: right;right: 21%">แบบสอบถามทั้งหมด</button>
     <section class="home-slider owl-carousel ftco-degree-bg">
       <div class="slider-item bread-wrap" style="background-image: url('images/bg_1.jpg');" data-stellar-background-ratio="0.5">
         <div class="overlay"></div>
 
       </div>
+      <br><br>
     </section>
 
     <section class="ftco-section contact-section ftco-degree-bg">
-      <div class="container bg-light" style="width: 70%;box-shadow: 5px 5px 8px 4px rgba(50, 50, 50, .5);">
+      <div class="container" style="width: 60%;">
         <div class="row d-flex mb-5 contact-info">
           <div class="col-md-12 mb-4">
               <br>
-            <h2 class="h4">{{ $survey->title }}</h2>
+              <div class="form-group" style="background-color:#F5F5F5;margin-top: -2%;box-shadow: 5px 5px 8px 4px rgba(50, 50, 50, .5);">
+                    <div class="card mb-3" style="max-width: 50rem; background-color: #FFFFFF;border-bottom-color: teal">
+           <a name="Modal1"> <h2 class="h4">&nbsp;&nbsp;{{ $survey->title }}</h2><p>&nbsp;&nbsp;&nbsp;รายละเอียด : {{ $survey->description }}</p></a>
           </div>
           <div class="w-100"></div>
-          <div class="col-md-7">
-            <p><span>รายละเอียด :</span> {{ $survey->description }}</p>
-          </div>
+          <div class="col-md-12">
+                <form action="#">
 
+                    @forelse ($question as $show_question)
+
+                    <h5 style="text-decoration-line: underline">{{ $show_question->title }}</h5>
+                    <div class="form-group">
+
+                    </div>
+                   {{-- <h6>คำตอบ</h6>--}}
+
+
+           {{--
+                    <div class="card" style="width: auto; background-color:#F8F8FF;box-shadow: 5px 5px 8px 4px rgba(50, 50, 50, .5);">
+                      <div class="card-body">
+                          --}}
+                       {{-- <p class="card-text"> ผู้ตอบ : <a href="#">{{ $answer->answerer->name}} &nbsp; {{ $answer->answerer->lastname }}</a> <br>คำตอบ : {{ $answer->answer }}</p><br><br>--}}
+
+
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect2">คำตอบ</label>
+
+                            <select multiple class="form-control" id="exampleFormControlSelect2">
+                                    @foreach ($show_question->answerme as $show_answer => $test)
+                              <option> <p class="card-text">- {{  $test->answer }}  </p><br><br></option>
+
+                              @endforeach
+
+                            </select>
+                            <br>
+                            @empty
+                          </div>
+
+
+
+
+           <br>
+
+                      </div>
+                    </div>
+
+
+                    <div class="card" style="width: 30rem;">
+                            <div class="card-body">
+                              <p class="card-text">No answer </p>
+                            </div>
+                          </div>
+                    @endforelse
+
+
+                        <br>
+                        <br>
+
+
+
+
+                        <div class="form-group">
+                                <a href="#Modal1" style="text-decoration-line: none;color: white"> <button type="text" class="btn btn-primary py-2 px-2">ย้อนกลับ</button></a>
+                               </div>
+                               <br>
+                      </form>
+          </div>
+              </div>
+          </div>
           <div class="col-md-5">
 
             {{-- <p><span>ผู้ตอบ :&nbsp;รหัสนักศึกษา:</span> <a href="#">{{$survey->questions->answers->answerer->name}} </a></p><br><p><span>ชื่อ-นามสกุล :</span> <a href="#">{{Auth::user()->name}} &nbsp; {{Auth::user()->lastname}}</a></p> --}}
@@ -89,64 +157,7 @@
 
         </div>
 
-        <div class="container">
-                <div class="row">
-                  <div class="col-sm-2">
 
-
-                  </div>
-                  <div class="col-sm-6">
-
-                        <div class="row block-12">
-                                <div class="col-md-6 pr-md-5">
-                                  <form action="#">
-
-                                    @forelse ($survey->questions as $item)
-
-                                    <h6 style="text-decoration-line: underline">คำถาม</h6>
-                                    <div class="form-group">
-                                          <div class="card" style="width: 30rem;">
-                                                  <div class="card-body">
-                                                          <p class="card-text">{{ $item->title }}</p>
-                                    </div>
-                                          </div>
-                                    </div>
-                                    <h6>คำตอบ</h6>
-
-                                    @foreach ($item->answers as $answer)
-
-                                    <div class="card" style="width: 30rem;">
-                                      <div class="card-body">
-                                        <p class="card-text">{{ $answer->answer }}</p>
-                                      </div>
-                                    </div>
-                                     ผู้ตอบ: <br> <a href="#">{{ $answer->answerer->name}} &nbsp; {{ $answer->answerer->lastname }}</a>
-                                    @endforeach
-                                    @empty
-                                    <div class="card" style="width: 30rem;">
-                                            <div class="card-body">
-                                              <p class="card-text">No answer </p>
-                                            </div>
-                                          </div>
-                                    @endforelse
-                                    <br>
-                                    <br>
-
-
-
-
-                                    <div class="form-group">
-                                            <input type="submit" value="แบบสอบถามทั้งหมด" class="btn btn-primary py-2 px-2">
-                                           </div>
-                                           <br>
-                                  </form>
-
-                                </div>
-
-                  </div>
-
-                </div>
-              </div>
 
       </div>
     </section>
@@ -156,5 +167,9 @@
   </body>
 
 
+  </body>
 
-@endsection @extends('bar.header(lec)')
+
+
+@endsection
+@extends('bar.header(lec)')

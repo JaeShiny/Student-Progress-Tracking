@@ -19,12 +19,16 @@ class Question extends Model
     // return $this->belongsTo('App\User');
     }
 
-    public function answers() {
-      return $this->hasMany(Answer::class);
+    public function choice() {
+        return $this->hasMany('App\Model\spts\Choice','question_id','id');
     }
 
-    public function choice() {
-        return $this->hasMany('App\Model\spts\Choice');
+    public function answerme() {
+        return $this->hasMany('App\Answer','question_id','id');
+    }
+
+    public function answers() {
+      return $this->hasMany(Answer::class);
     }
 
     protected $table = 'question';

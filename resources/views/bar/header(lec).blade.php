@@ -150,7 +150,7 @@
                               <li> <a class="dropdown-item" href="/detail123/{{$show->course_id}}/{{$show->semester}}/{{$show->year}}"> {{$show->course_id}} ภาคเรียน: {{$show->semester}}/{{$show->year}}</a>  </li>
 
                         @endforeach
-                      </ul>
+                    </ul>
                   </div>
 
               </div>
