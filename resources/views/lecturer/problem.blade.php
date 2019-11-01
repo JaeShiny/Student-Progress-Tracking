@@ -37,8 +37,9 @@
 
         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
             @foreach($gen as $show)
-        <a class="dropdown-item" href="/studentproblem/{{$bios->student_id}}/{{$show->semester}}/{{$show->year}}">{{$show->year}}|{{$show->semester}}</a>
+        <a class="dropdown-item" href="/studentproblem/{{$bios->student_id}}/{{$show->semester}}/{{$show->year}}">{{$show->semester}}|{{$show->year}}</a>
             @endforeach
+
         </div>
         </div>
         <br><br><br><br>

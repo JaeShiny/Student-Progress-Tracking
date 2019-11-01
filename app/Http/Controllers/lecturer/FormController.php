@@ -67,7 +67,10 @@ class FormController extends Controller
     //Ad+Lec
     public function FormAttendanceViewAL()
     {
-        return view('AdLec.formAttendance');
+        $test = Instructor::where('last_name',Auth::user()->lastname)->first();
+        $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+        $generation = Generation::all();
+        return view('AdLec.formAttendance',compact('semester','generation'));
     }
 
     /**
@@ -87,7 +90,10 @@ class FormController extends Controller
     */
     public function FormGradeViewAL()
     {
-        return view('AdLec.formGrade');
+        $test = Instructor::where('last_name',Auth::user()->lastname)->first();
+        $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+        $generation = Generation::all();
+        return view('AdLec.formGrade',compact('semester','generation'));
     }
     /**
     * @return \Illuminate\Support\Collection

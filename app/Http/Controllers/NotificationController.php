@@ -118,7 +118,8 @@ class NotificationController extends Controller
             'riskattendance' => $riskattendance,
             'riskgrade' => $riskgrade,
 
-            'semester' => $semester
+            'semester' => $semester,
+
         ]);
     }
 

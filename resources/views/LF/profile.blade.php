@@ -62,8 +62,7 @@
             <br>
 
             <div class="container7">
-                <img src="../image/{{$bios->picture}}" width="110" height="140">
-
+                    <img src="../image/{{$bios->picture}}" width="110" height="140">
             </div>
 
             <p>ชื่อ (ภาษาอังกฤษ) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </p>

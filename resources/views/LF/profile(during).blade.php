@@ -29,6 +29,22 @@
             <p>
                 <B>ข้อมูลนักศึกษา</B>
             </p>
+            <br><br><br>
+            <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">เทอม/ปีการศึกษา<span class="caret"></span></button>
+                                <ul class="dropdown-menu scrollable-menu" role="menu">
+                                    @foreach($gen as $show)
+                                    <li> <a class="dropdown-item" href="/profileDuringLF/{{$bios->student_id}}/{{$show->semester}}/{{$show->year}}">{{$show->semester}}|{{$show->year}}</a></li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br><br><br>
 
             <hr class="my-4">
 
@@ -44,7 +60,7 @@
             <br>
 
             <div class="container7">
-                <img src="../image/{{$bios->picture}}" width="110" height="140">
+                    <img src="../image/{{$bios->picture}}" width="110" height="140">
             </div>
 
             <p>ชื่อ (ภาษาอังกฤษ) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </p>

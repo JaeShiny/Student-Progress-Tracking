@@ -37,8 +37,13 @@ class GradeController extends Controller
     public function importExportViewAL($course_id)
     {
         $course = Course::find($course_id);
+        $test = Instructor::where('last_name',Auth::user()->lastname)->first();
+        $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+        $generation = Generation::all();
         return view('AdLec.addGrade',[
             'course' => $course,
+            'semester' => $semester,
+            'generation' => $generation
         ]);
     }
 
@@ -127,22 +132,32 @@ class GradeController extends Controller
         $student = Grade::where('student_id',$student_id)->get();
         $users = User::all();
         $bios = Bio::where('student_id', $student_id)->get();
+        $test = Instructor::where('last_name',Auth::user()->lastname)->first();
+        $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+        $generation = Generation::all();
 
         return view('AdLec.showGrade2',[
             'student' => $student,
             'users' => $users,
             'bios' => $bios,
+            'semester' => $semester,
+            'generation' => $generation
         ]);
     }
     public function showGradeAL($course_id)  {
         $student = Grade::where('course_id',$course_id)->get();
         $course = Course::find($course_id);
         $users = User::all();
+        $test = Instructor::where('last_name',Auth::user()->lastname)->first();
+        $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+        $generation = Generation::all();
 
         return view('AdLec.showGrade',[
             'student' => $student,
             'course' => $course,
             'users' => $users,
+            'semester' => $semester,
+            'generation' => $generation
         ]);
     }
 
