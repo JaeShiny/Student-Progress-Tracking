@@ -134,20 +134,22 @@ class ProblemController extends Controller
     }
 
     //แสดงปัญหา
-    public function showProblemE($student_id)
+    public function showProblemE($student_id,$semester,$year)
     {
-        $problem = Problem::where('student_id', $student_id)->get();
-        $users = User::all();
-        $bios = Bio::where('student_id', $student_id)->get();
 
-        $test = Instructor::where('last_name', Auth::user()->lastname)->first();
-        $semester = Schedule::where('instructor_id', $test->instructor_id)->orderBy('year', 'asc')->get();
+        $problem = Problem::where('student_id', $student_id)->where('semester', $semester)->where('year', $year)->get();
+        $users = User::all();
+        $bios = Bio::where('student_id', $student_id)->first();
+        // $test = Instructor::where('last_name', Auth::user()->lastname)->first();
+        // $semester = Schedule::where('instructor_id', $test->instructor_id)->orderBy('year', 'asc')->get();
+        $gen = Generation::all();
+
 
         return view('EducationOfficer.problem', [
             'problem' => $problem,
             'users' => $users,
             'bios' => $bios,
-
+            'gen' => $gen,
             'semester' => $semester,
         ]);
     }
@@ -205,22 +207,26 @@ class ProblemController extends Controller
     }
 
     //แสดงปัญหา
-    public function showProblemA($student_id)
+    public function showProblemA($student_id,$semester,$year)
     {
-        $problem = Problem::where('student_id', $student_id)->get();
+
+       $problem = Problem::where('student_id', $student_id)->where('semester', $semester)->where('year', $year)->get();
         $users = User::all();
-        $bios = Bio::where('student_id', $student_id)->get();
+        $bios = Bio::where('student_id', $student_id)->first();
+        // $test = Instructor::where('last_name', Auth::user()->lastname)->first();
+        // $semester = Schedule::where('instructor_id', $test->instructor_id)->orderBy('year', 'asc')->get();
+
         $generation = Generation::all();
 
-        $test = Instructor::where('last_name', Auth::user()->lastname)->first();
-        $semester = Schedule::where('instructor_id', $test->instructor_id)->orderBy('year', 'asc')->get();
+        // $gens = Generation::all();
 
         return view('advisor.problem', [
             'problem' => $problem,
             'users' => $users,
             'bios' => $bios,
             'generation' => $generation,
-            'semester' => $semester,
+            // 'semester' => $semester,
+            // 'gens' => $gens
         ]);
     }
 
@@ -234,9 +240,11 @@ class ProblemController extends Controller
         $test = Instructor::where('last_name', Auth::user()->lastname)->first();
         $semester = Schedule::where('instructor_id', $test->instructor_id)->orderBy('year', 'asc')->get();
 
+        $generation = Generation::all();
         return view('AdLec.problem(insert)', [
             'student_id' => $student,
             'semester' => $semester,
+            'generation' => $generation
         ]);
     }
 
@@ -269,20 +277,30 @@ class ProblemController extends Controller
         return redirect()->back()->with('message', 'เพิ่มข้อมูลเรียบร้อยแล้ว');
     }
 
-    public function showProblemAL($student_id)
+    public function showProblemAL($student_id,$semester,$year)
     {
-        $problem = Problem::where('student_id', $student_id)->get();
-        $users = User::all();
-        $bios = Bio::where('student_id', $student_id)->get();
+        // $problem = Problem::where('student_id', $student_id)->get();
+        // $users = User::all();
+        // $bios = Bio::where('student_id', $student_id)->get();
 
+        // $test = Instructor::where('last_name', Auth::user()->lastname)->first();
+        // $semester = Schedule::where('instructor_id', $test->instructor_id)->orderBy('year', 'asc')->get();
+
+        $problem = Problem::where('student_id', $student_id)->where('semester', $semester)->where('year', $year)->get();
+        $users = User::all();
+        $bios = Bio::where('student_id', $student_id)->first();
         $test = Instructor::where('last_name', Auth::user()->lastname)->first();
         $semester = Schedule::where('instructor_id', $test->instructor_id)->orderBy('year', 'asc')->get();
+        $gens = Generation::all();
+        $generation = Generation::all();
 
         return view('AdLec.problem', [
             'problem' => $problem,
             'users' => $users,
             'bios' => $bios,
             'semester' => $semester,
+            'gens' => $gens,
+            'generation' => $generation
         ]);
     }
 

@@ -1,36 +1,4 @@
-{{-- @extends('bar.body')
 
-@section('content')
-<h4>{{ $survey->title }}</h4>
-<table class="bordered striped">
-  <thead>
-    <tr>
-        <th data-field="id">Question</th>
-        <th data-field="name">Answer(s)</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    @forelse ($survey->questions as $item)
-    <tr>
-      <td>{{ $item->title }}</td>
-      @foreach ($item->answers as $answer)
-        <td>{{ $answer->answer }} <br/>
-        <small>{{ $answer->created_at }}</small></td>
-      @endforeach
-    </tr>
-    @empty
-      <tr>
-        <td>
-          No answers provided by you for this Survey
-        </td>
-        <td></td>
-      </tr>
-    @endforelse
-  </tbody>
-</table>
-@endsection
-@extends('bar.header(student)') --}}
 
 
 @extends('bar.body')
@@ -40,9 +8,6 @@
         <div class="col-sm" style="margin-top: px; padding: 5px;">
         <span class="card-title"> <h4> &nbsp; {{ $survey->title }} </h4> <h6>&nbsp;&nbsp;&nbsp;รายละเอียด : {{ $survey->description }}</h6> <h6>&nbsp;&nbsp;&nbsp;โดย : {{ $survey->user->name }}</h6></span></div>
         <hr style="margin-top: 0%">
-
-{{-- &nbsp; &nbsp; &nbsp; &nbsp; <a href='view/{{$survey->id}}'>ทำแบบสำรวจ</a> | <a href="{{$survey->id}}/edit">แก้ไขหัวข้อแบบสำรวจ</a> | <a href="/survey/answers/{{$survey->id}}">ดูผลการตอบแบบสำรวจ</a> <a href="#doDelete" style="float:right; text-decoration: none" class="modal-trigger red-text">ลบแบบสำรวจ &nbsp; &nbsp;&nbsp;</a> --}}
-
 
 
 </div>
@@ -100,36 +65,75 @@
                                 <div class="col-md-6 pr-md-5">
                                   <form action="#">
 
-                                    @forelse ($survey->questions as $item)
-
-                                    <h6 style="text-decoration-line: underline">คำถาม</h6>
+                                    {{-- @foreach ($survey->question as $show_question)
+                                  <h6 style="text-decoration-line: underline">คำถามข้อที่ {{$loop->iteration}}</h6>
                                     <div class="form-group">
                                           <div class="card" style="width: 30rem;">
-                                                  <div class="card-body">
-                                                          <p class="card-text">{{ $item->title }}</p>
-                                    </div>
+                                                    <div class="card-body">
+                                                         <p class="card-text">{{ $show_question->title }}</p>
+                                                    </div>
                                           </div>
                                     </div>
-                                    <h6>คำตอบ</h6>
 
-                                    @foreach ($item->answers as $answer)
 
+                                    @foreach ($show_question->answerme as $show_answer => $test)
+                                <h6>คำตอบ ข้อที่ {{$loop->iteration}}</h6>
                                     <div class="card" style="width: 30rem;">
                                       <div class="card-body">
-                                        <p class="card-text">{{ $answer->answer }} </p>
+                                        <p class="card-text">{{ $test->answer }} </p>
                                       </div>
                                     </div>
-
                                     @endforeach
-                                    @empty
-                                    <div class="card" style="width: 30rem;">
-                                            <div class="card-body">
-                                              <p class="card-text">No answer </p>
-                                            </div>
-                                          </div>
-                                    @endforelse
-                                    <br>
+                                    @endforeach --}}
 
+         {{-- -------------------------------------------------------------------------------------------------  }}                          --}}
+
+         @forelse ($question as $show_question)
+
+         <h5 style="text-decoration-line: underline">{{ $show_question->title }}</h5>
+         <div class="form-group">
+
+         </div>
+        {{-- <h6>คำตอบ</h6>--}}
+
+
+{{--
+         <div class="card" style="width: auto; background-color:#F8F8FF;box-shadow: 5px 5px 8px 4px rgba(50, 50, 50, .5);">
+           <div class="card-body">
+               --}}
+            {{-- <p class="card-text"> ผู้ตอบ : <a href="#">{{ $answer->answerer->name}} &nbsp; {{ $answer->answerer->lastname }}</a> <br>คำตอบ : {{ $answer->answer }}</p><br><br>--}}
+
+
+             <div class="form-group">
+                 <label for="exampleFormControlSelect2">คำตอบ</label>
+
+                 <select multiple class="form-control" id="exampleFormControlSelect2">
+                         @foreach ($show_question->answerme as $show_answer => $test)
+                         @if($test->user_id == Auth::id())
+                   <option> <p class="card-text">{{  $test->answer }}  </p><br><br></option>
+                        @endif
+                   @endforeach
+
+                 </select>
+                 <br>
+                 @empty
+               </div>
+
+
+
+
+<br>
+
+           </div>
+         </div>
+
+
+         <div class="card" style="width: 30rem;">
+                 <div class="card-body">
+                   <p class="card-text">No answer </p>
+                 </div>
+               </div>
+         @endforelse
 
 
 

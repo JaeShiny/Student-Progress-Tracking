@@ -30,6 +30,7 @@
 
 
         <h5 align='center'>ปัญหา/พฤติกรรม</h5>
+<<<<<<< HEAD
 
     <div class="container">
         <div class="row">
@@ -43,6 +44,19 @@
                     </ul>
                 </div>
             </div>
+=======
+        <div class="dropdown">
+        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            เลือกปี และ เทอม
+        </a>
+
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            @foreach($gen as $show)
+        <a class="dropdown-item" href="/studentproblem/{{$bios->student_id}}/{{$show->semester}}/{{$show->year}}">{{$show->semester}}|{{$show->year}}</a>
+            @endforeach
+
+        </div>
+>>>>>>> master
         </div>
     </div><br><br><br><br>
 

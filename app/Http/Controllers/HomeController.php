@@ -48,7 +48,13 @@ class HomeController extends Controller
                 'semester' => $semester,
             ]);
         }elseif(auth()->user()->isAdLec()) {
-            return view('AdLec/dashboard');
+            $test = Instructor::where('last_name',Auth::user()->lastname)->first();
+            $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+            $generation = Generation::all();
+            return view('AdLec/dashboard',[
+                'semester' => $semester,
+                'generation' => $generation
+            ]);
         }elseif(auth()->user()->isLF()) {
             $test = Instructor::where('first_name',Auth::user()->name)->first();
             $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();

@@ -15,6 +15,8 @@ use App\Model\mis\Instructor;
 use App\Model\mis\Study;
 use App\Model\mis\Generation;
 
+use Auth;
+
 
 class InterviewController extends Controller
 {
@@ -31,6 +33,7 @@ class InterviewController extends Controller
         $b_englishskill = B_englishskill::all();
         return view('EducationOfficer.profile(before)',[
             'b_profile' => $b_profile,
+            'bios' => $bios,
             'student' => $student,
             'b_interviewer' => $b_interviewer,
             'b_englishskill'=> $b_englishskill,
@@ -50,6 +53,7 @@ class InterviewController extends Controller
         $b_englishskill = B_englishskill::all();
         return view('student.profile(before)',[
             'b_profile' => $b_profile,
+            'bios' => $bios,
             'student' => $student,
             'b_interviewer' => $b_interviewer,
             'b_englishskill'=> $b_englishskill,
@@ -69,6 +73,7 @@ class InterviewController extends Controller
         $b_englishskill = B_englishskill::all();
         return view('lecturer.profile(before)',[
             'b_profile' => $b_profile,
+            'bios' => $bios,
             'student' => $student,
             'b_interviewer' => $b_interviewer,
             'b_englishskill'=> $b_englishskill,
@@ -89,6 +94,7 @@ class InterviewController extends Controller
         $generation = Generation::all();
         return view('advisor.profile(before)',[
             'b_profile' => $b_profile,
+            'bios' => $bios,
             'student' => $student,
             'b_interviewer' => $b_interviewer,
             'b_englishskill'=> $b_englishskill,
@@ -109,12 +115,16 @@ class InterviewController extends Controller
 
         $test = Instructor::where('last_name',Auth::user()->lastname)->first();
         $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+        $generation = Generation::all();
+
         return view('AdLec.profile(before)',[
             'b_profile' => $b_profile,
+            'bios' => $bios,
             'student' => $student,
             'b_interviewer' => $b_interviewer,
             'b_englishskill'=> $b_englishskill,
-            'semester' => $semester
+            'semester' => $semester,
+            'generation' => $generation
         ]);
     }
 
@@ -133,6 +143,7 @@ class InterviewController extends Controller
         $semester = Schedule::where('instructor_id', $test->instructor_id)->orderBy('year', 'asc')->get();
         return view('LF.profile(before)',[
             'b_profile' => $b_profile,
+            'bios' => $bios,
             'student' => $student,
             'b_interviewer' => $b_interviewer,
             'b_englishskill'=> $b_englishskill,

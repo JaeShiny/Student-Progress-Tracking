@@ -20,4 +20,8 @@ class Study extends Model
     public function courses(){
         return $this->hasOne('App\Model\mis\Course','course_id','course_id');
     }
+
+    public function student(){
+        return $this->hasOne('App\Model\mis\Student','student_id','student_id');
+    }
 }

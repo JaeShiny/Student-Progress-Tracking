@@ -16,7 +16,21 @@
                        </div>
           </div>
           <div class="col-sm">
-
+            {{-- <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">เทอม/ปีการศึกษา<span class="caret"></span></button>
+                            <ul class="dropdown-menu scrollable-menu" role="menu">
+                                @foreach($surveys as $show)
+                                <li> <a class="dropdown-item" href="/lecsurvey/{{$show->semester}}/{{$show->year}}">{{$show->semester}}/{{$show->year}}</a></li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div> --}}
+    <br><br><br><br>
           </div>
         </div>
       </div>
@@ -40,7 +54,7 @@
                           <div class="card-body">
                                 @foreach($survey as $show)
                                 <div class="alert alert-primary" role="alert">
-                                        <a href="/survey/answers/{{$show->id}}">{{$show->title}}</a>   <a href="/survey/answers/{{$show->id}}" class="alert-link" style="float: right">ดูผลการตอบแบบสอบถาม</a> <br ><a href="/survey/{{$show->id}}" class="alert-link" style="float: right;color: red">แก้ไขแบบสอบถาม</a>
+                                <a href="/survey/answers/{{$show->id}}">{{$show->title}}</a>   <a href="/survey/answers/{{$show->id}}" class="alert-link" style="float: right">ดูผลการตอบแบบสอบถาม</a> <br ><a href="/survey/{{$show->id}}" class="alert-link" style="float: right;color: red">แก้ไขแบบสอบถาม</a>
                                        <footer class="blockquote-footer">{{Auth::user()->name}} &nbsp; {{Auth::user()->lastname}}</footer>
                                      </div>
 

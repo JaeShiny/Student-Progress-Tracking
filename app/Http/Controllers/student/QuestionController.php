@@ -35,12 +35,21 @@ class QuestionController extends Controller
       $question->survey_id = $survey;
       $question->save();
 
-    //   foreach($request->choice as $storechoice) {
-    //     $choice = new Choice;
-    //     $choice->choice_name = $storechoice;
-    //     $choice->question_id = $question->id;
-    //     $choice->save();
-    //   }
+      if($request->question_type == 'text' || $request->question_type == 'textarea') {
+            $choice = new Choice;
+            $choice->choice_name = $request->choice[0];
+            $choice->question_id = $question->id;
+            $choice->save();
+      }
+      if($request->question_type == 'checkbox' || $request->question_type == 'radio') {
+        foreach($request->choice as $storechoice) {
+            $choice = new Choice;
+            $choice->choice_name = $storechoice;
+            $choice->question_id = $question->id;
+            $choice->save();
+          }
+      }
+
 
       return redirect()->back();
     }
@@ -112,7 +121,10 @@ class QuestionController extends Controller
 
     public function editAdlec(Question $question)
     {
-      return view('AdLec.editQuestion', compact('question'));
+        $test = Instructor::where('last_name',Auth::user()->lastname)->first();
+        $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+        $generation = Generation::all();
+      return view('AdLec.editQuestion', compact('question','semester','generation'));
     }
 
     public function updateAdlec(Request $request, Question $question)

@@ -140,8 +140,12 @@ class NotificationController extends Controller
             'riskgrade' => $riskgrade,
 
             'semester' => $semester,
+<<<<<<< HEAD
             'gen' => $gen,
             'year' => $year,
+=======
+
+>>>>>>> master
         ]);
     }
 

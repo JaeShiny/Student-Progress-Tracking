@@ -189,6 +189,11 @@
                     {{-- ปุ่มแบบสอบถาม --}}
                       <a class="nav-link" href="/indexSurvey" style="color: #FFFFFF">แบบสอบถาม</a>
 
+<<<<<<< HEAD
+=======
+                        @endforeach
+                    </ul>
+>>>>>>> master
                   </div>
               </div>
           </div>

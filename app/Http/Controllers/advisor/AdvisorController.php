@@ -27,14 +27,19 @@ class AdvisorController extends Controller
         $advisortest = User::where('lastname',Auth::user()->lastname)->where('position','Advisor')->first();
        $instructor = Instructor::where('last_name',$advisortest->lastname)->first();
        $gen = Generation::where('semester',$semester)->where('year',$year)->pluck('gen');
-
+       $mygen = Generation::where('semester',$semester)->where('year',$year)->first();
        $myStudent = Student::whereIn('generation',$gen)->where('adviser_id1',$instructor->instructor_id)->orWhere('adviser_id2',$instructor->instructor_id)->get();
 
 
        $generation = Generation::all();
+
+    //    $gens = Generation::all();
+
         return view('advisor.advisorStudent',[
             'myStudent' => $myStudent,
             'generation'=> $generation,
+            'gen' => $mygen,
+            // 'gens' => $gens
         ]);
 
     }

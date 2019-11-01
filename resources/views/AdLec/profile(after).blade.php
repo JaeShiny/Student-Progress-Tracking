@@ -48,9 +48,9 @@
         <p>ปีการศึกษาที่จบ&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </p>
         <p>{{$bios->students->grad_year}}</p>
 
-        {{-- <div class="container7">
-            <img src="/Codeproject/รูปสัม.jpg" alt="Avatar" class="image" width="100">
-        </div> --}}
+        <div class="container7">
+                <img src="../image/{{$bios->picture}}" width="110" height="140">
+        </div>
 
         <hr class="my-4">
         <p>

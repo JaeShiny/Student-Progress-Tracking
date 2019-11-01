@@ -75,10 +75,9 @@
             <p>{{$b_profile->b_result->b_interviewer->itvname}}</p>
             {{-- <p>__________________</p> --}}
 
-        {{-- <div class="container7">
-            <img src="/Codeproject/รูปสัม.jpg" alt="Avatar" class="image" width="100">
-
-        </div> --}}
+        <div class="container7">
+                <img src="../image/{{$bios->picture}}" width="110" height="140">
+        </div>
 
         <hr class="my-4">
         <br>

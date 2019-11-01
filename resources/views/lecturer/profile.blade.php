@@ -31,7 +31,7 @@
             <a href="/profilebeforeL/{{$bios->student_id}}">
                 <button type="button" class="btn btn-outline-success">ข้อมูลการศึกษา</button>
             </a>
-            <a href="/profileDuringL/{{$bios->student_id}}">
+        <a href="/profileDuringL/{{$bios->student_id}}">
                 <button type="button" class="btn btn-outline-secondary">ข้อมูลระหว่างการศึกษา</button>
             </a>
             <a href="/profileafterL/{{$bios->student_id}}">
@@ -62,6 +62,7 @@
             <br>
 
             <div class="container7">
+                {{-- <img src="../image/{{$bios->picture}}" width="110" height="140"> --}}
                 <img src="../image/{{$bios->picture}}" width="110" height="140">
 
             </div>

@@ -85,7 +85,8 @@
                     </a>
                 </td>
                 <td width="10">
-                    <a href="/studentproblemAL/{{$ad_list->student_id}}">
+                    {{-- <a href="/studentproblemAL/{{$ad_list->student_id}}/1/{{$gens->year}}"> --}}
+                        <a href="/studentproblemAL/{{$ad_list->student_id}}">
                         <center><img src="../img/feedback.png" width="25" title="พฤติกรรม/ปัญหา"></center>
                     </a>
                 </td>
@@ -114,6 +115,12 @@
           {{-- <br>{{$bio->links()}}<br> --}}
     </center>
 
+<<<<<<< HEAD
+=======
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+>>>>>>> master
 </body>
 </html>
 

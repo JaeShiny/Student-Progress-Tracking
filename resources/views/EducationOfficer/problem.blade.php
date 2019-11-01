@@ -24,12 +24,24 @@
     </nav>
 </head>
 <body>
-        @foreach ($bios as $bio)
-        <h6 align='right'>รหัสนักศึกษา: {{$bio->student_id}} &nbsp;&nbsp;&nbsp;&nbsp;</h6>
-        <h6 align='right'>ชื่อ-สกุล: {{$bio->first_name}} &nbsp;{{$bio->last_name}}&nbsp;&nbsp;&nbsp;</h6>
-        @endforeach
+
+        <h6 align='right'>รหัสนักศึกษา: {{$bios->student_id}} &nbsp;&nbsp;&nbsp;&nbsp;</h6>
+        <h6 align='right'>ชื่อ-สกุล: {{$bios->first_name}} &nbsp;{{$bios->last_name}}&nbsp;&nbsp;&nbsp;</h6>
+
 
         <h5 align='center'>ปัญหา/พฤติกรรม</h5>
+        <div class="dropdown">
+        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            เลือกปี และ เทอม
+        </a>
+
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            @foreach($gen as $show)
+        <a class="dropdown-item" href="/studentproblemE/{{$bios->student_id}}/{{$show->semester}}/{{$show->year}}">{{$show->year}}|{{$show->semester}}</a>
+            @endforeach
+
+        </div>
+        </div>
         <br><br><br><br>
 
         <center>

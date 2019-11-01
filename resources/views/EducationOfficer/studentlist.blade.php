@@ -36,7 +36,7 @@
         <form><br>
     </div>
 
-    <div class="dropdown">
+    {{-- <div class="dropdown">
             <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               เลือกปี
             </a>
@@ -46,7 +46,7 @@
             <a class="dropdown-item" href="/studentlist/{{$course}}/{{$show->year}}">{{$show->gen}}|{{$show->year}}</a>
               @endforeach
             </div>
-          </div>
+          </div> --}}
 
     <center>
         <table class="table" width="60%" style="margin-top: 10px;">
@@ -107,7 +107,8 @@
                     </a>
                 </td>
                 <td width="10">
-                    <a href="/studentproblemE/{{$student->student_id}}">
+                <a href="/studentproblemE/{{$student->student_id}}/1/2019">
+
                         {{-- <center><img src="../img/feedback.png" width="25" title="พฤติกรรม/ปัญหา"></center> --}}
                         <center><img src={{ URL::asset("../img/feedback.png") }} width="25" title="พฤติกรรม/ปัญหา"></center>
                     </a>

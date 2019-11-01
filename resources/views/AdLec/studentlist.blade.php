@@ -73,14 +73,14 @@
                 @foreach ($student as $student)
               <tr>
                 <td scope="row" width="10">
-                    <a href="{{route('profileAL',$student->bio['student_id'])}}">
+                    <a href="/profileAL/{{$student->student_id}}">
                         {{$student->student_id}}
                     </a>
                 </td>
 
                 <td width="10">
-                    <a href="{{route('profileAL',$student->bio['student_id'])}}">
-                        {{$student->bio->first_name}} &nbsp;&nbsp; {{$student->bio->last_name}}
+                    <a href="/profileAL/{{$student->student_id}}">
+                        {{$student->first_name}} &nbsp;&nbsp; {{$student->last_name}}
                     </a>
                 </td>
 
@@ -91,12 +91,13 @@
                 </td>
                 <td width="10">
                 {{-- <a href="{{route('profileE',$bio['student_id'])}}"> --}}
-                    <a href="{{route('profileAL',$student->bio['student_id'])}}">
+                    {{-- <a href="{{route('profileAL',$student->bio['student_id'])}}"> --}}
+                        <a href="/student_profileAL/{{$student->student_id}}/{{$gen->semester}}/{{$gen->year}}">
                         <center><img src="../img/resume.png" width="25" title="ประวัตินักศึกษา"></center>
                     </a>
                 </td>
                 <td width="10">
-                    <a href="{{route('enrollAL',$student->study['student_id'])}}">
+                <a href="/enrollAL/{{$student->student_id}}">
                         <center><img src="../img/sct.png" width="25" title="วิชาที่ลงทะเบียน"></center>
                     </a>
                 </td>
@@ -131,6 +132,13 @@
           {{-- <br>{{$bio->links()}}<br> --}}
 
 
+<<<<<<< HEAD
+=======
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+>>>>>>> master
 </body>
 </html>
 
