@@ -30,7 +30,7 @@
 
 
         <h5 align='center'>ปัญหา/พฤติกรรม</h5>
-        <div class="dropdown">
+        {{-- <div class="dropdown">
         <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             เลือกปี และ เทอม
         </a>
@@ -42,8 +42,8 @@
 
         </div>
         </div>
+        <br><br><br><br> --}}
         <br><br><br><br>
-
         <center>
             <table class="table" width="60%">
                 <thead class="thead-light">

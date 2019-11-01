@@ -99,7 +99,7 @@ Route::get('problem_createE/{student_id}','lecturer\ProblemController@createE')-
 Route::post('problem_insertE','lecturer\ProblemController@insertE');
 
 //แสดงพฤติกรรมเด็ก
-Route::get('studentproblemE/{student_id}/{semester}/{year}', 'lecturer\ProblemController@showProblemE');
+Route::get('studentproblemE/{student_id}', 'lecturer\ProblemController@showProblemE');
 
 //กดดูวิชาที่เด็กลงทะเบียน
 Route::get('student_enrollmentE','student\StudyController@enrollmentE');

@@ -134,10 +134,10 @@ class ProblemController extends Controller
     }
 
     //แสดงปัญหา
-    public function showProblemE($student_id,$semester,$year)
+    public function showProblemE($student_id)
     {
 
-        $problem = Problem::where('student_id', $student_id)->where('semester', $semester)->where('year', $year)->get();
+        $problem = Problem::where('student_id', $student_id)->get();
         $users = User::all();
         $bios = Bio::where('student_id', $student_id)->first();
         // $test = Instructor::where('last_name', Auth::user()->lastname)->first();
@@ -150,7 +150,7 @@ class ProblemController extends Controller
             'users' => $users,
             'bios' => $bios,
             'gen' => $gen,
-            'semester' => $semester,
+            // 'semester' => $semester,
         ]);
     }
 
@@ -207,10 +207,10 @@ class ProblemController extends Controller
     }
 
     //แสดงปัญหา
-    public function showProblemA($student_id,$semester,$year)
+    public function showProblemA($student_id)
     {
 
-       $problem = Problem::where('student_id', $student_id)->where('semester', $semester)->where('year', $year)->get();
+       $problem = Problem::where('student_id', $student_id)->get();
         $users = User::all();
         $bios = Bio::where('student_id', $student_id)->first();
         // $test = Instructor::where('last_name', Auth::user()->lastname)->first();

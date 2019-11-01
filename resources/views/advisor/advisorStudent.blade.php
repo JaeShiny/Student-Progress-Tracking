@@ -92,7 +92,7 @@
                     </a>
                 </td>
                 <td width="10">
-                    <a href="/studentproblemA/{{$ad_list->student_id}}/1/{{$gen->year}}">
+                    <a href="/studentproblemA/{{$ad_list->student_id}}">
                         <center><img src="{{ URL::asset("../img/feedback.png") }}" width="25" title="พฤติกรรม/ปัญหา"></center>
                     </a>
                 </td>
