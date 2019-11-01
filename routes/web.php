@@ -201,12 +201,7 @@ Route::get('notiproblemL/{student_id}','NotificationController@ProblemL');
 Route::get('allNotiL/{course_id}','NotificationController@allNotiL');
     // route แสดงรายวิชาที่อาจารย์สอน
 Route::get('subjectNotiL','NotificationController@subjectNotiL');
-<<<<<<< HEAD
 Route::get('showNotiL/{course_id}/{semester}/{year}','NotificationController@showNotiL');
-=======
-// Route::get('showNotiL/{course_id}','NotificationController@showNotiL');
-Route::get('showNotiL/{course_id}','NotificationController@showNotiL');
->>>>>>> master
 
 //LF
 Route::get('notiproblemLF/{student_id}','NotificationController@ProblemLF');

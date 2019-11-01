@@ -237,7 +237,7 @@
         <br>
         <a href="ประวัตินักศึกษา.html"> ย้อนกลับ</a>
     </center> --}}
-
+    <script src="http://www.sitepoint.com/responsive-data-tables-comprehensive-list-solutions"></script>
 </body>
 
 </html>

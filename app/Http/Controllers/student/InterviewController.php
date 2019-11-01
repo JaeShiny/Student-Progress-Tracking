@@ -71,12 +71,17 @@ class InterviewController extends Controller
         $b_result = B_result::all();
         $b_interviewer = B_interviewer::all();
         $b_englishskill = B_englishskill::all();
+
+        $test = Instructor::where('last_name',Auth::user()->lastname)->first();
+        $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+
         return view('lecturer.profile(before)',[
             'b_profile' => $b_profile,
             'bios' => $bios,
             'student' => $student,
             'b_interviewer' => $b_interviewer,
             'b_englishskill'=> $b_englishskill,
+            'semester' => $semester,
 
         ]);
     }
@@ -92,6 +97,8 @@ class InterviewController extends Controller
         $b_interviewer = B_interviewer::all();
         $b_englishskill = B_englishskill::all();
         $generation = Generation::all();
+
+
         return view('advisor.profile(before)',[
             'b_profile' => $b_profile,
             'bios' => $bios,

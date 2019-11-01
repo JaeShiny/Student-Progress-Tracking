@@ -4,7 +4,7 @@
 <html>
 <head>
     <title>ข้อมูลระหว่างการศึกษา</title>
-    <link href="{{ asset('css/csste.css') }}" rel="stylesheet" type="text/css">
+    {{-- <link href="{{ asset('css/csste.css') }}" rel="stylesheet" type="text/css"> --}}
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <meta charset="utf-8">
@@ -23,28 +23,28 @@
 </head>
 
 <body>
+    <br>
+    <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">เทอม/ปีการศึกษา<span class="caret"></span></button>
+                        <ul class="dropdown-menu scrollable-menu" role="menu">
+                            @foreach($gen as $show)
+                            <li> <a class="dropdown-item" href="/profileDuringL/{{$bios->student_id}}/{{$show->semester}}/{{$show->year}}">{{$show->semester}}/{{$show->year}}</a></li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     <div class="jumbotron">
         <h4 class="display-4"></h4>
             <p>
                 <B>ข้อมูลนักศึกษา</B>
             </p>
-            <br><br><br>
-        <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">เทอม/ปีการศึกษา<span class="caret"></span></button>
-                            <ul class="dropdown-menu scrollable-menu" role="menu">
-                                @foreach($gen as $show)
-                                <li> <a class="dropdown-item" href="/profileDuringL/{{$bios->student_id}}/{{$show->semester}}/{{$show->year}}">{{$show->semester}}|{{$show->year}}</a></li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        <br><br><br><br>
+
 
             <hr class="my-4">
 
