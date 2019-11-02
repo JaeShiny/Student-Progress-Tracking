@@ -103,7 +103,8 @@ Route::get('studentproblemE/{student_id}', 'lecturer\ProblemController@showProbl
 
 //กดดูวิชาที่เด็กลงทะเบียน
 Route::get('student_enrollmentE','student\StudyController@enrollmentE');
-Route::get('student_enrollmentE/{student_id}','student\StudyController@enrollmentE1')->name('enrollE');
+Route::get('student_enrollmentE/{student_id}/{semester}/{year}','student\StudyController@enrollmentE1')->name('enrollE');
+Route::get('student_enrollmentE1/{student_id}/{semester}/{year}','student\StudyController@enrollmentE2')->name('enrollE1');
 
 //แสดงการเข้าเรียน -> Attendance
 Route::get('/attendanceE/{course_id}','lecturer\AttendanceController@showAttendanceE');
@@ -231,7 +232,8 @@ Route::get('showNotiS','NotificationController@showNotiS');
 Route::get('profile/{student_id}','student\BioController@profile');
 
 Route::get('enrollmentS/{student_id}','student\StudyController@enrollmentS')->name('studentenrollment');
-// Route::get('student_enrollmentS1/{student_id}','student\StudyController@enrollmentL1')->name('enrollS');
+// Route::get('student_enrollmentS/{student_id}/{semester}/{year}','student\StudyController@enrollmentS1')->name('enrollS');
+// Route::get('student_enrollmentS/{student_id}/{semester}/{year}','student\StudyController@enrollmentL2')->name('enrollS1');
 
 //กดดูหน้าข้อมูลสัมภาษณ์
 Route::get('profilebeforeS/{student_id}','student\InterviewController@profileS');
@@ -289,7 +291,8 @@ Route::get('student_searchA','student\BioController@searchA');
 
 //กดดูวิชาที่เด็กลงทะเบียน
 Route::get('student_enrollmentA','student\StudyController@enrollmentA');
-Route::get('student_enrollmentA1/{student_id}/{semester}/{year}','student\StudyController@enrollmentA1')->name('enrollA');
+Route::get('student_enrollmentA/{student_id}/{semester}/{year}','student\StudyController@enrollmentA1')->name('enrollA');
+Route::get('student_enrollmentA1/{student_id}/{semester}/{year}','student\StudyController@enrollmentA2')->name('enrollA1');
 
 //แสดงการเข้าเรียน -> Attendance
 // Route::get('/attendanceA/{course_id}','lecturer\AttendanceController@showAttendanceA');
@@ -320,7 +323,9 @@ Route::get('profileafterAL/{student_id}','student\SrmController@profileAL');
 
 //กดดูวิชาที่่ลงทะเบียน
 Route::get('student_enrollmentAL','student\StudyController@enrollmentAL');
-Route::get('student_enrollmentAL/{student_id}','student\StudyController@enrollmentAL1')->name('enrollAL');
+Route::get('student_enrollmentAL/{student_id}/{semester}/{year}','student\StudyController@enrollmentAL1')->name('enrollAL');
+Route::get('student_enrollmentAL1/{student_id}/{semester}/{year}','student\StudyController@enrollmentAL2')->name('enrollAL1');
+
 
 //แมบวิชากับเด็ก
 Route::get('subjectAL/{course}','SubjectController@indexAL');
@@ -418,7 +423,8 @@ Route::get('risk_problemLF/{student_id}','lecturer\ProblemController@notiProblem
 
 //กดดูวิชาที่เด็กลงทะเบียน
 Route::get('student_enrollmentLF','student\StudyController@enrollmentLF');
-Route::get('student_enrollmentLF/{student_id}','student\StudyController@enrollmentLF1')->name('enrollLF');
+Route::get('student_enrollmentLF/{student_id}/{semester}/{year}','student\StudyController@enrollmentLF1')->name('enrollLF');
+Route::get('student_enrollmentLF1/{student_id}/{semester}/{year}','student\StudyController@enrollmentLF2')->name('enrollLF1');
 
 //form Attendance
 Route::get('FormAttendanceLF', 'lecturer\FormController@FormAttendanceViewLF');

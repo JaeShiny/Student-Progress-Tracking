@@ -99,7 +99,8 @@
                     </a>
                 </td>
                 <td width="10">
-                    <a href="{{route('enrollLF',$student->study['student_id'])}}">
+                    {{-- <a href="{{route('enrollLF',$student->study['student_id'])}}"> --}}
+                            <a href="/student_enrollmentLF/{{$student->student_id}}/{{$gen->semester}}/{{$gen->year}}">
                         <center><img src="{{ URL::asset("../img/sct.png") }}" width="25" title="วิชาที่ลงทะเบียน"></center>
                     </a>
                 </td>

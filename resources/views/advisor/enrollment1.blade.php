@@ -16,10 +16,9 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li> </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            {{-- <li class="breadcrumb-item"><a href="{{ url('courseLF') }}">วิชาที่สอน</a></li> --}}
-            <li class="breadcrumb-item">รายชื่อนักศึกษา</li>
+            <li class="breadcrumb-item" aria-current="page"><a href="/advisor/myStudent">รายชื่อนักศึกษา</a></li>
             <li class="breadcrumb-item active" aria-current="page"><a href="">การลงทะเบียน</a></li>
-        </ol>
+            </ol>
     </nav>
 </head>
 <body>
@@ -40,19 +39,19 @@
         </div>
     </div> --}}
     <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">เทอม/ปีการศึกษา<span class="caret"></span></button>
-                        <ul class="dropdown-menu scrollable-menu" role="menu">
-                            @foreach($gen as $show)
-                            <li> <a class="dropdown-item" href="/student_enrollmentLF1/{{$bios->student_id}}/{{$show->semester}}/{{$show->year}}">{{$show->semester}}/{{$show->year}}</a></li>
-                            @endforeach
-                        </ul>
-                    </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">เทอม/ปีการศึกษา<span class="caret"></span></button>
+                    <ul class="dropdown-menu scrollable-menu" role="menu">
+                        @foreach($gen as $show)
+                        <li> <a class="dropdown-item" href="/student_enrollmentA1/{{$bios->student_id}}/{{$show->semester}}/{{$show->year}}">{{$show->semester}}/{{$show->year}}</a></li>
+                        @endforeach
+                    </ul>
                 </div>
             </div>
         </div>
+    </div>
 
       <br><br><br><br>
       <center>
@@ -71,16 +70,16 @@
           </tr>
         </thead>
         <tbody>
-            @foreach($study as $study)
-          <tr>
-            <th scope="row"><center>{{$study->course_id}}</center></th>
-            <td>{{$study->courses->course_name}}</td>
-            <td><center>{{$study->semester}}</center></td>
-            <td><center>{{$study->year}}</center></td>
-            <td><center>{{$study->credit}}</center></td>
-            <td><center>{{$study->section}}</center></td>
-          </tr>
-          @endforeach
+                @foreach($study as $study)
+                <tr>
+                  <th scope="row"><center>{{$study->course_id}}</center></th>
+                  <td>{{$study->courses->course_name}}</td>
+                  <td><center>{{$study->semester}}</center></td>
+                  <td><center>{{$study->year}}</center></td>
+                  <td><center>{{$study->credit}}</center></td>
+                  <td><center>{{$study->section}}</center></td>
+                </tr>
+                @endforeach
         </tbody>
         {{-- <tfoot>
             <tr>
@@ -92,14 +91,14 @@
         </tfoot> --}}
       </table>
       </center>
-<<<<<<< HEAD
 
-=======
->>>>>>> master
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
 </body>
 </html>
 
 
 @endsection
-@extends('bar.header(LF)')
+@extends('bar.header(advi)')
 

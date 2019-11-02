@@ -68,41 +68,47 @@
                 </td>
 
                 <td width="10">
+<<<<<<< HEAD
                     <a href="/chartStudentAL/{{$student->student_id}}">
                         <center><img src="../img/รูปสถิติ.png" width="30" height="25" title="สถิติ"></center>
+=======
+                    <a href="">
+                        <center><img src="{{ URL::asset("../img/รูปสถิติ.png") }}" width="30" height="25" title="สถิติ"></center>
+>>>>>>> master
                     </a>
                 </td>
                 <td width="10">
                 {{-- <a href="{{route('profileE',$bio['student_id'])}}"> --}}
                     <a href="{{route('profileAL',$ad_list->bio->student_id)}}">
                     {{-- <a href="student_profileE/{{$student->bio['student_id']}}"> --}}
-                        <center><img src="../img/resume.png" width="25" title="ประวัตินักศึกษา"></center>
+                        <center><img src="{{ URL::asset("../img/resume.png") }}" width="25" title="ประวัตินักศึกษา"></center>
                     </a>
                 </td>
                 <td width="10">
-                    <a href="{{route('enrollAL',$ad_list->bio->study['student_id'])}}">
-                        <center><img src="../img/sct.png" width="25" title="วิชาที่ลงทะเบียน"></center>
+                    {{-- <a href="{{route('enrollAL',$ad_list->bio->study['student_id'])}}"> --}}
+                            <a href="/student_enrollmentAL1/{{$ad_list->student_id}}/{{$gen->semester}}/{{$gen->year}}">
+                        <center><img src="{{ URL::asset("../img/sct.png") }}" width="25" title="วิชาที่ลงทะเบียน"></center>
                     </a>
                 </td>
                 <td width="10">
                     {{-- <a href="/studentproblemAL/{{$ad_list->student_id}}/1/{{$gens->year}}"> --}}
                         <a href="/studentproblemAL/{{$ad_list->student_id}}">
-                        <center><img src="../img/feedback.png" width="25" title="พฤติกรรม/ปัญหา"></center>
+                        <center><img src="{{ URL::asset("../img/add.png") }}" width="25" title="พฤติกรรม/ปัญหา"></center>
                     </a>
                 </td>
                 <td width="10">
                     <a href="/attendanceAL2/{{$ad_list->student_id}}">
-                        <center><img src="../img/attendant-list.png" width="30" height="25" title="การเข้าเรียน"></center>
+                        <center><img src="{{ URL::asset("../img/feedback.png") }}" width="30" height="25" title="การเข้าเรียน"></center>
                     </a>
                 </td>
                 <td width="10">
                     <a href="/showGradeAL2/{{$ad_list->student_id}}">
-                        <center><img src="../img/grades.png" width="30" height="25" title="ผลการเรียน"></center>
+                        <center><img src="{{ URL::asset("../img/noti.png") }}" width="30" height="25" title="ผลการเรียน"></center>
                     </a>
                 </td>
                 <td width="10">
                     <a href="/notiproblemAL/{{$ad_list->student_id}}">
-                        <center><img src="../img/noti.png" width="30" height="25" title="แจ้งเตือน"></center>
+                        <center><img src="{{ URL::asset("../img/noti.png") }}" width="30" height="25" title="แจ้งเตือน"></center>
                     </a>
                 </td>
               </tr>

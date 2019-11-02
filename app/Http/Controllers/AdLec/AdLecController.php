@@ -30,7 +30,9 @@ class AdLecController extends Controller
        $instructor = Instructor::where('last_name',$advisortest->lastname)->first();
        $gen = Generation::where('semester',$semester)->where('year',$year)->pluck('gen');
 
+       $mygen = Generation::where('semester',$semester)->where('year',$year)->first();
        $myStudent = Student::whereIn('generation',$gen)->where('adviser_id1',$instructor->instructor_id)->orWhere('adviser_id2',$instructor->instructor_id)->get();
+
 
 
        $generation = Generation::all();
@@ -42,6 +44,7 @@ class AdLecController extends Controller
             'myStudent' => $myStudent,
             'semester' => $semester,
             'generation' => $generation,
+            'gen' => $mygen,
         ]);
 
     }

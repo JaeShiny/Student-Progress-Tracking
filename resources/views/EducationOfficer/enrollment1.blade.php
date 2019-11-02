@@ -16,8 +16,9 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li> </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            {{-- <li class="breadcrumb-item"><a href="{{ url('courseLF') }}">วิชาที่สอน</a></li> --}}
-            <li class="breadcrumb-item">รายชื่อนักศึกษา</li>
+            <li class="breadcrumb-item"><a href="{{ url('curriculum') }}">หลักสูตร</a></li>
+            <li class="breadcrumb-item" aria-current="page">รายชื่อนักศึกษา</li>
+                {{-- <li class="breadcrumb-item active" aria-current="page"><a href="">ประวัตินักศึกษา(ใส่ชื่อด้วย)</a></li> --}}
             <li class="breadcrumb-item active" aria-current="page"><a href="">การลงทะเบียน</a></li>
         </ol>
     </nav>
@@ -46,7 +47,7 @@
                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">เทอม/ปีการศึกษา<span class="caret"></span></button>
                         <ul class="dropdown-menu scrollable-menu" role="menu">
                             @foreach($gen as $show)
-                            <li> <a class="dropdown-item" href="/student_enrollmentLF1/{{$bios->student_id}}/{{$show->semester}}/{{$show->year}}">{{$show->semester}}/{{$show->year}}</a></li>
+                            <li> <a class="dropdown-item" href="/student_enrollmentE1/{{$bios->student_id}}/{{$show->semester}}/{{$show->year}}">{{$show->semester}}/{{$show->year}}</a></li>
                             @endforeach
                         </ul>
                     </div>
@@ -71,7 +72,7 @@
           </tr>
         </thead>
         <tbody>
-            @foreach($study as $study)
+                @foreach($study as $study)
           <tr>
             <th scope="row"><center>{{$study->course_id}}</center></th>
             <td>{{$study->courses->course_name}}</td>
@@ -92,14 +93,16 @@
         </tfoot> --}}
       </table>
       </center>
-<<<<<<< HEAD
 
-=======
->>>>>>> master
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
 </html>
 
 
 @endsection
-@extends('bar.header(LF)')
+@extends('bar.header(edu)')
 

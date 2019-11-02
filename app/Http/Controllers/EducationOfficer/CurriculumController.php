@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Model\mis\Curriculum;
 use App\Model\mis\Student;
 use App\Model\mis\Bio;
+use App\Model\mis\Generation;
 use Auth;
 
 class CurriculumController extends Controller
@@ -24,8 +25,14 @@ class CurriculumController extends Controller
     public function index($curriculum_id){
         $curriculum = Curriculum::find($curriculum_id);
         $student = Student::where('curriculum_id',$curriculum->curriculum_id)->get();
+        $gen = Generation::all();
+
+        $test = Instructor::where('last_name',Auth::user()->lastname)->first();
+        $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
         return view('EducationOfficer.studentlist',[
             'student' => $student,
+            'gen' => $gen,
+            'semester' => $semester,
         ]);
     }
 
