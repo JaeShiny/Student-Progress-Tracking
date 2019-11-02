@@ -22,8 +22,9 @@
         </ol>
     </nav>
 </head>
-    {{-- <h5 align='center'>รายชื่อนักศึกษา</h5> --}}
-    {{-- <h6 align='center'>ปีการศึกษา {{$generation->year}}</h6><br> --}}
+<br>
+<h4 align='center'>รายชื่อนักศึกษา</h5><br>
+<h6 align='center'>ปีการศึกษา {{$gen->semester}}/{{$gen->year}}</h6><br>
 <body>
 
     <div class="container">
