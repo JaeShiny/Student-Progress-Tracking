@@ -97,7 +97,8 @@
                     </a>
                 </td>
                 <td width="10">
-                <a href="/enrollAL/{{$student->student_id}}">
+                {{-- <a href="/enrollAL/{{$student->student_id}}"> --}}
+                    <a href="/student_enrollmentAL1/{{$student->student_id}}/{{$gen->semester}}/{{$gen->year}}">
                         <center><img src="../img/sct.png" width="25" title="วิชาที่ลงทะเบียน"></center>
                     </a>
                 </td>

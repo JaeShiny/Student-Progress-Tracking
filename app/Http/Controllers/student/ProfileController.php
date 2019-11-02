@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\mis\Bio;
 use App\Model\mis\Study;
+use App\Model\mis\Generation;
 use Auth;
 
 class ProfileController extends Controller
@@ -23,10 +24,12 @@ class ProfileController extends Controller
     public function study(){
         $user = Auth::user();
         $info= Study::where('student_id',$user->student_id)->get();
+        $gen = Generation::all();
 
         return view('student.enrollment',[
             'study2'=>$info,
             'user' => $user,
+            'gen' => $gen
         ]);
     }
 

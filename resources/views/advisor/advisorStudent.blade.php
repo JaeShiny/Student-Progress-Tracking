@@ -49,7 +49,7 @@
                 <th scope="col" width="10%"><h6 align="center"><b>เพิ่มพฤติกรรม</h6></b></th>
                 <th scope="col" width="10%"><h6 align="center"><b>พฤติกรรม</h6></b></th>
                 <th scope="col" width="10%"><h6 align="center"><b>แจ้งเตือน</h6></b></th>
-                <th scope="col" width="10%"><h6 align="center"><b>ผลแบบสอบถาม</h6></b></th>
+                {{-- <th scope="col" width="10%"><h6 align="center"><b>ผลแบบสอบถาม</h6></b></th> --}}
               </tr>
             </thead>
 
@@ -101,11 +101,11 @@
                         <center><img src="{{ URL::asset("../img/noti.png") }}" width="30" height="25" title="แจ้งเตือน"></center>
                     </a>
                 </td>
-                <td width="10">
+                {{-- <td width="10">
                     <a href="#">
                                 <center><img src="{{ URL::asset("../img/qtn.png") }}" width="30" height="25" title="ผลแบบสอบถาม"></center>
                             </a>
-                        </td>
+                        </td> --}}
               </tr>
             </tbody>
             @endforeach
