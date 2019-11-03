@@ -18,6 +18,8 @@ class CreateInpectorConditionsTable extends Migration
             $table->string('behavior_attribute');
             $table->string('condition');
             $table->string('value');
+            $table->string('instructor_id');
+            $table->string('course_id')->nullable();
             $table->timestamps();
         });
     }

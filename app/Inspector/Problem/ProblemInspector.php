@@ -33,13 +33,12 @@ class ProblemInspector implements Inspector
         }
 
         $query_builder = new Student();
-        foreach($conditions as $condition) {
-            $query_builder->where(
-                'risk_level',
-                $condition->condition,
-                $condition->value
-            );
-        }
+        $condition = $conditions->first();
+        $query_builder->where(
+            'risk_level',
+            $condition->condition,
+            $condition->value
+        );
 
         $students = $query_builder->get();
 
