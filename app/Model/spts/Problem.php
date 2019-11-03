@@ -3,9 +3,12 @@
 namespace App\Model\spts;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Model\QueryForProblemTrait;
 
 class Problem extends Model
 {
+    use QueryForProblemTrait;
+
     protected $connection = "mysql";
     protected $table = "problem";
     protected $primaryKey = "problem_id";

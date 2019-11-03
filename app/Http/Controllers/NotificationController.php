@@ -268,37 +268,50 @@ class NotificationController extends Controller
 
     //แสดงแจ้งเตือนหลังจากคลิกปุ่มการแจ้งเตือน
     public function showNotiA($semester, $year){
+        // Instructor::instructor(Auth::user()->instructor_id)->first();
         $instructor = Instructor::where('first_name',Auth::user()->name)->first();
-        $myStudent = Student::where('adviser_id1',$instructor->instructor_id)->orWhere('adviser_id2',$instructor->instructor_id)->get();
+        $myStudent = Student::where('adviser_id1',$instructor->instructor_id)
+            ->orWhere(
+                'adviser_id2',
+                $instructor->instructor_id
+            )->get();
 
-        $student = Student::where('adviser_id1',$instructor->instructor_id)->orWhere('adviser_id2',$instructor->instructor_id)->first();
-        $bios = Bio::where('student_id', $student->student_id)->get();
+        $student = Student::where(
+            'adviser_id1', $instructor->instructor_id
+        )->orWhere(
+            'adviser_id2', $instructor->instructor_id
+        )->get();
 
-        $risk_problem = Problem::where('risk_level','รุนแรงมาก')
-                            ->where('student_id',$student->student_id)
-                            ->where('semester', $semester)->where('year', $year)
-                            ->get();
-        $risk_attendance = Attendance::where('amount_absence', '>=', 3 )
-                            ->where('student_id',$student->student_id)
-                            ->where('semester', $semester)->where('year', $year)
-                            ->get();
-        $risk_grade = Grade::where('total_all', '<=', 60 )
-                            ->where('student_id',$student->student_id)
-                            ->where('semester', $semester)->where('year', $year)
-                            ->get();
+        $student_ids = $student->map(function ($item) {
+            return $item->student_id;
+        });
 
-        $riskproblem = Problem::where('risk_level','รุนแรงมาก')
-                        ->where('student_id',$student->student_id)
-                        ->where('semester', $semester)->where('year', $year)
-                        ->count();
-        $riskattendance = Attendance::where('amount_absence', '>=', 3 )
-                        ->where('student_id',$student->student_id)
-                        ->where('semester', $semester)->where('year', $year)
-                        ->count();
-        $riskgrade = Grade::where('total_all', '<=', 60 )
-                        ->where('student_id',$student->student_id)
-                        ->where('semester', $semester)->where('year', $year)
-                        ->count();
+        $bios = Bio::whereIn('student_id', $student_ids->all())->get();
+
+        $risk_problem = Problem::inspectProblem(
+            $student_ids->all(),
+            $semester,
+            $year
+        )->where('risk_level', 'รุนแรงมาก')
+        ->get();
+
+        $risk_attendance = Attendance::inspectProblem(
+            $student_ids->all(),
+            $semester,
+            $year
+        )->where('amount_absence', '>=', 3)
+        ->get();
+
+        $risk_grade = Grade::inspectProblem(
+            $student_ids->all(),
+            $semester,
+            $year
+        )->where('total_all', '<=', 60 )
+        ->get();
+
+        $riskproblem = $risk_problem->count();
+        $riskattendance = $risk_attendance->count();
+        $riskgrade = $risk_grade->count();
 
         $test = Instructor::where('last_name',Auth::user()->lastname)->first();
         $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();

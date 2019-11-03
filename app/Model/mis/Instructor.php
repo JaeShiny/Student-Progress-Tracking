@@ -16,4 +16,9 @@ class Instructor extends Model
     public function schedule(){
         return $this->hasOne('App\Model\mis\Schedule','instructor_id','instructor_id');
     }
+
+    public function scopeOfInstrutor($query, $instructor_id)
+    {
+        return $query->where('instructor_id', '=', $instructor_id);
+    }
 }
