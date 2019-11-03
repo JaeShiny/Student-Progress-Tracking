@@ -70,13 +70,8 @@
                 </td>
 
                 <td width="10">
-<<<<<<< HEAD
-                    <a href="/chartStudentAL/{{$student->student_id}}">
-                        <center><img src="../img/รูปสถิติ.png" width="30" height="25" title="สถิติ"></center>
-=======
-                    <a href="">
+                    <a href="/chartStudentAL/{{$ad_list->student_id}}">
                         <center><img src="{{ URL::asset("../img/รูปสถิติ.png") }}" width="30" height="25" title="สถิติ"></center>
->>>>>>> master
                     </a>
                 </td>
                 <td width="10">
@@ -105,7 +100,7 @@
                 </td>
                 <td width="10">
                     <a href="/showGradeAL2/{{$ad_list->student_id}}">
-                        <center><img src="{{ URL::asset("../img/noti.png") }}" width="30" height="25" title="ผลการเรียน"></center>
+                        <center><img src="{{ URL::asset("../img/grades.png") }}" width="30" height="25" title="ผลการเรียน"></center>
                     </a>
                 </td>
                 <td width="10">
@@ -117,18 +112,12 @@
             </tbody>
             @endforeach
           </table>
-
+<br><br><br><br>
           {{-- <p> ทั้งหมด {{$student->count()}} รายการ </p> --}}
 
           {{-- <br>{{$bio->links()}}<br> --}}
     </center>
 
-<<<<<<< HEAD
-=======
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-
->>>>>>> master
 </body>
 </html>
 

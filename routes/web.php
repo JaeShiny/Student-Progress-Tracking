@@ -219,9 +219,10 @@ Route::get('getNotiproblemA/{student_id}','NotificationController@getProblemA');
 
 
 //Ad+Lec
-Route::get('/indexNoti', function () {
-    return view('AdLec.indexNoti');
-});
+// Route::get('/indexNoti', function () {
+//     return view('AdLec.indexNoti');
+// });
+Route::get('/indexNoti','NotificationController@indexNoti');
 Route::get('notiproblemAL/{student_id}','NotificationController@ProblemAL');
 Route::get('allNotiAL2/{course_id}','NotificationController@allNotiAL2');
 Route::get('subjectNotiAL2','NotificationController@subjectNotiAL2');

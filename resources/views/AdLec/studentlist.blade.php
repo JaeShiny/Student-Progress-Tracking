@@ -86,36 +86,36 @@
 
                 <td width="10">
                     <a href="/chartStudentAL/{{$student->student_id}}">
-                        <center><img src="../img/รูปสถิติ.png" width="30" height="25" title="สถิติ"></center>
+                        <center><img src="{{ URL::asset("../img/รูปสถิติ.png") }}" width="30" height="25" title="สถิติ"></center>
                     </a>
                 </td>
                 <td width="10">
                 {{-- <a href="{{route('profileE',$bio['student_id'])}}"> --}}
                     {{-- <a href="{{route('profileAL',$student->bio['student_id'])}}"> --}}
                         <a href="/student_profileAL/{{$student->student_id}}/{{$gen->semester}}/{{$gen->year}}">
-                        <center><img src="../img/resume.png" width="25" title="ประวัตินักศึกษา"></center>
+                        <center><img src="{{ URL::asset("../img/resume.png") }}" width="25" title="ประวัตินักศึกษา"></center>
                     </a>
                 </td>
                 <td width="10">
                 {{-- <a href="/enrollAL/{{$student->student_id}}"> --}}
                     <a href="/student_enrollmentAL1/{{$student->student_id}}/{{$gen->semester}}/{{$gen->year}}">
-                        <center><img src="../img/sct.png" width="25" title="วิชาที่ลงทะเบียน"></center>
+                        <center><img src="{{ URL::asset("../img/sct.png") }}" width="25" title="วิชาที่ลงทะเบียน"></center>
                     </a>
                 </td>
                 <td width="10">
                     <a href="/studentproblemAL/{{$student->student_id}}">
-                        <center><img src="../img/feedback.png" width="25" title="พฤติกรรม/ปัญหา"></center>
+                        <center><img src="{{ URL::asset("../img/feedback.png") }}" width="25" title="พฤติกรรม/ปัญหา"></center>
                     </a>
                 </td>
                 <td width="10">
                     <a href="/problem_createAL/{{$student->student_id}}">
                     {{-- <a href="{{route('create',$student->bio['student_id'])}}"> --}}
-                        <center><img src="../img/add.png" width="25" title="เพิ่มพฤติกรรม/ปัญหา"></center>
+                        <center><img src="{{ URL::asset("../img/add.png") }}" width="25" title="เพิ่มพฤติกรรม/ปัญหา"></center>
                     </a>
                 </td>
                 <td width="10">
                     <a href="/notiproblemAL/{{$student->student_id}}">
-                        <center><img src="../img/noti.png" width="30" height="25" title="แจ้งเตือน"></center>
+                        <center><img src="{{ URL::asset("../img/noti.png") }}" width="30" height="25" title="แจ้งเตือน"></center>
                     </a>
                 </td>
                 <td width="10">
@@ -133,13 +133,6 @@
           {{-- <br>{{$bio->links()}}<br> --}}
 
 
-<<<<<<< HEAD
-=======
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-
->>>>>>> master
 </body>
 </html>
 

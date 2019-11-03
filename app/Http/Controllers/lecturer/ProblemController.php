@@ -277,18 +277,18 @@ class ProblemController extends Controller
         return redirect()->back()->with('message', 'เพิ่มข้อมูลเรียบร้อยแล้ว');
     }
 
-    public function showProblemAL($student_id,$semester,$year)
+    public function showProblemAL($student_id)
     {
-        // $problem = Problem::where('student_id', $student_id)->get();
-        // $users = User::all();
-        // $bios = Bio::where('student_id', $student_id)->get();
+        $problem = Problem::where('student_id', $student_id)->get();
+        $users = User::all();
+        $bios = Bio::where('student_id', $student_id)->get();
 
         // $test = Instructor::where('last_name', Auth::user()->lastname)->first();
         // $semester = Schedule::where('instructor_id', $test->instructor_id)->orderBy('year', 'asc')->get();
 
-        $problem = Problem::where('student_id', $student_id)->where('semester', $semester)->where('year', $year)->get();
-        $users = User::all();
-        $bios = Bio::where('student_id', $student_id)->first();
+        // $problem = Problem::where('student_id', $student_id)->where('semester', $semester)->where('year', $year)->get();
+        // $users = User::all();
+        // $bios = Bio::where('student_id', $student_id)->first();
         $test = Instructor::where('last_name', Auth::user()->lastname)->first();
         $semester = Schedule::where('instructor_id', $test->instructor_id)->orderBy('year', 'asc')->get();
         $gens = Generation::all();
