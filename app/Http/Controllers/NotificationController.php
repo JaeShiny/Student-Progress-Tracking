@@ -21,7 +21,7 @@ use App\Model\spts\Problem;
 use App\Model\spts\Attendance;
 use App\Model\spts\Grade;
 use App\Model\spts\Users;
-
+use App\Model\spts\Semester;
 
 use Auth;
 
@@ -248,6 +248,7 @@ class NotificationController extends Controller
             //Advisor//
     //คลิกที่เด็กแล้วเจอแจ้งเตือนของแต่ละคน
     public function ProblemA($student_id){
+        $s = $student_id;
         $bios = Bio::where('student_id', $student_id)->get();
         $risk_problem = Problem::where('risk_level','รุนแรงมาก')->where('student_id',$student_id)->get();
 
@@ -256,15 +257,42 @@ class NotificationController extends Controller
 
         $generation = Generation::all();
 
+        $semester = Semester::all();
+
         return view('advisor.notification',[
             'bios' => $bios,
             'risk_problem' => $risk_problem,
             'risk_attendance' => $risk_attendance,
             'risk_grade' => $risk_grade,
-            'generation' => $generation
-
+            'generation' => $generation,
+            'semester' => $semester,
+            's' => $s,
         ]);
     }
+
+    public function getProblemA($student_id){
+        $s = $student_id;
+        $bios = Bio::where('student_id', $student_id)->get();
+        $risk_problem = Problem::where('risk_level','รุนแรงมาก')->where('student_id',$student_id)->get();
+
+        $risk_attendance = Attendance::where('amount_absence', '>=', 3 )->where('student_id',$student_id)->get();
+        $risk_grade = Grade::where('total_all', '<=', 60 )->where('student_id',$student_id)->get();
+
+        $generation = Generation::all();
+
+        $semester = Semester::all();
+
+        return response()->json([
+            'bios' => $bios,
+            'risk_problem' => $risk_problem,
+            'risk_attendance' => $risk_attendance,
+            'risk_grade' => $risk_grade,
+            'generation' => $generation,
+            'semester' => $semester,
+            // 's' => $s
+        ]);
+    }
+
 
     //แสดงแจ้งเตือนหลังจากคลิกปุ่มการแจ้งเตือน
     public function showNotiA($semester, $year){

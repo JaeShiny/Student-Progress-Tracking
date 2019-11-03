@@ -29,10 +29,26 @@
         @endforeach
 
         <h5 align='center'>การแจ้งเตือน</h5>
-        <br><br>
 
-        <center>
+<br>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 float-right">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">เทอม/ปีการศึกษา<span class="caret"></span></button>
+                    <ul class="dropdown-menu scrollable-menu" role="menu">
+                        @foreach($semester as $show)
+                    <li> <a class="dropdown-item" href="">{{$show->semester}}/{{$show->year}}</a></li><br>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+<br>
 
+
+<center>
             {{-- แจ้งเตือนปัญหาและพฤติกรรม --}}
             <h6  style="position: relative; left: -31%">การแจ้งเตือนปัญหาและพฤติกรรม</h6>
             <br><br><br>
@@ -126,11 +142,31 @@
 
 
         </center>
+        <table id="test">
+
+        </table>
 
 </body>
+
+
 </html>
 
 
+@endsection
+@section('javascript')
+    <SCript>
+        $.ajax({
+        type: 'GET', //THIS NEEDS TO BE GET
+        url: '/getNotiproblemA/59130500001',
+        success: function (data) {
+             console.log(data.bios[0].address);
+             $("#test").append("<tr><td>"+data.bios[0].address+"</td></tr>");
+        },
+        error: function() {
+            // console.log(data);
+        }
+        });
+    </SCript>
 @endsection
 @extends('bar.header(advi)')
 
