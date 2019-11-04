@@ -220,9 +220,7 @@ Route::get('showNotiLF/{course_id}/{semester}/{year}','NotificationController@sh
 Route::get('notiproblemA/{student_id}','NotificationController@ProblemA');
 Route::get('notiproblemA2/{student_id}/{semester}/{year}','NotificationController@ProblemA2');
 
-
-Route::get('getNotiproblemA/{student_id}','NotificationController@getProblemA');
-
+Route::get('getNotiproblemA/{student_id}','NotificationController@getProblemA')->name('getNotiproblemA');
 
 
 //Ad+Lec
