@@ -18,6 +18,7 @@ use App\Model\mis\Bio;
 use App\Model\spts\User;
 use App\Model\mis\Schedule;
 use App\Model\mis\Instructor;
+use App\Model\mis\Generation;
 use App\Model\mis\Study;
 use Auth;
 

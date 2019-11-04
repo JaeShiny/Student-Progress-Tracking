@@ -70,17 +70,8 @@
                 </td>
 
                 <td width="10">
-<<<<<<< Updated upstream
                     <a href="/chartStudentAL/{{$ad_list->student_id}}">
-=======
-<<<<<<< HEAD
-                    <a href="/chartStudentAL/{{$student->student_id}}">
-                        <center><img src="../img/รูปสถิติ.png" width="30" height="25" title="สถิติ"></center>
-=======
-                    <a href="">
->>>>>>> Stashed changes
                         <center><img src="{{ URL::asset("../img/รูปสถิติ.png") }}" width="30" height="25" title="สถิติ"></center>
->>>>>>> master
                     </a>
                 </td>
                 <td width="10">
@@ -127,15 +118,6 @@
           {{-- <br>{{$bio->links()}}<br> --}}
     </center>
 
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
-=======
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-
->>>>>>> master
->>>>>>> Stashed changes
 </body>
 </html>
 
