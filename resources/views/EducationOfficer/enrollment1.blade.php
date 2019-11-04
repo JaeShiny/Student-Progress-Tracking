@@ -28,6 +28,8 @@
 
         <h5 align='center'>การลงทะเบียน</h5>
         <br>
+        <h5 align='center'>ปีการศึกษา {{$s.'/'.$y}}</h5>
+        <br>
     {{-- <div class="dropdown">
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

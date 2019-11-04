@@ -24,7 +24,8 @@
 <body>
         <h6 align='right'>รหัสนักศึกษา: {{$student}} &nbsp;&nbsp;&nbsp;&nbsp;</h6>
 
-        <h5 align='center'>การลงทะเบียน</h5>
+        <h5 align='center'>การลงทะเบียน</h5>/<br>
+        <h5 align='center'>ปีการศึกษา {{$s.'/'.$y}}</h5>
         <br>
     {{-- <div class="dropdown">
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

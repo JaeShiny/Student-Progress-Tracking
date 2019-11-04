@@ -81,6 +81,8 @@ class StudyController extends Controller
     }
 
     public function enrollmentL1($student_id,$semester,$year){
+        $s = $semester;
+        $y = $year;
         $study = Study::where('student_id',$student_id)->where('semester',$semester)->where('year',$year)->get();
         $courses = Course::all();
         $student_code = $student_id;
@@ -97,11 +99,15 @@ class StudyController extends Controller
             'student' => $student_code,
             'semester' =>$semester,
             'gen' => $gen,
-            'bios' => $bios
+            'bios' => $bios,
+            's' => $s,
+            'y' => $y
         ]);
     }
 
     public function enrollmentL2($student_id,$semester,$year){
+        $s = $semester;
+        $y = $year;
         $study = Study::where('student_id',$student_id)->where('semester',$semester)->where('year',$year)->get();
         $courses = Course::all();
         $student_code = $student_id;
@@ -116,7 +122,9 @@ class StudyController extends Controller
             'student' => $student_code,
             'semester' =>$semester,
             'gen' => $gen,
-            'bios' => $bios
+            'bios' => $bios,
+            's' => $s,
+            'y' => $y
         ]);
     }
 
@@ -136,25 +144,8 @@ class StudyController extends Controller
     }
 
     public function enrollmentE1($student_id,$semester,$year){
-        $study = Study::where('student_id',$student_id)->where('semester',$semester)->where('year',$year)->get();
-        $courses = Course::all();
-        $student_code = $student_id;
-        $bios = Bio::find($student_id);
-        $gen = Generation::all();
-
-        $test = Instructor::where('last_name',Auth::user()->lastname)->first();
-        $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
-        return view('EducationOfficer.enrollment',[
-            'study' => $study,
-            'courses' => $courses,
-            'student' => $student_code,
-            'gen' => $gen,
-            'bios' => $bios
-
-        ]);
-    }
-
-    public function enrollmentE2($student_id,$semester,$year){
+        $s = $semester;
+        $y = $year;
         $study = Study::where('student_id',$student_id)->where('semester',$semester)->where('year',$year)->get();
         $courses = Course::all();
         $student_code = $student_id;
@@ -169,7 +160,34 @@ class StudyController extends Controller
             'student' => $student_code,
             'gen' => $gen,
             'bios' => $bios,
-            'semester' => $semester
+            's' => $s,
+            'y' => $y
+
+
+        ]);
+    }
+
+    public function enrollmentE2($student_id,$semester,$year){
+        $s = $semester;
+        $y = $year;
+        $study = Study::where('student_id',$student_id)->where('semester',$semester)->where('year',$year)->get();
+        $courses = Course::all();
+        $student_code = $student_id;
+        $bios = Bio::find($student_id);
+        $gen = Generation::all();
+
+        $test = Instructor::where('last_name',Auth::user()->lastname)->first();
+        $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+        return view('EducationOfficer.enrollment',[
+            'study' => $study,
+            'courses' => $courses,
+            'student' => $student_code,
+            'gen' => $gen,
+            'bios' => $bios,
+            'semester' => $semester,
+            's' => $s,
+            'y' => $y
+
 
         ]);
     }
@@ -189,6 +207,8 @@ class StudyController extends Controller
     }
 
     public function enrollmentA1($student_id,$semester,$year){
+        $s = $semester;
+        $y = $year;
         $study = Study::where('student_id',$student_id)->where('semester',$semester)->where('year',$year)->get();
         $courses = Course::all();
         $student_code = $student_id;
@@ -202,11 +222,16 @@ class StudyController extends Controller
             'student' => $student_code,
             'generation' => $generation,
             'gen' => $gen,
-            'bios' => $bios
+            'bios' => $bios,
+            's' => $s,
+            'y' => $y
+
         ]);
     }
 
     public function enrollmentA2($student_id,$semester,$year){
+        $s = $semester;
+        $y = $year;
         $study = Study::where('student_id',$student_id)->where('semester',$semester)->where('year',$year)->get();
         $courses = Course::all();
         $student_code = $student_id;
@@ -220,7 +245,10 @@ class StudyController extends Controller
             'student' => $student_code,
             'generation' => $generation,
             'gen' => $gen,
-            'bios' => $bios
+            'bios' => $bios,
+            's' => $s,
+            'y' => $y
+
         ]);
     }
 
@@ -243,6 +271,8 @@ class StudyController extends Controller
         }
 
         public function enrollmentAL1($student_id,$semester,$year){
+            $s = $semester;
+            $y = $year;
             // $study = Study::find($student_id);
             // $courses = Course::all();
             $study = Study::where('student_id',$student_id)->where('semester',$semester)->where('year',$year)->get();
@@ -263,11 +293,16 @@ class StudyController extends Controller
                 'semester' => $semester,
                 'generation' => $generation,
                 'gen' => $gen,
-                'bios' => $bios
+                'bios' => $bios,
+                's' => $s,
+                'y' => $y
+
             ]);
         }
 
         public function enrollmentAL2($student_id,$semester,$year){
+            $s = $semester;
+            $y = $year;
             // $study = Study::find($student_id);
             // $courses = Course::all();
             $study = Study::where('student_id',$student_id)->where('semester',$semester)->where('year',$year)->get();
@@ -289,7 +324,9 @@ class StudyController extends Controller
                 'semester' => $semester,
                 'generation' => $generation,
                 'gen' => $gen,
-                'bios' => $bios
+                'bios' => $bios,
+                's' => $s,
+                'y' => $y
             ]);
         }
 
@@ -310,6 +347,8 @@ class StudyController extends Controller
         }
 
         public function enrollmentLF1($student_id,$semester,$year){
+            $s = $semester;
+            $y = $year;
             $study = Study::where('student_id',$student_id)->where('semester',$semester)->where('year',$year)->get();
             $courses = Course::all();
             $student_code = $student_id;
@@ -327,11 +366,15 @@ class StudyController extends Controller
                 'student' => $student_code,
                 'semester' => $semester,
                 'gen' => $gen,
-                'bios' => $bios
+                'bios' => $bios,
+                's' => $s,
+                'y' => $y
             ]);
         }
 
         public function enrollmentLF2($student_id,$semester,$year){
+            $s = $semester;
+            $y = $year;
             $study = Study::where('student_id',$student_id)->where('semester',$semester)->where('year',$year)->get();
             $courses = Course::all();
             $student_code = $student_id;
@@ -349,7 +392,9 @@ class StudyController extends Controller
                 'student' => $student_code,
                 'semester' => $semester,
                 'gen' => $gen,
-                'bios' => $bios
+                'bios' => $bios,
+                's' => $s,
+                'y' => $y
             ]);
         }
 
