@@ -21,6 +21,11 @@ Route::get('/detailLF/{course_id}/{semester}/{year}','student\BioController@inde
 
 Route::get('/selectyear/{id}','EducationOfficer\SelectYearController@index');
 
+//InspectorCondition
+Route::get('createCondition','ConditionController@createCondition');
+Route::post('condition_insert','ConditionController@insert');
+
+
 
 //อัพรูป
 Route::get('image', 'ImageController@index');
