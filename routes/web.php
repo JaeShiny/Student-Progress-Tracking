@@ -28,6 +28,7 @@ Route::post('save', 'ImageController@save');
 
     //Chart
 Route::get('chart', 'ChartController@index');
+Route::get('stat', 'StatController@index');
 //Lecturer
 Route::get('subjectStatisticL','ChartController@subjectStatisticL');
 Route::get('chartAttendanceL/{course_id}/{semester}/{year}', 'ChartController@attendanceL');

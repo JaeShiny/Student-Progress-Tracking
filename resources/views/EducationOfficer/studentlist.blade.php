@@ -24,6 +24,9 @@
 </head>
 
 <body>
+        <br>
+        <h5 align='center'>รายชื่อนักศึกษา</h5>
+        <br>
 
     <div class="container">
         <form action="/student_searchE" method="get">
