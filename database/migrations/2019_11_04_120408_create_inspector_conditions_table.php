@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateInpectorConditionsTable extends Migration
+class CreateInspectorConditionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,16 @@ class CreateInpectorConditionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('inpector_conditions', function (Blueprint $table) {
+        Schema::create('inspector_conditions', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('behavior_attribute');
             $table->string('condition');
             $table->string('value');
-            $table->string('instructor_id');
+            $table->string('instructor_id')->nullable();
             $table->string('course_id')->nullable();
+            $table->string('student_id')->nullable();
+            $table->string('curriculum')->nullable();
+            $table->string('position')->nullable();
             $table->timestamps();
         });
     }
@@ -31,6 +34,6 @@ class CreateInpectorConditionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('inpector_conditions');
+        Schema::dropIfExists('inspector_conditions');
     }
 }
