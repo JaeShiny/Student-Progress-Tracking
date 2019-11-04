@@ -38,6 +38,7 @@ Route::get('stat', 'StatController@index');
 Route::get('subjectStatisticL','ChartController@subjectStatisticL');
 Route::get('chartAttendanceL/{course_id}/{semester}/{year}', 'ChartController@attendanceL');
 Route::get('chartGradeL/{course_id}/{semester}/{year}', 'ChartController@gradeL');
+Route::get('chartGradeL1/{course_id}/{semester}/{year}', 'ChartController@gradeL1');
 Route::get('chartProblemL/{course_id}/{semester}/{year}', 'ChartController@problemL');
 //LF
 Route::get('subjectStatisticLF','ChartController@subjectStatisticLF');
@@ -330,7 +331,8 @@ Route::get('student_profileAL/{student_id}','student\BioController@profileAL1')-
 Route::get('profilebeforeAL/{student_id}','student\InterviewController@profileAL');
 
 //กดดูหน้าข้อมูลระหว่างศึกษา
-Route::get('profileDuringAL/{student_id}/{semester}/{year}','student\BioController@profileDuringAL');
+Route::get('profileDuringAL/{student_id}','student\BioController@profileDuringAL');
+Route::get('profileDuringAL1/{student_id}/{semester}/{year}','student\BioController@profileDuringAL1');
 
 //กดดูหน้าข้อมูลหลังจบ
 Route::get('profileafterAL/{student_id}','student\SrmController@profileAL');

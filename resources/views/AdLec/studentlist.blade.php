@@ -79,7 +79,7 @@
                 </td>
 
                 <td width="10">
-                    <a href="/profileAL/{{$student->student_id}}">
+                    <a href="{{route('profileAL',$student->student_id)}}">
                         {{$student->first_name}} &nbsp;&nbsp; {{$student->last_name}}
                     </a>
                 </td>
@@ -92,7 +92,7 @@
                 <td width="10">
                 {{-- <a href="{{route('profileE',$bio['student_id'])}}"> --}}
                     {{-- <a href="{{route('profileAL',$student->bio['student_id'])}}"> --}}
-                        <a href="/student_profileAL/{{$student->student_id}}/{{$gen->semester}}/{{$gen->year}}">
+                        <a href="{{route('profileAL',$student->student_id)}}">
                         <center><img src="{{ URL::asset("../img/resume.png") }}" width="25" title="ประวัตินักศึกษา"></center>
                     </a>
                 </td>

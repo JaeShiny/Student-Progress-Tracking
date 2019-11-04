@@ -58,9 +58,9 @@
             <br>
             <br>
 
-            <div class="container7">
+            {{-- <div class="container7">
                     <img src="../image/{{$bios->picture}}" width="110" height="140">
-            </div>
+            </div> --}}
 
             <p>ชื่อ (ภาษาอังกฤษ) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </p>
             <p>{{$bios->firstname_eng}}&nbsp;&nbsp;{{$bios->lastname_eng}}</p>

@@ -48,7 +48,7 @@ public function detail_survey(Survey $survey)
 {
     $test = Instructor::where('first_name', Auth::user()->name)->first();
     $semester = Schedule::where('instructor_id', $test->instructor_id)->orderBy('year', 'asc')->get();
-  $survey->load('questions.user');
+    $survey->load('questions.user');
   return view('survey.detail', compact('survey','semester'));
 }
 
