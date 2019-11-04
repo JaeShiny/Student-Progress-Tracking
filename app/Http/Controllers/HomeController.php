@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Model\mis\Schedule;
 use App\Model\mis\Instructor;
 use App\Model\mis\Generation;
+use App\Model\spts\Notification;
 use Auth;
 
 class HomeController extends Controller
@@ -44,6 +45,10 @@ class HomeController extends Controller
         }elseif(auth()->user()->isLecturer()) {
             $test = Instructor::where('last_name',Auth::user()->lastname)->first();
             $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+
+            foreach($semester as $data){
+               $check_noti = $this->checkNoti("Lecturer",$data->instructor_id,$data->course_id,$data->semester,$data->year);
+            }
             return view('lecturer/dashboard',[
                 'semester' => $semester,
             ]);
@@ -68,5 +73,20 @@ class HomeController extends Controller
             // return View::action('EducationOfficer/CurriculumController@show');
             return view('EducationOfficer/dashboard');
         }
+    }
+
+    //check config noti
+    public function checkNoti($position,$instructor_id,$course_id,$semester,$year)
+    {
+      //$position,$instructor_id,$course_id,$semester,$year
+        $checkNoti =  Notification::where('position', $position )
+                        ->where('person_id', $instructor_id)
+                        ->where('course_id', $course_id)
+                        ->where('semester', $semester)
+                        ->where('year', $year)
+                        ->get();
+                        //->whereJsonContains('config->total_all', '0-100')->get();
+        //return '<li>AAAAA <span class="badge badge-secondary">10</span></li><li>BBB</li>';
+        return $checkNoti;
     }
 }

@@ -656,3 +656,7 @@ Route::group(['prefix' => 'Admin'], function(){
         Route::get('/dashboard', 'Admin\AdminController@index');
     });
 });
+
+
+//Noti
+//Route::get('checkNoti', 'HomeController@checkNoti')->name('check-noti');
