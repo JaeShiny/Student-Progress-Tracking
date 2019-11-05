@@ -20,7 +20,7 @@ use App\Model\InspectorCondition;
 
 class ConditionController extends Controller
 {
-    //Advisor
+    //Lecturer
     //เพิ่มเงื่อนไข
     public function createCondition()
     {
@@ -29,7 +29,7 @@ class ConditionController extends Controller
         $semester = Schedule::where('instructor_id', $test->instructor_id)->orderBy('year', 'asc')->get();
         $generation = Generation::all();
 
-        return view('advisor.condition.condition', [
+        return view('lecturer.condition.condition', [
             // 'student_id' => $student,
             'semester' => $semester,
             'generation' => $generation,
