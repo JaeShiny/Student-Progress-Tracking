@@ -29,7 +29,7 @@ class ConditionController extends Controller
         $semester = Schedule::where('instructor_id', $test->instructor_id)->orderBy('year', 'asc')->get();
         $generation = Generation::all();
 
-        return view('advisor.condition', [
+        return view('advisor.condition.condition', [
             // 'student_id' => $student,
             'semester' => $semester,
             'generation' => $generation,
