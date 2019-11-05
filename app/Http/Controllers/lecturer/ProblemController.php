@@ -55,7 +55,7 @@ class ProblemController extends Controller
         $problem->date = $request->date;
         $problem->person_add = Auth::user()->name;
         $problem->add_id = Auth::user()->id;
-        $problem->add_id = Auth::user()->instructor_id;
+        $problem->instructor_id = Auth::user()->instructor_id;
 
         $problem->save();
 
