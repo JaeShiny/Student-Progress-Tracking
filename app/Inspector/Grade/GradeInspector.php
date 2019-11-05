@@ -4,9 +4,11 @@ namespace App\Inspector\Grade;
 
 use App\Inspector\Inspector;
 use App\Model\InspectorCondition;
+use App\Model\spts\Grade;
 
-class ProblemInspector implements Inspector
+class GradeInspector implements Inspector
 {
+    const INTERESTED_BEHAVIOR = 'grade';
     protected $instructor_id = null;
     protected $course_id = null;
 
@@ -22,27 +24,34 @@ class ProblemInspector implements Inspector
         if (null == $this->course_id) {
             $conditions = InspectorCondition::instructorCondition(
                 $this->instructor_id,
-                'Grade'
+                $this::INTERESTED_BEHAVIOR
             );
         } else {
             $conditions = InspectorCondition::courseCondition(
                 $this->instructor_id,
                 $this->course_id,
-                'Grade'
+                $this::INTERESTED_BEHAVIOR
             );
         }
 
-        $query_builder = new Student();
         $condition = $conditions->first();
-        $query_builder->where(
+        $query_builder = Grade::where(
             'total_all',
             $condition->condition,
             $condition->value
-        );
+        )->where('instructor_id', '=', $this->instructor_id);
+
+        if (null != $this->course_id) {
+            $query_builder->where(
+                'course_id',
+                '=',
+                $this->course_id
+            );
+        }
 
         $students = $query_builder->get();
 
-        // Get condition from database
+        // Get condition from databasel
         return $students;
     }
 

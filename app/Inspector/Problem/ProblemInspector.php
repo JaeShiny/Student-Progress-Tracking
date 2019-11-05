@@ -4,9 +4,11 @@ namespace App\Inspector\Problem;
 
 use App\Inspector\Inspector;
 use App\Model\InspectorCondition;
+use App\Model\spts\Problem;
 
 class ProblemInspector implements Inspector
 {
+    const INTERESTED_BEHAVIOR = 'problem';
     protected $instructor_id = null;
     protected $course_id = null;
 
@@ -22,23 +24,30 @@ class ProblemInspector implements Inspector
         if (null == $this->course_id) {
             $conditions = InspectorCondition::instructorCondition(
                 $this->instructor_id,
-                'problem'
+                $this::INTERESTED_BEHAVIOR
             );
         } else {
             $conditions = InspectorCondition::courseCondition(
                 $this->instructor_id,
                 $this->course_id,
-                'problem'
+                $this::INTERESTED_BEHAVIOR
             );
         }
 
-        $query_builder = new Student();
         $condition = $conditions->first();
-        $query_builder->where(
+        $query_builder = Problem::where(
             'risk_level',
             $condition->condition,
             $condition->value
-        );
+        )->where('instructor_id', '=', $this->instructor_id);
+
+        if (null != $this->course_id) {
+            $query_builder->where(
+                'course_id',
+                '=',
+                $this->course_id
+            );
+        }
 
         $students = $query_builder->get();
 

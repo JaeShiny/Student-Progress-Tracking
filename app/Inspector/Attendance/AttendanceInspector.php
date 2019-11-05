@@ -4,9 +4,11 @@ namespace App\Inspector\Attendance;
 
 use App\Inspector\Inspector;
 use App\Model\InspectorCondition;
+use App\Model\spts\Attendance;
 
 class AttendanceInspector implements Inspector
 {
+    const INTERESTED_BEHAVIOR = 'attendance';
     protected $instructor_id = null;
     protected $course_id = null;
 
@@ -22,27 +24,34 @@ class AttendanceInspector implements Inspector
         if (null == $this->course_id) {
             $conditions = InspectorCondition::instructorCondition(
                 $this->instructor_id,
-                'attendance'
+                $this::INTERESTED_BEHAVIOR
             );
         } else {
             $conditions = InspectorCondition::courseCondition(
                 $this->instructor_id,
                 $this->course_id,
-                'attendance'
+                $this::INTERESTED_BEHAVIOR
             );
         }
 
-        $query_builder = new Student();
         $condition = $conditions->first();
-        $query_builder->where(
+        $query_builder = Attendance::where(
             'amount_absence',
             $condition->condition,
             $condition->value
-        );
+        )->where('instructor_id', '=', $this->instructor_id);
+
+        if (null != $this->course_id) {
+            $query_builder->where(
+                'course_id',
+                '=',
+                $this->course_id
+            );
+        }
 
         $students = $query_builder->get();
 
-        // Get condition from database
+        // Get condition from databasel
         return $students;
     }
 
