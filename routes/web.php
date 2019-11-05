@@ -215,6 +215,7 @@ Route::get('showNotiL/{course_id}/{semester}/{year}','NotificationController@sho
 
 //LF
 Route::get('notiproblemLF/{student_id}','NotificationController@ProblemLF');
+Route::get('getNotiproblemLF/{student_id}','NotificationController@getProblemLF')->name('getNotiproblemLF');
 Route::get('allNotiLF/{course_id}','NotificationController@allNotiLF');
 Route::get('subjectNotiLF','NotificationController@subjectNotiLF');
 Route::get('showNotiLF/{course_id}/{semester}/{year}','NotificationController@showNotiLF');
