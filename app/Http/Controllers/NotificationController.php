@@ -8,6 +8,7 @@ use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Pagination\Paginator;
 
 use App\Http\Controllers\Controller;
+use App\Inspector\InspectedQuery;
 use App\Model\mis\Bio;
 use App\Model\mis\Major;
 use App\Model\mis\Course;
@@ -97,30 +98,47 @@ class NotificationController extends Controller
         $major = Major::where('major_id',$course->major_id)->get();
         $student = Student::where('major_id',$course->major_id)->get();
 
-        $risk_problem = Problem::where('risk_level','รุนแรงมาก')
-                        ->where('course_id',$course_id)
-                        ->where('semester', $semester)->where('year', $year)
-                        ->get();
-        $risk_attendance = Attendance::where('amount_absence', '>=', 3 )
-                        ->where('course_id',$course_id)
-                        ->get();
-        $risk_grade = Grade::where('total_all', '<=', 60 )
-                        ->where('course_id',$course_id)
-                        ->where('semester', $semester)->where('year', $year)
-                        ->get();
+        //เลือกว่าจะแสดงเงื่อนไขของ instructor_id คนไหน
+        $instructor_id = Auth::user()->instructor_id;
+        $inspectedResult = InspectedQuery::startInspectForInstructorWithCourse(
+                        $instructor_id,
+                        $course_id
+                        )->getInspectedStudents();
 
-        $riskproblem = Problem::where('risk_level','รุนแรงมาก')
-                        ->where('course_id',$course_id)
-                        ->where('semester', $semester)->where('year', $year)
-                        ->count();
-        $riskattendance = Attendance::where('amount_absence', '>=', 3 )
-                        ->where('course_id',$course_id)
-                        ->where('semester', $semester)->where('year', $year)
-                        ->count();
-        $riskgrade = Grade::where('total_all', '<=', 60 )
-                        ->where('course_id',$course_id)
-                        ->where('semester', $semester)->where('year', $year)
-                        ->count();
+
+        // $risk_problem = Problem::where('risk_level', 3)
+        //                 ->where('course_id',$course_id)
+        //                 ->where('semester', $semester)->where('year', $year)
+        //                 ->get();
+        // $risk_attendance = Attendance::where('amount_absence', '>=', 3 )
+        //                 ->where('course_id',$course_id)
+        //                 ->get();
+        // $risk_grade = Grade::where('total_all', '<=', 60 )
+        //                 ->where('course_id',$course_id)
+        //                 ->where('semester', $semester)->where('year', $year)
+        //                 ->get();
+
+
+        $risk_problem = $inspectedResult['problem'];
+        $risk_attendance = $inspectedResult['attendance'];
+        $risk_grade = $inspectedResult['grade'];
+
+        $riskproblem = $inspectedResult['problem']->count();
+        $riskattendance = $inspectedResult['attendance']->count();
+        $riskgrade = $inspectedResult['grade']->count();
+
+        // $riskproblem = Problem::where('risk_level','รุนแรงมาก')
+        //                 ->where('course_id',$course_id)
+        //                 ->where('semester', $semester)->where('year', $year)
+        //                 ->count();
+        // $riskattendance = Attendance::where('amount_absence', '>=', 3 )
+        //                 ->where('course_id',$course_id)
+        //                 ->where('semester', $semester)->where('year', $year)
+        //                 ->count();
+        // $riskgrade = Grade::where('total_all', '<=', 60 )
+        //                 ->where('course_id',$course_id)
+        //                 ->where('semester', $semester)->where('year', $year)
+        //                 ->count();
 
         $test = Instructor::where('last_name',Auth::user()->lastname)->first();
         $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
