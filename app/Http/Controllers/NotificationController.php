@@ -276,25 +276,37 @@ class NotificationController extends Controller
         $s = $student_id;
         $bios = Bio::where('student_id', $student_id)->get();
 
-        $semeter_value = explode("-", $semester);
-        $term = $semeter_value [0]; // เทอม
-        $year = $semeter_value [1]; // ปี
+        if($semester != NULL){
+            $semeter_value = explode("-", $semester);
+            $term = $semeter_value [0]; // เทอม
+            $year = $semeter_value [1]; // ปี
 
-        $risk_problem = Problem::where('risk_level','รุนแรงมาก')
-                        ->where('student_id',$student_id)
-                        ->where('semester', $term)
-                        ->where('year', $year)
-                        ->get();
-        $risk_attendance = Attendance::where('amount_absence', '>=', 3 )
-                        ->where('student_id',$student_id)
-                        ->where('semester', $term)
-                        ->where('year', $year)
-                        ->get();
-        $risk_grade = Grade::where('total_all', '<=', 60 )
-                        ->where('student_id',$student_id)
-                        ->where('semester', $term)
-                        ->where('year', $year)
-                        ->get();
+            $risk_problem = Problem::where('risk_level','รุนแรงมาก')
+            ->where('student_id',$student_id)
+            ->where('semester', $term)
+            ->where('year', $year)
+            ->get();
+            $risk_attendance = Attendance::where('amount_absence', '>=', 3 )
+            ->where('student_id',$student_id)
+            ->where('semester', $term)
+            ->where('year', $year)
+            ->get();
+            $risk_grade = Grade::where('total_all', '<=', 60 )
+            ->where('student_id',$student_id)
+            ->where('semester', $term)
+            ->where('year', $year)
+            ->get();
+        }else{
+            $risk_problem = Problem::where('risk_level','รุนแรงมาก')
+            ->where('student_id',$student_id)
+            ->get();
+            $risk_attendance = Attendance::where('amount_absence', '>=', 3 )
+            ->where('student_id',$student_id)
+            ->get();
+            $risk_grade = Grade::where('total_all', '<=', 60 )
+            ->where('student_id',$student_id)
+            ->get();
+        }
 
         $generation = Generation::all();
 
@@ -308,8 +320,8 @@ class NotificationController extends Controller
             'generation' => $generation,
             'semester' => $semester,
             's' => $s,
-            'term' => $term,
-            'year' => $year,
+            // 'term' => $term,
+            // 'year' => $year,
         ]);
     }
 

@@ -223,7 +223,7 @@
                  }
              }else{
                 var tr_str = "<tr>" +
-                    "<td class='text-center' colspan='7'>No record found.</td>" +
+                    "<td class='text-center' colspan='7'>ไม่พบข้อมูล</td>" +
                 "</tr>";
                 $("#riskProblem tbody").append(tr_str);
              }
@@ -240,7 +240,7 @@
                  }
              }else{
                 var tr_str = "<tr>" +
-                    "<td class='text-center' colspan='3'>No record found.</td>" +
+                    "<td class='text-center' colspan='3'>ไม่พบข้อมูล</td>" +
                 "</tr>";
                 $("#riskAttendance tbody").append(tr_str);
              }
@@ -258,7 +258,7 @@
                  }
              }else{
                 var tr_str = "<tr>" +
-                    "<td class='text-center' colspan='3'>No record found.</td>" +
+                    "<td class='text-center' colspan='3'>ไม่พบข้อมูล</td>" +
                 "</tr>";
                 $("#riskGrade tbody").append(tr_str);
              }
