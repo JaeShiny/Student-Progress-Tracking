@@ -531,25 +531,77 @@ class NotificationController extends Controller
     //Ad
     //คลิกที่เด็กแล้วเจอแจ้งเตือนของแต่ละคน
     public function ProblemAL($student_id){
+        $s = $student_id;
         $bios = Bio::where('student_id', $student_id)->get();
-        $risk_problem = Problem::where('risk_level', '>=', 4 )->where('student_id',$student_id)->get();
-
-        $risk_attendance = Attendance::where('amount_absence', '>=', 3 )->where('student_id',$student_id)->get();
-        $risk_grade = Grade::where('total_all', '<=', 60 )->where('student_id',$student_id)->get();
 
         $test = Instructor::where('last_name',Auth::user()->lastname)->first();
         $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
         $generation = Generation::all();
         $gen = Generation::orderBy('year','desc')->first();
+        $semesters = Semester::all();
 
         return view('AdLec.notification',[
+            'bios' => $bios,
+            's' => $s,
+            'semester' => $semester,
+            'semesters' => $semesters,
+            'generation' => $generation,
+            'gen' => $gen,
+        ]);
+    }
+
+    public function getProblemAL(Request $request, $student_id){
+        $semester = $request->semester;
+
+        $s = $student_id;
+        $bios = Bio::where('student_id', $student_id)->get();
+
+        if($semester != NULL){
+            $semeter_value = explode("-", $semester);
+            $term = $semeter_value [0]; // เทอม
+            $year = $semeter_value [1]; // ปี
+
+            $risk_problem = Problem::where('risk_level', '>=', 4 )
+            ->where('student_id',$student_id)
+            ->where('semester', $term)
+            ->where('year', $year)
+            ->get();
+            $risk_attendance = Attendance::where('amount_absence', '>=', 3 )
+            ->where('student_id',$student_id)
+            ->where('semester', $term)
+            ->where('year', $year)
+            ->get();
+            $risk_grade = Grade::where('total_all', '<=', 60 )
+            ->where('student_id',$student_id)
+            ->where('semester', $term)
+            ->where('year', $year)
+            ->get();
+        }else{
+            $risk_problem = Problem::where('risk_level', '>=', 4 )
+            ->where('student_id',$student_id)
+            ->get();
+            $risk_attendance = Attendance::where('amount_absence', '>=', 3 )
+            ->where('student_id',$student_id)
+            ->get();
+            $risk_grade = Grade::where('total_all', '<=', 60 )
+            ->where('student_id',$student_id)
+            ->get();
+        }
+
+        $generation = Generation::all();
+
+        $semester = Semester::all();
+
+        return response()->json([
             'bios' => $bios,
             'risk_problem' => $risk_problem,
             'risk_attendance' => $risk_attendance,
             'risk_grade' => $risk_grade,
-            'semester' => $semester,
             'generation' => $generation,
-            'gen' => $gen,
+            'semester' => $semester,
+            's' => $s,
+            // 'term' => $term,
+            // 'year' => $year,
         ]);
     }
 
