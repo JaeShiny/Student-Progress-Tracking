@@ -239,6 +239,7 @@ Route::get('showNotiAL2/{course_id}','NotificationController@showNotiAL2');
 //Edu
 Route::get('curriNoti','NotificationController@curriNoti');
 Route::get('notiproblemE/{student_id}','NotificationController@ProblemE');
+Route::get('getNotiproblemE/{student_id}','NotificationController@getProblemE')->name('getNotiproblemE');
 Route::get('showNotiE/{curriculum_id}','NotificationController@showNotiE');
 //Student
 Route::get('showNotiS','NotificationController@showNotiS');

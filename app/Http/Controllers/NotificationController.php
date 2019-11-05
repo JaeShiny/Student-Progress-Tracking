@@ -748,20 +748,76 @@ class NotificationController extends Controller
 
     //คลิกที่เด็กแล้วเจอแจ้งเตือนของแต่ละคน
     public function ProblemE($student_id){
+        $s = $student_id;
         $bios = Bio::where('student_id', $student_id)->get();
-        $risk_problem = Problem::where('risk_level', '>=', 4 )->where('student_id',$student_id)->get();
 
-        $risk_attendance = Attendance::where('amount_absence', '>=', 3 )->where('student_id',$student_id)->get();
-        $risk_grade = Grade::where('total_all', '<=', 60 )->where('student_id',$student_id)->get();
+        $generation = Generation::all();
+
+        $semester = Semester::all();
 
         return view('EducationOfficer.notification',[
+            'bios' => $bios,
+            'generation' => $generation,
+            'semester' => $semester,
+            's' => $s,
+        ]);
+    }
+
+    public function getProblemE(Request $request, $student_id){
+        $semester = $request->semester;
+
+        $s = $student_id;
+        $bios = Bio::where('student_id', $student_id)->get();
+
+        if($semester != NULL){
+            $semeter_value = explode("-", $semester);
+            $term = $semeter_value [0]; // เทอม
+            $year = $semeter_value [1]; // ปี
+
+            $risk_problem = Problem::where('risk_level', '>=', 4 )
+            ->where('student_id',$student_id)
+            ->where('semester', $term)
+            ->where('year', $year)
+            ->get();
+            $risk_attendance = Attendance::where('amount_absence', '>=', 3 )
+            ->where('student_id',$student_id)
+            ->where('semester', $term)
+            ->where('year', $year)
+            ->get();
+            $risk_grade = Grade::where('total_all', '<=', 60 )
+            ->where('student_id',$student_id)
+            ->where('semester', $term)
+            ->where('year', $year)
+            ->get();
+        }else{
+            $risk_problem = Problem::where('risk_level', '>=', 4 )
+            ->where('student_id',$student_id)
+            ->get();
+            $risk_attendance = Attendance::where('amount_absence', '>=', 3 )
+            ->where('student_id',$student_id)
+            ->get();
+            $risk_grade = Grade::where('total_all', '<=', 60 )
+            ->where('student_id',$student_id)
+            ->get();
+        }
+
+        $generation = Generation::all();
+
+        $semester = Semester::all();
+
+        return response()->json([
             'bios' => $bios,
             'risk_problem' => $risk_problem,
             'risk_attendance' => $risk_attendance,
             'risk_grade' => $risk_grade,
-
+            'generation' => $generation,
+            'semester' => $semester,
+            's' => $s,
+            // 'term' => $term,
+            // 'year' => $year,
         ]);
     }
+
 
     //กดจากหน้าหลักสูตรแล้วเจอรายชื่อเด็กที่มีปัญหา
     public function showNotiE($curriculum_id){
