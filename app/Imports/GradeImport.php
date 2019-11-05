@@ -32,11 +32,12 @@ class GradeImport implements ToModel, WithHeadingRow
             'mean_test_final' => '18.00',
             'total_final' => $row['total_final'],
             'total_all' => $row['total_all'],
-            // 'semester' => '2',
-            // 'year' => '2019',
-            // 'section' => '1',
-            // 'gen' => '20',
+            'semester' => '1',
+            'year' => '2019',
+            'section' => '1',
+            'gen' => '20',
             'person_add' => Auth::user()->name,
+            'instructor_id'=> Auth::user()->instructor_id,
         ]);
     }
 }

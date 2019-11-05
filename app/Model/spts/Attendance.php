@@ -51,6 +51,7 @@ class Attendance extends Model
         'period_29',
         'period_30',
         'person_add',
+        'instructor_id',
         'semester',
         'year',
         'section',
