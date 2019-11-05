@@ -30,14 +30,33 @@
         @endforeach
 
         <h5 align='center'>การแจ้งเตือน</h5>
-        <br><br>
+
+<br>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 float-right">
+                <div class="btn-group">
+                    <select name="semester" id="semester">
+
+                        <option value="0">เทอม/ปีการศึกษา</option>
+
+                        @foreach($semesters as $show)
+                            <option value="{{$show->semester}}-{{$show->year}}">{{$show->semester}}/{{$show->year}}</option>
+                        @endforeach
+
+                      </select>
+                </div>
+            </div>
+        </div>
+    </div>
+<br>
 
         <center>
 
             {{-- แจ้งเตือนปัญหาและพฤติกรรม --}}
             <h6  style="position: relative; left: -31%">การแจ้งเตือนปัญหาและพฤติกรรม</h6>
             <br><br><br>
-            <table class="table" width="60%">
+            <table class="table" width="60%" id="riskProblem">
                 <thead class="thead-light">
                     <tr>
                         <th scope="col">ประเภทพฤติกรรม/ปัญหา</th>
@@ -50,7 +69,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($risk_problem as $show_problem)
+                    {{-- @foreach ($risk_problem as $show_problem)
 
                     <tr>
                         <td scope="row">{{$show_problem->problem_type}}</td>
@@ -62,7 +81,7 @@
                         <td>อาจารย์ {{$show_problem->users->name}}</td>
                     </tr>
 
-                    @endforeach
+                    @endforeach --}}
 
                 </tbody>
             </table>
@@ -71,7 +90,7 @@
             {{-- แจ้งเตือนการเข้าเรียน --}}
             <h6  style="position: relative; left: -33%">การแจ้งเตือนการเข้าเรียน</h6>
             <br><br><br>
-            <table class="table" width="60%">
+            <table class="table" width="60%" id="riskAttendance">
                 <thead class="thead-light">
                     <tr>
                         <th scope="col">รหัสวิชา</th>
@@ -81,7 +100,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($risk_attendance as $show_problem)
+                    {{-- @foreach ($risk_attendance as $show_problem)
 
                     <tr>
                         <td scope="row">{{$show_problem->course_id}}</td>
@@ -90,7 +109,7 @@
                         <td>อาจารย์ {{$show_problem->person_add}}</td>
                     </tr>
 
-                    @endforeach
+                    @endforeach --}}
 
                 </tbody>
             </table>
@@ -100,7 +119,7 @@
             {{-- แจ้งเตือนผลการเรียน --}}
             <h6  style="position: relative; left: -33%">การแจ้งเตือนผลการเรียน</h6>
             <br><br><br>
-            <table class="table" width="60%">
+            <table class="table" width="60%" id="riskGrade">
                 <thead class="thead-light">
                     <tr>
                         <th scope="col">รหัสวิชา</th>
@@ -110,7 +129,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($risk_grade as $show_problem)
+                    {{-- @foreach ($risk_grade as $show_problem)
 
                     <tr>
                         <td scope="row">{{$show_problem->course_id}}</td>
@@ -119,7 +138,7 @@
                         <td>อาจารย์ {{$show_problem->person_add}}</td>
                     </tr>
 
-                    @endforeach
+                    @endforeach --}}
 
                 </tbody>
             </table>
@@ -134,5 +153,116 @@
 
 
 @endsection
+
+@section('javascript')
+    <script>
+
+    $(function(){
+        getData(0); // start when reload page
+        $("#semester").change(function(){ /// chacke when dropdown change and get value
+            var semester_value = this.value;
+            getData(semester_value);
+        });
+    });
+
+
+        function getData(semester_value){
+          var url ='{{ route('getNotiproblemL',['student_id' => $s]) }}';
+          var value = semester_value;
+
+          if(semester_value != 0){
+            url ='{{ route('getNotiproblemL',['student_id' => $s,'semester' =>'semester_value']) }}';/// same ->  /getNotiproblemA/{student_id}?semester_value=xx
+            url = url.replace('semester_value', value);
+          }
+
+          console.log(url);
+          $.ajax({
+          type: 'GET', //THIS NEEDS TO BE GET
+          url:  url,
+          success: function (response) {
+            // console.log(response);
+             var risk_problem_len = 0;
+             var risk_attendance_len = 0;
+             var risk_grade_len = 0;
+
+             $('#riskProblem tbody').empty(); // Empty <tbody>
+             $('#riskAttendance tbody').empty(); // Empty <tbody>
+             $('#riskGrade tbody').empty(); // Empty <tbody>
+
+             if(response['risk_problem'] != null){ /// ตรวจสอบ risk_problem ต้องไม่เป็นค่า null
+               risk_problem_len = response['risk_problem'].length; // นับ Array Data risk_problem
+             }
+             if(response['risk_attendance'] != null){ /// ตรวจสอบ risk_attendance ต้องไม่เป็นค่า null
+               risk_attendance_len = response['risk_attendance'].length; // นับ Array Data risk_attendance
+             }
+
+             if(response['risk_grade'] != null){ /// ตรวจสอบ risk_attendance ต้องไม่เป็นค่า null
+               risk_grade_len = response['risk_grade'].length; // นับ Array Data risk_attendance
+             }
+
+             if(risk_problem_len > 0){  // นับ Array Data risk_problem มากกว่า 0 ทำงาน เงื่อนไขนี้
+                 for(var i=0; i<risk_problem_len; i++){  // วนลูป
+                   var tr_str = "<tr>" +
+                        "<td align='center'>" + response['risk_problem'][i].problem_type + "</td>" +
+                        "<td align='center'>" + response['risk_problem'][i].problem_topic + "</td>" +
+                        "<td align='center'>" + response['risk_problem'][i].problem_detail + "</td>" +
+                        "<td align='center'>" + response['risk_problem'][i].risk_level + "</td>" +
+                        "<td align='center'>" + response['risk_problem'][i].created_at + "</td>" +
+                        "<td align='center'>" + response['risk_problem'][i].date + "</td>" +
+                        "<td align='center'> อาจารย์ " + response['risk_problem'][i].person_add + "</td>" +
+                   "</tr>";
+                   $("#riskProblem tbody").append(tr_str);
+                 }
+             }else{
+                var tr_str = "<tr>" +
+                    "<td class='text-center' colspan='7'>ไม่พบข้อมูล</td>" +
+                "</tr>";
+                $("#riskProblem tbody").append(tr_str);
+             }
+             /////////////////////////////////////////////////////////////////////////////
+
+             if(risk_attendance_len > 0){  // นับ Array Data risk_attendance มากกว่า 0 ทำงาน เงื่อนไขนี้
+                 for(var i=0; i<risk_attendance_len; i++){  // วนลูป
+                   var tr_str = "<tr>" +
+                        "<td align='center'>" + response['risk_attendance'][i].course_id + "</td>" +
+                        "<td align='center'>" + response['risk_attendance'][i].amount_absence + "</td>" +
+                        "<td align='center'>" + response['risk_attendance'][i].person_add + "</td>" +
+                   "</tr>";
+                   $("#riskAttendance tbody").append(tr_str);
+                 }
+             }else{
+                var tr_str = "<tr>" +
+                    "<td class='text-center' colspan='3'>ไม่พบข้อมูล</td>" +
+                "</tr>";
+                $("#riskAttendance tbody").append(tr_str);
+             }
+
+             /////////////////////////////////////////////////////////////////////////////
+
+             if(risk_grade_len > 0){  // นับ Array Data risk_grade_len มากกว่า 0 ทำงาน เงื่อนไขนี้
+                 for(var i=0; i<risk_grade_len; i++){  // วนลูป
+                   var tr_str = "<tr>" +
+                        "<td align='center'>" + response['risk_grade'][i].course_id + "</td>" +
+                        "<td align='center'>" + response['risk_grade'][i].total_all + "</td>" +
+                        "<td align='center'>" + response['risk_grade'][i].person_add + "</td>" +
+                   "</tr>";
+                   $("#riskGrade tbody").append(tr_str);
+                 }
+             }else{
+                var tr_str = "<tr>" +
+                    "<td class='text-center' colspan='3'>ไม่พบข้อมูล</td>" +
+                "</tr>";
+                $("#riskGrade tbody").append(tr_str);
+             }
+
+          },
+          error: function() {
+              console.log('error');
+          }
+          });
+        }
+    </script>
+@endsection
+
 @extends('bar.header(lec)')
 {{-- @extends('bar.username') --}}

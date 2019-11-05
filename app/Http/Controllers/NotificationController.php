@@ -32,22 +32,82 @@ class NotificationController extends Controller
             //Lecturer//
     //คลิกที่เด็กแล้วเจอแจ้งเตือนของแต่ละคน
     public function ProblemL($student_id){
+        $s = $student_id;
         $bios = Bio::where('student_id', $student_id)->get();
-        $risk_problem = Problem::where('risk_level','รุนแรงมาก')->where('student_id',$student_id)->get();
 
-        $risk_attendance = Attendance::where('amount_absence', '>=', 3 )->where('student_id',$student_id)->get();
-        $risk_grade = Grade::where('total_all', '<=', 60 )->where('student_id',$student_id)->get();
+        // $risk_problem = Problem::where('risk_level','รุนแรงมาก')->where('student_id',$student_id)->get();
+        // $risk_attendance = Attendance::where('amount_absence', '>=', 3 )->where('student_id',$student_id)->get();
+        // $risk_grade = Grade::where('total_all', '<=', 60 )->where('student_id',$student_id)->get();
 
         $test = Instructor::where('last_name',Auth::user()->lastname)->first();
         $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+        $generation = Generation::all();
+        $semesters = Semester::all();
 
         return view('lecturer.notification',[
+            'bios' => $bios,
+            's' => $s,
+            // 'risk_problem' => $risk_problem,
+            // 'risk_attendance' => $risk_attendance,
+            // 'risk_grade' => $risk_grade,
+            'semester' => $semester,
+            'semesters' => $semesters,
+            'generation' => $generation,
+        ]);
+    }
+
+    public function getProblemL(Request $request, $student_id){
+        $semester = $request->semester;
+
+        $s = $student_id;
+        $bios = Bio::where('student_id', $student_id)->get();
+
+        if($semester != NULL){
+            $semeter_value = explode("-", $semester);
+            $term = $semeter_value [0]; // เทอม
+            $year = $semeter_value [1]; // ปี
+
+            $risk_problem = Problem::where('risk_level', '>=', 4 )
+            ->where('student_id',$student_id)
+            ->where('semester', $term)
+            ->where('year', $year)
+            ->get();
+            $risk_attendance = Attendance::where('amount_absence', '>=', 3 )
+            ->where('student_id',$student_id)
+            ->where('semester', $term)
+            ->where('year', $year)
+            ->get();
+            $risk_grade = Grade::where('total_all', '<=', 60 )
+            ->where('student_id',$student_id)
+            ->where('semester', $term)
+            ->where('year', $year)
+            ->get();
+        }else{
+            $risk_problem = Problem::where('risk_level', '>=', 4 )
+            ->where('student_id',$student_id)
+            ->get();
+            $risk_attendance = Attendance::where('amount_absence', '>=', 3 )
+            ->where('student_id',$student_id)
+            ->get();
+            $risk_grade = Grade::where('total_all', '<=', 60 )
+            ->where('student_id',$student_id)
+            ->get();
+        }
+
+        $generation = Generation::all();
+
+        $semester = Semester::all();
+
+        return response()->json([
             'bios' => $bios,
             'risk_problem' => $risk_problem,
             'risk_attendance' => $risk_attendance,
             'risk_grade' => $risk_grade,
-            'semester' => $semester
-
+            'generation' => $generation,
+            'semester' => $semester,
+            's' => $s,
+            // 'term' => $term,
+            // 'year' => $year,
         ]);
     }
 
@@ -57,7 +117,7 @@ class NotificationController extends Controller
         $major = Major::where('major_id',$course->major_id)->get();
         $student = Student::where('major_id',$course->major_id)->get();
 
-        $risk_problem = Problem::where('risk_level','รุนแรงมาก')->where('course_id',$course_id)->get();
+        $risk_problem = Problem::where('risk_level', '>=', 4 )->where('course_id',$course_id)->get();
         $risk_attendance = Attendance::where('amount_absence', '>=', 3 )->where('course_id',$course_id)->get();
         $risk_grade = Grade::where('total_all', '<=', 60 )->where('course_id',$course_id)->get();
 
@@ -168,7 +228,7 @@ class NotificationController extends Controller
     //คลิกที่เด็กแล้วเจอแจ้งเตือนของแต่ละคน
     public function ProblemLF($student_id){
         $bios = Bio::where('student_id', $student_id)->get();
-        $risk_problem = Problem::where('risk_level','รุนแรงมาก')->where('student_id',$student_id)->get();
+        $risk_problem = Problem::where('risk_level', '>=', 4 )->where('student_id',$student_id)->get();
 
         $risk_attendance = Attendance::where('amount_absence', '>=', 3 )->where('student_id',$student_id)->get();
         $risk_grade = Grade::where('total_all', '<=', 60 )->where('student_id',$student_id)->get();
@@ -192,7 +252,7 @@ class NotificationController extends Controller
         $major = Major::where('major_id',$course->major_id)->get();
         $student = Student::where('major_id',$course->major_id)->get();
 
-        $risk_problem = Problem::where('risk_level','รุนแรงมาก')->where('course_id',$course_id)->get();
+        $risk_problem = Problem::where('risk_level', '>=', 4 )->where('course_id',$course_id)->get();
         $risk_attendance = Attendance::where('amount_absence', '>=', 3 )->where('course_id',$course_id)->get();
         $risk_grade = Grade::where('total_all', '<=', 60 )->where('course_id',$course_id)->get();
 
@@ -232,11 +292,11 @@ class NotificationController extends Controller
         $major = Major::where('major_id',$course->major_id)->get();
         $student = Student::where('major_id',$course->major_id)->get();
 
-        $risk_problem = Problem::where('risk_level','รุนแรงมาก')->where('course_id',$course_id)->where('semester', $semester)->where('year', $year)->get();
+        $risk_problem = Problem::where('risk_level', '>=', 4 )->where('course_id',$course_id)->where('semester', $semester)->where('year', $year)->get();
         $risk_attendance = Attendance::where('amount_absence', '>=', 3 )->where('course_id',$course_id)->where('semester', $semester)->where('year', $year)->get();
         $risk_grade = Grade::where('total_all', '<=', 60 )->where('course_id',$course_id)->where('semester', $semester)->where('year', $year)->get();
 
-        $riskproblem = Problem::where('risk_level','รุนแรงมาก')->where('course_id',$course_id)->where('semester', $semester)->where('year', $year)->count();
+        $riskproblem = Problem::where('risk_level', '>=', 4 )->where('course_id',$course_id)->where('semester', $semester)->where('year', $year)->count();
         $riskattendance = Attendance::where('amount_absence', '>=', 3 )->where('course_id',$course_id)->where('semester', $semester)->where('year', $year)->count();
         $riskgrade = Grade::where('total_all', '<=', 60 )->where('course_id',$course_id)->where('semester', $semester)->where('year', $year)->count();
 
@@ -299,7 +359,7 @@ class NotificationController extends Controller
             $term = $semeter_value [0]; // เทอม
             $year = $semeter_value [1]; // ปี
 
-            $risk_problem = Problem::where('risk_level','รุนแรงมาก')
+            $risk_problem = Problem::where('risk_level', '>=', 4 )
             ->where('student_id',$student_id)
             ->where('semester', $term)
             ->where('year', $year)
@@ -315,7 +375,7 @@ class NotificationController extends Controller
             ->where('year', $year)
             ->get();
         }else{
-            $risk_problem = Problem::where('risk_level','รุนแรงมาก')
+            $risk_problem = Problem::where('risk_level', '>=', 4 )
             ->where('student_id',$student_id)
             ->get();
             $risk_attendance = Attendance::where('amount_absence', '>=', 3 )
@@ -370,7 +430,7 @@ class NotificationController extends Controller
             $student_ids->all(),
             $semester,
             $year
-        )->where('risk_level', 'รุนแรงมาก')
+        )->where('risk_level',  '>=', 4 )
         ->get();
 
         $risk_attendance = Attendance::inspectProblem(
@@ -419,7 +479,7 @@ class NotificationController extends Controller
     //คลิกที่เด็กแล้วเจอแจ้งเตือนของแต่ละคน
     public function ProblemAL($student_id){
         $bios = Bio::where('student_id', $student_id)->get();
-        $risk_problem = Problem::where('risk_level','รุนแรงมาก')->where('student_id',$student_id)->get();
+        $risk_problem = Problem::where('risk_level', '>=', 4 )->where('student_id',$student_id)->get();
 
         $risk_attendance = Attendance::where('amount_absence', '>=', 3 )->where('student_id',$student_id)->get();
         $risk_grade = Grade::where('total_all', '<=', 60 )->where('student_id',$student_id)->get();
@@ -448,7 +508,7 @@ class NotificationController extends Controller
             return $item->student_id;
         });
         $bios = Bio::whereIn('student_id',$student_ids->all())->get();
-        $risk_problem = Problem::where('risk_level','รุนแรงมาก')->whereIn('student_id',$student_ids->all())->get();
+        $risk_problem = Problem::where('risk_level', '>=', 4 )->whereIn('student_id',$student_ids->all())->get();
         $risk_attendance = Attendance::where('amount_absence', '>=', 3 )->whereIn('student_id',$student_ids->all())->get();
         $risk_grade = Grade::where('total_all', '<=', 60 )->whereIn('student_id',$student_ids->all())->get();
 
@@ -484,7 +544,7 @@ class NotificationController extends Controller
         $major = Major::where('major_id',$course->major_id)->get();
         $student = Student::where('major_id',$course->major_id)->get();
 
-        $risk_problem = Problem::where('risk_level','รุนแรงมาก')->where('course_id',$course_id)->get();
+        $risk_problem = Problem::where('risk_level', '>=', 4 )->where('course_id',$course_id)->get();
         $risk_attendance = Attendance::where('amount_absence', '>=', 3 )->where('course_id',$course_id)->get();
         $risk_grade = Grade::where('total_all', '<=', 60 )->where('course_id',$course_id)->get();
 
@@ -529,7 +589,7 @@ class NotificationController extends Controller
         $major = Major::where('major_id',$course->major_id)->get();
         $student = Student::where('major_id',$course->major_id)->get();
 
-        $risk_problem = Problem::where('risk_level','รุนแรงมาก')->where('course_id',$course_id)->get();
+        $risk_problem = Problem::where('risk_level', '>=', 4 )->where('course_id',$course_id)->get();
         $risk_attendance = Attendance::where('amount_absence', '>=', 3 )->where('course_id',$course_id)->get();
         $risk_grade = Grade::where('total_all', '<=', 60 )->where('course_id',$course_id)->get();
 
@@ -584,7 +644,7 @@ class NotificationController extends Controller
     //คลิกที่เด็กแล้วเจอแจ้งเตือนของแต่ละคน
     public function ProblemE($student_id){
         $bios = Bio::where('student_id', $student_id)->get();
-        $risk_problem = Problem::where('risk_level','รุนแรงมาก')->where('student_id',$student_id)->get();
+        $risk_problem = Problem::where('risk_level', '>=', 4 )->where('student_id',$student_id)->get();
 
         $risk_attendance = Attendance::where('amount_absence', '>=', 3 )->where('student_id',$student_id)->get();
         $risk_grade = Grade::where('total_all', '<=', 60 )->where('student_id',$student_id)->get();
@@ -606,7 +666,7 @@ class NotificationController extends Controller
             return $item->student_id;
         });
 
-        $risk_problem = Problem::where('risk_level','รุนแรงมาก')->whereIn('student_id',$student_ids->all())->get();
+        $risk_problem = Problem::where('risk_level', '>=', 4 )->whereIn('student_id',$student_ids->all())->get();
         $risk_attendance = Attendance::where('amount_absence', '>=', 3 )->whereIn('student_id',$student_ids->all())->get();
         $risk_grade = Grade::where('total_all', '<=', 60 )->whereIn('student_id',$student_ids->all())->get();
 
@@ -635,11 +695,11 @@ class NotificationController extends Controller
         $user = Auth::user();
         $bios = Bio::where('first_name',$user->name)->where('last_name',$user->lastname)->first();
 
-        $risk_problem = Problem::where('risk_level','รุนแรงมาก')->where('student_id',$bios->student_id)->get();
+        $risk_problem = Problem::where('risk_level', '>=', 4 )->where('student_id',$bios->student_id)->get();
         $risk_attendance = Attendance::where('amount_absence', '>=', 3 )->where('student_id',$bios->student_id)->get();
         $risk_grade = Grade::where('total_all', '<=', 60 )->where('student_id',$bios->student_id)->get();
 
-        $riskproblem = Problem::where('risk_level','รุนแรงมาก')->where('student_id',$bios->student_id)->count();
+        $riskproblem = Problem::where('risk_level', '>=', 4 )->where('student_id',$bios->student_id)->count();
         $riskattendance = Attendance::where('amount_absence', '>=', 3 )->where('student_id',$bios->student_id)->count();
         $riskgrade = Grade::where('total_all', '<=', 60 )->where('student_id',$bios->student_id)->count();
 

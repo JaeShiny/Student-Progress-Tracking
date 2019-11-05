@@ -206,6 +206,8 @@ Route::get('/LFSurvey', 'student\BioController@showmeLF');
 //Lec
     //กดปุ่มแจ้งเตือนแล้วเจอพฤติกรรมที่รุนแรงของนักศึกษา
 Route::get('notiproblemL/{student_id}','NotificationController@ProblemL');
+Route::get('getNotiproblemL/{student_id}','NotificationController@getProblemL')->name('getNotiproblemL');
+
 Route::get('allNotiL/{course_id}','NotificationController@allNotiL');
     // route แสดงรายวิชาที่อาจารย์สอน
 Route::get('subjectNotiL','NotificationController@subjectNotiL');
