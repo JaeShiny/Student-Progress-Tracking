@@ -28,4 +28,9 @@ class Problem extends Model
         return $this->hasOne('App\Model\mis\Student','student_id','student_id');
     }
 
+    public function risk()
+    {
+        return $this->hasOne('App\Model\mis\RiskLevel', 'risk_level_id', 'id');
+    }
+
 }
