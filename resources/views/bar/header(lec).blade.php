@@ -190,7 +190,8 @@
                       <a class="nav-link" href="{{ url('FormAttendance') }}" style="color: #FFFFFF">ดาวน์โหลดแบบฟอร์ม</a>
                     {{-- ปุ่มแบบสอบถาม --}}
                       <a class="nav-link" href="/indexSurvey" style="color: #FFFFFF">แบบสอบถาม</a>
-
+                    {{-- สร้างเงื่อนไขแจ้งเตือน --}}
+                      <a class="nav-link" href="/conditions" style="color: #FFFFFF">สร้างเงื่อนไขแจ้งเตือน</a>
                   </div>
               </div>
           </div>

@@ -10,6 +10,11 @@ class InspectorCondition extends Model
     protected $table = "inspector_conditions";
     protected $primaryKey = "id";
 
+    protected $fillable = ['behavior_attribute', 'condition', 'value',
+                            'course_id', 'semester', 'year',
+                            'instructor_id', 'student_id', 'curriculum', 'position'
+                            ];
+
     public function scopeCourseCondition($query, $instructor_id, $course_id, $behavior)
     {
         return $query->where('instructor_id', $instructor_id)
