@@ -23,6 +23,7 @@ use App\Model\spts\Attendance;
 use App\Model\spts\Grade;
 use App\Model\spts\Users;
 use App\Model\spts\Semester;
+use App\Model\InspectorCondition;
 
 use Auth;
 

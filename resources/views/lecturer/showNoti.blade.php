@@ -20,14 +20,30 @@
             <li class="breadcrumb-item active" aria-current="page"><a href="" name="mode">วิชา: {{$course->course_id}}</a></li>
         </ol>
     </nav>
-
+    {{-- เอาขีดเส้นใต้ออกจาก link --}}
+    <style type="text/css">
+        A:link {
+        text-decoration:none;
+        }
+        A:visited {
+        text-decoration:none;
+        }
+    </style>
 </head>
 
 <body>
-        {{-- <h6 align='right'>   <a href="/createCondition" name="mode">เพิ่มเงื่อนไข</a></h6> --}}
-    {{--
-    <h3 align='center'>การแจ้งเตือน</h3>
-    <br> --}}
+
+<h6 align='right'>
+    <a href="/conditions/create">
+        <img src="{{ URL::asset("../img/noti.png") }}" width="30" height="25" title="เพิ่มเงื่อนไขแจ้งเตือน">
+        เพิ่มเงื่อนไขการแจ้งเตือน&nbsp;&nbsp;&nbsp;&nbsp;
+    </a><br>
+    <a href="/conditions">
+        <img src="{{ URL::asset("../img/edits.png") }}" width="30" height="25" title="แก้ไขเงื่อนไขแจ้งเตือน">
+        แก้ไขเงื่อนไขการแจ้งเตือน&nbsp;&nbsp;&nbsp;&nbsp;
+    </a>
+</h6>
+
     <h5 align='center'>{{$course->course_id}}</h5>
     <h6 align='center'>{{$course->course_name_eng}}</h6>
     <br>
