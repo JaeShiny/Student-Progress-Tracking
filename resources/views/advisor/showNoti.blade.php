@@ -23,7 +23,7 @@
 </head>
 
 <body>
-    <h6 align='right'>   <a href="/createCondition" name="mode">เพิ่มเงื่อนไข</a></h6>
+    {{-- <h6 align='right'>   <a href="/createCondition" name="mode">เพิ่มเงื่อนไข</a></h6> --}}
 
     <h3 align='center'>การแจ้งเตือน</h3>
     <br>
