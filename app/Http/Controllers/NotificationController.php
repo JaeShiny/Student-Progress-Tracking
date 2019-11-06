@@ -28,6 +28,12 @@ use Auth;
 
 class NotificationController extends Controller
 {
+    protected $inspectedStudentResult = null;
+
+    public function __construct()
+    {
+        // $this->inspectedStudentResult = Intex ....
+    }
 
             //Lecturer//
     //คลิกที่เด็กแล้วเจอแจ้งเตือนของแต่ละคน
@@ -160,11 +166,16 @@ class NotificationController extends Controller
 
         //เลือกว่าจะแสดงเงื่อนไขของ instructor_id คนไหน
         $instructor_id = Auth::user()->instructor_id;
-        $inspectedResult = InspectedQuery::startInspectForInstructorWithCourse(
-                        $instructor_id,
-                        $course_id
-                        )->getInspectedStudents();
-
+        // $inspectedResult = InspectedQuery::startInspectForInstructorWithCourse(
+        //     $instructor_id,
+        //     $course_id
+        // )->getInspectedStudents();
+        $inspectedResult = InspectedQuery::startInspectForInstructorWithCourseYearly(
+            $instructor_id,
+            $course_id,
+            $semester,
+            $year
+        )->getInspectedStudents();
 
         // $risk_problem = Problem::where('risk_level', 3)
         //                 ->where('course_id',$course_id)

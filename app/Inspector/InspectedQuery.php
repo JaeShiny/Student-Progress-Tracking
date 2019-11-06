@@ -10,6 +10,8 @@ class InspectedQuery
 {
     protected $_instructor_id = null;
     protected $_course_id = null;
+    protected $_semester = 1;
+    protected $_year = 2019;
 
     public function __construct($instructor_id, $course_id = null)
     {
@@ -25,6 +27,25 @@ class InspectedQuery
     public static function startInspectForInstructorWithCourse($instructor_id, $course_id)
     {
         return new InspectedQuery($instructor_id, $course_id);
+    }
+
+    public static function startInspectForInstructorWithCourseYearly($instructor_id, $course_id, $semester, $year)
+    {
+        $query = new InspectedQuery($instructor_id, $course_id);
+        $query->withSemester($semester);
+        $query->withYear($year);
+
+        return $query;
+    }
+
+    public function withYear($year)
+    {
+        $this->_year = $year;
+    }
+
+    public function withSemester($semester)
+    {
+        $this->_semester = $semester;
     }
 
     public function getInspectedStudents()
