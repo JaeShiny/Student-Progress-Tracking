@@ -30,7 +30,7 @@
   <table class="table table-striped">
     <thead>
         <tr>
-          <td>ID</td>
+          {{-- <td>ID</td> --}}
           <td>เรื่องที่จะทำการกำหนดการแจ้งเตือน</td>
           <td>เงื่อนไขในการแจ้งเตือน</td>
           <td>จำนวนครั้งที่จะทำให้เกิดการแจ้งเตือน</td>
@@ -44,7 +44,7 @@
     <tbody>
         @foreach($conditions as $con)
         <tr>
-            <td>{{$con->id}}</td>
+            {{-- <td>{{$con->id}}</td> --}}
             <td>{{$con->behavior_attribute}}</td>
             <td>{{$con->condition}}</td>
             <td>{{$con->value}}</td>

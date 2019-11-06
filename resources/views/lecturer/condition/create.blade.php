@@ -28,11 +28,11 @@
           </div> --}}
           <div class="form-group">
             @csrf
-            <label for="exampleFormControlSelect1">Behavior Attribute:
+            <label for="exampleFormControlSelect1">หัวข้อเรื่องที่จะทำการแจ้งเตือน:
                     <select class="form-control" id="exampleFormControlSelect1" name="behavior_attribute">
-                      <option>Problem</option>
-                      <option>Attendance</option>
-                      <option>Grade</option>
+                      <option value="Problem">ปัญหา/พฤติกรรม (levelความรุนแรงของปัญหา)</option>
+                      <option value="Attendance">การเข้าเรียน (จำนวนครั้งในการขาดเรียนที่จะแจ้งเตือน)</option>
+                      <option value="Grade">ผลการเรียน (เกณฑ์คะแนนที่จะแจ้งเตือน)</option>
                     </select>
             </label>
             {{-- <input type="text" class="form-control" name="behavior_attribute"/> --}}
@@ -46,7 +46,7 @@
               <input type="text" class="form-control" name="book_price"/>
           </div> --}}
             <div class="form-group">
-                <label for="exampleFormControlSelect1">Condition:
+                <label for="exampleFormControlSelect1">เงื่อนไขที่จะใช้ในการแจ้งเตือน:
                     <select class="form-control" id="exampleFormControlSelect1" name="condition">
                         <option>></option>
                         <option><</option>
@@ -59,7 +59,7 @@
             </div>
 
             <div class="form-group">
-              <label for="quantity">Value :</label>
+              <label for="quantity">จำนวนครั้งที่จะใช้ในการแจ้งเตือน(Value) :</label>
               <input type="text" class="form-control" name="value"/>
             </div>
 
