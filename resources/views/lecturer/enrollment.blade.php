@@ -96,7 +96,11 @@
 
 </body>
 </html>
-
+<style>
+    .dropdown-menu{
+    overflow:scroll;
+    }
+</style>
 
 @endsection
 @extends('bar.header(lec)')
