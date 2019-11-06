@@ -148,7 +148,7 @@
                             @foreach($semester as $show)
                                 <li>
                                     <a href="/detail123/{{$show->course_id}}/{{$show->semester}}/{{$show->year}}">
-                                        {{$show->course_id}} ภาคเรียน: {{$show->semester}}/{{$show->year}}
+                                        {{$show->course_id}}&nbsp;({{$show->semester}}/{{$show->year}})
                                     </a>
                                 </li>
                             @endforeach
@@ -160,13 +160,11 @@
                                 การแจ้งเตือน
                                 <span class="caret"></span></button>
                                 <ul class="dropdown-menu">
-                                        @foreach($semester as $key => $show)
-                                        <li id="{{$key}}">
+                                        @foreach($semester as $show)
+                                        <li>
                                             <a href="/showNotiL/{{$show->course_id}}/{{$show->semester}}/{{$show->year}}">
-                                                {{$show->course_id}} ภาคเรียน: {{$show->semester}}/{{$show->year}}
+                                                {{$show->course_id}}&nbsp;({{$show->semester}}/{{$show->year}})
                                             </a>
-
-                                            <span class="badge badge-secondary"></span>
                                         </li>
                                         @endforeach
                                     </ul>
@@ -180,7 +178,7 @@
                             @foreach($semester as $show)
                                 <li>
                                     <a href="/chartAttendanceL/{{$show->course_id}}/{{$show->semester}}/{{$show->year}}">
-                                        {{$show->course_id}} ภาคเรียน: {{$show->semester}}/{{$show->year}}
+                                        {{$show->course_id}}&nbsp;({{$show->semester}}/{{$show->year}})
                                     </a>
                                 </li>
                             @endforeach
@@ -263,10 +261,11 @@
                   margin: 0;
               }
 
-              @media (min-width: 992px) {
+              @media (min-width: 992px){
+              /* {
                 ul.dropdown-menu.show{
-                    width: 300px;
-                }
+                    width: 150px;
+                }  */
                   div.info {
                       /*ข้อมูลนักศึกษา*/
                       color: black;
@@ -356,6 +355,7 @@
                   }
                   li {
                     padding: .25rem 1.5rem;
+                    /* float: left; */
                   }
                   li a {
                       /* display: block;*/
@@ -368,7 +368,9 @@
                   li a:hover {
                       /* background-color:#2F4F4F;สีเวลาชี้ */
                   }
-
+.dropdown-menu{
+    overflow:scroll;
+}
                   @media (min-width: 992px) {
                       .col-sm-10 {
                           -ms-flex: 0 0 83.333333%;
