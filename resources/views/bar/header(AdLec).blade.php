@@ -75,7 +75,7 @@
                             <ul class="dropdown-menu scrollable-menu" role="menu"  >
                                     @foreach($semester as $show)
 
-                                          <li> <a class="dropdown-item" href="/detailAL/{{$show->course_id}}/{{$show->semester}}/{{$show->year}}"> {{$show->course_id}} ภาคเรียน: {{$show->semester}}/{{$show->year}}</a>  </li>
+                                          <li> <a class="dropdown-item" href="/detailAL/{{$show->course_id}}/{{$show->semester}}/{{$show->year}}"> {{$show->course_id}}&nbsp;({{$show->semester}}/{{$show->year}})</a>  </li>
 
                                     @endforeach
                                   </ul>

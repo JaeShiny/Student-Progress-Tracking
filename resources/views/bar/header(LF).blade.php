@@ -76,7 +76,7 @@
                             @foreach($semester as $show)
                                 <li>
                                     <a href="/detailLF/{{$show->course_id}}/{{$show->semester}}/{{$show->year}}">
-                                        {{$show->course_id}} ภาคเรียน: {{$show->semester}}/{{$show->year}}
+                                        {{$show->course_id}}&nbsp;({{$show->semester}}/{{$show->year}})
                                     </a>
                                 </li>
                             @endforeach
@@ -91,7 +91,7 @@
                             @foreach($semester as $show)
                                 <li>
                                     <a href="/showNotiLF/{{$show->course_id}}/{{$show->semester}}/{{$show->year}}">
-                                        {{$show->course_id}} ภาคเรียน: {{$show->semester}}/{{$show->year}}
+                                        {{$show->course_id}}&nbsp;({{$show->semester}}/{{$show->year}})
                                     </a>
                                 </li>
                             @endforeach
@@ -106,7 +106,7 @@
                             @foreach($semester as $show)
                                 <li>
                                     <a href="/chartAttendanceLF/{{$show->course_id}}/{{$show->semester}}/{{$show->year}}">
-                                        {{$show->course_id}} ภาคเรียน: {{$show->semester}}/{{$show->year}}
+                                        {{$show->course_id}}&nbsp;({{$show->semester}}/{{$show->year}})
                                     </a>
                                 </li>
                             @endforeach
@@ -276,7 +276,8 @@
                       left: 600px;
                   }
                   li {
-                      float: left;
+                      /* float: left; */
+                      padding: .25rem 1.5rem;
                   }
                   li a {
                       /* display: block;*/

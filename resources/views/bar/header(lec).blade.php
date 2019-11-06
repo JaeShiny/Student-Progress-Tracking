@@ -369,7 +369,7 @@
                       /* background-color:#2F4F4F;สีเวลาชี้ */
                   }
 .dropdown-menu{
-    overflow:scroll;
+    /* overflow:scroll; */
 }
                   @media (min-width: 992px) {
                       .col-sm-10 {

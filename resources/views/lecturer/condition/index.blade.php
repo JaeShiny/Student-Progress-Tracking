@@ -63,7 +63,7 @@
         </tr>
         @endforeach
     </tbody>
-  </table>
+  </table><br><br>
   </center>
 <div>
 @endsection
