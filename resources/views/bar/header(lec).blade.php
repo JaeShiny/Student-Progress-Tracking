@@ -191,7 +191,7 @@
                     {{-- ปุ่มแบบสอบถาม --}}
                       <a class="nav-link" href="/indexSurvey" style="color: #FFFFFF">แบบสอบถาม</a>
                     {{-- สร้างเงื่อนไขแจ้งเตือน --}}
-                      <a class="nav-link" href="/conditions" style="color: #FFFFFF">สร้างเงื่อนไขแจ้งเตือน</a>
+                      <a class="nav-link" href="/conditions" style="color: #FFFFFF">สร้างเงื่อนไขการแจ้งเตือน</a>
                   </div>
               </div>
           </div>
