@@ -8,7 +8,7 @@ use App\Model\spts\Grade;
 
 class GradeInspector implements Inspector
 {
-    const INTERESTED_BEHAVIOR = 'grade';
+    const INTERESTED_BEHAVIOR = 'Grade';
     protected $instructor_id = null;
     protected $course_id = null;
 
@@ -34,22 +34,30 @@ class GradeInspector implements Inspector
             );
         }
 
+        $students = [];
+        // session()->flash('grade-alert', 'xxxxxxxx dfd fa xx dfd fafa');
         $condition = $conditions->first();
-        $query_builder = Grade::where(
-            'total_all',
-            $condition->condition,
-            $condition->value
-        )->where('instructor_id', '=', $this->instructor_id);
+        if ($conditions->count() > 0) {
+            $condition = $conditions->first();
 
-        if (null != $this->course_id) {
-            $query_builder->where(
-                'course_id',
-                '=',
-                $this->course_id
-            );
+            $query_builder = Grade::where(
+                'total_all',
+                $condition->condition,
+                $condition->value
+            )->where('instructor_id', '=', $this->instructor_id);
+
+            if (null != $this->course_id) {
+                $query_builder->where(
+                    'course_id',
+                    '=',
+                    $this->course_id
+                );
+            }
+
+            $students = $query_builder->get();
+        } else {
+            $students = collect([]);
         }
-
-        $students = $query_builder->get();
 
         // Get condition from databasel
         return $students;
