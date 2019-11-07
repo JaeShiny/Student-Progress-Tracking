@@ -30,6 +30,9 @@
         .row{
             margin-right: 0px;
         }
+    .dropdown-menu{
+    overflow:scroll;
+    }
     </style>
 
 </head>
