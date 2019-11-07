@@ -16,7 +16,7 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li> </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <li class="breadcrumb-item active" aria-current="page"><a href="{{ url('subjectNotiL') }}">การแจ้งเตือน</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><a href="">การแจ้งเตือน</a></li>
             <li class="breadcrumb-item active" aria-current="page"><a href="" name="mode">วิชา: {{$course->course_id}}</a></li>
         </ol>
     </nav>
@@ -33,7 +33,66 @@
 
 <body>
 
-<h6 align='right'>
+{{-- popup ของโบว์เองแหละ--}}
+  	<div class="container">
+  <!-- Trigger the modal with a button -->
+  <h6 align='right'>
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" id="open">
+      <h6>เงื่อนไขการแจ้งเตือน</h6>
+    </button>
+  </h6>
+
+    <form method="post" action="{{url('modal')}}" id="form">
+        @csrf
+  <!-- Modal -->
+  <div class="modal" tabindex="-1" role="dialog" id="myModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+            <div class="alert alert-danger" style="display:none"></div>
+
+        <div class="modal-header">
+        <h5 class="modal-title">เงื่อนไขในการแจ้งเตือน</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+    <div class="modal-body">
+<br><br><br>
+        <center>
+            <table class="table table-striped">
+              <thead>
+                  <tr>
+                    <td>เรื่องที่จะทำการกำหนดการแจ้งเตือน</td>
+                    <td>เงื่อนไขในการแจ้งเตือน</td>
+                    <td>จำนวนครั้งที่จะทำให้เกิดการแจ้งเตือน</td>
+                  </tr>
+              </thead>
+              <tbody>
+                  @foreach($conditions as $con)
+                  <tr>
+                      <td>{{$con->behavior_attribute}}</td>
+                      <td>{{$con->condition}}</td>
+                      <td>{{$con->value}}</td>
+                  </tr>
+                  @endforeach
+              </tbody>
+            </table><br><br>
+        </center>
+
+        <div class="modal-footer">
+      	    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+
+    </div>
+  </div>
+</div>
+</form>
+</div>
+{{-- จบ popup ของโบว์ละ --}}
+
+
+{{-- <h6 align='right'>
     <a href="/conditions/create">
         <img src="{{ URL::asset("../img/noti.png") }}" width="30" height="25" title="เพิ่มเงื่อนไขแจ้งเตือน">
         เพิ่มเงื่อนไขการแจ้งเตือน&nbsp;&nbsp;&nbsp;&nbsp;
@@ -42,7 +101,7 @@
         <img src="{{ URL::asset("../img/edits.png") }}" width="30" height="25" title="แก้ไขเงื่อนไขแจ้งเตือน">
         แก้ไขเงื่อนไขการแจ้งเตือน&nbsp;&nbsp;&nbsp;&nbsp;
     </a>
-</h6>
+</h6> --}}
 
     <h5 align='center'>{{$course->course_id}}</h5>
     <h6 align='center'>{{$course->course_name_eng}}</h6>
@@ -282,6 +341,11 @@
     </center>
 
 </body>
+
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous">
+</script>
 
 </html>
 
