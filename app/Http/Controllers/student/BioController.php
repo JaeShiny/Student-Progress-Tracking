@@ -193,6 +193,8 @@ class BioController extends Controller
 
     public function profileDuringE1($student_id,$semester,$year)
     {
+        $s = $semester;
+        $y = $year;
         $user = Auth::user();
         $bios = Bio::find($student_id);
         $statuss = Status::all();
@@ -218,7 +220,9 @@ class BioController extends Controller
             'student_id' => $student_id,
             'attendances' => $attendances,
             'grades' => $grades,
-            'gen' => $gen
+            'gen' => $gen,
+            's' => $s,
+            'y' => $y
         ]);
     }
 
@@ -415,6 +419,8 @@ class BioController extends Controller
 
     public function profileDuringL1($student_id,$semester,$year)
     {
+        $s = $semester;
+        $y = $year;
         $user = Auth::user();
         $bios = Bio::find($student_id);
         // $bios = Bio::where('student_id', $student_id)->get();
@@ -446,6 +452,8 @@ class BioController extends Controller
             'grades' => $grades,
             'semester' => $semester,
             'gen' => $gen,
+            's' => $s,
+            'y' => $y
         ]);
     }
 
@@ -553,6 +561,8 @@ class BioController extends Controller
 
     public function profileDuringA1($student_id,$semester,$year)
     {
+        $s = $semester;
+        $y = $year;
         $user = Auth::user();
         $bios = Bio::find($student_id);
         // $bios = Bio::where('student_id', $student_id)->get();
@@ -582,7 +592,9 @@ class BioController extends Controller
             'attendances' => $attendances,
             'grades' => $grades,
             'generation' => $generation,
-            'gen' => $gen
+            'gen' => $gen,
+            's' => $s,
+            'y' => $y
         ]);
     }
 
@@ -720,6 +732,9 @@ class BioController extends Controller
     }
 
     public function profileDuringAL1($student_id,$semester,$year){
+
+        $s = $semester;
+        $y = $year;
         $user = Auth::user();
         $bios = Bio::find($student_id);
         // $bios = Bio::where('student_id', $student_id)->get();
@@ -753,6 +768,8 @@ class BioController extends Controller
             'grades' => $grades,
             'semester' =>$semester,
             'gen' => $gen,
+            's' => $s,
+            'y' => $y
         ]);
     }
 
@@ -879,6 +896,8 @@ class BioController extends Controller
 
     public function profileDuringLF1($student_id,$semester,$year)
     {
+        $s = $semester;
+        $y = $year;
         $user = Auth::user();
         $bios = Bio::find($student_id);
         // $bios = Bio::where('student_id', $student_id)->get();
@@ -912,6 +931,8 @@ class BioController extends Controller
             'grades' => $grades,
             'semester' =>$semester,
             'gen' => $gen,
+            's' => $s,
+            'y' => $y
         ]);
     }
 }

@@ -38,8 +38,10 @@ Route::get('stat', 'StatController@index');
 //Lecturer
 Route::get('subjectStatisticL','ChartController@subjectStatisticL');
 Route::get('chartAttendanceL/{course_id}/{semester}/{year}', 'ChartController@attendanceL');
+Route::get('chartAttendanceL1/{course_id}/{semester}/{year}', 'ChartController@attendanceL1');
 Route::get('chartGradeL/{course_id}/{semester}/{year}', 'ChartController@gradeL');
 Route::get('chartGradeL1/{course_id}/{semester}/{year}', 'ChartController@gradeL1');
+Route::get('chartGradeL2/{course_id}/{semester}/{year}', 'ChartController@gradeL2');
 Route::get('chartProblemL/{course_id}/{semester}/{year}', 'ChartController@problemL');
 //LF
 Route::get('subjectStatisticLF','ChartController@subjectStatisticLF');

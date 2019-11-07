@@ -179,7 +179,8 @@
     <hr style="margin-top: 0%">
 
       {{-- &nbsp;&nbsp;&nbsp; <a href='view/{{$survey->id}}'>ดูแบบสอบถาม</a> | <a href="{{$survey->id}}/edit">แก้ไขหัวข้อแบบสอบถาม</a> <a href="#doDelete" style="float:right; text-decoration: none" class="modal-trigger red-text">ลบแบบสำรวจ &nbsp; &nbsp;</a> --}}
-    <!-- Modal Structure -->
+      &nbsp;&nbsp;&nbsp; <a href="/survey/{{$survey->id}}/edit">แก้ไขหัวข้อแบบสอบถาม</a> <a href="/survey{{$survey->id}}/edit" style="float:right; text-decoration: none" class="modal-trigger red-text">ลบแบบสำรวจ &nbsp; &nbsp;</a>
+      <!-- Modal Structure -->
     <!-- TODO Fix the Delete aspect -->
 
     <div id="doDelete" class="modal bottom-sheet">
@@ -311,12 +312,12 @@
                                                                         <div style="margin:5px; padding:10px;">
 
                                                                             @if($question->question_type === 'text')
-                                                                            <a href="/question/{{ $question->id }}/edit">  คำตอบ..................................</a>
+                                                                            <a href="/question/{{ $question->id }}/edit"> &nbsp;คำตอบ..................................</a>
 
                                                                             @elseif($question->question_type === 'textarea')
                                                                             <div class="row">
                                                                                 <div class="input-field col s12">
-                                                                                    <a href="/question/{{ $question->id }}/edit">แก้ไขคำถาม</a>
+                                                                                    <a href="/question/{{ $question->id }}/edit"> &nbsp;คำตอบ..................................</a>
                                                                                     {{-- <label for="textarea1">Provide answer</label> --}}
                                                                                 </div>
                                                                             </div>
@@ -335,7 +336,7 @@
 
                                                                             @endforeach
                                                                              @endif {!! Form::close() !!}
-                                                                             <img src="{{ URL::asset("../img/delete.png") }}" width="25" style="float: right">
+                                                                             {{-- <img src="{{ URL::asset("../img/delete.png") }}" width="25" style="float: right"> --}}
 <br>
                                                                             <hr>
                                                                         </div>

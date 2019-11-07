@@ -39,24 +39,11 @@
     <li class="nav-item">
         <a class="nav-link" href="/chartProblemL/{{$course->course_id}}/{{$gen->semester}}/{{$gen->year}}" style="color: #000000;">สถิติด้านพฤติกรรม</a>
     </li>
-</ul>
-<br>
+</ul><br>
 
-<h5 align='right'>
-<button type="button" class="btn btn-outline-success">
-        <a href="/chartGradeL1/{{$course->course_id}}/{{$gen->semester}}/{{$gen->year}}"><img src="{{ URL::asset("../img/รูปสถิติ.png") }}" width="30" height="25" title="สถิติ"> &nbsp;สถิติผลการเรียนกลางภาค </a>
-</button>
-
-<button type="button" class="btn btn-outline-success">
-            <a href="/chartGradeL2/{{$course->course_id}}/{{$gen->semester}}/{{$gen->year}}"><img src="{{ URL::asset("../img/รูปสถิติ.png") }}" width="30" height="25" title="สถิติ"> &nbsp;สถิติผลการเรียนปลายภาค </a>
-</button>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-</h5>
 
 <h5 align='center'>{{$course->course_id}}</h5>
 <h6 align='center'>{{$course->course_name_eng}}</h6>
-
 <br>
 
 {{-- การเข้าเรียน --}}
@@ -65,7 +52,7 @@
         <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Chart Grade
+                        Mean Chart (Final)
                 </div>
 
                 <div class="panel-body">
@@ -80,49 +67,58 @@
 
 <br><br><br><br>
 <center>
-<table class="table table-hover">
-    <thead>
-        <tr>
-            <th scope="col">เกรด</th>
-            <th scope="col">จำนวนนักศึกษา</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <th scope="row">เกรด A</th>
-            <td>{{$gardeA}}</td>
-        </tr>
-        <tr>
-            <th scope="row">เกรด B+</th>
-            <td>{{$gardeBB}}</td>
-        </tr>
-        <tr>
-            <th scope="row">เกรด B</th>
-            <td>{{$gardeB}}</td>
-        </tr>
-        <tr>
-            <th scope="row">เกรด C+</th>
-            <td>{{$gardeCC}}</td>
-        </tr>
-        <tr>
-            <th scope="row">เกรด C</th>
-            <td>{{$gardeC}}</td>
-        </tr>
-        <tr>
-            <th scope="row">เกรด D+</th>
-            <td>{{$gardeDD}}</td>
-        </tr>
-        <tr>
-            <th scope="row">เกรด D</th>
-            <td>{{$gardeD}}</td>
-        </tr>
-        <tr>
-            <th scope="row">เกรด F</th>
-            <td>{{$gardeF}}</td>
-        </tr>
-    </tbody>
-</table>
-</center><br><br>
+        <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">เทอม/ปีการศึกษา</th>
+                        <th scope="col">Mean</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1/2015</th>
+                        <td>{{$term_year_1_2015}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2/2015</th>
+                        <td>{{$term_year_2_2015}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">1/2016</th>
+                        <td>{{$term_year_1_2016}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2/2016</th>
+                        <td>{{$term_year_2_2016}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">1/2017</th>
+                        <td>{{$term_year_1_2017}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2/2017</th>
+                        <td>{{$term_year_2_2017}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">1/2018</th>
+                        <td>{{$term_year_1_2018}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2/2018</th>
+                        <td>{{$term_year_2_2018}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">1/2019</th>
+                        <td>{{$term_year_1_2019}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2/2019</th>
+                        <td>{{$term_year_2_2019}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            </center><br><br>
+
 
 
 
