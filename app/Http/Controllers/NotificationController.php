@@ -165,7 +165,7 @@ class NotificationController extends Controller
         $major = Major::where('major_id',$course->major_id)->get();
         $student = Student::where('major_id',$course->major_id)->get();
 
-        $conditions = InspectorCondition::where('course_id', $course_id)->get();
+        $conditions = InspectorCondition::where('instructor_id', Auth::user()->instructor_id)->get();
 
         //เลือกว่าจะแสดงเงื่อนไขของ instructor_id คนไหน
         $instructor_id = Auth::user()->instructor_id;
