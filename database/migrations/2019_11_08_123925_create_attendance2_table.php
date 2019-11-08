@@ -36,6 +36,7 @@ class CreateAttendance2Table extends Migration
             $table->string('period_14')->nullable();
             $table->string('period_15')->nullable();
             $table->String('person_add')->nullable();
+            $table->string('instructor_id')->nullable();
             $table->String('semester')->nullable();
             $table->String('year')->nullable();
             $table->String('gen')->nullable();

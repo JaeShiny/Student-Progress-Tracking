@@ -29,6 +29,7 @@ class CreateProblemTable extends Migration
             $table->String('section')->nullable();
             $table->String('gen')->nullable();
             $table->string('course_id')->nullable();
+            $table->string('instructor_id')->nullable();
             $table->timestamps();
 
         });
