@@ -87,9 +87,9 @@ class ConditionController extends Controller
         $condition->behavior_attribute = $request->behavior_attribute;
         $condition->condition = $request->condition;
         $condition->value = $request->value;
-        $condition->course_id = $request->course_id;
-        $condition->semester = $request->semester;
-        $condition->year = $request->year;
+        // $condition->course_id = $request->course_id;
+        // $condition->semester = $request->semester;
+        // $condition->year = $request->year;
         $condition->instructor_id = Auth::user()->instructor_id;
         $condition->student_id = Auth::user()->student_id;
         $condition->curriculum = Auth::user()->curriculum;
@@ -101,7 +101,7 @@ class ConditionController extends Controller
     }
 
     public function index(){
-        $conditions = InspectorCondition::all();
+        $conditions = InspectorCondition::where('instructor_id', Auth::user()->instructor_id)->get();
 
         $test = Instructor::where('last_name', Auth::user()->lastname)->first();
         $semester = Schedule::where('instructor_id', $test->instructor_id)->orderBy('year', 'asc')->get();
@@ -136,9 +136,9 @@ class ConditionController extends Controller
             'behavior_attribute' => 'required',
             'condition' => 'required',
             'value' => 'required',
-            'course_id' => 'required',
-            'semester' => 'required',
-            'year' => 'required',
+            // 'course_id' => 'required',
+            // 'semester' => 'required',
+            // 'year' => 'required',
         ]);
         InspectorCondition::whereId($id)->update($validatedData);
 

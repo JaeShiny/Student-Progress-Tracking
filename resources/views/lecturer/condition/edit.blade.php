@@ -26,18 +26,18 @@
               @method('PATCH')
               {{-- <label for="name">Book Name:</label>
               <input type="text" class="form-control" name="book_name" value="{{$book->book_name}}"/> --}}
-                <label for="exampleFormControlSelect1">Behavior Attribute:
+                <label for="exampleFormControlSelect1">หัวข้อเรื่องที่จะทำการแจ้งเตือน:
                     <select class="form-control" id="exampleFormControlSelect1" name="behavior_attribute" value="{{$conditions->behavior_attribute}}"/>
-                      <option>Problem</option>
-                      <option>Attendance</option>
-                      <option>Grade</option>
+                      <option value="Problem">ปัญหา/พฤติกรรม (levelความรุนแรงของปัญหา)</option>
+                      <option value="Attendance">การเข้าเรียน (จำนวนครั้งในการขาดเรียนที่จะแจ้งเตือน)</option>
+                      <option value="Grade">ผลการเรียน (เกณฑ์คะแนนที่จะแจ้งเตือน)</option>
                     </select>
                 </label>
           </div>
           <div class="form-group">
               {{-- <label for="price">Book ISBN Number :</label>
               <input type="text" class="form-control" name="isbn_no" value="{{$book->isbn_no}}"/> --}}
-                <label for="exampleFormControlSelect1">Condition:
+                <label for="exampleFormControlSelect1">เงื่อนไขที่จะใช้ในการแจ้งเตือน:
                     <select class="form-control" id="exampleFormControlSelect1" name="condition" value="{{$conditions->condition}}"/>
                         <option>></option>
                         <option><</option>
@@ -48,11 +48,11 @@
                 </label>
           </div>
           <div class="form-group">
-                <label for="quantity">Value :</label>
+                <label for="quantity">จำนวนครั้งที่จะใช้ในการแจ้งเตือน(Value):</label>
                 <input type="text" class="form-control" name="value" value="{{$conditions->value}}"/>
               </div>
 
-              <div class="form-group">
+              {{-- <div class="form-group">
                 <label for="quantity">รหัสวิชา :</label>
                 <input type="text" class="form-control" name="course_id" value="{{$conditions->course_id}}"/>
               </div>
@@ -64,7 +64,6 @@
                           <option>2</option>
                       </select>
                   </label>
-                  {{-- <input type="text" class="form-control" name="semester"/> --}}
               </div>
 
               <div class="form-group">
@@ -79,8 +78,7 @@
                           <option>2025</option>
                       </select>
                   </label>
-                  {{-- <input type="text" class="form-control" name="year"/> --}}
-              </div>
+              </div> --}}
           <button type="submit" class="btn btn-primary">Update เงื่อนไขในการแจ้งเตือน</button>
       </form>
   </div>

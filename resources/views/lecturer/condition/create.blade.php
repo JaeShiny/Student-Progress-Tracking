@@ -59,12 +59,12 @@
             </div>
 
             <div class="form-group">
-              <label for="quantity">จำนวนครั้งที่จะใช้ในการแจ้งเตือน(Value) :</label>
+              <label for="quantity">จำนวนครั้งที่จะใช้ในการแจ้งเตือน(Value):</label>
               <input type="text" class="form-control" name="value"/>
             </div>
 
-            <div class="form-group">
-              <label for="quantity">รหัสวิชา :</label>
+            {{-- <div class="form-group">
+              <label for="quantity">รหัสวิชา:</label>
               <input type="text" class="form-control" name="course_id"/>
             </div>
 
@@ -75,7 +75,6 @@
                         <option>2</option>
                     </select>
                 </label>
-                {{-- <input type="text" class="form-control" name="semester"/> --}}
             </div>
 
             <div class="form-group">
@@ -90,8 +89,7 @@
                         <option>2025</option>
                     </select>
                 </label>
-                {{-- <input type="text" class="form-control" name="year"/> --}}
-            </div>
+            </div> --}}
 
           <button type="submit" class="btn btn-primary">สร้างเงื่อนไขการแจ้งเตือน</button>
       </form>

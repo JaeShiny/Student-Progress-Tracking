@@ -34,9 +34,9 @@
           <td>เรื่องที่จะทำการกำหนดการแจ้งเตือน</td>
           <td>เงื่อนไขในการแจ้งเตือน</td>
           <td>จำนวนครั้งที่จะทำให้เกิดการแจ้งเตือน</td>
-          <td>รหัสวิชา</td>
+          {{-- <td>รหัสวิชา</td>
           <td>เทอม</td>
-          <td>ปีการศึกษา</td>
+          <td>ปีการศึกษา</td> --}}
           <td>INSTRUCTOR_ID</td>
           <td colspan="2">Action</td>
         </tr>
@@ -48,9 +48,9 @@
             <td>{{$con->behavior_attribute}}</td>
             <td>{{$con->condition}}</td>
             <td>{{$con->value}}</td>
-            <td>{{$con->course_id}}</td>
-            <td>{{$con->semester}}</td>
-            <td>{{$con->year}}</td>
+            {{-- <td>{{$con->course_id}}</td> --}}
+            {{-- <td>{{$con->semester}}</td> --}}
+            {{-- <td>{{$con->year}}</td> --}}
             <td>{{$con->instructor_id}}</td>
             <td><a href="{{ route('conditions.edit',$con->id)}}" class="btn btn-primary">Edit</a></td>
             <td>
