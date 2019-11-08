@@ -101,11 +101,11 @@ margin-top: -150px;
         <div class="form-group">
             <label for="exampleFormControlSelect1">ระดับความรุนแรง:
                 <select class="form-control" id="exampleFormControlSelect1" name="risk_level">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
+                  <option value="1">1 = น้อยมาก</option>
+                  <option value="2">2 = ต่ำ</option>
+                  <option value="3">3 = ปานกลาง</option>
+                  <option value="4">4 = สูง</option>
+                  <option value="5">5 = สูงมาก</option>
 
                 </select></label>
         </div>
