@@ -37,8 +37,8 @@
           {{-- <td>รหัสวิชา</td>
           <td>เทอม</td>
           <td>ปีการศึกษา</td> --}}
-          <td>INSTRUCTOR_ID</td>
-          <td colspan="2">Action</td>
+          {{-- <td>INSTRUCTOR_ID</td> --}}
+          <td colspan="2"><center>Action</center></td>
         </tr>
     </thead>
     <tbody>
@@ -51,7 +51,7 @@
             {{-- <td>{{$con->course_id}}</td> --}}
             {{-- <td>{{$con->semester}}</td> --}}
             {{-- <td>{{$con->year}}</td> --}}
-            <td>{{$con->instructor_id}}</td>
+            {{-- <td>{{$con->instructor_id}}</td> --}}
             <td><a href="{{ route('conditions.edit',$con->id)}}" class="btn btn-primary">Edit</a></td>
             <td>
                 <form action="{{ route('conditions.destroy', $con->id)}}" method="post">
