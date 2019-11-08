@@ -34,12 +34,15 @@
 <body>
 
 {{-- popup ของโบว์เองแหละ--}}
-  	<div class="container">
+  	{{-- <div class="container"> --}}
   <!-- Trigger the modal with a button -->
   <h6 align='right'>
     <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" id="open">
-      <h6>เงื่อนไขการแจ้งเตือน</h6>
-    </button>
+        <h6>
+            <img src="{{ URL::asset("../img/noti.png") }}" width="30" height="25" title="ดูเงื่อนไขแจ้งเตือน">
+            เงื่อนไขการแจ้งเตือน
+        </h6>
+    </button> &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
   </h6>
 
     <form method="post" action="{{url('modal')}}" id="form">
@@ -58,7 +61,7 @@
         </div>
 
     <div class="modal-body">
-<br><br><br>
+<br><br>
         <center>
             <table class="table table-striped">
               <thead>
@@ -77,9 +80,12 @@
                   </tr>
                   @endforeach
               </tbody>
-            </table><br><br>
+            </table>
         </center>
-
+&nbsp;&nbsp;<b>*<u>หมายเหตุ</u>*</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Problem:</b> ปัญหาและพฤติกรรม (ดูจาก level ความรุนแรงของปัญหา)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Attendance:</b> การเข้าเรียน (ดูจากจำนวนการขาดเรียน)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Grade:</b> ผลการเรียน (ดูจากผลการเรียนรวม)<br>
         <div class="modal-footer">
       	    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </div>
