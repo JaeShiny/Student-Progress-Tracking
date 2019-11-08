@@ -45,7 +45,7 @@ class FormController extends Controller
     }
     public function FormAttendance2()
     {
-        return Excel::download(new formAttendance2, 'Form_Attendance2.xlsx');
+        return Excel::download(new formAttendance2, 'Form_Attendance(Lab).xlsx');
     }
 
     /**

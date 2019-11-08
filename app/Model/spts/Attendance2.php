@@ -5,12 +5,12 @@ namespace App\Model\spts;
 use Illuminate\Database\Eloquent\Model;
 use App\Model\QueryForProblemTrait;
 
-class Attendance extends Model
+class Attendance2 extends Model
 {
     use QueryForProblemTrait;
 
     protected $connection = "mysql";
-    protected $table = "attendance";
+    protected $table = "attendance2";
     protected $primaryKey = "attendance_id";
     // protected $keyType = 'bigint';
 
@@ -35,21 +35,6 @@ class Attendance extends Model
         'period_13',
         'period_14',
         'period_15',
-        'period_16',
-        'period_17',
-        'period_18',
-        'period_19',
-        'period_20',
-        'period_21',
-        'period_22',
-        'period_23',
-        'period_24',
-        'period_25',
-        'period_26',
-        'period_27',
-        'period_28',
-        'period_29',
-        'period_30',
         'person_add',
         'instructor_id',
         'semester',

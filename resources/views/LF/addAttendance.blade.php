@@ -22,7 +22,7 @@
         <ol class="breadcrumb">
             <li></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             {{-- <li class="breadcrumb-item" aria-current="page"><a href="{{ url('course') }}">วิชาที่สอน</a></li> --}}
-            <li class="breadcrumb-item" aria-current="page"><a href="/importExportViewLF/{{$course->course_id}}">เพิ่มการเข้าเรียน</a></li>
+            <li class="breadcrumb-item" aria-current="page"><a href="/importExportViewLF/{{$course->course_id}}">เพิ่มการเข้าเรียน (ทฤษฎี)</a></li>
         </ol>
     </nav>
 
@@ -38,7 +38,10 @@
 
 <ul class="nav nav-tabs" id="myTab" role="tablist" style="background-color:white;">
     <li class="nav-item">
-        <a class="nav-link active" href="/importExportViewLF/{{$course->course_id}}" style="color: #000000;">การเข้าเรียน</a>
+        <a class="nav-link active" href="/importExportViewLF/{{$course->course_id}}" style="color: #000000;">การเข้าเรียน (ทฤษฎี)</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/importExportViewLF2/{{$course->course_id}}" style="color: #000000;">การเข้าเรียน (Lab)</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="/importExportGradeLF/{{$course->course_id}}" style="color: #000000;">ผลการเรียน</a>
@@ -49,7 +52,8 @@
     <div class="col">
         <div class="list-group" id="list-tab" role="tablist">
 
-            <a class="list-group-item list-group-item-action active" href="/importExportViewLF/{{$course->course_id}}"><b>เพิ่มการเข้าเรียน</b></a>
+            <a class="list-group-item list-group-item-action active" href="/importExportViewLF/{{$course->course_id}}"><b>เพิ่มการเข้าเรียน (ทฤษฎี)</b></a>
+            <a class="list-group-item list-group-item-action" href="/importExportViewLF2/{{$course->course_id}}"><b>เพิ่มการเข้าเรียน (Lab)</b></a>
             {{-- <a class="list-group-item list-group-item-action" href="/attendanceLF/{{$course->course_id}}/{{$gen->semester}}/{{$gen->year}}"><b>แสดงการเข้าเรียน</b></a> --}}
             {{-- <a class="list-group-item list-group-item-action" href="/subjectLF/{{$course->course_id}}"><b>รายชื่อนักศึกษา</b></a> --}}
 
@@ -66,7 +70,7 @@
      <div class="container">
         <div class="card bg-light mt-3">
             <div class="card-header">
-                เพิ่มการเข้าเรียน
+                เพิ่มการเข้าเรียน (ทฤษฎี)
             </div>
             <div class="card-body">
                 <form action="/importLF/{{$course->course_id}}" method="POST" enctype="multipart/form-data">

@@ -187,6 +187,9 @@ Route::get('exportFormGrade', 'lecturer\FormController@FormGrade')->name('export
 Route::get('export/{course_id}', 'lecturer\AttendanceController@export')->name('export');
 Route::get('importExportView/{course_id}', 'lecturer\AttendanceController@importExportView');
 Route::post('import/{course_id}', 'lecturer\AttendanceController@import')->name('import');
+Route::get('export2/{course_id}', 'lecturer\AttendanceController@export2')->name('export2');
+Route::get('importExportView2/{course_id}', 'lecturer\AttendanceController@importExportView2');
+Route::post('import2/{course_id}', 'lecturer\AttendanceController@import2')->name('import2');
 
 //แสดงการเข้าเรียน -> Attendance
 Route::get('/attendance/{course_id}/{semester}/{year}','lecturer\AttendanceController@showAttendanceL');
@@ -391,6 +394,9 @@ Route::get('exportFormGradeAL', 'lecturer\FormController@FormGradeAL')->name('ex
 Route::get('exportAL/{course_id}', 'lecturer\AttendanceController@export')->name('exportAL');
 Route::get('importExportViewAL/{course_id}', 'lecturer\AttendanceController@importExportViewAL');
 Route::post('importAL/{course_id}', 'lecturer\AttendanceController@import')->name('importAL');
+Route::get('exportAL2/{course_id}', 'lecturer\AttendanceController@export2')->name('exportAL2');
+Route::get('importExportViewAL2/{course_id}', 'lecturer\AttendanceController@importExportViewAL2');
+Route::post('importAL2/{course_id}', 'lecturer\AttendanceController@import2')->name('importAL2');
 
 //import excel -> Grade
 Route::get('exportGradeAL/{course_id}', 'lecturer\GradeController@export')->name('exportGradeAL');
@@ -461,6 +467,9 @@ Route::get('exportFormGradeLF', 'lecturer\FormController@FormGradeLF')->name('ex
 Route::get('exportLF/{course_id}', 'lecturer\AttendanceController@export')->name('exportLF');
 Route::get('importExportViewLF/{course_id}', 'lecturer\AttendanceController@importExportViewLF');
 Route::post('importLF/{course_id}', 'lecturer\AttendanceController@import')->name('importLF');
+Route::get('exportLF2/{course_id}', 'lecturer\AttendanceController@export2')->name('exportLF2');
+Route::get('importExportViewLF2/{course_id}', 'lecturer\AttendanceController@importExportViewLF');
+Route::post('importLF2/{course_id}', 'lecturer\AttendanceController@import2')->name('importLF2');
 
 //import excel -> Grade
 Route::get('exportGradeLF/{course_id}', 'lecturer\GradeController@export')->name('exportGradeLF');

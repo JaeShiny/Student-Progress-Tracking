@@ -22,7 +22,7 @@
         <ol class="breadcrumb">
             <li></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             {{-- <li class="breadcrumb-item" aria-current="page"><a href="{{ url('course') }}">วิชาที่สอน</a></li> --}}
-            <li class="breadcrumb-item" aria-current="page"><a href="/importExportViewAL/{{$course->course_id}}">เพิ่มการเข้าเรียน (ทฤษฎี)</a></li>
+            <li class="breadcrumb-item" aria-current="page"><a href="/importExportViewLF2/{{$course->course_id}}">เพิ่มการเข้าเรียน (Lab)</a></li>
         </ol>
     </nav>
 
@@ -38,13 +38,13 @@
 
 <ul class="nav nav-tabs" id="myTab" role="tablist" style="background-color:white;">
     <li class="nav-item">
-        <a class="nav-link active" href="/importExportViewAL/{{$course->course_id}}" style="color: #000000;">การเข้าเรียน (ทฤษฎี)</a>
+        <a class="nav-link" href="/importExportViewLF/{{$course->course_id}}" style="color: #000000;">การเข้าเรียน (ทฤษฎี)</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="/importExportViewAL2/{{$course->course_id}}" style="color: #000000;">การเข้าเรียน (Lab)</a>
+        <a class="nav-link active" href="/importExportViewLF2/{{$course->course_id}}" style="color: #000000;">การเข้าเรียน (Lab)</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="/importExportGradeAL/{{$course->course_id}}" style="color: #000000;">ผลการเรียน</a>
+        <a class="nav-link" href="/importExportGradeLF/{{$course->course_id}}" style="color: #000000;">ผลการเรียน</a>
     </li>
 </ul><br>
 
@@ -52,10 +52,10 @@
     <div class="col">
         <div class="list-group" id="list-tab" role="tablist">
 
-            <a class="list-group-item list-group-item-action active" href="/importExportViewAL/{{$course->course_id}}"><b>เพิ่มการเข้าเรียน (ทฤษฎี)</b></a>
-            <a class="list-group-item list-group-item-action" href="/importExportViewAL2/{{$course->course_id}}"><b>เพิ่มการเข้าเรียน (Lab)</b></a>
-            {{-- <a class="list-group-item list-group-item-action" href="/attendanceAL/{{$course->course_id}}"><b>แสดงการเข้าเรียน</b></a>
-            <a class="list-group-item list-group-item-action" href="/subjectAL/{{$course->course_id}}"><b>รายชื่อนักศึกษา</b></a> --}}
+            <a class="list-group-item list-group-item-action" href="/importExportViewLF/{{$course->course_id}}"><b>เพิ่มการเข้าเรียน (ทฤษฎี)</b></a>
+            <a class="list-group-item list-group-item-action active" href="/importExportViewLF2/{{$course->course_id}}"><b>เพิ่มการเข้าเรียน (Lab)</b></a>
+            {{-- <a class="list-group-item list-group-item-action" href="/attendanceLF/{{$course->course_id}}/{{$gen->semester}}/{{$gen->year}}"><b>แสดงการเข้าเรียน</b></a> --}}
+            {{-- <a class="list-group-item list-group-item-action" href="/subjectLF/{{$course->course_id}}"><b>รายชื่อนักศึกษา</b></a> --}}
 
         </div>
     </div>
@@ -70,10 +70,10 @@
      <div class="container">
         <div class="card bg-light mt-3">
             <div class="card-header">
-                เพิ่มการเข้าเรียน (ทฤษฎี)
+                เพิ่มการเข้าเรียน (Lab)
             </div>
             <div class="card-body">
-                <form action="/importAL/{{$course->course_id}}" method="POST" enctype="multipart/form-data">
+                <form action="/importLF2/{{$course->course_id}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <input type="hidden" name="course_id" value="{{$course->course_id}}">
                     <input type="file" name="file" class="form-control">
@@ -84,7 +84,7 @@
                     <div class="container">
                         <div class="form-group">
                             <input type="submit" value="เพิ่มการเข้าเรียน" class="btn btn-success" data-toggle="modal" data-target="#myModal">
-                            <a class="btn btn-warning" href="/exportAL/{{$course->course_id}}">Export การเข้าเรียน</a>
+                            <a class="btn btn-warning" href="/exportLF2/{{$course->course_id}}">Export การเข้าเรียน</a>
                         </div>
                         <!-- Modal -->
                         <div class="modal fade" id="myModal" role="dialog">
@@ -127,4 +127,4 @@
 </html>
 
 @endsection
-@extends('bar.header(AdLec)')
+@extends('bar.header(LF)')

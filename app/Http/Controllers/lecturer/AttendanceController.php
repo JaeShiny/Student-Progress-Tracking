@@ -6,8 +6,11 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Exports\AttendanceExport;
 use App\Imports\AttendanceImport;
+use App\Exports\AttendanceExport2;
+use App\Imports\AttendanceImport2;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Model\spts\Attendance;
+use App\Model\spts\Attendance2;
 use App\Model\mis\Course;
 use App\Model\mis\Bio;
 use App\Model\mis\Instructor;
@@ -75,7 +78,7 @@ class AttendanceController extends Controller
     */
     public function export($course_id)
     {
-        return (new AttendanceExport($course_id))->download('attendance.xlsx');
+        return (new AttendanceExport($course_id))->download('Attendance.xlsx');
     }
 
     /**
@@ -87,6 +90,73 @@ class AttendanceController extends Controller
 
         return back();
     }
+//Attendance2
+    public function importExportView2($course_id)
+    {
+        $course = Course::find($course_id);
+
+        $test = Instructor::where('last_name',Auth::user()->lastname)->first();
+        $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+        $gen = Generation::all();
+
+        return view('lecturer.addAttendance2',[
+            'course' => $course,
+            'semester' => $semester,
+            'gen' => $gen,
+        ]);
+    }
+
+    public function importExportViewAL2($course_id)
+    {
+        $course = Course::find($course_id);
+
+        $test = Instructor::where('last_name',Auth::user()->lastname)->first();
+        $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+        $gen = Generation::all();
+
+        return view('AdLec.addAttendance2',[
+            'course' => $course,
+            'semester' => $semester,
+            'gen' => $gen,
+        ]);
+    }
+
+    public function importExportViewLF2($course_id)
+    {
+        $course = Course::find($course_id);
+
+        $users = User::all();
+        $test = Instructor::where('last_name',Auth::user()->lastname)->first();
+        $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+        $gen = Generation::all();
+
+        return view('LF.addAttendance2',[
+            'course' => $course,
+            'semester' => $semester,
+            'gen' => $gen,
+            'users' => $users,
+
+        ]);
+    }
+
+    /**
+    * @return \Illuminate\Support\Collection
+    */
+    public function export2($course_id)
+    {
+        return (new AttendanceExport2($course_id))->download('Attendance(Lab).xlsx');
+    }
+
+    /**
+    * @return \Illuminate\Support\Collection
+    */
+    public function import2()
+    {
+        Excel::import(new AttendanceImport2,request()->file('file'));
+
+        return back();
+    }
+
 
 
     //student
