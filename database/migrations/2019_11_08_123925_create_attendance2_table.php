@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFormAttendanceTable extends Migration
+class CreateAttendance2Table extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,13 @@ class CreateFormAttendanceTable extends Migration
      */
     public function up()
     {
-        Schema::create('form_attendance', function (Blueprint $table) {
-            $table->string('course_id', 30)->primary();
+        Schema::create('attendance2', function (Blueprint $table) {
+            $table->bigIncrements('attendance_id');
+            $table->string('course_id')->nullable();
             $table->string('student_id')->nullable();
+            $table->String('period_total')->nullable();
+            $table->String('amount_attendance')->nullable();
+            $table->String('amount_absence')->nullable();
             $table->string('period_1')->nullable();
             $table->string('period_2')->nullable();
             $table->string('period_3')->nullable();
@@ -31,6 +35,11 @@ class CreateFormAttendanceTable extends Migration
             $table->string('period_13')->nullable();
             $table->string('period_14')->nullable();
             $table->string('period_15')->nullable();
+            $table->String('person_add')->nullable();
+            $table->String('semester')->nullable();
+            $table->String('year')->nullable();
+            $table->String('gen')->nullable();
+            $table->timestamps();
         });
     }
 
@@ -41,6 +50,6 @@ class CreateFormAttendanceTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('form_attendance');
+        Schema::dropIfExists('attendance2');
     }
 }
