@@ -16,6 +16,8 @@ use App\Model\mis\Schedule;
 use App\Model\mis\Instructor;
 use App\Model\mis\Study;
 use App\Model\mis\Generation;
+use App\Model\spts\Semester;
+use App\Model\InspectorCondition;
 
 class ProblemController extends Controller
 {
@@ -210,25 +212,60 @@ class ProblemController extends Controller
     public function showProblemA($student_id)
     {
 
-       $problem = Problem::where('student_id', $student_id)->get();
+        // $problem = Problem::where('student_id', $student_id)->get();
         $users = User::all();
         $bios = Bio::where('student_id', $student_id)->first();
         // $test = Instructor::where('last_name', Auth::user()->lastname)->first();
         // $semester = Schedule::where('instructor_id', $test->instructor_id)->orderBy('year', 'asc')->get();
 
         $generation = Generation::all();
-
+        $semester = Semester::all();
+        $s = $student_id;
         // $gens = Generation::all();
 
         return view('advisor.problem', [
-            'problem' => $problem,
+            // 'problem' => $problem,
             'users' => $users,
             'bios' => $bios,
             'generation' => $generation,
-            // 'semester' => $semester,
+            'semester' => $semester,
+            's' => $s,
             // 'gens' => $gens
         ]);
     }
+    public function getShowProblemA(Request $request, $student_id){
+        $semester = $request->semester;
+
+        $s = $student_id;
+        $bios = Bio::where('student_id', $student_id)->get();
+
+        if($semester != NULL){
+            $semeter_value = explode("-", $semester);
+            $term = $semeter_value [0]; // เทอม
+            $year = $semeter_value [1]; // ปี
+
+            $problem = Problem::where('student_id', $student_id)
+                    ->where('semester', $term)
+                    ->where('year', $year)
+                    ->get();
+        }else{
+            $problem = Problem::where('student_id', $student_id)
+                    ->get();
+        }
+
+        $generation = Generation::all();
+
+        $semester = Semester::all();
+
+        return response()->json([
+            'bios' => $bios,
+            'problem' => $problem,
+            'generation' => $generation,
+            'semester' => $semester,
+            's' => $s,
+        ]);
+    }
+
 
 
     //Lecturer+Advisor
