@@ -367,6 +367,7 @@ Route::post('problem_insertAL','lecturer\ProblemController@insertAL');
 //แสดงพฤติกรรมเด็ก
 // Route::get('studentproblemAL/{student_id}', 'lecturer\ProblemController@showProblemAL');
 Route::get('studentproblemAL/{student_id}', 'lecturer\ProblemController@showProblemAL');
+Route::get('getStudentproblemAL/{student_id}', 'lecturer\ProblemController@getShowProblemAL')->name('getStudentproblemAL');
 
 //Advisor
 //แสดงการเข้าเรียน -> Attendance

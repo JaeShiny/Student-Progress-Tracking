@@ -316,7 +316,7 @@ class ProblemController extends Controller
 
     public function showProblemAL($student_id)
     {
-        $problem = Problem::where('student_id', $student_id)->get();
+        // $problem = Problem::where('student_id', $student_id)->get();
         $users = User::all();
         $bios = Bio::where('student_id', $student_id)->get();
 
@@ -330,16 +330,54 @@ class ProblemController extends Controller
         $semester = Schedule::where('instructor_id', $test->instructor_id)->orderBy('year', 'asc')->get();
         $gens = Generation::all();
         $generation = Generation::all();
+        $semesters = Semester::all();
+        $s = $student_id;
 
         return view('AdLec.problem', [
-            'problem' => $problem,
+            // 'problem' => $problem,
             'users' => $users,
             'bios' => $bios,
             'semester' => $semester,
             'gens' => $gens,
-            'generation' => $generation
+            'generation' => $generation,
+            'semesters' => $semesters,
+            's' => $s,
         ]);
     }
+    public function getShowProblemAL(Request $request, $student_id){
+        $semester = $request->semester;
+
+        $s = $student_id;
+        $bios = Bio::where('student_id', $student_id)->get();
+
+        if($semester != NULL){
+            $semeter_value = explode("-", $semester);
+            $term = $semeter_value [0]; // เทอม
+            $year = $semeter_value [1]; // ปี
+
+            $problem = Problem::where('student_id', $student_id)
+                    ->where('semester', $term)
+                    ->where('year', $year)
+                    ->get();
+        }else{
+            $problem = Problem::where('student_id', $student_id)
+                    ->get();
+        }
+
+        $generation = Generation::all();
+
+        $semester = Semester::all();
+
+        return response()->json([
+            'bios' => $bios,
+            'problem' => $problem,
+            'generation' => $generation,
+            'semester' => $semester,
+            's' => $s,
+        ]);
+    }
+
+
 
     //LF
     //เพิ่มปัญหา

@@ -30,10 +30,37 @@
         @endforeach
 
         <h5 align='center'>ปัญหา/พฤติกรรม</h5>
-        <br><br><br><br>
+
+<br>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 float-right">
+                <div class="btn-group">
+                    {{-- <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">เทอม/ปีการศึกษา<span class="caret"></span></button>
+                    <ul class="dropdown-menu scrollable-menu" role="menu">
+                        @foreach($semester as $show)
+                    <li> <a class="dropdown-item" href="">{{$show->semester}}/{{$show->year}}</a></li><br>
+                        @endforeach
+                    </ul> --}}
+                      <select name="semester" id="semester">
+
+                        <option value="0">เทอม/ปีการศึกษา</option>
+                          @foreach($semesters as $show)
+                            <option value="{{$show->semester}}-{{$show->year}}">{{$show->semester}}/{{$show->year}}</option>
+
+                          @endforeach
+
+                      </select>
+                </div>
+            </div>
+        </div>
+    </div>
+<br>
+
+        <br><br><br>
 
         <center>
-            <table class="table" width="60%">
+            <table class="table" width="60%" id="riskProblem">
                 <thead class="thead-light">
                     <tr>
                         <th scope="col">ประเภทพฤติกรรม/ปัญหา</th>
@@ -46,7 +73,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($problem as $show_problem)
+                    {{-- @foreach ($problem as $show_problem)
 
                     <tr>
                         <td scope="row">{{$show_problem->problem_type}}</td>
@@ -58,7 +85,7 @@
                         <td>อาจารย์ {{$show_problem->users->name}}</td>
                     </tr>
 
-                    @endforeach
+                    @endforeach --}}
                     {{-- @foreach ($user as $users)
                     <tr>
                         <td>อาจารย์ {{$users->name}}</td>
@@ -66,13 +93,77 @@
                     @endforeach --}}
                 </tbody>
             </table>
-        </center>
+        </center><br><br>
 
 
 </body>
 </html>
 
-
 @endsection
+
+@section('javascript')
+    <script>
+
+    $(function(){
+        getData(0); // start when reload page
+        $("#semester").change(function(){ /// chacke when dropdown change and get value
+            var semester_value = this.value;
+            getData(semester_value);
+        });
+    });
+
+
+        function getData(semester_value){
+          var url ='{{ route('getStudentproblemAL',['student_id' => $s]) }}';
+          var value = semester_value;
+
+          if(semester_value != 0){
+            url ='{{ route('getStudentproblemAL',['student_id' => $s,'semester' =>'semester_value']) }}';/// same ->  /getNotiproblemA/{student_id}?semester_value=xx
+            url = url.replace('semester_value', value);
+          }
+
+          console.log(url);
+          $.ajax({
+          type: 'GET', //THIS NEEDS TO BE GET
+          url:  url,
+          success: function (response) {
+            // console.log(response);
+             var risk_problem_len = 0;
+
+             $('#riskProblem tbody').empty(); // Empty <tbody>
+
+             if(response['problem'] != null){ /// ตรวจสอบ risk_problem ต้องไม่เป็นค่า null
+               risk_problem_len = response['problem'].length; // นับ Array Data risk_problem
+             }
+
+             if(risk_problem_len > 0){  // นับ Array Data risk_problem มากกว่า 0 ทำงาน เงื่อนไขนี้
+                 for(var i=0; i<risk_problem_len; i++){  // วนลูป
+                   var tr_str = "<tr>" +
+                        "<td align='center'>" + response['problem'][i].problem_type + "</td>" +
+                        "<td align='center'>" + response['problem'][i].problem_topic + "</td>" +
+                        "<td align='center'>" + response['problem'][i].problem_detail + "</td>" +
+                        "<td align='center'>" + response['problem'][i].risk_level + "</td>" +
+                        "<td align='center'>" + response['problem'][i].created_at + "</td>" +
+                        "<td align='center'>" + response['problem'][i].date + "</td>" +
+                        "<td align='center'> อาจารย์ " + response['problem'][i].person_add + "</td>" +
+                   "</tr>";
+                   $("#riskProblem tbody").append(tr_str);
+                 }
+             }else{
+                var tr_str = "<tr>" +
+                    "<td class='text-center' colspan='7'>ไม่พบข้อมูล</td>" +
+                "</tr>";
+                $("#riskProblem tbody").append(tr_str);
+             }
+             /////////////////////////////////////////////////////////////////////////////
+          },
+          error: function() {
+              console.log('error');
+          }
+          });
+        }
+    </script>
+@endsection
+
 @extends('bar.header(AdLec)')
 {{-- @extends('bar.username') --}}
