@@ -24,34 +24,80 @@
 
 <body>
 
-    <br>
+
     <center>
         <div style="border: 2px dotted โค้ตสีกรอบ; overflow: auto; width: 800px; height: 100px; text-align: center; background-color: #EEE9E9; border-radius: 5px;box-shadow: 5px 5px 8px 4px rgba(50, 50, 50, .5);">
            <br> <h4>{{$curriculum->curriculum_name}}</h4><p> {{$curriculum->curri_name_eng}}</p></div>
         </div>
     </center>
-    <br><br><br>
+    <br>
 
     <div class="container">
 
             <div class="row">
-                    <div class="col-sm-3"></div>
+                    <div class="col-sm-2"></div>
                 <div class="col-sm-4">
-                        <a href="/studentlist/{{$curriculum->curriculum_id}}/1"> <button type="button" class="btn btn-primary">นักศึกษาชั้นปีที่ 1</button></a>
+
+                        <div class="card" style="width: 18rem; box-shadow: 5px 5px 8px 4px rgba(50, 50, 50, .5);">
+                                <div class="card-body">
+                                  <center><h5 class="card-title">นักศึกษาชั้นปีที่ 1</h5></center>
+
+                                  <center><a href="/studentlist/{{$curriculum->curriculum_id}}/1" class="btn btn-primary" style="width: 100%">เลือก</a></center>
+
+                                  <center><small class="text-muted">{{$curriculum->curri_name_eng}}</small></center>
+                                </div>
+                              </div>
+
+                       {{-- <a href="/studentlist/{{$curriculum->curriculum_id}}/1"> <button type="button" class="btn btn-primary" style="box-shadow: 5px 5px 8px 4px rgba(50, 50, 50, .5);">นักศึกษาชั้นปีที่ 1</button></a>--}}
                 </div>
-                <div class="col-sm-4">
-                        <a href="/studentlist/{{$curriculum->curriculum_id}}/2"> <button type="button" class="btn btn-danger">นักศึกษาชั้นปีที่ 2</button></a>
+                <div class="col-sm-1" style="position: relative;right: -5%">
+
+                        <div class="card" style="width: 18rem; box-shadow: 5px 5px 8px 4px rgba(50, 50, 50, .5);">
+                                <div class="card-body">
+                                  <center><h5 class="card-title">นักศึกษาชั้นปีที่ 2</h5></center>
+
+                                  <center><a href="/studentlist/{{$curriculum->curriculum_id}}/2" class="btn btn-primary" style="width: 100%">เลือก</a></center>
+                                  <center><small class="text-muted">{{$curriculum->curri_name_eng}}</small></center>
+
+                                </div>
+                              </div>
+
+                       {{-- <a href="/studentlist/{{$curriculum->curriculum_id}}/2"> <button type="button" class="btn btn-danger" style="box-shadow: 5px 5px 8px 4px rgba(50, 50, 50, .5);">นักศึกษาชั้นปีที่ 2</button></a>--}}
                 </div>
 
             </div>
-<br><br><br>
+<br>
             <div class="row">
-                    <div class="col-sm-3"></div>
+                    <div class="col-sm-2"></div>
                 <div class="col-sm-4">
-                        <a href="/studentlist/{{$curriculum->curriculum_id}}/3"><button type="button" class="btn btn-warning">นักศึกษาชั้นปีที่ 3</button></a>
+
+                        <div class="card" style="width: 18rem; box-shadow: 5px 5px 8px 4px rgba(50, 50, 50, .5);">
+                                <div class="card-body">
+                                  <center><h5 class="card-title">นักศึกษาชั้นปีที่ 3</h5></center>
+
+                                  <center><a href="/studentlist/{{$curriculum->curriculum_id}}/3" class="btn btn-primary" style="width: 100%">เลือก</a></center>
+                                  <center><small class="text-muted">{{$curriculum->curri_name_eng}}</small></center>
+
+                                </div>
+                              </div>
+
+                       {{-- <a href="/studentlist/{{$curriculum->curriculum_id}}/3"><button type="button" class="btn btn-secondary" style="box-shadow: 5px 5px 8px 4px rgba(50, 50, 50, .5);">นักศึกษาชั้นปีที่ 3</button></a>--}}
                 </div>
-                <div class="col-sm-4">
-                        <a href="/studentlist/{{$curriculum->curriculum_id}}/4"><button type="button" class="btn btn-success">นักศึกษาชั้นปีที่ 4</button></a>
+
+                <div class="col-sm-1" style="position: relative;right: -5%">
+
+
+                        <div class="card" style="width: 18rem; box-shadow: 5px 5px 8px 4px rgba(50, 50, 50, .5);">
+                                <div class="card-body">
+                                  <center><h5 class="card-title">นักศึกษาชั้นปีที่ 4</h5></center>
+
+                                  <center><a href="/studentlist/{{$curriculum->curriculum_id}}/4" class="btn btn-primary" style="width: 100%">เลือก</a></center>
+                                  <center><small class="text-muted">{{$curriculum->curri_name_eng}}</small></center>
+
+                                </div>
+                              </div>
+
+                       {{-- <a href="/studentlist/{{$curriculum->curriculum_id}}/4"><button type="button" class="btn btn-success" style="box-shadow: 5px 5px 8px 4px rgba(50, 50, 50, .5);">นักศึกษาชั้นปีที่ 4</button></a>--}}
                 </div>
 
             </div>
