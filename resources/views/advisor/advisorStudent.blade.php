@@ -111,7 +111,7 @@
             </tbody>
             @endforeach
           </table>
-
+<br><br>
           {{-- <p> ทั้งหมด {{$student->count()}} รายการ </p> --}}
 
           {{-- <br>{{$bio->links()}}<br> --}}
