@@ -26,6 +26,7 @@ Route::get('createCondition','ConditionController@createCondition');
 Route::post('condition_insert','ConditionController@insert');
 //สร้างเงื่อนไขการแจ้งเตือน
 Route::resource('conditions', 'ConditionController');
+Route::resource('AdminConditions', 'AdminConditionController');
 
 
 //อัพรูป
