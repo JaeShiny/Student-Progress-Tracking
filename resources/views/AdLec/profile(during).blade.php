@@ -23,6 +23,24 @@
 </head>
 
 <body>
+        <div style="float: right;">
+                {{-- <a href="{{ url('profilebefore')"> --}}
+                {{-- <a href="{{route('profile',$bio['student_id'])}}"> --}}
+                {{-- <a href="{{ action('student\InterviewControllerr@profile') }}"> --}}
+                {{-- <a href="{{route('profile(before)',$bio['first_name']==$b_profile['firstname'])}}"> --}}
+                {{-- <a href="{{url('profilebefore')}}"> --}}
+                <a href="/profilebeforeAL/{{$bios->student_id}}">
+                    <button type="button" class="btn btn-outline-success">ข้อมูลการศึกษา</button>
+                </a>
+                <a href="/profileDuringAL/{{$bios->student_id}}">
+                    <button type="button" class="btn btn-secondary">ข้อมูลระหว่างการศึกษา</button>
+                </a>
+                <a href="/profileafterAL/{{$bios->student_id}}">
+                    <button type="button" class="btn btn-outline-primary">ข้อมูลหลังจบการศึกษา</button>
+                </a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+            </div>
+
         <br>
         <div class="container">
                 <div class="row">
@@ -39,8 +57,12 @@
                 </div>
             </div>
 
-    <div class="jumbotron">
+            <div class="jumbotron" style="box-shadow: 5px 5px 8px 4px rgba(50, 50, 50, .5);">
         <h4 class="display-4"></h4>
+        <p>
+                <B><u>ข้อมูลระหว่างศึกษา</u></B>
+            </p>
+<br><br>
             <p>
                 <B>ข้อมูลนักศึกษา</B>
             </p>
@@ -59,6 +81,7 @@
             <br>
 
             <div class="container7">
+                <br><br>
                     <img src="../image/{{$bios->picture}}" width="110" height="140">
             </div>
 
@@ -113,9 +136,9 @@
         <center>
 
         <div class="container">
-                <table class="table table-bordered">
+                <table class="table table-hover"style="box-shadow: 5px 5px 8px 4px rgba(50, 50, 50, .5);">
                     <thead>
-                        <tr>
+                            <tr class="table-success">
                             <th style="width: 13%"><center>รหัสวิชา</center></th>
                             <th>รหัสนักศึกษา</th>
                             <th style="width: 30%"><center>ชื่อ-สกุล</center></th>
@@ -296,9 +319,9 @@
         <hr class="my-4"><br><br>
 
         <center>
-            <table class="table table-hover">
+                <table class="table table-hover"style="box-shadow: 5px 5px 8px 4px rgba(50, 50, 50, .5);">
                 <thead>
-                    <tr>
+                        <tr class="table-warning">
                       <th style="width: 13%"><center>รหัสวิชา</center></th>
                       <th>รหัสนักศึกษา</th>
                       <th style="width: 35%"><center>ชื่อ-สกุล</center></th>
