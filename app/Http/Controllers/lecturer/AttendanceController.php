@@ -210,9 +210,18 @@ class AttendanceController extends Controller
 
     //Advisor
     //แสดงผลการเข้าเรียน
-    public function showAttendanceA($student_id){
-        $student = Attendance::where('student_id',$student_id)->get();
-        $attendance2 = Attendance2::where('student_id',$student_id)->get();
+    public function showAttendanceA($student_id, $semester, $year){
+
+        $semesters = $semester;
+        $year = $year;
+
+        $student = Attendance::where('student_id',$student_id)
+                    ->where('semester', $semester)->where('year', $year)
+                    ->get();
+        $attendance2 = Attendance2::where('student_id',$student_id)
+                        ->where('semester', $semester)->where('year', $year)
+                        ->get();
+
         $users = User::all();
         $bios = Bio::where('student_id', $student_id)->get();
         $generation = Generation::all();
@@ -220,6 +229,7 @@ class AttendanceController extends Controller
         $test = Instructor::where('last_name',Auth::user()->lastname)->first();
         $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
         $gen = Generation::all();
+
 
         return view('advisor.showAttendance',[
             'student' => $student,
@@ -229,6 +239,9 @@ class AttendanceController extends Controller
             'semester' => $semester,
             'gen' => $gen,
             'attendance2' => $attendance2,
+
+            'semesters' => $semesters,
+            'year' => $year,
         ]);
     }
 

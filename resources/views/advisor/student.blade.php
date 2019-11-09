@@ -24,7 +24,7 @@
 
 <body>
 
-    <div class="container">
+    {{-- <div class="container">
         <form action="/student_searchA" method="get">
             <div class="input-group">
                 <input type="search" name="search" class="form-control">
@@ -33,7 +33,9 @@
                 </span>
             </div>
         <form><br>
-    </div>
+    </div> --}}
+    <h5 align='center'>การเข้าเรียนและผลการเรียน</h5><br>
+    <h6 align='center'>ภาคเรียนที่:&nbsp;{{$semester}}/{{$year}}</h6><br>
 
     <center>
         <table class="table" width="60%" style="margin-top: 10px;">
@@ -69,13 +71,13 @@
                     </a>
                 </td> --}}
                 <td width="10">
-                    <a href="/attendanceA/{{$ad_list->student_id}}">
+                    <a href="/attendanceA/{{$ad_list->student_id}}/{{$semester}}/{{$year}}">
                         <center><img src="{{ URL::asset('../img/attendant-list.png') }}" width="25" title="การเข้าเรียน"></center>
                     </a>
                 </td>
 
                 <td width="10">
-                    <a href="/showGradeA/{{$ad_list->student_id}}">
+                    <a href="/showGradeA/{{$ad_list->student_id}}/{{$semester}}/{{$year}}">
                         <center><img src="{{ URL::asset('../img/grades.png') }}" width="25" title="ผลการเรียน"></center>
                     </a>
                 </td>

@@ -41,6 +41,9 @@
     @endforeach
 <br>
 
+<h5 align='center'>ผลการเรียน</h5><br>
+<h6 align='center'>ภาคเรียนที่:&nbsp;{{$semesters}}/{{$year}}</h6><br>
+
 <div class="row">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 <div class="container">

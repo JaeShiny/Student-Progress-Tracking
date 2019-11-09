@@ -114,17 +114,23 @@ class GradeController extends Controller
 
     //Advisor
     //แสดงผล grade
-    public function showGradeA($student_id)  {
+    public function showGradeA($student_id, $semester, $year)  {
         $student = Grade::where('student_id',$student_id)->get();
         $users = User::all();
         $bios = Bio::where('student_id', $student_id)->get();
         $generation = Generation::all();
 
+        $semesters = $semester;
+        $year = $year;
+
         return view('advisor.showGrade',[
             'student' => $student,
             'users' => $users,
             'bios' => $bios,
-            'generation' => $generation
+            'generation' => $generation,
+
+            'semesters' => $semesters,
+            'year' => $year,
         ]);
     }
 

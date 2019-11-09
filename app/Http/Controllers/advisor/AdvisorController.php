@@ -53,13 +53,19 @@ class AdvisorController extends Controller
 
         $myStudent = Student::whereIn('generation',$gen)->where('adviser_id1',$instructor->instructor_id)->orWhere('adviser_id2',$instructor->instructor_id)->get();
 
-
         $generation = Generation::all();
+
+        $semester = $semester;
+        $year = $year;
 
        return view('advisor.student',[
            'myStudent' => $myStudent,
            'generation'=> $generation,
            'gen' => $gen,
+
+           'semester' => $semester,
+           'year' => $year,
+
        ]);
     }
 

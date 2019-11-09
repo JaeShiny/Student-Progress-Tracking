@@ -322,11 +322,11 @@ Route::get('student_enrollmentA1/{student_id}/{semester}/{year}','student\StudyC
 
 //แสดงการเข้าเรียน -> Attendance
 // Route::get('/attendanceA/{course_id}','lecturer\AttendanceController@showAttendanceA');
-Route::get('/attendanceA/{student_id}','lecturer\AttendanceController@showAttendanceA');
-// Route::get('/getAttendanceA/{student_id}','lecturer\AttendanceController@getShowAttendanceA')->name('getAttendanceA');
+Route::get('/attendanceA/{student_id}/{semester}/{year}','lecturer\AttendanceController@showAttendanceA');
+
 //แสดงผลการเรียน -> Grade
-Route::get('/showGradeA/{student_id}','lecturer\GradeController@showGradeA');
-// Route::get('/getShowGradeA/{student_id}','lecturer\GradeController@getShowGradeA')->name('getShowGradeA');
+Route::get('/showGradeA/{student_id}/{semester}/{year}','lecturer\GradeController@showGradeA');
+
 
 // Route::get('/advisorSurvey', function () {
 //     return view('advisor.indexSurvey');
