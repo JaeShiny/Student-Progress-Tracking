@@ -37,24 +37,10 @@
             <div class="card-header">
                 <h5>การเข้าเรียน</h5>
             </div> --}}
-    <h5 align='center'>การเข้าเรียน</h5>
-
-<br>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 float-right">
-                <div class="btn-group">
-                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">เทอม/ปีการศึกษา<span class="caret"></span></button>
-                    <ul class="dropdown-menu scrollable-menu" role="menu">
-                        @foreach($semesters as $show)
-                        <li> <a class="dropdown-item" href="/student/attendance/{{$show->semester}}/{{$show->year}}">{{$show->semester}}/{{$show->year}}</a></li>
-                        @endforeach
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-<br><br><br><br>
+        <h5 align='center'>การเข้าเรียน</h5><br>
+        <h6 align='center'>ปีการศึกษา:&nbsp;{{$semester}}/{{$year}}</h6>
+        <br>
+    <br><br><br>
 
 <center>
     <div class="container-fluid">
@@ -375,14 +361,15 @@
                 </div>
                 </div>
             @endforeach
-
         </table>
 
     </div>
 </div>
 </div>
 </center>
-<br><br><br>
+<br>
+
+<h6 align='center'><a class="nav-link" href="/student/attendance">กลับ</a></h6><br>
 
 </body>
 

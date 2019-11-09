@@ -17,6 +17,7 @@ use App\Model\mis\Instructor;
 use App\Model\mis\Schedule;
 use App\Model\spts\User;
 use App\Model\mis\Generation;
+use App\Model\spts\Semester;
 use Auth;
 
 class AttendanceController extends Controller
@@ -172,6 +173,8 @@ class AttendanceController extends Controller
         // $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
         $gen = Generation::all();
 
+        $semesters = Semester::all();
+
         return view('student.showAttendance',[
             'attendance' => $attendance,
             'student_id' => $student_id,
@@ -180,6 +183,39 @@ class AttendanceController extends Controller
             'gen' => $gen,
             'users' => $users,
             'attendance2' => $attendance2,
+            'semesters' => $semesters,
+        ]);
+    }
+    //เลือกเทอมแล้วแสดงหน้านี้
+    public function showAttendanceS2($semester, $year)  {
+        $student_id = Auth::user()->student_id;
+        $attendance = Attendance::where('student_id',$student_id)
+                    ->where('semester', $semester)->where('year', $year)
+                    ->get();
+        $attendance2 = Attendance2::where('student_id',$student_id)
+                    ->where('semester', $semester)->where('year', $year)
+                    ->get();
+        $bios = Bio::where('student_id', $student_id)->get();
+
+        $users = User::all();
+        // $test = Instructor::where('last_name',Auth::user()->lastname)->first();
+        // $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+        $gen = Generation::all();
+
+        $semester = $semester;
+        $year = $year;
+
+        return view('student.showAttendance2',[
+            'attendance' => $attendance,
+            'student_id' => $student_id,
+            'bios' => $bios,
+            // 'semester' => $semester,
+            'gen' => $gen,
+            'users' => $users,
+            'attendance2' => $attendance2,
+
+            'semester' => $semester,
+            'year' => $year,
         ]);
     }
 

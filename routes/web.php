@@ -286,6 +286,7 @@ Route::get('profileafter/{student_id}','student\SrmController@profile');
 
 //แสดงการเข้าเรียน Attendance
 Route::get('/student/attendance','lecturer\AttendanceController@showAttendanceS');
+Route::get('/student/attendance/{semester}/{year}','lecturer\AttendanceController@showAttendanceS2');
 //แสดงผลการเรียน Grade
 Route::get('/student/grade','lecturer\GradeController@showGradeS');
 
