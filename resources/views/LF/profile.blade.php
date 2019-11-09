@@ -41,7 +41,7 @@
         </div>
         <br>
 
-        <div class="jumbotron">
+        <div class="jumbotron"style="box-shadow: 5px 5px 8px 4px rgba(50, 50, 50, .5);">
             <h4 class="display-4"></h4>
             <p>
                 <B>ข้อมูลนักศึกษา</B>
@@ -62,6 +62,7 @@
             <br>
 
             <div class="container7">
+                <br><br>
                     <img src="../image/{{$bios->picture}}" width="110" height="140">
             </div>
 
