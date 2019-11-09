@@ -269,9 +269,17 @@ class AttendanceController extends Controller
             'attendance2' => $attendance2,
         ]);
     }
-    public function showAttendanceAL($course_id)  {
-        $student = Attendance::where('course_id',$course_id)->get();
-        $attendance2 = Attendance2::where('course_id',$course_id)->get();
+        //Lec
+    public function showAttendanceAL($course_id, $semester, $year)  {
+        $semesters = $semester;
+        $year = $year;
+
+        $student = Attendance::where('course_id',$course_id)
+                    ->where('semester', $semester)->where('year', $year)
+                    ->get();
+        $attendance2 = Attendance2::where('course_id',$course_id)
+                    ->where('semester', $semester)->where('year', $year)
+                    ->get();
         $course = Course::find($course_id);
         $users = User::all();
         $test = Instructor::where('last_name',Auth::user()->lastname)->first();
@@ -289,6 +297,9 @@ class AttendanceController extends Controller
             'semester' => $semester,
             'gen' => $gen,
             'attendance2' => $attendance2,
+
+            'semesters' => $semesters,
+            'year' => $year,
         ]);
     }
 

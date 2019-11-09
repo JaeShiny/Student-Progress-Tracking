@@ -408,9 +408,9 @@ Route::get('importExportGradeAL/{course_id}', 'lecturer\GradeController@importEx
 Route::post('importGradeAL/{course_id}', 'lecturer\GradeController@import')->name('importAL');
 
 //แสดงการเข้าเรียน -> Attendance
-Route::get('/attendanceAL/{course_id}','lecturer\AttendanceController@showAttendanceAL');
+Route::get('/attendanceAL/{course_id}/{semester}/{year}','lecturer\AttendanceController@showAttendanceAL');
 //แสดงผลการเรียน -> Grade
-Route::get('/showGradeAL/{course_id}','lecturer\GradeController@showGradeAL');
+Route::get('/showGradeAL/{course_id}/{semester}/{year}','lecturer\GradeController@showGradeAL');
 
 // Route::get('/adlecSurvey', function () {
 //     return view('Adlec.indexSurvey');

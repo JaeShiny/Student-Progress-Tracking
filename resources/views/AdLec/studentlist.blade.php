@@ -30,10 +30,10 @@
                 <a href="/importExportViewAL/{{$course->course_id}}">เพิ่มไฟล์</a>
             </button>
             <button type="button" class="btn btn-outline-success">
-                <a href="/attendanceAL/{{$course->course_id}}">แสดงผลการเข้าเรียน</a>
+                <a href="/attendanceAL/{{$course->course_id}}/{{$gen->semester}}/{{$gen->year}}">แสดงผลการเข้าเรียน</a>
             </button>
             <button type="button" class="btn btn-outline-success">
-                <a href="/showGradeAL/{{$course->course_id}}">แสดงผลการเรียน</a>
+                <a href="/showGradeAL/{{$course->course_id}}/{{$gen->semester}}/{{$gen->year}}">แสดงผลการเรียน</a>
             </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </h5>
 

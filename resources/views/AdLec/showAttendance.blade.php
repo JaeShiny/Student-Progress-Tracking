@@ -20,7 +20,7 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <li class="breadcrumb-item" aria-current="page"><a href="{{ url('courseAL') }}">วิชาที่สอน</a></li>
+            {{-- <li class="breadcrumb-item" aria-current="page"><a href="{{ url('courseAL') }}">วิชาที่สอน</a></li> --}}
             <li class="breadcrumb-item" aria-current="page"><a href="/attendanceAL/{{$course->course_id}}">แสดงการเข้าเรียน</a></li>
         </ol>
     </nav>
@@ -50,7 +50,7 @@
 
             <a class="list-group-item list-group-item-action" href="/importExportViewAL/{{$course->course_id}}"><b>เพิ่มการเข้าเรียน</b></a>
             <a class="list-group-item list-group-item-action active" href="/attendanceAL/{{$course->course_id}}"><b>แสดงการเข้าเรียน</b></a>
-            <a class="list-group-item list-group-item-action" href="/subjectAL/{{$course->course_id}}"><b>รายชื่อนักศึกษา</b></a>
+            {{-- <a class="list-group-item list-group-item-action" href="/subjectAL/{{$course->course_id}}"><b>รายชื่อนักศึกษา</b></a> --}}
 
         </div>
     </div>
@@ -60,7 +60,23 @@
                 <div class="card-header">
                         <h4 class="w3-bar-item">{{$course->course_id}}&nbsp;{{$course->course_name_eng}}</h4>
                 </div>
-    <br><br><br>
+
+<br>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 float-right">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">เทอม/ปีการศึกษา<span class="caret"></span></button>
+                    <ul class="dropdown-menu scrollable-menu" role="menu">
+                        @foreach($gen as $show)
+                        <li> <a class="dropdown-item" href="/attendanceAL/{{$course->course_id}}/{{$show->semester}}/{{$show->year}}">{{$show->semester}}/{{$show->year}}</a></li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+<br><br><br>
 
     <center>
         <table class="table table-hover">

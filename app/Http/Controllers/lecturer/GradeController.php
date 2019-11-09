@@ -152,8 +152,10 @@ class GradeController extends Controller
             'generation' => $generation
         ]);
     }
-    public function showGradeAL($course_id)  {
-        $student = Grade::where('course_id',$course_id)->get();
+    public function showGradeAL($course_id, $semester, $year)  {
+        $student = Grade::where('course_id',$course_id)
+                    ->where('semester', $semester)->where('year', $year)
+                    ->get();
         $course = Course::find($course_id);
         $users = User::all();
         $test = Instructor::where('last_name',Auth::user()->lastname)->first();
