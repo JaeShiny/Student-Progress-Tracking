@@ -864,21 +864,51 @@ class ChartController extends Controller
         $generation = Generation::all();
 
         $count_student = Attendance::where('attendance_id')->where('semester', $semester)->where('year', $year)->count();
-        $period_1 = Attendance::where('period_1', '<=' , 0)->whereIn('student_id',$student_ids->all())->count();
-        $period_2 = Attendance::where('period_2', '<=' , 0)->whereIn('student_id',$student_ids->all())->count();
-        $period_3 = Attendance::where('period_3', '<=' , 0)->whereIn('student_id',$student_ids->all())->count();
-        $period_4 = Attendance::where('period_4', '<=' , 0)->whereIn('student_id',$student_ids->all())->count();
-        $period_5 = Attendance::where('period_5', '<=' , 0)->whereIn('student_id',$student_ids->all())->count();
-        $period_6 = Attendance::where('period_6', '<=' , 0)->whereIn('student_id',$student_ids->all())->count();
-        $period_7 = Attendance::where('period_7', '<=' , 0)->whereIn('student_id',$student_ids->all())->count();
-        $period_8 = Attendance::where('period_8', '<=' , 0)->whereIn('student_id',$student_ids->all())->count();
-        $period_9 = Attendance::where('period_9', '<=' , 0)->whereIn('student_id',$student_ids->all())->count();
-        $period_10 = Attendance::where('period_10', '<=' , 0)->whereIn('student_id',$student_ids->all())->count();
-        $period_11 = Attendance::where('period_11', '<=' , 0)->whereIn('student_id',$student_ids->all())->count();
-        $period_12 = Attendance::where('period_12', '<=' , 0)->whereIn('student_id',$student_ids->all())->count();
-        $period_13 = Attendance::where('period_13', '<=' , 0)->whereIn('student_id',$student_ids->all())->count();
-        $period_14 = Attendance::where('period_14', '<=' , 0)->whereIn('student_id',$student_ids->all())->count();
-        $period_15 = Attendance::where('period_15', '<=' , 0)->whereIn('student_id',$student_ids->all())->count();
+        $period_1 = Attendance::where('period_1', '<=' , 0)
+                    ->whereIn('student_id',$student_ids->all())->where('year', $year)
+                    ->count();
+        $period_2 = Attendance::where('period_2', '<=' , 0)
+                    ->whereIn('student_id',$student_ids->all())->where('year', $year)
+                    ->count();
+        $period_3 = Attendance::where('period_3', '<=' , 0)
+                    ->whereIn('student_id',$student_ids->all())->where('year', $year)
+                    ->count();
+        $period_4 = Attendance::where('period_4', '<=' , 0)
+                    ->whereIn('student_id',$student_ids->all())->where('year', $year)
+                    ->count();
+        $period_5 = Attendance::where('period_5', '<=' , 0)
+                    ->whereIn('student_id',$student_ids->all())->where('year', $year)
+                    ->count();
+        $period_6 = Attendance::where('period_6', '<=' , 0)
+                    ->whereIn('student_id',$student_ids->all())->where('year', $year)
+                    ->count();
+        $period_7 = Attendance::where('period_7', '<=' , 0)
+                    ->whereIn('student_id',$student_ids->all())->where('year', $year)
+                    ->count();
+        $period_8 = Attendance::where('period_8', '<=' , 0)
+                    ->whereIn('student_id',$student_ids->all())->where('year', $year)
+                    ->count();
+        $period_9 = Attendance::where('period_9', '<=' , 0)
+                    ->whereIn('student_id',$student_ids->all())->where('year', $year)
+                    ->count();
+        $period_10 = Attendance::where('period_10', '<=' , 0)
+                    ->whereIn('student_id',$student_ids->all())->where('year', $year)
+                    ->count();
+        $period_11 = Attendance::where('period_11', '<=' , 0)
+                    ->whereIn('student_id',$student_ids->all())->where('year', $year)
+                    ->count();
+        $period_12 = Attendance::where('period_12', '<=' , 0)
+                    ->whereIn('student_id',$student_ids->all())->where('year', $year)
+                    ->count();
+        $period_13 = Attendance::where('period_13', '<=' , 0)
+                    ->whereIn('student_id',$student_ids->all())->where('year', $year)
+                    ->count();
+        $period_14 = Attendance::where('period_14', '<=' , 0)
+                    ->whereIn('student_id',$student_ids->all())->where('year', $year)
+                    ->count();
+        $period_15 = Attendance::where('period_15', '<=' , 0)
+                    ->whereIn('student_id',$student_ids->all())->where('year', $year)
+                    ->count();
 
         // $chart = Charts::database($risk_attendance, 'bar', 'highcharts')
         //         ->title("Attendance")
@@ -946,14 +976,30 @@ class ChartController extends Controller
         $gen = Generation::orderBy('year','desc')->first();
         $generation = Generation::all();
 
-        $gradeA = Grade::where('total_all', '>=', 80)->whereIn('student_id',$student_ids->all())->count();
-        $gradeBB = Grade::where('total_all', '>=', 75)->where('total_all', '<=', 79)->whereIn('student_id',$student_ids->all())->count();
-        $gradeB = Grade::where('total_all', '>=', 70)->where('total_all', '<=', 74)->whereIn('student_id',$student_ids->all())->count();
-        $gradeCC = Grade::where('total_all', '>=', 65)->where('total_all', '<=', 69)->whereIn('student_id',$student_ids->all())->count();
-        $gradeC = Grade::where('total_all', '>=', 60)->where('total_all', '<=', 64)->whereIn('student_id',$student_ids->all())->count();
-        $gradeDD = Grade::where('total_all', '>=', 55)->where('total_all', '<=', 59)->whereIn('student_id',$student_ids->all())->count();
-        $gradeD = Grade::where('total_all', '>=', 50)->where('total_all', '<=', 54)->whereIn('student_id',$student_ids->all())->count();
-        $gradeF = Grade::where('total_all', '>=', 49)->whereIn('student_id',$student_ids->all())->count();
+        $gradeA = Grade::where('total_all', '>=', 80)
+                ->whereIn('student_id',$student_ids->all())->where('year', $year)
+                ->count();
+        $gradeBB = Grade::where('total_all', '>=', 75)->where('total_all', '<=', 79)
+                ->whereIn('student_id',$student_ids->all())->where('year', $year)
+                ->count();
+        $gradeB = Grade::where('total_all', '>=', 70)->where('total_all', '<=', 74)
+                ->whereIn('student_id',$student_ids->all())->where('year', $year)
+                ->count();
+        $gradeCC = Grade::where('total_all', '>=', 65)->where('total_all', '<=', 69)
+                ->whereIn('student_id',$student_ids->all())->where('year', $year)
+                ->count();
+        $gradeC = Grade::where('total_all', '>=', 60)->where('total_all', '<=', 64)
+                ->whereIn('student_id',$student_ids->all())->where('year', $year)
+                ->count();
+        $gradeDD = Grade::where('total_all', '>=', 55)->where('total_all', '<=', 59)
+                ->whereIn('student_id',$student_ids->all())->where('year', $year)
+                ->count();
+        $gradeD = Grade::where('total_all', '>=', 50)->where('total_all', '<=', 54)
+                ->whereIn('student_id',$student_ids->all())->where('year', $year)
+                ->count();
+        $gradeF = Grade::where('total_all', '>=', 49)
+                ->whereIn('student_id',$student_ids->all())->where('year', $year)
+                ->count();
 
         $chart = Charts::database($risk_grade, 'bar', 'highcharts')
             ->title("สถิติผลการเรียนของนักศึกษา")
@@ -1005,11 +1051,21 @@ class ChartController extends Controller
         $risk_problem = Problem::where('problem_id')->whereIn('student_id',$student_ids->all())->where('semester', $semester)->where('year', $year)->get();
         $risk_problemC = $risk_problem->count();
 
-        $p1 = Problem::where('problem_type', 'พฤติกรรม/ปัญหา ในห้องเรียน')->whereIn('student_id',$student_ids->all())->count();
-        $p2 = Problem::where('problem_type', 'พฤติกรรม/ปัญหา นอกห้องเรียน')->whereIn('student_id',$student_ids->all())->count();
-        $p3 = Problem::where('problem_type', 'พฤติกรรม/ปัญหา ด้านสุขภาพ')->whereIn('student_id',$student_ids->all())->count();
-        $p4 = Problem::where('problem_type', 'พฤติกรรม/ปัญหา ด้านครอบครัว')->whereIn('student_id',$student_ids->all())->count();
-        $p5 = Problem::where('problem_type', 'พฤติกรรม/ปัญหา ด้านการเงิน')->whereIn('student_id',$student_ids->all())->count();
+        $p1 = Problem::where('problem_type', 'พฤติกรรม/ปัญหา ในห้องเรียน')
+                ->whereIn('student_id',$student_ids->all())->where('year', $year)
+                ->count();
+        $p2 = Problem::where('problem_type', 'พฤติกรรม/ปัญหา นอกห้องเรียน')
+                ->whereIn('student_id',$student_ids->all())->where('year', $year)
+                ->count();
+        $p3 = Problem::where('problem_type', 'พฤติกรรม/ปัญหา ด้านสุขภาพ')
+                ->whereIn('student_id',$student_ids->all())->where('year', $year)
+                ->count();
+        $p4 = Problem::where('problem_type', 'พฤติกรรม/ปัญหา ด้านครอบครัว')
+                ->whereIn('student_id',$student_ids->all())->where('year', $year)
+                ->count();
+        $p5 = Problem::where('problem_type', 'พฤติกรรม/ปัญหา ด้านการเงิน')
+                ->whereIn('student_id',$student_ids->all())->where('year', $year)
+                ->count();
 
         $chart = Charts::database($risk_problem, 'bar', 'highcharts')
             ->title("สถิติปัญหา/พฤติกรรมด้านต่างๆของนักศึกษา")
