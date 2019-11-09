@@ -289,7 +289,7 @@ Route::get('/student/attendance','lecturer\AttendanceController@showAttendanceS'
 Route::get('/student/attendance/{semester}/{year}','lecturer\AttendanceController@showAttendanceS2');
 //แสดงผลการเรียน Grade
 Route::get('/student/grade','lecturer\GradeController@showGradeS');
-
+Route::get('/student/grade/{semester}/{year}','lecturer\GradeController@showGradeS2');
 
     //Advisor
 Route::get('student_profileA','student\BioController@profileA');

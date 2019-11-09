@@ -43,24 +43,10 @@
         <h6 align='right'>ชื่อ-สกุล: {{$bio->first_name}} &nbsp;{{$bio->last_name}}&nbsp;&nbsp;&nbsp;</h6>
     @endforeach
 
-    <h5 align='center'>ผลการเรียน</h5>
-
-<br>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 float-right">
-                <div class="btn-group">
-                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">เทอม/ปีการศึกษา<span class="caret"></span></button>
-                    <ul class="dropdown-menu scrollable-menu" role="menu">
-                        @foreach($semesters as $show)
-                        <li> <a class="dropdown-item" href="/student/attendance/{{$show->semester}}/{{$show->year}}">{{$show->semester}}/{{$show->year}}</a></li>
-                        @endforeach
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-<br><br><br><br>
+    <h5 align='center'>ผลการเรียน</h5><br>
+    <h6 align='center'>ปีการศึกษา:&nbsp;{{$semester}}/{{$year}}</h6>
+    <br>
+<br><br><br>
 
     <center>
         <table class="table table-hover">
@@ -184,7 +170,9 @@
     </center>
 
 </div>
-</div><br>
+</div>
+<br>
+<h6 align='center'><a class="nav-link" href="/student/grade">กลับ</a></h6><br>
 
 </body>
 

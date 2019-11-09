@@ -85,11 +85,37 @@ class GradeController extends Controller
         $bios = Bio::where('student_id', $student_id)->get();
         $users = User::all();
 
+        $semesters = Semester::all();
+
         return view('student.showGrade',[
             'grade' => $grade,
             'student_id' => $student_id,
             'bios' => $bios,
             'users' => $users,
+
+            'semesters' => $semesters,
+        ]);
+    }
+        //เลือกเทอมแล้วมาอีกหน้า
+    public function showGradeS2($semester, $year)  {
+        $student_id = Auth::user()->student_id;
+        $grade = Grade::where('student_id',$student_id)
+                ->where('semester', $semester)->where('year', $year)
+                ->get();
+        $bios = Bio::where('student_id', $student_id)->get();
+        $users = User::all();
+
+        $semester = $semester;
+        $year = $year;
+
+        return view('student.showGrade2',[
+            'grade' => $grade,
+            'student_id' => $student_id,
+            'bios' => $bios,
+            'users' => $users,
+
+            'semester' => $semester,
+            'year' => $year,
         ]);
     }
 
