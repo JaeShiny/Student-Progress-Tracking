@@ -65,9 +65,14 @@
                   <td><center>{{$student->amount_absence}}</center></td>
                   <td>
                       <!-- Button trigger modal -->
-                      <center><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal{{$student->student_id}}">
-                        รายละเอียด
-                    </button></center>
+                 <center>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal{{$student->student_id}}">
+                        ทฤษฎี
+                    </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2{{$student->student_id}}">
+                        Lab
+                    </button>
+                </center>
                   </td>
                 </tr>
             </tbody>
@@ -211,6 +216,149 @@
                     </div>
                 </div>
             @endforeach
+
+            @foreach ($attendance2 as $show_student)
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal2{{$show_student->student_id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">รายละเอียดการเข้าเรียน(Lab)ของ:&nbsp;{{$show_student->student_id}}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body">
+                        <div>
+                            <b>คาบ1:</b>
+                            @if($show_student->period_1 == 1)
+                                attend
+                            @else
+                                absence
+                            @endif
+                        </div>
+                        <div>
+                            <b>คาบ2:</b>
+                            @if($show_student->period_2 == 1)
+                                attend
+                            @else
+                                absence
+                            @endif
+                        </div>
+                        <div>
+                            <b>คาบ 3:</b>
+                            @if($show_student->period_3 == 1)
+                                attend
+                            @else
+                                absence
+                            @endif
+                        </div>
+                        <div>
+                            <b>คาบ 4:</b>
+                            @if($show_student->period_4 == 1)
+                                attend
+                            @else
+                                absence
+                            @endif
+                        </div>
+                        <div>
+                            <b>คาบ 5:</b>
+                            @if($show_student->period_5 == 1)
+                                attend
+                            @else
+                                absence
+                            @endif
+                        </div>
+                        <div>
+                            <b>คาบ 6:</b>
+                            @if($show_student->period_6 == 1)
+                                attend
+                            @else
+                                absence
+                            @endif
+                        </div>
+                        <div>
+                            <b>คาบ 7:</b>
+                            @if($show_student->period_7 == 1)
+                                attend
+                            @else
+                                absence
+                            @endif
+                        </div>
+                        <div>
+                            <b>คาบ 8:</b>
+                            @if($show_student->period_8 == 1)
+                                attend
+                            @else
+                                absence
+                            @endif
+                        </div>
+                        <div>
+                            <b>คาบ 9:</b>
+                            @if($show_student->period_9 == 1)
+                                attend
+                            @else
+                                absence
+                            @endif
+                        </div>
+                        <div>
+                            <b>คาบ 10:</b>
+                            @if($show_student->period_10 == 1)
+                                attend
+                            @else
+                                absence
+                            @endif
+                        </div>
+                        <div>
+                            <b>คาบ 11:</b>
+                            @if($show_student->period_11 == 1)
+                                attend
+                            @else
+                                absence
+                            @endif
+                        </div>
+                        <div>
+                            <b>คาบ 12:</b>
+                            @if($show_student->period_12 == 1)
+                                attend
+                            @else
+                                absence
+                            @endif
+                        </div>
+                        <div>
+                            <b>คาบ 13:</b>
+                            @if($show_student->period_13 == 1)
+                                attend
+                            @else
+                                absence
+                            @endif
+                        </div>
+                        <div>
+                            <b>คาบ 14:</b>
+                            @if($show_student->period_14 == 1)
+                                attend
+                            @else
+                                absence
+                            @endif
+                        </div>
+                        <div>
+                            <b>คาบ 15:</b>
+                            @if($show_student->period_15 == 1)
+                                attend
+                            @else
+                                absence
+                            @endif
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    {{-- <button type="button" class="btn btn-primary">Save changes</button> --}}
+                    </div>
+                </div>
+                </div>
+            @endforeach
+
         </table>
 
     </div>

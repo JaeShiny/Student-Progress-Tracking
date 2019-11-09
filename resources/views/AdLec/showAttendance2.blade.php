@@ -83,10 +83,14 @@
                   <td><center>{{$student->amount_attendance}}</center></td>
                   <td><center>{{$student->amount_absence}}</center></td>
                   <td>
-                      <!-- Button trigger modal -->
+                <center>
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal{{$student->student_id}}">
-                        รายละเอียด
+                        ทฤษฎี
+                    </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2{{$student->student_id}}">
+                        Lab
                     </button>
+                </center>
                   </td>
                 </tr>
             </tbody>
