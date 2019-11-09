@@ -110,6 +110,7 @@ Route::post('problem_insertE','lecturer\ProblemController@insertE');
 
 //แสดงพฤติกรรมเด็ก
 Route::get('studentproblemE/{student_id}', 'lecturer\ProblemController@showProblemE');
+Route::get('getStudentproblemE/{student_id}', 'lecturer\ProblemController@getShowProblemE')->name('getStudentproblemE');
 
 //กดดูวิชาที่เด็กลงทะเบียน
 Route::get('student_enrollmentE','student\StudyController@enrollmentE');
@@ -322,9 +323,10 @@ Route::get('student_enrollmentA1/{student_id}/{semester}/{year}','student\StudyC
 //แสดงการเข้าเรียน -> Attendance
 // Route::get('/attendanceA/{course_id}','lecturer\AttendanceController@showAttendanceA');
 Route::get('/attendanceA/{student_id}','lecturer\AttendanceController@showAttendanceA');
+// Route::get('/getAttendanceA/{student_id}','lecturer\AttendanceController@getShowAttendanceA')->name('getAttendanceA');
 //แสดงผลการเรียน -> Grade
 Route::get('/showGradeA/{student_id}','lecturer\GradeController@showGradeA');
-
+// Route::get('/getShowGradeA/{student_id}','lecturer\GradeController@getShowGradeA')->name('getShowGradeA');
 
 // Route::get('/advisorSurvey', function () {
 //     return view('advisor.indexSurvey');

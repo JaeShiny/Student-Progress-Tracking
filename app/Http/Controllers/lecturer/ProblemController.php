@@ -145,16 +145,51 @@ class ProblemController extends Controller
         // $test = Instructor::where('last_name', Auth::user()->lastname)->first();
         // $semester = Schedule::where('instructor_id', $test->instructor_id)->orderBy('year', 'asc')->get();
         $gen = Generation::all();
-
+        $semester = Semester::all();
+        $s = $student_id;
 
         return view('EducationOfficer.problem', [
             'problem' => $problem,
             'users' => $users,
             'bios' => $bios,
             'gen' => $gen,
-            // 'semester' => $semester,
+            'semester' => $semester,
+            's' => $s,
         ]);
     }
+    public function getShowProblemE(Request $request, $student_id){
+        $semester = $request->semester;
+
+        $s = $student_id;
+        $bios = Bio::where('student_id', $student_id)->get();
+
+        if($semester != NULL){
+            $semeter_value = explode("-", $semester);
+            $term = $semeter_value [0]; // เทอม
+            $year = $semeter_value [1]; // ปี
+
+            $problem = Problem::where('student_id', $student_id)
+                    ->where('semester', $term)
+                    ->where('year', $year)
+                    ->get();
+        }else{
+            $problem = Problem::where('student_id', $student_id)
+                    ->get();
+        }
+
+        $generation = Generation::all();
+
+        $semester = Semester::all();
+
+        return response()->json([
+            'bios' => $bios,
+            'problem' => $problem,
+            'generation' => $generation,
+            'semester' => $semester,
+            's' => $s,
+        ]);
+    }
+
 
     //show ปัญหาของนักศึกษาที่ รุนแรงมาก
     public function notiProblemE($student_id)
