@@ -5,7 +5,7 @@
 
 <head>
     <title>ข้อมูลการสัมภาษณ์</title>
-    {{-- <link href="{{ asset('css/csste.css') }}" rel="stylesheet" type="text/css"> --}}
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <meta charset="utf-8">
@@ -23,15 +23,42 @@
 </head>
 
 <body>
+        <div style="float: right;">
+                {{-- <a href="{{ url('profilebefore')"> --}}
+                {{-- <a href="{{route('profile',$bio['student_id'])}}"> --}}
+                {{-- <a href="{{ action('student\InterviewControllerr@profile') }}"> --}}
+                {{-- <a href="{{route('profile(before)',$bio['first_name']==$b_profile['firstname'])}}"> --}}
+                {{-- <a href="{{url('profilebefore')}}"> --}}
+                <a href="/profilebeforeL/{{$bios->student_id}}">
+                    <button type="button" class="btn btn-success">ข้อมูลการศึกษา</button>
+                </a>
+            <a href="/profileDuringL/{{$bios->student_id}}">
+                    <button type="button" class="btn btn-outline-secondary">ข้อมูลระหว่างการศึกษา</button>
+                </a>
+                <a href="/profileafterL/{{$bios->student_id}}">
+                    <button type="button" class="btn btn-outline-primary">ข้อมูลหลังจบการศึกษา</button>
+                </a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+            </div>
+            <br>
 
-    <div class="jumbotron">
+    <div class="jumbotron" style="box-shadow: 5px 5px 8px 4px rgba(50, 50, 50, .5);">
         {{-- <h4 class="display-4"></h4>
         <hr class="my-4"> --}}
+        <B><u>ข้อมูลการศึกษา</u></B>
         <p>
-            <B>ข้อมูลทั่วไป</B>
-        </p>
-        <br>
-        <br>
+<br><br>
+                <B>ข้อมูลทั่วไป</B>
+            </p>
+        <hr>
+
+
+
+        <div class="container7">
+<br><br><br><br><br><br>
+                <img src="../image/{{$bios->picture}}" width="110" height="140">
+
+        </div>
         {{-- @foreach($b_profile as $b_profile) --}}
         <p>ชื่อ-นามสกุล (ภาษาไทย) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </p>
         <p>{{$b_profile->prename_th}}&nbsp;{{$b_profile->firstname_th}}&nbsp;&nbsp;{{$b_profile->lastname_th}}</p>
@@ -75,10 +102,7 @@
             <p>{{$b_profile->b_result->b_interviewer->itvname}}</p>
             {{-- <p>__________________</p> --}}
 
-        <div class="container7">
-                <img src="../image/{{$bios->picture}}" width="110" height="140">
 
-        </div>
 
         <hr class="my-4">
         <br>
@@ -126,7 +150,7 @@
     </p>
     <br><br><br><br><br>
     <center>
-        <table class="table table-striped">
+        <table class="table table-striped" style="box-shadow: 5px 5px 8px 4px rgba(50, 50, 50, .5);">
             <thead>
                 <tr>
                     <th scope="col">กลุ่มสาระวิชา</th>
@@ -160,7 +184,7 @@
         </p>
         <br><br><br><br><br>
         <center>
-            <table class="table table-striped">
+            <table class="table table-striped" style="box-shadow: 5px 5px 8px 4px rgba(50, 50, 50, .5);">
                 <thead>
                     <tr>
                         <th scope="col">ทักษะภาษาอังกฤษ</th>
@@ -198,7 +222,7 @@
     </p>
     <br><br><br><br><br>
     <center>
-        <table class="table table-striped">
+        <table class="table table-striped" style="box-shadow: 5px 5px 8px 4px rgba(50, 50, 50, .5);">
             <thead>
                 <tr>
                     <th scope="col">O-NET วิชาคณิตศาสตร์</th>
