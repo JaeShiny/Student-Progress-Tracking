@@ -24,9 +24,29 @@
 </head>
 
 <body>
+        <br>
+        <div style="float: right;">
+            <a href="/profilebeforeS/{{$bios->student_id}}">
+                <button type="button" class="btn btn-outline-success">ข้อมูลการศึกษา</button>
+            </a>
+            <a href="/profileDuringS/{{$bios->student_id}}">
+                <button type="button" class="btn btn-outline-secondary">ข้อมูลระหว่างการศึกษา</button>
+            </a>
+            <a href="/profileafterS/{{$bios->student_id}}">
+                <button type="button" class="btn btn-primary">ข้อมูลหลังจบการศึกษา</button>
+            </a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
+        <br>
 
-    <div class="jumbotron">
-        <h4 class="display-4"></h4>
+        <div class="jumbotron"style="box-shadow: 5px 5px 8px 4px rgba(50, 50, 50, .5);">
+                <h4 class="display-4"></h4>
+                <B><u>ข้อมูลหลังจบการศึกษา</u></B><br><br>
+                <hr>
+                <div class="container7">
+        <br><br><br><br><br><br>
+                        <img src="../image/{{$bios->picture}}" width="110" height="140">
+                </div>
     {{-- @foreach($alumni_profile as $alumni) --}}
         <p>ชื่อ-นามสกุล &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </p>
         <p>{{$alumni_profile->first_name}}&nbsp;&nbsp;{{$alumni_profile->last_name}}</p>
@@ -48,9 +68,6 @@
         <p>ปีการศึกษาที่จบ&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </p>
         <p>{{$bios->students->grad_year}}</p>
 
-        <div class="container7">
-            <img src="{{ URL::asset("../img/stupic.png") }}" width="110" height="140">
-        </div>
 
         <hr class="my-4">
         <p>
