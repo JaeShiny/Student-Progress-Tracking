@@ -342,6 +342,7 @@
                 text-align: center;
                 color: white;
             }
+        }
     </style>
 
 </head>

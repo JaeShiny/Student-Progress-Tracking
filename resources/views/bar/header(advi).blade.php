@@ -156,7 +156,7 @@
                             </ul>
                         </div>
                     {{-- ปุ่มแบบสอบถาม --}}
-                    <a class="nav-link" href="/advisorSurvey" style="color: #FFFFFF">แบบสอบถาม</a>
+                    {{-- <a class="nav-link" href="/advisorSurvey" style="color: #FFFFFF">แบบสอบถาม</a> --}}
 
                             </div>
                         </div>

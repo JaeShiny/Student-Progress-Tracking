@@ -40,7 +40,13 @@
         <a class="nav-link" href="/advisor/chartProblemA/{{$gen->semester}}/{{$gen->year}}" style="color: #000000;">สถิติด้านพฤติกรรม</a>
     </li>
 </ul><br>
+<h5 align='right'>
+    <button type="button" class="btn btn-outline-success">
+            <a href="/advisor/chartAttendanceA1/{{$gen->semester}}/{{$gen->year}}"><img src="{{ URL::asset("../img/รูปสถิติ.png") }}" width="30" height="25" title="สถิติ"> &nbsp;สถิติจำนวนนักเรียนที่ขาดเรียน</a>
+    </button>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
+</h5>
 
 {{-- <h5 align='center'>{{$course->course_id}}</h5>
 <h6 align='center'>{{$course->course_name_eng}}</h6>

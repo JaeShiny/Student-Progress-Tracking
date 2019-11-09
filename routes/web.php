@@ -616,6 +616,7 @@ Route::get('/studentprofile', 'student\ProfileController@index');
 
 //login student ให้เข้ามาเจอการลงทะเบียนตัวเอง
 Route::get('/studentenrollment', 'student\ProfileController@study');
+Route::get('/studentenrollment/{semester}/{year}', 'student\ProfileController@study1');
 
 //login lecturer ให้เข้ามาเจอวิชา
 // Route::get('/subjectL', 'lecturer\LecturerLoginController@index');
@@ -644,7 +645,9 @@ Route::group(['prefix' => 'advisor'], function(){
         Route::get('showAtt/{semester}/{year}','advisor\AdvisorController@showAttendance');
         Route::get('showNotiA/{semester}/{year}','NotificationController@showNotiA');
         Route::get('chartAttendanceA/{semester}/{year}','ChartController@attendanceA');
+        Route::get('chartAttendanceA1/{semester}/{year}','ChartController@attendanceA1');
         Route::get('chartGradeA/{semester}/{year}','ChartController@gradeA');
+        Route::get('chartGradeA1/{semester}/{year}','ChartController@gradeA1');
         Route::get('chartProblemA/{semester}/{year}','ChartController@problemA');
     });
 });

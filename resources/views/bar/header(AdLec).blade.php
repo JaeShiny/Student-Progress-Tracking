@@ -84,7 +84,7 @@
                         <a class="nav-link" href="{{ url('indexNoti') }}" style="color: #FFFFFF">การแจ้งเตือน</a>
                       <a class="nav-link" href="{{url('subjectStatisticAL2')}}" style="color: #FFFFFF">สถิติ</a>
                       <a class="nav-link" href="{{ url('FormAttendanceAL') }}" style="color: #FFFFFF">ดาวน์โหลดแบบฟอร์ม</a>
-                      <a class="nav-link" href="/adlecSurvey" style="color: #FFFFFF">แบบสอบถาม</a>
+                      {{-- <a class="nav-link" href="/adlecSurvey" style="color: #FFFFFF">แบบสอบถาม</a> --}}
                       <div class="dropdown">
                             <button type="button" class="btn btn-default dropdown-toggle" id="dropdownMenuButton2" data-toggle="dropdown" style="color: white;border-color: none">นักศึกษา <span class="caret"></span></button>
 
