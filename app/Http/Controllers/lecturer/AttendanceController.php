@@ -164,7 +164,7 @@ class AttendanceController extends Controller
     public function showAttendanceS()  {
         $student_id = Auth::user()->student_id;
         $attendance = Attendance::where('student_id',$student_id)->get();
-
+        $attendance2 = Attendance2::where('student_id',$student_id)->get();
         $bios = Bio::where('student_id', $student_id)->get();
 
         $users = User::all();
@@ -179,6 +179,7 @@ class AttendanceController extends Controller
             // 'semester' => $semester,
             'gen' => $gen,
             'users' => $users,
+            'attendance2' => $attendance2,
         ]);
     }
 

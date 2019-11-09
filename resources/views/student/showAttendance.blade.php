@@ -68,7 +68,7 @@
                  <center>
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal{{$student->student_id}}">
                         ทฤษฎี
-                    </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </button><br><br>
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2{{$student->student_id}}">
                         Lab
                     </button>
