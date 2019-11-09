@@ -13,7 +13,7 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li> </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <li class="breadcrumb-item" aria-current="page"><a href="/advisor/myStudent">รายชื่อนักศึกษา</a></li>
+            <li class="breadcrumb-item" aria-current="page">{{--<a href="/advisor/myStudent">--}}รายชื่อนักศึกษา{{--</a>--}}</li>
             <li class="breadcrumb-item active" aria-current="page"><a href="/student_profileA/{{$bios->student_id}}">ประวัตินักศึกษา</a></li>
             <li class="breadcrumb-item active" aria-current="page"><a href="">ข้อมูลระหว่างศึกษา</a></li>
         </ol>
@@ -22,7 +22,25 @@
 </head>
 
 <body>
-    <br>
+        <div style="float: right;">
+                {{-- <a href="{{ url('profilebefore')"> --}}
+                {{-- <a href="{{route('profile',$bio['student_id'])}}"> --}}
+                {{-- <a href="{{ action('student\InterviewControllerr@profile') }}"> --}}
+                {{-- <a href="{{route('profile(before)',$bio['first_name']==$b_profile['firstname'])}}"> --}}
+                {{-- <a href="{{url('profilebefore')}}"> --}}
+                <a href="/profilebeforeA/{{$bios->student_id}}">
+                    <button type="button" class="btn btn-outline-success">ข้อมูลการศึกษา</button>
+                </a>
+                <a href="/profileDuringA/{{$bios->student_id}}">
+                    <button type="button" class="btn btn-secondary">ข้อมูลระหว่างการศึกษา</button>
+                </a>
+                <a href="/profileafterA/{{$bios->student_id}}">
+                    <button type="button" class="btn btn-outline-primary">ข้อมูลหลังจบการศึกษา</button>
+                </a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+            </div>
+            <br>
+
     <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -38,8 +56,12 @@
             </div>
         </div>
 
-    <div class="jumbotron">
+    <div class="jumbotron"style="box-shadow: 5px 5px 8px 4px rgba(50, 50, 50, .5);">
         <h4 class="display-4"></h4>
+        <p>
+                <B><u>ข้อมูลระหว่างศึกษา</u></B>
+            </p>
+<br><br>
             <p>
                 <B>ข้อมูลนักศึกษา</B>
             </p>
@@ -59,6 +81,7 @@
             <br>
 
             <div class="container7">
+                <br><br>
                 <img src="../image/{{$bios->picture}}" width="110" height="140">
             </div>
 
@@ -113,9 +136,9 @@
         <center>
 
         <div class="container">
-                <table class="table table-bordered">
+                <table class="table table-bordered"style="box-shadow: 5px 5px 8px 4px rgba(50, 50, 50, .5);">
                     <thead>
-                        <tr>
+                            <tr class="table-success">
                             <th style="width: 13%"><center>รหัสวิชา</center></th>
                             <th>รหัสนักศึกษา</th>
                             <th style="width: 30%"><center>ชื่อ-สกุล</center></th>
@@ -128,13 +151,13 @@
                     @foreach($attendances as $student)
                     <tbody>
                         <tr>
-                          <td><center>{{$student->course_id}}</center></td>
-                          <td>{{$student->student_id}}</td>
-                          <td>{{$student->users['name']}}&nbsp;&nbsp;{{$student->users['lastname']}}</td>
-                          <td><center>{{$student->period_total}}</center></td>
-                          <td><center>{{$student->amount_attendance}}</center></td>
-                          <td><center>{{$student->amount_absence}}</center></td>
-                          <td>
+                                <td style="background-color: white"><center>{{$student->course_id}}</center></td>
+                                <td style="background-color: white">{{$student->student_id}}</td>
+                                <td style="background-color: white">{{$student->users['name']}}&nbsp;&nbsp;{{$student->users['lastname']}}</td>
+                                <td style="background-color: white"><center>{{$student->period_total}}</center></td>
+                                <td style="background-color: white"><center>{{$student->amount_attendance}}</center></td>
+                                <td style="background-color: white"><center>{{$student->amount_absence}}</center></td>
+                                <td style="background-color: white">
                               <!-- Button trigger modal -->
                               <center><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal{{$student->student_id}}">
                                 รายละเอียด
@@ -296,9 +319,9 @@
         <hr class="my-4"><br><br>
 
         <center>
-            <table class="table table-hover">
+            <table class="table table-hover"style="box-shadow: 5px 5px 8px 4px rgba(50, 50, 50, .5);">
                 <thead>
-                    <tr>
+                        <tr class="table-warning">
                       <th style="width: 13%"><center>รหัสวิชา</center></th>
                       <th>รหัสนักศึกษา</th>
                       <th style="width: 35%"><center>ชื่อ-สกุล</center></th>
@@ -312,13 +335,13 @@
                 @foreach($grades as $show_student)
                 <tbody>
                     <tr>
-                      <td><center>{{$show_student->course_id}}</center></td>
-                      <td><center>{{$show_student->student_id}}</center></td>
-                      <td>{{$show_student->users['name']}}&nbsp;&nbsp;{{$show_student->users['lastname']}}</td>
-                      <td><center>{{$show_student->total_midterm}}</center></td>
-                      <td><center>{{$show_student->total_final}}</center></td>
-                      <td><center>{{$show_student->total_all}}</center></td>
-                      <td>
+                            <td style="background-color: white"><center>{{$show_student->course_id}}</center></td>
+                            <td style="background-color: white"><center>{{$show_student->student_id}}</center></td>
+                            <td style="background-color: white">{{$show_student->users['name']}}&nbsp;&nbsp;{{$show_student->users['lastname']}}</td>
+                            <td style="background-color: white"><center>{{$show_student->total_midterm}}</center></td>
+                            <td style="background-color: white"><center>{{$show_student->total_final}}</center></td>
+                            <td style="background-color: white"><center>{{$show_student->total_all}}</center></td>
+                            <td style="background-color: white">
                         <!-- Button trigger modal -->
                       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2{{$show_student->student_id}}">
                           รายละเอียด

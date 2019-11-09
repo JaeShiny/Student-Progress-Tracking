@@ -15,7 +15,7 @@
             <li> </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             {{-- <li class="breadcrumb-item"><a href="{{ url('curriculum') }}">หลักสูตร(IT)</a></li> --}}
             {{-- <li class="breadcrumb-item"><a href="{{ url('selectyear') }}">ชั้นปี</a></li> --}}
-            <li class="breadcrumb-item" aria-current="page"><a href="/advisor/myStudent">รายชื่อนักศึกษา</a></li>
+            <li class="breadcrumb-item" aria-current="page">{{--<a href="/advisor/myStudent">--}}รายชื่อนักศึกษา{{--</a>--}}</li>
             <li class="breadcrumb-item active" aria-current="page"><a href="">ประวัตินักศึกษา</a></li>
         </ol>
     </nav>
@@ -42,7 +42,7 @@
         </div>
         <br>
 
-        <div class="jumbotron">
+        <div class="jumbotron" style="box-shadow: 5px 5px 8px 4px rgba(50, 50, 50, .5);">
             <h4 class="display-4"></h4>
             <p>
                 <B>ข้อมูลนักศึกษา</B>
@@ -63,6 +63,7 @@
             <br>
 
             <div class="container7">
+                <br><br>
                     <img src="../image/{{$bios->picture}}" width="110" height="140">
             </div>
 

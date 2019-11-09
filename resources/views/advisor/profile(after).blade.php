@@ -16,7 +16,7 @@
                 <li> </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 {{-- <li class="breadcrumb-item"><a href="{{ url('curriculum') }}">หลักสูตร(IT)</a></li> --}}
                 {{-- <li class="breadcrumb-item"><a href="{{ url('selectyear') }}">ชั้นปี</a></li> --}}
-                <li class="breadcrumb-item" aria-current="page"><a href="/advisor/myStudent">รายชื่อนักศึกษา</a></li>
+                <li class="breadcrumb-item" aria-current="page">{{--<a href="/advisor/myStudent">--}}รายชื่อนักศึกษา{{--</a>--}}</li>
                 <li class="breadcrumb-item active" aria-current="page"><a href="/student_profileA/{{$student}}">ประวัตินักศึกษา</a></li>
                 <li class="breadcrumb-item active" aria-current="page"><a href="">ข้อมูลหลังจบการศึกษา</a></li>
             </ol>
@@ -24,9 +24,32 @@
 </head>
 
 <body>
-
-    <div class="jumbotron">
-        <h4 class="display-4"></h4>
+        <div style="float: right;">
+                {{-- <a href="{{ url('profilebefore')"> --}}
+                {{-- <a href="{{route('profile',$bio['student_id'])}}"> --}}
+                {{-- <a href="{{ action('student\InterviewControllerr@profile') }}"> --}}
+                {{-- <a href="{{route('profile(before)',$bio['first_name']==$b_profile['firstname'])}}"> --}}
+                {{-- <a href="{{url('profilebefore')}}"> --}}
+                <a href="/profilebeforeA/{{$bios->student_id}}">
+                    <button type="button" class="btn btn-outline-success">ข้อมูลการศึกษา</button>
+                </a>
+                <a href="/profileDuringA/{{$bios->student_id}}">
+                    <button type="button" class="btn btn-outline-secondary">ข้อมูลระหว่างการศึกษา</button>
+                </a>
+                <a href="/profileafterA/{{$bios->student_id}}">
+                    <button type="button" class="btn btn-primary">ข้อมูลหลังจบการศึกษา</button>
+                </a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+            </div>
+            <br>
+            <div class="jumbotron" style="box-shadow: 5px 5px 8px 4px rgba(50, 50, 50, .5);">
+                    <h4 class="display-4"></h4>
+                    <B><u>ข้อมูลหลังจบการศึกษา</u></B><br><br>
+                    <hr>
+                    <div class="container7">
+            <br><br><br><br><br><br>
+                            <img src="../image/{{$bios->picture}}" width="110" height="140">
+                    </div>
     {{-- @foreach($alumni_profile as $alumni) --}}
         <p>ชื่อ-นามสกุล &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </p>
         <p>{{$alumni_profile->first_name}}&nbsp;&nbsp;{{$alumni_profile->last_name}}</p>
@@ -48,9 +71,6 @@
         <p>ปีการศึกษาที่จบ&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </p>
         <p>{{$bios->students->grad_year}}</p>
 
-        <div class="container7">
-                <img src="../image/{{$bios->picture}}" width="110" height="140">
-        </div>
 
         <hr class="my-4">
         <p>
