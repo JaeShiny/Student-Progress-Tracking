@@ -473,6 +473,7 @@ class NotificationController extends Controller
 
 
     //แสดงแจ้งเตือนหลังจากคลิกปุ่มการแจ้งเตือน
+        //อันเก่าที่ไม่ใช้แล้ว
     public function showNotiA($semester, $year){
         // Instructor::instructor(Auth::user()->instructor_id)->first();
         $instructor = Instructor::where('first_name',Auth::user()->name)->first();
@@ -539,6 +540,68 @@ class NotificationController extends Controller
 
             'generation' => $generation,
             'gen' => $gen,
+        ]);
+    }
+    public function showNotiA_พัง($semester, $year){
+        $instructor = Instructor::where('first_name',Auth::user()->name)->first();
+        $myStudent = Student::where('adviser_id1',$instructor->instructor_id)
+            ->orWhere(
+                'adviser_id2',
+                $instructor->instructor_id
+            )->get();
+        $student = Student::where(
+            'adviser_id1', $instructor->instructor_id
+        )->orWhere(
+            'adviser_id2', $instructor->instructor_id
+        )->get();
+        $student_ids = $student->map(function ($item) {
+            return $item->student_id;
+        });
+        $bios = Bio::whereIn('student_id', $student_ids->all())->get();
+
+
+
+        //เลือกว่าจะแสดงเงื่อนไขของ instructor_id คนไหน
+        $instructor_id = Auth::user()->instructor_id;
+
+        $conditions = InspectorCondition::where('instructor_id', Auth::user()->instructor_id)->get();
+
+        $inspectedResult = InspectedQuery::startInspectForInstructor(
+            $instructor_id,
+            $semester,
+            $year
+        )->getInspectedStudents();
+
+        $risk_problem = $inspectedResult['problem'];
+        $risk_attendance = $inspectedResult['attendance'];
+        $risk_grade = $inspectedResult['grade'];
+
+        $riskproblem = $inspectedResult['problem']->count();
+        $riskattendance = $inspectedResult['attendance']->count();
+        $riskgrade = $inspectedResult['grade']->count();
+
+        $test = Instructor::where('last_name',Auth::user()->lastname)->first();
+        $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+        $generation = Generation::all();
+        $gen = Generation::orderBy('year','desc')->first();
+
+        return view('advisor.showNoti',[
+            'myStudent' => $myStudent,
+            'bios' => $bios,
+
+            'risk_problem' => $risk_problem,
+            'risk_attendance' => $risk_attendance,
+            'risk_grade' => $risk_grade,
+
+            'riskproblem' => $riskproblem,
+            'riskattendance' => $riskattendance,
+            'riskgrade' => $riskgrade,
+
+            'semester' => $semester,
+            'gen' => $gen,
+            'year' => $year,
+            'conditions' => $conditions,
+            'generation' => $generation,
         ]);
     }
 
@@ -704,7 +767,7 @@ class NotificationController extends Controller
         ]);
     }
 
-    public function showNotiAL2($course_id){
+    public function showNotiAL2_old($course_id){
         $course = Course::find($course_id);
         $major = Major::where('major_id',$course->major_id)->get();
         $student = Student::where('major_id',$course->major_id)->get();
@@ -738,6 +801,57 @@ class NotificationController extends Controller
             'generation' => $generation,
         ]);
     }
+    public function showNotiAL2($course_id){
+        $course = Course::find($course_id);
+        $major = Major::where('major_id',$course->major_id)->get();
+        $student = Student::where('major_id',$course->major_id)->get();
+
+        $conditions = InspectorCondition::where('instructor_id', Auth::user()->instructor_id)->get();
+
+        //เลือกว่าจะแสดงเงื่อนไขของ instructor_id คนไหน
+        $instructor_id = Auth::user()->instructor_id;
+        // $inspectedResult = InspectedQuery::startInspectForInstructorWithCourse(
+        //     $instructor_id,
+        //     $course_id
+        // )->getInspectedStudents();
+        $inspectedResult = InspectedQuery::startInspectForInstructorWithCourse(
+            $instructor_id,
+            $course_id,
+        )->getInspectedStudents();
+
+        $risk_problem = $inspectedResult['problem'];
+        $risk_attendance = $inspectedResult['attendance'];
+        $risk_grade = $inspectedResult['grade'];
+
+        $riskproblem = $inspectedResult['problem']->count();
+        $riskattendance = $inspectedResult['attendance']->count();
+        $riskgrade = $inspectedResult['grade']->count();
+
+
+        $test = Instructor::where('last_name',Auth::user()->lastname)->first();
+        $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+        $gen = Generation::orderBy('year','desc')->first();
+
+        return view('AdLec.showNoti2',[
+            'student' => $student,
+            'course' => $course,
+            'major' => $major,
+
+            'risk_problem' => $risk_problem,
+            'risk_attendance' => $risk_attendance,
+            'risk_grade' => $risk_grade,
+
+            'riskproblem' => $riskproblem,
+            'riskattendance' => $riskattendance,
+            'riskgrade' => $riskgrade,
+
+            'semester' => $semester,
+            'gen' => $gen,
+            // 'year' => $year,
+            'conditions' => $conditions,
+        ]);
+    }
+
 
     //หน้าเลือกว่าจะไปดู noti ของ Ad หรือ Lec
     public function indexNoti(){

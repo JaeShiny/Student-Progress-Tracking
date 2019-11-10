@@ -46,12 +46,13 @@ class GradeInspector implements Inspector
                 $condition->value
             )->where('instructor_id', '=', $this->instructor_id);
 
+
             if (null != $this->course_id) {
                 $query_builder->where(
                     'course_id',
-                    '=',
                     $this->course_id
                 );
+
             }
 
             $students = $query_builder->get();

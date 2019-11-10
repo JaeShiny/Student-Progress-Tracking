@@ -38,6 +38,15 @@ class InspectedQuery
         return $query;
     }
 
+    public static function startInspectForInstructorWithYearly($instructor_id, $semester, $year)
+    {
+        $query = new InspectedQuery($instructor_id);
+        $query->withSemester($semester);
+        $query->withYear($year);
+
+        return $query;
+    }
+
     public function withYear($year)
     {
         $this->_year = $year;

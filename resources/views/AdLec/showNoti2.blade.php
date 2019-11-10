@@ -25,6 +25,71 @@
 </head>
 
 <body>
+
+{{-- popup ของโบว์เองแหละ--}}
+  	{{-- <div class="container"> --}}
+  <!-- Trigger the modal with a button -->
+  <h6 align='right'>
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" id="open">
+        <h6>
+            <img src="{{ URL::asset("../img/noti.png") }}" width="30" height="25" title="ดูเงื่อนไขแจ้งเตือน">
+            เงื่อนไขการแจ้งเตือน
+        </h6>
+    </button> &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+  </h6>
+
+    <form method="post" action="{{url('modal')}}" id="form">
+        @csrf
+  <!-- Modal -->
+  <div class="modal" tabindex="-1" role="dialog" id="myModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+            <div class="alert alert-danger" style="display:none"></div>
+
+        <div class="modal-header">
+        <h5 class="modal-title">เงื่อนไขในการแจ้งเตือน</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+    <div class="modal-body">
+<br><br>
+        <center>
+            <table class="table table-striped">
+              <thead>
+                  <tr>
+                    <td>เรื่องที่จะทำการกำหนดการแจ้งเตือน</td>
+                    <td>เงื่อนไขในการแจ้งเตือน</td>
+                    <td>จำนวนครั้งที่จะทำให้เกิดการแจ้งเตือน</td>
+                  </tr>
+              </thead>
+              <tbody>
+                  @foreach($conditions as $con)
+                  <tr>
+                      <td>{{$con->behavior_attribute}}</td>
+                      <td>{{$con->condition}}</td>
+                      <td>{{$con->value}}</td>
+                  </tr>
+                  @endforeach
+              </tbody>
+            </table>
+        </center>
+&nbsp;&nbsp;<b>*<u>หมายเหตุ</u>*</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Problem:</b> ปัญหาและพฤติกรรม (ดูจาก level ความรุนแรงของปัญหา)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Attendance:</b> การเข้าเรียน (ดูจากจำนวนการขาดเรียน)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Grade:</b> ผลการเรียน (ดูจากผลการเรียนรวม)<br>
+        <div class="modal-footer">
+      	    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+
+    </div>
+  </div>
+</div>
+</form>
+</div>
+{{-- จบ popup ของโบว์ละ --}}
+
     {{--
     <h3 align='center'>การแจ้งเตือน</h3>
     <br> --}}
@@ -267,6 +332,11 @@
 
 
 </body>
+
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous">
+</script>
 
 </html>
 
