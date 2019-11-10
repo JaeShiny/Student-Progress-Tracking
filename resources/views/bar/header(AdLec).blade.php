@@ -96,7 +96,7 @@
                                   @endforeach
                                 </ul>
                       </div>
-
+                      <a class="nav-link" href="/AdLecConditions" style="color: #FFFFFF">เงื่อนไขการแจ้งเตือน</a>
                   </div>
 
               </div>

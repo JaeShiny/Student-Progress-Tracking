@@ -157,7 +157,7 @@
                         </div>
                     {{-- ปุ่มแบบสอบถาม --}}
                     {{-- <a class="nav-link" href="/advisorSurvey" style="color: #FFFFFF">แบบสอบถาม</a> --}}
-
+                    <a class="nav-link" href="/AdConditions" style="color: #FFFFFF">เงื่อนไขการแจ้งเตือน</a>
                             </div>
                         </div>
                     </div>
