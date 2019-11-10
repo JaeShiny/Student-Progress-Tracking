@@ -83,6 +83,7 @@ class RegisterController extends Controller
             'position' => $data['position'],
             'curriculum' => $data['curriculum'],
             'student_id' => $data['student_id'],
+            'instructor_id' => $data['instructor_id'],
             // 'type' => User::DEFAULT_TYPE,
 
         ]);
