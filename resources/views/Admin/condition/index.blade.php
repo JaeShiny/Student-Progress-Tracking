@@ -38,7 +38,7 @@
           <td>เทอม</td>
           <td>ปีการศึกษา</td> --}}
           <td>INSTRUCTOR_ID</td>
-          <td>ชื่อ column</td>
+          {{-- <td>ชื่อ column</td> --}}
           <td colspan="2"><center>Action</center></td>
         </tr>
     </thead>
@@ -53,7 +53,7 @@
             {{-- <td>{{$con->semester}}</td> --}}
             {{-- <td>{{$con->year}}</td> --}}
             <td>{{$con->instructor_id}}</td>
-            <td>{{$con->name_column}}</td>
+            {{-- <td>{{$con->name_column}}</td> --}}
             <td><a href="{{ route('AdminConditions.edit',$con->id)}}" class="btn btn-primary">Edit</a></td>
             <td>
                 <form action="{{ route('AdminConditions.destroy', $con->id)}}" method="post">

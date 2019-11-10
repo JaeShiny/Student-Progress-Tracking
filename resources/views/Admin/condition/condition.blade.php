@@ -85,11 +85,11 @@ margin-top: -150px;
             <label for="usr">INSTRuCTOR_ID:</label>
             <input type="text" class="form-control" id="usr" name="instructor_id">
         </div>
-
+{{--
         <div class="form-group">
             <label for="usr">ชื่อ column:</label>
             <input type="text" class="form-control" id="usr" name="name_column">
-        </div>
+        </div> --}}
 
 
     <div class="container">

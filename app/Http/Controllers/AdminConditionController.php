@@ -49,7 +49,7 @@ class AdminConditionController extends Controller
         // $condition->semester = $request->semester;
         // $condition->year = $request->year;
         $condition->instructor_id = $request->instructor_id;
-        $condition->name_column = $request->name_column;
+        // $condition->name_column = $request->name_column;
         $condition->student_id = Auth::user()->student_id;
         $condition->curriculum = Auth::user()->curriculum;
         $condition->position = Auth::user()->position;
@@ -96,7 +96,7 @@ class AdminConditionController extends Controller
             'condition' => 'required',
             'value' => 'required',
             'instructor_id' => 'required',
-            'name_column' => 'required',
+            // 'name_column' => 'required',
             // 'course_id' => 'required',
             // 'semester' => 'required',
             // 'year' => 'required',

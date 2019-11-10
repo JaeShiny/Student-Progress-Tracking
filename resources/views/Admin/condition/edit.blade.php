@@ -57,10 +57,11 @@
                 <input type="text" class="form-control" name="instructor_id" value="{{$conditions->instructor_id}}"/>
               </div>
 
-              <div class="form-group">
+              {{-- <div class="form-group">
                 <label for="quantity">Name Column :</label>
                 <input type="text" class="form-control" name="name_column" value="{{$conditions->name_column}}"/>
-              </div>
+              </div> --}}
+
               {{-- <div class="form-group">
                 <label for="quantity">รหัสวิชา :</label>
                 <input type="text" class="form-control" name="course_id" value="{{$conditions->course_id}}"/>

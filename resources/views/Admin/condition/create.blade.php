@@ -67,11 +67,11 @@
               <label for="quantity">INSTRUCTOR_ID:</label>
               <input type="text" class="form-control" name="instructor_id"/>
             </div>
-
+{{--
             <div class="form-group">
                 <label for="quantity">ชื่อคอลัมน์:</label>
                 <input type="text" class="form-control" name="name_column"/>
-            </div>
+            </div> --}}
 
             {{-- <div class="form-group">
               <label for="quantity">รหัสวิชา:</label>
