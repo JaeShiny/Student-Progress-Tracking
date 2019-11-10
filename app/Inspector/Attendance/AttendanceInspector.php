@@ -20,19 +20,19 @@ class AttendanceInspector implements Inspector
 
     public function getInspectedStudent()
     {
-        $conditions = null;
-        if (null == $this->course_id) {
+        // $conditions = null;
+        // if (null == $this->course_id) {
             $conditions = InspectorCondition::instructorCondition(
                 $this->instructor_id,
                 $this::INTERESTED_BEHAVIOR
             );
-        } else {
-            $conditions = InspectorCondition::courseCondition(
-                $this->instructor_id,
-                $this->course_id,
-                $this::INTERESTED_BEHAVIOR
-            );
-        }
+        // } else {
+        //     $conditions = InspectorCondition::courseCondition(
+        //         $this->instructor_id,
+        //         $this->course_id,
+        //         $this::INTERESTED_BEHAVIOR
+        //     );
+        // }
 
         $students = [];
         // session()->flash('grade-alert', 'xxxxxxxx dfd fa xx dfd fafa');

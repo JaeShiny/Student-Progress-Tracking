@@ -20,19 +20,19 @@ class ProblemInspector implements Inspector
 
     public function getInspectedStudent()
     {
-        $conditions = null;
-        if (null == $this->course_id) {
+        // $conditions = null;
+        // if (null == $this->course_id) {
             $conditions = InspectorCondition::instructorCondition(
                 $this->instructor_id,
                 $this::INTERESTED_BEHAVIOR
             );
-        } else {
-            $conditions = InspectorCondition::courseCondition(
-                $this->instructor_id,
-                $this->course_id,
-                $this::INTERESTED_BEHAVIOR
-            );
-        }
+        // } else {
+        //     $conditions = InspectorCondition::courseCondition(
+        //         $this->instructor_id,
+        //         $this->course_id,
+        //         $this::INTERESTED_BEHAVIOR
+        //     );
+        // }
 
         $students = [];
         // session()->flash('grade-alert', 'xxxxxxxx dfd fa xx dfd fafa');
@@ -46,12 +46,13 @@ class ProblemInspector implements Inspector
                 $condition->value
             )->where('instructor_id', '=', $this->instructor_id);
 
+
             if (null != $this->course_id) {
                 $query_builder->where(
                     'course_id',
-                    '=',
                     $this->course_id
                 );
+
             }
 
             $students = $query_builder->get();
