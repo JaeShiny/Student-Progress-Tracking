@@ -20,7 +20,7 @@
         </ul>
       </div><br />
     @endif
-      <form method="post" action="{{ route('conditions.update', $conditions->id) }}">
+      <form method="post" action="{{ route('AdLecConditions.update', $conditions->id) }}">
           <div class="form-group">
               @csrf
               @method('PATCH')
@@ -86,4 +86,4 @@
 </div>
 @endsection
 
-@extends('bar.header(lec)')
+@extends('bar.header(AdLec)')

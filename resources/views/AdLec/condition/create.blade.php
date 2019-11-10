@@ -20,7 +20,7 @@
         </ul>
       </div><br />
     @endif
-      <form method="post" action="{{ route('conditions.store') }}">
+      <form method="post" action="{{ route('AdLecConditions.store') }}">
           {{-- <div class="form-group">
               @csrf
               <label for="name">Book Name:</label>
@@ -99,4 +99,4 @@
 </div>
 @endsection
 
-@extends('bar.header(lec)')
+@extends('bar.header(AdLec)')
