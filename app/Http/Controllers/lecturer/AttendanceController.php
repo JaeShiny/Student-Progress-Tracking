@@ -222,7 +222,26 @@ class AttendanceController extends Controller
     //lecturer
     //แสดงผลการเข้าเรียน
     public function showAttendanceL($course_id, $semester, $year)  {
-        $student = Attendance::where('course_id',$course_id)->where('semester', $semester)->where('year', $year)->get();
+
+        $absent_condition = request()->get('absent_condition');
+        $absent_value = request()->get('absent_value');
+
+        $query = Attendance::where('course_id',$course_id)
+            ->where('semester', $semester)
+            ->where('year', $year);
+
+        if ($absent_condition != '') {
+            $query->where(
+                'amount_absence',
+                $absent_condition,
+                $absent_value
+            );
+        }
+
+        $student = $query->get();
+
+
+        // $student = Attendance::where('course_id',$course_id)->where('semester', $semester)->where('year', $year)->get();
         $course = Course::find($course_id);
 
         $users = User::all();
