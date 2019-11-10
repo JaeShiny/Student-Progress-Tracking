@@ -37,7 +37,7 @@ class AttendanceInspector implements Inspector
         $students = [];
         // session()->flash('grade-alert', 'xxxxxxxx dfd fa xx dfd fafa');
         $condition = $conditions->first();
-        dd($condition);
+
         if ($conditions->count() > 0) {
             $condition = $conditions->first();
 
