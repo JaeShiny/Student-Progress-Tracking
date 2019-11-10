@@ -18,7 +18,6 @@ class CreateInspectorConditionsTable extends Migration
             $table->string('behavior_attribute');
             $table->string('condition');
             $table->string('value');
-            $table->string('name_column')->nullable();
             $table->string('instructor_id')->nullable();
             $table->string('course_id')->nullable();
             $table->string('student_id')->nullable();
@@ -26,6 +25,7 @@ class CreateInspectorConditionsTable extends Migration
             $table->string('position')->nullable();
             $table->string('semester')->nullable();
             $table->string('year')->nullable();
+            $table->string('name_column')->nullable();
             $table->timestamps();
         });
     }

@@ -18,7 +18,7 @@ class CreateProblemTable extends Migration
             $table->String('problem_type');
             $table->String('problem_topic');
             $table->String('problem_detail');
-            $table->String('risk_level');
+            $table->integer('risk_level');
             $table->String('person_add');
             $table->String('student_id');
             $table->String('date');
