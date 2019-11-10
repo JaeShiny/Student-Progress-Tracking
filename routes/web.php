@@ -27,7 +27,8 @@ Route::post('condition_insert','ConditionController@insert');
 //สร้างเงื่อนไขการแจ้งเตือน
 Route::resource('conditions', 'ConditionController');
 Route::resource('AdminConditions', 'AdminConditionController');
-
+Route::resource('AdConditions', 'AdConditionController');
+Route::resource('AdLecConditions', 'AdLecConditionController');
 
 //อัพรูป
 Route::get('image', 'ImageController@index');

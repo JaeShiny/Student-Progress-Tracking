@@ -30,9 +30,10 @@
             @csrf
             <label for="exampleFormControlSelect1">หัวข้อเรื่องที่จะทำการแจ้งเตือน:
                     <select class="form-control" id="exampleFormControlSelect1" name="behavior_attribute">
-                      <option value="Problem">ปัญหา/พฤติกรรม (levelความรุนแรงของปัญหา)</option>
-                      <option value="Attendance">การเข้าเรียน (จำนวนครั้งในการขาดเรียนที่จะแจ้งเตือน)</option>
-                      <option value="Grade">ผลการเรียน (เกณฑ์คะแนนที่จะแจ้งเตือน)</option>
+                        <option>โปรดระบุหัวข้อ</option>
+                        <option value="Problem">ปัญหา/พฤติกรรม (levelความรุนแรงของปัญหา)</option>
+                        <option value="Attendance">การเข้าเรียน (จำนวนครั้งในการขาดเรียนที่จะแจ้งเตือน)</option>
+                        <option value="Grade">ผลการเรียน (เกณฑ์คะแนนที่จะแจ้งเตือน)</option>
                     </select>
             </label>
             {{-- <input type="text" class="form-control" name="behavior_attribute"/> --}}
