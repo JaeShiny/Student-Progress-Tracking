@@ -33,4 +33,18 @@ class ProfileController extends Controller
         ]);
     }
 
+    public function study1($semester,$year){
+        $user = Auth::user();
+        $info= Study::where('student_id',$user->student_id)->where('semester',$semester)->where('year',$year)->get();
+        $gen = Generation::all();
+
+        return view('student.enrollment1',[
+            'study2'=>$info,
+            'user' => $user,
+            'gen' => $gen,
+            'semester' => $semester,
+            'year' => $year
+        ]);
+    }
+
 }
