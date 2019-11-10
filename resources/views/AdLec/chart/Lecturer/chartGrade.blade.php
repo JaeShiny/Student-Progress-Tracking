@@ -32,16 +32,27 @@
 
 <ul class="nav nav-tabs" id="myTab" role="tablist" style="background-color:white;">
     <li class="nav-item">
-        <a class="nav-link" href="/chartAttendanceAL2/{{$course->course_id}}" style="color: #000000;">สถิติการเข้าเรียน</a>
+        <a class="nav-link" href="/chartAttendanceAL2/{{$course->course_id}}/{{$gen->semester}}/{{$gen->year}}" style="color: #000000;">สถิติการเข้าเรียน</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link active" href="/chartGradeAL2/{{$course->course_id}}" style="color: #000000;">สถิติผลการเรียน</a>
+        <a class="nav-link active" href="/chartGradeAL2/{{$course->course_id}}/{{$gen->semester}}/{{$gen->year}}" style="color: #000000;">สถิติผลการเรียน</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="/chartProblemAL2/{{$course->course_id}}" style="color: #000000;">สถิติด้านพฤติกรรม</a>
+        <a class="nav-link" href="/chartProblemAL2/{{$course->course_id}}/{{$gen->semester}}/{{$gen->year}}" style="color: #000000;">สถิติด้านพฤติกรรม</a>
     </li>
 </ul><br>
 
+<h5 align='right'>
+    <button type="button" class="btn btn-outline-success">
+            <a href="/chartGradeAL1/{{$course->course_id}}/{{$gen->semester}}/{{$gen->year}}"><img src="{{ URL::asset("../img/รูปสถิติ.png") }}" width="30" height="25" title="สถิติ"> &nbsp;สถิติผลการเรียนกลางภาค </a>
+    </button>
+
+    <button type="button" class="btn btn-outline-success">
+                <a href="/chartGradeAL2/{{$course->course_id}}/{{$gen->semester}}/{{$gen->year}}"><img src="{{ URL::asset("../img/รูปสถิติ.png") }}" width="30" height="25" title="สถิติ"> &nbsp;สถิติผลการเรียนปลายภาค </a>
+    </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+    </h5>
 
 <h5 align='center'>{{$course->course_id}}</h5>
 <h6 align='center'>{{$course->course_name_eng}}</h6>

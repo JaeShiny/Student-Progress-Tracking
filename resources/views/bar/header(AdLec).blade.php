@@ -82,7 +82,21 @@
                     </div>
                     {{-- <a class="nav-link active" href="/AdLec/ALStudent" style="color: #FFFFFF">นักศึกษา</a>   --}}
                         <a class="nav-link" href="{{ url('indexNoti') }}" style="color: #FFFFFF">การแจ้งเตือน</a>
-                      <a class="nav-link" href="{{url('subjectStatisticAL2')}}" style="color: #FFFFFF">สถิติ</a>
+                     {{-- ปุ่มสถิติ --}}
+                     <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" style="color: white;border-color: none">
+                            สถิติ
+                            <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                        @foreach($semester as $show)
+                            <li>
+                                <a href="/chartAttendanceAL/{{$show->course_id}}/{{$show->semester}}/{{$show->year}}">
+                                    {{$show->course_id}}&nbsp;({{$show->semester}}/{{$show->year}})
+                                </a>
+                            </li>
+                        @endforeach
+                        </ul>
+                    </div>
                       <a class="nav-link" href="{{ url('FormAttendanceAL') }}" style="color: #FFFFFF">ดาวน์โหลดแบบฟอร์ม</a>
                       {{-- <a class="nav-link" href="/adlecSurvey" style="color: #FFFFFF">แบบสอบถาม</a> --}}
                       <div class="dropdown">

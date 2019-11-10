@@ -60,9 +60,17 @@ Route::get('chartProblemE/{curriculum_id}', 'ChartController@problemE');
 //Ad+Lec
     //lec
 Route::get('subjectStatisticAL2','ChartController@subjectStatisticAL2');
-Route::get('chartAttendanceAL2/{course_id}', 'ChartController@attendanceAL2');
-Route::get('chartGradeAL2/{course_id}', 'ChartController@gradeAL2');
-Route::get('chartProblemAL2/{course_id}', 'ChartController@problemAL2');
+// Route::get('chartAttendanceAL2/{course_id}', 'ChartController@attendanceAL2');
+// Route::get('chartGradeAL2/{course_id}', 'ChartController@gradeAL2');
+// Route::get('chartProblemAL2/{course_id}', 'ChartController@problemAL2');
+
+Route::get('chartAttendanceAL/{course_id}/{semester}/{year}', 'ChartController@attendanceAL');
+Route::get('chartAttendanceAL1/{course_id}/{semester}/{year}', 'ChartController@attendanceAL1');
+Route::get('chartGradeAL/{course_id}/{semester}/{year}', 'ChartController@gradeAL');
+Route::get('chartGradeAL1/{course_id}/{semester}/{year}', 'ChartController@gradeAL1');
+Route::get('chartGradeAL2/{course_id}/{semester}/{year}', 'ChartController@gradeAL2');
+Route::get('chartProblemAL/{course_id}/{semester}/{year}', 'ChartController@problemAL');
+
 Route::get('/indexChart', function () {
     return view('AdLec.chart.indexChart');
 });
