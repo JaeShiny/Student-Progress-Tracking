@@ -28,7 +28,7 @@ class GradeController extends Controller
         $course = Course::find($course_id);
 
         $test = Instructor::where('last_name',Auth::user()->lastname)->first();
-        $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+        $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','desc')->get();
         return view('lecturer.addGrade',[
             'course' => $course,
             'semester' => $semester
@@ -39,7 +39,7 @@ class GradeController extends Controller
     {
         $course = Course::find($course_id);
         $test = Instructor::where('last_name',Auth::user()->lastname)->first();
-        $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+        $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','desc')->get();
         $generation = Generation::all();
         return view('AdLec.addGrade',[
             'course' => $course,
@@ -52,7 +52,7 @@ class GradeController extends Controller
     {
         $course = Course::find($course_id);
         $test = Instructor::where('first_name', Auth::user()->name)->first();
-        $semester = Schedule::where('instructor_id', $test->instructor_id)->orderBy('year', 'asc')->get();
+        $semester = Schedule::where('instructor_id', $test->instructor_id)->orderBy('year', 'desc')->get();
         return view('LF.addGrade',[
             'course' => $course,
             'semester' => $semester
@@ -139,13 +139,13 @@ class GradeController extends Controller
 
         $student = $query->get();
 
-        //เดิม
+            //เดิม
         // $student = Grade::where('course_id',$course_id)->where('semester', $semester)->where('year', $year)->get();
         $course = Course::find($course_id);
         $users = User::all();
 
         $test = Instructor::where('last_name',Auth::user()->lastname)->first();
-        $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+        $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','desc')->get();
         $gen = Generation::all();
 
         return view('lecturer.showGrade',[
@@ -186,7 +186,7 @@ class GradeController extends Controller
         $users = User::all();
         $bios = Bio::where('student_id', $student_id)->get();
         $test = Instructor::where('last_name',Auth::user()->lastname)->first();
-        $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+        $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','desc')->get();
         $generation = Generation::all();
 
         return view('AdLec.showGrade2',[
@@ -204,7 +204,7 @@ class GradeController extends Controller
         $course = Course::find($course_id);
         $users = User::all();
         $test = Instructor::where('last_name',Auth::user()->lastname)->first();
-        $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+        $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','desc')->get();
         $generation = Generation::all();
 
         return view('AdLec.showGrade',[
@@ -238,7 +238,7 @@ class GradeController extends Controller
         $users = User::all();
 
         $test = Instructor::where('last_name',Auth::user()->lastname)->first();
-        $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+        $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','desc')->get();
         $gen = Generation::all();
 
         return view('LF.showGrade',[
