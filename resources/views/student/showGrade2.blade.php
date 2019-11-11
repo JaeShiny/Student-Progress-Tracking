@@ -51,22 +51,8 @@
             <div class="card-header">
                     <h4 class="w3-bar-item">ผลการเรียน</h4>
 
-                    {{--<h6 class="w3-bar-item">ภาคเรียนที่:&nbsp;{{$semesters}}/{{$year}}</h6>--}}
+                    <h6 class="w3-bar-item">ภาคเรียนที่:&nbsp;{{$semester}}/{{$year}}</h6>
             </div>
-            <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12 float-right">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">เทอม/ปีการศึกษา<span class="caret"></span></button>
-                                <ul class="dropdown-menu scrollable-menu" role="menu">
-                                    @foreach($semesters as $show)
-                                    <li> <a class="dropdown-item" href="/student/grade/{{$show->semester}}/{{$show->year}}">{{$show->semester}}/{{$show->year}}</a></li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 <br><br><br>
     <center>
 

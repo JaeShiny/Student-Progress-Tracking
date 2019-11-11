@@ -530,7 +530,7 @@
                 </div>
             @endforeach
 
-        </table>
+        </table><br>
     </center>
     </div>
 </div>

@@ -181,7 +181,7 @@
                 </div>
 
             @endforeach
-        </table>
+        </table><br>
 
     </div>
 </div>
