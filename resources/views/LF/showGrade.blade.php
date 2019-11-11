@@ -43,7 +43,7 @@
         <a class="nav-link active" href="/importExportGradeLF/{{$course->course_id}}" style="color: #000000;">ผลการเรียน</a>
     </li>
 </ul><br>
-
+{{--
 <div class="row">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <div class="col">
         <div class="list-group" id="list-tab" role="tablist" style="margin-right: -10px">
@@ -51,15 +51,16 @@
             <a class="list-group-item list-group-item-action" href="/importExportGradeLF/{{$course->course_id}}"><b>เพิ่มผลการเรียน</b></a>
             <a class="list-group-item list-group-item-action active" href="#"><b>แสดงผลการเรียน</b></a>
             {{-- <a class="list-group-item list-group-item-action" href="/subjectLF/{{$course->course_id}}"><b>รายชื่อนักศึกษา</b></a> --}}
-
+{{--
         </div>
     </div>
-
-<div class="container">
-        <div class="card bg-light mt" style="position: relative;display: table">
-            <div class="card-header">
+--}}
+    <div class="container">
+            <div class="card bg-light mt" style="box-shadow: 5px 5px 8px 4px rgba(50, 50, 50, .5);">
+                <div class="card-header">
                         <h4 class="w3-bar-item">{{$course->course_id}}&nbsp;{{$course->course_name_eng}}</h4>
-            </div>
+                </div>
+
 
 <br>
     <div class="container">
@@ -84,19 +85,19 @@
                 <tr>
                   <th style="width: 13%"><center>รหัสวิชา</center></th>
                   <th>รหัสนักศึกษา</th>
-                  <th style="width: 35%"><center>ชื่อ-สกุล</center></th>
+                  <th style="width: 33%"><center>ชื่อ-สกุล</center></th>
                   {{-- <th>คะแนนเก็บมิดเทอม(เต็ม)</th>
                   <th>คะแนนเก็บมิดเทอม(ที่ได้)</th>
                   <th>คะแนนสอบมิดเทอม(เต็ม)</th>
                   <th>คะแนนสอบมิดเทอม(ที่ได้)</th>
                   <th>mean midterm</th> --}}
-                  <th>total midterm score</th>
+                  <th style="width: 20%">total midterm score</th>
                   {{-- <th>คะแนนเก็บไฟนอล(เต็ม)</th>
                   <th>คะแนนเก็บไฟนอล(ที่ได้)</th>
                   <th>คะแนนสอบไฟนอล(เต็ม)</th>
                   <th>คะแนนสอบไฟนอล(ที่ได้)</th>
                   <th>mean final</th> --}}
-                  <th>total final score</th>
+                  <th style="width: 15%">total final score</th>
                   <th style="width: 15%">คะแนนรวมทั้งหมด</th>
                   <th>รายละเอียดเพิ่มเติม</th>
                 </tr>
@@ -159,9 +160,9 @@
                             <div>
                                 คะแนนสอบมิดเทอม(ที่ได้):&nbsp;{{$show_student->test_midterm}}
                             </div>
-                            <div>
+                            {{-- <div>
                                 mean midterm:&nbsp;{{$show_student->mean_test_midterm}}
-                            </div>
+                            </div> --}}
                             <div>
                                 total miderm score:&nbsp;{{$show_student->total_midterm}}
                             </div>
@@ -177,9 +178,9 @@
                             <div>
                                 คะแนนสอบไฟนอล(ที่ได้)):&nbsp;{{$show_student->test_final}}
                             </div>
-                            <div>
+                            {{-- <div>
                                 mean final:&nbsp;{{$show_student->mean_test_final}}
-                            </div>
+                            </div> --}}
                             <div>
                                 total final score:&nbsp;{{$show_student->total_final}}
                             </div>
@@ -201,7 +202,7 @@
     </div>
 </div>
 </div>
-</div><br>
+</div><br><br>
 
 </body>
 

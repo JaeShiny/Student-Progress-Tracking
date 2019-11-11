@@ -202,9 +202,9 @@
                             <div>
                                 <b>คะแนนสอบมิดเทอม(ที่ได้):</b>&nbsp;{{$show_student->test_midterm}}
                             </div>
-                            <div>
+                            {{-- <div>
                                 <b>mean midterm:</b>&nbsp;{{$show_student->mean_test_midterm}}
-                            </div>
+                            </div> --}}
                             <div>
                                 <b>total miderm score:</b>&nbsp;{{$show_student->total_midterm}}
                             </div>
@@ -220,9 +220,9 @@
                             <div>
                                 <b>คะแนนสอบไฟนอล(ที่ได้)):</b>&nbsp;{{$show_student->test_final}}
                             </div>
-                            <div>
+                            {{-- <div>
                                 <b>mean final:</b>&nbsp;{{$show_student->mean_test_final}}
-                            </div>
+                            </div> --}}
                             <div>
                                 <b>total final score:</b>&nbsp;{{$show_student->total_final}}
                             </div>

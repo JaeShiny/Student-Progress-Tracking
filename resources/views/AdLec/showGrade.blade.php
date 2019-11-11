@@ -35,28 +35,19 @@
 
 <body>
 
-<ul class="nav nav-tabs" id="myTab" role="tablist" style="background-color:white;">
-    <li class="nav-item">
-        <a class="nav-link" href="/importExportViewAL/{{$course->course_id}}" style="color: #000000;">การเข้าเรียน</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link active" href="/importExportGradeAL/{{$course->course_id}}" style="color: #000000;">ผลการเรียน</a>
-    </li>
-</ul><br>
+        <ul class="nav nav-tabs" id="myTab" role="tablist" style="background-color:white;">
+                <li class="nav-item">
+                    <a class="nav-link" href="/importExportViewAL/{{$course->course_id}}" style="color: #000000;">การเข้าเรียน</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="/importExportGradeAL/{{$course->course_id}}" style="color: #000000;">ผลการเรียน</a>
+                </li>
+            </ul><br>
 
-<div class="row">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <div class="col">
-        <div class="list-group" id="list-tab" role="tablist" style="margin-right: -10px">
 
-            <a class="list-group-item list-group-item-action" href="/importExportGradeAL/{{$course->course_id}}"><b>เพิ่มผลการเรียน</b></a>
-            <a class="list-group-item list-group-item-action active" href="/showGradeAL/{{$course->course_id}}"><b>แสดงผลการเรียน</b></a>
-            {{-- <a class="list-group-item list-group-item-action" href="/subjectAL/{{$course->course_id}}"><b>รายชื่อนักศึกษา</b></a> --}}
 
-        </div>
-    </div>
-
-<div class="container">
-        <div class="card bg-light mt" style="position: relative;display: table">
+                <div class="container">
+                        <div class="card bg-light mt" style="box-shadow: 5px 5px 8px 4px rgba(50, 50, 50, .5);">
             <div class="card-header">
                 <h4 class="w3-bar-item">{{$course->course_id}}&nbsp;{{$course->course_name_eng}}</h4>
             </div>
@@ -84,19 +75,19 @@
                 <tr>
                   <th style="width: 13%"><center>รหัสวิชา</center></th>
                   <th>รหัสนักศึกษา</th>
-                  <th style="width: 35%"><center>ชื่อ-สกุล</center></th>
+                  <th style="width: 33%"><center>ชื่อ-สกุล</center></th>
                   {{-- <th>คะแนนเก็บมิดเทอม(เต็ม)</th>
                   <th>คะแนนเก็บมิดเทอม(ที่ได้)</th>
                   <th>คะแนนสอบมิดเทอม(เต็ม)</th>
                   <th>คะแนนสอบมิดเทอม(ที่ได้)</th>
                   <th>mean midterm</th> --}}
-                  <th>total midterm score</th>
+                  <th style="width: 20%">total midterm score</th>
                   {{-- <th>คะแนนเก็บไฟนอล(เต็ม)</th>
                   <th>คะแนนเก็บไฟนอล(ที่ได้)</th>
                   <th>คะแนนสอบไฟนอล(เต็ม)</th>
                   <th>คะแนนสอบไฟนอล(ที่ได้)</th>
                   <th>mean final</th> --}}
-                  <th>total final score</th>
+                  <th style="width: 15%">total final score</th>
                   <th style="width: 15%">คะแนนรวมทั้งหมด</th>
                   <th>รายละเอียดเพิ่มเติม</th>
                 </tr>
@@ -159,9 +150,9 @@
                             <div>
                                 <b>คะแนนสอบมิดเทอม(ที่ได้):</b> &nbsp;{{$show_student->test_midterm}}
                             </div>
-                            <div>
+                            {{-- <div>
                                 <b>mean midterm:</b> &nbsp;{{$show_student->mean_test_midterm}}
-                            </div>
+                            </div> --}}
                             <div>
                                 <b>total miderm score:</b> &nbsp;{{$show_student->total_midterm}}
                             </div>
@@ -177,9 +168,9 @@
                             <div>
                                 <b>คะแนนสอบไฟนอล(ที่ได้)):</b> &nbsp;{{$show_student->test_final}}
                             </div>
-                            <div>
+                            {{-- <div>
                                 <b>mean final:</b> &nbsp;{{$show_student->mean_test_final}}
-                            </div>
+                            </div> --}}
                             <div>
                                 <b>total final score:</b> &nbsp;{{$show_student->total_final}}
                             </div>
@@ -201,7 +192,7 @@
     </div>
 </div>
 </div>
-</div><br>
+</div><br><br>
 
 </body>
 

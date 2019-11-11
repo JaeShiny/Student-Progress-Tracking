@@ -43,7 +43,7 @@
         <a class="nav-link" href="/importExportGradeLF/{{$course->course_id}}" style="color: #000000;">ผลการเรียน</a>
     </li>
 </ul><br>
-
+{{--
 <div class="row">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <div class="col">
         <div class="list-group" id="list-tab" role="tablist" style="margin-right: -10px">
@@ -51,15 +51,15 @@
             <a class="list-group-item list-group-item-action" href="/importExportViewLF/{{$course->course_id}}"><b>เพิ่มการเข้าเรียน</b></a>
             <a class="list-group-item list-group-item-action active" href="#"><b>แสดงการเข้าเรียน</b></a>
             {{-- <a class="list-group-item list-group-item-action" href="/subjectLF/{{$course->course_id}}"><b>รายชื่อนักศึกษา</b></a> --}}
-
+{{--
         </div>
     </div>
-
-    <div class="container">
-            <div class="card bg-light mt" style="position: relative;display: table;">
-                <div class="card-header">
-                        <h4 class="w3-bar-item">{{$course->course_id}}&nbsp;{{$course->course_name_eng}}</h4>
-                </div>
+--}}
+<div class="container">
+        <div class="card bg-light mt" style="box-shadow: 5px 5px 8px 4px rgba(50, 50, 50, .5);">
+            <div class="card-header">
+                    <h4 class="w3-bar-item">{{$course->course_id}}&nbsp;{{$course->course_name_eng}}</h4>
+            </div>
 <br>
     <div class="container">
         <div class="row">
@@ -83,11 +83,11 @@
                 <tr>
                         <th style="width: 13%"><center>รหัสวิชา</center></th>
                         <th>รหัสนักศึกษา</th>
-                        <th style="width: 35%"><center>ชื่อ-สกุล</center></th>
-                  <th>จำนวนคาบเรียน</th>
-                  <th>จำนวนการเข้าเรียน</th>
-                  <th>จำนวนการขาดเรียน</th>
-                  <th><center>รายละเอียด</center></th>
+                        <th style="width: 31%"><center>ชื่อ-สกุล</center></th>
+                        <th style="width: 12%">จำนวนคาบเรียน</th>
+                        <th style="width: 14%">จำนวนการเข้าเรียน</th>
+                        <th style="width: 14%">จำนวนการขาดเรียน</th>
+                        <th style="width: 15%"><center>รายละเอียด</center></th>
                 </tr>
             </thead>
             @foreach($student as $show_student)
@@ -105,7 +105,7 @@
                 <center>
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal{{$show_student->student_id}}">
                         ทฤษฎี
-                    </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2{{$show_student->student_id}}">
                         Lab
                     </button>
@@ -401,7 +401,7 @@
     </div>
 </div>
 </div>
-</div><br>
+</div><br><br>
 
 </body>
 

@@ -38,14 +38,14 @@
 
 <body>
 
-{{-- <ul class="nav nav-tabs" id="myTab" role="tablist" style="background-color:white;">
+<ul class="nav nav-tabs" id="myTab" role="tablist" style="background-color:white;">
     <li class="nav-item">
         <a class="nav-link active" href="" style="color: #000000;">การเข้าเรียน</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="/showGradeA/{{$student}}" style="color: #000000;">ผลการเรียน</a>
     </li>
-</ul><br> --}}
+</ul><br>
 
     @foreach ($bios as $bio)
         <h6 align='right'>รหัสนักศึกษา: {{$bio->student_id}} &nbsp;&nbsp;&nbsp;&nbsp;</h6>
@@ -53,14 +53,15 @@
     @endforeach
 <br>
 
-<div class="row">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<div class="container">
+    <div class="card bg-light mt" style="box-shadow: 5px 5px 8px 4px rgba(50, 50, 50, .5);">
+        <div class="card-header">
+                <h4 class="w3-bar-item">การเข้าเรียน</h4>
 
-    <div class="container">
-        {{-- <div class="card bg-light mt" style="position: relative;display: table;">
-            <div class="card-header">
-                <h5>การเข้าเรียน</h5>
-            </div> --}}
-    <br><br><br>
+
+        </div>
+
+<br><br><br>
 
     <center>
         <table class="table table-hover">
@@ -68,11 +69,11 @@
                 <tr>
                     <th style="width: 13%"><center>รหัสวิชา</center></th>
                     <th>รหัสนักศึกษา</th>
-                    <th style="width: 35%"><center>ชื่อ-สกุล</center></th>
-                    <th>จำนวนคาบเรียน</th>
-                    <th>จำนวนการเข้าเรียน</th>
-                    <th>จำนวนการขาดเรียน</th>
-                    <th><center>รายละเอียด</center></th>
+                    <th style="width: 30%"><center>ชื่อ-สกุล</center></th>
+                    <th style="width: 12%">จำนวนคาบเรียน</th>
+                    <th style="width: 15%">จำนวนการเข้าเรียน</th>
+                    <th style="width: 15%">จำนวนการขาดเรียน</th>
+                    <th style="width: 17%"><center>รายละเอียด</center></th>
                 </tr>
             </thead>
             @foreach($student as $student)
@@ -89,7 +90,10 @@
                 <center>
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal{{$student->student_id}}">
                         ทฤษฎี
-                    </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </button>
+                </center>
+                <br>
+                <center>
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2{{$student->student_id}}">
                         Lab
                     </button>
@@ -380,7 +384,7 @@
                 </div>
             @endforeach
 
-        </table>
+        </table><br>
     </center>
     </div>
 </div>
