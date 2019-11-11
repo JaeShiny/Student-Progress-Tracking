@@ -163,9 +163,30 @@ class AttendanceController extends Controller
     //student
     //แสดงผลการเข้าเรียน
     public function showAttendanceS()  {
+
         $student_id = Auth::user()->student_id;
-        $attendance = Attendance::where('student_id',$student_id)->get();
-        $attendance2 = Attendance2::where('student_id',$student_id)->get();
+
+        // filter
+        $absent_condition = request()->get('absent_condition');
+        $absent_value = request()->get('absent_value');
+
+        $query = Attendance::where('student_id',$student_id);
+
+        if ($absent_condition != '') {
+            $query->where(
+                'amount_absence',
+                $absent_condition,
+                $absent_value
+            );
+        }
+
+        $attendance = $query->get();
+        $attendance2 = $query->get();
+        // จบfilter
+
+        // $student_id = Auth::user()->student_id;
+        // $attendance = Attendance::where('student_id',$student_id)->get();
+        // $attendance2 = Attendance2::where('student_id',$student_id)->get();
         $bios = Bio::where('student_id', $student_id)->get();
 
         $users = User::all();
@@ -188,13 +209,35 @@ class AttendanceController extends Controller
     }
     //เลือกเทอมแล้วแสดงหน้านี้
     public function showAttendanceS2($semester, $year)  {
+
         $student_id = Auth::user()->student_id;
-        $attendance = Attendance::where('student_id',$student_id)
-                    ->where('semester', $semester)->where('year', $year)
-                    ->get();
-        $attendance2 = Attendance2::where('student_id',$student_id)
-                    ->where('semester', $semester)->where('year', $year)
-                    ->get();
+
+        // filter
+        $absent_condition = request()->get('absent_condition');
+        $absent_value = request()->get('absent_value');
+
+        $query = Attendance::where('student_id',$student_id)
+            ->where('semester', $semester)
+            ->where('year', $year);
+
+        if ($absent_condition != '') {
+            $query->where(
+                'amount_absence',
+                $absent_condition,
+                $absent_value
+            );
+        }
+
+        $attendance = $query->get();
+        $attendance2 = $query->get();
+        // จบfilter
+
+        // $attendance = Attendance::where('student_id',$student_id)
+        //             ->where('semester', $semester)->where('year', $year)
+        //             ->get();
+        // $attendance2 = Attendance2::where('student_id',$student_id)
+        //             ->where('semester', $semester)->where('year', $year)
+        //             ->get();
         $bios = Bio::where('student_id', $student_id)->get();
 
         $users = User::all();
@@ -222,7 +265,7 @@ class AttendanceController extends Controller
     //lecturer
     //แสดงผลการเข้าเรียน
     public function showAttendanceL($course_id, $semester, $year)  {
-
+        // filter
         $absent_condition = request()->get('absent_condition');
         $absent_value = request()->get('absent_value');
 
@@ -239,7 +282,7 @@ class AttendanceController extends Controller
         }
 
         $student = $query->get();
-
+        // จบfilter
 
         // $student = Attendance::where('course_id',$course_id)->where('semester', $semester)->where('year', $year)->get();
         $course = Course::find($course_id);
