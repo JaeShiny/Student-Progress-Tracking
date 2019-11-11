@@ -37,52 +37,60 @@
 </head>
 
 <body>
-
-    @foreach ($bios as $bio)
+        @foreach ($bios as $bio)
         <h6 align='right'>รหัสนักศึกษา: {{$bio->student_id}} &nbsp;&nbsp;&nbsp;&nbsp;</h6>
         <h6 align='right'>ชื่อ-สกุล: {{$bio->first_name}} &nbsp;{{$bio->last_name}}&nbsp;&nbsp;&nbsp;</h6>
     @endforeach
 
-    <h5 align='center'>ผลการเรียน</h5>
+
+
 
 <br>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 float-right">
-                <div class="btn-group">
-                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">เทอม/ปีการศึกษา<span class="caret"></span></button>
-                    <ul class="dropdown-menu scrollable-menu" role="menu">
-                        @foreach($semesters as $show)
-                        <li> <a class="dropdown-item" href="/student/attendance/{{$show->semester}}/{{$show->year}}">{{$show->semester}}/{{$show->year}}</a></li>
-                        @endforeach
-                    </ul>
-                </div>
+<div class="container">
+        <div class="card bg-light mt" style="box-shadow: 5px 5px 8px 4px rgba(50, 50, 50, .5);">
+            <div class="card-header">
+                    <h4 class="w3-bar-item">ผลการเรียน</h4>
+
+                    {{--<h6 class="w3-bar-item">ภาคเรียนที่:&nbsp;{{$semesters}}/{{$year}}</h6>--}}
             </div>
-        </div>
-    </div>
-<br><br><br><br>
+            <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 float-right">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">เทอม/ปีการศึกษา<span class="caret"></span></button>
+                                <ul class="dropdown-menu scrollable-menu" role="menu">
+                                    @foreach($semesters as $show)
+                                    <li> <a class="dropdown-item" href="/student/grade/{{$show->semester}}/{{$show->year}}">{{$show->semester}}/{{$show->year}}</a></li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+<br><br><br>
 
     <center>
+
         <table class="table table-hover">
             <thead>
                 <tr>
-                  <th style="width: 9%"><center>รหัสวิชา</center></th>
+                  <th style="width: 13%"><center>รหัสวิชา</center></th>
                   <th>รหัสนักศึกษา</th>
-                  <th style="width: 20%"><center>ชื่อ-สกุล</center></th>
+                  <th style="width: 33%"><center>ชื่อ-สกุล</center></th>
                   {{-- <th>คะแนนเก็บมิดเทอม(เต็ม)</th>
                   <th>คะแนนเก็บมิดเทอม(ที่ได้)</th>
                   <th>คะแนนสอบมิดเทอม(เต็ม)</th>
                   <th>คะแนนสอบมิดเทอม(ที่ได้)</th>
                   <th>mean midterm</th> --}}
-                  <th>คะแนนมิดเทอมที่ได้</th>
+                  <th style="width: 17%">คะแนนมิดเทอมที่ได้</th>
                   {{-- <th>คะแนนเก็บไฟนอล(เต็ม)</th>
                   <th>คะแนนเก็บไฟนอล(ที่ได้)</th>
                   <th>คะแนนสอบไฟนอล(เต็ม)</th>
                   <th>คะแนนสอบไฟนอล(ที่ได้)</th>
                   <th>mean final</th> --}}
-                  <th>คะแนนไฟนอลที่ได้</th>
-                  <th>คะแนนรวมทั้งหมด</th>
-                  <th style="width: 5%">รายละเอียดเพิ่มเติม</th>
+                  <th style="width: 15%">คะแนนไฟนอลที่ได้</th>
+                  <th style="width: 15%">คะแนนรวมทั้งหมด</th>
+                  <th>รายละเอียดเพิ่มเติม</th>
                 </tr>
             </thead>
 
@@ -143,9 +151,9 @@
                             <div>
                                 <b>คะแนนสอบมิดเทอม(ที่ได้): </b> &nbsp;{{$show_student->test_midterm}}
                             </div>
-                            <div>
+                            {{-- <div>
                                 <b>mean midterm: </b> &nbsp;{{$show_student->mean_test_midterm}}
-                            </div>
+                            </div> --}}
                             <div>
                                 <b>total miderm score: </b> &nbsp;{{$show_student->total_midterm}}
                             </div>
@@ -161,9 +169,9 @@
                             <div>
                                 <b>คะแนนสอบไฟนอล(ที่ได้)): </b> &nbsp;{{$show_student->test_final}}
                             </div>
-                            <div>
+                            {{-- <div>
                                 <b>mean final: </b> &nbsp;{{$show_student->mean_test_final}}
-                            </div>
+                            </div> --}}
                             <div>
                                 <b>total final score: </b> &nbsp;{{$show_student->total_final}}
                             </div>
@@ -181,6 +189,7 @@
 
             @endforeach
         </table>
+            </div>
     </center>
 
 </div>
