@@ -4,6 +4,7 @@ namespace App\Imports;
 
 // use App\Attendance;
 use Auth;
+use Carbon\Carbon;
 use App\Model\spts\Attendance2;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
@@ -17,18 +18,32 @@ class AttendanceImport2 implements ToModel, WithHeadingRow
     */
     public function model(array $row)
     {
-        return new Attendance2([
+        $semester = intval(Carbon::now()->format('m')) <= 6 ? 2 : 1 ;
+        $year = intval(Carbon::now()->format('Y'));
+        if ($semester == 2) {
+            $year -= 1;
+        }
+
+        $period_total = 0;
+        for ($i = 1; $i <= 15; $i++) {
+            if (null !== $row["lab_{$i}"]) {
+                $period_total += 1;
+            }
+        }
+
+        return Attendance2::updateOrCreate(
+        [
             'course_id' => $row['course_id'],
-            'student_id'     => $row['student_id'],
-            'period_total' => '15',
+            'student_id' => $row['student_id'],
+        ],
+        [
+            'period_total' => $period_total,
             'amount_attendance'=> $row['lab_1']+$row['lab_2']+$row['lab_3']+$row['lab_4']+$row['lab_5']+$row['lab_6']+$row['lab_7']
                                 +$row['lab_8']+$row['lab_9']+$row['lab_10']+$row['lab_11']+$row['lab_12']+$row['lab_13']+$row['lab_14']+$row['lab_15'],
 
             'amount_absence'=> 15-$row['lab_1']-$row['lab_2']-$row['lab_3']-$row['lab_4']-$row['lab_5']-$row['lab_6']-$row['lab_7']
                                 -$row['lab_8']-$row['lab_9']-$row['lab_10']-$row['lab_11']-$row['lab_12']-$row['lab_13']-$row['lab_14']-$row['lab_15'],
 
-            // 'amount_absence'    => $row['amount_absence'],
-            // 'date_absence1' => \PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['date_absence1']),
             'period_1' =>$row['lab_1'],
             'period_2' =>$row['lab_2'],
             'period_3' =>$row['lab_3'],
@@ -44,25 +59,10 @@ class AttendanceImport2 implements ToModel, WithHeadingRow
             'period_13' =>$row['lab_13'],
             'period_14' =>$row['lab_14'],
             'period_15' =>$row['lab_15'],
-            // 'Lab_1' =>$row['period_1'],
-            // 'Lab_2' =>$row['period_2'],
-            // 'Lab_3' =>$row['period_3'],
-            // 'Lab_4' =>$row['period_4'],
-            // 'Lab_5' =>$row['period_5'],
-            // 'Lab_6' =>$row['period_6'],
-            // 'Lab_7' =>$row['period_7'],
-            // 'Lab_8' =>$row['period_8'],
-            // 'Lab_9' =>$row['period_9'],
-            // 'Lab_10' =>$row['period_10'],
-            // 'Lab_11' =>$row['period_11'],
-            // 'Lab_12' =>$row['period_12'],
-            // 'Lab_13' =>$row['period_13'],
-            // 'Lab_14' =>$row['period_14'],
-            // 'Lab_15' =>$row['period_15'],
             'person_add' => Auth::user()->name,
             'instructor_id'=> Auth::user()->instructor_id,
-            'semester' => '1',
-            'year' => '2019',
+            'semester' => $semester,
+            'year' => $year,
             'gen' => '20',
         ]);
     }
