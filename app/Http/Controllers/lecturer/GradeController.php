@@ -122,7 +122,25 @@ class GradeController extends Controller
     //lecturer
     //แสดงผล grade
     public function showGradeL($course_id, $semester, $year)  {
-        $student = Grade::where('course_id',$course_id)->where('semester', $semester)->where('year', $year)->get();
+        $total_condition = request()->get('total_condition');
+        $total_value = request()->get('total_value');
+
+        $query = Grade::where('course_id',$course_id)
+            ->where('semester', $semester)
+            ->where('year', $year);
+
+        if ($total_condition != '') {
+            $query->where(
+                'total_all',
+                $total_condition,
+                $total_value
+            );
+        }
+
+        $student = $query->get();
+
+        //เดิม
+        // $student = Grade::where('course_id',$course_id)->where('semester', $semester)->where('year', $year)->get();
         $course = Course::find($course_id);
         $users = User::all();
 

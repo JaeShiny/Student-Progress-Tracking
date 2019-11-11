@@ -83,7 +83,43 @@
         </div>
     </div>
 <br>
+{{-- filter --}}
+<div id="form-wrapper" style="max-width:1000px;margin:auto;">
+<div class="container">
 
+    <form class="form-inline">
+
+        <div class="form-group mb-2">
+          <label class="sr-only">หัวข้อ</label>
+          <input type="text" readonly class="form-control-plaintext" value="จำนวนขาดเรียน:">
+        </div>
+
+        <div class="form-group mx-sm-3 mb-2">
+            <label for="exampleFormControlSelect1">
+                <select class="form-control" id="exampleFormControlSelect1" name="absent_condition">
+                    <option>กรุณาเลือก</option>
+                    <option value=">">มากกว่า</option>
+                    <option value="<">น้อยกว่า</option>
+                    <option value=">=">มากกว่าเท่ากับ</option>
+                    <option value="<=">น้อยกว่าเท่ากับ</option>
+                    <option value="=">เท่ากับ</option>
+                </select>
+            </label>
+        </div>
+
+        <div class="form-group mx-sm-3 mb-2">
+            <label class="sr-only">ค่า</label>
+            <input class="form-control" id="inputPassword2" placeholder="ค่า" name="absent_value">
+        </div>
+
+        <button type="submit" class="btn btn-primary mb-2">ค้นหา</button>
+
+    </form>
+
+</div>
+</div>
+<br><br><br>
+{{-- จบ filter --}}
     <center>
         <br><br>
         <table class="table table-hover">
