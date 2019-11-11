@@ -55,7 +55,7 @@
             <div class="card-header">
                     <h4 class="w3-bar-item">ผลการเรียน</h4>
 
-                  {{--  <h6 class="w3-bar-item">ภาคเรียนที่:&nbsp;{{$semesters}}/{{$year}}</h6>--}}
+                   <h6 class="w3-bar-item">ภาคเรียนที่:&nbsp;{{$semesters}}/{{$year}}</h6>
             </div>
 
 <br><br><br>
