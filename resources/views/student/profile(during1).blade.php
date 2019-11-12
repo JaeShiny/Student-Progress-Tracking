@@ -75,10 +75,10 @@
             <br>
             <br>
 
-            <div class="container7">
+            {{-- <div class="container7">
                 <br><br>
                     <img src="../image/{{$bios->picture}}" width="110" height="140">
-            </div>
+            </div> --}}
 
             <p>ชื่อ (ภาษาอังกฤษ) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </p>
             <p>{{$bios->firstname_eng}}&nbsp;&nbsp;{{$bios->lastname_eng}}</p>
@@ -124,6 +124,7 @@
 
             <p>
                 <B>การเข้าเรียน</B>
+                <h5 align='center'>ปีการศึกษา {{$s.'/'.$y}}</h5>
             </p>
 
             <hr class="my-4"><br><br>
@@ -309,6 +310,7 @@
 
         <p>
             <B>ผลการเรียน</B>
+            <h5 align='center'>ปีการศึกษา {{$s.'/'.$y}}</h5>
         </p>
 
         <hr class="my-4"><br><br>

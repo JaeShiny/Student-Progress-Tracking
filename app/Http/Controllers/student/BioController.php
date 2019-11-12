@@ -59,6 +59,8 @@ class BioController extends Controller
         $student_id = Auth::user()->student_id;
         $attendances = Attendance::where('student_id', $student_id)->get();
 
+        $gen = Generation::all();
+
         return view('student.profile(during)', [
             'user' => $user,
             'bios' => $bios,
@@ -70,6 +72,45 @@ class BioController extends Controller
             'student_id' => $student_id,
             'attendances' => $attendances,
             'grades' => $grades,
+            'gen' => $gen,
+        ]);
+    }
+
+    public function profileDuringS1($student_id,$semester,$year)
+    {
+        $s = $semester;
+        $y = $year;
+        $user = Auth::user();
+        $bios = Bio::where('first_name', $user->name)->where('last_name', $user->lastname)->first();
+        $statuss = Status::all();
+        $students = Student::all();
+        $generations = Generation::all();
+        $majors = Major::all();
+        $problems = Problem::all();
+        // $attendances = Attendance::all();
+        $grades = Grade::where('student_id', $student_id)->where('semester',$semester)->where('year',$year)->get();
+
+        $student_id = Auth::user()->student_id;
+        $attendances = Attendance::where('student_id', $student_id)->where('semester',$semester)->where('year',$year)->get();
+
+        $gen = Generation::all();
+
+        return view('student.profile(during1)', [
+            'user' => $user,
+            'bios' => $bios,
+            'statuss' => $statuss,
+            'students' => $students,
+            'generations' => $generations,
+            'majors' => $majors,
+            'problems' => $problems,
+            'student_id' => $student_id,
+            'attendances' => $attendances,
+            'grades' => $grades,
+            'semester' => $semester,
+            'year' => $year,
+            's'=> $s,
+            'y' => $y,
+            'gen' => $gen,
         ]);
     }
 

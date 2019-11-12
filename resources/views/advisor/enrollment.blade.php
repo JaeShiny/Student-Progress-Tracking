@@ -94,10 +94,6 @@
       </table>
       </center>
 
-<<<<<<< HEAD
-=======
-
->>>>>>> master
 </body>
 </html>
 
