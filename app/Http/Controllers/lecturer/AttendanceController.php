@@ -481,7 +481,25 @@ class AttendanceController extends Controller
     //EducaionOfficer
     //แสดงผลการเข้าเรียน
     public function showAttendanceE($student_id)  {
-        $student = Attendance::where('student_id',$student_id)->get();
+        $s = $student_id;
+        // filter
+        $absent_condition = request()->get('absent_condition');
+        $absent_value = request()->get('absent_value');
+
+        $query = Attendance::where('student_id',$student_id);
+
+        if ($absent_condition != '') {
+            $query->where(
+                'amount_absence',
+                $absent_condition,
+                $absent_value
+            );
+        }
+
+        $student = $query->get();
+        // จบfilter
+
+        // $student = Attendance::where('student_id',$student_id)->get();
         $attendance2 = Attendance2::where('student_id',$student_id)->get();
         $users = User::all();
         $bios = Bio::where('student_id', $student_id)->get();
@@ -496,7 +514,9 @@ class AttendanceController extends Controller
             'bios' => $bios,
             'semester' => $semester,
             'gen' => $gen,
-            'attendance2' => $attendance2
+            'attendance2' => $attendance2,
+
+            's' => $s,
         ]);
     }
 

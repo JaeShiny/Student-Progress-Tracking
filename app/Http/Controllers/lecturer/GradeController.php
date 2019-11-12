@@ -314,7 +314,25 @@ class GradeController extends Controller
     //EducationOfficer
     //แสดงผล grade
     public function showGradeE($student_id)  {
-        $student = Grade::where('student_id',$student_id)->get();
+        $s = $student_id;
+        // filter
+        $total_condition = request()->get('total_condition');
+        $total_value = request()->get('total_value');
+
+        $query = Grade::where('student_id',$student_id);
+
+        if ($total_condition != '') {
+            $query->where(
+                'total_all',
+                $total_condition,
+                $total_value
+            );
+        }
+
+        $student = $query->get();
+        //จบfilter
+
+        // $student = Grade::where('student_id',$student_id)->get();
         $users = User::all();
         $bios = Bio::where('student_id', $student_id)->get();
 
@@ -322,6 +340,8 @@ class GradeController extends Controller
             'student' => $student,
             'users' => $users,
             'bios' => $bios,
+
+            's' => $s,
         ]);
     }
 
