@@ -30,7 +30,16 @@ class AttendanceImport implements ToModel, WithHeadingRow
             if (null !== $row["period_{$i}"]) {
                 $period_total += 1;
             }
-         }
+        }
+
+        $amount_attendance = $row['period_1']+$row['period_2']+$row['period_3']
+                            +$row['period_4']+$row['period_5']+$row['period_6']
+                            +$row['period_7']+$row['period_8']+$row['period_9']
+                            +$row['period_10']+$row['period_11']+$row['period_12']
+                            +$row['period_13']+$row['period_14']+$row['period_15'];
+
+        $amount_absence = $period_total-$amount_attendance;
+
 
         return Attendance::updateOrCreate(
             [
@@ -42,9 +51,9 @@ class AttendanceImport implements ToModel, WithHeadingRow
                 'amount_attendance'=> $row['period_1']+$row['period_2']+$row['period_3']+$row['period_4']+$row['period_5']+$row['period_6']+$row['period_7']
                                 +$row['period_8']+$row['period_9']+$row['period_10']+$row['period_11']+$row['period_12']+$row['period_13']+$row['period_14']+$row['period_15'],
 
-                'amount_absence'=> 15-$row['period_1']-$row['period_2']-$row['period_3']-$row['period_4']-$row['period_5']-$row['period_6']-$row['period_7']
-                                -$row['period_8']-$row['period_9']-$row['period_10']-$row['period_11']-$row['period_12']-$row['period_13']-$row['period_14']-$row['period_15'],
-
+                // 'amount_absence'=> 15-$row['period_1']-$row['period_2']-$row['period_3']-$row['period_4']-$row['period_5']-$row['period_6']-$row['period_7']
+                //                 -$row['period_8']-$row['period_9']-$row['period_10']-$row['period_11']-$row['period_12']-$row['period_13']-$row['period_14']-$row['period_15'],
+                'amount_absence' => $amount_absence,
                 'period_1' =>$row['period_1'],
                 'period_2' =>$row['period_2'],
                 'period_3' =>$row['period_3'],

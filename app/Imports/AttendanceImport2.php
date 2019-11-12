@@ -31,6 +31,14 @@ class AttendanceImport2 implements ToModel, WithHeadingRow
             }
         }
 
+        $amount_attendance = $row['lab_1']+$row['lab_2']+$row['lab_3']
+                            +$row['lab_4']+$row['lab_5']+$row['lab_6']
+                            +$row['lab_7']+$row['lab_8']+$row['lab_9']
+                            +$row['lab_10']+$row['lab_11']+$row['lab_12']
+                            +$row['lab_13']+$row['lab_14']+$row['lab_15'];
+
+        $amount_absence = $period_total-$amount_attendance;
+
         return Attendance2::updateOrCreate(
         [
             'course_id' => $row['course_id'],
@@ -41,9 +49,9 @@ class AttendanceImport2 implements ToModel, WithHeadingRow
             'amount_attendance'=> $row['lab_1']+$row['lab_2']+$row['lab_3']+$row['lab_4']+$row['lab_5']+$row['lab_6']+$row['lab_7']
                                 +$row['lab_8']+$row['lab_9']+$row['lab_10']+$row['lab_11']+$row['lab_12']+$row['lab_13']+$row['lab_14']+$row['lab_15'],
 
-            'amount_absence'=> 15-$row['lab_1']-$row['lab_2']-$row['lab_3']-$row['lab_4']-$row['lab_5']-$row['lab_6']-$row['lab_7']
-                                -$row['lab_8']-$row['lab_9']-$row['lab_10']-$row['lab_11']-$row['lab_12']-$row['lab_13']-$row['lab_14']-$row['lab_15'],
-
+            // 'amount_absence'=> 15-$row['lab_1']-$row['lab_2']-$row['lab_3']-$row['lab_4']-$row['lab_5']-$row['lab_6']-$row['lab_7']
+            //                     -$row['lab_8']-$row['lab_9']-$row['lab_10']-$row['lab_11']-$row['lab_12']-$row['lab_13']-$row['lab_14']-$row['lab_15'],
+            'amount_absence' => $amount_absence,
             'period_1' =>$row['lab_1'],
             'period_2' =>$row['lab_2'],
             'period_3' =>$row['lab_3'],
