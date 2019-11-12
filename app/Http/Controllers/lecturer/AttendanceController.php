@@ -265,6 +265,8 @@ class AttendanceController extends Controller
     //lecturer
     //แสดงผลการเข้าเรียน
     public function showAttendanceL($course_id, $semester, $year)  {
+        $se = $semester;
+        $ye = $year;
         // filter
         $absent_condition = request()->get('absent_condition');
         $absent_value = request()->get('absent_value');
@@ -303,6 +305,9 @@ class AttendanceController extends Controller
 
             'attendance' => $attendance,
             'attendance2' => $attendance2,
+
+            'se' => $se,
+            'ye' => $ye,
         ]);
     }
 

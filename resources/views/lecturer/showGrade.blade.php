@@ -41,10 +41,10 @@
 
 <ul class="nav nav-tabs" id="myTab" role="tablist" style="background-color:white;">
     <li class="nav-item">
-        <a class="nav-link" href="/importExportView/{{$course->course_id}}" style="color: #000000;">การเข้าเรียน</a>
+        <a class="nav-link" href="/attendance/{{$course->course_id}}/{{$se}}/{{$ye}}" style="color: #000000;">การเข้าเรียน</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link active" href="/importExportGrade/{{$course->course_id}}" style="color: #000000;">ผลการเรียน</a>
+        <a class="nav-link active" href="" style="color: #000000;">ผลการเรียน</a>
     </li>
 </ul><br>
 {{--

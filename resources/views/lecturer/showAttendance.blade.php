@@ -43,10 +43,10 @@
 
 <ul class="nav nav-tabs" id="myTab" role="tablist" style="background-color:white;">
     <li class="nav-item">
-        <a class="nav-link active" href="/importExportView/{{$course->course_id}}" style="color: #000000;">การเข้าเรียน</a>
+        <a class="nav-link active" href="" style="color: #000000;">การเข้าเรียน</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="/importExportGrade/{{$course->course_id}}" style="color: #000000;">ผลการเรียน</a>
+        <a class="nav-link" href="/showGrade/{{$course->course_id}}/{{$se}}/{{$ye}}" style="color: #000000;">ผลการเรียน</a>
     </li>
 </ul><br>
 {{--
@@ -100,7 +100,7 @@
                 <select class="form-control" id="exampleFormControlSelect1" name="absent_condition">
                     <option>กรุณาเลือก</option>
                     <option value=">">มากกว่า</option>
-                    <option value="<">น้อยมาก</option>
+                    <option value="<">น้อยกว่า</option>
                     <option value=">=">มากกว่าเท่ากับ</option>
                     <option value="<=">น้อยกว่าเท่ากับ</option>
                     <option value="=">เท่ากับ</option>

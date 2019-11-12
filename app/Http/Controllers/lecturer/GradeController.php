@@ -140,6 +140,9 @@ class GradeController extends Controller
     //lecturer
     //แสดงผล grade
     public function showGradeL($course_id, $semester, $year)  {
+        $se = $semester;
+        $ye = $year;
+        // filter
         $total_condition = request()->get('total_condition');
         $total_value = request()->get('total_value');
 
@@ -172,6 +175,9 @@ class GradeController extends Controller
             'users' => $users,
             'semester' => $semester,
             'gen' => $gen,
+
+            'se' => $se,
+            'ye' => $ye,
         ]);
     }
 
