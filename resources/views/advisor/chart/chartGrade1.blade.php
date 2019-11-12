@@ -70,51 +70,35 @@
     <table class="table table-hover">
         <thead>
             <tr>
-                <th scope="col">เทอม/ปีการศึกษา</th>
-                <th scope="col">Mean</th>
+                <th scope="col">เกรดเฉลี่ย</th>
+                <th scope="col">จำนวนนักศึกษา</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <th scope="row">1/2015</th>
-                <td>{{$term_year_1_2015}}</td>
+                <th scope="row">0 - 1.50</th>
+                <td>{{$gardeA}}</td>
             </tr>
             <tr>
-                <th scope="row">2/2015</th>
-                <td>{{$term_year_2_2015}}</td>
+                <th scope="row">1.51 - 2.00</th>
+                <td>{{$gardeBB}}</td>
             </tr>
             <tr>
-                <th scope="row">1/2016</th>
-                <td>{{$term_year_1_2016}}</td>
+                <th scope="row">2.01 - 2.50</th>
+                <td>{{$gardeB}}</td>
             </tr>
             <tr>
-                <th scope="row">2/2016</th>
-                <td>{{$term_year_2_2016}}</td>
+                <th scope="row">2.51 - 3.00</th>
+                <td>{{$gardeCC}}</td>
             </tr>
             <tr>
-                <th scope="row">1/2017</th>
-                <td>{{$term_year_1_2017}}</td>
+                <th scope="row">3.01- 3.50</th>
+                <td>{{$gardeC}}</td>
             </tr>
             <tr>
-                <th scope="row">2/2017</th>
-                <td>{{$term_year_2_2017}}</td>
+                <th scope="row">3.51- 4.00</th>
+                <td>{{$gardeDD}}</td>
             </tr>
-            {{-- <tr>
-                <th scope="row">1/2018</th>
-                <td>{{$term_year_1_2018}}</td>
-            </tr>
-            <tr>
-                <th scope="row">2/2018</th>
-                <td>{{$term_year_2_2018}}</td>
-            </tr>
-            <tr>
-                <th scope="row">1/2019</th>
-                <td>{{$term_year_1_2019}}</td>
-            </tr>
-            <tr>
-                <th scope="row">2/2019</th>
-                <td>{{$term_year_2_2019}}</td>
-            </tr> --}}
         </tbody>
     </table>
 </center><br><br>

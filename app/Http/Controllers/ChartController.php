@@ -618,6 +618,125 @@ class ChartController extends Controller
         ]);
     }
 
+    public function attendanceLF1($course_id, $semester, $year){
+        $course = Course::find($course_id);
+        $major = Major::where('major_id',$course->major_id)->get();
+        $student = Student::where('major_id',$course->major_id)->get();
+
+        $test = Instructor::where('last_name',Auth::user()->lastname)->first();
+        $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+        $gen = Generation::orderBy('year','desc')->first();
+
+        $count_student = Attendance::where('attendance_id')->where('semester', $semester)->where('year', $year)->count();
+        $risk_attendance = Attendance::where('amount_absence')->where('course_id',$course_id)
+                        ->where('semester', $semester)->where('year', $year)
+                        ->get();
+        $risk_attendanceC = Attendance::where('amount_absence')->where('course_id',$course_id)
+                            ->where('semester', $semester)->where('year', $year)
+                            ->count();
+        $stu = Attendance::count('student_id');
+
+
+                            $data['1-2015'] = Attendance::where(['semester' => 1,'year' => 2015,'course_id' => $course_id])->first();
+
+                            $data['2-2015'] = Attendance::where(['semester' => 2,'year' => 2015,'course_id' => $course_id])->first();
+
+                            $data['1-2016'] = Attendance::where(['semester' => 1,'year' => 2016,'course_id' => $course_id])->first();
+
+                            $data['2-2016'] = Attendance::where(['semester' => 2,'year' => 2016,'course_id' => $course_id])->first();
+
+                            $data['1-2017'] = Attendance::where(['semester' => 1,'year' => 2017,'course_id' => $course_id])->first();
+
+                            $data['2-2017'] = Attendance::where(['semester' => 2,'year' => 2017,'course_id' => $course_id])->first();
+
+                            $data['1-2018'] = Attendance::where(['semester' => 1,'year' => 2018,'course_id' => $course_id])->first();
+
+                            $data['2-2018'] = Attendance::where(['semester' => 2,'year' => 2018,'course_id' => $course_id])->first();
+
+                            $data['1-2019'] = Attendance::where(['semester' => 1,'year' => 2019,'course_id' => $course_id])->first();
+
+                            $data['2-2019'] = Attendance::where(['semester' => 2,'year' => 2019,'course_id' => $course_id])->first();
+        // $period_1 = Attendance::where('period_1', '<=' , 0)->where('course_id',$course_id)->count();
+        // $period_2 = Attendance::where('period_2', '<=' , 0)->where('course_id',$course_id)->count();
+        // $period_3 = Attendance::where('period_3', '<=' , 0)->where('course_id',$course_id)->count();
+        // $period_4 = Attendance::where('period_4', '<=' , 0)->where('course_id',$course_id)->count();
+        // $period_5 = Attendance::where('period_5', '<=' , 0)->where('course_id',$course_id)->count();
+        // $period_6 = Attendance::where('period_6', '<=' , 0)->where('course_id',$course_id)->count();
+        // $period_7 = Attendance::where('period_7', '<=' , 0)->where('course_id',$course_id)->count();
+        // $period_8 = Attendance::where('period_8', '<=' , 0)->where('course_id',$course_id)->count();
+        // $period_9 = Attendance::where('period_9', '<=' , 0)->where('course_id',$course_id)->count();
+        // $period_10 = Attendance::where('period_10', '<=' , 0)->where('course_id',$course_id)->count();
+        // $period_11 = Attendance::where('period_11', '<=' , 0)->where('course_id',$course_id)->count();
+        // $period_12 = Attendance::where('period_12', '<=' , 0)->where('course_id',$course_id)->count();
+        // $period_13 = Attendance::where('period_13', '<=' , 0)->where('course_id',$course_id)->count();
+        // $period_14 = Attendance::where('period_14', '<=' , 0)->where('course_id',$course_id)->count();
+        // $period_15 = Attendance::where('period_15', '<=' , 0)->where('course_id',$course_id)->count();
+        $data['1-2015'] = (isset($data['1-2015']->amount_absence)) ? $data['1-2015']->amount_absence : 0;
+        $data['2-2015'] = (isset($data['2-2015']->amount_absence)) ? $data['2-2015']->amount_absence : 0;
+        $data['1-2016'] = (isset($data['1-2016']->amount_absence)) ? $data['1-2016']->amount_absence : 0;
+        $data['2-2016'] = (isset($data['2-2016']->amount_absence)) ? $data['2-2016']->amount_absence : 0;
+        $data['1-2017'] = (isset($data['1-2017']->amount_absence)) ? $data['1-2017']->amount_absence : 0;
+        $data['2-2017'] = (isset($data['2-2017']->amount_absence)) ? $data['2-2017']->amount_absence : 0;
+        $data['1-2018'] = (isset($data['1-2018']->amount_absence)) ? $data['1-2018']->amount_absence : 0;
+        $data['2-2018'] = (isset($data['2-2018']->amount_absence)) ? $data['2-2018']->amount_absence : 0;
+        $data['1-2019'] = (isset($data['1-2019']->amount_absence)) ? $data['1-2019']->amount_absence : 0;
+        $data['2-2019'] = (isset($data['2-2019']->amount_absence)) ? $data['2-2019']->amount_absence : 0;
+
+
+        $chart = Charts::database($risk_attendance, 'line', 'highcharts')
+            ->title("สถิติการขาดเรียนของนักศึกษา")
+            ->elementLabel("จำนวนนักศึกษาที่ขาดเรียน")
+            ->labels(['1/2015','2/2015','1/2016','2/2016','1/2017','2/2017','1/2018','2/2018','1/2019','2/2019'])
+            ->values([$data['1-2015'],$data['2-2015'],$data['1-2016'],$data['2-2016'],$data['1-2017'],$data['2-2017'],$data['1-2018'],$data['2-2018'],$data['1-2019'],$data['2-2019']])
+            // ->labels(['คาบที่1', 'คาบที่2', 'คาบที่3', 'คาบที่4', 'คาบที่5', 'คาบที่6', 'คาบที่7', 'คาบที่8'
+            // , 'คาบที่9', 'คาบที่10', 'คาบที่11', 'คาบที่12', 'คาบที่13', 'คาบที่14', 'คาบที่15'])
+            // ->values([$period_1,$period_2,$period_3,$period_4,$period_5,$period_6,$period_7
+            // ,$period_8,$period_9,$period_10,$period_11,$period_12,$period_13,$period_14,$period_15])
+            ->dimensions(1000, 500)
+            ->responsive(true);
+
+        return view('LF.chart.chartAttendance1',[
+            'student' => $student,
+            'course' => $course,
+            'major' => $major,
+            'chart' => $chart,
+            'semester' => $semester,
+            'gen' => $gen,
+
+            'risk_attendance' => $risk_attendance,
+            'risk_attendanceC' => $risk_attendanceC,
+
+            'term_year_1_2015' => $data['1-2015'],
+            'term_year_2_2015' =>$data['2-2015'],
+            'term_year_1_2016' => $data['1-2016'],
+            'term_year_2_2016' =>$data['2-2016'],
+            'term_year_1_2017' => $data['1-2017'],
+            'term_year_2_2017' => $data['2-2017'],
+            'term_year_1_2018' => $data['1-2018'],
+            'term_year_2_2018' => $data['2-2018'],
+            'term_year_1_2019' => $data['1-2019'],
+            'term_year_2_2019' => $data['2-2019'],
+
+            // 'period_1' => $period_1,
+            // 'period_2' => $period_2,
+            // 'period_3' => $period_3,
+            // 'period_4' => $period_4,
+            // 'period_5' => $period_5,
+            // 'period_6' => $period_6,
+            // 'period_7' => $period_7,
+            // 'period_8' => $period_8,
+            // 'period_9' => $period_9,
+            // 'period_10' => $period_10,
+            // 'period_11' => $period_11,
+            // 'period_12' => $period_12,
+            // 'period_13' => $period_13,
+            // 'period_14' => $period_14,
+            // 'period_15' => $period_15,
+
+            'count_student' => $count_student,
+        ]);
+    }
+
     public function gradeLF($course_id, $semester, $year){
         $course = Course::find($course_id);
         $major = Major::where('major_id',$course->major_id)->get();
@@ -669,6 +788,172 @@ class ChartController extends Controller
             'gardeDD' => $gradeDD,
             'gardeD' => $gradeD,
             'gardeF' => $gradeF,
+        ]);
+    }
+
+    public function gradeLF1($course_id, $semester, $year){
+        $course = Course::find($course_id);
+        $major = Major::where('major_id',$course->major_id)->get();
+        $student = Student::where('major_id',$course->major_id)->get();
+
+        $test = Instructor::where('last_name',Auth::user()->lastname)->first();
+        $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+        $gen = Generation::orderBy('year','desc')->first();
+
+        $count_student = Grade::where('grade_id')->where('semester', $semester)->where('year', $year)->count();
+        $risk_grade = Grade::where('total_all')->where('semester', $semester)->where('year', $year)->where('course_id',$course_id)->get();
+        $risk_gradeC = Grade::where('total_all')->where('semester', $semester)->where('year', $year)->where('course_id',$course_id)->count();
+
+
+        // query เงื่อนไขตามที่กำหนด แล้วทำการ แสดงข้อมูลล่าสุดออกมา โดยแสดงแค่ 1 record ของข้อมูลล่าสุด
+        $data['1-2015'] = Grade::where(['semester' => 1,'year' => 2015,'course_id' => $course_id])->orderby('mean_test_midterm','desc')->first();
+
+        $data['2-2015'] = Grade::where(['semester' => 2,'year' => 2015,'course_id' => $course_id])->orderby('mean_test_midterm','desc')->first();
+
+        $data['1-2016'] = Grade::where(['semester' => 1,'year' => 2016,'course_id' => $course_id])->orderby('mean_test_midterm','desc')->first();
+
+        $data['2-2016'] = Grade::where(['semester' => 2,'year' => 2016,'course_id' => $course_id])->orderby('mean_test_midterm','desc')->first();
+
+        $data['1-2017'] = Grade::where(['semester' => 1,'year' => 2017,'course_id' => $course_id])->orderby('mean_test_midterm','desc')->first();
+
+        $data['2-2017'] = Grade::where(['semester' => 2,'year' => 2017,'course_id' => $course_id])->orderby('mean_test_midterm','desc')->first();
+
+        $data['1-2018'] = Grade::where(['semester' => 1,'year' => 2018,'course_id' => $course_id])->orderby('mean_test_midterm','desc')->first();
+
+        $data['2-2018'] = Grade::where(['semester' => 2,'year' => 2018,'course_id' => $course_id])->orderby('mean_test_midterm','desc')->first();
+
+        $data['1-2019'] = Grade::where(['semester' => 1,'year' => 2019,'course_id' => $course_id])->orderby('mean_test_midterm','desc')->first();
+
+        $data['2-2019'] = Grade::where(['semester' => 2,'year' => 2019,'course_id' => $course_id])->orderby('mean_test_midterm','desc')->first();
+
+
+        //ทำการตรวจสอบว่าค่าที่ออกมามีจริงไหม ถ้าไม่มีให้เป็น 0 ถ้ามี ให้เป็นค่าที่ query ออกมาของแต่ละ ตัวแปร
+        $data['1-2015'] = (isset($data['1-2015']->mean_test_midterm)) ? $data['1-2015']->mean_test_midterm : 0;
+        $data['2-2015'] = (isset($data['2-2015']->mean_test_midterm)) ? $data['2-2015']->mean_test_midterm : 0;
+        $data['1-2016'] = (isset($data['1-2016']->mean_test_midterm)) ? $data['1-2016']->mean_test_midterm : 0;
+        $data['2-2016'] = (isset($data['2-2016']->mean_test_midterm)) ? $data['2-2016']->mean_test_midterm : 0;
+        $data['1-2017'] = (isset($data['1-2017']->mean_test_midterm)) ? $data['1-2017']->mean_test_midterm : 0;
+        $data['2-2017'] = (isset($data['2-2017']->mean_test_midterm)) ? $data['2-2017']->mean_test_midterm : 0;
+        $data['1-2018'] = (isset($data['1-2018']->mean_test_midterm)) ? $data['1-2018']->mean_test_midterm : 0;
+        $data['2-2018'] = (isset($data['2-2018']->mean_test_midterm)) ? $data['2-2018']->mean_test_midterm : 0;
+        $data['1-2019'] = (isset($data['1-2019']->mean_test_midterm)) ? $data['1-2019']->mean_test_midterm : 0;
+        $data['2-2019'] = (isset($data['2-2019']->mean_test_midterm)) ? $data['2-2019']->mean_test_midterm : 0;
+
+
+        $chart = Charts::database($risk_grade, 'line', 'highcharts')
+            ->title("สถิติคะแนนผลการเรียนของนักศึกษา")
+            ->elementLabel("คะแนนผลงานเรียน")
+            ->labels(['1/2015','2/2015','1/2016','2/2016','1/2017','2/2017','1/2018','2/2018','1/2019','2/2019'])
+            ->values([$data['1-2015'],$data['2-2015'],$data['1-2016'],$data['2-2016'],$data['1-2017'],$data['2-2017'],$data['1-2018'],$data['2-2018'],$data['1-2019'],$data['2-2019']])
+            ->dimensions(1000, 500)
+            ->responsive(true);
+
+        return view('LF.chart.chartGrade1',[
+            'student' => $student,
+            'course' => $course,
+            'major' => $major,
+            'chart' => $chart,
+            'semester' => $semester,
+            'gen' => $gen,
+
+            'risk_grade' => $risk_grade,
+            'risk_gradeC' => $risk_gradeC,
+
+            'count_student' => $count_student,
+
+            'term_year_1_2015' => $data['1-2015'],
+            'term_year_2_2015' =>$data['2-2015'],
+            'term_year_1_2016' => $data['1-2016'],
+            'term_year_2_2016' =>$data['2-2016'],
+            'term_year_1_2017' => $data['1-2017'],
+            'term_year_2_2017' => $data['2-2017'],
+            'term_year_1_2018' => $data['1-2018'],
+            'term_year_2_2018' => $data['2-2018'],
+            'term_year_1_2019' => $data['1-2019'],
+            'term_year_2_2019' => $data['2-2019'],
+        ]);
+    }
+
+    public function gradeLF2($course_id, $semester, $year){
+        $course = Course::find($course_id);
+        $major = Major::where('major_id',$course->major_id)->get();
+        $student = Student::where('major_id',$course->major_id)->get();
+
+        $test = Instructor::where('last_name',Auth::user()->lastname)->first();
+        $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+        $gen = Generation::orderBy('year','desc')->first();
+
+        $count_student = Grade::where('grade_id')->where('semester', $semester)->where('year', $year)->count();
+        $risk_grade = Grade::where('total_all')->where('semester', $semester)->where('year', $year)->where('course_id',$course_id)->get();
+        $risk_gradeC = Grade::where('total_all')->where('semester', $semester)->where('year', $year)->where('course_id',$course_id)->count();
+
+
+        // query เงื่อนไขตามที่กำหนด แล้วทำการ แสดงข้อมูลล่าสุดออกมา โดยแสดงแค่ 1 record ของข้อมูลล่าสุด
+        $data['1-2015'] = Grade::where(['semester' => 1,'year' => 2015,'course_id' => $course_id])->orderby('mean_test_final','desc')->first();
+
+        $data['2-2015'] = Grade::where(['semester' => 2,'year' => 2015,'course_id' => $course_id])->orderby('mean_test_final','desc')->first();
+
+        $data['1-2016'] = Grade::where(['semester' => 1,'year' => 2016,'course_id' => $course_id])->orderby('mean_test_final','desc')->first();
+
+        $data['2-2016'] = Grade::where(['semester' => 2,'year' => 2016,'course_id' => $course_id])->orderby('mean_test_final','desc')->first();
+
+        $data['1-2017'] = Grade::where(['semester' => 1,'year' => 2017,'course_id' => $course_id])->orderby('mean_test_final','desc')->first();
+
+        $data['2-2017'] = Grade::where(['semester' => 2,'year' => 2017,'course_id' => $course_id])->orderby('mean_test_final','desc')->first();
+
+        $data['1-2018'] = Grade::where(['semester' => 1,'year' => 2018,'course_id' => $course_id])->orderby('mean_test_final','desc')->first();
+
+        $data['2-2018'] = Grade::where(['semester' => 2,'year' => 2018,'course_id' => $course_id])->orderby('mean_test_final','desc')->first();
+
+        $data['1-2019'] = Grade::where(['semester' => 1,'year' => 2019,'course_id' => $course_id])->orderby('mean_test_final','desc')->first();
+
+        $data['2-2019'] = Grade::where(['semester' => 2,'year' => 2019,'course_id' => $course_id])->orderby('mean_test_final','desc')->first();
+
+
+        //ทำการตรวจสอบว่าค่าที่ออกมามีจริงไหม ถ้าไม่มีให้เป็น 0 ถ้ามี ให้เป็นค่าที่ query ออกมาของแต่ละ ตัวแปร
+        $data['1-2015'] = (isset($data['1-2015']->mean_test_final)) ? $data['1-2015']->mean_test_final : 0;
+        $data['2-2015'] = (isset($data['2-2015']->mean_test_final)) ? $data['2-2015']->mean_test_final : 0;
+        $data['1-2016'] = (isset($data['1-2016']->mean_test_final)) ? $data['1-2016']->mean_test_final : 0;
+        $data['2-2016'] = (isset($data['2-2016']->mean_test_final)) ? $data['2-2016']->mean_test_final : 0;
+        $data['1-2017'] = (isset($data['1-2017']->mean_test_final)) ? $data['1-2017']->mean_test_final : 0;
+        $data['2-2017'] = (isset($data['2-2017']->mean_test_final)) ? $data['2-2017']->mean_test_final : 0;
+        $data['1-2018'] = (isset($data['1-2018']->mean_test_final)) ? $data['1-2018']->mean_test_final : 0;
+        $data['2-2018'] = (isset($data['2-2018']->mean_test_final)) ? $data['2-2018']->mean_test_final : 0;
+        $data['1-2019'] = (isset($data['1-2019']->mean_test_final)) ? $data['1-2019']->mean_test_final : 0;
+        $data['2-2019'] = (isset($data['2-2019']->mean_test_final)) ? $data['2-2019']->mean_test_final : 0;
+
+
+        $chart = Charts::database($risk_grade, 'line', 'highcharts')
+            ->title("สถิติคะแนนผลการเรียนของนักศึกษา")
+            ->elementLabel("คะแนนผลงานเรียน")
+            ->labels(['1/2015','2/2015','1/2016','2/2016','1/2017','2/2017','1/2018','2/2018','1/2019','2/2019'])
+            ->values([$data['1-2015'],$data['2-2015'],$data['1-2016'],$data['2-2016'],$data['1-2017'],$data['2-2017'],$data['1-2018'],$data['2-2018'],$data['1-2019'],$data['2-2019']])
+            ->dimensions(1000, 500)
+            ->responsive(true);
+
+        return view('LF.chart.chartGrade2',[
+            'student' => $student,
+            'course' => $course,
+            'major' => $major,
+            'chart' => $chart,
+            'semester' => $semester,
+            'gen' => $gen,
+
+            'risk_grade' => $risk_grade,
+            'risk_gradeC' => $risk_gradeC,
+
+            'count_student' => $count_student,
+
+            'term_year_1_2015' => $data['1-2015'],
+            'term_year_2_2015' =>$data['2-2015'],
+            'term_year_1_2016' => $data['1-2016'],
+            'term_year_2_2016' =>$data['2-2016'],
+            'term_year_1_2017' => $data['1-2017'],
+            'term_year_2_2017' => $data['2-2017'],
+            'term_year_1_2018' => $data['1-2018'],
+            'term_year_2_2018' => $data['2-2018'],
+            'term_year_1_2019' => $data['1-2019'],
+            'term_year_2_2019' => $data['2-2019'],
         ]);
     }
 
@@ -962,18 +1247,16 @@ class ChartController extends Controller
     }
 
     public function attendanceA1($semester, $year){
+
+        $semester_input = $semester;
         $instructor = Instructor::where('first_name',Auth::user()->name)->first();
         $myStudent = Student::where('adviser_id1',$instructor->instructor_id)->orWhere('adviser_id2',$instructor->instructor_id)->get();
-        $student_ids = $myStudent->map(function ($item) {
-            return $item->student_id;
-        });
-        // $student = Student::where('adviser_id1',$instructor->instructor_id)->orWhere('adviser_id2',$instructor->instructor_id)->first();
-        $bios = Bio::whereIn('student_id', $student_ids->all())->get();
 
-        $risk_attendance = Attendance::where('amount_absence')
-                            ->whereIn('student_id',$student_ids->all())
-                            ->where('semester', $semester)->where('year', $year)->get();
-        $risk_attendanceC = $risk_attendance->count();
+        $student = Student::where('adviser_id1',$instructor->instructor_id)->orWhere('adviser_id2',$instructor->instructor_id)->first();
+        $bios = Bio::where('student_id', $student->student_id)->get();
+
+        $risk_attendance = Attendance::where('amount_absence')->where('student_id',$student->student_id)->where('semester', $semester)->where('year', $year)->get();
+        $risk_attendanceC = Attendance::where('amount_absence')->where('student_id',$student->student_id)->where('semester', $semester)->where('year', $year)->count();
 
         $test = Instructor::where('last_name',Auth::user()->lastname)->first();
         $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
@@ -981,84 +1264,57 @@ class ChartController extends Controller
         $generation = Generation::all();
 
         $count_student = Attendance::where('attendance_id')->where('semester', $semester)->where('year', $year)->count();
-        $stu = Attendance::where('year',$year)->sum('amount_absence');
-        $stud = Attendance::where('student_id',$student_ids)->count();
-        // dd($stu);
-        // $period_1 = Attendance::where('period_1', '<=' , 0)->whereIn('student_id',$student_ids->all())->count();
-        // $period_2 = Attendance::where('period_2', '<=' , 0)->whereIn('student_id',$student_ids->all())->count();
-        // $period_3 = Attendance::where('period_3', '<=' , 0)->whereIn('student_id',$student_ids->all())->count();
-        // $period_4 = Attendance::where('period_4', '<=' , 0)->whereIn('student_id',$student_ids->all())->count();
-        // $period_5 = Attendance::where('period_5', '<=' , 0)->whereIn('student_id',$student_ids->all())->count();
-        // $period_6 = Attendance::where('period_6', '<=' , 0)->whereIn('student_id',$student_ids->all())->count();
-        // $period_7 = Attendance::where('period_7', '<=' , 0)->whereIn('student_id',$student_ids->all())->count();
-        // $period_8 = Attendance::where('period_8', '<=' , 0)->whereIn('student_id',$student_ids->all())->count();
-        // $period_9 = Attendance::where('period_9', '<=' , 0)->whereIn('student_id',$student_ids->all())->count();
-        // $period_10 = Attendance::where('period_10', '<=' , 0)->whereIn('student_id',$student_ids->all())->count();
-        // $period_11 = Attendance::where('period_11', '<=' , 0)->whereIn('student_id',$student_ids->all())->count();
-        // $period_12 = Attendance::where('period_12', '<=' , 0)->whereIn('student_id',$student_ids->all())->count();
-        // $period_13 = Attendance::where('period_13', '<=' , 0)->whereIn('student_id',$student_ids->all())->count();
-        // $period_14 = Attendance::where('period_14', '<=' , 0)->whereIn('student_id',$student_ids->all())->count();
-        // $period_15 = Attendance::where('period_15', '<=' , 0)->whereIn('student_id',$student_ids->all())->count();
 
-                            // $data['1-10'] = Attendance::where('year',$year)->where('amount_absence','>=',0)->where('amount_absence','<=',10)->where('student_id',$student_ids)->sum('amount_absence');
+        //ทำการ กำหนด เงื่อนไขที่กำหนด โดยให้เงื่อนไข >= <= จำนวนที่ขาดเรียน และ เทอม กับ ปี ที่ระบุไว้
+        $attendance['1-10'] = Attendance::where('amount_absence', '>=' ,1)
+        ->where('amount_absence', '<=' ,10)
+        ->where(['semester' => $semester_input,'year' => $year])
+        ->count();
 
-                            $data['1-10'] = Attendance::where('year',$year)->where('amount_absence','>=',0)->where('amount_absence','<=',10)->where('student_id',$student_ids)->count();
 
-                            $data['11-20'] = Attendance::where('year',$year)->where('amount_absence','>=',11)->where('amount_absence','<=',20)->where('student_id',$student_ids)->count();
+        $attendance['11-20'] = Attendance::where('amount_absence', '>=' ,11)
+        ->where('amount_absence', '<=' ,20)
+        ->where(['semester' => $semester_input,'year' => $year])
+        ->count();
 
-                            $data['21-30'] = Attendance::where('year',$year)->where('amount_absence','>=',21)->where('amount_absence','<=',30)->where('student_id',$student_ids)->count();
+        $attendance['21-30'] = Attendance::where('amount_absence', '>=' ,21)
+        ->where('amount_absence', '<=' ,30)
+        ->where(['semester' => $semester_input,'year' => $year])
+        ->count();
 
-                            $data['31-40'] = Attendance::where('year',$year)->where('amount_absence','>=',31)->where('amount_absence','<=',40)->where('student_id',$student_ids)->count();
+        $attendance['31-40'] = Attendance::where('amount_absence', '>=' ,31)
+        ->where('amount_absence', '<=' ,40)
+        ->where(['semester' => $semester_input,'year' => $year])
+        ->count();
 
-                            $data['41-50'] = Attendance::where('year',$year)->where('amount_absence','>=',41)->where('amount_absence','<=',50)->where('student_id',$student_ids)->count();
+        $attendance['41-50'] = Attendance::where('amount_absence', '>=' ,41)
+        ->where('amount_absence', '<=' ,50)
+        ->where(['semester' => $semester_input,'year' => $year])
+        ->count();
 
-                            $data['51-60'] = Attendance::where('year',$year)->where('amount_absence','>=',51)->where('amount_absence','<=',60)->where('student_id',$student_ids)->count();
+        $attendance['51-60'] = Attendance::where('amount_absence', '>=' ,51)
+        ->where('amount_absence', '<=' ,60)
+        ->where(['semester' => $semester_input,'year' => $year])
+        ->count();
 
-                            $data['61-70'] = Attendance::where('year',$year)->where('amount_absence','>=',61)->where('amount_absence','<=',70)->where('student_id',$student_ids)->count();
+        $attendance['61-70'] = Attendance::where('amount_absence', '>=' ,61)
+        ->where('amount_absence', '<=' ,70)
+        ->where(['semester' => $semester_input,'year' => $year])
+        ->count();
 
-                            $data['71-80'] = Attendance::where('year',$year)->where('amount_absence','>=',71)->where('amount_absence','<=',80)->where('student_id',$student_ids)->count();
-
-                            $data['81-90'] = Attendance::where('year',$year)->where('amount_absence','>=',81)->where('amount_absence','<=',90)->where('student_id',$student_ids)->count();
-
-                            $data['91-100'] = Attendance::where('year',$year)->where('amount_absence','>=',91)->where('amount_absence','<=',100)->where('student_id',$student_ids)->count();
-
-                            // $data['1-10'] =  (isset($data['1-10']->amount_absence));
-                            // $data['11-20'] = (isset($data['11-20']->amount_absence));
-                            // $data['21-30'] = (isset($data['21-30']->amount_absence));
-                            // $data['31-40'] = (isset($data['31-40']->amount_absence));
-                            // $data['41-50'] = (isset($data['41-50']->amount_absence));
-                            // $data['51-60'] = (isset($data['51-60']->amount_absence));
-                            // $data['61-70'] = (isset($data['61-70']->amount_absence));
-                            // $data['71-80'] = (isset($data['71-80']->amount_absence));
-                            // $data['81-90'] = (isset($data['81-90']->amount_absence));
-                            // $data['91-100'] = (isset($data['91-100']->amount_absence));
-
-        // $chart = Charts::database($risk_attendance, 'bar', 'highcharts')
-        //         ->title("Attendance")
-		// 	    ->elementLabel("Total Users")
-		// 	    ->dimensions(1000, 500)
-		// 	    ->responsive(false)
-        // 	    ->groupByMonth(date('Y'), true);
 
         $chart = Charts::database($risk_attendance, 'bar', 'highcharts')
             ->title("สถิติการขาดเรียนของนักศึกษา")
             ->elementLabel("จำนวนนักศึกษาที่ขาดเรียน")
-            // ->elementLabel("จำนวนครั้งที่ขาดเรียน")
-            ->labels(['1-10','11-20','21-30','31-40','41-50','51-60','61-70','71-80','81-90','91-100'])
-            ->values([$data['1-10'],$data['11-20'],$data['21-30'],$data['31-40'],$data['41-50'],$data['51-60']
-                        ,$data['61-70'],$data['71-80'],$data['81-90'],$data['91-100']])
-            // ->labels(['คาบที่1', 'คาบที่2', 'คาบที่3', 'คาบที่4', 'คาบที่5', 'คาบที่6', 'คาบที่7', 'คาบที่8'
-            // , 'คาบที่9', 'คาบที่10', 'คาบที่11', 'คาบที่12', 'คาบที่13', 'คาบที่14', 'คาบที่15'])
-            // ->values([$period_1,$period_2,$period_3,$period_4,$period_5,$period_6,$period_7
-            // ,$period_8,$period_9,$period_10,$period_11,$period_12,$period_13,$period_14,$period_15])
-            // ->labels(['คาบที่1', 'คาบที่2', 'คาบที่3', 'คาบที่4', 'คาบที่5', 'คาบที่6', 'คาบที่7', 'คาบที่8'
-            // , 'คาบที่9', 'คาบที่10', 'คาบที่11', 'คาบที่12', 'คาบที่13', 'คาบที่14', 'คาบที่15'])
-            // ->values([$period_1,$period_2,$period_3,$period_4,$period_5,$period_6,$period_7
-            // ,$period_8,$period_9,$period_10,$period_11,$period_12,$period_13,$period_14,$period_15])
+            ->labels(['1-10', '11-20', '21-30', '31-40', '41-50', '51-60', '61-70'])
+            ->values([$attendance['1-10'],$attendance['11-20'],$attendance['21-30'],$attendance['31-40'],$attendance['41-50'],$attendance['51-60'],$attendance['61-70']])
             ->dimensions(1000, 500)
             ->responsive(true);
-            dd($chart);
+
+
+
         return view('advisor.chart.chartAttendance1',[
+            'student' => $student,
             'myStudent' => $myStudent,
 
             'bios' => $bios,
@@ -1070,33 +1326,13 @@ class ChartController extends Controller
             'generation' => $generation,
             'gen' => $gen,
 
-
-            'term_year_1_2015' => $data['1-10'],
-            'term_year_2_2015' =>$data['11-20'],
-            'term_year_1_2016' => $data['21-30'],
-            'term_year_2_2016' =>$data['31-40'],
-            'term_year_1_2017' => $data['41-50'],
-            'term_year_2_2017' => $data['51-60'],
-            'term_year_1_2018' => $data['61-70'],
-            'term_year_2_2018' => $data['71-80'],
-            'term_year_1_2019' => $data['81-90'],
-            'term_year_2_2019' => $data['91-100'],
-
-            // 'period_1' => $period_1,
-            // 'period_2' => $period_2,
-            // 'period_3' => $period_3,
-            // 'period_4' => $period_4,
-            // 'period_5' => $period_5,
-            // 'period_6' => $period_6,
-            // 'period_7' => $period_7,
-            // 'period_8' => $period_8,
-            // 'period_9' => $period_9,
-            // 'period_10' => $period_10,
-            // 'period_11' => $period_11,
-            // 'period_12' => $period_12,
-            // 'period_13' => $period_13,
-            // 'period_14' => $period_14,
-            // 'period_15' => $period_15,
+            'attendance1' => $attendance['1-10'],
+            'attendance2' => $attendance['11-20'],
+            'attendance3' => $attendance['21-30'],
+            'attendance4' => $attendance['31-40'],
+            'attendance5' => $attendance['41-50'],
+            'attendance6' => $attendance['51-60'],
+            'attendance7' => $attendance['61-70'],
         ]);
     }
 
@@ -1177,15 +1413,14 @@ class ChartController extends Controller
     }
 
     public function gradeA1($semester, $year){
+        $semester_input = $semester;
         $instructor = Instructor::where('first_name',Auth::user()->name)->first();
         $myStudent = Student::where('adviser_id1',$instructor->instructor_id)->orWhere('adviser_id2',$instructor->instructor_id)->get();
 
-        $student_ids = $myStudent->map(function ($item) {
-            return $item->student_id;
-        });
-        $bios = Bio::whereIn('student_id', $student_ids->all())->get();
-        $risk_grade = Grade::where('total_all')->whereIn('student_id',$student_ids->all())->where('semester', $semester)->where('year', $year)->get();
-        $risk_gradeC = $risk_grade->count();
+        $student = Student::where('adviser_id1',$instructor->instructor_id)->orWhere('adviser_id2',$instructor->instructor_id)->first();
+        $bios = Bio::where('student_id', $student->student_id)->get();
+        $risk_grade = Grade::where('total_all')->where('student_id',$student->student_id)->where('semester', $semester)->where('year', $year)->get();
+        $risk_gradeC = Grade::where('total_all')->where('student_id',$student->student_id)->where('semester', $semester)->where('year', $year)->count();
         $count_student = Grade::where('grade_id')->where('semester', $semester)->where('year', $year)->count();
 
         $test = Instructor::where('last_name',Auth::user()->lastname)->first();
@@ -1193,65 +1428,56 @@ class ChartController extends Controller
         $gen = Generation::orderBy('year','desc')->first();
         $generation = Generation::all();
 
-        $stu = Student::where('student_id',$student_ids)->first();
 
-        // $gradeA = Grade::where('total_all', '>=', 80)->whereIn('student_id',$student_ids->all())->count();
-        // $gradeBB = Grade::where('total_all', '>=', 75)->where('total_all', '<=', 79)->whereIn('student_id',$student_ids->all())->count();
-        // $gradeB = Grade::where('total_all', '>=', 70)->where('total_all', '<=', 74)->whereIn('student_id',$student_ids->all())->count();
-        // $gradeCC = Grade::where('total_all', '>=', 65)->where('total_all', '<=', 69)->whereIn('student_id',$student_ids->all())->count();
-        // $gradeC = Grade::where('total_all', '>=', 60)->where('total_all', '<=', 64)->whereIn('student_id',$student_ids->all())->count();
-        // $gradeDD = Grade::where('total_all', '>=', 55)->where('total_all', '<=', 59)->whereIn('student_id',$student_ids->all())->count();
-        // $gradeD = Grade::where('total_all', '>=', 50)->where('total_all', '<=', 54)->whereIn('student_id',$student_ids->all())->count();
-        // $gradeF = Grade::where('total_all', '>=', 49)->whereIn('student_id',$student_ids->all())->count();
+        //ทำการ join data ของ ตาราง generation กับ student เพื่อแสดงเกรดตามเงื่อนไขที่กำหนด โดยให้เงื่อนไข >= หรือ <= เกรดที่ระบุไว้ และ เทอม กับ ปี ที่ระบุไว้
+        $grade['0-1.50'] = Generation::join('student', 'student.curriculum_id', '=', 'generation.curriculum_id')
+        ->where('student.gpa', '>=', '0')
+        ->where('student.gpa', '<=', '1.50')
+        ->where(['generation.semester' => $semester_input,'generation.year' => $year])
+        ->count();
 
-        $data['0-1.50'] = Student::where('gpa','>=',0)->where('gpa','>=',1.50)->where('student_id',$student_ids)->count();
+        $grade['1.51-2.00'] = Generation::join('student', 'student.curriculum_id', '=', 'generation.curriculum_id')
+        ->where('student.gpa', '>=', '1.51')
+        ->where('student.gpa', '<=', '2.00')
+        ->where(['generation.semester' => $semester_input,'generation.year' => $year])
+        ->count();
 
-        $data['1.51-2.00'] = Student::where('gpa','>=',1.51)->where('gpa','>=',2.00)->where('student_id',$student_ids)->count();
+        $grade['2.01-2.50'] = Generation::join('student', 'student.curriculum_id', '=', 'generation.curriculum_id')
+        ->where('student.gpa', '>=', '2.01')
+        ->where('student.gpa', '<=', '2.50')
+        ->where(['generation.semester' => $semester_input,'generation.year' => $year])
+        ->count();
 
-        $data['2.01-2.50'] = Student::where('gpa','>=',2.01)->where('gpa','>=',2.50)->where('student_id',$student_ids)->count();
+        $grade['2.51-3.00'] = Generation::join('student', 'student.curriculum_id', '=', 'generation.curriculum_id')
+        ->where('student.gpa', '>=', '2.51')
+        ->where('student.gpa', '<=', '3.00')
+        ->where(['generation.semester' => $semester_input,'generation.year' => $year])
+        ->count();
 
-        $data['2.51-3.00'] = Student::where('gpa','>=',2.51)->where('gpa','>=',3.00)->where('student_id',$student_ids)->count();
+        $grade['3.01-3.50'] = Generation::join('student', 'student.curriculum_id', '=', 'generation.curriculum_id')
+        ->where('student.gpa', '>=', '3.01')
+        ->where('student.gpa', '<=', '3.50')
+        ->where(['generation.semester' => $semester_input,'generation.year' => $year])
+        ->count();
 
-        $data['3.01-3.50'] = Student::where('gpa','>=',3.01)->where('gpa','>=',3.50)->where('student_id',$student_ids)->count();
+        $grade['3.51-4.00'] = Generation::join('student', 'student.curriculum_id', '=', 'generation.curriculum_id')
+        ->where('student.gpa', '>=', '3.51')
+        ->where('student.gpa', '<=', '4.00')
+        ->where(['generation.semester' => $semester_input,'generation.year' => $year])
+        ->count();
 
-        $data['3.51-4.00'] = Student::where('gpa','>=',3.51)->where('gpa','>=',4.00)->where('student_id',$student_ids)->count();
-
-        // $data['2-2017'] = Student::where(['generation' => 13])->orderby('gpa','desc')->get();
-
-        // $data['1-2018'] = Student::where(['generation' => 13])->orderby('gpa','desc')->get();
-
-        // $data['2-2018'] = Student::where(['generation' => 13])->orderby('gpa','desc')->get();
-
-        // $data['1-2019'] = Student::where(['generation' => 13])->orderby('gpa','desc')->get();
-
-        // $data['2-2019'] = Student::where(['generation' => 13])->orderby('gpa','desc')->get();
-
-
-        //ทำการตรวจสอบว่าค่าที่ออกมามีจริงไหม ถ้าไม่มีให้เป็น 0 ถ้ามี ให้เป็นค่าที่ query ออกมาของแต่ละ ตัวแปร
-        // $data['1-2015'] = (isset($data['1-2015']->gpa)) ? $data['1-2015']->gpa : 0;
-        // $data['2-2015'] = (isset($data['2-2015']->gpa)) ? $data['2-2015']->gpa : 0;
-        // $data['1-2016'] = (isset($data['1-2016']->gpa)) ? $data['1-2016']->gpa : 0;
-        // $data['2-2016'] = (isset($data['2-2016']->gpa)) ? $data['2-2016']->gpa : 0;
-        // $data['1-2017'] = (isset($data['1-2017']->gpa)) ? $data['1-2017']->gpa : 0;
-        // $data['2-2017'] = (isset($data['2-2017']->gpa)) ? $data['2-2017']->gpa : 0;
-        // $data['1-2018'] = (isset($data['1-2018']->gpa)) ? $data['1-2018']->gpa : 0;
-        // $data['2-2018'] = (isset($data['2-2018']->gpa)) ? $data['2-2018']->gpa : 0;
-        // $data['1-2019'] = (isset($data['1-2019']->gpa)) ? $data['1-2019']->gpa : 0;
-        // $data['2-2019'] = (isset($data['2-2019']->gpa)) ? $data['2-2019']->gpa : 0;
 
 
         $chart = Charts::database($risk_grade, 'bar', 'highcharts')
             ->title("สถิติผลการเรียนของนักศึกษา")
             ->elementLabel("จำนวนนักศึกษา")
             ->labels(['0-1.50','1.51-2.00','2.01-2.50','2.51-3.00','3.01-3.50','3.51-4.00'])
-            ->values([$data['0-1.50'],$data['1.51-2.00'],$data['2.01-2.50'],$data['2.51-3.00'],$data['3.01-3.50'],$data['3.51-4.00']
-            ])
-            // ->labels(['เกรด A', 'เกรด B+', '่เกรด B', 'เกรด C+', 'เกรด C', 'เกรด D+', 'เกรด D', 'เกรด F'])
-            // ->values([$gradeA, $gradeBB, $gradeB, $gradeCC, $gradeC, $gradeDD, $gradeD, $gradeF])
+            ->values([$grade['0-1.50'],$grade['1.51-2.00'],$grade['2.01-2.50'],$grade['2.51-3.00'],$grade['3.01-3.50'],$grade['3.51-4.00']])
             ->dimensions(1000, 500)
             ->responsive(true);
-            // dd($chart);
+
         return view('advisor.chart.chartGrade1',[
+            'student' => $student,
             'myStudent' => $myStudent,
             'bios' => $bios,
 
@@ -1265,26 +1491,13 @@ class ChartController extends Controller
 
             'count_student' => $count_student,
 
-            'term_year_1_2015' => $data['0-1.50'],
-            'term_year_2_2015' =>$data['1.51-2.00'],
-            'term_year_1_2016' => $data['2.01-2.50'],
-            'term_year_2_2016' =>$data['2.51-3.00'],
-            'term_year_1_2017' => $data['3.01-3.50'],
-            'term_year_2_2017' => $data['3.51-4.00'],
-            // 'term_year_1_2018' => $data['1-2018'],
-            // 'term_year_2_2018' => $data['2-2018'],
-            // 'term_year_1_2019' => $data['1-2019'],
-            // 'term_year_2_2019' => $data['2-2019'],
+            'gardeA' => $grade['0-1.50'],
+            'gardeBB' => $grade['1.51-2.00'],
+            'gardeB' => $grade['2.01-2.50'],
+            'gardeCC' => $grade['2.51-3.00'],
+            'gardeC' => $grade['3.01-3.50'],
+            'gardeDD' => $grade['3.51-4.00'],
         ]);
-
-            // 'gardeA' => $gradeA,
-            // 'gardeBB' => $gradeBB,
-            // 'gardeB' => $gradeB,
-            // 'gardeCC' => $gradeCC,
-            // 'gardeC' => $gradeC,
-            // 'gardeDD' => $gradeDD,
-            // 'gardeD' => $gradeD,
-            // 'gardeF' => $gradeF,
 
     }
 

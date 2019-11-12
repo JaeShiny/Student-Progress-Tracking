@@ -42,7 +42,7 @@
 </ul><br>
 <h5 align='right'>
     <button type="button" class="btn btn-outline-success">
-            <a href="/advisor/chartGradeA1/{{$gen->semester}}/{{$gen->year}}"><img src="{{ URL::asset("../img/รูปสถิติ.png") }}" width="30" height="25" title="สถิติ"> &nbsp;สถิติผลการเรียนกลางภาค </a>
+            <a href="/advisor/chartGradeA1/{{$gen->semester}}/{{$gen->year}}"><img src="{{ URL::asset("../img/รูปสถิติ.png") }}" width="30" height="25" title="สถิติ"> &nbsp;สถิติผลการเรียน </a>
     </button>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 

@@ -31,10 +31,10 @@
 
 <ul class="nav nav-tabs" id="myTab" role="tablist" style="background-color:white;">
     <li class="nav-item">
-        <a class="nav-link" href="/advisor/chartAttendanceA/{{$gen->semester}}/{{$gen->year}}" style="color: #000000;">สถิติการเข้าเรียน</a>
+        <a class="nav-link active" href="/advisor/chartAttendanceA/{{$gen->semester}}/{{$gen->year}}" style="color: #000000;">สถิติการเข้าเรียน</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link active" href="/advisor/chartGradeA/{{$gen->semester}}/{{$gen->year}}" style="color: #000000;">สถิติผลการเรียน</a>
+        <a class="nav-link" href="/advisor/chartGradeA/{{$gen->semester}}/{{$gen->year}}" style="color: #000000;">สถิติผลการเรียน</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="/advisor/chartProblemA/{{$gen->semester}}/{{$gen->year}}" style="color: #000000;">สถิติด้านพฤติกรรม</a>
@@ -68,54 +68,43 @@
 <br><br><br><br>
 <center>
         <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th scope="col">เทอม/ปีการศึกษา</th>
-                        <th scope="col">จำนวนนักศึกษาที่ขาดเรียน</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1/2015</th>
-                        <td>{{$term_year_1_2015}}</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2/2015</th>
-                        <td>{{$term_year_2_2015}}</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">1/2016</th>
-                        <td>{{$term_year_1_2016}}</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2/2016</th>
-                        <td>{{$term_year_2_2016}}</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">1/2017</th>
-                        <td>{{$term_year_1_2017}}</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2/2017</th>
-                        <td>{{$term_year_2_2017}}</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">1/2018</th>
-                        <td>{{$term_year_1_2018}}</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2/2018</th>
-                        <td>{{$term_year_2_2018}}</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">1/2019</th>
-                        <td>{{$term_year_1_2019}}</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2/2019</th>
-                        <td>{{$term_year_2_2019}}</td>
-                    </tr>
-                </tbody>
+            <thead>
+                <tr>
+                    <th scope="col">จำนวนครั้งที่ขาด</th>
+                    <th scope="col">จำนวนนักศึกษาที่ขาดเรียน</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1-10</th>
+                    <td>{{$attendance1}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">11-20</th>
+                    <td>{{$attendance2}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">21-30</th>
+                    <td>{{$attendance3}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">31-40</th>
+                    <td>{{$attendance4}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">41-50</th>
+                    <td>{{$attendance5}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">51-60</th>
+                    <td>{{$attendance6}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">61-70</th>
+                    <td>{{$attendance7}}</td>
+                </tr>
+
+            </tbody>
             </table>
             </center><br><br>
 

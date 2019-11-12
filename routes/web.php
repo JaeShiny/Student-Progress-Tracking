@@ -48,7 +48,10 @@ Route::get('chartProblemL/{course_id}/{semester}/{year}', 'ChartController@probl
 //LF
 Route::get('subjectStatisticLF','ChartController@subjectStatisticLF');
 Route::get('chartAttendanceLF/{course_id}/{semester}/{year}', 'ChartController@attendanceLF');
+Route::get('chartAttendanceLF1/{course_id}/{semester}/{year}', 'ChartController@attendanceLF1');
 Route::get('chartGradeLF/{course_id}/{semester}/{year}', 'ChartController@gradeLF');
+Route::get('chartGradeLF1/{course_id}/{semester}/{year}', 'ChartController@gradeLF1');
+Route::get('chartGradeLF2/{course_id}/{semester}/{year}', 'ChartController@gradeLF2');
 Route::get('chartProblemLF/{course_id}/{semester}/{year}', 'ChartController@problemLF');
 //Student
 Route::get('chartAttendanceS', 'ChartController@attendanceS');
@@ -78,11 +81,17 @@ Route::get('/indexChart', function () {
 
         //Chart Student
 Route::get('chartStudentL/{student_id}', 'StatisticController@chartL');
+Route::get('getchartStudentL/{student_id}', 'StatisticController@getchartL')->name('getChartL');
 Route::get('chartStudentLF/{student_id}', 'StatisticController@chartLF');
+Route::get('getchartStudentLF/{student_id}', 'StatisticController@getchartLF')->name('getChartLF');
 Route::get('chartStudentA/{student_id}', 'StatisticController@chartA');
+Route::get('getchartStudentA/{student_id}', 'StatisticController@getchartA')->name('getChartA');
 Route::get('chartStudentAL/{student_id}', 'StatisticController@chartAL');
+Route::get('getchartStudentAL/{student_id}', 'StatisticController@getchartAL')->name('getChartAL');
 Route::get('chartStudentE/{student_id}', 'StatisticController@chartE');
+Route::get('getchartStudentE/{student_id}', 'StatisticController@getchartE')->name('getChartE');
 Route::get('chartStudentS/{student_id}', 'StatisticController@chartS');
+Route::get('getchartStudentS/{student_id}', 'StatisticController@getchartS')->name('getChartS');
 
 
 
@@ -278,6 +287,7 @@ Route::get('profileafterS/{student_id}','student\SrmController@profileS');
 
 //กดดูหน้าข้อมูลระหว่างศึกษา
 Route::get('profileDuringS/{student_id}','student\BioController@profileDuringS');
+Route::get('profileDuringS/{student_id}/{semester}/{year}','student\BioController@profileDuringS1');
 
 //กดดูวิชาที่่ลงทะเบียน
 Route::get('study/{student_id}','student\StudyController@enrollmentS');
