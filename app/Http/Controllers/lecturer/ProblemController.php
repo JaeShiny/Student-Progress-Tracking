@@ -67,7 +67,28 @@ class ProblemController extends Controller
 
     public function showProblemL($student_id, $semester, $year)
     {
-        $problem = Problem::where('student_id', $student_id)->where('semester', $semester)->where('year', $year)->get();
+        $se = $semester;
+        $ye = $year;
+        // filter
+        $absent_condition = request()->get('risk_condition');
+        $absent_value = request()->get('risk_value');
+
+        $query = Problem::where('student_id',$student_id)
+                ->where('semester', $semester)
+                ->where('year', $year);
+
+        if ($absent_condition != '') {
+            $query->where(
+                'risk_level',
+                $absent_condition,
+                $absent_value
+            );
+        }
+
+        $problem = $query->get();
+        // จบfilter
+
+        // $problem = Problem::where('student_id', $student_id)->where('semester', $semester)->where('year', $year)->get();
         $users = User::all();
         $bios = Bio::where('student_id', $student_id)->first();
         $test = Instructor::where('last_name', Auth::user()->lastname)->first();
@@ -79,7 +100,10 @@ class ProblemController extends Controller
             'users' => $users,
             'bios' => $bios,
             'semester' => $semester,
-            'gen' => $gen
+            'gen' => $gen,
+
+            'se' => $se,
+            'ye' => $ye,
         ]);
     }
 
