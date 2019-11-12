@@ -299,6 +299,27 @@ class GradeController extends Controller
         $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','desc')->get();
         $generation = Generation::all();
 
+        //หา avg
+        $avg_in_mid = Grade::select('test_midterm')
+            ->where('course_id', $course_id)
+            ->where('semester', $se)
+            ->where('year', $ye)
+            ->get();
+        $avg_mid = $avg_in_mid->map(function ($student) {
+            return $student->test_midterm;
+        })->avg();
+        $avg_midterm = number_format((float)$avg_mid, 2, '.', '');
+
+        $avg_in_fi = Grade::select('test_final')
+            ->where('course_id', $course_id)
+            ->where('semester', $se)
+            ->where('year', $ye)
+            ->get();
+        $avg_fi = $avg_in_fi->map(function ($student) {
+            return $student->test_final;
+        })->avg();
+        $avg_final = number_format((float)$avg_fi, 2, '.', '');
+
         return view('AdLec.showGrade',[
             'student' => $student,
             'course' => $course,
@@ -308,6 +329,9 @@ class GradeController extends Controller
 
             'se' => $se,
             'ye' => $ye,
+
+            'avg_midterm' => $avg_midterm,
+            'avg_final' => $avg_final,
         ]);
     }
 
