@@ -184,7 +184,29 @@ class GradeController extends Controller
     //Advisor
     //แสดงผล grade
     public function showGradeA($student_id, $semester, $year)  {
-        $student = Grade::where('student_id',$student_id)->get();
+        $s = $student_id;
+        $se = $semester;
+        $ye = $year;
+        // filter
+        $total_condition = request()->get('total_condition');
+        $total_value = request()->get('total_value');
+
+        $query = Grade::where('student_id', $student_id)
+            ->where('semester', $semester)
+            ->where('year', $year);
+
+        if ($total_condition != '') {
+            $query->where(
+                'total_all',
+                $total_condition,
+                $total_value
+            );
+        }
+
+        $student = $query->get();
+        //จบfilter
+
+        // $student = Grade::where('student_id',$student_id)->get();
         $users = User::all();
         $bios = Bio::where('student_id', $student_id)->get();
         $generation = Generation::all();
@@ -200,6 +222,10 @@ class GradeController extends Controller
 
             'semesters' => $semesters,
             'year' => $year,
+
+            'se' => $se,
+            'ye' => $ye,
+            's' => $s,
         ]);
     }
 

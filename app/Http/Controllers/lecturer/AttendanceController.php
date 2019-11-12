@@ -324,13 +324,32 @@ class AttendanceController extends Controller
     //Advisor
     //แสดงผลการเข้าเรียน
     public function showAttendanceA($student_id, $semester, $year){
+        $s = $student_id;
+        $se = $semester;
+        $ye = $year;
 
-        $semesters = $semester;
-        $year = $year;
+        // filter
+        $absent_condition = request()->get('absent_condition');
+        $absent_value = request()->get('absent_value');
 
-        $student = Attendance::where('student_id',$student_id)
-                    ->where('semester', $semester)->where('year', $year)
-                    ->get();
+        $query = Attendance::where('student_id',$student_id)
+            ->where('semester', $semester)
+            ->where('year', $year);
+
+        if ($absent_condition != '') {
+            $query->where(
+                'amount_absence',
+                $absent_condition,
+                $absent_value
+            );
+        }
+
+        $student = $query->get();
+        // จบfilter
+
+        // $student = Attendance::where('student_id',$student_id)
+        //             ->where('semester', $semester)->where('year', $year)
+        //             ->get();
         $attendance2 = Attendance2::where('student_id',$student_id)
                         ->where('semester', $semester)->where('year', $year)
                         ->get();
@@ -353,8 +372,9 @@ class AttendanceController extends Controller
             'gen' => $gen,
             'attendance2' => $attendance2,
 
-            'semesters' => $semesters,
-            'year' => $year,
+            'se' => $se,
+            'ye' => $ye,
+            's' => $s,
         ]);
     }
 
