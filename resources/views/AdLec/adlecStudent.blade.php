@@ -92,12 +92,12 @@
                 <td width="10">
                     {{-- <a href="/studentproblemAL/{{$ad_list->student_id}}/1/{{$gens->year}}"> --}}
                         <a href="/studentproblemAL/{{$ad_list->student_id}}">
-                        <center><img src="{{ URL::asset("../img/add.png") }}" width="25" title="พฤติกรรม/ปัญหา"></center>
+                        <center><img src="{{ URL::asset("../img/feedback.png") }}" width="25" title="พฤติกรรม/ปัญหา"></center>
                     </a>
                 </td>
                 <td width="10">
                     <a href="/attendanceAL2/{{$ad_list->student_id}}/{{$se}}/{{$ye}}">
-                        <center><img src="{{ URL::asset("../img/feedback.png") }}" width="30" height="25" title="การเข้าเรียน"></center>
+                        <center><img src="{{ URL::asset("../img/attendant.png") }}" width="30" height="25" title="การเข้าเรียน"></center>
                     </a>
                 </td>
                 <td width="10">
