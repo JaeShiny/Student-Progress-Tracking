@@ -26,10 +26,13 @@
 <body>
         <h6 align='right'>รหัสนักศึกษา: {{$student}} &nbsp;&nbsp;&nbsp;&nbsp;</h6>
 
-        <h5 align='center'>การลงทะเบียน</h5>
-        <br>
-        <h5 align='center'>ปีการศึกษา {{$s.'/'.$y}}</h5>
-        <br>
+        <div class="container">
+            <div class="card bg-light mt" style="box-shadow: 5px 5px 8px 4px rgba(50, 50, 50, .5);">
+                <div class="card-header">
+                        <h4 class="w3-bar-item">การลงทะเบียน</h4>
+
+                       <h6 class="w3-bar-item">ปีการศึกษา : {{$s.'/'.$y}}</h6>
+                </div>
     {{-- <div class="dropdown">
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -57,7 +60,7 @@
             </div>
         </div>
 
-      <br><br><br><br>
+      <br><br><br>
       <center>
           <table class="table table-bordered">
 
@@ -93,7 +96,7 @@
                 <td colspan="5" class="text-center"><p style="float: left;"><center>จำนวนหน่วยกิต : 15</center></p></td>
             </tr>
         </tfoot> --}}
-      </table>
+      </table><br>
       </center>
 
         <!-- Optional JavaScript -->

@@ -21,9 +21,12 @@
 </head>
 <body>
         <h6 align='right'>รหัสนักศึกษา: {{$user->student_id}} &nbsp;&nbsp;&nbsp;&nbsp;</h6>
-
-        <h5 align='center'>การลงทะเบียน</h5>
-        <br>
+        <div class="container">
+            <div class="card bg-light mt" style="box-shadow: 5px 5px 8px 4px rgba(50, 50, 50, .5);">
+                <div class="card-header">
+                        <h4 class="w3-bar-item">การลงทะเบียน</h4>
+                      {{--  <h6 class="w3-bar-item">ปีการศึกษา : {{$s.'/'.$y}}</h6> --}}
+                </div>
     {{-- <div class="dropdown">
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -51,7 +54,7 @@
             </div>
         </div>
 
-      <br><br><br><br>
+      <br><br><br>
       <center>
           <table class="table table-bordered">
 
@@ -89,11 +92,8 @@
                 <td colspan="5" class="text-center"><p style="float: left;"><center>จำนวนหน่วยกิต : 15</center></p></td>
             </tr>
         </tfoot> --}}
-      </table>
+      </table><br>
       </center>
-      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 </body>
 </html>
