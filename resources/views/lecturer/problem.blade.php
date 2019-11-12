@@ -28,7 +28,6 @@
         <h6 align='right'>รหัสนักศึกษา: {{$bios->student_id}} &nbsp;&nbsp;&nbsp;&nbsp;</h6>
         <h6 align='right'>ชื่อ-สกุล: {{$bios->first_name}} &nbsp;{{$bios->last_name}}&nbsp;&nbsp;&nbsp;</h6>
 
-
         <h5 align='center'>ปัญหา/พฤติกรรม</h5>
 
     <div class="container">
@@ -47,7 +46,7 @@
     </div><br><br><br><br>
 
         <center>
-            <table class="table" width="60%">
+            <table class="table" width="60%" style="box-shadow: 5px 5px 8px 4px rgba(50, 50, 50, .5);">
                 <thead class="thead-light">
                     <tr>
                         <th scope="col">ประเภทพฤติกรรม/ปัญหา</th>

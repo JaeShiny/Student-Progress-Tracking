@@ -57,14 +57,14 @@
 <br>
         <br><br><br>
         <center>
-            <table class="table" width="60%" id="riskProblem">
+            <table class="table" width="60%" id="riskProblem" style="box-shadow: 5px 5px 8px 4px rgba(50, 50, 50, .5);">
                 <thead class="thead-light">
                     <tr>
                         <th scope="col">ประเภทพฤติกรรม/ปัญหา</th>
                         <th scope="col">หัวข้อของปัญหา</th>
                         <th scope="col">พฤติกรรม/ปัญหา</th>
                         <th scope="col">ระดับความเสี่ยง</th>
-                        <th scope="col">วันที่เพิ่ม</th>
+                        <th scope="col" style="width: 12%">วันที่เพิ่ม</th>
                         <th scope="col">วันที่เกิดปัญหา</th>
                         <th scope="col">ผู้เพิ่ม</th>
                     </tr>
