@@ -26,6 +26,9 @@ class AdLecController extends Controller
     //    $instructor = Instructor::where('first_name',Auth::user()->name)->first();
     //    $myStudent = Student::where('adviser_id1',$instructor->instructor_id)->orWhere('adviser_id2',$instructor->instructor_id)->get();
 
+    $se = $semester;
+    $ye = $year;
+
        $advisortest = User::where('lastname',Auth::user()->lastname)->where('position','AdLec')->first();
        $instructor = Instructor::where('last_name',$advisortest->lastname)->first();
        $gen = Generation::where('semester',$semester)->where('year',$year)->pluck('gen');
@@ -40,11 +43,15 @@ class AdLecController extends Controller
        $test = Instructor::where('last_name',Auth::user()->lastname)->first();
        $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
 
+
         return view('AdLec.adlecStudent',[
             'myStudent' => $myStudent,
             'semester' => $semester,
             'generation' => $generation,
             'gen' => $mygen,
+
+            'se' => $se,
+            'ye' => $ye,
         ]);
 
     }

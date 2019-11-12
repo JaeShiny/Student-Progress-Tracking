@@ -205,8 +205,27 @@ class GradeController extends Controller
 
     //Ad+Lec
     //แสดงผล grade
-    public function showGradeAL2($student_id)  {
-        $student = Grade::where('student_id',$student_id)->get();
+    public function showGradeAL2($student_id, $semester, $year)  {
+        $se = $semester;
+        $ye = $year;
+        // filter
+        $total_condition = request()->get('total_condition');
+        $total_value = request()->get('total_value');
+
+        $query = Grade::where('student_id',$student_id);
+
+        if ($total_condition != '') {
+            $query->where(
+                'total_all',
+                $total_condition,
+                $total_value
+            );
+        }
+
+        $student = $query->get();
+        //filter
+
+        // $student = Grade::where('student_id',$student_id)->get();
         $users = User::all();
         $bios = Bio::where('student_id', $student_id)->get();
         $test = Instructor::where('last_name',Auth::user()->lastname)->first();
@@ -218,13 +237,36 @@ class GradeController extends Controller
             'users' => $users,
             'bios' => $bios,
             'semester' => $semester,
-            'generation' => $generation
+            'generation' => $generation,
+            'se' => $se,
+            'ye' => $ye,
         ]);
     }
     public function showGradeAL($course_id, $semester, $year)  {
-        $student = Grade::where('course_id',$course_id)
-                    ->where('semester', $semester)->where('year', $year)
-                    ->get();
+        $se = $semester;
+        $ye = $year;
+        // filter
+        $total_condition = request()->get('total_condition');
+        $total_value = request()->get('total_value');
+
+        $query = Grade::where('course_id',$course_id)
+            ->where('semester', $semester)
+            ->where('year', $year);
+
+        if ($total_condition != '') {
+            $query->where(
+                'total_all',
+                $total_condition,
+                $total_value
+            );
+        }
+
+        $student = $query->get();
+        //จบ filter
+
+        // $student = Grade::where('course_id',$course_id)
+        //             ->where('semester', $semester)->where('year', $year)
+        //             ->get();
         $course = Course::find($course_id);
         $users = User::all();
         $test = Instructor::where('last_name',Auth::user()->lastname)->first();
@@ -236,7 +278,10 @@ class GradeController extends Controller
             'course' => $course,
             'users' => $users,
             'semester' => $semester,
-            'generation' => $generation
+            'generation' => $generation,
+
+            'se' => $se,
+            'ye' => $ye,
         ]);
     }
 

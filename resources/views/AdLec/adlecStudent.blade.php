@@ -22,10 +22,12 @@
         </ol>
     </nav>
 </head>
-<br>
+
+<body>
+
+    <br>
 <h4 align='center'>รายชื่อนักศึกษา</h5><br>
 <h6 align='center'>ปีการศึกษา {{$gen->semester}}/{{$gen->year}}</h6><br>
-<body>
 
     <div class="container">
         <form action="/student_searchA" method="get">
@@ -94,12 +96,12 @@
                     </a>
                 </td>
                 <td width="10">
-                    <a href="/attendanceAL2/{{$ad_list->student_id}}">
+                    <a href="/attendanceAL2/{{$ad_list->student_id}}/{{$se}}/{{$ye}}">
                         <center><img src="{{ URL::asset("../img/feedback.png") }}" width="30" height="25" title="การเข้าเรียน"></center>
                     </a>
                 </td>
                 <td width="10">
-                    <a href="/showGradeAL2/{{$ad_list->student_id}}">
+                    <a href="/showGradeAL2/{{$ad_list->student_id}}/{{$se}}/{{$ye}}">
                         <center><img src="{{ URL::asset("../img/grades.png") }}" width="30" height="25" title="ผลการเรียน"></center>
                     </a>
                 </td>

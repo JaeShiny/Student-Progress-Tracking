@@ -395,9 +395,9 @@ Route::get('getStudentproblemAL/{student_id}', 'lecturer\ProblemController@getSh
 //Advisor
 //แสดงการเข้าเรียน -> Attendance
 // Route::get('/attendanceA/{course_id}','lecturer\AttendanceController@showAttendanceA');
-Route::get('/attendanceAL2/{student_id}','lecturer\AttendanceController@showAttendanceAL2');
+Route::get('/attendanceAL2/{student_id}/{semester}/{year}','lecturer\AttendanceController@showAttendanceAL2');
 //แสดงผลการเรียน -> Grade
-Route::get('/showGradeAL2/{student_id}','lecturer\GradeController@showGradeAL2');
+Route::get('/showGradeAL2/{student_id}/{semester}/{year}','lecturer\GradeController@showGradeAL2');
 
 // //Lecturer
 // //แสดงการเข้าเรียน -> Attendance
