@@ -22,7 +22,24 @@
 </head>
 
 <body>
-    <br>
+        <div style="float: right;">
+                {{-- <a href="{{ url('profilebefore')"> --}}
+                {{-- <a href="{{route('profile',$bio['student_id'])}}"> --}}
+                {{-- <a href="{{ action('student\InterviewControllerr@profile') }}"> --}}
+                {{-- <a href="{{route('profile(before)',$bio['first_name']==$b_profile['firstname'])}}"> --}}
+                {{-- <a href="{{url('profilebefore')}}"> --}}
+                <a href="/profilebeforeA/{{$bios->student_id}}">
+                    <button type="button" class="btn btn-outline-success">ข้อมูลการศึกษา</button>
+                </a>
+                <a href="/profileDuringA/{{$bios->student_id}}">
+                    <button type="button" class="btn btn-secondary">ข้อมูลระหว่างการศึกษา</button>
+                </a>
+                <a href="/profileafterA/{{$bios->student_id}}">
+                    <button type="button" class="btn btn-outline-primary">ข้อมูลหลังจบการศึกษา</button>
+                </a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+            </div>
+            <br>
     <div class="container">
             <div class="row">
                 <div class="col-lg-12">

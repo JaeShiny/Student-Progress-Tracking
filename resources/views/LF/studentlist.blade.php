@@ -1,6 +1,3 @@
-
-
-
 @extends('bar.body')
 @section('content')
 <!DOCTYPE html>
@@ -30,14 +27,14 @@
 <body>
 
 <h5 align='right'>
-    <button type="button" class="btn btn-outline-primary">
-        <a href="/importExportViewLF/{{$course->course_id}}">เพิ่มไฟล์</a>
+        <button type="button" class="btn btn-outline-warning">
+        <a href="/importExportViewLF/{{$course->course_id}}" style="text-decoration-line: none">เพิ่มไฟล์</a>
     </button>
-    <button type="button" class="btn btn-outline-success">
-        <a href="/attendanceLF/{{$course->course_id}}/{{$gen->semester}}/{{$gen->year}}">แสดงผลการเข้าเรียน</a>
+    <button type="button" class="btn btn-outline-warning">
+        <a href="/attendanceLF/{{$course->course_id}}/{{$gen->semester}}/{{$gen->year}}"style="text-decoration-line: none">แสดงผลการเข้าเรียน</a>
     </button>
-    <button type="button" class="btn btn-outline-success">
-        <a href="/showGradeLF/{{$course->course_id}}/{{$gen->semester}}/{{$gen->year}}">แสดงผลการเรียน</a>
+    <button type="button" class="btn btn-outline-warning">
+        <a href="/showGradeLF/{{$course->course_id}}/{{$gen->semester}}/{{$gen->year}}"style="text-decoration-line: none">แสดงผลการเรียน</a>
     </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </h5>
 
@@ -56,7 +53,7 @@
     </div>
 
     <center>
-        <table class="table" width="60%" style="margin-top: 10px;">
+            <table class="table" width="60%" style="margin-top: 10px; box-shadow: 5px 5px 8px 4px rgba(50, 50, 50, .5);">
             <thead class="thead-light">
               <tr>
                 <th scope="col" width="10%"><h6 align="center"><b>รหัสนักศึกษา</b></h6></th>

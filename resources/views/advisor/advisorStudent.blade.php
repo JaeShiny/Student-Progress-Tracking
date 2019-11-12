@@ -23,9 +23,20 @@
     </nav>
 </head>
 <br>
-<h4 align='center'>รายชื่อนักศึกษา</h5><br>
-<h6 align='center'>ปีการศึกษา {{$gen->semester}}/{{$gen->year}}</h6><br>
+
 <body>
+        <br>
+        <center>
+                  <div class="card bg-light mb-3" style="max-width: 20rem; box-shadow: 5px 5px 8px 4px rgba(50, 50, 50, .5);">
+
+                            <div class="card-header">
+                                <h4>รายชื่อนักศึกษา</h4>
+                            </div>
+
+                    </div>
+                    <h6 align='center'>ปีการศึกษา {{$gen->semester}}/{{$gen->year}}</h6><br>
+                </center>
+
 
     <div class="container">
         <form action="/student_searchA" method="get">
@@ -39,7 +50,7 @@
     </div>
 
     <center>
-        <table class="table" width="60%" style="margin-top: 10px;">
+            <table class="table" width="60%" style="margin-top: 10px; box-shadow: 5px 5px 8px 4px rgba(50, 50, 50, .5);">
             <thead class="thead-light">
               <tr>
                 <th scope="col" width="10%"><h6 align="center"><b>รหัสนักศึกษา</b></h6></th>
