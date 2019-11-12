@@ -99,7 +99,33 @@
                     </div>
                       <a class="nav-link" href="{{ url('FormAttendanceAL') }}" style="color: #FFFFFF">ดาวน์โหลดแบบฟอร์ม</a>
                       {{-- <a class="nav-link" href="/adlecSurvey" style="color: #FFFFFF">แบบสอบถาม</a> --}}
-                      <div class="dropdown">
+                       {{-- ปุ่มนักศึกษา --}}
+                       <div class="dropdown">
+
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="color: white;border-color: none">นักศึกษา <span class="caret"></span></button>
+                        <ul class="dropdown-menu scrollable-menu" role="menu"  >
+                                @foreach($generation as $show)
+
+                                      <li> <a class="dropdown-item" href="/AdLec/ALStudent/{{$show->semester}}/{{$show->year}}"> ปีการศึกษา: {{$show->year}}</a>  </li>
+
+                                @endforeach
+                              </ul>
+                </div>
+                     {{-- <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" style="color: white;border-color: none">
+                            นักศึกษา
+                            <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                        @foreach($generation as $show)
+                            <li>
+                                <a href="/AdLec/ALStudent/{{$show->semester}}/{{$show->year}}">
+                                    ปีการศึกษา: {{$show->year}}
+                                </a>
+                            </li>
+                        @endforeach
+                        </ul>
+                    </div> --}}
+                      {{-- <div class="dropdown">
                             <button type="button" class="btn btn-default dropdown-toggle" id="dropdownMenuButton2" data-toggle="dropdown" style="color: white;border-color: none">นักศึกษา <span class="caret"></span></button>
 
                             <ul class="dropdown-menu scrollable-menu" role="menu"  >
@@ -109,7 +135,7 @@
 
                                   @endforeach
                                 </ul>
-                      </div>
+                      </div> --}}
                       <a class="nav-link" href="/AdLecConditions" style="color: #FFFFFF">เงื่อนไขการแจ้งเตือน</a>
                   </div>
 
