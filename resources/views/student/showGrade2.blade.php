@@ -37,7 +37,17 @@
 </head>
 
 <body>
-        @foreach ($bios as $bio)
+
+        <ul class="nav nav-tabs" id="myTab" role="tablist" style="background-color:white;">
+            <li class="nav-item">
+                <a class="nav-link" href="/student/attendance" style="color: #000000;">การเข้าเรียน</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="/student/grade" style="color: #000000;">ผลการเรียน</a>
+            </li>
+        </ul><br>
+
+    @foreach ($bios as $bio)
         <h6 align='right'>รหัสนักศึกษา: {{$bio->student_id}} &nbsp;&nbsp;&nbsp;&nbsp;</h6>
         <h6 align='right'>ชื่อ-สกุล: {{$bio->first_name}} &nbsp;{{$bio->last_name}}&nbsp;&nbsp;&nbsp;</h6>
     @endforeach

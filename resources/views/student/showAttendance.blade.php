@@ -30,10 +30,10 @@
 <body>
         <ul class="nav nav-tabs" id="myTab" role="tablist" style="background-color:white;">
                 <li class="nav-item">
-                    <a class="nav-link active" href=" " style="color: #000000;">การเข้าเรียน</a>
+                    <a class="nav-link active" href="" style="color: #000000;">การเข้าเรียน</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="" style="color: #000000;">ผลการเรียน</a>
+                    <a class="nav-link" href="/student/grade" style="color: #000000;">ผลการเรียน</a>
                 </li>
             </ul><br>
 
@@ -41,6 +41,7 @@
         <h6 align='right'>รหัสนักศึกษา: {{$bio->student_id}} &nbsp;&nbsp;&nbsp;&nbsp;</h6>
         <h6 align='right'>ชื่อ-สกุล: {{$bio->first_name}} &nbsp;{{$bio->last_name}}&nbsp;&nbsp;&nbsp;</h6>
         @endforeach
+        <br>
 
         <div class="container">
                 <div class="card bg-light mt" style="box-shadow: 5px 5px 8px 4px rgba(50, 50, 50, .5);">
@@ -64,7 +65,45 @@
             </div>
         </div>
     </div>
+<br>
+
+{{-- filter --}}
+<div id="form-wrapper" style="max-width:1000px;margin:auto;">
+<div class="container">
+
+    <form class="form-inline">
+
+        <div class="form-group mb-2">
+          <label class="sr-only">หัวข้อ</label>
+          <input type="text" readonly class="form-control-plaintext" value="จำนวนขาดเรียน:">
+        </div>
+
+        <div class="form-group mx-sm-3 mb-2">
+            <label for="exampleFormControlSelect1">
+                <select class="form-control" id="exampleFormControlSelect1" name="absent_condition">
+                    <option>กรุณาเลือก</option>
+                    <option value=">">มากกว่า</option>
+                    <option value="<">น้อยมาก</option>
+                    <option value=">=">มากกว่าเท่ากับ</option>
+                    <option value="<=">น้อยกว่าเท่ากับ</option>
+                    <option value="=">เท่ากับ</option>
+                </select>
+            </label>
+        </div>
+
+        <div class="form-group mx-sm-3 mb-2">
+            <label class="sr-only">ค่า</label>
+            <input class="form-control" id="inputPassword2" placeholder="ค่า" name="absent_value">
+        </div>
+
+        <button type="submit" class="btn btn-primary mb-2">ค้นหา</button>
+
+    </form>
+
+</div>
+</div>
 <br><br><br>
+{{-- จบ filter --}}
 
 <center>
     <div class="container-fluid">

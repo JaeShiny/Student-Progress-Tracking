@@ -37,7 +37,17 @@
 </head>
 
 <body>
-        @foreach ($bios as $bio)
+
+    <ul class="nav nav-tabs" id="myTab" role="tablist" style="background-color:white;">
+        <li class="nav-item">
+            <a class="nav-link" href="/student/attendance" style="color: #000000;">การเข้าเรียน</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" href="" style="color: #000000;">ผลการเรียน</a>
+        </li>
+    </ul><br>
+
+    @foreach ($bios as $bio)
         <h6 align='right'>รหัสนักศึกษา: {{$bio->student_id}} &nbsp;&nbsp;&nbsp;&nbsp;</h6>
         <h6 align='right'>ชื่อ-สกุล: {{$bio->first_name}} &nbsp;{{$bio->last_name}}&nbsp;&nbsp;&nbsp;</h6>
     @endforeach
@@ -52,7 +62,7 @@
                     <h4 class="w3-bar-item">ผลการเรียน</h4>
 
                     {{--<h6 class="w3-bar-item">ภาคเรียนที่:&nbsp;{{$semesters}}/{{$year}}</h6>--}}
-            </div>
+            </div><br>
             <div class="container">
                     <div class="row">
                         <div class="col-lg-12 float-right">
@@ -67,7 +77,45 @@
                         </div>
                     </div>
                 </div>
+<br>
+
+{{-- filter --}}
+<div id="form-wrapper" style="max-width:1000px;margin:auto;">
+<div class="container">
+
+    <form class="form-inline">
+
+        <div class="form-group mb-2">
+          <label class="sr-only">หัวข้อ</label>
+          <input type="text" readonly class="form-control-plaintext" value="คะแนนรวมทั้งหมด:">
+        </div>
+
+        <div class="form-group mx-sm-3 mb-2">
+            <label for="exampleFormControlSelect1">
+                <select class="form-control" id="exampleFormControlSelect1" name="total_condition">
+                    <option>กรุณาเลือก</option>
+                    <option value=">">มากกว่า</option>
+                    <option value="<">น้อยกว่า</option>
+                    <option value=">=">มากกว่าเท่ากับ</option>
+                    <option value="<=">น้อยกว่าเท่ากับ</option>
+                    <option value="=">เท่ากับ</option>
+                </select>
+            </label>
+        </div>
+
+        <div class="form-group mx-sm-3 mb-2">
+            <label class="sr-only">ค่า</label>
+            <input class="form-control" id="inputPassword2" placeholder="ค่า" name="total_value">
+        </div>
+
+        <button type="submit" class="btn btn-primary mb-2">ค้นหา</button>
+
+    </form>
+
+</div>
+</div>
 <br><br><br>
+{{-- จบ filter --}}
 
     <center>
 

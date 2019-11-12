@@ -81,7 +81,25 @@ class GradeController extends Controller
     //แสดงผล grade
     public function showGradeS()  {
         $student_id = Auth::user()->student_id;
-        $grade = Grade::where('student_id',$student_id)->get();
+
+        $total_condition = request()->get('total_condition');
+        $total_value = request()->get('total_value');
+
+        $query = Grade::where('student_id',$student_id);
+
+        if ($total_condition != '') {
+            $query->where(
+                'total_all',
+                $total_condition,
+                $total_value
+            );
+        }
+
+        $grade = $query->get();
+
+        //เดิม
+        // $student_id = Auth::user()->student_id;
+        // $grade = Grade::where('student_id',$student_id)->get();
         $bios = Bio::where('student_id', $student_id)->get();
         $users = User::all();
 

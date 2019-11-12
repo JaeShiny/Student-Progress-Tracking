@@ -30,17 +30,17 @@
 <body>
         <ul class="nav nav-tabs" id="myTab" role="tablist" style="background-color:white;">
                 <li class="nav-item">
-                    <a class="nav-link active" href=" " style="color: #000000;">การเข้าเรียน</a>
+                    <a class="nav-link active" href="/student/attendance" style="color: #000000;">การเข้าเรียน</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="" style="color: #000000;">ผลการเรียน</a>
+                    <a class="nav-link" href="/student/grade" style="color: #000000;">ผลการเรียน</a>
                 </li>
             </ul><br>
         @foreach ($bios as $bio)
         <h6 align='right'>รหัสนักศึกษา: {{$bio->student_id}} &nbsp;&nbsp;&nbsp;&nbsp;</h6>
         <h6 align='right'>ชื่อ-สกุล: {{$bio->first_name}} &nbsp;{{$bio->last_name}}&nbsp;&nbsp;&nbsp;</h6>
         @endforeach
-
+<br>
         <div class="container">
                 <div class="card bg-light mt" style="box-shadow: 5px 5px 8px 4px rgba(50, 50, 50, .5);">
                     <div class="card-header">
