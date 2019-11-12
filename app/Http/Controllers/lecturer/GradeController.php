@@ -328,7 +328,28 @@ class GradeController extends Controller
     //LF
     //แสดงผล grade
     public function showGradeLF($course_id, $semester, $year)  {
-        $student = Grade::where('course_id',$course_id)->where('semester', $semester)->where('year', $year)->get();
+        $se = $semester;
+        $ye = $year;
+        // filter
+        $total_condition = request()->get('total_condition');
+        $total_value = request()->get('total_value');
+
+        $query = Grade::where('course_id',$course_id)
+            ->where('semester', $semester)
+            ->where('year', $year);
+
+        if ($total_condition != '') {
+            $query->where(
+                'total_all',
+                $total_condition,
+                $total_value
+            );
+        }
+
+        $student = $query->get();
+        //จบfilter
+
+        // $student = Grade::where('course_id',$course_id)->where('semester', $semester)->where('year', $year)->get();
         $course = Course::find($course_id);
         $users = User::all();
 
@@ -342,6 +363,9 @@ class GradeController extends Controller
             'users' => $users,
             'semester' => $semester,
             'gen' => $gen,
+
+            'se' => $se,
+            'ye' => $ye,
         ]);
     }
 
