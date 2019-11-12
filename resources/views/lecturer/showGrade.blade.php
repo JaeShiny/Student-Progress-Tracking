@@ -241,6 +241,12 @@
             @endforeach
         </table><br>
     </center>
+
+        <div style="text-align:right">
+            <h6>mean_midterm: {{$avg_midterm}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h6>
+            <h6>mean_final: {{$avg_final}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h6>
+        </div>
+
     </div>
 </div>
 </div>
