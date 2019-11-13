@@ -45,21 +45,20 @@
     </div> --}}
 <br>
     <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="btn-group">
-                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">{{$s.'/'.$y}}<span class="caret"></span></button>
-                    <ul class="dropdown-menu scrollable-menu" role="menu">
-                        @foreach($gen as $show)
-                        <li> <a class="dropdown-item" href="/student_enrollmentL1/{{$bios->student_id}}/{{$show->semester}}/{{$show->year}}">{{$show->semester}}/{{$show->year}}</a></li>
-                        @endforeach
-                    </ul>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">{{$s.'/'.$y}}<span class="caret"></span></button>
+                        <ul class="dropdown-menu scrollable-menu" role="menu">
+                            @foreach($gen as $show)
+                            <li> <a class="dropdown-item" href="/student_enrollmentL1/{{$bios->student_id}}/{{$show->semester}}/{{$show->year}}">{{$show->semester}}/{{$show->year}}</a></li>
+                            @endforeach
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-
-      <br><br><br>
+      <br><br><br><br>
       <center>
           <table class="table table-bordered">
 
