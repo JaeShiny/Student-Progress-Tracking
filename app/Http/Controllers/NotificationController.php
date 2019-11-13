@@ -362,6 +362,10 @@ class NotificationController extends Controller
     }
 
     public function showNotiLF($course_id, $semester, $year){
+
+        $se = $semester;
+        $ye = $year;
+
         $course = Course::find($course_id);
         $major = Major::where('major_id',$course->major_id)->get();
         $student = Student::where('major_id',$course->major_id)->get();
@@ -392,7 +396,9 @@ class NotificationController extends Controller
             'riskattendance' => $riskattendance,
             'riskgrade' => $riskgrade,
 
-            'semester' => $semester
+            'semester' => $semester,
+            'se' => $se,
+            'ye' => $ye,
         ]);
     }
 
@@ -481,6 +487,9 @@ class NotificationController extends Controller
     //แสดงแจ้งเตือนหลังจากคลิกปุ่มการแจ้งเตือน
         //อันเก่าที่ไม่ใช้แล้ว
     public function showNotiA($semester, $year){
+
+        $se = $semester;
+        $ye = $year;
         // Instructor::instructor(Auth::user()->instructor_id)->first();
         $instructor = Instructor::where('first_name',Auth::user()->name)->first();
         $myStudent = Student::where('adviser_id1',$instructor->instructor_id)
@@ -546,6 +555,9 @@ class NotificationController extends Controller
 
             'generation' => $generation,
             'gen' => $gen,
+
+            'se' => $se,
+            'ye' => $ye
         ]);
     }
     public function showNotiA_พัง($semester, $year){
@@ -691,6 +703,7 @@ class NotificationController extends Controller
 
     //แสดงแจ้งเตือนหลังจากคลิกปุ่มการแจ้งเตือน
     public function showNotiAL(){
+
         $instructor = Instructor::where('first_name',Auth::user()->name)->first();
         $myStudent = Student::where('adviser_id1',$instructor->instructor_id)->orWhere('adviser_id2',$instructor->instructor_id)->get();
         $student_ids = $myStudent->map(function ($item) {
@@ -723,6 +736,8 @@ class NotificationController extends Controller
 
             'semester' => $semester,
             'generation' => $generation,
+
+
         ]);
     }
 

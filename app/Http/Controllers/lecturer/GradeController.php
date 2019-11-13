@@ -116,6 +116,9 @@ class GradeController extends Controller
     }
         //เลือกเทอมแล้วมาอีกหน้า
     public function showGradeS2($semester, $year)  {
+
+        $se = $semester;
+        $ye = $year;
         $student_id = Auth::user()->student_id;
         $grade = Grade::where('student_id',$student_id)
                 ->where('semester', $semester)->where('year', $year)
@@ -134,6 +137,9 @@ class GradeController extends Controller
 
             'semester' => $semester,
             'year' => $year,
+
+            'se' => $se,
+            'ye' => $ye,
         ]);
     }
 

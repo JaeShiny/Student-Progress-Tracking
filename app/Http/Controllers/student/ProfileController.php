@@ -29,11 +29,15 @@ class ProfileController extends Controller
         return view('student.enrollment',[
             'study2'=>$info,
             'user' => $user,
-            'gen' => $gen
+            'gen' => $gen,
         ]);
     }
 
     public function study1($semester,$year){
+
+        $s = $semester;
+        $y = $year;
+
         $user = Auth::user();
         $info= Study::where('student_id',$user->student_id)->where('semester',$semester)->where('year',$year)->get();
         $gen = Generation::all();
@@ -43,8 +47,11 @@ class ProfileController extends Controller
             'user' => $user,
             'gen' => $gen,
             'semester' => $semester,
-            'year' => $year
+            'year' => $year,
+            's' => $s,
+            'y' => $y
         ]);
     }
+
 
 }

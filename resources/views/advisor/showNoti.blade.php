@@ -17,6 +17,7 @@
         <ol class="breadcrumb">
             <li> </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <li class="breadcrumb-item active" aria-current="page"><a href="" name="mode">การแจ้งเตือน</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><a href="" name="mode">ภาคเรียนที่: {{$se}}/{{$ye}}</a></li>
         </ol>
     </nav>
 

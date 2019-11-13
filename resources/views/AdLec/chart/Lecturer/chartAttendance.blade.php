@@ -23,7 +23,8 @@
     <ol class="breadcrumb">
         <li> </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <li class="breadcrumb-item active" aria-current="page"><a href="{{ url('indexChart') }}">สถิติ</a></li>
-        <li class="breadcrumb-item active" aria-current="page"><a href="{{ url('subjectStatisticAL2') }}">วิชา: {{$course->course_id}}</a></li>
+        {{-- <li class="breadcrumb-item active" aria-current="page"><a href="{{ url('subjectStatisticAL2') }}">วิชา: {{$course->course_id}}</a></li> --}}
+        <li class="breadcrumb-item active" aria-current="page"><a href="">วิชา: {{$course->course_id}}&nbsp;(ภาคเรียนที่: {{$se}}/{{$ye}})</a></li>
         <li class="breadcrumb-item active" aria-current="page"><a href="#">สถิติการเข้าเรียน</a></li>
     </ol>
 </nav>

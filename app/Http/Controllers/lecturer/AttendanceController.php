@@ -220,6 +220,9 @@ class AttendanceController extends Controller
     //เลือกเทอมแล้วแสดงหน้านี้
     public function showAttendanceS2($semester, $year)  {
 
+        $se = $semester;
+        $ye = $year;
+
         $student_id = Auth::user()->student_id;
 
         // filter
@@ -269,6 +272,9 @@ class AttendanceController extends Controller
 
             'semester' => $semester,
             'year' => $year,
+
+            'se' => $se,
+            'ye' => $ye
         ]);
     }
 

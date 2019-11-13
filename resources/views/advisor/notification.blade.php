@@ -60,7 +60,7 @@
                     </ul> --}}
                       <select name="semester" id="semester">
 
-                        <option value="0">เทอม/ปีการศึกษา</option>
+                        <option value="0">การแจ้งเตือนทั้งหมด</option>
                           @foreach($semester as $show)
                             <option value="{{$show->semester}}-{{$show->year}}">{{$show->semester}}/{{$show->year}}</option>
 

@@ -20,7 +20,7 @@
     </nav>
 </head>
 <body>
-        <h6 align='right'>รหัสนักศึกษา: {{$user->student_id}} &nbsp;&nbsp;&nbsp;&nbsp;</h6>
+        <h6 align='right'>รหัสนักศึกษา: {{$user->student_id}} &nbsp;&nbsp;&nbsp;&nbsp;</h6><br>
         <div class="container">
             <div class="card bg-light mt" style="box-shadow: 5px 5px 8px 4px rgba(50, 50, 50, .5);">
                 <div class="card-header">

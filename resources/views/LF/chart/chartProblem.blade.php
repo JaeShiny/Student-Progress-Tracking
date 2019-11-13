@@ -23,7 +23,7 @@
     <ol class="breadcrumb">
         <li> </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <li class="breadcrumb-item active" aria-current="page"><a href="{{ url('subjectStatisticLF') }}">สถิติ</a></li>
-        <li class="breadcrumb-item active" aria-current="page"><a href="">วิชา: {{$course->course_id}}</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><a href="">วิชา: {{$course->course_id}}&nbsp;(ภาคเรียนที่: {{$se}}/{{$ye}})</a></li>
     </ol>
 </nav>
 

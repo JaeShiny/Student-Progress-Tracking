@@ -643,6 +643,7 @@ Route::get('/studentprofile', 'student\ProfileController@index');
 //login student ให้เข้ามาเจอการลงทะเบียนตัวเอง
 Route::get('/studentenrollment', 'student\ProfileController@study');
 Route::get('/studentenrollment/{semester}/{year}', 'student\ProfileController@study1');
+// Route::get('/studentenrollment1/{semester}/{year}', 'student\ProfileController@study2');
 
 //login lecturer ให้เข้ามาเจอวิชา
 // Route::get('/subjectL', 'lecturer\LecturerLoginController@index');

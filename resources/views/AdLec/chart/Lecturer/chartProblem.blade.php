@@ -23,7 +23,8 @@
     <ol class="breadcrumb">
         <li> </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <li class="breadcrumb-item active" aria-current="page"><a href="{{ url('indexChart') }}">สถิติ</a></li>
-        <li class="breadcrumb-item active" aria-current="page"><a href="{{ url('subjectStatisticAL2') }}">วิชา: {{$course->course_id}}</a></li>
+        {{-- <li class="breadcrumb-item active" aria-current="page"><a href="{{ url('subjectStatisticAL2') }}">วิชา: {{$course->course_id}}</a></li> --}}
+        <li class="breadcrumb-item active" aria-current="page"><a href="">วิชา: {{$course->course_id}}&nbsp;(ภาคเรียนที่: {{$se}}/{{$ye}})</a></li>
         <li class="breadcrumb-item active" aria-current="page"><a href="#">สถิติด้านพฤติกรรม/ปัญหา</a></li>
     </ol>
 </nav>
@@ -32,13 +33,13 @@
 
 <ul class="nav nav-tabs" id="myTab" role="tablist" style="background-color:white;">
     <li class="nav-item">
-        <a class="nav-link" href="/chartAttendanceAL2/{{$course->course_id}}" style="color: #000000;">สถิติการเข้าเรียน</a>
+        <a class="nav-link" href="/chartAttendanceAL/{{$course->course_id}}/{{$gen->semester}}/{{$gen->year}}" style="color: #000000;">สถิติการเข้าเรียน</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="/chartGradeAL2/{{$course->course_id}}" style="color: #000000;">สถิติผลการเรียน</a>
+        <a class="nav-link" href="/chartGradeAL/{{$course->course_id}}/{{$gen->semester}}/{{$gen->year}}" style="color: #000000;">สถิติผลการเรียน</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link active" href="/chartProblemAL2/{{$course->course_id}}" style="color: #000000;">สถิติด้านพฤติกรรม</a>
+        <a class="nav-link active" href="/chartProblemAL/{{$course->course_id}}/{{$gen->semester}}/{{$gen->year}}" style="color: #000000;">สถิติด้านพฤติกรรม</a>
     </li>
 </ul><br>
 
