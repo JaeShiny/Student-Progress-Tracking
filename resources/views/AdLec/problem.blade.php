@@ -29,7 +29,24 @@
         <h6 align='right'>ชื่อ-สกุล: {{$bio->first_name}} &nbsp;{{$bio->last_name}}&nbsp;&nbsp;&nbsp;</h6>
         @endforeach
 
-        <h5 align='center'>ปัญหา/พฤติกรรม</h5>
+        {{-- หัวข้อ --}}
+        <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+
+            </div>
+        <div class="col-sm-5">
+            <div class="card bg-light mb-3" style="max-width: 20rem; box-shadow: 5px 5px 8px 4px rgba(50, 50, 50, .5);" "> {{--box-shadow: 5px 5px 8px 4px rgba(50, 50, 50, .5);">--}}
+                <center>
+                    <div class="card-header">
+                        <h5>ปัญหา/พฤติกรรม</h5>
+                    </div>
+                </center>
+            </div>
+        </div>
+        </div>
+        </div>
+        {{-- จบหัวข้อ --}}
 
 <br>
     <div class="container">
