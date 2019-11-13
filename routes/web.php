@@ -181,7 +181,8 @@ Route::post('problem_insert','lecturer\ProblemController@insert');
 Route::get('studentproblem/{student_id}/{semester}/{year}', 'lecturer\ProblemController@showProblemL');
 
 // search
-Route::get('student_searchL','student\BioController@searchL');
+// Route::get('student_searchL','student\BioController@searchL');
+Route::get('student_searchL/{course_id}/{semester}/{year}','student\BioController@searchL');
 
 // route แสดงรายวิชาที่อาจารย์สอน
 Route::get('course','SubjectController@lecToCourse');
@@ -335,7 +336,8 @@ Route::post('problem_insertA','lecturer\ProblemController@insertA');
 Route::get('studentproblemA/{student_id}', 'lecturer\ProblemController@showProblemA');
 Route::get('getStudentproblemA/{student_id}', 'lecturer\ProblemController@getShowProblemA')->name('getStudentproblemA');
 
-Route::get('student_searchA','student\BioController@searchA');
+// Route::get('student_searchA','student\BioController@searchA');
+Route::get('student_searchA/{semester}/{year}','student\BioController@searchA');
 
 //กดดูวิชาที่เด็กลงทะเบียน
 Route::get('student_enrollmentA','student\StudyController@enrollmentA');
@@ -355,7 +357,8 @@ Route::get('/showGradeA/{student_id}/{semester}/{year}','lecturer\GradeControlle
 // });
 
     //Advisor+Lecturer
-Route::get('student_searchL','student\BioController@searchAL');
+// Route::get('student_searchAL','student\BioController@searchAL');
+Route::get('student_searchAL/{course_id}/{semester}/{year}','student\BioController@searchAL');
 
 Route::get('student_profileAL','student\BioController@profileAL');
 Route::get('student_profileAL/{student_id}','student\BioController@profileAL1')->name('profileAL');
@@ -467,7 +470,8 @@ Route::post('problem_insertLF','lecturer\ProblemController@insertLF');
 Route::get('studentproblemLF/{student_id}/{semester}/{year}', 'lecturer\ProblemController@showProblemLF');
 
 // search
-Route::get('student_searchLF','student\BioController@searchL');
+// Route::get('student_searchLF','student\BioController@searchLF');
+Route::get('student_searchLF/{course_id}/{semester}/{year}','student\BioController@searchLF');
 
 // route แสดงรายวิชาที่อาจารย์สอน
 Route::get('courseLF','SubjectController@lecToCourseLF');
@@ -676,6 +680,7 @@ Route::group(['prefix' => 'advisor'], function(){
         Route::get('chartGradeA/{semester}/{year}','ChartController@gradeA');
         Route::get('chartGradeA1/{semester}/{year}','ChartController@gradeA1');
         Route::get('chartProblemA/{semester}/{year}','ChartController@problemA');
+
     });
 });
 //Route for lecturer user
@@ -695,6 +700,7 @@ Route::group(['prefix' => 'AdLec'], function(){
         Route::get('chartAttendanceAL','ChartController@attendanceAL');
         Route::get('chartGradeAL','ChartController@gradeAL');
         Route::get('chartProblemAL','ChartController@problemAL');
+        // Route::get('student_searchAL1/{semester}/{year}','student\BioController@searchAL1');
     });
 });
 //Route for LF user

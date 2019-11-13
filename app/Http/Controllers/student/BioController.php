@@ -20,6 +20,7 @@ use Auth;
 use App\Model\mis\Schedule;
 use App\Model\mis\Instructor;
 use App\Model\mis\Study;
+use App\User;
 
 
 class BioController extends Controller
@@ -152,15 +153,13 @@ class BioController extends Controller
     public function searchE(Request $request)
     {
         $search = $request->get('search');
-        $student = Student::where('student_id', 'like', '%' . $search . '%')->get();
+        $student = Bio::where('student_id', 'like', '%' . $search . '%')->orWhere('first_name', 'like', '%' . $search . '%')->get();
         $gen = Generation::all();
         // $bio = Bio::where('last_name', 'like', '%'.$search.'%')
         // ->orWhere('first_name', 'like', '%'.$search.'%')->orWhere('student_id', 'like', '%'.$search.'%')->get();
         return view('EducationOfficer/studentlist', [
             'student' => $student,
             'gen' => $gen,
-
-
         ]);
     }
 
@@ -331,11 +330,12 @@ class BioController extends Controller
         $course = Course::find($course_id);
         $gen = Generation::orderBy('year','desc')->first();
 
+
         return view('lecturer.studentlist', [
             'student' => $bio,
             'course' => $course,
             'semester' => $semester,
-            'gen' => $gen
+            'gen' => $gen,
             // 'year' => $year
             // 'student' => $student,
         ]);
@@ -362,15 +362,24 @@ class BioController extends Controller
     //     ->orWhere('first_name', 'like', '%'.$search.'%')->paginate(5);
     //     return view('/Lecturer/studentlist', ['bio' => $bio]);
     // }
-    public function searchL(Request $request)
+    public function searchL(Request $request,$course_id,$semester,$year)
     {
         $test = Instructor::where('last_name', Auth::user()->lastname)->first();
         $semester = Schedule::where('instructor_id', $test->instructor_id)->orderBy('year', 'asc')->get();
         $search = $request->get('search');
-        $student = Student::where('student_id', 'like', '%' . $search . '%')->get();
+        $student = Bio::where('student_id', 'like', '%' . $search . '%')->orWhere('first_name', 'like', '%' . $search . '%')->get();
+        $attend = Study::where('course_id', $course_id)->where('semester', $semester)->where('year', $year)->pluck('student_id');
+
+        $bio = Bio::whereIn('student_id', $attend)->get();
+        $course = Course::find($course_id);
+        $gen = Generation::orderBy('year','desc')->first();
+
+        // $gen = Generation::orderBy('year','desc')->first();
         return view('lecturer/studentlist', [
             'student' => $student,
-            'semester' => $semester
+            'semester' => $semester,
+            'course' => $course,
+            'gen' => $gen,
         ]);
     }
 
@@ -553,15 +562,28 @@ class BioController extends Controller
         ]);
     }
 
-    public function searchA(Request $request)
+    public function searchA(Request $request,$semester,$year)
     {
         $search = $request->get('search');
-        $myStudent = Student::where('student_id', 'like', '%' . $search . '%')->get();
+        $myStudent = Bio::where('student_id', 'like', '%' . $search . '%')->orWhere('first_name', 'like', '%' . $search . '%')->get();
+
+        $advisortest = User::where('lastname',Auth::user()->lastname)->where('position','Advisor')->first();
+        $instructor = Instructor::where('last_name',$advisortest->lastname)->first();
+        $mygen = Generation::where('semester',$semester)->where('year',$year)->pluck('gen');
+        $gens = Generation::where('semester',$semester)->where('year',$year)->first();
+        $student = Student::whereIn('generation',$gens)->where('adviser_id1',$instructor->instructor_id)->orWhere('adviser_id2',$instructor->instructor_id)->get();
 
         $generation = Generation::all();
+        // $gen = Generation::all();
+
         return view('advisor/advisorStudent', [
             'myStudent' => $myStudent,
-            'generation' => $generation
+            'generation' => $generation,
+            'gen' => $gens,
+            'mygen'=> $mygen,
+            'student' => $student,
+            // 'gen' => $gen
+
         ]);
     }
 
@@ -719,17 +741,35 @@ class BioController extends Controller
         ]);
     }
 
-    public function searchAL(Request $request)
+    public function searchAL(Request $request,$course_id,$semester,$year)
     {
+
+        $test = Instructor::where('last_name', Auth::user()->lastname)->first();
+        $semester = Schedule::where('instructor_id', $test->instructor_id)->orderBy('year', 'asc')->get();
         $search = $request->get('search');
-        $myStudent = Student::where('student_id', 'like', '%' . $search . '%')->get();
-        $test = Instructor::where('last_name',Auth::user()->lastname)->first();
-        $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+
+        $student = Bio::where('student_id', 'like', '%' . $search . '%')->orWhere('first_name', 'like', '%' . $search . '%')->get();
+        $attend = Study::where('course_id', $course_id)->where('semester', $semester)->where('year', $year)->pluck('student_id');
+
+        $bio = Bio::whereIn('student_id', $attend)->get();
+        $course = Course::find($course_id);
+        $gen = Generation::orderBy('year','desc')->first();
+
+        $gen = Generation::orderBy('year','desc')->first();
+
         $generation = Generation::all();
-        return view('AdLec/adlecStudent', [
-            'myStudent' => $myStudent,
+
+        // $search = $request->get('search');
+        // $myStudent = Student::where('student_id', 'like', '%' . $search . '%')->get();
+        // $test = Instructor::where('last_name',Auth::user()->lastname)->first();
+        // $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+        // $generation = Generation::all();
+        return view('AdLec/studentlist', [
+            'student' => $student,
             'semester' => $semester,
             'generation' => $generation,
+            'gen' => $gen,
+            'course'=> $course,
         ]);
     }
 
@@ -796,6 +836,8 @@ class BioController extends Controller
 
         $gen = Generation::all();
 
+        $generation = Generation::all();
+
         return view('AdLec.profile(during1)', [
             'user' => $user,
             'bios' => $bios,
@@ -808,6 +850,7 @@ class BioController extends Controller
             'attendances' => $attendances,
             'grades' => $grades,
             'semester' =>$semester,
+            'generation' => $generation,
             'gen' => $gen,
             's' => $s,
             'y' => $y
@@ -884,15 +927,29 @@ class BioController extends Controller
         ]);
     }
 
-    public function searchLF(Request $request)
+    public function searchLF(Request $request,$course_id,$semester,$year)
     {
-        $search = $request->get('search');
-        $myStudent = Student::where('student_id', 'like', '%' . $search . '%')->get();
-        $test = Instructor::where('first_name', Auth::user()->name)->first();
+
+        $test = Instructor::where('last_name', Auth::user()->lastname)->first();
         $semester = Schedule::where('instructor_id', $test->instructor_id)->orderBy('year', 'asc')->get();
-        return view('LF/advisorStudent', [
-            'myStudent' => $myStudent,
-            'semester' => $semester
+        $search = $request->get('search');
+
+        $student = Bio::where('student_id', 'like', '%' . $search . '%')->orWhere('first_name', 'like', '%' . $search . '%')->get();
+        $attend = Study::where('course_id', $course_id)->where('semester', $semester)->where('year', $year)->pluck('student_id');
+
+        $bio = Bio::whereIn('student_id', $attend)->get();
+        $course = Course::find($course_id);
+        $gen = Generation::orderBy('year','desc')->first();
+
+        // $search = $request->get('search');
+        // $myStudent = Student::where('student_id', 'like', '%' . $search . '%')->get();
+        // $test = Instructor::where('first_name', Auth::user()->name)->first();
+        // $semester = Schedule::where('instructor_id', $test->instructor_id)->orderBy('year', 'asc')->get();
+        return view('LF/studentlist', [
+            'student' => $student,
+            'semester' => $semester,
+            'course' => $course,
+            'gen' => $gen,
         ]);
     }
 

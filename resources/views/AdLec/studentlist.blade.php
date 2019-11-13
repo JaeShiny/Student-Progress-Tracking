@@ -41,7 +41,7 @@
     <h6 align='center'>{{$course->course_name_eng}}</h6><br>
 
     <div class="container">
-        <form action="/student_searchL" method="get">
+        <form action="/student_searchAL/{{$course->course_id}}/{{$gen->semester}}/{{$gen->year}}" method="get">
             <div class="input-group">
                 <input type="search" name="search" class="form-control">
                 <span class="input-group-prepend">
