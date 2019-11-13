@@ -60,7 +60,7 @@
                         </ul> --}}
                           <select name="s" id="s">
 
-                            <option value="0">เทอม/ปีการศึกษา</option>
+                            <option value="0">สถิติทั้งหมด</option>
                               @foreach($s as $show)
                                 <option value="{{$show->semester}}-{{$show->year}}">{{$show->semester}}/{{$show->year}}</option>
 
@@ -71,7 +71,7 @@
                 </div>
             </div>
         </div>
-    <br>
+    <br><br>
 
 
         {{-- <div class="col-sm-12"> --}}
