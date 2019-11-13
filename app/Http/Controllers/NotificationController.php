@@ -161,6 +161,9 @@ class NotificationController extends Controller
     }
 
     public function showNotiL($course_id, $semester, $year){
+        $se = $semester;
+        $ye = $year;
+
         $course = Course::find($course_id);
         $major = Major::where('major_id',$course->major_id)->get();
         $student = Student::where('major_id',$course->major_id)->get();
@@ -235,6 +238,9 @@ class NotificationController extends Controller
             'gen' => $gen,
             'year' => $year,
             'conditions' => $conditions,
+
+            'se' => $se,
+            'ye' => $ye,
         ]);
     }
 

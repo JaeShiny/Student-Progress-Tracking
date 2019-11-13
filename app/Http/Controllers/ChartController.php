@@ -60,6 +60,9 @@ class ChartController extends Controller
     }
 
     public function attendanceL($course_id, $semester, $year){
+        $se = $semester;
+        $ye = $year;
+
         $course = Course::find($course_id);
         $major = Major::where('major_id',$course->major_id)->get();
         $student = Student::where('major_id',$course->major_id)->get();
@@ -130,11 +133,17 @@ class ChartController extends Controller
             'period_15' => $period_15,
 
             'count_student' => $count_student,
+
+            'se' => $se,
+            'ye' => $ye,
         ]);
     }
 
 
     public function attendanceL1($course_id, $semester, $year){
+        $se = $semester;
+        $ye = $year;
+
         $course = Course::find($course_id);
         $major = Major::where('major_id',$course->major_id)->get();
         $student = Student::where('major_id',$course->major_id)->get();
@@ -250,11 +259,17 @@ class ChartController extends Controller
             // 'period_15' => $period_15,
 
             'count_student' => $count_student,
+
+            'se' => $se,
+            'ye' => $ye,
         ]);
     }
 
 
     public function gradeL($course_id, $semester, $year){
+        $se = $semester;
+        $ye = $year;
+
         $course = Course::find($course_id);
         $major = Major::where('major_id',$course->major_id)->get();
         $student = Student::where('major_id',$course->major_id)->get();
@@ -305,10 +320,16 @@ class ChartController extends Controller
             'gardeDD' => $gradeDD,
             'gardeD' => $gradeD,
             'gardeF' => $gradeF,
+
+            'se' => $se,
+            'ye' => $ye,
         ]);
     }
 
     public function gradeL1($course_id, $semester, $year){
+        $se = $semester;
+        $ye = $year;
+
         $course = Course::find($course_id);
         $major = Major::where('major_id',$course->major_id)->get();
         $student = Student::where('major_id',$course->major_id)->get();
@@ -388,10 +409,16 @@ class ChartController extends Controller
             'term_year_2_2018' => $data['2-2018'],
             'term_year_1_2019' => $data['1-2019'],
             'term_year_2_2019' => $data['2-2019'],
+
+            'se' => $se,
+            'ye' => $ye,
         ]);
     }
 
     public function gradeL2($course_id, $semester, $year){
+        $se = $semester;
+        $ye = $year;
+
         $course = Course::find($course_id);
         $major = Major::where('major_id',$course->major_id)->get();
         $student = Student::where('major_id',$course->major_id)->get();
@@ -471,11 +498,17 @@ class ChartController extends Controller
             'term_year_2_2018' => $data['2-2018'],
             'term_year_1_2019' => $data['1-2019'],
             'term_year_2_2019' => $data['2-2019'],
+
+            'se' => $se,
+            'ye' => $ye,
         ]);
     }
 
 
     public function problemL($course_id, $semester, $year){
+        $se = $semester;
+        $ye = $year;
+
         $course = Course::find($course_id);
         $major = Major::where('major_id',$course->major_id)->get();
         $student = Student::where('major_id',$course->major_id)->get();
@@ -520,6 +553,9 @@ class ChartController extends Controller
             'p3' => $p3,
             'p4' => $p4,
             'p5' => $p5,
+
+            'se' => $se,
+            'ye' => $ye,
         ]);
     }
 
