@@ -47,7 +47,7 @@
         <h6 align='right'>รหัสนักศึกษา: {{$bio->student_id}} &nbsp;&nbsp;&nbsp;&nbsp;</h6>
         <h6 align='right'>ชื่อ-สกุล: {{$bio->first_name}} &nbsp;{{$bio->last_name}}&nbsp;&nbsp;&nbsp;</h6>
     @endforeach
-<br><br>
+<br>
 {{--
 <h5 align='center'>ผลการเรียน</h5><br>
 <h6 align='center'>ภาคเรียนที่:&nbsp;{{$semesters}}/{{$year}}</h6><br>
@@ -145,8 +145,16 @@
                   <td>{{$show_student->total_all}}</td> --}}
 
                   <td><center>{{$show_student->course_id}}</center></td>
-                  <td><center>{{$show_student->student_id}}</center></td>
-                  <td>{{$show_student->users['name']}}&nbsp;&nbsp;{{$show_student->users['lastname']}}</td>
+                    <td>
+                        <a href="/profileDuringA/{{$show_student->student_id}}" style="color: black;text-decoration-line: none">
+                            {{$show_student->student_id}}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/profileDuringA/{{$show_student->student_id}}" style="color: black;text-decoration-line: none">
+                            {{$show_student->users['name']}}&nbsp;&nbsp;{{$show_student->users['lastname']}}
+                        </a>
+                    </td>
                   <td><center>{{$show_student->total_midterm}}</center></td>
                   <td><center>{{$show_student->total_final}}</center></td>
                   <td><center>{{$show_student->total_all}}</center></td>
