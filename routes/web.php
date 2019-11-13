@@ -55,6 +55,7 @@ Route::get('chartGradeLF2/{course_id}/{semester}/{year}', 'ChartController@grade
 Route::get('chartProblemLF/{course_id}/{semester}/{year}', 'ChartController@problemLF');
 //Student
 Route::get('chartAttendanceS', 'ChartController@attendanceS');
+Route::get('/getchartAttendanceS', 'ChartController@attendanceS')->name('getChartAttL');
 Route::get('chartGradeS', 'ChartController@gradeS');
 //Edu
 Route::get('curriStatistic','ChartController@curriStatistic');

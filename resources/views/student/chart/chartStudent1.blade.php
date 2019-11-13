@@ -20,13 +20,37 @@
 <body>
 @section('content')
 
-    <nav aria-label="breadcrumb">
+    {{-- <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li> </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <li class="breadcrumb-item active" aria-current="page"><a href="#">สถิติ</a></li>
             <li class="breadcrumb-item active" aria-current="page"><a href="">รหัสนักศึกษา: {{$bios->student_id}}</a></li>
         </ol>
     </nav>
+
+<h6 align='right'>รหัสนักศึกษา: {{$bios->student_id}} &nbsp;&nbsp;&nbsp;&nbsp;</h6>
+<h6 align='right'>ชื่อ-สกุล: {{$bios->first_name}} &nbsp;{{$bios->last_name}}&nbsp;&nbsp;&nbsp;</h6> --}}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li> </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <li class="breadcrumb-item active" aria-current="page"><a href="#">สถิติ</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><a href="">รหัสนักศึกษา: {{$bios->student_id}}</a></li>
+    </ol>
+</nav>
+
+
+<ul class="nav nav-tabs" id="myTab" role="tablist" style="background-color:white;">
+<li class="nav-item">
+    <a class="nav-link" href="/chartAttendanceS" style="color: #000000;">สถิติการเข้าเรียน</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="/chartGradeS" style="color: #000000;">สถิติผลการเรียน</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link active" href="/chartStudentS/{{$bios->student_id}}" style="color: #000000;">สรุปสถิติ</a>
+</li>
+</ul><br>
 
 <h6 align='right'>รหัสนักศึกษา: {{$bios->student_id}} &nbsp;&nbsp;&nbsp;&nbsp;</h6>
 <h6 align='right'>ชื่อ-สกุล: {{$bios->first_name}} &nbsp;{{$bios->last_name}}&nbsp;&nbsp;&nbsp;</h6>
@@ -60,8 +84,11 @@
                         </ul> --}}
                           <select name="s" id="s">
 
-                            <option value="0">เทอม/ปีการศึกษา</option>
-                              @foreach($s as $show)
+                            @foreach($s as $show)
+
+                            {{-- <option value="0">เทอม/ปีการศึกษา</option> --}}
+                          <option value="0">{{$show->semester}}/{{$show->year}}</option>
+
                                 <option value="{{$show->semester}}-{{$show->year}}">{{$show->semester}}/{{$show->year}}</option>
 
                               @endforeach

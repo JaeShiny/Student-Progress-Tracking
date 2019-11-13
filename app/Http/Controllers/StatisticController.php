@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Charts;
 use App\User;
 use DB;
+
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Pagination\LengthAwarePaginator;
@@ -44,11 +45,12 @@ class StatisticController extends Controller
         // $attendance = Attendance::where('student_id',$student_id)->get();
         // $grade = Grade::where('student_id',$student_id)->get();
 
+        $s = Semester::all();
+
         $test = Instructor::where('last_name',Auth::user()->lastname)->first();
         $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
         $gen = Generation::all();
 
-        $s = Semester::all();
 
         return view('lecturer.chart.student.chartStudent1',[
             'semester' => $semester,
@@ -70,39 +72,76 @@ class StatisticController extends Controller
         ]);
     }
 
-    public function getchartL(Request $request, $student_id){
-
-        $stu = $student_id;
+    public function getChartL(Request $request, $student_id){
         $s = $request->semester;
 
+        $stu = $student_id;
         $bios = Bio::where('student_id', $student_id)->first();
-
 
         if($s != NULL){
             $semeter_value = explode("-", $s);
             $term = $semeter_value [0]; // เทอม
             $year = $semeter_value [1]; // ปี
 
-            $problem = Problem::where('student_id', $student_id)->where('semester',$term)->where('year',$year)->get();
-            $problem1 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ในห้องเรียน')->where('semester',$term)->where('year',$year)->count();
-            $problem2 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา นอกห้องเรียน')->where('semester',$term)->where('year',$year)->count();
-            $problem3 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ด้านสุขภาพ')->where('semester',$term)->where('year',$year)->count();
-            $problem4 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ด้านครอบครัว')->where('semester',$term)->where('year',$year)->count();
-            $problem5 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ด้านการเงิน')->where('semester',$term)->where('year',$year)->count();
-
-            $attendance = Attendance::where('student_id',$student_id)->where('semester',$term)->where('year',$year)->get();
-            $grade = Grade::where('student_id',$student_id)->where('semester',$term)->where('year',$year)->get();
-
+            $problem = Problem::where('student_id', $student_id)
+            ->where('semester', $term)
+            ->where('year', $year)
+            ->get();
+            $problem1 = Problem::where('student_id', $student_id)
+            ->where('problem_type', 'พฤติกรรม/ปัญหา ในห้องเรียน')
+            ->where('semester', $term)
+            ->where('year', $year)
+            ->count();
+            $problem2 = Problem::where('student_id', $student_id)
+            ->where('problem_type', 'พฤติกรรม/ปัญหา นอกห้องเรียน')
+            ->where('semester', $term)
+            ->where('year', $year)
+            ->count();
+            $problem3 = Problem::where('student_id', $student_id)
+            ->where('problem_type', 'พฤติกรรม/ปัญหา ด้านสุขภาพ')
+            ->where('semester', $term)
+            ->where('year', $year)
+            ->count();
+            $problem4 = Problem::where('student_id', $student_id)
+            ->where('problem_type', 'พฤติกรรม/ปัญหา ด้านครอบครัว')
+            ->where('semester', $term)
+            ->where('year', $year)
+            ->count();
+            $problem5 = Problem::where('student_id', $student_id)
+            ->where('problem_type', 'พฤติกรรม/ปัญหา ด้านการเงิน')
+            ->where('semester', $term)
+            ->where('year', $year)
+            ->count();
+            $attendance = Attendance::where('student_id', $student_id)
+            ->where('semester', $term)
+            ->where('year', $year)
+            ->get();
+            $grade = Grade::where('student_id', $student_id)
+            ->where('semester', $term)
+            ->where('year', $year)
+            ->get();
         }else{
-            $problem = Problem::where('student_id', $student_id)->get();
-            $problem1 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ในห้องเรียน')->count();
-            $problem2 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา นอกห้องเรียน')->count();
-            $problem3 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ด้านสุขภาพ')->count();
-            $problem4 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ด้านครอบครัว')->count();
-            $problem5 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ด้านการเงิน')->count();
-
-            $attendance = Attendance::where('student_id',$student_id)->get();
-            $grade = Grade::where('student_id',$student_id)->get();
+            $problem = Problem::where('student_id', $student_id)
+            ->get();
+            $problem1 = Problem::where('student_id', $student_id)
+            ->where('problem_type', 'พฤติกรรม/ปัญหา ในห้องเรียน')
+            ->count();
+            $problem2 = Problem::where('student_id', $student_id)
+            ->where('problem_type', 'พฤติกรรม/ปัญหา นอกห้องเรียน')
+            ->count();
+            $problem3 = Problem::where('student_id', $student_id)
+            ->where('problem_type', 'พฤติกรรม/ปัญหา ด้านสุขภาพ')
+            ->count();
+            $problem4 = Problem::where('student_id', $student_id)
+            ->where('problem_type', 'พฤติกรรม/ปัญหา ด้านครอบครัว')
+            ->count();
+            $problem5 = Problem::where('student_id', $student_id)
+            ->where('problem_type', 'พฤติกรรม/ปัญหา ด้านการเงิน')
+            ->count();
+            $attendance = Attendance::where('student_id', $student_id)
+            ->get();
+            $grade = Grade::where('student_id', $student_id)
+            ->get();
         }
 
         $test = Instructor::where('last_name',Auth::user()->lastname)->first();
@@ -126,7 +165,7 @@ class StatisticController extends Controller
 
             'attendance' => $attendance,
             'grade' => $grade,
-            's' => $s,
+            'stu' => $stu,
             // 'term' => $term,
             // 'year' => $year,
         ]);
