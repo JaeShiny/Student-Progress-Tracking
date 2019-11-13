@@ -111,7 +111,6 @@
 
 </div>
 </div>
-<br><br><br>
 {{-- จบ filter --}}
 
     <center>
@@ -131,9 +130,16 @@
             <tbody>
                 <tr>
                   <td><center>{{$show_student->course_id}}</center></td>
-                  <td>{{$show_student->student_id}}</td>
-                  {{-- <td>{{$show_student->users->student_id}} &nbsp;&nbsp; {{$show_student->users->lastname}}</td> --}}
-                  <td>{{$show_student->users['name']}}&nbsp;&nbsp;{{$show_student->users['lastname']}}</td>
+                    <td>
+                        <a href="/profileDuringLF/{{$show_student->student_id}}" style="color: black;text-decoration-line: none">
+                            {{$show_student->student_id}}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/profileDuringLF/{{$show_student->student_id}}" style="color: black;text-decoration-line: none">
+                            {{$show_student->users['name']}}&nbsp;&nbsp;{{$show_student->users['lastname']}}
+                        </a>
+                    </td>
                   <td><center>{{$show_student->period_total}}</center></td>
                   <td><center>{{$show_student->amount_attendance}}</center></td>
                   <td><center>{{$show_student->amount_absence}}</center></td>
@@ -142,7 +148,7 @@
                 <center>
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal{{$show_student->student_id}}">
                         ทฤษฎี
-                    </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+                    </button>&nbsp;&nbsp;<br><br>
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2{{$show_student->student_id}}">
                         &nbsp;&nbsp;Lab&nbsp;&nbsp;
                     </button>
@@ -442,9 +448,8 @@
     </div>
     @endforeach
     </div>
-
     </div>
-    <br><br>
+    <br><br><br>
 
     </body>
 
