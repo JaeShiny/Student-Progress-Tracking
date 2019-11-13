@@ -166,8 +166,16 @@
                   <td>{{$show_student->total_all}}</td> --}}
 
                   <td><center>{{$show_student->course_id}}</center></td>
-                  <td><center>{{$show_student->student_id}}</center></td>
-                  <td>{{$show_student->users['name']}}&nbsp;&nbsp;{{$show_student->users['lastname']}}</td>
+                  <td>
+                        <a href="/profileDuringL/{{$show_student->student_id}}" style="color: black;text-decoration-line: none">
+                            <center> {{$show_student->student_id}}</center>
+                        </a>
+                      </td>
+                    <td>
+                        <a href="/profileDuringL/{{$show_student->student_id}}" style="color: black;text-decoration-line: none">
+                            <center> {{$show_student->users['name']}}&nbsp;&nbsp;{{$show_student->users['lastname']}}</center>
+                        </a>
+                    </td>
                   <td><center>{{$show_student->total_midterm}}</center></td>
                   <td><center>{{$show_student->total_final}}</center></td>
                   <td><center>{{$show_student->total_all}}</center></td>
