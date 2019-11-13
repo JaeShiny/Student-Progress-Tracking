@@ -793,7 +793,7 @@ class BioController extends Controller
         $test = Instructor::where('first_name', Auth::user()->name)->first();
         $semester = Schedule::where('instructor_id', $test->instructor_id)->orderBy('year', 'asc')->get();
 
-
+        $generation = Generation::all();
         $gen = Generation::all();
 
         return view('AdLec.profile(during1)', [
@@ -809,6 +809,7 @@ class BioController extends Controller
             'grades' => $grades,
             'semester' =>$semester,
             'gen' => $gen,
+            'generation' => $generation,
             's' => $s,
             'y' => $y
         ]);
