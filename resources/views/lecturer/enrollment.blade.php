@@ -44,11 +44,7 @@
            <a class="dropdown-item" href="#">1/2560</a>
         </div>
     </div> --}}
-<<<<<<< Updated upstream
 <br>
-=======
-
->>>>>>> Stashed changes
     <div class="container">
         <div class="row">
             <div class="col-lg-12">

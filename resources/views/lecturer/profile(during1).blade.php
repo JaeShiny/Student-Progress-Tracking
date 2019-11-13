@@ -13,7 +13,7 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li> </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <li class="breadcrumb-item" aria-current="page"><a href="{{ url('course') }}">วิชาที่สอน</a></li>
+            {{-- <li class="breadcrumb-item" aria-current="page"><a href="{{ url('course') }}">วิชาที่สอน</a></li> --}}
             <li class="breadcrumb-item" aria-current="page">รายชื่อนักศึกษา</li>
             <li class="breadcrumb-item active" aria-current="page"><a href="/student_profileL/{{$bios->student_id}}">ประวัตินักศึกษา</a></li>
             <li class="breadcrumb-item active" aria-current="page"><a href="">ข้อมูลระหว่างศึกษา</a></li>
