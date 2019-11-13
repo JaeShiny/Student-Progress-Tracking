@@ -32,7 +32,7 @@ class StatisticController extends Controller
 {
         //Lecturer
     public function chartL($student_id){
-        $stu =$student_id;
+        $stu = $student_id;
 
         $bios = Bio::where('student_id', $student_id)->first();
         // $problem = Problem::where('student_id', $student_id)->get();
@@ -45,7 +45,7 @@ class StatisticController extends Controller
         // $attendance = Attendance::where('student_id',$student_id)->get();
         // $grade = Grade::where('student_id',$student_id)->get();
 
-        $s = Semester::all();
+        $se = Semester::all();
 
         $test = Instructor::where('last_name',Auth::user()->lastname)->first();
         $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
@@ -58,7 +58,7 @@ class StatisticController extends Controller
 
             'bios' => $bios,
             'stu' => $stu,
-            's' => $s,
+            'se' => $se,
             // 'problem' => $problem,
             // 'problem' => $problem,
             // 'problem1' => $problem1,
@@ -73,7 +73,7 @@ class StatisticController extends Controller
     }
 
     public function getChartL(Request $request, $student_id){
-        $s = $request->semester;
+        $s = $request->s;
 
         $stu = $student_id;
         $bios = Bio::where('student_id', $student_id)->first();
@@ -148,7 +148,7 @@ class StatisticController extends Controller
         $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
         $gen = Generation::all();
 
-        $s = Semester::all();
+        $se = Semester::all();
 
         return response()->json([
             'semester' => $semester,
@@ -166,6 +166,7 @@ class StatisticController extends Controller
             'attendance' => $attendance,
             'grade' => $grade,
             'stu' => $stu,
+            'se' => $se,
             // 'term' => $term,
             // 'year' => $year,
         ]);
@@ -215,7 +216,7 @@ class StatisticController extends Controller
     public function getchartLF(Request $request, $student_id){
 
         $stu = $student_id;
-        $s = $request->semester;
+        $s = $request->s;
 
         $bios = Bio::where('student_id', $student_id)->first();
 
@@ -321,7 +322,7 @@ class StatisticController extends Controller
     public function getchartA(Request $request, $student_id){
 
         $stu = $student_id;
-        $s = $request->semester;
+        $s = $request->s;
 
         $bios = Bio::where('student_id', $student_id)->first();
 
@@ -425,7 +426,7 @@ class StatisticController extends Controller
     public function getchartAL(Request $request, $student_id){
 
         $stu = $student_id;
-        $s = $request->semester;
+        $s = $request->s;
 
         $bios = Bio::where('student_id', $student_id)->first();
 
@@ -532,7 +533,7 @@ class StatisticController extends Controller
     public function getchartE(Request $request, $student_id){
 
         $stu = $student_id;
-        $s = $request->semester;
+        $s = $request->s;
 
         $bios = Bio::where('student_id', $student_id)->first();
 
@@ -642,7 +643,7 @@ class StatisticController extends Controller
     public function getchartS(Request $request, $student_id){
 
         $stu = $student_id;
-        $s = $request->semester;
+        $s = $request->s;
 
         $bios = Bio::where('student_id', $student_id)->first();
 

@@ -82,7 +82,7 @@ Route::get('/indexChart', function () {
 
         //Chart Student
 Route::get('chartStudentL/{student_id}', 'StatisticController@chartL');
-Route::get('getchartStudentL/{student_id}', 'StatisticController@getchartL')->name('getChartL');
+Route::get('getchartStudentL/{student_id}', 'StatisticController@getChartL')->name('getChartL');
 Route::get('chartStudentLF/{student_id}', 'StatisticController@chartLF');
 Route::get('getchartStudentLF/{student_id}', 'StatisticController@getchartLF')->name('getChartLF');
 Route::get('chartStudentA/{student_id}', 'StatisticController@chartA');
