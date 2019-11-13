@@ -22,7 +22,24 @@
     </div><br />
   @endif
 
-        <h5 align='center'>เงื่อนไขการแจ้งเตือน</h5>
+   {{-- หัวข้อ --}}
+        <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+
+            </div>
+        <div class="col-sm-5">
+            <div class="card bg-light mb-3" style="max-width: 20rem; box-shadow: 5px 5px 8px 4px rgba(50, 50, 50, .5);" "> {{--box-shadow: 5px 5px 8px 4px rgba(50, 50, 50, .5);">--}}
+                <center>
+                    <div class="card-header">
+                        <h5>เงื่อนไขการแจ้งเตือน</h5>
+                    </div>
+                </center>
+            </div>
+        </div>
+        </div>
+        </div>
+    {{-- จบหัวข้อ --}}
 
   <br><br><br>
 
