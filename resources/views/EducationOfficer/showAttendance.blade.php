@@ -118,8 +118,16 @@
             <tbody>
                 <tr>
                   <td><center>{{$student->course_id}}</center></td>
-                  <td>{{$student->student_id}}</td>
-                  <td>{{$student->users['name']}}&nbsp;&nbsp;{{$student->users['lastname']}}</td>
+                    <td>
+                        <a href="/profileDuringE/{{$student->student_id}}" style="color: black;text-decoration-line: none">
+                            {{$student->student_id}}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/profileDuringE/{{$student->student_id}}" style="color: black;text-decoration-line: none">
+                            {{$student->users['name']}}&nbsp;&nbsp;{{$student->users['lastname']}}
+                        </a>
+                    </td>
                   <td><center>{{$student->period_total}}</center></td>
                   <td><center>{{$student->amount_attendance}}</center></td>
                   <td><center>{{$student->amount_absence}}</center></td>
