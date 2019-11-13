@@ -29,7 +29,7 @@
                 <div class="card-header">
                         <h4 class="w3-bar-item">การลงทะเบียน</h4>
 
-                       <h6 class="w3-bar-item">ปีการศึกษา : {{$s.'/'.$y}}</h6>
+                       {{-- <h6 class="w3-bar-item">ปีการศึกษา : {{$s.'/'.$y}}</h6> --}}
                 </div>
 
     {{-- <div class="dropdown">
