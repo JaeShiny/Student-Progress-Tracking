@@ -82,7 +82,7 @@
                         ทฤษฎี
                     </button><br><br>
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2{{$student->student_id}}">
-                        Lab
+                        &nbsp;&nbsp;Lab&nbsp;&nbsp;
                     </button>
                 </center>
                   </td>
@@ -104,7 +104,7 @@
                                 @if($student->period_1 == 1)
                                     attend
                                 @else
-                                    absence
+                                <p style="color: red"> absence</p>
                                 @endif
                             </div>
                             <div>
@@ -112,7 +112,7 @@
                                 @if($student->period_2 == 1)
                                     attend
                                 @else
-                                    absence
+                                <p style="color: red"> absence</p>
                                 @endif
                             </div>
                             <div>
@@ -120,7 +120,7 @@
                                 @if($student->period_3 == 1)
                                     attend
                                 @else
-                                    absence
+                                <p style="color: red"> absence</p>
                                 @endif
                             </div>
                             <div>
@@ -128,7 +128,7 @@
                                 @if($student->period_4 == 1)
                                     attend
                                 @else
-                                    absence
+                                <p style="color: red"> absence</p>
                                 @endif
                             </div>
                             <div>
@@ -136,7 +136,7 @@
                                 @if($student->period_5 == 1)
                                     attend
                                 @else
-                                    absence
+                                <p style="color: red"> absence</p>
                                 @endif
                             </div>
                             <div>
@@ -144,7 +144,7 @@
                                 @if($student->period_6 == 1)
                                     attend
                                 @else
-                                    absence
+                                <p style="color: red"> absence</p>
                                 @endif
                             </div>
                             <div>
@@ -152,7 +152,7 @@
                                 @if($student->period_7 == 1)
                                     attend
                                 @else
-                                    absence
+                                <p style="color: red"> absence</p>
                                 @endif
                             </div>
                             <div>
@@ -160,7 +160,7 @@
                                 @if($student->period_8 == 1)
                                     attend
                                 @else
-                                    absence
+                                <p style="color: red"> absence</p>
                                 @endif
                             </div>
                             <div>
@@ -168,7 +168,7 @@
                                 @if($student->period_9 == 1)
                                     attend
                                 @else
-                                    absence
+                                <p style="color: red"> absence</p>
                                 @endif
                             </div>
                             <div>
@@ -176,7 +176,7 @@
                                 @if($student->period_10 == 1)
                                     attend
                                 @else
-                                    absence
+                                <p style="color: red"> absence</p>
                                 @endif
                             </div>
                             <div>
@@ -184,7 +184,7 @@
                                 @if($student->period_11 == 1)
                                     attend
                                 @else
-                                    absence
+                                <p style="color: red"> absence</p>
                                 @endif
                             </div>
                             <div>
@@ -192,7 +192,7 @@
                                 @if($student->period_12 == 1)
                                     attend
                                 @else
-                                    absence
+                                <p style="color: red"> absence</p>
                                 @endif
                             </div>
                             <div>
@@ -200,7 +200,7 @@
                                 @if($student->period_13 == 1)
                                     attend
                                 @else
-                                    absence
+                                <p style="color: red"> absence</p>
                                 @endif
                             </div>
                             <div>
@@ -208,7 +208,7 @@
                                 @if($student->period_14 == 1)
                                     attend
                                 @else
-                                    absence
+                                <p style="color: red"> absence</p>
                                 @endif
                             </div>
                             <div>
@@ -216,7 +216,7 @@
                                 @if($student->period_15 == 1)
                                     attend
                                 @else
-                                    absence
+                                <p style="color: red"> absence</p>
                                 @endif
                             </div>
                         </div>
@@ -247,7 +247,7 @@
                             @if($show_student->period_1 == 1)
                                 attend
                             @else
-                                absence
+                            <p style="color: red"> absence</p>
                             @endif
                         </div>
                         <div>
@@ -255,7 +255,7 @@
                             @if($show_student->period_2 == 1)
                                 attend
                             @else
-                                absence
+                            <p style="color: red"> absence</p>
                             @endif
                         </div>
                         <div>
@@ -263,7 +263,7 @@
                             @if($show_student->period_3 == 1)
                                 attend
                             @else
-                                absence
+                            <p style="color: red"> absence</p>
                             @endif
                         </div>
                         <div>
@@ -271,7 +271,7 @@
                             @if($show_student->period_4 == 1)
                                 attend
                             @else
-                                absence
+                            <p style="color: red"> absence</p>
                             @endif
                         </div>
                         <div>
@@ -279,7 +279,7 @@
                             @if($show_student->period_5 == 1)
                                 attend
                             @else
-                                absence
+                            <p style="color: red"> absence</p>
                             @endif
                         </div>
                         <div>
@@ -287,7 +287,7 @@
                             @if($show_student->period_6 == 1)
                                 attend
                             @else
-                                absence
+                            <p style="color: red"> absence</p>
                             @endif
                         </div>
                         <div>
@@ -295,7 +295,7 @@
                             @if($show_student->period_7 == 1)
                                 attend
                             @else
-                                absence
+                            <p style="color: red"> absence</p>
                             @endif
                         </div>
                         <div>
@@ -303,7 +303,7 @@
                             @if($show_student->period_8 == 1)
                                 attend
                             @else
-                                absence
+                            <p style="color: red"> absence</p>
                             @endif
                         </div>
                         <div>
@@ -311,7 +311,7 @@
                             @if($show_student->period_9 == 1)
                                 attend
                             @else
-                                absence
+                            <p style="color: red"> absence</p>
                             @endif
                         </div>
                         <div>
@@ -319,7 +319,7 @@
                             @if($show_student->period_10 == 1)
                                 attend
                             @else
-                                absence
+                            <p style="color: red"> absence</p>
                             @endif
                         </div>
                         <div>
@@ -327,7 +327,7 @@
                             @if($show_student->period_11 == 1)
                                 attend
                             @else
-                                absence
+                            <p style="color: red"> absence</p>
                             @endif
                         </div>
                         <div>
@@ -335,7 +335,7 @@
                             @if($show_student->period_12 == 1)
                                 attend
                             @else
-                                absence
+                            <p style="color: red"> absence</p>
                             @endif
                         </div>
                         <div>
@@ -343,7 +343,7 @@
                             @if($show_student->period_13 == 1)
                                 attend
                             @else
-                                absence
+                            <p style="color: red"> absence</p>
                             @endif
                         </div>
                         <div>
@@ -351,7 +351,7 @@
                             @if($show_student->period_14 == 1)
                                 attend
                             @else
-                                absence
+                            <p style="color: red"> absence</p>
                             @endif
                         </div>
                         <div>
@@ -359,7 +359,7 @@
                             @if($show_student->period_15 == 1)
                                 attend
                             @else
-                                absence
+                            <p style="color: red"> absence</p>
                             @endif
                         </div>
                     </div>
@@ -378,8 +378,9 @@
 </center>
 <br>
 
-<h6 align='center'><a class="nav-link" href="/student/attendance">กลับ</a></h6><br>
 
+<button type="button" class="btn btn-primary" style="position: relative;float: right;right: 9%"><a href="/student/attendance" style="text-decoration-line: none; color: white">&nbsp;&nbsp;กลับ&nbsp;&nbsp;</a></button><br>
+<br><br>
 </body>
 
 </html>
