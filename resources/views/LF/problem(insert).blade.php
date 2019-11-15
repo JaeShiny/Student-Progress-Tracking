@@ -75,7 +75,6 @@ margin-top: -150px;
             </label>&nbsp;&nbsp;
             <label for="exampleFormControlSelect1">ปีการศึกษา:
                 <select class="form-control" id="exampleFormControlSelect1" name="year">
-                    <option>2018</option>
                     <option>2019</option>
                     <option>2020</option>
                     <option>2021</option>
