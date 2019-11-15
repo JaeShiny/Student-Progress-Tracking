@@ -253,7 +253,7 @@
              ////////////////////////////////////////////////////////////////////////////////////////
 
              if(risk_problem_len > 0){  // นับ Array Data risk_problem มากกว่า 0 ทำงาน เงื่อนไขนี้
-                 for(var i=0; i<risk_problem1_len; i++){  // วนลูป
+                 for(var i=0; i<risk_problem_len; i++){  // วนลูป
                    var tr_str = "<tr>" +
                         "<td align='center'>" + response['problem1'][i].problem_type + "</td>" +
                         "<td align='center'>" + response['problem2'][i].problem_type + "</td>" +

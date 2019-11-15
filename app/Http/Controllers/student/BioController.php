@@ -564,14 +564,16 @@ class BioController extends Controller
 
     public function searchA(Request $request,$semester,$year)
     {
-        $search = $request->get('search');
-        $myStudent = Bio::where('student_id', 'like', '%' . $search . '%')->orWhere('first_name', 'like', '%' . $search . '%')->get();
+
 
         $advisortest = User::where('lastname',Auth::user()->lastname)->where('position','Advisor')->first();
         $instructor = Instructor::where('last_name',$advisortest->lastname)->first();
         $mygen = Generation::where('semester',$semester)->where('year',$year)->pluck('gen');
-        $gens = Generation::where('semester',$semester)->where('year',$year)->first();
-        $student = Student::whereIn('generation',$gens)->where('adviser_id1',$instructor->instructor_id)->orWhere('adviser_id2',$instructor->instructor_id)->get();
+        $gen = Generation::where('semester',$semester)->where('year',$year)->first();
+        $student = Student::whereIn('generation',$gen)->where('adviser_id1',$instructor->instructor_id)->orWhere('adviser_id2',$instructor->instructor_id)->get();
+
+        $search = $request->get('search');
+        $myStudent = Bio::where('student_id', 'like', '%' . $search . '%')->orWhere('first_name', 'like', '%' . $search . '%')->get();
 
         $generation = Generation::all();
         // $gen = Generation::all();
@@ -579,7 +581,7 @@ class BioController extends Controller
         return view('advisor/advisorStudent', [
             'myStudent' => $myStudent,
             'generation' => $generation,
-            'gen' => $gens,
+            'gen' => $gen,
             'mygen'=> $mygen,
             'student' => $student,
             // 'gen' => $gen

@@ -44,7 +44,7 @@
 <h6 align='center'>ปีการศึกษา {{$gen->semester}}/{{$gen->year}}</h6><br>
 
     <div class="container">
-        <form action="/student_searchA" method="get">
+        <form action="/AdLec/student_searchAL" method="get">
             <div class="input-group">
                 <input type="search" name="search" class="form-control">
                 <span class="input-group-prepend">
