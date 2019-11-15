@@ -153,6 +153,8 @@
                 <tr>
                     <th scope="col">รหัสนักศึกษา</th>
                     <th scope="col">รหัสวิชา</th>
+                    <th scope="col">คะแนนสอบ Midterm</th>
+                    <th scope="col">คะแนนสอบ Final</th>
                     <th scope="col">คะแนนรวมทั้งหมด</th>
                     <th scope="col">ผู้เพิ่ม</th>
 
@@ -168,6 +170,8 @@
                         {{-- </a> --}}
                     </td>
                     <td>{{$show_problem->course_id}}</td>
+                    <td>{{$show_problem->test_midterm}}</td>
+                    <td>{{$show_problem->test_final}}</td>
                     <td>{{$show_problem->total_all}}/100</td>
 
                     <td>อาจารย์ {{$show_problem->person_add}}</td>

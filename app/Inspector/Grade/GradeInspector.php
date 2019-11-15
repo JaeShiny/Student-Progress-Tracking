@@ -41,7 +41,7 @@ class GradeInspector implements Inspector
             $condition = $conditions->first();
 
             $query_builder = Grade::where(
-                'total_all',
+                'test_midterm',
                 $condition->condition,
                 $condition->value
             )->where('instructor_id', '=', $this->instructor_id);
