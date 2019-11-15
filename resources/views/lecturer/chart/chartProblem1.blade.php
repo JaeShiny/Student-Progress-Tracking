@@ -41,14 +41,6 @@
     </li>
 </ul><br>
 
-<h5 align='right'>
-    <button type="button" class="btn btn-outline-success">
-            <a href="/chartProblemL1/{{$course->course_id}}/{{$gen->semester}}/{{$gen->year}}"><img src="{{ URL::asset("../img/รูปสถิติ.png") }}" width="30" height="25" title="สถิติ"> &nbsp;สถิติจำนวนนักเรียนที่ขาดเรียน</a>
-    </button>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-</h5>
-
 
 <h5 align='center'>{{$course->course_id}}</h5>
 <h6 align='center'>{{$course->course_name_eng}}</h6>
@@ -60,7 +52,7 @@
         <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Chart Problem/Behavior
+                       Problem Chart
                 </div>
 
                 <div class="panel-body">
@@ -75,37 +67,60 @@
 
 <br><br><br><br>
 <center>
-<table class="table table-hover">
-    <thead>
-        <tr>
-            <th scope="col">หัวข้อพฤติกรรม/ปัญหา</th>
-            <th scope="col">จำนวนนักศึกษา</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <th scope="row">พฤติกรรม/ปัญหา ในห้องเรียน</th>
-            <td>{{$p1}}</td>
-        </tr>
-        <tr>
-            <th scope="row">พฤติกรรม/ปัญหา นอกห้องเรียน</th>
-            <td>{{$p2}}</td>
-        </tr>
-        <tr>
-            <th scope="row">พฤติกรรม/ปัญหา ด้านสุขภาพ</th>
-            <td>{{$p3}}</td>
-        </tr>
-        <tr>
-            <th scope="row">พฤติกรรม/ปัญหา ด้านครอบครัว</th>
-            <td>{{$p4}}</td>
-        </tr>
-        <tr>
-            <th scope="row">พฤติกรรม/ปัญหา ด้านการเงิน</th>
-            <td>{{$p5}}</td>
-        </tr>
-    </tbody>
-</table>
-</center><br><br>
+        <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">เทอม/ปีการศึกษา</th>
+                        <th scope="col">จำนวนนักศึกษา</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1/2015</th>
+                        <td>{{$term_year_1_2015}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2/2015</th>
+                        <td>{{$term_year_2_2015}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">1/2016</th>
+                        <td>{{$term_year_1_2016}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2/2016</th>
+                        <td>{{$term_year_2_2016}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">1/2017</th>
+                        <td>{{$term_year_1_2017}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2/2017</th>
+                        <td>{{$term_year_2_2017}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">1/2018</th>
+                        <td>{{$term_year_1_2018}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2/2018</th>
+                        <td>{{$term_year_2_2018}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">1/2019</th>
+                        <td>{{$term_year_1_2019}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2/2019</th>
+                        <td>{{$term_year_2_2019}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            </center><br><br>
+
+
+
 
 @endsection
 
@@ -116,4 +131,3 @@
 
 @endsection
 @extends('bar.header(lec)')
-
