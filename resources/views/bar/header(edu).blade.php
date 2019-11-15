@@ -187,10 +187,7 @@
             li a:hover {
                 /* background-color:#2F4F4F;สีเวลาชี้ */
             }
-            .dropdown {
-                float: left;
-                left: 70px;
-            }
+
             @media (min-width: 992px) {
                 .col-sm-10 {
                     -ms-flex: 0 0 83.333333%;
