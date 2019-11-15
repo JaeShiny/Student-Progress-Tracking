@@ -149,7 +149,7 @@ class ProblemController extends Controller
 
         $problem->student_id = $request->student_id;
 
-        $problem->course_id = $request->course_id;
+        $problem->course_id = '';
         $problem->semester = $request->semester;
         $problem->year = $request->year;
         $problem->problem_type = $request->problem_type;
@@ -261,7 +261,7 @@ class ProblemController extends Controller
 
         $problem->student_id = $request->student_id;
 
-        $problem->course_id = $request->course_id;
+        $problem->course_id = '';
         $problem->semester = $request->semester;
         $problem->year = $request->year;
         $problem->problem_type = $request->problem_type;
@@ -371,7 +371,7 @@ class ProblemController extends Controller
 
         $problem->student_id = $request->student_id;
 
-        $problem->course_id = $request->course_id;
+        $problem->course_id = '';
         $problem->semester = $request->semester;
         $problem->year = $request->year;
         $problem->problem_type = $request->problem_type;

@@ -60,10 +60,10 @@ margin-top: -150px;
     <input type="hidden" name="student_id" value="{{$student_id}}">
 
 
-    <div class="form-group">
+    {{-- <div class="form-group">
         <label for="usr">รหัสวิชา:</label>
         <input type="text" class="form-control" id="usr" name="course_id">
-    </div>
+    </div> --}}
 
      <div class="form-group">
             <label for="exampleFormControlSelect1">เทอม:
@@ -74,7 +74,6 @@ margin-top: -150px;
             </label>&nbsp;&nbsp;
             <label for="exampleFormControlSelect1">ปีการศึกษา:
                 <select class="form-control" id="exampleFormControlSelect1" name="year">
-                    <option>2018</option>
                     <option>2019</option>
                     <option>2020</option>
                     <option>2021</option>
