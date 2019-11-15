@@ -30,7 +30,7 @@
                     <select class="form-control" id="exampleFormControlSelect1" name="behavior_attribute" value="{{$conditions->behavior_attribute}}"/>
                       <option value="Problem">ปัญหา/พฤติกรรม (levelความรุนแรงของปัญหา)</option>
                       <option value="Attendance">การเข้าเรียน (จำนวนครั้งในการขาดเรียนที่จะแจ้งเตือน)</option>
-                      <option value="Grade">ผลการเรียน (เกณฑ์คะแนนที่จะแจ้งเตือน)</option>
+                      <option value="Grade">ผลการเรียน (เกณฑ์คะแนนสอบมิดเทอมที่จะแจ้งเตือน)</option>
                     </select>
                 </label>
           </div>
