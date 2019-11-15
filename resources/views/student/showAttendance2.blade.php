@@ -386,8 +386,7 @@
 </center>
 <br>
 
-
-<button type="button" class="btn btn-primary" style="position: relative;float: right;right: 9%"><a href="/student/attendance" style="text-decoration-line: none; color: white">&nbsp;&nbsp;กลับ&nbsp;&nbsp;</a></button><br>
+<a href="/student/attendance"style="position: relative;float: right;right: 9%"><img src="{{ URL::asset("../img/buttonback.png") }}" width="30" height="25" title="แจ้งเตือน"></a>
 <br><br>
 </body>
 

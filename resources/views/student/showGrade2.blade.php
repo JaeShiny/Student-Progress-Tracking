@@ -197,8 +197,9 @@
 </div>
 </div>
 <br>
-<h6 align='center'><a class="nav-link" href="/student/grade">กลับ</a></h6><br>
 
+<a href="/student/grade"style="position: relative;float: right;right: 9%"><img src="{{ URL::asset("../img/buttonback.png") }}" width="30" height="25" title="แจ้งเตือน"></a><br><br>
+<br>
 </body>
 
 </html>
