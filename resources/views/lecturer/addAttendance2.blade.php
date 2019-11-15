@@ -110,24 +110,22 @@
                         <!-- Modal -->
                         <div class="modal fade" id="myModal" role="dialog">
                             <div class="modal-dialog">
+                                  <br><br><br><br><br>
+                              <!-- Modal content-->
+                              <div class="modal-content" style="background-color: white;" >
 
-                                <!-- Modal content-->
-                                <div class="modal-content" style="background-color: #F0F8FF;">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-
-                                    </div>
-                                    <div class="modal-body">
-                                        <center>
-                                            <h5>เพิ่มไฟล์การเข้าเรียนเรียบร้อยแล้ว</center></h5>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">ตกลง</button>
-                                    </div>
+                                <div>
+                                      <br><br>
+                                      <center><img src="{{ URL::asset("../img/success.jpg") }}" width="100" height="100"></center>
+                                      <br>
+                                  <center><h5>เพิ่มการเข้าเรียน(LAB)สำเร็จ</center></h5>
+                                  <br><br>
                                 </div>
 
+                              </div>
+
                             </div>
-                        </div>
+                          </div>
 
                     </div>
                     @csrf
