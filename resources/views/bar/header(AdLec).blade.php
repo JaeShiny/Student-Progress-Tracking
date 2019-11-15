@@ -72,7 +72,7 @@
                     <div class="dropdown">
 
                             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="color: white;border-color: none">วิชาที่สอน <span class="caret"></span></button>
-                            <ul class="dropdown-menu scrollable-menu" role="menu"  >
+                            <ul class="dropdown-menu scrollable-menu" role="menu">
                                     @foreach($semester as $show)
 
                                           <li> <a class="dropdown-item" href="/detailAL/{{$show->course_id}}/{{$show->semester}}/{{$show->year}}"> {{$show->course_id}}&nbsp;({{$show->semester}}/{{$show->year}})</a>  </li>
@@ -103,7 +103,7 @@
                        <div class="dropdown">
 
                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="color: white;border-color: none">นักศึกษา <span class="caret"></span></button>
-                        <ul class="dropdown-menu scrollable-menu" role="menu"  >
+                        <ul class="dropdown-menu scrollable-menu" role="menu"style="overflow: scroll;height: 200px;overflow-x: unset">
                                 @foreach($generation as $show)
 
                                       <li> <a class="dropdown-item" href="/AdLec/ALStudent/{{$show->semester}}/{{$show->year}}"> ปีการศึกษา: {{$show->year}}</a>  </li>
@@ -271,12 +271,7 @@
                       margin: 15px;
                       border-radius: 10px;
                   }
-                  .scrollable-menu {
-          height: auto;
-          max-height: 200px;
-          overflow-x: hidden;
-          width: 45%;
-      }
+
                   ul {
                       list-style-type: none;
                       margin: 0;
@@ -312,11 +307,7 @@
                       /* background-color:#2F4F4F;สีเวลาชี้ */
                   }
 
-                  .dropdown-menu {
 
-      overflow:scroll;
-
-      }
                   @media (min-width: 992px) {
                       .col-sm-10 {
                           -ms-flex: 0 0 83.333333%;

@@ -144,7 +144,7 @@
                             <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" style="color: white;border-color: none">
                                 วิชาที่สอน
                                 <span class="caret"></span></button>
-                            <ul class="dropdown-menu">
+                                <ul class="dropdown-menu scrollable-menu" role="menu"style="overflow-x: unset">
                             @foreach($semester as $show)
                                 <li>
                                     <a href="/detail123/{{$show->course_id}}/{{$show->semester}}/{{$show->year}}">
@@ -327,12 +327,7 @@
                       margin: 15px;
                       border-radius: 10px;
                   }
-                  .scrollable-menu {
-          height: auto;
-          max-height: 200px;
-          overflow-x: hidden;
-          width: 45%;
-      }
+
                   ul {
                       list-style-type: none;
                       margin: 0;
@@ -368,9 +363,7 @@
                   li a:hover {
                       /* background-color:#2F4F4F;สีเวลาชี้ */
                   }
-.dropdown-menu{
-    /* overflow:scroll; */
-}
+
                   @media (min-width: 992px) {
                       .col-sm-10 {
                           -ms-flex: 0 0 83.333333%;

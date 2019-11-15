@@ -68,7 +68,7 @@
                         <div class="col-lg-12 float-right">
                             <div class="btn-group">
                                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">เทอม/ปีการศึกษา<span class="caret"></span></button>
-                                <ul class="dropdown-menu scrollable-menu" role="menu">
+                                <ul class="dropdown-menu scrollable-menu" role="menu"style="overflow: scroll;height: 200px;overflow-x: unset">
                                     @foreach($semesters as $show)
                                     <li> <a class="dropdown-item" href="/student/grade/{{$show->semester}}/{{$show->year}}">{{$show->semester}}/{{$show->year}}</a></li>
                                     @endforeach

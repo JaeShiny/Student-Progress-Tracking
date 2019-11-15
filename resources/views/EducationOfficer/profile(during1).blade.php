@@ -29,7 +29,7 @@
                 <div class="col-lg-12">
                     <div class="btn-group">
                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">{{$s}}/{{$y}}<span class="caret"></span></button>
-                        <ul class="dropdown-menu scrollable-menu" role="menu">
+                        <ul class="dropdown-menu scrollable-menu" role="menu"style="overflow: scroll;height: 200px;overflow-x: unset">
                             @foreach($gen as $show)
                             <li> <a class="dropdown-item" href="/profileDuringE/{{$bios->student_id}}/{{$show->semester}}/{{$show->year}}">{{$show->semester}}|{{$show->year}}</a></li>
                             @endforeach

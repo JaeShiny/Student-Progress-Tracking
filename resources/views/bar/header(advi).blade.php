@@ -98,7 +98,7 @@
                                 นักศึกษา
                                 <span class="caret"></span></button>
                             {{-- <ul class="dropdown-menu"> --}}
-                            <ul class="dropdown-menu scrollable-menu" role="menu">
+                                <ul class="dropdown-menu scrollable-menu" role="menu"style="overflow: scroll;height: 200px;overflow-x: unset">
                             @foreach($generation as $show)
                                 <li>
                                     <a href="/advisor/myStudent/{{$show->semester}}/{{$show->year}}">
@@ -114,7 +114,7 @@
                                 การเข้าเรียนและผลการเรียน
                                 <span class="caret"></span></button>
                             {{-- <ul class="dropdown-menu"> --}}
-                            <ul class="dropdown-menu scrollable-menu" role="menu">
+                                <ul class="dropdown-menu scrollable-menu" role="menu"style="overflow: scroll;height: 200px;overflow-x: unset">
                             @foreach($generation as $show)
                                 <li>
                                     <a href="/advisor/showAtt/{{$show->semester}}/{{$show->year}}">
@@ -130,7 +130,7 @@
                                 สถิติ
                                 <span class="caret"></span></button>
                             {{-- <ul class="dropdown-menu"> --}}
-                            <ul class="dropdown-menu scrollable-menu" role="menu">
+                                <ul class="dropdown-menu scrollable-menu" role="menu"style="overflow: scroll;height: 200px;overflow-x: unset">
                             @foreach($generation as $show)
                                 <li>
                                     <a href="/advisor/chartAttendanceA/{{$show->semester}}/{{$show->year}}">
@@ -145,7 +145,7 @@
                             <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" style="color: white;border-color: none">
                                 การแจ้งเตือน
                                 <span class="caret"></span></button>
-                            <ul class="dropdown-menu scrollable-menu" role="menu">
+                                <ul class="dropdown-menu scrollable-menu" role="menu"style="overflow: scroll;height: 200px;overflow-x: unset">
                             @foreach($generation as $show)
                                 <li>
                                     <a href="/advisor/showNotiA/{{$show->semester}}/{{$show->year}}">
@@ -282,16 +282,7 @@
             li a:hover {
                 /* background-color:#2F4F4F;สีเวลาชี้ */
             }
-            .scrollable-menu {
-                height: auto;
-                max-height: 200px;
-                overflow-x: hidden;
-            }
-            .dropdown-menu {
-    /* width:90px; */
-                overflow:scroll;
-/* height: 20px; */
-            }
+
             @media (min-width: 992px) {
                 .col-sm-10 {
                     -ms-flex: 0 0 83.333333%;
