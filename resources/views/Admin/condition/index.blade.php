@@ -46,7 +46,15 @@
         @foreach($conditions as $con)
         <tr>
             {{-- <td>{{$con->id}}</td> --}}
-            <td>{{$con->behavior_attribute}}</td>
+            <td>
+                @if($con->behavior_attribute == 'Problem')
+                level ความรุนแรงของปัญหา (Problem)
+                @elseif($con->behavior_attribute == 'Attendance')
+                จำนวนการขาดเรียน (Attendance)
+                @else
+                ผลสอบกลางภาค (Grade)
+                @endif
+            </td>
             <td>{{$con->condition}}</td>
             <td>{{$con->value}}</td>
             {{-- <td>{{$con->course_id}}</td> --}}
