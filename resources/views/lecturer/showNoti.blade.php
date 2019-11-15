@@ -74,18 +74,22 @@
               <tbody>
                   @foreach($conditions as $con)
                   <tr>
-                      <td>{{$con->behavior_attribute}}</td>
-                      <td>{{$con->condition}}</td>
-                      <td>{{$con->value}}</td>
+                        <td>
+                            @if($con->behavior_attribute == 'Problem')
+                            level ความรุนแรงของปัญหา (Problem)
+                            @elseif($con->behavior_attribute == 'Attendance')
+                            จำนวนการขาดเรียน (Attendance)
+                            @else
+                            ผลสอบกลางภาค (Grade)
+                            @endif
+                        </td>
+                        <td>{{$con->condition}}</td>
+                        <td>{{$con->value}}</td>
                   </tr>
                   @endforeach
               </tbody>
             </table>
         </center>
-&nbsp;&nbsp;<b>*<u>หมายเหตุ</u>*</b><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Problem:</b> ปัญหาและพฤติกรรม (ดูจาก level ความรุนแรงของปัญหา)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Attendance:</b> การเข้าเรียน (ดูจากจำนวนการขาดเรียน)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Grade:</b> ผลการเรียน (ดูจากผลการเรียนรวม)<br>
         <div class="modal-footer">
       	    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </div>
