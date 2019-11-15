@@ -29,7 +29,7 @@
 {{-- popup ของโบว์เองแหละ--}}
   	{{-- <div class="container"> --}}
   <!-- Trigger the modal with a button -->
-  <h6 align='right'>
+  {{-- <h6 align='right'>
     <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" id="open">
         <h6>
             <img src="{{ URL::asset("../img/noti.png") }}" width="30" height="25" title="ดูเงื่อนไขแจ้งเตือน">
@@ -91,7 +91,7 @@
   </div>
 </div>
 </form>
-</div>
+</div> --}}
 {{-- จบ popup ของโบว์ละ --}}
 
     {{--

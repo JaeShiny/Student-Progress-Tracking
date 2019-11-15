@@ -788,7 +788,7 @@ class NotificationController extends Controller
         ]);
     }
 
-    public function showNotiAL2_old($course_id){
+    public function showNotiAL2($course_id){
         $course = Course::find($course_id);
         $major = Major::where('major_id',$course->major_id)->get();
         $student = Student::where('major_id',$course->major_id)->get();
@@ -822,7 +822,7 @@ class NotificationController extends Controller
             'generation' => $generation,
         ]);
     }
-    public function showNotiAL2($course_id){
+    public function showNotiAL22($course_id){
         $course = Course::find($course_id);
         $major = Major::where('major_id',$course->major_id)->get();
         $student = Student::where('major_id',$course->major_id)->get();
