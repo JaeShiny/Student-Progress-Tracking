@@ -57,8 +57,8 @@
         {{-- <a class="nav-link active" href="" style="color: #FFFFFF">แบบสอบถาม</a> --}}
         {{-- <a class="nav-link active" href="{{ url('course') }}" style="color: #FFFFFF">วิชาที่สอน</a> --}}
         {{-- <a class="nav-link" href="#" style="color: #FFFFFF">การแจ้งเตือน</a> --}}
-        <a class="nav-link" href="{{ url('AdminConditions') }}" style="color: #FFFFFF">เงื่อนไขการแจ้งเตือน</a>
-        {{-- <a class="nav-link" href="{{ url('FormAttendance') }}" style="color: #FFFFFF">ดาวน์โหลดแบบฟอร์ม</a> --}}
+        <a class="nav-link" href="{{ url('AdminConditions') }}" style="color: #FFFFFF">สร้างเงื่อนไขการแจ้งเตือน</a>
+        <a class="nav-link" href="{{ url('ProblemType') }}" style="color: #FFFFFF">สร้างประเภทของปัญหา</a>
     </nav>
 
     <style type="text/css">

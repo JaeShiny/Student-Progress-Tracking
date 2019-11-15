@@ -30,6 +30,8 @@ Route::resource('AdminConditions', 'AdminConditionController');
 Route::resource('AdConditions', 'AdConditionController');
 Route::resource('AdLecConditions', 'AdLecConditionController');
 
+Route::resource('ProblemType', 'ProblemTypeController');
+
 //อัพรูป
 Route::get('image', 'ImageController@index');
 Route::post('save', 'ImageController@save');
