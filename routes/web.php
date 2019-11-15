@@ -45,6 +45,7 @@ Route::get('chartGradeL/{course_id}/{semester}/{year}', 'ChartController@gradeL'
 Route::get('chartGradeL1/{course_id}/{semester}/{year}', 'ChartController@gradeL1');
 Route::get('chartGradeL2/{course_id}/{semester}/{year}', 'ChartController@gradeL2');
 Route::get('chartProblemL/{course_id}/{semester}/{year}', 'ChartController@problemL');
+Route::get('chartProblemL1/{course_id}/{semester}/{year}', 'ChartController@problemL1');
 //LF
 Route::get('subjectStatisticLF','ChartController@subjectStatisticLF');
 Route::get('chartAttendanceLF/{course_id}/{semester}/{year}', 'ChartController@attendanceLF');
@@ -336,8 +337,8 @@ Route::post('problem_insertA','lecturer\ProblemController@insertA');
 Route::get('studentproblemA/{student_id}', 'lecturer\ProblemController@showProblemA');
 Route::get('getStudentproblemA/{student_id}', 'lecturer\ProblemController@getShowProblemA')->name('getStudentproblemA');
 
-// Route::get('student_searchA','student\BioController@searchA');
-Route::get('student_searchA/{semester}/{year}','student\BioController@searchA');
+Route::get('student_searchA','student\BioController@searchA');
+// Route::get('student_searchA/{semester}/{year}','student\BioController@searchA');
 
 //กดดูวิชาที่เด็กลงทะเบียน
 Route::get('student_enrollmentA','student\StudyController@enrollmentA');

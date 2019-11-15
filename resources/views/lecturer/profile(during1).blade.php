@@ -43,20 +43,7 @@
             </div>
 
     <br>
-    <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">{{$s}}/{{$y}}<span class="caret"></span></button>
-                        <ul class="dropdown-menu scrollable-menu" role="menu"style="overflow: scroll;height: 200px;overflow-x: unset">
-                            @foreach($gen as $show)
-                            <li> <a class="dropdown-item" href="/profileDuringL/{{$bios->student_id}}/{{$show->semester}}/{{$show->year}}">{{$show->semester}}/{{$show->year}}</a></li>
-                            @endforeach
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
+
         <div class="jumbotron"style="box-shadow: 5px 5px 8px 4px rgba(50, 50, 50, .5);">
         <h4 class="display-4"></h4>
         <B><u>ข้อมูลระหว่างการศึกษา</u></B><br><br>
@@ -123,6 +110,22 @@
             </p>
 
             <br><br>
+            <br><br>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">{{$s.'/'.$y}}<span class="caret"></span></button>
+                            <ul class="dropdown-menu scrollable-menu" role="menu"style="overflow: scroll;height: 200px;overflow-x: unset">
+                                @foreach($gen as $show)
+                                <li> <a class="dropdown-item" href="/profileDuringL/{{$bios->student_id}}/{{$show->semester}}/{{$show->year}}">{{$show->semester}}/{{$show->year}}</a></li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <br><br>
 
             <p>
