@@ -17,6 +17,7 @@ use App\Model\mis\Instructor;
 use App\Model\mis\Study;
 use App\Model\mis\Generation;
 use App\Model\spts\Semester;
+use App\Model\spts\ProblemType;
 use App\Model\InspectorCondition;
 
 class ProblemController extends Controller
@@ -29,10 +30,13 @@ class ProblemController extends Controller
         $test = Instructor::where('last_name', Auth::user()->lastname)->first();
         $semester = Schedule::where('instructor_id', $test->instructor_id)->orderBy('year', 'asc')->get();
 
+        $problemType = ProblemType::all();
 
         return view('lecturer.problem(insert)', [
             'student_id' => $student,
-            'semester' => $semester
+            'semester' => $semester,
+
+            'problemType' => $problemType,
         ]);
     }
 
