@@ -39,7 +39,7 @@
 
 
     <div class="container">
-        <form action="/student_searchA/{{$generation->semester}}/{{$generation->year}}" method="get">
+        <form action="/student_searchA" method="get">
             <div class="input-group">
                 <input type="search" name="search" class="form-control">
                 <span class="input-group-prepend">
