@@ -133,9 +133,13 @@ class ProblemController extends Controller
         $test = Instructor::where('last_name', Auth::user()->lastname)->first();
         $semester = Schedule::where('instructor_id', $test->instructor_id)->orderBy('year', 'asc')->get();
 
+        $problemType = ProblemType::all();
+
         return view('EducationOfficer.problem(insert)', [
             'student_id' => $student,
             'semester' => $semester,
+
+            'problemType' => $problemType,
         ]);
     }
 
@@ -240,10 +244,14 @@ class ProblemController extends Controller
         $test = Instructor::where('last_name', Auth::user()->lastname)->first();
         $semester = Schedule::where('instructor_id', $test->instructor_id)->orderBy('year', 'asc')->get();
 
+        $problemType = ProblemType::all();
+
         return view('advisor.problem(insert)', [
             'student_id' => $student,
             'generation' => $generation,
             'semester' => $semester,
+
+            'problemType' => $problemType,
         ]);
     }
 
@@ -341,10 +349,14 @@ class ProblemController extends Controller
         $semester = Schedule::where('instructor_id', $test->instructor_id)->orderBy('year', 'asc')->get();
 
         $generation = Generation::all();
+        $problemType = ProblemType::all();
+
         return view('AdLec.problem(insert)', [
             'student_id' => $student,
             'semester' => $semester,
-            'generation' => $generation
+            'generation' => $generation,
+
+            'problemType' => $problemType,
         ]);
     }
 
@@ -451,9 +463,13 @@ class ProblemController extends Controller
         $test = Instructor::where('last_name', Auth::user()->lastname)->first();
         $semester = Schedule::where('instructor_id', $test->instructor_id)->orderBy('year', 'asc')->get();
 
+        $problemType = ProblemType::all();
+
         return view('LF.problem(insert)', [
             'student_id' => $student,
             'semester' => $semester,
+
+            'problemType' => $problemType,
         ]);
     }
 

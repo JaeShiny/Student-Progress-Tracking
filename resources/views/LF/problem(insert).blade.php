@@ -90,11 +90,9 @@ margin-top: -150px;
         <div class="form-group">
             <label for="exampleFormControlSelect1">ประเภทของ พฤติกรรม/ปัญหา ของนักศึกษา:
                 <select class="form-control" id="exampleFormControlSelect1" name="problem_type">
-                  <option>พฤติกรรม/ปัญหา ในห้องเรียน</option>
-                  <option>พฤติกรรม/ปัญหา นอกห้องเรียน</option>
-                  <option>พฤติกรรม/ปัญหา ด้านสุขภาพ</option>
-                  <option>พฤติกรรม/ปัญหา ด้านครอบครัว</option>
-                  <option>พฤติกรรม/ปัญหา ด้านการเงิน</option>
+                    @foreach($problemType as $type)
+                        <option>{{$type->problem_type}}</option>
+                    @endforeach
                 </select></label>
         </div>
 
