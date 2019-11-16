@@ -18,7 +18,7 @@
                 <li> </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 {{-- <li class="breadcrumb-item"><a href="{{ url('curriculum') }}">หลักสูตร(IT)</a></li> --}}
                 {{-- <li class="breadcrumb-item"><a href="{{ url('selectyear') }}">ชั้นปี</a></li> --}}
-                <li class="breadcrumb-item" aria-current="page"><a href="/advisor/myStudent">รายชื่อนักศึกษา</a></li>
+                <li class="breadcrumb-item" aria-current="page"><a href="/advisor/myStudent/1/2019">รายชื่อนักศึกษา</a></li>
                 {{-- <li class="breadcrumb-item active" aria-current="page"><a href="">ประวัตินักศึกษา(ใส่ชื่อด้วย)</a></li> --}}
                 <li class="breadcrumb-item active" aria-current="page"><a href="">พฤติกรรมหรือปัญหาของนักศึกษา</a></li>
             </ol>
@@ -63,7 +63,7 @@
                     </ul> --}}
                       <select name="semester" id="semester">
 
-                        <option value="0">เทอม/ปีการศึกษา</option>
+                        <option value="0">เลือกปีการศึกษา</option>
                           @foreach($semester as $show)
                             <option value="{{$show->semester}}-{{$show->year}}">{{$show->semester}}/{{$show->year}}</option>
 
