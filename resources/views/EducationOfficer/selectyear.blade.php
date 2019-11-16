@@ -100,7 +100,7 @@
                        {{-- <a href="/studentlist/{{$curriculum->curriculum_id}}/4"><button type="button" class="btn btn-success" style="box-shadow: 5px 5px 8px 4px rgba(50, 50, 50, .5);">นักศึกษาชั้นปีที่ 4</button></a>--}}
                 </div>
 
-            </div>
+            </div><br><br>
 
     </div>
 
