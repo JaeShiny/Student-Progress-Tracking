@@ -29,6 +29,12 @@
         <h6 align='right'>รหัสนักศึกษา: {{$bios->student_id}} &nbsp;&nbsp;&nbsp;&nbsp;</h6>
         <h6 align='right'>ชื่อ-สกุล: {{$bios->first_name}} &nbsp;{{$bios->last_name}}&nbsp;&nbsp;&nbsp;</h6>
 
+        <h6 align='right'>
+            <a href="/problem_createA/{{$bios->student_id}}" style="text-decoration-line: none">
+                <img src="{{ URL::asset("../img/add.png") }}" width="25" title="เพิ่มพฤติกรรม/ปัญหา">
+                    เพิ่มพฤติกรรม/ปัญหา&nbsp;&nbsp;&nbsp;&nbsp;
+            </a>
+        </h6>
 
         {{-- หัวข้อ --}}
         <div class="container">

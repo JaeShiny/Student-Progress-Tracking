@@ -29,6 +29,15 @@
         <h6 align='right'>ชื่อ-สกุล: {{$bio->first_name}} &nbsp;{{$bio->last_name}}&nbsp;&nbsp;&nbsp;</h6>
         @endforeach
 
+        @foreach ($bios as $bio)
+        <h6 align='right'>
+            <a href="/problem_createAL/{{$bio->student_id}}" style="text-decoration-line: none">
+                <img src="{{ URL::asset("../img/add.png") }}" width="25" title="เพิ่มพฤติกรรม/ปัญหา">
+                    เพิ่มพฤติกรรม/ปัญหา&nbsp;&nbsp;&nbsp;&nbsp;
+            </a>
+        </h6>
+        @endforeach
+
         {{-- หัวข้อ --}}
         <div class="container">
         <div class="row">
