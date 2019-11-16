@@ -29,7 +29,7 @@
         <h6 align='right'>ชื่อ-สกุล: {{$bios->first_name}} &nbsp;{{$bios->last_name}}&nbsp;&nbsp;&nbsp;</h6>
 
         <h6 align='right'>
-            <a href="/problem_createL/{{$bios->student_id}}" style="text-decoration-line: none">
+            <a href="/problem_create/{{$bios->student_id}}" style="text-decoration-line: none">
                 <img src="{{ URL::asset("../img/add.png") }}" width="25" title="เพิ่มพฤติกรรม/ปัญหา">
                     เพิ่มพฤติกรรม/ปัญหา&nbsp;&nbsp;&nbsp;&nbsp;
             </a>
