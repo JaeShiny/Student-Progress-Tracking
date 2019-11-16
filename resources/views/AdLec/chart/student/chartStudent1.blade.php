@@ -77,22 +77,26 @@
         {{-- <div class="col-sm-12"> --}}
 
             <div class="container">
+                    <div class="container">
+                            <div class="row">
 
+                              <div class="col-12" style="background-color: #F5F5F5;">
+                                <br>
                 <h5><img src="{{ URL::asset("../img/รูปสถิติ.png") }}" width="30" height="25" title="สถิติ">สถิติด้านพฤติกรรมและปัญหา</h5>
                 <p>เป็นสถิติที่รวบรวมจำนวนครั้งที่เกิดปัญหาในหัวข้อต่างๆของนักศึกษา</p><br><br><br><br>
             <center>
-                <table class="table table-striped" id="problem">
+                <table class="table table-striped" id="problem" style="box-shadow: 5px 5px 8px 4px rgba(50, 50, 50, .5);">
                   <thead>
                     <tr>
                       {{-- <th>รหัสวิชา</th> --}}
-                      <th>ปัญหาในห้องเรียน</th>
-                      <th>ปัญหานอกห้องเรียน</th>
-                      <th>ปัญหาด้านสุขภาพ</th>
-                      <th>ปัญหาด้านครอบครัว</th>
-                      <th>ปัญหาด้านการเงิน</th>
+                      <th style="background-color: white">ปัญหาในห้องเรียน</th>
+                            <th style="background-color: white">ปัญหานอกห้องเรียน</th>
+                            <th style="background-color: white">ปัญหาด้านสุขภาพ</th>
+                            <th style="background-color: white">ปัญหาด้านครอบครัว</th>
+                            <th style="background-color: white">ปัญหาด้านการเงิน</th>
                     </tr>
                   </thead>
-                  <tbody>
+                  <tbody style="background-color: white">
                     {{-- <tr>
                         {{-- @foreach ($problem as $problems)
                             <td>{{$problems->course_id}}</td>
@@ -107,18 +111,27 @@
                 </table>
             </center>
             <br><br>
+                              </div>
+                            </div>
+                    </div>
+            <br><br><br>
 
+            <div class="container">
+                    <div class="row">
+
+                      <div class="col-12" style="background-color: #F5F5F5;">
+                        <br>
             <h5><img src="{{ URL::asset("../img/รูปสถิติ.png") }}" width="30" height="25" title="สถิติ">สถิติการเข้าเรียน</h5>
             <p>เป็นสถิติที่รวบรวมจำนวนครั้งการขาดเรียนของนักศึกษา</p><br><br><br><br>
         <center>
-            <table class="table table-striped" id="attendance">
+            <table class="table table-striped" id="attendance"style="box-shadow: 5px 5px 8px 4px rgba(50, 50, 50, .5);">
               <thead>
                 <tr>
-                  <th>รหัสวิชา</th>
-                  <th>จำนวนการขาดเรียน</th>
+                        <th style="background-color: white">รหัสวิชา</th>
+                        <th style="background-color: white">จำนวนการขาดเรียน</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody style="background-color: white">
                 {{-- @foreach ($attendance as $attendances)
                 <tr>
                     <td>{{$attendances->course_id}}</td>
@@ -129,18 +142,28 @@
             </table>
         </center>
         <br><br>
+                      </div>
+                    </div>
+            </div>
 
+        <br><br><br>
+
+        <div class="container">
+                <div class="row">
+
+                  <div class="col-12" style="background-color: #F5F5F5;">
+                    <br>
         <h5><img src="{{ URL::asset("../img/รูปสถิติ.png") }}" width="30" height="25" title="สถิติ">สถิติผลการเรียน</h5>
         <p>เป็นสถิติที่รวบรวมคะแนนที่ได้ในแต่ละวิชาของนักศึกษา</p><br><br><br><br>
     <center>
-        <table class="table table-striped" id="grade">
+        <table class="table table-striped" id="grade"style="box-shadow: 5px 5px 8px 4px rgba(50, 50, 50, .5);">
           <thead>
             <tr>
-              <th>รหัสวิชา</th>
-              <th>คะแนนรวมที่ได้</th>
+                    <th style="background-color: white">รหัสวิชา</th>
+                    <th style="background-color: white">คะแนนรวมที่ได้</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody style="background-color: white">
             {{-- @foreach ($grade as $grades)
             <tr>
                 <td>{{$grades->course_id}}</td>
@@ -150,6 +173,11 @@
           </tbody>
         </table>
     </center>
+    <br>
+    <br>
+                  </div>
+                </div>
+        </div>
     <table id="test">
 
     </table>
@@ -160,7 +188,7 @@
     </div>
 </div>
 
-<br>
+<br><br><br>
 
 
 
