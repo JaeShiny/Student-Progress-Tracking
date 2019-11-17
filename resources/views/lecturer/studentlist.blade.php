@@ -137,7 +137,7 @@
               </tr>
             </tbody>
             @endforeach
-          </table>
+          </table><br>
     </center>
           {{-- <p> ทั้งหมด {{$student->count()}} รายการ </p> --}}
 
