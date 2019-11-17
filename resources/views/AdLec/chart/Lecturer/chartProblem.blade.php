@@ -22,7 +22,7 @@
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li> </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <li class="breadcrumb-item active" aria-current="page"><a href="{{ url('indexChart') }}">สถิติ</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><a href="">สถิติ</a></li>
         {{-- <li class="breadcrumb-item active" aria-current="page"><a href="{{ url('subjectStatisticAL2') }}">วิชา: {{$course->course_id}}</a></li> --}}
         <li class="breadcrumb-item active" aria-current="page"><a href="">วิชา: {{$course->course_id}}&nbsp;(ภาคเรียนที่: {{$se}}/{{$ye}})</a></li>
         <li class="breadcrumb-item active" aria-current="page"><a href="#">สถิติด้านพฤติกรรม/ปัญหา</a></li>
@@ -45,7 +45,7 @@
 
 <h5 align='right'>
     <button type="button" class="btn btn-outline-success">
-            <a href="/chartProblemAL1/{{$course->course_id}}/{{$gen->semester}}/{{$gen->year}}"><img src="{{ URL::asset("../img/รูปสถิติ.png") }}" width="30" height="25" title="สถิติ"> &nbsp;สถิติจำนวนนักเรียนที่ขาดเรียน</a>
+            <a href="/chartProblemAL1/{{$course->course_id}}/{{$gen->semester}}/{{$gen->year}}"><img src="{{ URL::asset("../img/รูปสถิติ.png") }}" width="30" height="25" title="สถิติ"> &nbsp;สถิติด้านปัญหา/พฤติกรรม</a>
     </button>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
