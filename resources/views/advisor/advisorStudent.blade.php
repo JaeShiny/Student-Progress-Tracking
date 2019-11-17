@@ -38,7 +38,7 @@
                 </center>
 
 
-    <div class="container">
+    {{-- <div class="container">
         <form action="/student_searchA" method="get">
             <div class="input-group">
                 <input type="search" name="search" class="form-control">
@@ -47,7 +47,7 @@
                 </span>
             </div>
         <form><br>
-    </div>
+    </div> --}}
 
     <center>
             <table class="table" width="60%" style="margin-top: 10px; box-shadow: 5px 5px 8px 4px rgba(50, 50, 50, .5);">

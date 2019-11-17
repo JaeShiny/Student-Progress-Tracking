@@ -57,7 +57,7 @@
                           <select name="s" id="s">
 
                             <option value="0">สถิติทั้งหมด</option>
-                              @foreach($s as $show)
+                              @foreach($se as $show)
                                 <option value="{{$show->semester}}-{{$show->year}}">{{$show->semester}}/{{$show->year}}</option>
 
                               @endforeach
@@ -73,25 +73,22 @@
         {{-- <div class="col-sm-12"> --}}
 
             <div class="container">
+                    <div class="container">
+                            <div class="row">
 
-        <div class="container">
-                <div class="row">
-
-                  <div class="col-12" style="background-color: #F5F5F5;">
-                    <br>
-
+                              <div class="col-12" style="background-color: #F5F5F5;">
+                                <br>
                 <h5><img src="{{ URL::asset("../img/รูปสถิติ.png") }}" width="30" height="25" title="สถิติ">สถิติด้านพฤติกรรมและปัญหา</h5>
-                <p>เป็นสถิติที่รวบรวมจำนวนครั้งที่เกิดปัญหาในหัวข้อต่างๆของนักศึกษา</p><br><br><br><br>
+                <p>เป็นสถิติที่รวบรวมปัญหาต่างๆของนักศึกษา</p><br><br><br><br>
             <center>
                 <table class="table table-striped" id="problem" style="box-shadow: 5px 5px 8px 4px rgba(50, 50, 50, .5);">
                   <thead>
                     <tr>
                       {{-- <th>รหัสวิชา</th> --}}
-                      <th style="background-color: white">ปัญหาในห้องเรียน</th>
-                      <th style="background-color: white">ปัญหานอกห้องเรียน</th>
-                      <th style="background-color: white">ปัญหาด้านสุขภาพ</th>
-                      <th style="background-color: white">ปัญหาด้านครอบครัว</th>
-                      <th style="background-color: white">ปัญหาด้านการเงิน</th>
+                      <th style="background-color: white">ประเภทของปัญหา</th>
+                      <th style="background-color: white">หัวข้อปัญหา</th>
+                      <th style="background-color: white">ระดับความรุนแรง</th>
+                      <th style="background-color: white">ผู้เพิ่ม</th>
                     </tr>
                   </thead>
                   <tbody style="background-color: white">
@@ -108,19 +105,18 @@
                   </tbody>
                 </table>
             </center>
-            <br><br>
-                  </div>
-                </div>
-        </div>
+            <br>
+            <br>
+                              </div>
+                            </div>
+                    </div>
             <br><br><br>
 
+            <div class="container">
+                    <div class="row">
 
-
-        <div class="container">
-                <div class="row">
-
-                  <div class="col-12" style="background-color: #F5F5F5;">
-                    <br>
+                      <div class="col-12" style="background-color: #F5F5F5;">
+                        <br>
             <h5><img src="{{ URL::asset("../img/รูปสถิติ.png") }}" width="30" height="25" title="สถิติ">สถิติการเข้าเรียน</h5>
             <p>เป็นสถิติที่รวบรวมจำนวนครั้งการขาดเรียนของนักศึกษา</p><br><br><br><br>
         <center>
@@ -143,12 +139,10 @@
         </center>
         <br>
         <br>
-                  </div>
-                </div>
-        </div>
+                      </div>
+                    </div>
+            </div>
         <br><br><br>
-
-
 
         <div class="container">
                 <div class="row">
@@ -174,28 +168,17 @@
             @endforeach --}}
           </tbody>
         </table>
-    </center>
-    <br>
-    <br>
+
+    {{-- <table id="test">
+
+    </table> --}}
+    <br><br>
+</center>
+<br><br>
                   </div>
                 </div>
         </div>
-    <table id="test">
-
-    </table>
-    <br><br>
-
-
-        </div>
-    </div>
-</div>
-
-<br><br><br>
-
-
-
-
-@endsection
+        <br><br><br>
 </body>
 
 </html>
@@ -242,36 +225,10 @@
              $('#attendance tbody').empty(); // Empty <tbody>
              $('#grade tbody').empty(); // Empty <tbody>
 
-                if(response['problem1'] != null){ /// ตรวจสอบ risk_problem ต้องไม่เป็นค่า null
-               risk_problem_len = response['problem1'].length; // นับ Array Data risk_problem
+             if(response['problem'] != null){ /// ตรวจสอบ risk_problem ต้องไม่เป็นค่า null
+               risk_problem_len = response['problem'].length; // นับ Array Data risk_problem
              }
-             if(response['problem2'] != null){ /// ตรวจสอบ risk_problem ต้องไม่เป็นค่า null
-               risk_problem_len = response['problem2'].length; // นับ Array Data risk_problem
-             }
-             if(response['problem3'] != null){ /// ตรวจสอบ risk_problem ต้องไม่เป็นค่า null
-               risk_problem_len = response['problem3'].length; // นับ Array Data risk_problem
-             }
-             if(response['problem4'] != null){ /// ตรวจสอบ risk_problem ต้องไม่เป็นค่า null
-               risk_problem_len = response['problem4'].length; // นับ Array Data risk_problem
-             }
-             if(response['problem5'] != null){ /// ตรวจสอบ risk_problem ต้องไม่เป็นค่า null
-               risk_problem_len = response['problem5'].length; // นับ Array Data risk_problem
-             }
-            //  if(response['problem1'] != null){ /// ตรวจสอบ risk_problem ต้องไม่เป็นค่า null
-            //    risk_problem1_len = response['problem1'].length; // นับ Array Data risk_problem
-            //  }
-            //  if(response['problem2'] != null){ /// ตรวจสอบ risk_problem ต้องไม่เป็นค่า null
-            //    risk_problem2_len = response['problem2'].length; // นับ Array Data risk_problem
-            //  }
-            //  if(response['problem3'] != null){ /// ตรวจสอบ risk_problem ต้องไม่เป็นค่า null
-            //    risk_problem3_len = response['problem3'].length; // นับ Array Data risk_problem
-            //  }
-            //  if(response['problem4'] != null){ /// ตรวจสอบ risk_problem ต้องไม่เป็นค่า null
-            //    risk_problem4_len = response['problem4'].length; // นับ Array Data risk_problem
-            //  }
-            //  if(response['problem5'] != null){ /// ตรวจสอบ risk_problem ต้องไม่เป็นค่า null
-            //    risk_problem1_len5 = response['problem5'].length; // นับ Array Data risk_problem
-            //  }
+
              if(response['attendance'] != null){ /// ตรวจสอบ risk_attendance ต้องไม่เป็นค่า null
                risk_attendance_len = response['attendance'].length; // นับ Array Data risk_attendance
              }
@@ -283,13 +240,12 @@
              ////////////////////////////////////////////////////////////////////////////////////////
 
              if(risk_problem_len > 0){  // นับ Array Data risk_problem มากกว่า 0 ทำงาน เงื่อนไขนี้
-                 for(var i=0; i<risk_problem1_len; i++){  // วนลูป
+                 for(var i=0; i<risk_problem_len; i++){  // วนลูป
                    var tr_str = "<tr>" +
-                        "<td align='center'>" + response['problem1'][i].problem_type + "</td>" +
-                        "<td align='center'>" + response['problem2'][i].problem_type + "</td>" +
-                        "<td align='center'>" + response['problem3'][i].problem_type + "</td>" +
-                        "<td align='center'>" + response['problem4'][i].problem_type + "</td>" +
-                        "<td align='center'>" + response['problem5'][i].problem_type + "</td>" +
+                        "<td align='center'>" + response['problem'][i].problem_type + "</td>" +
+                        "<td align='center'>" + response['problem'][i].problem_topic + "</td>" +
+                        "<td align='center'>" + response['problem'][i].risk_level + "</td>" +
+                        "<td align='center'>" + response['problem'][i].person_add + "</td>" +
                    "</tr>";
                    $("#problem tbody").append(tr_str);
                  }

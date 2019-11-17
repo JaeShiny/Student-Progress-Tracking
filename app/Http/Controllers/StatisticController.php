@@ -87,31 +87,31 @@ class StatisticController extends Controller
             ->where('semester', $term)
             ->where('year', $year)
             ->get();
-            $problem1 = Problem::where('student_id', $student_id)
-            ->where('problem_type', 'พฤติกรรม/ปัญหา ในห้องเรียน')
-            ->where('semester', $term)
-            ->where('year', $year)
-            ->count();
-            $problem2 = Problem::where('student_id', $student_id)
-            ->where('problem_type', 'พฤติกรรม/ปัญหา นอกห้องเรียน')
-            ->where('semester', $term)
-            ->where('year', $year)
-            ->count();
-            $problem3 = Problem::where('student_id', $student_id)
-            ->where('problem_type', 'พฤติกรรม/ปัญหา ด้านสุขภาพ')
-            ->where('semester', $term)
-            ->where('year', $year)
-            ->count();
-            $problem4 = Problem::where('student_id', $student_id)
-            ->where('problem_type', 'พฤติกรรม/ปัญหา ด้านครอบครัว')
-            ->where('semester', $term)
-            ->where('year', $year)
-            ->count();
-            $problem5 = Problem::where('student_id', $student_id)
-            ->where('problem_type', 'พฤติกรรม/ปัญหา ด้านการเงิน')
-            ->where('semester', $term)
-            ->where('year', $year)
-            ->count();
+            // $problem1 = Problem::where('student_id', $student_id)
+            // ->where('problem_type', 'พฤติกรรม/ปัญหา ในห้องเรียน')
+            // ->where('semester', $term)
+            // ->where('year', $year)
+            // ->count();
+            // $problem2 = Problem::where('student_id', $student_id)
+            // ->where('problem_type', 'พฤติกรรม/ปัญหา นอกห้องเรียน')
+            // ->where('semester', $term)
+            // ->where('year', $year)
+            // ->count();
+            // $problem3 = Problem::where('student_id', $student_id)
+            // ->where('problem_type', 'พฤติกรรม/ปัญหา ด้านสุขภาพ')
+            // ->where('semester', $term)
+            // ->where('year', $year)
+            // ->count();
+            // $problem4 = Problem::where('student_id', $student_id)
+            // ->where('problem_type', 'พฤติกรรม/ปัญหา ด้านครอบครัว')
+            // ->where('semester', $term)
+            // ->where('year', $year)
+            // ->count();
+            // $problem5 = Problem::where('student_id', $student_id)
+            // ->where('problem_type', 'พฤติกรรม/ปัญหา ด้านการเงิน')
+            // ->where('semester', $term)
+            // ->where('year', $year)
+            // ->count();
             $attendance = Attendance::where('student_id', $student_id)
             ->where('semester', $term)
             ->where('year', $year)
@@ -123,21 +123,21 @@ class StatisticController extends Controller
         }else{
             $problem = Problem::where('student_id', $student_id)
             ->get();
-            $problem1 = Problem::where('student_id', $student_id)
-            ->where('problem_type', 'พฤติกรรม/ปัญหา ในห้องเรียน')
-            ->count();
-            $problem2 = Problem::where('student_id', $student_id)
-            ->where('problem_type', 'พฤติกรรม/ปัญหา นอกห้องเรียน')
-            ->count();
-            $problem3 = Problem::where('student_id', $student_id)
-            ->where('problem_type', 'พฤติกรรม/ปัญหา ด้านสุขภาพ')
-            ->count();
-            $problem4 = Problem::where('student_id', $student_id)
-            ->where('problem_type', 'พฤติกรรม/ปัญหา ด้านครอบครัว')
-            ->count();
-            $problem5 = Problem::where('student_id', $student_id)
-            ->where('problem_type', 'พฤติกรรม/ปัญหา ด้านการเงิน')
-            ->count();
+            // $problem1 = Problem::where('student_id', $student_id)
+            // ->where('problem_type', 'พฤติกรรม/ปัญหา ในห้องเรียน')
+            // ->count();
+            // $problem2 = Problem::where('student_id', $student_id)
+            // ->where('problem_type', 'พฤติกรรม/ปัญหา นอกห้องเรียน')
+            // ->count();
+            // $problem3 = Problem::where('student_id', $student_id)
+            // ->where('problem_type', 'พฤติกรรม/ปัญหา ด้านสุขภาพ')
+            // ->count();
+            // $problem4 = Problem::where('student_id', $student_id)
+            // ->where('problem_type', 'พฤติกรรม/ปัญหา ด้านครอบครัว')
+            // ->count();
+            // $problem5 = Problem::where('student_id', $student_id)
+            // ->where('problem_type', 'พฤติกรรม/ปัญหา ด้านการเงิน')
+            // ->count();
             $attendance = Attendance::where('student_id', $student_id)
             ->get();
             $grade = Grade::where('student_id', $student_id)
@@ -157,11 +157,11 @@ class StatisticController extends Controller
             'bios' => $bios,
             'stu' => $stu,
             'problem' => $problem,
-            'problem1' => $problem1,
-            'problem2' => $problem2,
-            'problem3' => $problem3,
-            'problem4' => $problem4,
-            'problem5' => $problem5,
+            // 'problem1' => $problem1,
+            // 'problem2' => $problem2,
+            // 'problem3' => $problem3,
+            // 'problem4' => $problem4,
+            // 'problem5' => $problem5,
 
             'attendance' => $attendance,
             'grade' => $grade,
@@ -192,7 +192,7 @@ class StatisticController extends Controller
         $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
         $gen = Generation::all();
 
-        $s = Semester::all();
+        $se = Semester::all();
 
         return view('LF.chart.student.chartStudent1',[
             'semester' => $semester,
@@ -200,7 +200,7 @@ class StatisticController extends Controller
 
             'bios' => $bios,
             'stu' => $stu,
-            's' => $s,
+            'se' => $se,
             // 'problem' => $problem,
             // 'problem1' => $problem1,
             // 'problem2' => $problem2,
@@ -227,22 +227,22 @@ class StatisticController extends Controller
             $year = $semeter_value [1]; // ปี
 
             $problem = Problem::where('student_id', $student_id)->where('semester',$term)->where('year',$year)->get();
-            $problem1 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ในห้องเรียน')->where('semester',$term)->where('year',$year)->count();
-            $problem2 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา นอกห้องเรียน')->where('semester',$term)->where('year',$year)->count();
-            $problem3 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ด้านสุขภาพ')->where('semester',$term)->where('year',$year)->count();
-            $problem4 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ด้านครอบครัว')->where('semester',$term)->where('year',$year)->count();
-            $problem5 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ด้านการเงิน')->where('semester',$term)->where('year',$year)->count();
+            // $problem1 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ในห้องเรียน')->where('semester',$term)->where('year',$year)->count();
+            // $problem2 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา นอกห้องเรียน')->where('semester',$term)->where('year',$year)->count();
+            // $problem3 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ด้านสุขภาพ')->where('semester',$term)->where('year',$year)->count();
+            // $problem4 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ด้านครอบครัว')->where('semester',$term)->where('year',$year)->count();
+            // $problem5 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ด้านการเงิน')->where('semester',$term)->where('year',$year)->count();
 
             $attendance = Attendance::where('student_id',$student_id)->where('semester',$term)->where('year',$year)->get();
             $grade = Grade::where('student_id',$student_id)->where('semester',$term)->where('year',$year)->get();
 
         }else{
             $problem = Problem::where('student_id', $student_id)->get();
-            $problem1 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ในห้องเรียน')->count();
-            $problem2 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา นอกห้องเรียน')->count();
-            $problem3 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ด้านสุขภาพ')->count();
-            $problem4 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ด้านครอบครัว')->count();
-            $problem5 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ด้านการเงิน')->count();
+            // $problem1 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ในห้องเรียน')->count();
+            // $problem2 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา นอกห้องเรียน')->count();
+            // $problem3 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ด้านสุขภาพ')->count();
+            // $problem4 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ด้านครอบครัว')->count();
+            // $problem5 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ด้านการเงิน')->count();
 
             $attendance = Attendance::where('student_id',$student_id)->get();
             $grade = Grade::where('student_id',$student_id)->get();
@@ -252,7 +252,7 @@ class StatisticController extends Controller
         $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
         $gen = Generation::all();
 
-        $s = Semester::all();
+        $se = Semester::all();
 
         return response()->json([
             'semester' => $semester,
@@ -261,15 +261,16 @@ class StatisticController extends Controller
             'bios' => $bios,
             'stu' => $stu,
             'problem' => $problem,
-            'problem1' => $problem1,
-            'problem2' => $problem2,
-            'problem3' => $problem3,
-            'problem4' => $problem4,
-            'problem5' => $problem5,
+            // 'problem1' => $problem1,
+            // 'problem2' => $problem2,
+            // 'problem3' => $problem3,
+            // 'problem4' => $problem4,
+            // 'problem5' => $problem5,
 
             'attendance' => $attendance,
             'grade' => $grade,
             's' => $s,
+            'se' => $se,
             // 'term' => $term,
             // 'year' => $year,
         ]);
@@ -297,7 +298,7 @@ class StatisticController extends Controller
         $gen = Generation::all();
         $generation = Generation::all();
 
-        $s = Semester::all();
+        $se = Semester::all();
 
         return view('advisor.chart.student.chartStudent1',[
             'semester' => $semester,
@@ -306,7 +307,8 @@ class StatisticController extends Controller
 
             'bios' => $bios,
             'stu' => $stu,
-            's' => $s,
+            // 's' => $s,
+            'se' => $se
             // 'problem' => $problem,
             // 'problem1' => $problem1,
             // 'problem2' => $problem2,
@@ -333,22 +335,22 @@ class StatisticController extends Controller
             $year = $semeter_value [1]; // ปี
 
             $problem = Problem::where('student_id', $student_id)->where('semester',$term)->where('year',$year)->get();
-            $problem1 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ในห้องเรียน')->where('semester',$term)->where('year',$year)->count();
-            $problem2 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา นอกห้องเรียน')->where('semester',$term)->where('year',$year)->count();
-            $problem3 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ด้านสุขภาพ')->where('semester',$term)->where('year',$year)->count();
-            $problem4 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ด้านครอบครัว')->where('semester',$term)->where('year',$year)->count();
-            $problem5 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ด้านการเงิน')->where('semester',$term)->where('year',$year)->count();
+            // $problem1 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ในห้องเรียน')->where('semester',$term)->where('year',$year)->count();
+            // $problem2 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา นอกห้องเรียน')->where('semester',$term)->where('year',$year)->count();
+            // $problem3 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ด้านสุขภาพ')->where('semester',$term)->where('year',$year)->count();
+            // $problem4 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ด้านครอบครัว')->where('semester',$term)->where('year',$year)->count();
+            // $problem5 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ด้านการเงิน')->where('semester',$term)->where('year',$year)->count();
 
             $attendance = Attendance::where('student_id',$student_id)->where('semester',$term)->where('year',$year)->get();
             $grade = Grade::where('student_id',$student_id)->where('semester',$term)->where('year',$year)->get();
 
         }else{
             $problem = Problem::where('student_id', $student_id)->get();
-            $problem1 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ในห้องเรียน')->count();
-            $problem2 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา นอกห้องเรียน')->count();
-            $problem3 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ด้านสุขภาพ')->count();
-            $problem4 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ด้านครอบครัว')->count();
-            $problem5 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ด้านการเงิน')->count();
+            // $problem1 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ในห้องเรียน')->count();
+            // $problem2 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา นอกห้องเรียน')->count();
+            // $problem3 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ด้านสุขภาพ')->count();
+            // $problem4 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ด้านครอบครัว')->count();
+            // $problem5 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ด้านการเงิน')->count();
 
             $attendance = Attendance::where('student_id',$student_id)->get();
             $grade = Grade::where('student_id',$student_id)->get();
@@ -358,7 +360,7 @@ class StatisticController extends Controller
         $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
         $gen = Generation::all();
 
-        $s = Semester::all();
+        $se = Semester::all();
 
         return response()->json([
             'semester' => $semester,
@@ -367,15 +369,16 @@ class StatisticController extends Controller
             'bios' => $bios,
             'stu' => $stu,
             'problem' => $problem,
-            'problem1' => $problem1,
-            'problem2' => $problem2,
-            'problem3' => $problem3,
-            'problem4' => $problem4,
-            'problem5' => $problem5,
+            // 'problem1' => $problem1,
+            // 'problem2' => $problem2,
+            // 'problem3' => $problem3,
+            // 'problem4' => $problem4,
+            // 'problem5' => $problem5,
 
             'attendance' => $attendance,
             'grade' => $grade,
             's' => $s,
+            'se' => $se,
             // 'term' => $term,
             // 'year' => $year,
         ]);
@@ -401,7 +404,7 @@ class StatisticController extends Controller
         $gen = Generation::all();
         $generation = Generation::all();
 
-        $s = Semester::all();
+        $se = Semester::all();
 
         return view('AdLec.chart.student.chartStudent1',[
             'semester' => $semester,
@@ -410,7 +413,7 @@ class StatisticController extends Controller
 
             'bios' => $bios,
             'stu' => $stu,
-            's' => $s,
+            'se' => $se,
             // 'problem' => $problem,
             // 'problem1' => $problem1,
             // 'problem2' => $problem2,
@@ -437,22 +440,22 @@ class StatisticController extends Controller
             $year = $semeter_value [1]; // ปี
 
             $problem = Problem::where('student_id', $student_id)->where('semester',$term)->where('year',$year)->get();
-            $problem1 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ในห้องเรียน')->where('semester',$term)->where('year',$year)->count();
-            $problem2 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา นอกห้องเรียน')->where('semester',$term)->where('year',$year)->count();
-            $problem3 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ด้านสุขภาพ')->where('semester',$term)->where('year',$year)->count();
-            $problem4 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ด้านครอบครัว')->where('semester',$term)->where('year',$year)->count();
-            $problem5 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ด้านการเงิน')->where('semester',$term)->where('year',$year)->count();
+            // $problem1 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ในห้องเรียน')->where('semester',$term)->where('year',$year)->count();
+            // $problem2 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา นอกห้องเรียน')->where('semester',$term)->where('year',$year)->count();
+            // $problem3 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ด้านสุขภาพ')->where('semester',$term)->where('year',$year)->count();
+            // $problem4 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ด้านครอบครัว')->where('semester',$term)->where('year',$year)->count();
+            // $problem5 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ด้านการเงิน')->where('semester',$term)->where('year',$year)->count();
 
             $attendance = Attendance::where('student_id',$student_id)->where('semester',$term)->where('year',$year)->get();
             $grade = Grade::where('student_id',$student_id)->where('semester',$term)->where('year',$year)->get();
 
         }else{
             $problem = Problem::where('student_id', $student_id)->get();
-            $problem1 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ในห้องเรียน')->count();
-            $problem2 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา นอกห้องเรียน')->count();
-            $problem3 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ด้านสุขภาพ')->count();
-            $problem4 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ด้านครอบครัว')->count();
-            $problem5 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ด้านการเงิน')->count();
+            // $problem1 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ในห้องเรียน')->count();
+            // $problem2 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา นอกห้องเรียน')->count();
+            // $problem3 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ด้านสุขภาพ')->count();
+            // $problem4 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ด้านครอบครัว')->count();
+            // $problem5 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ด้านการเงิน')->count();
 
             $attendance = Attendance::where('student_id',$student_id)->get();
             $grade = Grade::where('student_id',$student_id)->get();
@@ -462,7 +465,7 @@ class StatisticController extends Controller
         $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
         $gen = Generation::all();
 
-        $s = Semester::all();
+        $se = Semester::all();
 
         return response()->json([
             'semester' => $semester,
@@ -471,14 +474,15 @@ class StatisticController extends Controller
             'bios' => $bios,
             'stu' => $stu,
             'problem' => $problem,
-            'problem1' => $problem1,
-            'problem2' => $problem2,
-            'problem3' => $problem3,
-            'problem4' => $problem4,
-            'problem5' => $problem5,
+            // 'problem1' => $problem1,
+            // 'problem2' => $problem2,
+            // 'problem3' => $problem3,
+            // 'problem4' => $problem4,
+            // 'problem5' => $problem5,
 
             'attendance' => $attendance,
             'grade' => $grade,
+            'se' => $se,
             's' => $s,
             // 'term' => $term,
             // 'year' => $year,
@@ -507,7 +511,7 @@ class StatisticController extends Controller
         $gen = Generation::all();
         $generation = Generation::all();
 
-        $s = Semester::all();
+        $se = Semester::all();
 
         return view('EducationOfficer.chart.student.chartStudent1',[
             'semester' => $semester,
@@ -516,7 +520,7 @@ class StatisticController extends Controller
 
             'bios' => $bios,
             'stu' => $stu,
-            's' => $s,
+            'se' => $se,
             // 'problem' => $problem,
             // 'problem1' => $problem1,
             // 'problem2' => $problem2,
@@ -544,22 +548,22 @@ class StatisticController extends Controller
             $year = $semeter_value [1]; // ปี
 
             $problem = Problem::where('student_id', $student_id)->where('semester',$term)->where('year',$year)->get();
-            $problem1 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ในห้องเรียน')->where('semester',$term)->where('year',$year)->count();
-            $problem2 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา นอกห้องเรียน')->where('semester',$term)->where('year',$year)->count();
-            $problem3 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ด้านสุขภาพ')->where('semester',$term)->where('year',$year)->count();
-            $problem4 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ด้านครอบครัว')->where('semester',$term)->where('year',$year)->count();
-            $problem5 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ด้านการเงิน')->where('semester',$term)->where('year',$year)->count();
+            // $problem1 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ในห้องเรียน')->where('semester',$term)->where('year',$year)->count();
+            // $problem2 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา นอกห้องเรียน')->where('semester',$term)->where('year',$year)->count();
+            // $problem3 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ด้านสุขภาพ')->where('semester',$term)->where('year',$year)->count();
+            // $problem4 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ด้านครอบครัว')->where('semester',$term)->where('year',$year)->count();
+            // $problem5 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ด้านการเงิน')->where('semester',$term)->where('year',$year)->count();
 
             $attendance = Attendance::where('student_id',$student_id)->where('semester',$term)->where('year',$year)->get();
             $grade = Grade::where('student_id',$student_id)->where('semester',$term)->where('year',$year)->get();
 
         }else{
             $problem = Problem::where('student_id', $student_id)->get();
-            $problem1 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ในห้องเรียน')->count();
-            $problem2 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา นอกห้องเรียน')->count();
-            $problem3 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ด้านสุขภาพ')->count();
-            $problem4 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ด้านครอบครัว')->count();
-            $problem5 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ด้านการเงิน')->count();
+            // $problem1 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ในห้องเรียน')->count();
+            // $problem2 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา นอกห้องเรียน')->count();
+            // $problem3 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ด้านสุขภาพ')->count();
+            // $problem4 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ด้านครอบครัว')->count();
+            // $problem5 = Problem::where('student_id', $student_id)->where('problem_type', 'พฤติกรรม/ปัญหา ด้านการเงิน')->count();
 
             $attendance = Attendance::where('student_id',$student_id)->get();
             $grade = Grade::where('student_id',$student_id)->get();
@@ -569,7 +573,7 @@ class StatisticController extends Controller
         $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
         $gen = Generation::all();
 
-        $s = Semester::all();
+        $se = Semester::all();
 
         return response()->json([
             'semester' => $semester,
@@ -578,15 +582,16 @@ class StatisticController extends Controller
             'bios' => $bios,
             'stu' => $stu,
             'problem' => $problem,
-            'problem1' => $problem1,
-            'problem2' => $problem2,
-            'problem3' => $problem3,
-            'problem4' => $problem4,
-            'problem5' => $problem5,
+            // 'problem1' => $problem1,
+            // 'problem2' => $problem2,
+            // 'problem3' => $problem3,
+            // 'problem4' => $problem4,
+            // 'problem5' => $problem5,
 
             'attendance' => $attendance,
             'grade' => $grade,
             's' => $s,
+            'se' => $se,
             // 'term' => $term,
             // 'year' => $year,
         ]);

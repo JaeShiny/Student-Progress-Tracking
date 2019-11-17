@@ -54,7 +54,7 @@
                         <li> <a class="dropdown-item" href="">{{$show->semester}}/{{$show->year}}</a></li><br>
                             @endforeach
                         </ul> --}}
-                          <select name="se" id="se">
+                          <select name="s" id="s">
 
                             <option value="0">สถิติทั้งหมด</option>
                               @foreach($se as $show)
@@ -79,17 +79,16 @@
                               <div class="col-12" style="background-color: #F5F5F5;">
                                 <br>
                 <h5><img src="{{ URL::asset("../img/รูปสถิติ.png") }}" width="30" height="25" title="สถิติ">สถิติด้านพฤติกรรมและปัญหา</h5>
-                <p>เป็นสถิติที่รวบรวมจำนวนครั้งที่เกิดปัญหาในหัวข้อต่างๆของนักศึกษา</p><br><br><br><br>
+                <p>เป็นสถิติที่รวบรวมปัญหาต่างๆของนักศึกษา</p><br><br><br><br>
             <center>
-                <table class="table table-striped" style="box-shadow: 5px 5px 8px 4px rgba(50, 50, 50, .5);">
+                <table class="table table-striped" id="problem" style="box-shadow: 5px 5px 8px 4px rgba(50, 50, 50, .5);">
                   <thead>
                     <tr>
                       {{-- <th>รหัสวิชา</th> --}}
-                      <th style="background-color: white">ปัญหาในห้องเรียน</th>
-                      <th style="background-color: white">ปัญหานอกห้องเรียน</th>
-                      <th style="background-color: white">ปัญหาด้านสุขภาพ</th>
-                      <th style="background-color: white">ปัญหาด้านครอบครัว</th>
-                      <th style="background-color: white">ปัญหาด้านการเงิน</th>
+                      <th style="background-color: white">ประเภทของปัญหา</th>
+                      <th style="background-color: white">หัวข้อปัญหา</th>
+                      <th style="background-color: white">ระดับความรุนแรง</th>
+                      <th style="background-color: white">ผู้เพิ่ม</th>
                     </tr>
                   </thead>
                   <tbody style="background-color: white">
@@ -191,11 +190,12 @@
 
     $(function(){
         getData(0); // start when reload page
-        $("#se").change(function(){ /// chacke when dropdown change and get value
+        $("#s").change(function(){ /// chacke when dropdown change and get value
             var semester_value = this.value;
             getData(semester_value);
         });
     });
+
 
         function getData(semester_value){
           var url ='{{ route('getChartL',['student_id' => $stu]) }}';
@@ -212,7 +212,12 @@
           url:  url,
           success: function (response) {
             // console.log(response);
-             var risk_problem_len = 0;
+            var risk_problem_len = 0;
+            //  var risk_problem1_len = 0;
+            //  var risk_problem2_len = 0;
+            //  var risk_problem3_len = 0;
+            //  var risk_problem4_len = 0;
+            //  var risk_problem5_len = 0;
              var risk_attendance_len = 0;
              var risk_grade_len = 0;
 
@@ -220,20 +225,8 @@
              $('#attendance tbody').empty(); // Empty <tbody>
              $('#grade tbody').empty(); // Empty <tbody>
 
-            if(response['problem1'] != null){ /// ตรวจสอบ risk_problem ต้องไม่เป็นค่า null
-               risk_problem_len = response['problem1'].length; // นับ Array Data risk_problem
-             }
-             if(response['problem2'] != null){ /// ตรวจสอบ risk_problem ต้องไม่เป็นค่า null
-               risk_problem_len = response['problem2'].length; // นับ Array Data risk_problem
-             }
-             if(response['problem3'] != null){ /// ตรวจสอบ risk_problem ต้องไม่เป็นค่า null
-               risk_problem_len = response['problem3'].length; // นับ Array Data risk_problem
-             }
-             if(response['problem4'] != null){ /// ตรวจสอบ risk_problem ต้องไม่เป็นค่า null
-               risk_problem_len = response['problem4'].length; // นับ Array Data risk_problem
-             }
-             if(response['problem5'] != null){ /// ตรวจสอบ risk_problem ต้องไม่เป็นค่า null
-               risk_problem_len = response['problem5'].length; // นับ Array Data risk_problem
+             if(response['problem'] != null){ /// ตรวจสอบ risk_problem ต้องไม่เป็นค่า null
+               risk_problem_len = response['problem'].length; // นับ Array Data risk_problem
              }
 
              if(response['attendance'] != null){ /// ตรวจสอบ risk_attendance ต้องไม่เป็นค่า null
@@ -244,14 +237,15 @@
                risk_grade_len = response['grade'].length; // นับ Array Data risk_attendance
              }
 
+             ////////////////////////////////////////////////////////////////////////////////////////
+
              if(risk_problem_len > 0){  // นับ Array Data risk_problem มากกว่า 0 ทำงาน เงื่อนไขนี้
                  for(var i=0; i<risk_problem_len; i++){  // วนลูป
                    var tr_str = "<tr>" +
-                        "<td align='center'>" + response['problem1'][i].problem_type + "</td>" +
-                        "<td align='center'>" + response['problem2'][i].problem_type + "</td>" +
-                        "<td align='center'>" + response['problem3'][i].problem_type + "</td>" +
-                        "<td align='center'>" + response['problem4'][i].problem_type + "</td>" +
-                        "<td align='center'>" + response['problem5'][i].problem_type + "</td>" +
+                        "<td align='center'>" + response['problem'][i].problem_type + "</td>" +
+                        "<td align='center'>" + response['problem'][i].problem_topic + "</td>" +
+                        "<td align='center'>" + response['problem'][i].risk_level + "</td>" +
+                        "<td align='center'>" + response['problem'][i].person_add + "</td>" +
                    "</tr>";
                    $("#problem tbody").append(tr_str);
                  }
@@ -261,6 +255,77 @@
                 "</tr>";
                 $("#problem tbody").append(tr_str);
              }
+
+            //  if(risk_problem1_len > 0){  // นับ Array Data risk_problem มากกว่า 0 ทำงาน เงื่อนไขนี้
+            //      for(var i=0; i<risk_problem1_len; i++){  // วนลูป
+            //        var tr_str = "<tr>" +
+            //             "<td align='center'>" + response['problem1'][i].problem_type + "</td>" +
+            //        "</tr>";
+            //        $("#problem tbody").append(tr_str);
+            //      }
+            //  }else{
+            //     var tr_str = "<tr>" +
+            //         "<td class='text-center' colspan='7'>ไม่พบข้อมูล</td>" +
+            //     "</tr>";
+            //     $("#problem tbody").append(tr_str);
+            //  }
+
+            //  if(risk_problem2_len > 0){  // นับ Array Data risk_problem มากกว่า 0 ทำงาน เงื่อนไขนี้
+            //      for(var i=0; i<risk_problem2_len; i++){  // วนลูป
+            //        var tr_str = "<tr>" +
+            //             "<td align='center'>" + response['problem2'][i].problem_type + "</td>" +
+            //        "</tr>";
+            //        $("#problem tbody").append(tr_str);
+            //      }
+            //  }else{
+            //     var tr_str = "<tr>" +
+            //         "<td class='text-center' colspan='7'>ไม่พบข้อมูล</td>" +
+            //     "</tr>";
+            //     $("#problem tbody").append(tr_str);
+            //  }
+
+            //  if(risk_problem3_len > 0){  // นับ Array Data risk_problem มากกว่า 0 ทำงาน เงื่อนไขนี้
+            //      for(var i=0; i<risk_problem3_len; i++){  // วนลูป
+            //        var tr_str = "<tr>" +
+            //             "<td align='center'>" + response['problem3'][i].problem_type + "</td>" +
+            //        "</tr>";
+            //        $("#problem tbody").append(tr_str);
+            //      }
+            //  }else{
+            //     var tr_str = "<tr>" +
+            //         "<td class='text-center' colspan='7'>ไม่พบข้อมูล</td>" +
+            //     "</tr>";
+            //     $("#problem tbody").append(tr_str);
+            //  }
+
+            //  if(risk_problem4_len > 0){  // นับ Array Data risk_problem มากกว่า 0 ทำงาน เงื่อนไขนี้
+            //      for(var i=0; i<risk_problem4_len; i++){  // วนลูป
+            //        var tr_str = "<tr>" +
+            //             "<td align='center'>" + response['problem4'][i].problem_type + "</td>" +
+            //        "</tr>";
+            //        $("#problem tbody").append(tr_str);
+            //      }
+            //  }else{
+            //     var tr_str = "<tr>" +
+            //         "<td class='text-center' colspan='7'>ไม่พบข้อมูล</td>" +
+            //     "</tr>";
+            //     $("#problem tbody").append(tr_str);
+            //  }
+
+            //  if(risk_problem5_len > 0){  // นับ Array Data risk_problem มากกว่า 0 ทำงาน เงื่อนไขนี้
+            //      for(var i=0; i<risk_problem5_len; i++){  // วนลูป
+            //        var tr_str = "<tr>" +
+            //             "<td align='center'>" + response['problem5'][i].problem_type + "</td>" +
+            //        "</tr>";
+            //        $("#problem tbody").append(tr_str);
+            //      }
+            //  }else{
+            //     var tr_str = "<tr>" +
+            //         "<td class='text-center' colspan='7'>ไม่พบข้อมูล</td>" +
+            //     "</tr>";
+            //     $("#problem tbody").append(tr_str);
+            //  }
+
              /////////////////////////////////////////////////////////////////////////////
 
              if(risk_attendance_len > 0){  // นับ Array Data risk_attendance มากกว่า 0 ทำงาน เงื่อนไขนี้
@@ -268,6 +333,7 @@
                    var tr_str = "<tr>" +
                         "<td align='center'>" + response['attendance'][i].course_id + "</td>" +
                         "<td align='center'>" + response['attendance'][i].amount_absence + "</td>" +
+                        // "<td align='center'>" + response['attendance'][i].person_add + "</td>" +
                    "</tr>";
                    $("#attendance tbody").append(tr_str);
                  }
@@ -285,6 +351,7 @@
                    var tr_str = "<tr>" +
                         "<td align='center'>" + response['grade'][i].course_id + "</td>" +
                         "<td align='center'>" + response['grade'][i].total_all + "</td>" +
+                        // "<td align='center'>" + response['risk_grade'][i].person_add + "</td>" +
                    "</tr>";
                    $("#grade tbody").append(tr_str);
                  }

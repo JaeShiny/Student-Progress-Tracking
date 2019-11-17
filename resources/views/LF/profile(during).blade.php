@@ -119,7 +119,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="btn-group">
-                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">เทอม/ปีการศึกษา<span class="caret"></span></button>
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">ข้อมูลทั้งหมด<span class="caret"></span></button>
                             <ul class="dropdown-menu scrollable-menu" role="menu"style="overflow: scroll;height: 200px;overflow-x: unset">
                                 @foreach($gen as $show)
                                 <li> <a class="dropdown-item" href="/profileDuringLF/{{$bios->student_id}}/{{$show->semester}}/{{$show->year}}">{{$show->semester}}/{{$show->year}}</a></li>

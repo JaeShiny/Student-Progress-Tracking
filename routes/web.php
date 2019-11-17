@@ -61,6 +61,8 @@ Route::get('chartGradeLF/{course_id}/{semester}/{year}', 'ChartController@gradeL
 Route::get('chartGradeLF1/{course_id}/{semester}/{year}', 'ChartController@gradeLF1');
 Route::get('chartGradeLF2/{course_id}/{semester}/{year}', 'ChartController@gradeLF2');
 Route::get('chartProblemLF/{course_id}/{semester}/{year}', 'ChartController@problemLF');
+Route::get('chartProblemLF1/{course_id}/{semester}/{year}', 'ChartController@problemLF1');
+//LF
 //Student
 Route::get('chartAttendanceS', 'ChartController@attendanceS');
 Route::get('/getchartAttendanceS', 'ChartController@attendanceS')->name('getChartAttL');
@@ -83,6 +85,7 @@ Route::get('chartGradeAL/{course_id}/{semester}/{year}', 'ChartController@gradeA
 Route::get('chartGradeAL1/{course_id}/{semester}/{year}', 'ChartController@gradeAL1');
 Route::get('chartGradeAL2/{course_id}/{semester}/{year}', 'ChartController@gradeAL2');
 Route::get('chartProblemAL/{course_id}/{semester}/{year}', 'ChartController@problemAL');
+Route::get('chartProblemAL1/{course_id}/{semester}/{year}', 'ChartController@problemAL1');
 
 Route::get('/indexChart', function () {
     return view('AdLec.chart.indexChart');
@@ -344,7 +347,7 @@ Route::post('problem_insertA','lecturer\ProblemController@insertA');
 Route::get('studentproblemA/{student_id}', 'lecturer\ProblemController@showProblemA');
 Route::get('getStudentproblemA/{student_id}', 'lecturer\ProblemController@getShowProblemA')->name('getStudentproblemA');
 
-Route::get('student_searchA','student\BioController@searchA');
+// Route::get('student_searchA','student\BioController@searchA');
 // Route::get('student_searchA/{semester}/{year}','student\BioController@searchA');
 
 //กดดูวิชาที่เด็กลงทะเบียน

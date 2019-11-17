@@ -149,9 +149,9 @@ class ChartController extends Controller
         $major = Major::where('major_id',$course->major_id)->get();
         $student = Student::where('major_id',$course->major_id)->get();
 
-        $student_ids = $student->map(function ($item) {
-            return $item->student_id;
-        });
+        // $student_ids = $student->map(function ($item) {
+        //     return $item->student_id;
+        // });
 
         $test = Instructor::where('last_name',Auth::user()->lastname)->first();
         $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
@@ -166,26 +166,6 @@ class ChartController extends Controller
                             ->count();
         // $stu = Attendance::count('student_id');
 
-
-                            // $data['1-2015'] = Attendance::where(['semester' => 1,'year' => 2015,'course_id' => $course_id])->first();
-
-                            // $data['2-2015'] = Attendance::where(['semester' => 2,'year' => 2015,'course_id' => $course_id])->first();
-
-                            // $data['1-2016'] = Attendance::where(['semester' => 1,'year' => 2016,'course_id' => $course_id])->first();
-
-                            // $data['2-2016'] = Attendance::where(['semester' => 2,'year' => 2016,'course_id' => $course_id])->first();
-
-                            // $data['1-2017'] = Attendance::where(['semester' => 1,'year' => 2017,'course_id' => $course_id])->first();
-
-                            // $data['2-2017'] = Attendance::where(['semester' => 2,'year' => 2017,'course_id' => $course_id])->first();
-
-                            // $data['1-2018'] = Attendance::where(['semester' => 1,'year' => 2018,'course_id' => $course_id])->first();
-
-                            // $data['2-2018'] = Attendance::where(['semester' => 2,'year' => 2018,'course_id' => $course_id])->first();
-
-                            // $data['1-2019'] = Attendance::where(['semester' => 1,'year' => 2019,'course_id' => $course_id])->first();
-
-                            // $data['2-2019'] = Attendance::where(['semester' => 2,'year' => 2019,'course_id' => $course_id])->first();
 
                             $data['1-2015'] = Attendance::where(['semester' => 1,'year' => 2015,'course_id' => $course_id])->first();
 
@@ -238,7 +218,7 @@ class ChartController extends Controller
         $chart = Charts::database($risk_attendance, 'line', 'highcharts')
             ->title("สถิติการขาดเรียนของนักศึกษา")
             ->elementLabel("จำนวนครั้งที่ขาดเรียน")
-            ->labels(['1/2015','2/2015','1/2016','2/2016','1/2017','2/2017','1/2018','2/2018','1/2019','2/2019'])
+            ->labels(['1/201จำนวนครั้งที่ขาดเรียน5','2/2015','1/2016','2/2016','1/2017','2/2017','1/2018','2/2018','1/2019','2/2019'])
             ->values([$data['1-2015'],$data['2-2015'],$data['1-2016'],$data['2-2016'],$data['1-2017'],$data['2-2017'],$data['1-2018'],$data['2-2018'],$data['1-2019'],$data['2-2019']])
             // ->labels(['คาบที่1', 'คาบที่2', 'คาบที่3', 'คาบที่4', 'คาบที่5', 'คาบที่6', 'คาบที่7', 'คาบที่8'
             // , 'คาบที่9', 'คาบที่10', 'คาบที่11', 'คาบที่12', 'คาบที่13', 'คาบที่14', 'คาบที่15'])
@@ -619,7 +599,7 @@ class ChartController extends Controller
 
         $chart = Charts::database($risk_problem, 'line', 'highcharts')
             ->title("สถิติปัญหา/พฤติกรรมด้านต่างๆของนักศึกษา")
-            ->elementLabel("จำนวนนักศึกษาที่เกิดปัญหา")
+            ->elementLabel("จำนวนครั้งที่เกิดปัญหา")
             ->labels(['1/2015','2/2015','1/2016','2/2016','1/2017','2/2017','1/2018','2/2018','1/2019','2/2019'])
             ->values([$data['1-2015'],$data['2-2015'],$data['1-2016'],$data['2-2016'],$data['1-2017'],$data['2-2017'],$data['1-2018'],$data['2-2018'],$data['1-2019'],$data['2-2019']])
             ->dimensions(1000, 500)
@@ -827,7 +807,7 @@ class ChartController extends Controller
 
         $chart = Charts::database($risk_attendance, 'line', 'highcharts')
             ->title("สถิติการขาดเรียนของนักศึกษา")
-            ->elementLabel("จำนวนนักศึกษาที่ขาดเรียน")
+            ->elementLabel("จำนวนครั้งที่ขาดเรียน")
             ->labels(['1/2015','2/2015','1/2016','2/2016','1/2017','2/2017','1/2018','2/2018','1/2019','2/2019'])
             ->values([$data['1-2015'],$data['2-2015'],$data['1-2016'],$data['2-2016'],$data['1-2017'],$data['2-2017'],$data['1-2018'],$data['2-2018'],$data['1-2019'],$data['2-2019']])
             // ->labels(['คาบที่1', 'คาบที่2', 'คาบที่3', 'คาบที่4', 'คาบที่5', 'คาบที่6', 'คาบที่7', 'คาบที่8'
@@ -1178,6 +1158,75 @@ class ChartController extends Controller
 
         ]);
     }
+
+    public function problemLF1($course_id, $semester, $year){
+
+        $se = $semester;
+        $ye = $year;
+
+        $course = Course::find($course_id);
+        $major = Major::where('major_id',$course->major_id)->get();
+        $student = Student::where('major_id',$course->major_id)->get();
+
+        $test = Instructor::where('last_name',Auth::user()->lastname)->first();
+        $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+        $gen = Generation::orderBy('year','desc')->first();
+
+        $count_student = Problem::where('problem_id')->where('semester', $semester)->where('year', $year)->count();
+        $risk_problem = Problem::where('problem_id')->where('semester', $semester)->where('year', $year)->where('course_id',$course_id)->get();
+        $risk_problemC = Problem::where('problem_id')->where('semester', $semester)->where('year', $year)->where('course_id',$course_id)->count();
+
+
+        // query เงื่อนไขตามที่กำหนด แล้วทำการ แสดงข้อมูลล่าสุดออกมา โดยทำการ count ดาต้าทั้งหมด ของเงื่อนไขที่ระบุ
+        $data['1-2015'] = Problem::where(['semester' => 1,'year' => 2015,'course_id' => $course_id])->count();
+        $data['2-2015'] = Problem::where(['semester' => 2,'year' => 2015,'course_id' => $course_id])->count();
+        $data['1-2016'] = Problem::where(['semester' => 1,'year' => 2016,'course_id' => $course_id])->count();
+        $data['2-2016'] = Problem::where(['semester' => 2,'year' => 2016,'course_id' => $course_id])->count();
+        $data['1-2017'] = Problem::where(['semester' => 1,'year' => 2017,'course_id' => $course_id])->count();
+        $data['2-2017'] = Problem::where(['semester' => 2,'year' => 2017,'course_id' => $course_id])->count();
+        $data['1-2018'] = Problem::where(['semester' => 1,'year' => 2018,'course_id' => $course_id])->count();
+        $data['2-2018'] = Problem::where(['semester' => 2,'year' => 2018,'course_id' => $course_id])->count();
+        $data['1-2019'] = Problem::where(['semester' => 1,'year' => 2019,'course_id' => $course_id])->count();
+        $data['2-2019'] = Problem::where(['semester' => 2,'year' => 2019,'course_id' => $course_id])->count();
+
+
+        $chart = Charts::database($risk_problem, 'line', 'highcharts')
+            ->title("สถิติปัญหา/พฤติกรรมด้านต่างๆของนักศึกษา")
+            ->elementLabel("จำนวนครั้งที่เกิดปัญหา")
+            ->labels(['1/2015','2/2015','1/2016','2/2016','1/2017','2/2017','1/2018','2/2018','1/2019','2/2019'])
+            ->values([$data['1-2015'],$data['2-2015'],$data['1-2016'],$data['2-2016'],$data['1-2017'],$data['2-2017'],$data['1-2018'],$data['2-2018'],$data['1-2019'],$data['2-2019']])
+            ->dimensions(1000, 500)
+            ->responsive(true);
+
+        return view('LF.chart.chartProblem1',[
+            'student' => $student,
+            'course' => $course,
+            'major' => $major,
+            'chart' => $chart,
+            'semester' => $semester,
+            'gen' => $gen,
+
+            'risk_problem' => $risk_problem,
+            'risk_problemC' => $risk_problemC,
+
+            'count_student' => $count_student,
+
+            'term_year_1_2015' => $data['1-2015'],
+            'term_year_2_2015' =>$data['2-2015'],
+            'term_year_1_2016' => $data['1-2016'],
+            'term_year_2_2016' =>$data['2-2016'],
+            'term_year_1_2017' => $data['1-2017'],
+            'term_year_2_2017' => $data['2-2017'],
+            'term_year_1_2018' => $data['1-2018'],
+            'term_year_2_2018' => $data['2-2018'],
+            'term_year_1_2019' => $data['1-2019'],
+            'term_year_2_2019' => $data['2-2019'],
+
+            'se' => $se,
+            'ye' => $ye,
+        ]);
+    }
+
 
 
         //student
@@ -2390,7 +2439,7 @@ class ChartController extends Controller
         $risk_attendanceC = Attendance::where('amount_absence')->where('course_id',$course_id)
                             ->where('semester', $semester)->where('year', $year)
                             ->count();
-        $stu = Attendance::count('student_id');
+        // $stu = Attendance::count('student_id');
 
 
                             $data['1-2015'] = Attendance::where(['semester' => 1,'year' => 2015,'course_id' => $course_id])->first();
@@ -2441,7 +2490,7 @@ class ChartController extends Controller
 
         $chart = Charts::database($risk_attendance, 'line', 'highcharts')
             ->title("สถิติการขาดเรียนของนักศึกษา")
-            ->elementLabel("จำนวนนักศึกษาที่ขาดเรียน")
+            ->elementLabel("จำนวนครั้งที่ขาดเรียน")
             ->labels(['1/2015','2/2015','1/2016','2/2016','1/2017','2/2017','1/2018','2/2018','1/2019','2/2019'])
             ->values([$data['1-2015'],$data['2-2015'],$data['1-2016'],$data['2-2016'],$data['1-2017'],$data['2-2017'],$data['1-2018'],$data['2-2018'],$data['1-2019'],$data['2-2019']])
             // ->labels(['คาบที่1', 'คาบที่2', 'คาบที่3', 'คาบที่4', 'คาบที่5', 'คาบที่6', 'คาบที่7', 'คาบที่8'
@@ -2804,5 +2853,75 @@ class ChartController extends Controller
     }
 
 
+    public function problemAL1($course_id, $semester, $year){
+
+        $se = $semester;
+        $ye = $year;
+
+        $course = Course::find($course_id);
+        $major = Major::where('major_id',$course->major_id)->get();
+        $student = Student::where('major_id',$course->major_id)->get();
+
+        $test = Instructor::where('last_name',Auth::user()->lastname)->first();
+        $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+        $gen = Generation::orderBy('year','desc')->first();
+        $generation = Generation::all();
+
+
+        $count_student = Problem::where('problem_id')->where('semester', $semester)->where('year', $year)->count();
+        $risk_problem = Problem::where('problem_id')->where('semester', $semester)->where('year', $year)->where('course_id',$course_id)->get();
+        $risk_problemC = Problem::where('problem_id')->where('semester', $semester)->where('year', $year)->where('course_id',$course_id)->count();
+
+
+        // query เงื่อนไขตามที่กำหนด แล้วทำการ แสดงข้อมูลล่าสุดออกมา โดยทำการ count ดาต้าทั้งหมด ของเงื่อนไขที่ระบุ
+        $data['1-2015'] = Problem::where(['semester' => 1,'year' => 2015,'course_id' => $course_id])->count();
+        $data['2-2015'] = Problem::where(['semester' => 2,'year' => 2015,'course_id' => $course_id])->count();
+        $data['1-2016'] = Problem::where(['semester' => 1,'year' => 2016,'course_id' => $course_id])->count();
+        $data['2-2016'] = Problem::where(['semester' => 2,'year' => 2016,'course_id' => $course_id])->count();
+        $data['1-2017'] = Problem::where(['semester' => 1,'year' => 2017,'course_id' => $course_id])->count();
+        $data['2-2017'] = Problem::where(['semester' => 2,'year' => 2017,'course_id' => $course_id])->count();
+        $data['1-2018'] = Problem::where(['semester' => 1,'year' => 2018,'course_id' => $course_id])->count();
+        $data['2-2018'] = Problem::where(['semester' => 2,'year' => 2018,'course_id' => $course_id])->count();
+        $data['1-2019'] = Problem::where(['semester' => 1,'year' => 2019,'course_id' => $course_id])->count();
+        $data['2-2019'] = Problem::where(['semester' => 2,'year' => 2019,'course_id' => $course_id])->count();
+
+
+        $chart = Charts::database($risk_problem, 'line', 'highcharts')
+            ->title("สถิติปัญหา/พฤติกรรมด้านต่างๆของนักศึกษา")
+            ->elementLabel("จำนวนครั้งที่เกิดปัญหา")
+            ->labels(['1/2015','2/2015','1/2016','2/2016','1/2017','2/2017','1/2018','2/2018','1/2019','2/2019'])
+            ->values([$data['1-2015'],$data['2-2015'],$data['1-2016'],$data['2-2016'],$data['1-2017'],$data['2-2017'],$data['1-2018'],$data['2-2018'],$data['1-2019'],$data['2-2019']])
+            ->dimensions(1000, 500)
+            ->responsive(true);
+
+        return view('AdLec.chart.Lecturer.chartProblem1',[
+            'student' => $student,
+            'course' => $course,
+            'major' => $major,
+            'chart' => $chart,
+            'semester' => $semester,
+            'gen' => $gen,
+            'generation' => $generation,
+
+            'risk_problem' => $risk_problem,
+            'risk_problemC' => $risk_problemC,
+
+            'count_student' => $count_student,
+
+            'term_year_1_2015' => $data['1-2015'],
+            'term_year_2_2015' =>$data['2-2015'],
+            'term_year_1_2016' => $data['1-2016'],
+            'term_year_2_2016' =>$data['2-2016'],
+            'term_year_1_2017' => $data['1-2017'],
+            'term_year_2_2017' => $data['2-2017'],
+            'term_year_1_2018' => $data['1-2018'],
+            'term_year_2_2018' => $data['2-2018'],
+            'term_year_1_2019' => $data['1-2019'],
+            'term_year_2_2019' => $data['2-2019'],
+
+            'se' => $se,
+            'ye' => $ye,
+        ]);
+    }
 
 }
