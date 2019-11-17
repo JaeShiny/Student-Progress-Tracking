@@ -43,7 +43,7 @@
 
 <h5 align='right'>
     <button type="button" class="btn btn-outline-success">
-            <a href="/chartProblemL1/{{$course->course_id}}/{{$gen->semester}}/{{$gen->year}}"><img src="{{ URL::asset("../img/รูปสถิติ.png") }}" width="30" height="25" title="สถิติ"> &nbsp;สถิติจำนวนนักเรียนที่ขาดเรียน</a>
+            <a href="/chartProblemL1/{{$course->course_id}}/{{$gen->semester}}/{{$gen->year}}"><img src="{{ URL::asset("../img/รูปสถิติ.png") }}" width="30" height="25" title="สถิติ"> &nbsp;สถิติปัญหา/พฤติกรรม</a>
     </button>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
