@@ -159,7 +159,7 @@
 
                 <tr>
                     <td scope="row">
-                        <a href="/notiproblemLF/{{$show_problem->student_id}}" style="color: black;text-decoration-line: none">
+                        <a href="/notiproblemE/{{$show_problem->student_id}}" style="color: black;text-decoration-line: none">
                             {{$show_problem->student_id}}
                         </a>
                     </td>
@@ -201,7 +201,7 @@
 
                 <tr>
                     <td scope="row">
-                        <a href="/notiproblemLF/{{$show_problem->student_id}}" style="color: black;text-decoration-line: none">
+                        <a href="/notiproblemE/{{$show_problem->student_id}}" style="color: black;text-decoration-line: none">
                             {{$show_problem->student_id}}
                         </a>
                     </td>
@@ -242,7 +242,7 @@
 
                 <tr>
                     <td scope="row">
-                        <a href="/notiproblemLF/{{$show_problem->student_id}}" style="color: black;text-decoration-line: none">
+                        <a href="/notiproblemE/{{$show_problem->student_id}}" style="color: black;text-decoration-line: none">
                             {{$show_problem->student_id}}
                         </a>
                     </td>
