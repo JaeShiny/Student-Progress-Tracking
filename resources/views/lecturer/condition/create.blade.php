@@ -60,7 +60,7 @@
             </div>
 
             <div class="form-group">
-              <label for="quantity">จำนวนครั้งที่จะใช้ในการแจ้งเตือน(Value):</label>
+              <label for="quantity">จำนวนที่จะใช้ในการแจ้งเตือน(Value):</label>
               <input type="text" class="form-control" name="value"/>
             </div>
 

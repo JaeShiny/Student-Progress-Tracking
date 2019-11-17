@@ -68,7 +68,7 @@
                   <tr>
                     <td>เรื่องที่จะทำการกำหนดการแจ้งเตือน</td>
                     <td>เงื่อนไขในการแจ้งเตือน</td>
-                    <td>จำนวนครั้งที่จะทำให้เกิดการแจ้งเตือน</td>
+                    <td>จำนวนที่จะทำให้เกิดการแจ้งเตือน</td>
                   </tr>
               </thead>
               <tbody>
@@ -76,11 +76,11 @@
                   <tr>
                         <td>
                             @if($con->behavior_attribute == 'Problem')
-                            level ความรุนแรงของปัญหา (Problem)
+                            level ความรุนแรงของปัญหา
                             @elseif($con->behavior_attribute == 'Attendance')
-                            จำนวนการขาดเรียน (Attendance)
+                            จำนวนการขาดเรียน
                             @else
-                            ผลสอบกลางภาค (Grade)
+                            ผลสอบกลางภาค
                             @endif
                         </td>
                         <td>{{$con->condition}}</td>
