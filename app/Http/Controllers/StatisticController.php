@@ -605,7 +605,7 @@ class StatisticController extends Controller
         $stu = $student_id;
         $bios = Bio::where('student_id', $student_id)->first();
 
-        $s = Semester::all();
+        $se = Semester::all();
 
 
         // $problem = Problem::where('student_id', $student_id)->get();
@@ -632,7 +632,7 @@ class StatisticController extends Controller
 
             'bios' => $bios,
             'stu' => $stu,
-            's' => $s,
+            'se' => $se,
             // 'problem' => $problem,
             // 'problem1' => $problem1,
             // 'problem2' => $problem2,
@@ -672,7 +672,7 @@ class StatisticController extends Controller
         // $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
         // $gen = Generation::all();
 
-        $s = Semester::all();
+        $se = Semester::all();
 
         return response()->json([
             // 'semester' => $semester,
@@ -690,6 +690,7 @@ class StatisticController extends Controller
             'attendance' => $attendance,
             'grade' => $grade,
             's' => $s,
+            'se' => $se
             // 'term' => $term,
             // 'year' => $year,
         ]);

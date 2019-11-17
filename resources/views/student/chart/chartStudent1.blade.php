@@ -80,7 +80,7 @@
                         </ul> --}}
                           <select name="s" id="s">
 
-                            @foreach($s as $show)
+                            @foreach($se as $show)
 
                             {{-- <option value="0">เทอม/ปีการศึกษา</option> --}}
                           <option value="0">{{$show->semester}}/{{$show->year}}</option>
