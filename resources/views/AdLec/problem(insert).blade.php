@@ -117,7 +117,7 @@ margin-top: -150px;
         </div>
         <div class="form-group">
             <label for="usr">วันที่เกิดปัญหา:</label><img src="{{ URL::asset("../img/asterisk.png") }}" width="5" height="5" style="margin-top: -2%">
-            <input type="text" class="form-control" id="usr" name="date">
+            <input type="text" class="form-control" id="usr" name="date" placeholder="วว/ดด/ปป">
         </div>
 
         {{-- <div class="form-group">
