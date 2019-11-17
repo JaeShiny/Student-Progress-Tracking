@@ -51,7 +51,7 @@
 
             <a class="list-group-item list-group-item-action active" href="/importExportGradeAL/{{$course->course_id}}"><b>เพิ่มผลการเรียน</b></a>
             <a class="list-group-item list-group-item-action" href="/showGradeAL/{{$course->course_id}}"><b>แสดงผลการเรียน</b></a>
-            <a class="list-group-item list-group-item-action" href="/subjectAL/{{$course->course_id}}"><b>รายชื่อนักศึกษา</b></a>
+            {{-- <a class="list-group-item list-group-item-action" href="/subjectAL/{{$course->course_id}}"><b>รายชื่อนักศึกษา</b></a> --}}
 
         </div>
     </div>
