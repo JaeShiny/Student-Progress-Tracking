@@ -62,18 +62,18 @@ margin-top: -150px;
 
 
     <div class="form-group">
-        <label for="usr">รหัสวิชา:</label>
+        <label for="usr">รหัสวิชา:</label><img src="{{ URL::asset("../img/asterisk.png") }}" width="5" height="5" style="margin-top: -2%">
         <input type="text" class="form-control" id="usr" name="course_id">
     </div>
 
      <div class="form-group">
-            <label for="exampleFormControlSelect1">เทอม:
+            <label for="exampleFormControlSelect1">เทอม:<img src="{{ URL::asset("../img/asterisk.png") }}" width="5" height="5" style="margin-top: -2%">
                 <select class="form-control" id="exampleFormControlSelect1" name="semester">
                   <option>1</option>
                   <option>2</option>
                 </select>
             </label>&nbsp;&nbsp;
-            <label for="exampleFormControlSelect1">ปีการศึกษา:
+            <label for="exampleFormControlSelect1">ปีการศึกษา:<img src="{{ URL::asset("../img/asterisk.png") }}" width="5" height="5" style="margin-top: -2%">
                 <select class="form-control" id="exampleFormControlSelect1" name="year">
                     <option>2019</option>
                     <option>2020</option>
@@ -87,7 +87,7 @@ margin-top: -150px;
         </div>
 
         <div class="form-group">
-            <label for="exampleFormControlSelect1">ประเภทของ พฤติกรรม/ปัญหา ของนักศึกษา:
+            <label for="exampleFormControlSelect1">ประเภทของ พฤติกรรม/ปัญหา ของนักศึกษา:<img src="{{ URL::asset("../img/asterisk.png") }}" width="5" height="5" style="margin-top: -2%">
                 <select class="form-control" id="exampleFormControlSelect1" name="problem_type">
                     @foreach($problemType as $type)
                         <option>{{$type->problem_type}}</option>
@@ -96,17 +96,17 @@ margin-top: -150px;
         </div>
 
         <div class="form-group">
-            <label for="usr">หัวข้อปัญหา:</label>
+            <label for="usr">หัวข้อปัญหา:</label><img src="{{ URL::asset("../img/asterisk.png") }}" width="5" height="5" style="margin-top: -2%">
             <input type="text" class="form-control" id="usr" name="problem_topic">
         </div>
 
         <div class="form-group">
-            <label for="exampleFormControlTextarea1">รายละเอียด พฤติกรรม/ปัญหา ของนักศึกษา:</label>
+            <label for="exampleFormControlTextarea1">รายละเอียด พฤติกรรม/ปัญหา ของนักศึกษา:</label><img src="{{ URL::asset("../img/asterisk.png") }}" width="5" height="5" style="margin-top: -2%">
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="problem_detail"></textarea>
         </div>
 
         <div class="form-group">
-            <label for="exampleFormControlSelect1">ระดับความรุนแรง:
+            <label for="exampleFormControlSelect1">ระดับความรุนแรง:<img src="{{ URL::asset("../img/asterisk.png") }}" width="5" height="5" style="margin-top: -2%">
                 <select class="form-control" id="exampleFormControlSelect1" name="risk_level">
                   <option value="1">1 = น้อยมาก</option>
                   <option value="2">2 = ต่ำ</option>
@@ -117,7 +117,7 @@ margin-top: -150px;
                 </select></label>
         </div>
         <div class="form-group">
-            <label for="usr">วันที่เกิดปัญหา:</label>
+            <label for="usr">วันที่เกิดปัญหา:</label><img src="{{ URL::asset("../img/asterisk.png") }}" width="5" height="5" style="margin-top: -2%">
             <input type="text" class="form-control" id="usr" name="date">
         </div>
 

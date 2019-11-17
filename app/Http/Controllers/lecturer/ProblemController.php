@@ -19,6 +19,8 @@ use App\Model\mis\Generation;
 use App\Model\spts\Semester;
 use App\Model\spts\ProblemType;
 use App\Model\InspectorCondition;
+use Carbon\Carbon;
+use InvalidArgumentException;
 
 class ProblemController extends Controller
 {
@@ -49,24 +51,33 @@ class ProblemController extends Controller
 
         // $student_id = Student::where();
 
-        $problem->student_id = $request->student_id;
+        $response_message = 'เพิ่มข้อมูลเรียบร้อยแล้ว';
 
-        $problem->course_id = $request->course_id;
-        $problem->semester = $request->semester;
-        $problem->year = $request->year;
-        $problem->problem_type = $request->problem_type;
-        $problem->problem_topic = $request->problem_topic;
-        $problem->problem_detail = $request->problem_detail;
-        $problem->risk_level = $request->risk_level;
-        $problem->date = $request->date;
-        $problem->person_add = Auth::user()->name;
-        $problem->add_id = Auth::user()->id;
-        $problem->instructor_id = Auth::user()->instructor_id;
+        try {
 
-        $problem->save();
+            // $datetime = Carbon::createFromFormat('d/m/Y', $request->date);
+
+            $problem->student_id = $request->student_id;
+
+            $problem->course_id = $request->course_id;
+            $problem->semester = $request->semester;
+            $problem->year = $request->year;
+            $problem->problem_type = $request->problem_type;
+            $problem->problem_topic = $request->problem_topic;
+            $problem->problem_detail = $request->problem_detail;
+            $problem->risk_level = $request->risk_level;
+            $problem->date = $request->date;
+            $problem->person_add = Auth::user()->name;
+            $problem->add_id = Auth::user()->id;
+            $problem->instructor_id = Auth::user()->instructor_id;
+
+            $problem->save();
+        } catch (InvalidArgumentException $e) {
+            $response_message = 'DATE ERROR';
+        }
 
         // return redirect('problem_create')->with('message', 'เพิ่มข้อมูลเรียบร้อยแล้ว');
-        return redirect()->back()->with('message', 'เพิ่มข้อมูลเรียบร้อยแล้ว');
+        return redirect()->back()->with('message', $response_message);
     }
 
     public function showProblemL($student_id, $semester, $year)
