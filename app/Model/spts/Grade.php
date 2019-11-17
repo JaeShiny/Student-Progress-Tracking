@@ -12,6 +12,11 @@ class Grade extends Model
     protected $table = "grade";
     protected $primaryKey = "grade_id";
 
+    protected $dates = [
+        'updated_at',
+        'created_at',
+    ];
+
     public $fillable = ['grade_id',
         'course_id',
         'student_id',

@@ -11,9 +11,15 @@ class Notification extends Model
     protected $primaryKey = "id";
     protected $keyType = 'bigint';
 
-    //Relation เพื่อบอกว่าจะแมบฟอเรนคีย์ instructor_id ของ instructor กับ instructor_id ของ schedule
+    protected $fillable = [
+        'student_id',
+        'course_id',
+        'latest_display',
+        'semester',
+        'year'
+    ];
 
-    // public function schedule(){
-    //     return $this->hasOne('App\Model\mis\Schedule','instructor_id','instructor_id');
-    // }
+    protected $dates = [
+        'lastest_display'
+    ];
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\student;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Inspector\InspectedQuery;
 use App\Model\mis\Bio;
 use App\Model\mis\Student;
 use App\Model\mis\Course;
@@ -20,6 +21,7 @@ use Auth;
 use App\Model\mis\Schedule;
 use App\Model\mis\Instructor;
 use App\Model\mis\Study;
+use App\Model\spts\Notification;
 use App\User;
 
 
@@ -334,13 +336,82 @@ class BioController extends Controller
         $course = Course::find($course_id);
         $gen = Generation::orderBy('year','desc')->first();
 
+        //ทำเลข noti
+        $notifications = Notification::where(
+            'course_id',
+            $course_id
+        )->where('year', $year)
+        ->where('semester', $semester_id)
+        ->get();
+
+        $students = InspectedQuery::startInspectForInstructorWithCourse(
+            Auth::user()->instructor_id,
+            $course_id
+        )->getInspectedStudents();
+
+        $bio_data = $bio->map(function ($student) use ($notifications, $students, $course_id, $year, $semester_id) {
+            $current_student_id = $student->student_id;
+
+            $current_student_notification = $notifications->filter(function ($e) use ($current_student_id, $course_id, $year, $semester_id) {
+                return $e->student_id == $current_student_id
+                    && $e->course_id == $course_id
+                    && $e->year == $year
+                    && $e->semester == $semester_id;
+            })->first();
+
+            $number_of_notification = 0;
+            // Problem
+            $problem_student = $students['problem']->filter(function ($e) use ($current_student_id, $current_student_notification) {
+                return $e->student_id == $current_student_id
+                    && $e->updated_at->gt($current_student_notification->latest_display);
+            });
+
+            if ($problem_student->count() > 0) {
+                $number_of_notification += 1;
+            }
+
+            // Attendance
+            $problem_student = $students['attendance']->filter(function ($e) use ($current_student_id, $current_student_notification) {
+                return $e->student_id == $current_student_id
+                    && $e->updated_at->gt($current_student_notification->latest_display);
+            });
+
+            if ($problem_student->count() > 0) {
+                $number_of_notification += 1;
+            }
+
+            // Grade
+            $problem_student = $students['grade']->filter(function ($e) use ($current_student_id, $current_student_notification) {
+                return $e->student_id == $current_student_id
+                    && $e->updated_at->gt($current_student_notification->latest_display);
+            });
+
+            if ($problem_student->count() > 0) {
+                $number_of_notification += 1;
+            }
+
+            $modified_student = $student->toArray();
+            $modified_student['number_of_notification'] = $number_of_notification;
+
+            return collect($modified_student);
+        });
+
+        $bio = $bio_data;
+
+        // ---
+        // - problems
+        //   - student_id[]
+        // - grade
+        //   - student_id[]
+        // - attendance
+        //   - student_id[]
 
         return view('lecturer.studentlist', [
             'student' => $bio,
             'course' => $course,
             'semester' => $semester,
             'gen' => $gen,
-            // 'year' => $year
+            'year' => $year
             // 'student' => $student,
         ]);
     }

@@ -32,6 +32,11 @@ Route::resource('AdLecConditions', 'AdLecConditionController');
 
 Route::resource('ProblemType', 'ProblemTypeController');
 
+
+Route::get('studentNotiL/{student_id}','NotiController@ProblemL');
+Route::get('getStudentNotiL/{student_id}','NotiController@getProblemL')->name('getStudentNotiL');
+
+
 //อัพรูป
 Route::get('image', 'ImageController@index');
 Route::post('save', 'ImageController@save');

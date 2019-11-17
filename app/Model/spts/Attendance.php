@@ -14,6 +14,11 @@ class Attendance extends Model
     protected $primaryKey = "attendance_id";
     // protected $keyType = 'bigint';
 
+    protected $dates = [
+        'updated_at',
+        'created_at',
+    ];
+
     public $fillable = ['attendance_id',
         'course_id',
         'student_id',

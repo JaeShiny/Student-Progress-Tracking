@@ -13,6 +13,11 @@ class Problem extends Model
     protected $table = "problem";
     protected $primaryKey = "problem_id";
 
+    protected $dates = [
+        'updated_at',
+        'created_at',
+    ];
+
     //Relation เพื่อบอกว่าจะแมบฟอเรนคีย์ id ของ users กับ add_id ของ problem
     public function users(){
         return $this->hasOne('App\Model\spts\User','id','add_id');
