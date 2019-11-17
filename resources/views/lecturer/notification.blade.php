@@ -39,7 +39,7 @@
             <div class="card bg-light mb-3" style="max-width: 20rem; box-shadow: 5px 5px 8px 4px rgba(50, 50, 50, .5);" "> {{--box-shadow: 5px 5px 8px 4px rgba(50, 50, 50, .5);">--}}
                 <center>
                     <div class="card-header">
-                        <h5>การแจ้งเตือน</h5>
+                        <h5>ความเสี่ยง</h5>
                     </div>
                 </center>
             </div>
