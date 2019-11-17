@@ -36,23 +36,36 @@ margin-top: -150px;
   margin-left: -280px; /* -(width/2) */
 }
 </style>
-
 </head>
 <body>
     <h6 align='right'>รหัสนักศึกษา: {{$student_id}} &nbsp;&nbsp;&nbsp;&nbsp;</h6>
 
+@if(count($errors)>0)
+    <div class="alert alert-danger">
+        <ul> @foreach ($errors->all() as $error)
+        <li> {{$error}}<li>
+
+        @endforeach
+        </ul>
+    </div>
+@endif
+@if(\Session::has('success'))
+    <div class="alert alert-success">
+        <p>{{ \Session::get('success')}}</p>
+    </div>
+@endif
+
+
     <div class="container">
-            <div class="row">
-                    <div class="col-sm-1"></div>
-                    <div class="col-xl-10">
-                            <div class="form-group" style="background-color:#E6E6E6;margin-top: 2%;box-shadow: 5px 5px 8px 4px rgba(50, 50, 50, .5);">
-                                    <div class="card mb-3" style="max-width: 60rem; background-color: #FFFFFF;border-bottom-color: teal">
-                                            <div class="card-header">
-                                            <h4><img src="{{ URL::asset("../img/add.png") }}" width="30" height="30">&nbsp;เพิ่มพฤติกรรม/ปัญหา ของนักศึกษา</h4>
-
-
-                                          </div>
-                                    </div>
+        <div class="row">
+            <div class="col-sm-1"></div>
+                <div class="col-xl-10">
+                    <div class="form-group" style="background-color:#E6E6E6;margin-top: 2%;box-shadow: 5px 5px 8px 4px rgba(50, 50, 50, .5);">
+                        <div class="card mb-3" style="max-width: 60rem; background-color: #FFFFFF;border-bottom-color: teal">
+                            <div class="card-header">
+                                <h4><img src="{{ URL::asset("../img/add.png") }}" width="30" height="30">&nbsp;เพิ่มพฤติกรรม/ปัญหา ของนักศึกษา</h4>
+                            </div>
+                         </div>
 
                         <div class="card"style="background-color:#E6E6E6;margin-top: -1.8%; box-shadow: 5px 5px 8px 4px rgba(50, 50, 50, .5);">
                             <div class="card-header" style="background-color:#E6E6FA">
@@ -151,7 +164,7 @@ margin-top: -150px;
         <div class="form-group" style="position: relative;float: right;right: -2%">
             <input type="submit" value="บันทึก" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
         </div>
-            <!-- Modal -->
+            {{-- <!-- Modal -->
             <div class="modal fade" id="myModal" role="dialog">
               <div class="modal-dialog">
                     <br><br><br><br><br>
@@ -169,7 +182,7 @@ margin-top: -150px;
                 </div>
 
               </div>
-            </div>
+            </div> --}}
 
     </div>
     @csrf

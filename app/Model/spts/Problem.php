@@ -38,4 +38,20 @@ class Problem extends Model
         return $this->hasOne('App\Model\mis\RiskLevel', 'risk_level_id', 'id');
     }
 
+
+
+    public $fillable = ['problem_type',
+        'problem_topic',
+        'problem_detail',
+        'risk_level',
+        'person_add',
+        'student_id',
+        'date',
+        'add_id',
+        'semester',
+        'year',
+        'course_id',
+        'instructor_id',
+
+    ];
 }

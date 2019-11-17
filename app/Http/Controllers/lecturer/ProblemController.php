@@ -42,42 +42,65 @@ class ProblemController extends Controller
         ]);
     }
 
+    // public function insert(Request $request)
+    // {
+    //     $problem = new Problem();
+
+    //     $response_message = 'เพิ่มข้อมูลเรียบร้อยแล้ว';
+
+    //     try {
+
+    //         // $datetime = Carbon::createFromFormat('d/m/Y', $request->date);
+
+    //         $problem->student_id = $request->student_id;
+
+    //         $problem->course_id = $request->course_id;
+    //         $problem->semester = $request->semester;
+    //         $problem->year = $request->year;
+    //         $problem->problem_type = $request->problem_type;
+    //         $problem->problem_topic = $request->problem_topic;
+    //         $problem->problem_detail = $request->problem_detail;
+    //         $problem->risk_level = $request->risk_level;
+    //         $problem->date = $request->date;
+    //         $problem->person_add = Auth::user()->name;
+    //         $problem->add_id = Auth::user()->id;
+    //         $problem->instructor_id = Auth::user()->instructor_id;
+
+    //         $problem->save();
+    //     } catch (InvalidArgumentException $e) {
+    //         $response_message = 'DATE ERROR';
+    //     }
+
+    //     // return redirect('problem_create')->with('message', 'เพิ่มข้อมูลเรียบร้อยแล้ว');
+    //     return redirect()->back()->with('message', $response_message);
+    // }
     public function insert(Request $request)
     {
-        $problem = new Problem();
-        // $student_problem = new StudentProblem();
+        $this->validate($request,['student_id'=>'required','course_id'=>'required','semester'=>'required',
+        'year'=>'required','problem_type'=>'required','problem_topic'=>'required','problem_detail'=>'required',
+        'risk_level'=>'required','date'=>'required', 'date'=>'required',
+        ]);
 
-        // $student_problem->problem_id = $request->problem_id;
-
-        // $student_id = Student::where();
-
-        $response_message = 'เพิ่มข้อมูลเรียบร้อยแล้ว';
-
-        try {
-
-            // $datetime = Carbon::createFromFormat('d/m/Y', $request->date);
-
-            $problem->student_id = $request->student_id;
-
-            $problem->course_id = $request->course_id;
-            $problem->semester = $request->semester;
-            $problem->year = $request->year;
-            $problem->problem_type = $request->problem_type;
-            $problem->problem_topic = $request->problem_topic;
-            $problem->problem_detail = $request->problem_detail;
-            $problem->risk_level = $request->risk_level;
-            $problem->date = $request->date;
-            $problem->person_add = Auth::user()->name;
-            $problem->add_id = Auth::user()->id;
-            $problem->instructor_id = Auth::user()->instructor_id;
+        $problem = new Problem(
+        [
+            'student_id' => $request->get('student_id'),
+            'course_id' => $request->get('course_id'),
+            'semester' => $request->get('semester'),
+            'year' => $request->get('year'),
+            'problem_type' => $request->get('problem_type'),
+            'problem_topic' => $request->get('problem_topic'),
+            'problem_detail' => $request->get('problem_detail'),
+            'risk_level' => $request->get('risk_level'),
+            'date' => $request->get('date'),
+            'person_add' => Auth::user()->name,
+            'add_id' => Auth::user()->id,
+            'instructor_id' => Auth::user()->instructor_id
+        ]
+        );
 
             $problem->save();
-        } catch (InvalidArgumentException $e) {
-            $response_message = 'DATE ERROR';
-        }
 
-        // return redirect('problem_create')->with('message', 'เพิ่มข้อมูลเรียบร้อยแล้ว');
-        return redirect()->back()->with('message', $response_message);
+        return redirect()->back()->with('success', 'บันทึกข้อมูลเรียบร้อยแล้ว');
     }
 
     public function showProblemL($student_id, $semester, $year)
@@ -170,7 +193,7 @@ class ProblemController extends Controller
         $problem->date = $request->date;
         $problem->person_add = Auth::user()->name;
         $problem->add_id = Auth::user()->id;
-
+        $problem->instructor_id = Auth::user()->instructor_id;
 
         $problem->save();
 
@@ -282,7 +305,7 @@ class ProblemController extends Controller
         $problem->date = $request->date;
         $problem->person_add = Auth::user()->name;
         $problem->add_id = Auth::user()->id;
-
+        $problem->instructor_id = Auth::user()->instructor_id;
 
         $problem->save();
 
@@ -392,7 +415,7 @@ class ProblemController extends Controller
         $problem->date = $request->date;
         $problem->person_add = Auth::user()->name;
         $problem->add_id = Auth::user()->id;
-
+        $problem->instructor_id = Auth::user()->instructor_id;
 
         $problem->save();
 
@@ -505,7 +528,7 @@ class ProblemController extends Controller
         $problem->date = $request->date;
         $problem->person_add = Auth::user()->name;
         $problem->add_id = Auth::user()->id;
-
+        $problem->instructor_id = Auth::user()->instructor_id;
 
         $problem->save();
 

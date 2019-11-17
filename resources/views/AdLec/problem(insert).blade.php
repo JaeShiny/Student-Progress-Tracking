@@ -40,6 +40,23 @@ margin-top: -150px;
 </head>
 <body>
         <h6 align='right'>รหัสนักศึกษา: {{$student_id}} &nbsp;&nbsp;&nbsp;&nbsp;</h6>
+
+@if(count($errors)>0)
+    <div class="alert alert-danger">
+        <ul> @foreach ($errors->all() as $error)
+        <li> {{$error}}<li>
+
+        @endforeach
+        </ul>
+    </div>
+@endif
+@if(\Session::has('success'))
+    <div class="alert alert-success">
+        <p>{{ \Session::get('success')}}</p>
+    </div>
+@endif
+
+
         <div class="container">
                 <div class="row">
                         <div class="col-sm-1"></div>
@@ -59,11 +76,11 @@ margin-top: -150px;
     <form action="/problem_insert" method="POST">
     <input type="hidden" name="student_id" value="{{$student_id}}">
 
-{{--
+
     <div class="form-group">
         <label for="usr">รหัสวิชา:</label>
         <input type="text" class="form-control" id="usr" name="course_id">
-    </div> --}}
+    </div>
 
      <div class="form-group">
             <label for="exampleFormControlSelect1">เทอม:<img src="{{ URL::asset("../img/asterisk.png") }}" width="5" height="5" style="margin-top: -2%">
@@ -143,7 +160,7 @@ margin-top: -150px;
                     <input type="submit" value="บันทึก" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
         </div>
 
-            <!-- Modal -->
+            {{-- <!-- Modal -->
             <div class="modal fade" id="myModal" role="dialog">
               <div class="modal-dialog">
                     <br><br><br><br><br>
@@ -161,7 +178,7 @@ margin-top: -150px;
                   </div>
 
                 </div>
-              </div>
+              </div> --}}
 
       </div>
       @csrf

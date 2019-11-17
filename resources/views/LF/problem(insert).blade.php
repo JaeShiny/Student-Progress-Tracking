@@ -41,6 +41,22 @@ margin-top: -150px;
 <body>
         <h6 align='right'>รหัสนักศึกษา: {{$student_id}} &nbsp;&nbsp;&nbsp;&nbsp;</h6>
 
+@if(count($errors)>0)
+    <div class="alert alert-danger">
+        <ul> @foreach ($errors->all() as $error)
+        <li> {{$error}}<li>
+
+        @endforeach
+        </ul>
+    </div>
+@endif
+@if(\Session::has('success'))
+    <div class="alert alert-success">
+        <p>{{ \Session::get('success')}}</p>
+    </div>
+@endif
+
+
         <div class="container">
                 <div class="row">
                         <div class="col-sm-1"></div>
@@ -143,7 +159,7 @@ margin-top: -150px;
             <div class="form-group" style="position: relative;float: right;right: -2%">
                     <input type="submit" value="บันทึก" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
         </div>
-            <!-- Modal -->
+            {{-- <!-- Modal -->
             <div class="modal fade" id="myModal" role="dialog">
               <div class="modal-dialog">
                     <br><br><br><br><br>
@@ -161,7 +177,7 @@ margin-top: -150px;
                       </div>
 
                     </div>
-                  </div>
+                  </div> --}}
 
           </div>
           @csrf
