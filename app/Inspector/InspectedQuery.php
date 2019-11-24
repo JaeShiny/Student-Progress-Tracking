@@ -65,10 +65,6 @@ class InspectedQuery
             'grade'         => $this->grades(),
         ];
 
-        $number_of_student_who_have_problems = ($info['problem'])->count();
-        $number_of_student_who_have_attendances = ($info['attendance'])->count();
-        $number_of_student_who_have_grades = ($info['grade'])->count();
-
         return $info;
     }
 

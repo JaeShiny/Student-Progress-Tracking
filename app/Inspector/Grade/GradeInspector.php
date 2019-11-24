@@ -11,11 +11,15 @@ class GradeInspector implements Inspector
     const INTERESTED_BEHAVIOR = 'Grade';
     protected $instructor_id = null;
     protected $course_id = null;
+    protected $year = null;
+    protected $semester = null;
 
-    public function __construct($instructor_id, $course_id = null)
+    public function __construct($instructor_id, $course_id = null, $year = null, $semester = null)
     {
         $this->instructor_id = $instructor_id;
         $this->course_id = $course_id;
+        $this->year = $year;
+        $this->semester = $semester;
     }
 
     public function getInspectedStudent()
@@ -53,6 +57,19 @@ class GradeInspector implements Inspector
                     $this->course_id
                 );
 
+            }
+            if (null != $this->year) {
+                $query_builder->where(
+                    'year',
+                    $this->year
+                );
+            }
+
+            if (null != $this->semester) {
+                $query_builder->where(
+                    'semester',
+                    $this->semester
+                );
             }
 
             $students = $query_builder->get();

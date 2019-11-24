@@ -190,6 +190,16 @@
                       {{-- <a class="nav-link" href="/indexSurvey" style="color: #FFFFFF">แบบสอบถาม</a> --}}
                     {{-- สร้างเงื่อนไขแจ้งเตือน --}}
                       <a class="nav-link" href="/conditions" style="color: #FFFFFF">เงื่อนไขการแจ้งเตือน</a>
+
+                    {{-- Dashboard --}}
+                    <a class="nav-link" href="/dashboardL" style="color: #FFFFFF">
+                        Dashboard
+                            <span class="badge badge-light">
+                                <img src="{{ URL::asset("../img/noti.png") }}" width="30" height="25" title="ความเสี่ยง">
+                                <p style="color: red">เลข</p>
+                            </span>
+                    </a>
+
                   </div>
               </div>
           </div>

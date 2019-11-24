@@ -39,6 +39,12 @@ class Grade extends Model
         'gen',
         'person_add',
         'instructor_id',
+        'is_display',
+    ];
+
+
+    public $casts = [
+        'is_display' => 'boolean',
     ];
 
     //แมบ student_id ของ Grade ให้ไปหา student_id ของ users

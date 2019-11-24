@@ -61,6 +61,12 @@ class Attendance extends Model
         'year',
         // 'section',
         'gen',
+        'is_display',
+    ];
+
+
+    public $casts = [
+        'is_display' => 'boolean',
     ];
 
     //แมบ student_id ของ Attendance ให้ไปหา student_id ของ users

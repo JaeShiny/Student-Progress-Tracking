@@ -36,6 +36,8 @@ Route::resource('ProblemType', 'ProblemTypeController');
 Route::get('studentNotiL/{student_id}','NotiController@ProblemL');
 Route::get('getStudentNotiL/{student_id}','NotiController@getProblemL')->name('getStudentNotiL');
 
+//Dashboard
+Route::get('dashboardL','DashboardController@dashboardL');
 
 //อัพรูป
 Route::get('image', 'ImageController@index');
