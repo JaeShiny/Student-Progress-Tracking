@@ -349,6 +349,8 @@ class BioController extends Controller
             $course_id
         )->getInspectedStudents();
 
+
+
         $bio_data = $bio->map(function ($student) use ($notifications, $students, $course_id, $year, $semester_id) {
             $current_student_id = $student->student_id;
 
@@ -364,6 +366,10 @@ class BioController extends Controller
             $problem_student = $students['problem']->filter(function ($e) use ($current_student_id, $current_student_notification) {
                 return $e->student_id == $current_student_id
                     && $e->updated_at->gt($current_student_notification->latest_display);
+            });
+
+            $problem_student_list = $problem_student->map(function ($e) {
+                return $e->problem_id;
             });
 
             if ($problem_student->count() > 0) {
@@ -392,6 +398,11 @@ class BioController extends Controller
 
             $modified_student = $student->toArray();
             $modified_student['number_of_notification'] = $number_of_notification;
+            $modified_student['new_records'] = [
+                'problem'       => implode(',', $problem_student_list->all()),
+                'attendance'    => '...',
+                'grade'         => '',
+            ];
 
             return collect($modified_student);
         });
@@ -411,8 +422,8 @@ class BioController extends Controller
             'course' => $course,
             'semester' => $semester,
             'gen' => $gen,
-            'year' => $year
-            // 'student' => $student,
+            'year' => $year,
+            // 'student' => $student, ['1', '2', '3'] => '1,2,3'
         ]);
     }
 
