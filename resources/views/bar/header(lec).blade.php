@@ -160,13 +160,13 @@
                                 การแจ้งเตือน
                                 <span class="caret"></span></button>
                                 <ul class="dropdown-menu">
-                                        @foreach($semester as $show)
+                                    @foreach($semester as $show)
                                         <li>
                                             <a href="/showNotiL/{{$show->course_id}}/{{$show->semester}}/{{$show->year}}">
                                                 {{$show->course_id}}&nbsp;({{$show->semester}}/{{$show->year}})
                                             </a>
                                         </li>
-                                        @endforeach
+                                    @endforeach
                                     </ul>
                         </div>
                     {{-- ปุ่มสถิติ --}}
@@ -186,18 +186,18 @@
                         </div>
                     {{-- ปุ่มโหลดฟอร์ม --}}
                       <a class="nav-link" href="{{ url('FormAttendance') }}" style="color: #FFFFFF">ดาวน์โหลดแบบฟอร์ม</a>
-                    {{-- ปุ่มแบบสอบถาม --}}
-                      {{-- <a class="nav-link" href="/indexSurvey" style="color: #FFFFFF">แบบสอบถาม</a> --}}
+
                     {{-- สร้างเงื่อนไขแจ้งเตือน --}}
                       <a class="nav-link" href="/conditions" style="color: #FFFFFF">เงื่อนไขการแจ้งเตือน</a>
 
                     {{-- Dashboard --}}
                     <a class="nav-link" href="/dashboardL" style="color: #FFFFFF">
                         Dashboard
-                            <span class="badge badge-light">
+                            {{-- <span class="badge badge-light">
                                 <img src="{{ URL::asset("../img/noti.png") }}" width="30" height="25" title="ความเสี่ยง">
-                                <p style="color: red">เลข</p>
-                            </span>
+                                <p style="color: red">{{$riskproblem}}</p>
+                            </span> --}}
+
                     </a>
 
                   </div>

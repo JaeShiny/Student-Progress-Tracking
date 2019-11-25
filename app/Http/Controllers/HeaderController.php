@@ -23,22 +23,15 @@ use Carbon\Carbon;
 use InvalidArgumentException;
 use App\Inspector\InspectedQuery;
 
-class DashboardController extends Controller
+class HeaderController extends Controller
 {
-
-    public function dashboardL()
+    public function headerL()
     {
-        $this->notificationCheck(request());
-
         $semesters = intval(Carbon::now()->format('m')) <= 6 ? 2 : 1 ;
         $year = intval(Carbon::now()->format('Y'));
         if ($semesters == 2) {
             $year -= 1;
         }
-
-        $conditions = InspectorCondition::where('instructor_id', Auth::user()->instructor_id)->get();
-
-        //เลือกว่าจะแสดงเงื่อนไขของ instructor_id คนไหน
         $instructor_id = Auth::user()->instructor_id;
 
         $inspectedResult = InspectedQuery::startInspectForInstructorWithYearly(
@@ -46,18 +39,6 @@ class DashboardController extends Controller
             $semesters,
             $year
         )->getInspectedStudents();
-
-        $all_notifications = collect(array_merge(
-            $inspectedResult['problem']->all(),
-            $inspectedResult['grade']->all(),
-            $inspectedResult['attendance']->all()
-        ))->filter(function ($element) {
-            return !$element['is_display'];
-        })->sortByDesc('created_at');
-
-        $risk_problem = $inspectedResult['problem'];
-        $risk_attendance = $inspectedResult['attendance'];
-        $risk_grade = $inspectedResult['grade'];
 
         $riskproblem = $inspectedResult['problem']->filter(function ($e) {
             return !$e['is_display'];
@@ -69,50 +50,27 @@ class DashboardController extends Controller
             return !$e['is_display'];
         })->count();
 
+
+
         $test = Instructor::where('last_name',Auth::user()->lastname)->first();
         $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
         $gen = Generation::orderBy('year','desc')->first();
 
-        return view('lecturer.dashboardL', [
+        return view('bar.header(lec)', [
             'semesters' => $semesters,
             'year' => $year,
             'instructor_id' => $instructor_id,
-
-            'risk_problem' => $risk_problem,
-            'risk_attendance' => $risk_attendance,
-            'risk_grade' => $risk_grade,
 
             'riskproblem' => $riskproblem,
             'riskattendance' => $riskattendance,
             'riskgrade' => $riskgrade,
 
-            'all_notification' => $all_notifications,
+            // 'count_noti' => $count_noti,
 
             'semester' => $semester,
             'gen' => $gen,
-            'conditions' => $conditions,
+
         ]);
-    }
-
-    protected function notificationCheck($request)
-    {
-        if ('notification' != $request->get('link_target', 'NONE')) return;
-
-        if ($request->get('problem') != 0) {
-            $update_record = Problem::where('problem_id', $request->get('problem'))->first();
-            $update_record->is_display = true;
-            $update_record->save();
-        }
-        if ($request->get('attendance') != 0) {
-            $update_record = Attendance::where('attendance_id', $request->get('attendance'))->first();
-            $update_record->is_display = true;
-            $update_record->save();
-        }
-        if ($request->get('grade') != 0) {
-            $update_record = Grade::where('grade_id', $request->get('grade'))->first();
-            $update_record->is_display = true;
-            $update_record->save();
-        }
     }
 
 }

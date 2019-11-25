@@ -131,32 +131,47 @@
     </a>
 
     <div class="card-header">
-    รหัสวิชา: {{$noti->course_id}}<br>
-    ชื่อ-สกุล:  &nbsp;&nbsp;&nbsp; รหัสนักศึกษา:  {{$noti->student_id}} <br>
-  </div>
+        รหัสวิชา: {{$noti->course_id}}<br>
+        รหัสนักศึกษา:  {{$noti->student_id}} <br>
+    </div>
 
     <div class="card-body">
         <blockquote class="blockquote mb-0">
             @if ('App\Model\spts\Problem' == get_class($noti))
 
-                <h6 align='left'>หัวข้อการแจ้งเตือน: ปัญหา</h6>
-                <h6 align='left'>รหัสวิชา: </h6>
-                <h6 align='left'>จำนวนการขาดเรียน: </h6>
-                <footer class="blockquote-footer">ผู้เพิ่ม: <cite title="Source Title">person_add</cite></footer>
+                <h6 align='left'>หัวข้อการแจ้งเตือน: พฤติกรรม/ปัญหา</h6>
+                <h6 align='left'>รหัสวิชา: {{$noti->course_id}}</h6>
+                <h6 align='left'>ประเภทของปัญหา: {{$noti->problem_type}}</h6>
+                <h6 align='left'>หัวข้อปัญหา: {{$noti->problem_topic}}</h6>
+                <h6 align='left'>รายละเอียดของปัญหา:{{$noti->problem_detail}}</h6>
+                <h6 align='left'>ระดับความรุนแรงของปัญหา:
+                    @if($noti->risk_level == 1)
+                    1 = น้อย
+                    @elseif($noti->risk_level == 2)
+                    2 = ต่ำ
+                    @elseif($noti->risk_level == 3)
+                    3 = ปานกลาง
+                    @elseif($noti->risk_level == 4)
+                    4 = สูง
+                    @else
+                    <p style="color: red">5 = สูงมาก</p>
+                    @endif
+                </h6>
+                <footer class="blockquote-footer">ผู้เพิ่ม: <cite title="Source Title">อาจารย์{{$noti->person_add}}</cite></footer>
 
             @elseif ('App\Model\spts\Attendance' == get_class($noti))
 
                 <h6 align='left'>หัวข้อการแจ้งเตือน: การขาดเรียน</h6>
-                <h6 align='left'>รหัสวิชา: </h6>
-                <h6 align='left'>จำนวนการขาดเรียน: </h6>
-                <footer class="blockquote-footer">ผู้เพิ่ม: <cite title="Source Title">person_add</cite></footer>
+                <h6 align='left'>รหัสวิชา: {{$noti->course_id}}</h6>
+                <h6 align='left'>จำนวนการขาดเรียน: {{$noti->amount_absence}}</h6>
+                <footer class="blockquote-footer">ผู้เพิ่ม: <cite title="Source Title">อาจารย์{{$noti->person_add}}</cite></footer>
 
             @elseif ('App\Model\spts\Grade' == get_class($noti))
 
                 <h6 align='left'>หัวข้อการแจ้งเตือน: ผลการเรียน</h6>
-                <h6 align='left'>รหัสวิชา: </h6>
-                <h6 align='left'>คะแนนสอบมิดเทอม: </h6>
-                <footer class="blockquote-footer">ผู้เพิ่ม: <cite title="Source Title">person_add</cite></footer>
+                <h6 align='left'>รหัสวิชา: {{$noti->course_id}}</h6>
+                <h6 align='left'>คะแนนสอบมิดเทอม: {{$noti->total_midterm}}</h6>
+                <footer class="blockquote-footer">ผู้เพิ่ม: <cite title="Source Title">อาจารย์{{$noti->person_add}}</cite></footer>
 
             @endif
 
