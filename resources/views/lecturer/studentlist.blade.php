@@ -121,7 +121,7 @@
                     </a>
                 </td>
                 <td width="10">
-                <a href="/studentNotiL/{{$student['student_id']}}?link_target=notification&course_id={{ $course->course_id }}&year={{ $year }}&semester={{ $semester[0]->semester }}&problem_ids={{ $student['new_records']['problem'] }}&grade_ids=&attendance_ids=">
+                <a href="/studentNotiL/{{$student['student_id']}}?link_target=notification&course_id={{ $course->course_id }}&year={{ $year }}&semester={{ $semester[0]->semester }}&problem_ids={{ $student['new_records']['problem'] }}&grade_ids={{ $student['new_records']['grade'] }}&attendance_ids={{ $student['new_records']['attendance'] }}">
                         {{-- <button type="button" class="btn btn-danger"> --}}
                              <span class="badge badge-light">
                                 <img src="{{ URL::asset("../img/noti.png") }}" width="30" height="25" title="ความเสี่ยง">

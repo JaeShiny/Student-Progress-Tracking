@@ -89,6 +89,14 @@ class NotiController extends Controller
         $generation = Generation::all();
         $semesters = Semester::all();
 
+        $problem_ids = request()->get('problem_ids', []);
+        $grade_ids = request()->get('grade_ids', []);
+        $attendance_ids = request()->input('attendance_ids', []);
+
+        $problem_ids = empty($problem_ids) ? [] : explode(',', $problem_ids) ;
+        $grade_ids = empty($grade_ids) ? [] : explode(',', $grade_ids) ;
+        $attendance_ids = empty($attendance_ids) ? [] : explode(',', $attendance_ids) ;
+
         return view('lecturer.notiStudent',[
             'bios' => $bios,
             's' => $s,
@@ -98,6 +106,11 @@ class NotiController extends Controller
             'semester' => $semester,
             'semesters' => $semesters,
             'generation' => $generation,
+
+            // problem_ids => '1,2,3,4,5'
+            'new_problem_records' => $problem_ids,
+            'new_grade_records' => $grade_ids,
+            'new_attendance_records' => $attendance_ids,
 
             'risk_problem' => $risk_problem,
             'risk_attendance' => $risk_attendance,

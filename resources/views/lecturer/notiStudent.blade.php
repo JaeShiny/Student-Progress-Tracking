@@ -177,18 +177,31 @@
                 <tbody>
                     @foreach ($risk_problem as $show_problem)
 
-                    <tr>
-                        <td scope="row">{{$show_problem->problem_type}}</td>
-                        <td>{{$show_problem->problem_topic}}</td>
-                        <td>{{$show_problem->problem_detail}}</td>
-                        <td>{{$show_problem->risk_level}}</td>
-                        <td>{{$show_problem->created_at}}</td>
-                        <td>{{$show_problem->date}}</td>
-                        <td>อาจารย์ {{$show_problem->users->name}}</td>
-                    </tr>
-
+                        {{-- if problem_id in new_problem_ids --}}
+                        @if (in_array($show_problem->problem_id, $new_problem_records))
+                            {{-- highlight row --}}
+                            <tr>
+                                <td scope="row"><p style="color: red">{{$show_problem->problem_type}}</p></td>
+                                <td><p style="color: red">{{$show_problem->problem_topic}}</p></td>
+                                <td><p style="color: red">{{$show_problem->problem_detail}}</p></td>
+                                <td><p style="color: red">{{$show_problem->risk_level}}</p></td>
+                                <td><p style="color: red">{{$show_problem->created_at}}</p></td>
+                                <td><p style="color: red">{{$show_problem->date}}</p></td>
+                                <td><p style="color: red">อาจารย์ {{$show_problem->users->name}}</p></td>
+                            </tr>
+                        @else
+                            {{-- commons row --}}
+                            <tr>
+                                <td scope="row">{{$show_problem->problem_type}}</td>
+                                <td>{{$show_problem->problem_topic}}</td>
+                                <td>{{$show_problem->problem_detail}}</td>
+                                <td>{{$show_problem->risk_level}}</td>
+                                <td>{{$show_problem->created_at}}</td>
+                                <td>{{$show_problem->date}}</td>
+                                <td>อาจารย์ {{$show_problem->users->name}}</td>
+                            </tr>
+                        @endif
                     @endforeach
-
                 </tbody>
             </table>
             <a href="#mode"><img src="{{ URL::asset('../img/arrow.jpg') }}" style="width: 15px;position: relative;float: right;right: 11%" ></a>
@@ -208,19 +221,29 @@
 
                     </tr>
                 </thead>
+
                 <tbody>
+
                     @foreach ($risk_attendance as $show_problem)
+                        @if (in_array($show_problem->problem_id, $new_problem_records))
+                            <tr>
+                                <td scope="row"><p style="color: red">{{$show_problem->course_id}}</p></td>
+                                <td><p style="color: red">{{$show_problem->amount_absence}}</p></td>
 
-                    <tr>
-                        <td scope="row">{{$show_problem->course_id}}</td>
-                        <td>{{$show_problem->amount_absence}}</td>
+                                <td><p style="color: red">อาจารย์ {{$show_problem->person_add}}</p></td>
+                            </tr>
+                        @else
+                            <tr>
+                                <td scope="row">{{$show_problem->course_id}}</td>
+                                <td>{{$show_problem->amount_absence}}</td>
 
-                        <td>อาจารย์ {{$show_problem->person_add}}</td>
-                    </tr>
-
+                                <td>อาจารย์ {{$show_problem->person_add}}</td>
+                            </tr>
+                        @endif
                     @endforeach
 
                 </tbody>
+
             </table>
             <a href="#mode"><img src="{{ URL::asset('../img/arrow.jpg') }}" style="width: 15px;position: relative;float: right;right: 11%" ></a>
             <br><br>
@@ -241,15 +264,23 @@
                     </tr>
                 </thead>
                 <tbody>
+
                     @foreach ($risk_grade as $show_problem)
+                        @if (in_array($show_problem->problem_id, $new_problem_records))
+                            <tr>
+                                <td scope="row"><p style="color: red">{{$show_problem->course_id}}</p></td>
+                                <td><p style="color: red">{{$show_problem->total_all}}</p></td>
 
-                    <tr>
-                        <td scope="row">{{$show_problem->course_id}}</td>
-                        <td>{{$show_problem->total_all}}</td>
+                                <td><p style="color: red">อาจารย์ {{$show_problem->person_add}}</p></td>
+                            </tr>
+                        @else
+                            <tr>
+                                <td scope="row">{{$show_problem->course_id}}</td>
+                                <td>{{$show_problem->total_all}}</td>
 
-                        <td>อาจารย์ {{$show_problem->person_add}}</td>
-                    </tr>
-
+                                <td>อาจารย์ {{$show_problem->person_add}}</td>
+                            </tr>
+                        @endif
                     @endforeach
 
                 </tbody>

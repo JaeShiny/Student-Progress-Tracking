@@ -4,6 +4,7 @@ namespace App\Http\Controllers\student;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Inspector\HeaderNotificationCount;
 use App\Inspector\InspectedQuery;
 use App\Model\mis\Bio;
 use App\Model\mis\Student;
@@ -22,11 +23,15 @@ use App\Model\mis\Schedule;
 use App\Model\mis\Instructor;
 use App\Model\mis\Study;
 use App\Model\spts\Notification;
+
 use App\User;
 
 
 class BioController extends Controller
 {
+
+    use HeaderNotificationCount;
+
     //Student
     //แสดง profile ของนักศึกษา
     public function profile()
@@ -350,7 +355,7 @@ class BioController extends Controller
         )->getInspectedStudents();
 
 
-
+        // lambda function, annonymous function
         $bio_data = $bio->map(function ($student) use ($notifications, $students, $course_id, $year, $semester_id) {
             $current_student_id = $student->student_id;
 
@@ -386,6 +391,10 @@ class BioController extends Controller
                 $number_of_notification += 1;
             }
 
+            $attendance_student_list = $problem_student->map(function ($e) {
+                return $e->problem_id;
+            });
+
             // Grade
             $problem_student = $students['grade']->filter(function ($e) use ($current_student_id, $current_student_notification) {
                 return $e->student_id == $current_student_id
@@ -396,12 +405,16 @@ class BioController extends Controller
                 $number_of_notification += 1;
             }
 
+            $grade_student_list = $problem_student->map(function ($e) {
+                return $e->problem_id;
+            });
+
             $modified_student = $student->toArray();
             $modified_student['number_of_notification'] = $number_of_notification;
             $modified_student['new_records'] = [
                 'problem'       => implode(',', $problem_student_list->all()),
-                'attendance'    => '...',
-                'grade'         => '',
+                'attendance'    => implode(',', $attendance_student_list->all()),
+                'grade'         => implode(',', $grade_student_list->all()),
             ];
 
             return collect($modified_student);
@@ -423,6 +436,7 @@ class BioController extends Controller
             'semester' => $semester,
             'gen' => $gen,
             'year' => $year,
+            'number' => $this->countNumberOfNewNotification(),
             // 'student' => $student, ['1', '2', '3'] => '1,2,3'
         ]);
     }
@@ -592,7 +606,7 @@ class BioController extends Controller
             'semester' => $semester,
             'gen' => $gen,
             's' => $s,
-            'y' => $y
+            'y' => $y,
         ]);
     }
 
