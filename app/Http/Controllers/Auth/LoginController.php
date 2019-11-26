@@ -99,7 +99,8 @@ class LoginController extends Controller
             $user = User::where('id', Auth::id())->where('position', 'Lecturer')->first();
             $instructor = Instructor::where('last_name', $user->lastname)->first();
             $course = Schedule::where('instructor_id', $instructor->instructor_id)->where('semester', $gen->semester)->where('year', $gen->year)->first();
-            return 'detail123/' . $course->course_id . '/' . $gen->semester . '/' . $gen->year;
+            // return 'detail123/' . $course->course_id . '/' . $gen->semester . '/' . $gen->year;
+            return '/dashboardL';
         } elseif (auth()->user()->isAdLec()) {
             return '/AdLec/dashboard';
         } elseif (auth()->user()->isLF()) {
