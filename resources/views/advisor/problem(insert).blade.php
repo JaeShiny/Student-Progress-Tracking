@@ -74,12 +74,14 @@ margin-top: -150px;
 
     <form action="/problem_insert" method="POST">
     <input type="hidden" name="student_id" value="{{$student_id}}">
-
+{{--
 
     <div class="form-group">
         <label for="usr">รหัสวิชา:</label>
         <input type="text" class="form-control" id="usr" name="course_id">
-    </div>
+    </div> --}}
+    <form action="/problem_insert" method="POST">
+    <input type="hidden" name="course_id" value="-">
 
      <div class="form-group">
             <label for="exampleFormControlSelect1">เทอม:<img src="{{ URL::asset("../img/asterisk.png") }}" width="5" height="5" style="margin-top: -2%">

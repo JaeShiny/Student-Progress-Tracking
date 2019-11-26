@@ -299,7 +299,7 @@ class ProblemController extends Controller
         ]);
     }
 
-    public function insertA(Request $request)
+    public function insertA_เก่า(Request $request)
     {
         $problem = new Problem();
 
@@ -322,6 +322,35 @@ class ProblemController extends Controller
         // return redirect('problem_create')->with('message', 'เพิ่มข้อมูลเรียบร้อยแล้ว');
         return redirect()->back()->with('message', 'เพิ่มข้อมูลเรียบร้อยแล้ว');
     }
+    public function insertA(Request $request)
+    {
+        $this->validate($request,['student_id'=>'required','course_id'=>'required','semester'=>'required',
+        'year'=>'required','problem_type'=>'required','problem_topic'=>'required','problem_detail'=>'required',
+        'risk_level'=>'required','date'=>'required', 'date'=>'required',
+        ]);
+
+        $problem = new Problem(
+        [
+            'student_id' => $request->get('student_id'),
+            'course_id' => $request->get('-'),
+            'semester' => $request->get('semester'),
+            'year' => $request->get('year'),
+            'problem_type' => $request->get('problem_type'),
+            'problem_topic' => $request->get('problem_topic'),
+            'problem_detail' => $request->get('problem_detail'),
+            'risk_level' => $request->get('risk_level'),
+            'date' => $request->get('date'),
+            'person_add' => Auth::user()->name,
+            'add_id' => Auth::user()->id,
+            'instructor_id' => Auth::user()->instructor_id
+        ]
+        );
+
+            $problem->save();
+
+        return redirect()->back()->with('success', 'บันทึกข้อมูลเรียบร้อยแล้ว');
+    }
+
 
     //แสดงปัญหา
     public function showProblemA($student_id)
