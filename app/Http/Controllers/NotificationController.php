@@ -25,6 +25,7 @@ use App\Model\spts\Users;
 use App\Model\spts\Semester;
 use App\Model\InspectorCondition;
 use App\Inspector\HeaderNotificationCount;
+use Carbon\Carbon;
 
 use Auth;
 
@@ -772,6 +773,77 @@ class NotificationController extends Controller
 
             'number' => $this->countNumberOfNewNotification(),
 
+        ]);
+    }
+    public function showNotiAL(){
+        $se = intval(Carbon::now()->format('m')) <= 6 ? 2 : 1 ;
+        $ye = intval(Carbon::now()->format('Y'));
+        if ($se == 2) {
+            $ye -= 1;
+        }
+
+        $instructor = Instructor::where('first_name',Auth::user()->name)->first();
+        $myStudent = Student::where('adviser_id1',$instructor->instructor_id)
+            ->orWhere(
+                'adviser_id2',
+                $instructor->instructor_id
+            )->get();
+        $student = Student::where(
+            'adviser_id1', $instructor->instructor_id
+        )->orWhere(
+            'adviser_id2', $instructor->instructor_id
+        )->get();
+        $student_ids = $student->map(function ($item) {
+            return $item->student_id;
+        });
+        $bios = Bio::whereIn('student_id', $student_ids->all())->get();
+
+        //เลือกว่าจะแสดงเงื่อนไขของ instructor_id คนไหน
+        $instructor_id = Auth::user()->instructor_id;
+
+        $conditions = InspectorCondition::where('instructor_id', Auth::user()->instructor_id)->get();
+
+        $inspectedResult = InspectedQuery::startInspectForInstructor(
+            $instructor_id,
+            $se,
+            $ye
+        )->getInspectedStudents();
+
+        $risk_problem = $inspectedResult['problem'];
+        $risk_attendance = $inspectedResult['attendance'];
+        $risk_grade = $inspectedResult['grade'];
+
+        $riskproblem = $inspectedResult['problem']->count();
+        $riskattendance = $inspectedResult['attendance']->count();
+        $riskgrade = $inspectedResult['grade']->count();
+
+        $test = Instructor::where('last_name',Auth::user()->lastname)->first();
+        $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+        $generation = Generation::all();
+        $gen = Generation::orderBy('year','desc')->first();
+
+        return view('AdLec.showNoti',[
+            'myStudent' => $myStudent,
+            'bios' => $bios,
+
+            'risk_problem' => $risk_problem,
+            'risk_attendance' => $risk_attendance,
+            'risk_grade' => $risk_grade,
+
+            'riskproblem' => $riskproblem,
+            'riskattendance' => $riskattendance,
+            'riskgrade' => $riskgrade,
+
+            'semester' => $semester,
+            'gen' => $gen,
+            // 'year' => $year,
+            'conditions' => $conditions,
+            'generation' => $generation,
+
+            'se' => $se,
+            'ye' => $ye,
+
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
