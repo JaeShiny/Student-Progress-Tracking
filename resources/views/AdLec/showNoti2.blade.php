@@ -25,11 +25,10 @@
 </head>
 
 <body>
-
 {{-- popup ของโบว์เองแหละ--}}
   	{{-- <div class="container"> --}}
   <!-- Trigger the modal with a button -->
-  {{-- <h6 align='right'>
+  <h6 align='right'>
     <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" id="open">
         <h6>
             <img src="{{ URL::asset("../img/noti.png") }}" width="30" height="25" title="ดูเงื่อนไขแจ้งเตือน">
@@ -61,7 +60,7 @@
                   <tr>
                     <td>เรื่องที่จะทำการกำหนดการแจ้งเตือน</td>
                     <td>เงื่อนไขในการแจ้งเตือน</td>
-                    <td>จำนวนครั้งที่จะทำให้เกิดการแจ้งเตือน</td>
+                    <td>จำนวนที่จะทำให้เกิดการแจ้งเตือน</td>
                   </tr>
               </thead>
               <tbody>
@@ -69,11 +68,11 @@
                   <tr>
                         <td>
                             @if($con->behavior_attribute == 'Problem')
-                            level ความรุนแรงของปัญหา (Problem)
+                            level ความรุนแรงของปัญหา
                             @elseif($con->behavior_attribute == 'Attendance')
-                            จำนวนการขาดเรียน (Attendance)
+                            จำนวนการขาดเรียน
                             @else
-                            ผลสอบกลางภาค (Grade)
+                            ผลสอบกลางภาค
                             @endif
                         </td>
                         <td>{{$con->condition}}</td>
@@ -91,7 +90,7 @@
   </div>
 </div>
 </form>
-</div> --}}
+</div>
 {{-- จบ popup ของโบว์ละ --}}
 
     {{--

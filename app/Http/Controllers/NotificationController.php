@@ -735,7 +735,7 @@ class NotificationController extends Controller
     }
 
     //แสดงแจ้งเตือนหลังจากคลิกปุ่มการแจ้งเตือน
-    public function showNotiAL(){
+    public function showNotiAL_เก่า(){
 
         $instructor = Instructor::where('first_name',Auth::user()->name)->first();
         $myStudent = Student::where('adviser_id1',$instructor->instructor_id)->orWhere('adviser_id2',$instructor->instructor_id)->get();
@@ -826,7 +826,7 @@ class NotificationController extends Controller
         ]);
     }
 
-    public function showNotiAL2($course_id){
+    public function showNotiAL2_เก่า($course_id){
         $course = Course::find($course_id);
         $major = Major::where('major_id',$course->major_id)->get();
         $student = Student::where('major_id',$course->major_id)->get();
@@ -862,7 +862,8 @@ class NotificationController extends Controller
             'number' => $this->countNumberOfNewNotification(),
         ]);
     }
-    public function showNotiAL22($course_id){
+
+    public function showNotiAL2($course_id){
         $course = Course::find($course_id);
         $major = Major::where('major_id',$course->major_id)->get();
         $student = Student::where('major_id',$course->major_id)->get();
@@ -892,6 +893,7 @@ class NotificationController extends Controller
         $test = Instructor::where('last_name',Auth::user()->lastname)->first();
         $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
         $gen = Generation::orderBy('year','desc')->first();
+        $generation = Generation::all();
 
         return view('AdLec.showNoti2',[
             'student' => $student,
@@ -908,6 +910,7 @@ class NotificationController extends Controller
 
             'semester' => $semester,
             'gen' => $gen,
+            'generation' => $generation,
             // 'year' => $year,
             'conditions' => $conditions,
 
