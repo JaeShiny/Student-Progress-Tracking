@@ -91,6 +91,20 @@
                                         <a class="dropdown-item" href="/advisor/myStudent/{{$show->semester}}/{{$show->year}}">{{$show->year}}</a>
                                          @endforeach
                                 </ul> --}}
+{{-- Dashboard --}}
+<a class="nav-link" href="/dashboardL" style="color: #FFFFFF">
+    หน้าหลัก
+        <a href="#" class="notification">
+            <span class="badge">
+                @if (isset($number))
+                    {{ $number }}
+                @else
+
+                @endif
+            </span>
+        </a>
+</a>
+&nbsp;&nbsp;&nbsp;
 
                     {{-- ปุ่มนักศึกษา --}}
                         <div class="dropdown">
@@ -424,6 +438,31 @@
                 }
             }
         }
+
+/* Dashboard */
+.notification {
+  /* background-color: #555; */
+  color: white;
+  text-decoration: none;
+  /* padding: 15px 26px; */
+  position: relative;
+  display: inline-block;
+  border-radius: 2px;
+}
+
+.notification:hover {
+  background: red;
+}
+
+.notification .badge {
+  position: absolute;
+  /* top: -10px; */
+  right: -10px;
+  padding: 5px 10px;
+  border-radius: 50%;
+  background: red;
+  color: white;
+}
     </style>
 
 </head>

@@ -53,6 +53,21 @@
     <nav class="nav" style="background-color: #1D5287;">
         {{-- &nbsp;&nbsp;<img src="../img/logopage.png" width="120" height="50"> --}}
         &nbsp;&nbsp;<img src={{ URL::asset("../img/logopage.png") }} width="120" height="50">
+        {{-- Dashboard --}}
+        <a class="nav-link" href="/dashboardL" style="color: #FFFFFF">
+            หน้าหลัก
+                <a href="#" class="notification">
+                    <span class="badge">
+                        @if (isset($number))
+                            {{ $number }}
+                        @else
+
+                        @endif
+                    </span>
+                </a>
+        </a>
+        &nbsp;&nbsp;&nbsp;
+
         <a class="nav-link active" href="{{ url('studentenrollment') }}" style="color: #FFFFFF">วิชาที่ลงทะเบียน</a>
         <a class="nav-link" href="/studentprofile" style="color: #FFFFFF" >ประวัติ</a>
         <a class="nav-link" href="/showNotiS" style="color: #FFFFFF">การแจ้งเตือน</a>
@@ -343,6 +358,30 @@
                 color: white;
             }
         }
+/* Dashboard */
+.notification {
+  /* background-color: #555; */
+  color: white;
+  text-decoration: none;
+  /* padding: 15px 26px; */
+  position: relative;
+  display: inline-block;
+  border-radius: 2px;
+}
+
+.notification:hover {
+  background: red;
+}
+
+.notification .badge {
+  position: absolute;
+  /* top: -10px; */
+  right: -10px;
+  padding: 5px 10px;
+  border-radius: 50%;
+  background: red;
+  color: white;
+}
     </style>
 
 </head>
