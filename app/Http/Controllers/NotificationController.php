@@ -509,7 +509,7 @@ class NotificationController extends Controller
 
     //แสดงแจ้งเตือนหลังจากคลิกปุ่มการแจ้งเตือน
         //อันเก่าที่ไม่ใช้แล้ว
-    public function showNotiA($semester, $year){
+    public function showNotiA_เก่า($semester, $year){
 
         $se = $semester;
         $ye = $year;
@@ -585,7 +585,10 @@ class NotificationController extends Controller
             'number' => $this->countNumberOfNewNotification(),
         ]);
     }
-    public function showNotiA_พัง($semester, $year){
+    public function showNotiA($semester, $year){
+        $se = $semester;
+        $ye = $year;
+
         $instructor = Instructor::where('first_name',Auth::user()->name)->first();
         $myStudent = Student::where('adviser_id1',$instructor->instructor_id)
             ->orWhere(
@@ -601,8 +604,6 @@ class NotificationController extends Controller
             return $item->student_id;
         });
         $bios = Bio::whereIn('student_id', $student_ids->all())->get();
-
-
 
         //เลือกว่าจะแสดงเงื่อนไขของ instructor_id คนไหน
         $instructor_id = Auth::user()->instructor_id;
@@ -645,6 +646,9 @@ class NotificationController extends Controller
             'year' => $year,
             'conditions' => $conditions,
             'generation' => $generation,
+
+            'se' => $se,
+            'ye' => $ye,
 
             'number' => $this->countNumberOfNewNotification(),
         ]);

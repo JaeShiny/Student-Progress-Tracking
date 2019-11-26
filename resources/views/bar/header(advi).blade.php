@@ -170,7 +170,7 @@
                             </ul>
                         </div>
                     {{-- ปุ่มเงื่อนไขแจ้งเตือน --}}
-                    {{-- <a class="nav-link" href="/AdConditions" style="color: #FFFFFF">เงื่อนไขการแจ้งเตือน</a> --}}
+                    <a class="nav-link" href="/AdConditions" style="color: #FFFFFF">เงื่อนไขการแจ้งเตือน</a>
                             </div>
                         </div>
                     </div>
