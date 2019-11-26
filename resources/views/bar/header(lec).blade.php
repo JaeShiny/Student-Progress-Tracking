@@ -192,7 +192,11 @@
 
                     {{-- Dashboard --}}
                     <a class="nav-link" href="/dashboardL" style="color: #FFFFFF">
-                        Dashboard
+                        @if (isset($number))
+                            Dashboard [{{ $number }}]
+                        @else
+                            Dashboard
+                        @endif
                             {{-- <span class="badge badge-light">
                                 <img src="{{ URL::asset("../img/noti.png") }}" width="30" height="25" title="ความเสี่ยง">
                                 <p style="color: red">{{$riskproblem}}</p>
