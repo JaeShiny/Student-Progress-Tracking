@@ -37,6 +37,7 @@ class CreateAttendanceTable extends Migration
             $table->integer('period_15')->nullable();
             $table->String('person_add')->nullable();
             $table->string('instructor_id')->nullable();
+            $table->boolean('is_display')->default(false);
             $table->String('semester')->nullable();
             $table->String('year')->nullable();
             $table->String('gen')->nullable();

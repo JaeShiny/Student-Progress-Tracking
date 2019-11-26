@@ -30,6 +30,7 @@ class CreateProblemTable extends Migration
             $table->String('gen')->nullable();
             $table->string('course_id')->nullable();
             $table->string('instructor_id')->nullable();
+            $table->boolean('is_display')->default(false);
             $table->timestamps();
 
         });
