@@ -25,10 +25,12 @@ use App\Model\spts\Attendance;
 use App\Model\spts\Grade;
 use App\Model\spts\Users;
 use App\Model\spts\Semester;
+use App\Inspector\HeaderNotificationCount;
 use Auth;
 
 class ChartController extends Controller
 {
+    use HeaderNotificationCount;
 
     //เทส
     public function index(){
@@ -57,6 +59,7 @@ class ChartController extends Controller
         return view('lecturer.chart.subjectStatistic',[
             'course' => $course,
             'semester' => $semester,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -137,6 +140,8 @@ class ChartController extends Controller
 
             'se' => $se,
             'ye' => $ye,
+
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -269,6 +274,8 @@ class ChartController extends Controller
 
             'se' => $se,
             'ye' => $ye,
+
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -330,6 +337,8 @@ class ChartController extends Controller
 
             'se' => $se,
             'ye' => $ye,
+
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -419,6 +428,8 @@ class ChartController extends Controller
 
             'se' => $se,
             'ye' => $ye,
+
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -508,6 +519,8 @@ class ChartController extends Controller
 
             'se' => $se,
             'ye' => $ye,
+
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -563,6 +576,8 @@ class ChartController extends Controller
 
             'se' => $se,
             'ye' => $ye,
+
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -631,6 +646,8 @@ class ChartController extends Controller
 
             'se' => $se,
             'ye' => $ye,
+
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -648,6 +665,7 @@ class ChartController extends Controller
         return view('LF.chart.subjectStatistic',[
             'course' => $course,
             'semester' => $semester,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -732,7 +750,9 @@ class ChartController extends Controller
             'count_student' => $count_student,
 
             'se' => $se,
-            'ye' => $ye
+            'ye' => $ye,
+
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -857,7 +877,8 @@ class ChartController extends Controller
 
             'count_student' => $count_student,
             'se' => $se,
-            'ye' => $ye
+            'ye' => $ye,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -918,7 +939,8 @@ class ChartController extends Controller
             'gardeF' => $gradeF,
 
             'se' => $se,
-            'ye' => $ye
+            'ye' => $ye,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -1008,7 +1030,8 @@ class ChartController extends Controller
             'term_year_2_2019' => $data['2-2019'],
 
             'se' => $se,
-            'ye' => $ye
+            'ye' => $ye,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -1098,7 +1121,8 @@ class ChartController extends Controller
             'term_year_2_2019' => $data['2-2019'],
 
             'se' => $se,
-            'ye'=> $ye
+            'ye'=> $ye,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -1153,8 +1177,8 @@ class ChartController extends Controller
             'p5' => $p5,
 
             'se' => $se,
-            'ye' => $ye
-
+            'ye' => $ye,
+            'number' => $this->countNumberOfNewNotification(),
 
         ]);
     }
@@ -1224,6 +1248,7 @@ class ChartController extends Controller
 
             'se' => $se,
             'ye' => $ye,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -1305,6 +1330,7 @@ class ChartController extends Controller
             'period_15' => $period_15,
 
             'count_student' => $count_student,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -1458,6 +1484,7 @@ class ChartController extends Controller
             'gardeDD' => $gradeDD,
             'gardeD' => $gradeD,
             'gardeF' => $gradeF,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -1581,7 +1608,8 @@ class ChartController extends Controller
             'period_15' => $period_15,
 
             'se' => $se,
-            'ye' => $ye
+            'ye' => $ye,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -1677,7 +1705,8 @@ class ChartController extends Controller
             'attendance7' => $attendance['61-70'],
 
             'se' => $se,
-            'ye' => $ye
+            'ye' => $ye,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -1760,7 +1789,8 @@ class ChartController extends Controller
             'gardeF' => $gradeF,
 
             'se' => $se,
-            'ye' => $ye
+            'ye' => $ye,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -1855,7 +1885,8 @@ class ChartController extends Controller
             'gardeDD' => $grade['3.51-4.00'],
 
             'se' => $se,
-            'ye' => $ye
+            'ye' => $ye,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
 
     }
@@ -1926,9 +1957,9 @@ class ChartController extends Controller
             'p5' => $p5,
 
             'se' => $se,
-            'ye' => $ye
+            'ye' => $ye,
 
-
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -1945,6 +1976,7 @@ class ChartController extends Controller
         return view('EducationOfficer.chart.curriStatistic',[
             'curriculum' => $curriculum,
             'semester' => $semester,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -2022,6 +2054,8 @@ class ChartController extends Controller
             'period_15' => $period_15,
 
             'count_student' => $count_student,
+
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -2075,6 +2109,8 @@ class ChartController extends Controller
             'gardeDD' => $gradeDD,
             'gardeD' => $gradeD,
             'gardeF' => $gradeF,
+
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -2122,6 +2158,8 @@ class ChartController extends Controller
             'p3' => $p3,
             'p4' => $p4,
             'p5' => $p5,
+
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -2328,6 +2366,8 @@ class ChartController extends Controller
         return view('AdLec.chart.Lecturer.subjectStatistic',[
             'course' => $course,
             'semester' => $semester,
+
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -2413,7 +2453,9 @@ class ChartController extends Controller
 
             'count_student' => $count_student,
             'se' => $se,
-            'ye' => $ye
+            'ye' => $ye,
+
+            'number' => $this->countNumberOfNewNotification(),
 
         ]);
     }
@@ -2541,7 +2583,9 @@ class ChartController extends Controller
 
             'count_student' => $count_student,
             'se' => $se,
-            'ye' => $ye
+            'ye' => $ye,
+
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -2604,7 +2648,9 @@ class ChartController extends Controller
             'gardeF' => $gradeF,
 
             'se' => $se,
-            'ye' => $ye
+            'ye' => $ye,
+
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -2696,7 +2742,9 @@ class ChartController extends Controller
             'term_year_2_2019' => $data['2-2019'],
 
             'se' => $se,
-            'ye' => $ye
+            'ye' => $ye,
+
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -2788,7 +2836,9 @@ class ChartController extends Controller
             'term_year_2_2019' => $data['2-2019'],
 
             'se' => $se,
-            'ye' => $ye
+            'ye' => $ye,
+
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -2847,7 +2897,9 @@ class ChartController extends Controller
             'p5' => $p5,
 
             'se' => $se,
-            'ye' => $ye
+            'ye' => $ye,
+
+            'number' => $this->countNumberOfNewNotification(),
 
         ]);
     }
@@ -2921,6 +2973,8 @@ class ChartController extends Controller
 
             'se' => $se,
             'ye' => $ye,
+
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 

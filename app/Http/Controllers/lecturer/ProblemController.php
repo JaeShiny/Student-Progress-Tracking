@@ -21,9 +21,12 @@ use App\Model\spts\ProblemType;
 use App\Model\InspectorCondition;
 use Carbon\Carbon;
 use InvalidArgumentException;
+use App\Inspector\HeaderNotificationCount;
 
 class ProblemController extends Controller
 {
+    use HeaderNotificationCount;
+
     //Lecturer
     //เพิ่มปัญหา
     public function create($student_id)
@@ -39,6 +42,7 @@ class ProblemController extends Controller
             'semester' => $semester,
 
             'problemType' => $problemType,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -142,6 +146,7 @@ class ProblemController extends Controller
 
             'se' => $se,
             'ye' => $ye,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -154,7 +159,8 @@ class ProblemController extends Controller
 
         return view('lecturer.showProblem', [
             'risk_problem' => $risk_problem,
-            'semester' => $semester
+            'semester' => $semester,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -174,6 +180,7 @@ class ProblemController extends Controller
             'semester' => $semester,
 
             'problemType' => $problemType,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -221,6 +228,7 @@ class ProblemController extends Controller
             'gen' => $gen,
             'semester' => $semester,
             's' => $s,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
     public function getShowProblemE(Request $request, $student_id){
@@ -264,6 +272,7 @@ class ProblemController extends Controller
 
         return view('EducationOfficer.showProblem', [
             'risk_problem' => $risk_problem,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -286,6 +295,7 @@ class ProblemController extends Controller
             'semester' => $semester,
 
             'problemType' => $problemType,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -335,6 +345,7 @@ class ProblemController extends Controller
             'generation' => $generation,
             'semester' => $semester,
             's' => $s,
+            'number' => $this->countNumberOfNewNotification(),
             // 'gens' => $gens
         ]);
     }
@@ -391,6 +402,7 @@ class ProblemController extends Controller
             'generation' => $generation,
 
             'problemType' => $problemType,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -451,6 +463,7 @@ class ProblemController extends Controller
             'generation' => $generation,
             'semesters' => $semesters,
             's' => $s,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
     public function getShowProblemAL(Request $request, $student_id){
@@ -504,6 +517,7 @@ class ProblemController extends Controller
             'semester' => $semester,
 
             'problemType' => $problemType,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -576,6 +590,7 @@ class ProblemController extends Controller
 
             'se' => $se,
             'ye' => $ye,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -589,7 +604,8 @@ class ProblemController extends Controller
 
         return view('LF.showProblem', [
             'risk_problem' => $risk_problem,
-            'semester' => $semester
+            'semester' => $semester,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 }

@@ -20,10 +20,13 @@ use App\Model\mis\Schedule;
 use App\Model\mis\Instructor;
 use App\Model\mis\Generation;
 use App\Model\mis\Study;
+use App\Inspector\HeaderNotificationCount;
 use Auth;
 
 class FormController extends Controller
 {
+    use HeaderNotificationCount;
+
     /**
     * @return \Illuminate\Support\Collection
     */

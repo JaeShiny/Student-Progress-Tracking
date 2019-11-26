@@ -7,16 +7,20 @@ use App\Http\Controllers\Controller;
 use App\Model\mis\Bio;
 use App\Model\mis\Study;
 use App\Model\mis\Generation;
+use App\Inspector\HeaderNotificationCount;
 use Auth;
 
 class ProfileController extends Controller
 {
+    use HeaderNotificationCount;
+
     //การเอาชื่อและนามสกุลในการล็อคอิน มาเทียบกับชื่อของเด็กใน bio
     public function index(){
         $user =Auth::user();
         $info = Bio::where('first_name',$user->name)->where('last_name',$user->lastname)->first();
         return view('student.profile',[
             'bios'=>$info,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -30,6 +34,7 @@ class ProfileController extends Controller
             'study2'=>$info,
             'user' => $user,
             'gen' => $gen,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -49,7 +54,8 @@ class ProfileController extends Controller
             'semester' => $semester,
             'year' => $year,
             's' => $s,
-            'y' => $y
+            'y' => $y,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 

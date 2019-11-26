@@ -25,12 +25,14 @@ use App\Model\spts\Users;
 use App\Model\spts\Semester;
 use App\Model\spts\Notification;
 use App\Model\InspectorCondition;
+use App\Inspector\HeaderNotificationCount;
 
 use Auth;
 use Carbon\Carbon;
 
 class NotiController extends Controller
 {
+    use HeaderNotificationCount;
 
      //Lecturer//
     //คลิกที่เด็กแล้วเจอแจ้งเตือนของแต่ละคน
@@ -119,6 +121,8 @@ class NotiController extends Controller
             'riskproblem' => $riskproblem,
             'riskattendance' => $riskattendance,
             'riskgrade' => $riskgrade,
+
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 

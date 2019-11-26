@@ -11,10 +11,13 @@ use App\Model\mis\Curriculum;
 use App\Model\mis\Student;
 use App\Model\mis\Major;
 use App\Model\mis\Course;
+use App\Inspector\HeaderNotificationCount;
 use Auth;
 
 class LecturerLoginController extends Controller
 {
+    use HeaderNotificationCount;
+
     //การเอาชื่อและนามสกุลในการล็อคอินของอาจารย์ มาเทียบกับชื่อของอาจารย์ใน instructor
     public function index(){
         $user = Auth::user();

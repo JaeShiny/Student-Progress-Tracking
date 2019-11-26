@@ -14,12 +14,15 @@ use App\Model\mis\Schedule;
 use App\Model\mis\Instructor;
 use App\Model\mis\Study;
 use App\Model\mis\Generation;
+use App\Inspector\HeaderNotificationCount;
 
 use Auth;
 
 
 class InterviewController extends Controller
 {
+    use HeaderNotificationCount;
+
         //Education Officer
     //แมบ ชื่อสกุล ของ bio ให้ไปแมบกับชื่อนามสกุล ของ interview
     public function profileE($student_id){
@@ -37,6 +40,7 @@ class InterviewController extends Controller
             'student' => $student,
             'b_interviewer' => $b_interviewer,
             'b_englishskill'=> $b_englishskill,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -57,6 +61,7 @@ class InterviewController extends Controller
             'student' => $student,
             'b_interviewer' => $b_interviewer,
             'b_englishskill'=> $b_englishskill,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -82,7 +87,7 @@ class InterviewController extends Controller
             'b_interviewer' => $b_interviewer,
             'b_englishskill'=> $b_englishskill,
             'semester' => $semester,
-
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -105,7 +110,8 @@ class InterviewController extends Controller
             'student' => $student,
             'b_interviewer' => $b_interviewer,
             'b_englishskill'=> $b_englishskill,
-            'generation' => $generation
+            'generation' => $generation,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -131,7 +137,8 @@ class InterviewController extends Controller
             'b_interviewer' => $b_interviewer,
             'b_englishskill'=> $b_englishskill,
             'semester' => $semester,
-            'generation' => $generation
+            'generation' => $generation,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -154,7 +161,8 @@ class InterviewController extends Controller
             'student' => $student,
             'b_interviewer' => $b_interviewer,
             'b_englishskill'=> $b_englishskill,
-            'semester'=> $semester
+            'semester'=> $semester,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 }

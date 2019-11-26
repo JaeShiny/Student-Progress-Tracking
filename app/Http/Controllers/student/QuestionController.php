@@ -16,11 +16,14 @@ use App\Model\mis\Instructor;
 use App\Model\mis\Study;
 use App\Model\mis\Generation;
 // use Illuminate\Http\Request;
+use App\Inspector\HeaderNotificationCount;
 
 use App\Http\Requests;
 
 class QuestionController extends Controller
 {
+    use HeaderNotificationCount;
+
     public function __construct()
     {
         $this->middleware('auth');

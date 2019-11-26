@@ -13,11 +13,13 @@ use App\Model\mis\Generation;
 use App\Model\mis\Schedule;
 use App\Model\mis\Instructor;
 use App\Model\mis\Study;
+use App\Inspector\HeaderNotificationCount;
 use Auth;
-;
 
 class SrmController extends Controller
 {
+    use HeaderNotificationCount;
+
         //EducationOfficer
     //แมบ ชื่อสกุล ของ bio ให้ไปแมบกับชื่อนามสกุล ของ srm
     public function profileE($student_id){
@@ -32,6 +34,7 @@ class SrmController extends Controller
             'student' => $student,
             'bios' => $bios,
             'curriculum' => $curriculum,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -49,6 +52,7 @@ class SrmController extends Controller
             'student' => $student,
             'bios' => $bios,
             'curriculum' => $curriculum,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -70,7 +74,8 @@ class SrmController extends Controller
             'student' => $student,
             'bios' => $bios,
             'curriculum' => $curriculum,
-            'semester' => $semester
+            'semester' => $semester,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -91,7 +96,8 @@ class SrmController extends Controller
             'student' => $student,
             'bios' => $bios,
             'curriculum' => $curriculum,
-            'generation' => $generation
+            'generation' => $generation,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -115,6 +121,7 @@ class SrmController extends Controller
             'curriculum' => $curriculum,
             'semester' => $semester,
             'generation' => $generation,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -135,7 +142,8 @@ class SrmController extends Controller
             'student' => $student,
             'bios' => $bios,
             'curriculum' => $curriculum,
-            'semester' => $semester
+            'semester' => $semester,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 }

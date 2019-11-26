@@ -9,15 +9,17 @@ use App\Model\mis\Student;
 use App\Model\mis\Bio;
 use App\Model\mis\Generation;
 use Auth;
+use App\Inspector\HeaderNotificationCount;
 
 class CurriculumController extends Controller
 {
+    use HeaderNotificationCount;
 
     public function show(){
         $curriculum = Curriculum::where('curriculum_id',Auth::user()->curriculum)->first();
         return view('EducationOfficer.eachCurriculum',[
-            'curriculum' => $curriculum
-
+            'curriculum' => $curriculum,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -33,6 +35,7 @@ class CurriculumController extends Controller
             'student' => $student,
             'gen' => $gen,
             'semester' => $semester,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -44,7 +47,8 @@ class CurriculumController extends Controller
         // $course = Course::paginate(10);
 
         return view('EducationOfficer.curriculum',[
-            'curriculum' => $curriculum
+            'curriculum' => $curriculum,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 

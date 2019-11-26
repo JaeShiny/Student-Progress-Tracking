@@ -51,6 +51,7 @@ class BioController extends Controller
             'generations' => $generations,
             'majors' => $majors,
             'gen' => $gen,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -85,6 +86,7 @@ class BioController extends Controller
             'grades' => $grades,
 
             'gen' => $gen,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -123,6 +125,7 @@ class BioController extends Controller
             's'=> $s,
             'y' => $y,
             'gen' => $gen,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -158,6 +161,7 @@ class BioController extends Controller
             'student' => $bio,
             'gen' => $gen,
             'course' => $course,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -171,6 +175,7 @@ class BioController extends Controller
         return view('EducationOfficer/studentlist', [
             'student' => $student,
             'gen' => $gen,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -190,6 +195,7 @@ class BioController extends Controller
             'students' => $students,
             'generations' => $generations,
             'majors' => $majors,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
     //ส่งประวัติมาจากหน้า studentlist เรียงคนมา
@@ -208,6 +214,7 @@ class BioController extends Controller
             'students' => $students,
             'generations' => $generations,
             'majors' => $majors,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
     //แสดงข้อมูลระหว่างศึกษา
@@ -238,7 +245,8 @@ class BioController extends Controller
             'student_id' => $student_id,
             'attendances' => $attendances,
             'grades' => $grades,
-            'gen' => $gen
+            'gen' => $gen,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -273,7 +281,8 @@ class BioController extends Controller
             'grades' => $grades,
             'gen' => $gen,
             's' => $s,
-            'y' => $y
+            'y' => $y,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -291,7 +300,8 @@ class BioController extends Controller
         return view('lecturer.indexSurvey', [
             'semester' => $semester,
             'gen' => $gen,
-            'surveys' => $surveys
+            'surveys' => $surveys,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -301,6 +311,7 @@ class BioController extends Controller
         $generation = Generation::all();
         return view('advisor.indexSurvey', [
             'generation' => $generation,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -313,6 +324,7 @@ class BioController extends Controller
         return view('AdLec.indexSurvey', [
             'generation' => $generation,
             'semester' => $semester,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -323,6 +335,7 @@ class BioController extends Controller
         $semester = Schedule::where('instructor_id', $test->instructor_id)->orderBy('year', 'asc')->get();
         return view('LF.indexSurvey', [
             'semester' => $semester,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -480,6 +493,7 @@ class BioController extends Controller
             'semester' => $semester,
             'course' => $course,
             'gen' => $gen,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -502,7 +516,7 @@ class BioController extends Controller
             'generations' => $generations,
             'majors' => $majors,
             'semester' => $semester,
-
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
     //ส่งประวัติมาจากหน้า studentlist เรียงคนมา
@@ -524,7 +538,7 @@ class BioController extends Controller
             'generations' => $generations,
             'majors' => $majors,
             'semester' => $semester,
-
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -551,8 +565,6 @@ class BioController extends Controller
         $test = Instructor::where('last_name', Auth::user()->lastname)->first();
         $semester = Schedule::where('instructor_id', $test->instructor_id)->orderBy('year', 'asc')->get();
 
-
-
         return view('lecturer.profile(during)', [
             'user' => $user,
             'bios' => $bios,
@@ -566,7 +578,7 @@ class BioController extends Controller
             'grades' => $grades,
             'semester' => $semester,
             'gen' => $gen,
-
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -607,6 +619,7 @@ class BioController extends Controller
             'gen' => $gen,
             's' => $s,
             'y' => $y,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -621,6 +634,7 @@ class BioController extends Controller
         return view('advisor.studentlist', [
             'bio' => $bio,
             'generation' => $generation,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -641,7 +655,8 @@ class BioController extends Controller
             'students' => $students,
             'generations' => $generations,
             'majors' => $majors,
-            'generation' => $generation
+            'generation' => $generation,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
     //ส่งประวัติมาจากหน้า studentlist เรียงคนมา
@@ -661,7 +676,8 @@ class BioController extends Controller
             'students' => $students,
             'generations' => $generations,
             'majors' => $majors,
-            'generation' => $generation
+            'generation' => $generation,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -679,7 +695,7 @@ class BioController extends Controller
             'generation' => $generation,
 
             // 'gen' => $gen
-
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -713,7 +729,8 @@ class BioController extends Controller
             'attendances' => $attendances,
             'grades' => $grades,
             'generation' => $generation,
-            'gen' => $gen
+            'gen' => $gen,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -753,7 +770,8 @@ class BioController extends Controller
             'generation' => $generation,
             'gen' => $gen,
             's' => $s,
-            'y' => $y
+            'y' => $y,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -782,6 +800,7 @@ class BioController extends Controller
             'semester' => $semester,
             'gen' => $gen,
             'generation' => $generation,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -807,6 +826,7 @@ class BioController extends Controller
             'majors' => $majors,
             'semester' => $semester,
             'generation' => $generation,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
     //ส่งประวัติมาจากหน้า studentlist เรียงคนมา
@@ -822,9 +842,6 @@ class BioController extends Controller
         $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
         $generation = Generation::all();
 
-
-
-
         return view('AdLec.profile', [
             'bios' => $bios,
             'statuss' => $statuss,
@@ -833,7 +850,7 @@ class BioController extends Controller
             'majors' => $majors,
             'semester' => $semester,
             'generation' => $generation,
-
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -866,6 +883,7 @@ class BioController extends Controller
             'generation' => $generation,
             'gen' => $gen,
             'course'=> $course,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -905,6 +923,7 @@ class BioController extends Controller
             'semester' => $semester,
             'generation' => $generation,
             'gen' => $gen,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -950,7 +969,8 @@ class BioController extends Controller
             'gen' => $gen,
             'generation' => $generation,
             's' => $s,
-            'y' => $y
+            'y' => $y,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -959,7 +979,6 @@ class BioController extends Controller
     //show หน้ารายชื่อนักศึกษา
     public function indexLF($course_id, $semester_id, $year)
     {
-
 
          //ก๊อปตรงนี้
          $test = Instructor::where('last_name', Auth::user()->lastname)->first();
@@ -975,7 +994,8 @@ class BioController extends Controller
             'student' => $bio,
             'course' => $course,
             'semester' => $semester,
-            'gen' => $gen
+            'gen' => $gen,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -999,6 +1019,7 @@ class BioController extends Controller
             'generations' => $generations,
             'majors' => $majors,
             'semester' => $semester,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
     //ส่งประวัติมาจากหน้า studentlist เรียงคนมา
@@ -1021,6 +1042,7 @@ class BioController extends Controller
             'generations' => $generations,
             'majors' => $majors,
             'semester' => $semester,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -1047,6 +1069,7 @@ class BioController extends Controller
             'semester' => $semester,
             'course' => $course,
             'gen' => $gen,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -1062,7 +1085,6 @@ class BioController extends Controller
         $majors = Major::all();
         $problems = Problem::all();
         $grades = Grade::where('student_id', $student_id)->get();
-
 
         $student_id = Auth::user()->student_id;
         $attendances = Attendance::where('student_id', $bios->student_id)->get();
@@ -1086,6 +1108,7 @@ class BioController extends Controller
             'grades' => $grades,
             'semester' =>$semester,
             'gen' => $gen,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -1127,7 +1150,8 @@ class BioController extends Controller
             'semester' =>$semester,
             'gen' => $gen,
             's' => $s,
-            'y' => $y
+            'y' => $y,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 }

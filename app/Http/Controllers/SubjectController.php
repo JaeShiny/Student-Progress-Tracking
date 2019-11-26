@@ -15,10 +15,13 @@ use App\Model\mis\Student;
 use App\Model\mis\Schedule;
 use App\Model\mis\Instructor;
 use App\Model\spts\LF;
+use App\Inspector\HeaderNotificationCount;
 use Auth;
 
 class SubjectController extends Controller
 {
+    use HeaderNotificationCount;
+
     //ทำการแมบ course จนไปถึง student
     public function index($course_id){
         $course = Course::find($course_id);
@@ -27,10 +30,13 @@ class SubjectController extends Controller
 
         $test = Instructor::where('last_name',Auth::user()->lastname)->first();
         $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+
         return view('lecturer.studentlist',[
             'student' => $student,
             'course' => $course,
-            'semester'=> $semester
+            'semester'=> $semester,
+
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -44,12 +50,12 @@ class SubjectController extends Controller
         // $course = Course::all();
         $course = Course::paginate(5);
 
-
-
         return view('lecturer.subject',[
             'course' => $course,
             'student' => $student,
-            'semester' => $semester
+            'semester' => $semester,
+
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -64,7 +70,9 @@ class SubjectController extends Controller
 
         return view('lecturer.subject',[
             'course' => $course,
-            'semester' => $semester
+            'semester' => $semester,
+
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -77,6 +85,8 @@ class SubjectController extends Controller
         return view('AdLec.studentlist',[
             'student' => $student,
             'course' => $course,
+
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -91,6 +101,8 @@ class SubjectController extends Controller
         return view('AdLec.subject',[
             'course' => $course,
             'student' => $student,
+
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -101,7 +113,9 @@ class SubjectController extends Controller
         $course = Course::whereIn('course_id',$schedule)->paginate(5);
 
         return view('AdLec.subject',[
-            'course' => $course
+            'course' => $course,
+
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -110,9 +124,12 @@ class SubjectController extends Controller
         $course = Course::find($course_id);
         $major = Major::where('major_id',$course->major_id)->get();
         $student = Student::where('major_id',$course->major_id)->get();
+
         return view('LF.studentlist',[
             'student' => $student,
             'course' => $course,
+
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -131,7 +148,9 @@ class SubjectController extends Controller
         return view('LF.subject',[
             'course' => $course,
             'student' => $student,
-            'semester' => $semester
+            'semester' => $semester,
+
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -151,7 +170,9 @@ class SubjectController extends Controller
 
         return view('LF.subject',[
             'course' => $course,
-            'semester' => $semester
+            'semester' => $semester,
+
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 

@@ -8,10 +8,13 @@ use App\Model\mis\Generation;
 use App\Model\mis\Instructor;
 use App\Model\mis\Schedule;
 use App\Model\mis\Study;
+use App\Inspector\HeaderNotificationCount;
 use Auth;
 
 class LecturerController extends Controller
 {
+    use HeaderNotificationCount;
+
     public function index()
     {
         $test = Instructor::where('last_name',Auth::user()->lastname)->first();

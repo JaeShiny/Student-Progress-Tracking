@@ -10,9 +10,12 @@ use App\Model\mis\Schedule;
 use App\Model\mis\Generation;
 use Auth;
 use App\User;
+use App\Inspector\HeaderNotificationCount;
 
 class AdLecController extends Controller
 {
+    use HeaderNotificationCount;
+
     public function index()
     {
         $test = Instructor::where('last_name',Auth::user()->lastname)->first();
@@ -52,6 +55,7 @@ class AdLecController extends Controller
 
             'se' => $se,
             'ye' => $ye,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
 
     }

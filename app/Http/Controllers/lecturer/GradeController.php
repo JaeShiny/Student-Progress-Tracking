@@ -15,10 +15,13 @@ use App\Model\mis\Schedule;
 use App\Model\mis\Generation;
 use App\Model\spts\User;
 use App\Model\spts\Semester;
+use App\Inspector\HeaderNotificationCount;
 use Auth;
 
 class GradeController extends Controller
 {
+    use HeaderNotificationCount;
+
      //จัดการ excel
    /**
     * @return \Illuminate\Support\Collection
@@ -31,7 +34,8 @@ class GradeController extends Controller
         $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','desc')->get();
         return view('lecturer.addGrade',[
             'course' => $course,
-            'semester' => $semester
+            'semester' => $semester,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -44,7 +48,8 @@ class GradeController extends Controller
         return view('AdLec.addGrade',[
             'course' => $course,
             'semester' => $semester,
-            'generation' => $generation
+            'generation' => $generation,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -55,7 +60,8 @@ class GradeController extends Controller
         $semester = Schedule::where('instructor_id', $test->instructor_id)->orderBy('year', 'desc')->get();
         return view('LF.addGrade',[
             'course' => $course,
-            'semester' => $semester
+            'semester' => $semester,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
     /**
@@ -112,6 +118,7 @@ class GradeController extends Controller
             'users' => $users,
 
             'semesters' => $semesters,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
         //เลือกเทอมแล้วมาอีกหน้า
@@ -140,6 +147,7 @@ class GradeController extends Controller
 
             'se' => $se,
             'ye' => $ye,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -208,6 +216,7 @@ class GradeController extends Controller
 
             'avg_midterm' => $avg_midterm,
             'avg_final' => $avg_final,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -256,6 +265,7 @@ class GradeController extends Controller
             'se' => $se,
             'ye' => $ye,
             's' => $s,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -296,6 +306,7 @@ class GradeController extends Controller
             'generation' => $generation,
             'se' => $se,
             'ye' => $ye,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
     public function showGradeAL($course_id, $semester, $year)  {
@@ -362,6 +373,7 @@ class GradeController extends Controller
 
             'avg_midterm' => $avg_midterm,
             'avg_final' => $avg_final,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -396,6 +408,7 @@ class GradeController extends Controller
             'bios' => $bios,
 
             's' => $s,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -464,6 +477,7 @@ class GradeController extends Controller
 
             'avg_midterm' => $avg_midterm,
             'avg_final' => $avg_final,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -478,6 +492,7 @@ class GradeController extends Controller
             'student' => $student,
             'course' => $course,
             'users' => $users,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 }

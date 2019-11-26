@@ -18,9 +18,11 @@ use App\Model\mis\Instructor;
 use App\Model\mis\Study;
 use App\Model\mis\Generation;
 use App\Model\InspectorCondition;
+use App\Inspector\HeaderNotificationCount;
 
 class ProblemTypeController extends Controller
 {
+    use HeaderNotificationCount;
 
     public function create(){
         $test = Instructor::where('last_name', Auth::user()->lastname)->first();
@@ -30,6 +32,8 @@ class ProblemTypeController extends Controller
         return view('Admin.problemtype.create',[
             'semester' => $semester,
             'generation' => $generation,
+
+            'number' => $this->countNumberOfNewNotification(),
         ]);
 
     }
@@ -55,6 +59,8 @@ class ProblemTypeController extends Controller
             'semester' => $semester,
             'generation' => $generation,
             'conditions' => $conditions,
+
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
     public function edit($id){
@@ -68,6 +74,8 @@ class ProblemTypeController extends Controller
             'semester' => $semester,
             'generation' => $generation,
             'conditions' => $conditions,
+
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 

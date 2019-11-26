@@ -10,10 +10,13 @@ use App\Model\spts\Attendance;
 use App\Model\mis\Instructor;
 use App\Model\mis\Bio;
 use App\Model\mis\Student;
+use App\Inspector\HeaderNotificationCount;
 use Auth;
 
 class StatController extends Controller
 {
+    use HeaderNotificationCount;
+
     public function index(Request $request)
     {
 

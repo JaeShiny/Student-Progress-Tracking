@@ -22,9 +22,11 @@ use App\Model\InspectorCondition;
 use Carbon\Carbon;
 use InvalidArgumentException;
 use App\Inspector\InspectedQuery;
+use App\Inspector\HeaderNotificationCount;
 
 class DashboardController extends Controller
 {
+    use HeaderNotificationCount;
 
     public function dashboardL()
     {
@@ -91,6 +93,8 @@ class DashboardController extends Controller
             'semester' => $semester,
             'gen' => $gen,
             'conditions' => $conditions,
+
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 

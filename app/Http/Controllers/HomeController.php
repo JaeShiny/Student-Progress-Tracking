@@ -7,10 +7,13 @@ use App\Model\mis\Schedule;
 use App\Model\mis\Instructor;
 use App\Model\mis\Generation;
 use App\Model\spts\Notification;
+use App\Inspector\HeaderNotificationCount;
 use Auth;
 
 class HomeController extends Controller
 {
+    use HeaderNotificationCount;
+
     /**
      * Create a new controller instance.
      *

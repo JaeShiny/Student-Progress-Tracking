@@ -8,10 +8,11 @@ use App\Model\mis\Instructor;
 use App\Model\mis\Course;
 use App\Model\mis\Curriculum;
 use App\Model\mis\Schedule;
+use App\Inspector\HeaderNotificationCount;
 
 class InstructorController extends Controller
 {
-
+    use HeaderNotificationCount;
 
     // public function index($instructor_id){
     //     $instructor = Instructor::find($instructor_id);

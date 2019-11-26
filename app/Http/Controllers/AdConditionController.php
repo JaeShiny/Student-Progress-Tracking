@@ -17,9 +17,11 @@ use App\Model\mis\Instructor;
 use App\Model\mis\Study;
 use App\Model\mis\Generation;
 use App\Model\InspectorCondition;
+use App\Inspector\HeaderNotificationCount;
 
 class AdConditionController extends Controller
 {
+    use HeaderNotificationCount;
 
     public function create(){
         $test = Instructor::where('last_name', Auth::user()->lastname)->first();
@@ -29,6 +31,7 @@ class AdConditionController extends Controller
         return view('advisor.condition.create',[
             'semester' => $semester,
             'generation' => $generation,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
 
     }
@@ -72,6 +75,7 @@ class AdConditionController extends Controller
             'semester' => $semester,
             'generation' => $generation,
             'conditions' => $conditions,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
     public function edit($id){
@@ -87,6 +91,7 @@ class AdConditionController extends Controller
             'semester' => $semester,
             'generation' => $generation,
             'conditions' => $conditions,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 

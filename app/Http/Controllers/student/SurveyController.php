@@ -16,9 +16,12 @@ use App\Model\mis\Schedule;
 use App\Model\mis\Instructor;
 use App\Model\mis\Study;
 use App\Model\mis\Generation;
+use App\Inspector\HeaderNotificationCount;
 
 class SurveyController extends Controller
 {
+    use HeaderNotificationCount;
+
     public function home(Request $request) // Homepage function
   {
     $surveys = Survey::get();

@@ -10,11 +10,14 @@ use App\Model\mis\Bio;
 use App\Model\mis\Generation;
 use App\Model\mis\Study;
 use App\User;
+use App\Inspector\HeaderNotificationCount;
 
 use Auth;
 
 class AdvisorController extends Controller
 {
+    use HeaderNotificationCount;
+
     public function index()
     {
         $generation = Generation::all();
@@ -42,6 +45,7 @@ class AdvisorController extends Controller
             'gen' => $mygen,
             // 'mygen' => $mygens
             // 'gens' => $gens
+            'number' => $this->countNumberOfNewNotification(),
         ]);
 
     }
@@ -67,7 +71,7 @@ class AdvisorController extends Controller
 
            'semester' => $semester,
            'year' => $year,
-
+           'number' => $this->countNumberOfNewNotification(),
        ]);
     }
 
@@ -81,6 +85,7 @@ class AdvisorController extends Controller
        return view('advisor.student',[
            'myStudent' => $myStudent,
            'generation'=> $generation,
+           'number' => $this->countNumberOfNewNotification(),
        ]);
     }
 

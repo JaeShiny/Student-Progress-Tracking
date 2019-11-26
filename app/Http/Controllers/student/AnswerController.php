@@ -9,11 +9,14 @@ use App\Survey;
 use App\Answer;
 use App\Model\spts\Choice;
 use App\Question;
+use App\Inspector\HeaderNotificationCount;
 use Auth;
 
 
 class AnswerController extends Controller
 {
+    use HeaderNotificationCount;
+
     public function store(Request $request, Survey $survey)
     {
       // remove the token

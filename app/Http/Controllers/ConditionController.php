@@ -17,9 +17,12 @@ use App\Model\mis\Instructor;
 use App\Model\mis\Study;
 use App\Model\mis\Generation;
 use App\Model\InspectorCondition;
+use App\Inspector\HeaderNotificationCount;
 
 class ConditionController extends Controller
 {
+    use HeaderNotificationCount;
+
     //Lecturer
     //เพิ่มเงื่อนไข
     public function createCondition()
@@ -33,6 +36,7 @@ class ConditionController extends Controller
             // 'student_id' => $student,
             'semester' => $semester,
             'generation' => $generation,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -71,6 +75,7 @@ class ConditionController extends Controller
         return view('lecturer.condition.create',[
             'semester' => $semester,
             'generation' => $generation,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
 
     }
@@ -113,6 +118,7 @@ class ConditionController extends Controller
             'semester' => $semester,
             'generation' => $generation,
             'conditions' => $conditions,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
     public function edit($id){
@@ -128,6 +134,7 @@ class ConditionController extends Controller
             'semester' => $semester,
             'generation' => $generation,
             'conditions' => $conditions,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 

@@ -18,10 +18,13 @@ use App\Model\mis\Schedule;
 use App\Model\spts\User;
 use App\Model\mis\Generation;
 use App\Model\spts\Semester;
+use App\Inspector\HeaderNotificationCount;
 use Auth;
 
 class AttendanceController extends Controller
 {
+    use HeaderNotificationCount;
+
                         //จัดการ excel
    /**
     * @return \Illuminate\Support\Collection
@@ -40,6 +43,7 @@ class AttendanceController extends Controller
             'semester' => $semester,
             'gen' => $gen,
             'generation' => $generation,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -57,6 +61,7 @@ class AttendanceController extends Controller
             'semester' => $semester,
             'gen' => $gen,
             'generation' => $generation,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -76,6 +81,7 @@ class AttendanceController extends Controller
             'gen' => $gen,
             'users' => $users,
             'generation' => $generation,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -111,6 +117,7 @@ class AttendanceController extends Controller
             'semester' => $semester,
             'gen' => $gen,
             'generation' => $generation,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -128,6 +135,7 @@ class AttendanceController extends Controller
             'semester' => $semester,
             'gen' => $gen,
             'generation' => $generation,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -147,6 +155,7 @@ class AttendanceController extends Controller
             'gen' => $gen,
             'users' => $users,
             'generation' => $generation,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -215,6 +224,7 @@ class AttendanceController extends Controller
             'users' => $users,
             'attendance2' => $attendance2,
             'semesters' => $semesters,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
     //เลือกเทอมแล้วแสดงหน้านี้
@@ -274,7 +284,8 @@ class AttendanceController extends Controller
             'year' => $year,
 
             'se' => $se,
-            'ye' => $ye
+            'ye' => $ye,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -324,6 +335,7 @@ class AttendanceController extends Controller
 
             'se' => $se,
             'ye' => $ye,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -381,6 +393,7 @@ class AttendanceController extends Controller
             'se' => $se,
             'ye' => $ye,
             's' => $s,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -429,6 +442,7 @@ class AttendanceController extends Controller
 
             'se' => $se,
             'ye' => $ye,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
         //Lec
@@ -481,6 +495,7 @@ class AttendanceController extends Controller
 
             'se' => $se,
             'ye' => $ye,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -523,6 +538,7 @@ class AttendanceController extends Controller
             'attendance2' => $attendance2,
 
             's' => $s,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -570,6 +586,7 @@ class AttendanceController extends Controller
 
             'se' => $se,
             'ye' => $ye,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -592,6 +609,7 @@ class AttendanceController extends Controller
             'semester' => $semester,
             'gen' => $gen,
             'attendance2' => $attendance2,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 

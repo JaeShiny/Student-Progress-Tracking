@@ -14,12 +14,12 @@ use App\Model\mis\Generation;
 use App\Model\mis\Student;
 use App\Model\mis\Bio;
 use Auth;
-
-
-
+use App\Inspector\HeaderNotificationCount;
 
 class StudyController extends Controller
 {
+    use HeaderNotificationCount;
+
         //Student
     //แสดงการลงทะเบียน
     public function enrollmentS1($student_id){
@@ -37,6 +37,7 @@ class StudyController extends Controller
         return view('student.enrollment',[
             'study' => $study,
             'courses' => $courses,
+            'number' => $this->countNumberOfNewNotification(),
             // 'gen' => $gen,
             // 'bios' => $bios,
 
@@ -75,7 +76,8 @@ class StudyController extends Controller
         return view('lecturer.enrollment',[
             'studys' => $study,
             'courses' => $courses,
-            'semester' => $semester
+            'semester' => $semester,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
 
     }
@@ -101,7 +103,8 @@ class StudyController extends Controller
             'gen' => $gen,
             'bios' => $bios,
             's' => $s,
-            'y' => $y
+            'y' => $y,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -124,7 +127,8 @@ class StudyController extends Controller
             'gen' => $gen,
             'bios' => $bios,
             's' => $s,
-            'y' => $y
+            'y' => $y,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -138,7 +142,7 @@ class StudyController extends Controller
         return view('EducationOfficer.enrollment',[
             'study' => $study,
             'courses' => $courses,
-
+            'number' => $this->countNumberOfNewNotification(),
         ]);
 
     }
@@ -161,8 +165,8 @@ class StudyController extends Controller
             'gen' => $gen,
             'bios' => $bios,
             's' => $s,
-            'y' => $y
-
+            'y' => $y,
+            'number' => $this->countNumberOfNewNotification(),
 
         ]);
     }
@@ -186,8 +190,8 @@ class StudyController extends Controller
             'bios' => $bios,
             'semester' => $semester,
             's' => $s,
-            'y' => $y
-
+            'y' => $y,
+            'number' => $this->countNumberOfNewNotification(),
 
         ]);
     }

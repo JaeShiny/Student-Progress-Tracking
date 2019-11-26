@@ -24,11 +24,14 @@ use App\Model\spts\Grade;
 use App\Model\spts\Users;
 use App\Model\spts\Semester;
 use App\Model\InspectorCondition;
+use App\Inspector\HeaderNotificationCount;
 
 use Auth;
 
 class NotificationController extends Controller
 {
+    use HeaderNotificationCount;
+
     protected $inspectedStudentResult = null;
 
     public function __construct()
@@ -60,6 +63,8 @@ class NotificationController extends Controller
             'semester' => $semester,
             'semesters' => $semesters,
             'generation' => $generation,
+
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -113,6 +118,7 @@ class NotificationController extends Controller
             'generation' => $generation,
             'semester' => $semester,
             's' => $s,
+
             // 'term' => $term,
             // 'year' => $year,
         ]);
@@ -139,7 +145,9 @@ class NotificationController extends Controller
             'risk_problem' => $risk_problem,
             'risk_attendance' => $risk_attendance,
             'risk_grade' => $risk_grade,
-            'semester' => $semester
+            'semester' => $semester,
+
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -157,6 +165,8 @@ class NotificationController extends Controller
             'course' => $course,
             'semester' => $semester,
             'gen' => $gen,
+
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -241,6 +251,8 @@ class NotificationController extends Controller
 
             'se' => $se,
             'ye' => $ye,
+
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -262,6 +274,8 @@ class NotificationController extends Controller
             'semester' => $semester,
             'semesters' => $semesters,
             'generation' => $generation,
+
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -342,7 +356,9 @@ class NotificationController extends Controller
             'risk_attendance' => $risk_attendance,
             'risk_grade' => $risk_grade,
 
-            'semester' => $semester
+            'semester' => $semester,
+
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -357,7 +373,9 @@ class NotificationController extends Controller
 
         return view('LF.subjectNoti',[
             'course' => $course,
-            'semester' => $semester
+            'semester' => $semester,
+
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -399,6 +417,8 @@ class NotificationController extends Controller
             'semester' => $semester,
             'se' => $se,
             'ye' => $ye,
+
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -425,6 +445,8 @@ class NotificationController extends Controller
             'generation' => $generation,
             'semester' => $semester,
             's' => $s,
+
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -478,6 +500,7 @@ class NotificationController extends Controller
             'generation' => $generation,
             'semester' => $semester,
             's' => $s,
+
             // 'term' => $term,
             // 'year' => $year,
         ]);
@@ -557,7 +580,9 @@ class NotificationController extends Controller
             'gen' => $gen,
 
             'se' => $se,
-            'ye' => $ye
+            'ye' => $ye,
+
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
     public function showNotiA_พัง($semester, $year){
@@ -620,6 +645,8 @@ class NotificationController extends Controller
             'year' => $year,
             'conditions' => $conditions,
             'generation' => $generation,
+
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -643,6 +670,8 @@ class NotificationController extends Controller
             'semesters' => $semesters,
             'generation' => $generation,
             'gen' => $gen,
+
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -737,6 +766,7 @@ class NotificationController extends Controller
             'semester' => $semester,
             'generation' => $generation,
 
+            'number' => $this->countNumberOfNewNotification(),
 
         ]);
     }
@@ -767,6 +797,8 @@ class NotificationController extends Controller
 
             'semester' => $semester,
             'generation' => $generation,
+
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -785,6 +817,8 @@ class NotificationController extends Controller
 
             'semester' => $semester,
             'generation' => $generation,
+
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -820,6 +854,8 @@ class NotificationController extends Controller
 
             'semester' => $semester,
             'generation' => $generation,
+
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
     public function showNotiAL22($course_id){
@@ -870,6 +906,8 @@ class NotificationController extends Controller
             'gen' => $gen,
             // 'year' => $year,
             'conditions' => $conditions,
+
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -883,6 +921,8 @@ class NotificationController extends Controller
         return view('AdLec.indexNoti',[
             'semester' => $semester,
             'generation' => $generation,
+
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -893,6 +933,7 @@ class NotificationController extends Controller
         return view('EducationOfficer.curriNoti',[
             'curriculum' => $curriculum,
 
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -910,6 +951,8 @@ class NotificationController extends Controller
             'generation' => $generation,
             'semester' => $semester,
             's' => $s,
+
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -996,6 +1039,8 @@ class NotificationController extends Controller
             'riskproblem' => $riskproblem,
             'riskattendance' => $riskattendance,
             'riskgrade' => $riskgrade,
+
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -1024,6 +1069,8 @@ class NotificationController extends Controller
             'riskproblem' => $riskproblem,
             'riskattendance' => $riskattendance,
             'riskgrade' => $riskgrade,
+
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 }

@@ -26,10 +26,13 @@ use App\Model\spts\Attendance;
 use App\Model\spts\Grade;
 use App\Model\spts\Users;
 use App\Model\spts\Semester;
+use App\Inspector\HeaderNotificationCount;
 use Auth;
 
 class StatisticController extends Controller
 {
+    use HeaderNotificationCount;
+
         //Lecturer
     public function chartL($student_id){
         $stu = $student_id;
@@ -69,6 +72,7 @@ class StatisticController extends Controller
 
             // 'attendance' => $attendance,
             // 'grade' => $grade,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -210,6 +214,7 @@ class StatisticController extends Controller
 
             // 'attendance' => $attendance,
             // 'grade' => $grade,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -308,7 +313,7 @@ class StatisticController extends Controller
             'bios' => $bios,
             'stu' => $stu,
             // 's' => $s,
-            'se' => $se
+            'se' => $se,
             // 'problem' => $problem,
             // 'problem1' => $problem1,
             // 'problem2' => $problem2,
@@ -318,6 +323,7 @@ class StatisticController extends Controller
 
             // 'attendance' => $attendance,
             // 'grade' => $grade,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -423,6 +429,7 @@ class StatisticController extends Controller
 
             // 'attendance' => $attendance,
             // 'grade' => $grade,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
@@ -530,6 +537,7 @@ class StatisticController extends Controller
 
             // 'attendance' => $attendance,
             // 'grade' => $grade,
+            'number' => $this->countNumberOfNewNotification(),
 
         ]);
     }
@@ -642,6 +650,7 @@ class StatisticController extends Controller
 
             // 'attendance' => $attendance,
             // 'grade' => $grade,
+            'number' => $this->countNumberOfNewNotification(),
         ]);
     }
 
