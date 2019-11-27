@@ -74,7 +74,8 @@
         <a class="nav-link" href="/chartAttendanceS" style="color: #FFFFFF">สถิติ</a>
         <a class="nav-link" href="/student/attendance" style="color: #FFFFFF">การเข้าเรียน</a>
         <a class="nav-link" href="/student/grade" style="color: #FFFFFF">ผลการเรียน</a>
-        {{-- <a class="nav-link" href="/studentSurvey" style="color: #FFFFFF">ทำแบบสอบถาม</a> --}}
+        {{-- สร้างเงื่อนไขแจ้งเตือน --}}
+        <a class="nav-link" href="/StudentConditions" style="color: #FFFFFF">เงื่อนไขการแจ้งเตือน</a>
     </nav>
 
     {{-- <nav class="bg2" style="background-color: #1D5287;">

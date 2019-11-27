@@ -29,6 +29,7 @@ Route::resource('conditions', 'ConditionController');
 Route::resource('AdminConditions', 'AdminConditionController');
 Route::resource('AdConditions', 'AdConditionController');
 Route::resource('AdLecConditions', 'AdLecConditionController');
+Route::resource('StudentConditions', 'StudentConditionController');
 
 Route::resource('ProblemType', 'ProblemTypeController');
 
