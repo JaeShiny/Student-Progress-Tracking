@@ -10,6 +10,7 @@ use Illuminate\Pagination\Paginator;
 use App\Http\Controllers\Controller;
 use App\Inspector\InspectedQuery;
 use App\Inspector\InspectedQueryS;
+use App\Inspector\InspectedQueryE;
 use App\Model\mis\Bio;
 use App\Model\mis\Major;
 use App\Model\mis\Course;
@@ -1149,7 +1150,7 @@ class NotificationController extends Controller
 
 
     //กดจากหน้าหลักสูตรแล้วเจอรายชื่อเด็กที่มีปัญหา
-    public function showNotiE($curriculum_id){
+    public function showNotiE_เก่า($curriculum_id){
         $curriculum = Curriculum::find($curriculum_id);
         $student = Student::where('curriculum_id',$curriculum->curriculum_id)->get();
         $student_ids = $student->map(function ($item) {
@@ -1179,7 +1180,70 @@ class NotificationController extends Controller
             'number' => $this->countNumberOfNewNotification(),
         ]);
     }
+    public function showNotiE($curriculum_id){
+        $se = intval(Carbon::now()->format('m')) <= 6 ? 2 : 1 ;
+        $ye = intval(Carbon::now()->format('Y'));
+        if ($se == 2) {
+            $ye -= 1;
+        }
 
+        // $course = Course::find($course_id);
+        // $major = Major::where('major_id',$course->major_id)->get();
+        // $student = Student::where('major_id',$course->major_id)->get();
+        $curriculum = Curriculum::find($curriculum_id);
+        $student = Student::where('curriculum_id',$curriculum->curriculum_id)->get();
+        $student_ids = $student->map(function ($item) {
+            return $item->student_id;
+        });
+
+        $conditions = InspectorCondition::where('instructor_id', Auth::user()->instructor_id)->get();
+
+        //เลือกว่าจะแสดงเงื่อนไขของ instructor_id คนไหน
+        $curriculums = Auth::user()->curriculum;
+
+        $inspectedResult = InspectedQueryE::startInspectForEduWithYearly(
+            $curriculums,
+            $se,
+            $ye
+        )->getInspectedStudents();
+
+        $risk_problem = $inspectedResult['problem'];
+        $risk_attendance = $inspectedResult['attendance'];
+        $risk_grade = $inspectedResult['grade'];
+
+        $riskproblem = $inspectedResult['problem']->count();
+        $riskattendance = $inspectedResult['attendance']->count();
+        $riskgrade = $inspectedResult['grade']->count();
+
+        $test = Instructor::where('last_name',Auth::user()->lastname)->first();
+        $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+        $gen = Generation::orderBy('year','desc')->first();
+
+        return view('EducationOfficer.showNoti',[
+            'student' => $student,
+            // 'course' => $course,
+            // 'major' => $major,
+            'curriculum' => $curriculum,
+
+            'risk_problem' => $risk_problem,
+            'risk_attendance' => $risk_attendance,
+            'risk_grade' => $risk_grade,
+
+            'riskproblem' => $riskproblem,
+            'riskattendance' => $riskattendance,
+            'riskgrade' => $riskgrade,
+
+            'semester' => $semester,
+            'gen' => $gen,
+            // 'year' => $year,
+            'conditions' => $conditions,
+
+            'se' => $se,
+            'ye' => $ye,
+
+            'number' => $this->countNumberOfNewNotification(),
+        ]);
+    }
 
             //Student//
     //การเอาชื่อและนามสกุลในการล็อคอิน มาเทียบกับชื่อของเด็กใน bio

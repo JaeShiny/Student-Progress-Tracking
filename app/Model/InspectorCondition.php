@@ -33,4 +33,10 @@ class InspectorCondition extends Model
         return $query->where('student_id', $student_id)
             ->where('behavior_attribute', $behavior);
     }
+
+    public function scopeEduCondition($query, $curriculum, $behavior)
+    {
+        return $query->where('curriculum', $curriculum)
+            ->where('behavior_attribute', $behavior);
+    }
 }
