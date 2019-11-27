@@ -129,8 +129,8 @@
                         </div>
                     {{-- ปุ่มโหลดฟอร์ม --}}
                       <a class="nav-link" href="{{ url('FormAttendanceLF') }}" style="color: #FFFFFF">ดาวน์โหลดแบบฟอร์ม</a>
-                    {{-- ปุ่มแบบสอบถาม --}}
-                      {{-- <a class="nav-link" href="/LFSurvey" style="color: #FFFFFF">แบบสอบถาม</a> --}}
+                     {{-- สร้างเงื่อนไขแจ้งเตือน --}}
+                     <a class="nav-link" href="/LFConditions" style="color: #FFFFFF">เงื่อนไขการแจ้งเตือน</a>
 
               </div>
           </div>
