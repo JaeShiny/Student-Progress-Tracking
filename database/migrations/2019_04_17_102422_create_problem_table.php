@@ -31,6 +31,11 @@ class CreateProblemTable extends Migration
             $table->string('course_id')->nullable();
             $table->string('instructor_id')->nullable();
             $table->boolean('is_display')->default(false);
+            $table->boolean('is_displayA')->default(false);
+            $table->boolean('is_displayLF')->default(false);
+            $table->boolean('is_displayAL')->default(false);
+            $table->boolean('is_displayE')->default(false);
+            $table->boolean('is_displayS')->default(false);
             $table->timestamps();
 
         });
