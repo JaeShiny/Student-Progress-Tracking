@@ -24,6 +24,74 @@
 </head>
 
 <body>
+{{-- popup ของโบว์เองแหละ--}}
+  	{{-- <div class="container"> --}}
+  <!-- Trigger the modal with a button -->
+  <h6 align='right'>
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" id="open">
+        <h6>
+            <img src="{{ URL::asset("../img/noti.png") }}" width="30" height="25" title="ดูเงื่อนไขแจ้งเตือน">
+            เงื่อนไขการแจ้งเตือน
+        </h6>
+    </button> &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+  </h6>
+
+    <form method="post" action="{{url('modal')}}" id="form">
+        @csrf
+  <!-- Modal -->
+  <div class="modal" tabindex="-1" role="dialog" id="myModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+            <div class="alert alert-danger" style="display:none"></div>
+
+        <div class="modal-header">
+        <h5 class="modal-title">เงื่อนไขในการแจ้งเตือน</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+    <div class="modal-body">
+<br><br>
+        <center>
+            <table class="table table-striped">
+              <thead>
+                  <tr>
+                    <td>เรื่องที่จะทำการกำหนดการแจ้งเตือน</td>
+                    <td>เงื่อนไขในการแจ้งเตือน</td>
+                    <td>จำนวนที่จะทำให้เกิดการแจ้งเตือน</td>
+                  </tr>
+              </thead>
+              <tbody>
+                  @foreach($conditions as $con)
+                  <tr>
+                        <td>
+                            @if($con->behavior_attribute == 'Problem')
+                            level ความรุนแรงของปัญหา
+                            @elseif($con->behavior_attribute == 'Attendance')
+                            จำนวนการขาดเรียน
+                            @else
+                            ผลสอบกลางภาค
+                            @endif
+                        </td>
+                        <td>{{$con->condition}}</td>
+                        <td>{{$con->value}}</td>
+                  </tr>
+                  @endforeach
+              </tbody>
+            </table>
+        </center>
+        <div class="modal-footer">
+      	    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+
+    </div>
+  </div>
+</div>
+</form>
+</div>
+{{-- จบ popup ของโบว์ละ --}}
+
     {{--
     <h3 align='center'>การแจ้งเตือน</h3>
     <br> --}}
@@ -152,7 +220,7 @@
                     <th scope="col">ระดับความเสี่ยง</th>
                     <th scope="col">วันที่เพิ่ม</th>
                     <th scope="col">วันที่เกิดปัญหา</th>
-                    <th scope="col">ผู้เพิ่ม</th>
+                    {{-- <th scope="col">ผู้เพิ่ม</th> --}}
                 </tr>
             </thead>
             <tbody>
@@ -170,7 +238,7 @@
                     <td>{{$show_problem->risk_level}}</td>
                     <td>{{$show_problem->created_at}}</td>
                     <td>{{$show_problem->date}}</td>
-                    <td>อาจารย์ {{$show_problem->users->name}}</td>
+                    {{-- <td>อาจารย์ {{$show_problem->users->name}}</td> --}}
                 </tr>
 
                 @endforeach
@@ -193,7 +261,7 @@
                     <th scope="col">รหัสนักศึกษา</th>
                     <th scope="col">รหัสวิชา</th>
                     <th scope="col">จำนวนที่ขาด</th>
-                    <th scope="col">ผู้เพิ่ม</th>
+                    {{-- <th scope="col">ผู้เพิ่ม</th> --}}
 
                 </tr>
             </thead>
@@ -209,7 +277,7 @@
                     <td>{{$show_problem->course_id}}</td>
                     <td>{{$show_problem->amount_absence}}</td>
 
-                    <td>อาจารย์ {{$show_problem->person_add}}</td>
+                    {{-- <td>อาจารย์ {{$show_problem->person_add}}</td> --}}
                 </tr>
 
                 @endforeach
@@ -234,7 +302,7 @@
                     <th scope="col">คะแนนสอบ Midterm</th>
                     <th scope="col">คะแนนสอบ Final</th>
                     <th scope="col">คะแนนรวมทั้งหมด</th>
-                    <th scope="col">ผู้เพิ่ม</th>
+                    {{-- <th scope="col">ผู้เพิ่ม</th> --}}
 
                 </tr>
             </thead>
@@ -252,7 +320,7 @@
                     <td>{{$show_problem->test_final}}</td>
                     <td>{{$show_problem->total_all}}/100</td>
 
-                    <td>อาจารย์ {{$show_problem->person_add}}</td>
+                    {{-- <td>อาจารย์ {{$show_problem->person_add}}</td> --}}
                 </tr>
 
                 @endforeach

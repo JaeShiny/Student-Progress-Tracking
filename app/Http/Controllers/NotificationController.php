@@ -22,7 +22,7 @@ use App\Model\spts\LF;
 use App\Model\spts\Problem;
 use App\Model\spts\Attendance;
 use App\Model\spts\Grade;
-use App\Model\spts\Users;
+use App\Model\spts\User;
 use App\Model\spts\Semester;
 use App\Model\InspectorCondition;
 use App\Inspector\HeaderNotificationCount;
@@ -381,7 +381,7 @@ class NotificationController extends Controller
         ]);
     }
 
-    public function showNotiLF($course_id, $semester, $year){
+    public function showNotiLF_เก่า($course_id, $semester, $year){
 
         $se = $semester;
         $ye = $year;
@@ -417,6 +417,62 @@ class NotificationController extends Controller
             'riskgrade' => $riskgrade,
 
             'semester' => $semester,
+            'se' => $se,
+            'ye' => $ye,
+
+            'number' => $this->countNumberOfNewNotification(),
+        ]);
+    }
+    public function showNotiLF($course_id, $semester, $year){
+        $se = $semester;
+        $ye = $year;
+
+        $course = Course::find($course_id);
+        $major = Major::where('major_id',$course->major_id)->get();
+        $student = Student::where('major_id',$course->major_id)->get();
+
+        $conditions = InspectorCondition::where('instructor_id', Auth::user()->instructor_id)->get();
+
+        //เลือกว่าจะแสดงเงื่อนไขของ instructor_id คนไหน
+        $instructor_id = Auth::user()->instructor_id;
+
+        $inspectedResult = InspectedQuery::startInspectForInstructorWithCourseYearly(
+            $instructor_id,
+            $course_id,
+            $semester,
+            $year
+        )->getInspectedStudents();
+
+        $risk_problem = $inspectedResult['problem'];
+        $risk_attendance = $inspectedResult['attendance'];
+        $risk_grade = $inspectedResult['grade'];
+
+        $riskproblem = $inspectedResult['problem']->count();
+        $riskattendance = $inspectedResult['attendance']->count();
+        $riskgrade = $inspectedResult['grade']->count();
+
+        $test = Instructor::where('last_name',Auth::user()->lastname)->first();
+        $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
+        $gen = Generation::orderBy('year','desc')->first();
+
+        return view('LF.showNoti',[
+            'student' => $student,
+            'course' => $course,
+            'major' => $major,
+
+            'risk_problem' => $risk_problem,
+            'risk_attendance' => $risk_attendance,
+            'risk_grade' => $risk_grade,
+
+            'riskproblem' => $riskproblem,
+            'riskattendance' => $riskattendance,
+            'riskgrade' => $riskgrade,
+
+            'semester' => $semester,
+            'gen' => $gen,
+            'year' => $year,
+            'conditions' => $conditions,
+
             'se' => $se,
             'ye' => $ye,
 
