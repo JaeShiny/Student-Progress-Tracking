@@ -54,7 +54,7 @@
         {{-- &nbsp;&nbsp;<img src="../img/logopage.png" width="120" height="50"> --}}
         &nbsp;&nbsp;<img src={{ URL::asset("../img/logopage.png") }} width="120" height="50">
         {{-- Dashboard --}}
-        <a class="nav-link" href="/dashboardL" style="color: #FFFFFF">
+        <a class="nav-link" href="/dashboardS" style="color: #FFFFFF">
             หน้าหลัก
                 <a href="#" class="notification">
                     <span class="badge">
