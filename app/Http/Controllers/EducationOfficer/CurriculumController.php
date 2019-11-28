@@ -19,7 +19,7 @@ class CurriculumController extends Controller
         $curriculum = Curriculum::where('curriculum_id',Auth::user()->curriculum)->first();
         return view('EducationOfficer.eachCurriculum',[
             'curriculum' => $curriculum,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationE(),
         ]);
     }
 

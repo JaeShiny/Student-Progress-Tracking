@@ -142,7 +142,7 @@ class StudyController extends Controller
         return view('EducationOfficer.enrollment',[
             'study' => $study,
             'courses' => $courses,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationE(),
         ]);
 
     }
@@ -166,7 +166,7 @@ class StudyController extends Controller
             'bios' => $bios,
             's' => $s,
             'y' => $y,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationE(),
 
         ]);
     }
@@ -191,7 +191,7 @@ class StudyController extends Controller
             'semester' => $semester,
             's' => $s,
             'y' => $y,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationE(),
 
         ]);
     }

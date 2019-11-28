@@ -34,7 +34,7 @@ class EduConditionController extends Controller
 
             'semester' => $semester,
             'generation' => $generation,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationE(),
         ]);
     }
 
@@ -68,7 +68,7 @@ class EduConditionController extends Controller
         return view('EducationOfficer.condition.create',[
             'semester' => $semester,
             'generation' => $generation,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationE(),
         ]);
 
     }
@@ -100,7 +100,7 @@ class EduConditionController extends Controller
             'semester' => $semester,
             'generation' => $generation,
             'conditions' => $conditions,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationE(),
         ]);
     }
     public function edit($id){
@@ -114,7 +114,7 @@ class EduConditionController extends Controller
             'semester' => $semester,
             'generation' => $generation,
             'conditions' => $conditions,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationE(),
         ]);
     }
 

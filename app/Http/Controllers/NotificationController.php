@@ -1070,7 +1070,7 @@ class NotificationController extends Controller
         return view('EducationOfficer.curriNoti',[
             'curriculum' => $curriculum,
 
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationE(),
         ]);
     }
 
@@ -1089,7 +1089,7 @@ class NotificationController extends Controller
             'semester' => $semester,
             's' => $s,
 
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationE(),
         ]);
     }
 
@@ -1177,7 +1177,7 @@ class NotificationController extends Controller
             'riskattendance' => $riskattendance,
             'riskgrade' => $riskgrade,
 
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationE(),
         ]);
     }
     public function showNotiE($curriculum_id){
@@ -1241,7 +1241,7 @@ class NotificationController extends Controller
             'se' => $se,
             'ye' => $ye,
 
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationE(),
         ]);
     }
 

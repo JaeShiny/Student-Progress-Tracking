@@ -15,7 +15,7 @@ class SelectYearController extends Controller
         $curriculum = Curriculum::where('curriculum_id',$id)->first();
             return view('EducationOfficer.selectyear',[
                 'curriculum' => $curriculum,
-                'number' => $this->countNumberOfNewNotification(),
+                'number' => $this->countNumberOfNewNotificationE(),
             ]);
     }
 }

@@ -538,7 +538,7 @@ class AttendanceController extends Controller
             'attendance2' => $attendance2,
 
             's' => $s,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationE(),
         ]);
     }
 

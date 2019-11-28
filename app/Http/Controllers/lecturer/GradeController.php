@@ -408,7 +408,7 @@ class GradeController extends Controller
             'bios' => $bios,
 
             's' => $s,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationE(),
         ]);
     }
 

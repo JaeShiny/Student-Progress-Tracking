@@ -1976,7 +1976,7 @@ class ChartController extends Controller
         return view('EducationOfficer.chart.curriStatistic',[
             'curriculum' => $curriculum,
             'semester' => $semester,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationE(),
         ]);
     }
 
@@ -2055,7 +2055,7 @@ class ChartController extends Controller
 
             'count_student' => $count_student,
 
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationE(),
         ]);
     }
 
@@ -2110,7 +2110,7 @@ class ChartController extends Controller
             'gardeD' => $gradeD,
             'gardeF' => $gradeF,
 
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationE(),
         ]);
     }
 
@@ -2159,7 +2159,7 @@ class ChartController extends Controller
             'p4' => $p4,
             'p5' => $p5,
 
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationE(),
         ]);
     }
 

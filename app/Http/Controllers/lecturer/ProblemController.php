@@ -180,7 +180,7 @@ class ProblemController extends Controller
             'semester' => $semester,
 
             'problemType' => $problemType,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationE(),
         ]);
     }
 
@@ -256,7 +256,7 @@ class ProblemController extends Controller
             'gen' => $gen,
             'semester' => $semester,
             's' => $s,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationE(),
         ]);
     }
     public function getShowProblemE(Request $request, $student_id){
@@ -300,7 +300,7 @@ class ProblemController extends Controller
 
         return view('EducationOfficer.showProblem', [
             'risk_problem' => $risk_problem,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationE(),
         ]);
     }
 
