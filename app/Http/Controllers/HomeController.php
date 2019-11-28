@@ -44,6 +44,7 @@ class HomeController extends Controller
             //ถึงตรงนี้
             return view('advisor.dashboard',[
                 'generation'=> $generation,
+                'number' => $this->countNumberOfNewNotificationA(),
             ]);
         }elseif(auth()->user()->isLecturer()) {
             $test = Instructor::where('last_name',Auth::user()->lastname)->first();
@@ -54,6 +55,7 @@ class HomeController extends Controller
             }
             return view('lecturer/dashboard',[
                 'semester' => $semester,
+                'number' => $this->countNumberOfNewNotification(),
             ]);
         }elseif(auth()->user()->isAdLec()) {
             $test = Instructor::where('last_name',Auth::user()->lastname)->first();
@@ -61,13 +63,15 @@ class HomeController extends Controller
             $generation = Generation::all();
             return view('AdLec/dashboard',[
                 'semester' => $semester,
-                'generation' => $generation
+                'generation' => $generation,
+                'number' => $this->countNumberOfNewNotificationAL(),
             ]);
         }elseif(auth()->user()->isLF()) {
             $test = Instructor::where('first_name',Auth::user()->name)->first();
             $semester = Schedule::where('instructor_id',$test->instructor_id)->orderBy('year','asc')->get();
             return view('LF/dashboard',[
                 'semester' => $semester,
+                'number' => $this->countNumberOfNewNotificationLF(),
             ]);
         }elseif(auth()->user()->isAdmin()) {
             return view('Admin/dashboard');

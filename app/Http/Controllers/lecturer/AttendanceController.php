@@ -61,7 +61,7 @@ class AttendanceController extends Controller
             'semester' => $semester,
             'gen' => $gen,
             'generation' => $generation,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationAL(),
         ]);
     }
 
@@ -135,7 +135,7 @@ class AttendanceController extends Controller
             'semester' => $semester,
             'gen' => $gen,
             'generation' => $generation,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationAL(),
         ]);
     }
 
@@ -442,7 +442,7 @@ class AttendanceController extends Controller
 
             'se' => $se,
             'ye' => $ye,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationAL(),
         ]);
     }
         //Lec
@@ -495,7 +495,7 @@ class AttendanceController extends Controller
 
             'se' => $se,
             'ye' => $ye,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationAL(),
         ]);
     }
 

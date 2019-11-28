@@ -31,7 +31,7 @@ class AdLecConditionController extends Controller
         return view('AdLec.condition.create',[
             'semester' => $semester,
             'generation' => $generation,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationAL(),
         ]);
 
     }
@@ -75,7 +75,7 @@ class AdLecConditionController extends Controller
             'semester' => $semester,
             'generation' => $generation,
             'conditions' => $conditions,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationAL(),
         ]);
     }
     public function edit($id){
@@ -91,7 +91,7 @@ class AdLecConditionController extends Controller
             'semester' => $semester,
             'generation' => $generation,
             'conditions' => $conditions,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationAL(),
         ]);
     }
 

@@ -49,7 +49,7 @@ class GradeController extends Controller
             'course' => $course,
             'semester' => $semester,
             'generation' => $generation,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationAL(),
         ]);
     }
 
@@ -306,7 +306,7 @@ class GradeController extends Controller
             'generation' => $generation,
             'se' => $se,
             'ye' => $ye,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationAL(),
         ]);
     }
     public function showGradeAL($course_id, $semester, $year)  {
@@ -373,7 +373,7 @@ class GradeController extends Controller
 
             'avg_midterm' => $avg_midterm,
             'avg_final' => $avg_final,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationAL(),
         ]);
     }
 

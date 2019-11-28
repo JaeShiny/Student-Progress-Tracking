@@ -734,7 +734,7 @@ class NotificationController extends Controller
             'generation' => $generation,
             'gen' => $gen,
 
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationAL(),
         ]);
     }
 
@@ -829,7 +829,7 @@ class NotificationController extends Controller
             'semester' => $semester,
             'generation' => $generation,
 
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationAL(),
 
         ]);
     }
@@ -932,7 +932,7 @@ class NotificationController extends Controller
             'semester' => $semester,
             'generation' => $generation,
 
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationAL(),
         ]);
     }
 
@@ -952,7 +952,7 @@ class NotificationController extends Controller
             'semester' => $semester,
             'generation' => $generation,
 
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationAL(),
         ]);
     }
 
@@ -989,7 +989,7 @@ class NotificationController extends Controller
             'semester' => $semester,
             'generation' => $generation,
 
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationAL(),
         ]);
     }
 
@@ -1044,7 +1044,7 @@ class NotificationController extends Controller
             // 'year' => $year,
             'conditions' => $conditions,
 
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationAL(),
         ]);
     }
 
@@ -1059,7 +1059,7 @@ class NotificationController extends Controller
             'semester' => $semester,
             'generation' => $generation,
 
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationAL(),
         ]);
     }
 

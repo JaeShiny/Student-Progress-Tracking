@@ -459,7 +459,7 @@ class ProblemController extends Controller
             'generation' => $generation,
 
             'problemType' => $problemType,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationAL(),
         ]);
     }
 
@@ -520,7 +520,7 @@ class ProblemController extends Controller
             'generation' => $generation,
             'semesters' => $semesters,
             's' => $s,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationAL(),
         ]);
     }
     public function getShowProblemAL(Request $request, $student_id){

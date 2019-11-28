@@ -86,7 +86,7 @@ class SubjectController extends Controller
             'student' => $student,
             'course' => $course,
 
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationAL(),
         ]);
     }
 
@@ -102,7 +102,7 @@ class SubjectController extends Controller
             'course' => $course,
             'student' => $student,
 
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationAL(),
         ]);
     }
 
@@ -115,7 +115,7 @@ class SubjectController extends Controller
         return view('AdLec.subject',[
             'course' => $course,
 
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationAL(),
         ]);
     }
 

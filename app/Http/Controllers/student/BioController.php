@@ -324,7 +324,7 @@ class BioController extends Controller
         return view('AdLec.indexSurvey', [
             'generation' => $generation,
             'semester' => $semester,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationAL(),
         ]);
     }
 
@@ -800,7 +800,7 @@ class BioController extends Controller
             'semester' => $semester,
             'gen' => $gen,
             'generation' => $generation,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationAL(),
         ]);
     }
 
@@ -826,7 +826,7 @@ class BioController extends Controller
             'majors' => $majors,
             'semester' => $semester,
             'generation' => $generation,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationAL(),
         ]);
     }
     //ส่งประวัติมาจากหน้า studentlist เรียงคนมา
@@ -850,7 +850,7 @@ class BioController extends Controller
             'majors' => $majors,
             'semester' => $semester,
             'generation' => $generation,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationAL(),
         ]);
     }
 
@@ -883,7 +883,7 @@ class BioController extends Controller
             'generation' => $generation,
             'gen' => $gen,
             'course'=> $course,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationAL(),
         ]);
     }
 
@@ -923,7 +923,7 @@ class BioController extends Controller
             'semester' => $semester,
             'generation' => $generation,
             'gen' => $gen,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationAL(),
         ]);
     }
 
@@ -970,7 +970,7 @@ class BioController extends Controller
             'generation' => $generation,
             's' => $s,
             'y' => $y,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationAL(),
         ]);
     }
 
