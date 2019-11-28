@@ -505,7 +505,7 @@ class NotificationController extends Controller
             'semester' => $semester,
             's' => $s,
 
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationA(),
         ]);
     }
 
@@ -641,7 +641,7 @@ class NotificationController extends Controller
             'se' => $se,
             'ye' => $ye,
 
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationA(),
         ]);
     }
     public function showNotiA($semester, $year){
@@ -709,7 +709,7 @@ class NotificationController extends Controller
             'se' => $se,
             'ye' => $ye,
 
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationA(),
         ]);
     }
 
@@ -1196,8 +1196,7 @@ class NotificationController extends Controller
             return $item->student_id;
         });
 
-        $conditions = InspectorCondition::where('curriculum', Auth::user()->curriculum
-        )->get();
+        $conditions = InspectorCondition::where('curriculum', Auth::user()->curriculum)->get();
 
         //เลือกว่าจะแสดงเงื่อนไขของ instructor_id คนไหน
         $curriculums = Auth::user()->curriculum;

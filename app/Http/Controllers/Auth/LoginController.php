@@ -90,7 +90,8 @@ class LoginController extends Controller
         // }
 
         if (auth()->user()->isStudent()) {
-            return '/student/dashboard';
+            // return '/student/dashboard';
+            return '/dashboardS';
         } elseif (auth()->user()->isAdvisor()) {
             $gen = Generation::orderBy('year', 'desc')->orderBy('semester', 'desc')->first();
             // return '/advisor/myStudent/' . $gen->semester . '/' . $gen->year;
@@ -103,18 +104,21 @@ class LoginController extends Controller
             // return 'detail123/' . $course->course_id . '/' . $gen->semester . '/' . $gen->year;
             return '/dashboardL';
         } elseif (auth()->user()->isAdLec()) {
-            return '/AdLec/dashboard';
+            // return '/AdLec/dashboard';
+            return '/dashboardAL';
         } elseif (auth()->user()->isLF()) {
             $gen = Generation::orderBy('year', 'desc')->orderBy('semester', 'desc')->first();
             $user = User::where('id', Auth::id())->where('position', 'LF')->first();
             $instructor = Instructor::where('first_name', $user->name)->first();
             $course = Schedule::where('instructor_id', $instructor->instructor_id)->where('semester', $gen->semester)->where('year', $gen->year)->first();
-            return 'detailLF/' . $course->course_id . '/' . $gen->semester . '/' . $gen->year;
+            // return 'detailLF/' . $course->course_id . '/' . $gen->semester . '/' . $gen->year;
             // return '/LF/dashboard';
+            return '/dashboardLF';
         } elseif (auth()->user()->isAdmin()) {
             return '/Admin/dashboard';
         } else {
-            return '/home';
+            // return '/home';
+            return '/dashboardE';
         }
     }
 }

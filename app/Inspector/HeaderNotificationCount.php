@@ -79,4 +79,33 @@ trait HeaderNotificationCount
 
         return $riskattendance + $riskgrade + $riskproblem;
     }
+
+    public function countNumberOfNewNotificationE()
+    {
+        $semesters = intval(Carbon::now()->format('m')) <= 6 ? 2 : 1 ;
+        $year = intval(Carbon::now()->format('Y'));
+        if ($semesters == 2) {
+            $year -= 1;
+        }
+
+        $curriculums = Auth::user()->curriculum;
+
+        $inspectedResult = InspectedQueryE::startInspectForEduWithYearly(
+            $curriculums,
+            $semesters,
+            $year
+        )->getInspectedStudents();
+
+        $riskproblem = $inspectedResult['problem']->filter(function ($e) {
+            return !$e['is_displayE'];
+        })->count();
+        $riskattendance = $inspectedResult['attendance']->filter(function ($e) {
+            return !$e['is_displayE'];
+        })->count();
+        $riskgrade = $inspectedResult['grade']->filter(function ($e) {
+            return !$e['is_displayE'];
+        })->count();
+
+        return $riskattendance + $riskgrade + $riskproblem;
+    }
 }
