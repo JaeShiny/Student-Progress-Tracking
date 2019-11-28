@@ -61,7 +61,7 @@ class InterviewController extends Controller
             'student' => $student,
             'b_interviewer' => $b_interviewer,
             'b_englishskill'=> $b_englishskill,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationS(),
         ]);
     }
 

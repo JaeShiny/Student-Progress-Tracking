@@ -118,7 +118,7 @@ class GradeController extends Controller
             'users' => $users,
 
             'semesters' => $semesters,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationS(),
         ]);
     }
         //เลือกเทอมแล้วมาอีกหน้า
@@ -147,7 +147,7 @@ class GradeController extends Controller
 
             'se' => $se,
             'ye' => $ye,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationS(),
         ]);
     }
 

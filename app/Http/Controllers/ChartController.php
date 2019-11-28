@@ -1330,7 +1330,7 @@ class ChartController extends Controller
             'period_15' => $period_15,
 
             'count_student' => $count_student,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationS(),
         ]);
     }
 
@@ -1484,7 +1484,7 @@ class ChartController extends Controller
             'gardeDD' => $gradeDD,
             'gardeD' => $gradeD,
             'gardeF' => $gradeF,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationS(),
         ]);
     }
 

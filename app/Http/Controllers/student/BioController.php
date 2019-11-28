@@ -51,7 +51,7 @@ class BioController extends Controller
             'generations' => $generations,
             'majors' => $majors,
             'gen' => $gen,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationS(),
         ]);
     }
 
@@ -86,7 +86,7 @@ class BioController extends Controller
             'grades' => $grades,
 
             'gen' => $gen,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationS(),
         ]);
     }
 
@@ -125,7 +125,7 @@ class BioController extends Controller
             's'=> $s,
             'y' => $y,
             'gen' => $gen,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationS(),
         ]);
     }
 

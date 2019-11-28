@@ -20,7 +20,7 @@ class ProfileController extends Controller
         $info = Bio::where('first_name',$user->name)->where('last_name',$user->lastname)->first();
         return view('student.profile',[
             'bios'=>$info,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationS(),
         ]);
     }
 
@@ -34,7 +34,7 @@ class ProfileController extends Controller
             'study2'=>$info,
             'user' => $user,
             'gen' => $gen,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationS(),
         ]);
     }
 
@@ -55,7 +55,7 @@ class ProfileController extends Controller
             'year' => $year,
             's' => $s,
             'y' => $y,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationS(),
         ]);
     }
 

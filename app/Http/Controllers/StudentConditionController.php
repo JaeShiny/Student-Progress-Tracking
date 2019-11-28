@@ -36,7 +36,7 @@ class StudentConditionController extends Controller
             // 'student_id' => $student,
             // 'semester' => $semester,
             'generation' => $generation,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationS(),
         ]);
     }
 
@@ -70,7 +70,7 @@ class StudentConditionController extends Controller
         return view('student.condition.create',[
             // 'semester' => $semester,
             'generation' => $generation,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationS(),
         ]);
 
     }
@@ -103,7 +103,7 @@ class StudentConditionController extends Controller
             // 'semester' => $semester,
             'generation' => $generation,
             'conditions' => $conditions,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationS(),
         ]);
     }
     public function edit($id){
@@ -119,7 +119,7 @@ class StudentConditionController extends Controller
             // 'semester' => $semester,
             'generation' => $generation,
             'conditions' => $conditions,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationS(),
         ]);
     }
 

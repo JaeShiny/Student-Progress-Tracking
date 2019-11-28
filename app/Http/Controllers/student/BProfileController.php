@@ -19,7 +19,7 @@ class BProfileController extends Controller
 
         return view('student.profile(before)',[
             'b_profile' => $b_profile,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationS(),
         ]);
     }
 
@@ -30,7 +30,7 @@ class BProfileController extends Controller
 
         return view('student.profile(before)',[
             'b_profile' => $b_profile,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationS(),
         ]);
 
     }
@@ -43,7 +43,7 @@ class BProfileController extends Controller
 
         return view('student.profile(before)',[
             'b_profile' => $b_profile,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationS(),
         ]);
     }
 

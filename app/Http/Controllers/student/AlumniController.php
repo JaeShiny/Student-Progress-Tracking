@@ -20,7 +20,7 @@ class AlumniController extends Controller
 
         return view('student.profile(after)',[
             'alumni_profile' => $alumni_profile,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationS(),
         ]);
     }
 }

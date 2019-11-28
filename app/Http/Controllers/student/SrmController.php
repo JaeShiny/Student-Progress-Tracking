@@ -52,7 +52,7 @@ class SrmController extends Controller
             'student' => $student,
             'bios' => $bios,
             'curriculum' => $curriculum,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationS(),
         ]);
     }
 

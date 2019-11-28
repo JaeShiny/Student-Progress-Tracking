@@ -37,7 +37,7 @@ class StudyController extends Controller
         return view('student.enrollment',[
             'study' => $study,
             'courses' => $courses,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationS(),
             // 'gen' => $gen,
             // 'bios' => $bios,
 

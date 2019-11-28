@@ -224,7 +224,7 @@ class AttendanceController extends Controller
             'users' => $users,
             'attendance2' => $attendance2,
             'semesters' => $semesters,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationS(),
         ]);
     }
     //เลือกเทอมแล้วแสดงหน้านี้
@@ -285,7 +285,7 @@ class AttendanceController extends Controller
 
             'se' => $se,
             'ye' => $ye,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationS(),
         ]);
     }
 

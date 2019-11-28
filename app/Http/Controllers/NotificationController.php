@@ -1270,7 +1270,7 @@ class NotificationController extends Controller
             'riskattendance' => $riskattendance,
             'riskgrade' => $riskgrade,
 
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationS(),
         ]);
     }
 
@@ -1327,7 +1327,7 @@ class NotificationController extends Controller
             'se' => $se,
             'ye' => $ye,
 
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationS(),
         ]);
     }
 }
