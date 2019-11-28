@@ -92,7 +92,7 @@
                                          @endforeach
                                 </ul> --}}
 {{-- Dashboard --}}
-<a class="nav-link" href="/dashboardL" style="color: #FFFFFF">
+<a class="nav-link" href="/dashboardA" style="color: #FFFFFF">
     หน้าหลัก
         <a href="#" class="notification">
             <span class="badge">

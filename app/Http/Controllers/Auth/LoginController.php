@@ -93,7 +93,8 @@ class LoginController extends Controller
             return '/student/dashboard';
         } elseif (auth()->user()->isAdvisor()) {
             $gen = Generation::orderBy('year', 'desc')->orderBy('semester', 'desc')->first();
-            return '/advisor/myStudent/' . $gen->semester . '/' . $gen->year;
+            // return '/advisor/myStudent/' . $gen->semester . '/' . $gen->year;
+            return '/dashboardA';
         } elseif (auth()->user()->isLecturer()) {
             $gen = Generation::orderBy('year', 'desc')->orderBy('semester', 'desc')->first();
             $user = User::where('id', Auth::id())->where('position', 'Lecturer')->first();

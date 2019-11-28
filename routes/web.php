@@ -41,6 +41,11 @@ Route::get('getStudentNotiL/{student_id}','NotiController@getProblemL')->name('g
 
 //Dashboard
 Route::get('dashboardL','DashboardController@dashboardL');
+Route::get('dashboardAL','DashboardController@dashboardAL');
+Route::get('dashboardA','DashboardController@dashboardA');
+Route::get('dashboardLF','DashboardController@dashboardLF');
+Route::get('dashboardE','DashboardController@dashboardE');
+Route::get('dashboardS','DashboardController@dashboardS');
 
 //อัพรูป
 Route::get('image', 'ImageController@index');
