@@ -1196,7 +1196,8 @@ class NotificationController extends Controller
             return $item->student_id;
         });
 
-        $conditions = InspectorCondition::where('curriculum', Auth::user()->curriculum)->get();
+        $conditions = InspectorCondition::where('curriculum', Auth::user()->curriculum
+        )->get();
 
         //เลือกว่าจะแสดงเงื่อนไขของ instructor_id คนไหน
         $curriculums = Auth::user()->curriculum;
