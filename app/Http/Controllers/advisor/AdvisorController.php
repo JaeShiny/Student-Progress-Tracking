@@ -28,14 +28,14 @@ class AdvisorController extends Controller
    public function showStudent($semester,$year)
     {
         $advisortest = User::where('lastname',Auth::user()->lastname)->where('position','Advisor')->first();
-       $instructor = Instructor::where('last_name',$advisortest->lastname)->first();
-       $gen = Generation::where('semester',$semester)->where('year',$year)->pluck('gen');
-       $mygen = Generation::where('semester',$semester)->where('year',$year)->first();
+        $instructor = Instructor::where('last_name',$advisortest->lastname)->first();
+        $gen = Generation::where('semester',$semester)->where('year',$year)->pluck('gen');
+        $mygen = Generation::where('semester',$semester)->where('year',$year)->first();
     //    $mygens = Generation::where('semester',$semester)->where('year',$year)->first();
-       $myStudent = Student::whereIn('generation',$gen)->where('adviser_id1',$instructor->instructor_id)->orWhere('adviser_id2',$instructor->instructor_id)->get();
+        $myStudent = Student::whereIn('generation',$gen)->where('adviser_id1',$instructor->instructor_id)->orWhere('adviser_id2',$instructor->instructor_id)->get();
 
 
-       $generation = Generation::all();
+        $generation = Generation::all();
 
     //    $gens = Generation::all();
 
@@ -85,7 +85,7 @@ class AdvisorController extends Controller
        return view('advisor.student',[
            'myStudent' => $myStudent,
            'generation'=> $generation,
-           'number' => $this->countNumberOfNewNotification(),
+           'number' => $this->countNumberOfNewNotificationA(),
        ]);
     }
 

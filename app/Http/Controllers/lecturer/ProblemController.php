@@ -323,7 +323,7 @@ class ProblemController extends Controller
             'semester' => $semester,
 
             'problemType' => $problemType,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationA(),
         ]);
     }
 
@@ -402,7 +402,7 @@ class ProblemController extends Controller
             'generation' => $generation,
             'semester' => $semester,
             's' => $s,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationA(),
             // 'gens' => $gens
         ]);
     }

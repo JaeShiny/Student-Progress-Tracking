@@ -205,7 +205,8 @@ class StudyController extends Controller
         return view('advisor.enrollment',[
             'study' => $study,
             'courses' => $courses,
-            'generation' => $generation
+            'generation' => $generation,
+            'number' => $this->countNumberOfNewNotificationA(),
         ]);
 
     }
@@ -228,8 +229,8 @@ class StudyController extends Controller
             'gen' => $gen,
             'bios' => $bios,
             's' => $s,
-            'y' => $y
-
+            'y' => $y,
+            'number' => $this->countNumberOfNewNotificationA(),
         ]);
     }
 
@@ -251,7 +252,8 @@ class StudyController extends Controller
             'gen' => $gen,
             'bios' => $bios,
             's' => $s,
-            'y' => $y
+            'y' => $y,
+            'number' => $this->countNumberOfNewNotificationA(),
 
         ]);
     }
@@ -270,6 +272,7 @@ class StudyController extends Controller
                 'courses' => $courses,
                 'semester' => $semester,
                 'generation' => $generation,
+                'number' => $this->countNumberOfNewNotification(),
             ]);
 
         }
@@ -299,8 +302,8 @@ class StudyController extends Controller
                 'gen' => $gen,
                 'bios' => $bios,
                 's' => $s,
-                'y' => $y
-
+                'y' => $y,
+                'number' => $this->countNumberOfNewNotification(),
             ]);
         }
 
@@ -330,7 +333,8 @@ class StudyController extends Controller
                 'gen' => $gen,
                 'bios' => $bios,
                 's' => $s,
-                'y' => $y
+                'y' => $y,
+                'number' => $this->countNumberOfNewNotification(),
             ]);
         }
 
@@ -345,7 +349,8 @@ class StudyController extends Controller
             return view('LF.enrollment',[
                 'study' => $study,
                 'courses' => $courses,
-                'semester' => $semester
+                'semester' => $semester,
+                'number' => $this->countNumberOfNewNotification(),
             ]);
 
         }
@@ -372,7 +377,8 @@ class StudyController extends Controller
                 'gen' => $gen,
                 'bios' => $bios,
                 's' => $s,
-                'y' => $y
+                'y' => $y,
+                'number' => $this->countNumberOfNewNotification(),
             ]);
         }
 
@@ -398,7 +404,8 @@ class StudyController extends Controller
                 'gen' => $gen,
                 'bios' => $bios,
                 's' => $s,
-                'y' => $y
+                'y' => $y,
+                'number' => $this->countNumberOfNewNotification(),
             ]);
         }
 

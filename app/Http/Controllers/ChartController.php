@@ -1609,7 +1609,7 @@ class ChartController extends Controller
 
             'se' => $se,
             'ye' => $ye,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationA(),
         ]);
     }
 
@@ -1706,7 +1706,7 @@ class ChartController extends Controller
 
             'se' => $se,
             'ye' => $ye,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationA(),
         ]);
     }
 
@@ -1790,7 +1790,7 @@ class ChartController extends Controller
 
             'se' => $se,
             'ye' => $ye,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationA(),
         ]);
     }
 
@@ -1886,7 +1886,7 @@ class ChartController extends Controller
 
             'se' => $se,
             'ye' => $ye,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationA(),
         ]);
 
     }
@@ -1959,7 +1959,7 @@ class ChartController extends Controller
             'se' => $se,
             'ye' => $ye,
 
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationA(),
         ]);
     }
 

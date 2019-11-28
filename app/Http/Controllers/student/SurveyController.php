@@ -435,7 +435,8 @@ public function view_survey_answersStudent($survey)
     $generation = Generation::all();
       return view('survey.advisorindex',[
             'survey' => $survey,
-            'generation' => $generation
+            'generation' => $generation,
+            'number' => $this->countNumberOfNewNotificationA(),
         ]);
 }
 

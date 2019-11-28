@@ -265,7 +265,7 @@ class GradeController extends Controller
             'se' => $se,
             'ye' => $ye,
             's' => $s,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationA(),
         ]);
     }
 
