@@ -68,7 +68,7 @@
 
                   <div class="btn-group">
                       {{-- Dashboard --}}
-                    <a class="nav-link" href="/dashboardL" style="color: #FFFFFF">
+                    <a class="nav-link" href="/dashboardLF" style="color: #FFFFFF">
                         หน้าหลัก
                             <a href="#" class="notification">
                                 <span class="badge">
