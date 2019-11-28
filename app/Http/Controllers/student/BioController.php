@@ -335,7 +335,7 @@ class BioController extends Controller
         $semester = Schedule::where('instructor_id', $test->instructor_id)->orderBy('year', 'asc')->get();
         return view('LF.indexSurvey', [
             'semester' => $semester,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationLF(),
         ]);
     }
 
@@ -995,7 +995,7 @@ class BioController extends Controller
             'course' => $course,
             'semester' => $semester,
             'gen' => $gen,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationLF(),
         ]);
     }
 
@@ -1019,7 +1019,7 @@ class BioController extends Controller
             'generations' => $generations,
             'majors' => $majors,
             'semester' => $semester,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationLF(),
         ]);
     }
     //ส่งประวัติมาจากหน้า studentlist เรียงคนมา
@@ -1042,7 +1042,7 @@ class BioController extends Controller
             'generations' => $generations,
             'majors' => $majors,
             'semester' => $semester,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationLF(),
         ]);
     }
 
@@ -1069,7 +1069,7 @@ class BioController extends Controller
             'semester' => $semester,
             'course' => $course,
             'gen' => $gen,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationLF(),
         ]);
     }
 
@@ -1108,7 +1108,7 @@ class BioController extends Controller
             'grades' => $grades,
             'semester' =>$semester,
             'gen' => $gen,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationLF(),
         ]);
     }
 
@@ -1151,7 +1151,7 @@ class BioController extends Controller
             'gen' => $gen,
             's' => $s,
             'y' => $y,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationLF(),
         ]);
     }
 }

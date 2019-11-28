@@ -350,7 +350,7 @@ class StudyController extends Controller
                 'study' => $study,
                 'courses' => $courses,
                 'semester' => $semester,
-                'number' => $this->countNumberOfNewNotification(),
+                'number' => $this->countNumberOfNewNotificationLF(),
             ]);
 
         }
@@ -378,7 +378,7 @@ class StudyController extends Controller
                 'bios' => $bios,
                 's' => $s,
                 'y' => $y,
-                'number' => $this->countNumberOfNewNotification(),
+                'number' => $this->countNumberOfNewNotificationLF(),
             ]);
         }
 
@@ -405,7 +405,7 @@ class StudyController extends Controller
                 'bios' => $bios,
                 's' => $s,
                 'y' => $y,
-                'number' => $this->countNumberOfNewNotification(),
+                'number' => $this->countNumberOfNewNotificationLF(),
             ]);
         }
 

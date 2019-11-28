@@ -278,7 +278,7 @@ class NotificationController extends Controller
             'semesters' => $semesters,
             'generation' => $generation,
 
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationLF(),
         ]);
     }
 
@@ -361,7 +361,7 @@ class NotificationController extends Controller
 
             'semester' => $semester,
 
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationLF(),
         ]);
     }
 
@@ -378,7 +378,7 @@ class NotificationController extends Controller
             'course' => $course,
             'semester' => $semester,
 
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationLF(),
         ]);
     }
 
@@ -421,7 +421,7 @@ class NotificationController extends Controller
             'se' => $se,
             'ye' => $ye,
 
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationLF(),
         ]);
     }
     public function showNotiLF($course_id, $semester, $year){
@@ -477,7 +477,7 @@ class NotificationController extends Controller
             'se' => $se,
             'ye' => $ye,
 
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationLF(),
         ]);
     }
 

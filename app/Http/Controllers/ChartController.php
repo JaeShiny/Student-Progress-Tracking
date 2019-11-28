@@ -665,7 +665,7 @@ class ChartController extends Controller
         return view('LF.chart.subjectStatistic',[
             'course' => $course,
             'semester' => $semester,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationLF(),
         ]);
     }
 
@@ -752,7 +752,7 @@ class ChartController extends Controller
             'se' => $se,
             'ye' => $ye,
 
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationLF(),
         ]);
     }
 
@@ -878,7 +878,7 @@ class ChartController extends Controller
             'count_student' => $count_student,
             'se' => $se,
             'ye' => $ye,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationLF(),
         ]);
     }
 
@@ -940,7 +940,7 @@ class ChartController extends Controller
 
             'se' => $se,
             'ye' => $ye,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationLF(),
         ]);
     }
 
@@ -1031,7 +1031,7 @@ class ChartController extends Controller
 
             'se' => $se,
             'ye' => $ye,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationLF(),
         ]);
     }
 
@@ -1122,7 +1122,7 @@ class ChartController extends Controller
 
             'se' => $se,
             'ye'=> $ye,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationLF(),
         ]);
     }
 
@@ -1178,7 +1178,7 @@ class ChartController extends Controller
 
             'se' => $se,
             'ye' => $ye,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationLF(),
 
         ]);
     }
@@ -1248,7 +1248,7 @@ class ChartController extends Controller
 
             'se' => $se,
             'ye' => $ye,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationLF(),
         ]);
     }
 

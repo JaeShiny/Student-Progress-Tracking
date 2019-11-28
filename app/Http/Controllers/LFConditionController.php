@@ -35,7 +35,7 @@ class LFConditionController extends Controller
 
             'semester' => $semester,
             'generation' => $generation,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationLF(),
         ]);
     }
 
@@ -69,7 +69,7 @@ class LFConditionController extends Controller
         return view('LF.condition.create',[
             'semester' => $semester,
             'generation' => $generation,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationLF(),
         ]);
 
     }
@@ -101,7 +101,7 @@ class LFConditionController extends Controller
             'semester' => $semester,
             'generation' => $generation,
             'conditions' => $conditions,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationLF(),
         ]);
     }
     public function edit($id){
@@ -115,7 +115,7 @@ class LFConditionController extends Controller
             'semester' => $semester,
             'generation' => $generation,
             'conditions' => $conditions,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationLF(),
         ]);
     }
 

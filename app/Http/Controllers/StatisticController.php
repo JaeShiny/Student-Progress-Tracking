@@ -214,7 +214,7 @@ class StatisticController extends Controller
 
             // 'attendance' => $attendance,
             // 'grade' => $grade,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationLF(),
         ]);
     }
 

@@ -61,7 +61,7 @@ class GradeController extends Controller
         return view('LF.addGrade',[
             'course' => $course,
             'semester' => $semester,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationLF(),
         ]);
     }
     /**
@@ -477,7 +477,7 @@ class GradeController extends Controller
 
             'avg_midterm' => $avg_midterm,
             'avg_final' => $avg_final,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationLF(),
         ]);
     }
 

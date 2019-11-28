@@ -129,7 +129,7 @@ class SubjectController extends Controller
             'student' => $student,
             'course' => $course,
 
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationLF(),
         ]);
     }
 
@@ -150,7 +150,7 @@ class SubjectController extends Controller
             'student' => $student,
             'semester' => $semester,
 
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationLF(),
         ]);
     }
 
@@ -172,7 +172,7 @@ class SubjectController extends Controller
             'course' => $course,
             'semester' => $semester,
 
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationLF(),
         ]);
     }
 

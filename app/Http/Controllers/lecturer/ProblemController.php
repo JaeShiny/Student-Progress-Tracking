@@ -574,7 +574,7 @@ class ProblemController extends Controller
             'semester' => $semester,
 
             'problemType' => $problemType,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationLF(),
         ]);
     }
 
@@ -647,7 +647,7 @@ class ProblemController extends Controller
 
             'se' => $se,
             'ye' => $ye,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationLF(),
         ]);
     }
 
@@ -662,7 +662,7 @@ class ProblemController extends Controller
         return view('LF.showProblem', [
             'risk_problem' => $risk_problem,
             'semester' => $semester,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationLF(),
         ]);
     }
 }

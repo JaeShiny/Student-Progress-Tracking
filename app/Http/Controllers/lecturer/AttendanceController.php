@@ -81,7 +81,7 @@ class AttendanceController extends Controller
             'gen' => $gen,
             'users' => $users,
             'generation' => $generation,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationLF(),
         ]);
     }
 
@@ -155,7 +155,7 @@ class AttendanceController extends Controller
             'gen' => $gen,
             'users' => $users,
             'generation' => $generation,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationLF(),
         ]);
     }
 
@@ -586,7 +586,7 @@ class AttendanceController extends Controller
 
             'se' => $se,
             'ye' => $ye,
-            'number' => $this->countNumberOfNewNotification(),
+            'number' => $this->countNumberOfNewNotificationLF(),
         ]);
     }
 
